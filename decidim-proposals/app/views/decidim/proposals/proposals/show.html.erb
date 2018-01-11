@@ -67,6 +67,27 @@
             <p><%= decidim_sanitize translated_attribute @proposal.answer %></p>
           </div>
         </div>
+      <% elsif @proposal.doable? %>
+        <div class="section">
+          <div class="callout <%= proposal_state_badge_css_class(@proposal.state) %>">
+            <h5><%= t(".proposal_doable_reason") %></h5>
+            <p><%= decidim_sanitize translated_attribute @proposal.answer %></p>
+          </div>
+        </div>
+      <% elsif @proposal.notdoable? %>
+        <div class="section">
+          <div class="callout <%= proposal_state_badge_css_class(@proposal.state) %>">
+            <h5><%= t(".proposal_notdoable_reason") %></h5>
+            <p><%= decidim_sanitize translated_attribute @proposal.answer %></p>
+          </div>
+        </div>
+      <% elsif @proposal.tovote? %>
+        <div class="section">
+          <div class="callout <%= proposal_state_badge_css_class(@proposal.state) %>">
+            <h5><%= t(".proposal_tovote_reason") %></h5>
+            <p><%= decidim_sanitize translated_attribute @proposal.answer %></p>
+          </div>
+        </div>
       <% else %>
         <div class="section">
           <div class="callout secondary">

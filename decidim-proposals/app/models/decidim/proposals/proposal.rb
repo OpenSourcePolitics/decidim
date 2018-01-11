@@ -2,6 +2,11 @@
 
 module Decidim
   module Proposals
+    
+    unless (const_defined?(:STATES))
+      STATES = %w(accepted rejected evaluating doable notdoable tovote)
+    end
+    
     # The data store for a Proposal in the Decidim::Proposals component.
     class Proposal < Proposals::ApplicationRecord
       include Decidim::Resourceable
@@ -26,6 +31,10 @@ module Decidim
       scope :accepted, -> { where(state: "accepted") }
       scope :rejected, -> { where(state: "rejected") }
       scope :evaluating, -> { where(state: "evaluating") }
+      scope :doable, -> { where(state: "doable") }
+      scope :notdoable, -> { where(state: "notdoable") }
+      scope :tovote, -> { where(state: "tovote") }
+      scope :not_answered, -> { where(state: nil) }
 
       def self.order_randomly(seed)
         transaction do
@@ -76,6 +85,27 @@ module Decidim
       # Returns Boolean.
       def evaluating?
         answered? && state == "evaluating"
+      end
+
+      # Public: Checks if the organization has marked the proposal as doable it.
+      #
+      # Returns Boolean.
+      def doable?
+        answered? && state == "doable"
+      end
+
+      # Public: Checks if the organization has marked the proposal as not doable it.
+      #
+      # Returns Boolean.
+      def notdoable?
+        answered? && state == "notdoable"
+      end
+
+      # Public: Checks if the organization has marked the proposal as tovote it.
+      #
+      # Returns Boolean.
+      def tovote?
+        answered? && state == "tovote"
       end
 
       # Public: Overrides the `commentable?` Commentable concern method.

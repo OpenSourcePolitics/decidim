@@ -27,13 +27,14 @@ module Decidim
       # Returns a String.
       def proposal_state_css_class(state)
         case state
-        when "accepted"
+        when "accepted", "doable", "tovote"
           "text-success"
-        when "rejected"
+        when "rejected", "notdoable"
           "text-alert"
         when "evaluating"
           "text-info"
         else
+          # here is not_answer
           "text-warning"
         end
       end
@@ -46,12 +47,15 @@ module Decidim
       # Returns a String.
       def proposal_state_badge_css_class(state)
         case state
-        when "accepted"
+        when "accepted", "doable", "tovote"
           "success"
-        when "rejected"
-          "warning"
+        when "rejected", "notdoable"
+          "alert"
         when "evaluating"
           "secondary"
+        else
+          # here is not_answer
+          "warning"
         end
       end
 
