@@ -27,10 +27,10 @@ module Decidim
     end
 
     def upstream_activated?
-      if reportable.is_a?(Decidim::Proposals::Proposal)
-        reportable.feature.settings.upstream_moderation_enabled
-      else
+      if reportable.is_a?(Decidim::Comments::Comment)
         reportable.root_commentable.feature.settings.comments_upstream_moderation_enabled
+      else
+        reportable.feature.settings.upstream_moderation_enabled
       end
     end
   end
