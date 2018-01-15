@@ -28,34 +28,33 @@ module Decidim
         @locale = locale.to_s
         subject = @moderation ? @event_instance.email_moderation_subject : @event_instance.email_subject
         @parent_title = parent_title(resource, event_class)
-        @resource_title = resource.title if is_proposal?(event_class)
+        @resource_title = resource.try(:title)
         @body = body(event_class, resource, extra)
-        object = is_proposal?(event_class) ? "proposal" : "comment"
         @moderation_url = moderation_url
-        @is_proposal = is_proposal?(event_class)
+        @is_comment = is_comment?(event_class)
         mail(to: user.email, subject: subject)
       end
     end
 
     private
 
-    def is_proposal?(event_class)
-      event_class == Decidim::Proposals::ProposalCreatedEvent
+    def is_comment?(event_class)
+      event_class == Decidim::Comments::CommentCreatedEvent
     end
 
     def parent_title(resource, event_class)
-      if is_proposal?(event_class)
-        resource.feature.participatory_space.title
-      else
+      if is_comment?(event_class)
         resource.title
+      else
+        resource.feature.participatory_space.title
       end
     end
 
     def body(event_class, resource, extra)
-      if is_proposal?(event_class)
-        resource.body
-      else
+      if is_comment?(event_class)
         Decidim::Comments::Comment.find(extra[:comment_id]).body
+      else
+        resource.body
       end
     end
 

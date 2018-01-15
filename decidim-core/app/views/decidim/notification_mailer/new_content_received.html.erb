@@ -1,5 +1,5 @@
 <p><%= @event_instance.email_moderation_intro %>
-  <% if @is_proposal %>
+  <% unless @is_comment %>
     <em><%= translated_attribute(@parent_title) %></em> <!-- Translate title if object is a proposal -->
   <% else %>
    <em><%= @parent_title %></em>
