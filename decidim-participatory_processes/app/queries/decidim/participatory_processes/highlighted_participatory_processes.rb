@@ -5,7 +5,7 @@ module Decidim
     # This query selects some prioritized processes.
     class HighlightedParticipatoryProcesses < Rectify::Query
       def query
-        PrioritizedParticipatoryProcesses.new.query.limit(8)
+        PrioritizedParticipatoryProcesses.new.query.limit(12)
       end
     end
   end
