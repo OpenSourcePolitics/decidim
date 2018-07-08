@@ -8,6 +8,7 @@ module Decidim
       layout "decidim/admin/users"
 
       helper_method :user
+      helper Decidim::Messaging::ConversationHelper
 
       def index
         enforce_permission_to :read, :officialization
@@ -15,8 +16,8 @@ module Decidim
         @state = params[:state]
 
         @users = Decidim::Admin::UserFilter.for(current_organization.users, @query, @state)
-                                           .page(params[:page])
-                                           .per(15)
+                   .page(params[:page])
+                   .per(15)
       end
 
       def new
@@ -55,7 +56,7 @@ module Decidim
 
       def user
         @user ||= Decidim::User.find_by(
-          id: params[:user_id],
+          id:           params[:user_id],
           organization: current_organization
         )
       end

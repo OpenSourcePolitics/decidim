@@ -146,6 +146,7 @@ fr:
         permissions: Autorisations
         reject: Rejeter
         verify: Vérifier
+        message: Message
       area_types:
         create:
           error: Une erreur s'est produite lors de la création d'un nouveau type de zone d'application.
@@ -426,6 +427,7 @@ fr:
             phone: Téléphone
             state: État
             users_count: Nombre d'utilisateurs
+            message: message
         navbar_link:
           fields:
             title: Titre

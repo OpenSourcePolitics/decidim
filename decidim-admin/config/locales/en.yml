@@ -524,6 +524,7 @@ en:
           search: Search
           status: Status
           unofficialize: Unofficialize
+          message: message
         new:
           badge: Officialization badge
           officialize: Officialize
