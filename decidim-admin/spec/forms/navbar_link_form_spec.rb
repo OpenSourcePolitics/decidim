@@ -5,7 +5,7 @@ require "spec_helper"
 module Decidim
   module Admin
     describe NavbarLinkForm do
-      subject { described_class.from_params(attributes) }
+      subject { described_class.from_params(attributes).with_context(current_organization: organization) }
 
       let(:title) do
         {
@@ -23,7 +23,9 @@ module Decidim
       let(:attributes) do
         {
           "navbar_link" => {
-            "title"        => title,
+            "title_en" => title[:en],
+            "title_es" => title[:es],
+            "title_ca" => title[:ca],
             "link"         => link,
             "weight"       => weight,
             "target"       => target,
@@ -47,7 +49,7 @@ module Decidim
       end
 
       context "when title is missing" do
-        let(:title) { nil }
+        let(:title)  { {} }
         it { is_expected.to be_invalid }
       end
 
@@ -56,18 +58,8 @@ module Decidim
         it { is_expected.to be_invalid }
       end
 
-      it "it should raise error" do
-        subject.link = nil
-        expect(subject.errors[:link]).not_to be_empty
-      end
-
       context "when weight is missing" do
         let(:weight) { nil }
-        it { is_expected.to be_invalid }
-      end
-
-      context "when organization is missing" do
-        let(:organization) { nil }
         it { is_expected.to be_invalid }
       end
 
