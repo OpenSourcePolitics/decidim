@@ -20,7 +20,7 @@ module Decidim::Admin
         link:                    link,
         weight:                  weight,
         target:                  target,
-        decidim_organization_id: organization
+        organization:            organization
       )
     end
     let(:invalid) { false }
@@ -36,11 +36,11 @@ module Decidim::Admin
     context "when the form is valid" do
       before do
         subject.call
-        NavbarLink.reload
+        navbar_link.reload
       end
 
       it "updates the link of the NavbarLink" do
-        expect((navbar_link.title)).to eq("New title")
+        expect((navbar_link.title)).to eq(Decidim::Faker::Localized.literal("New title"))
       end
 
       it "updates the navbar link" do
