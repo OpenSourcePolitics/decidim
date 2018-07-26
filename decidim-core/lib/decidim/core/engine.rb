@@ -142,6 +142,13 @@ module Decidim
                     decidim.pages_path,
                     position: 3,
                     active: :inclusive
+          current_organization.navbar_links.each do |navbar_link|
+            menu.item translated_attribute(navbar_link.title),
+                      navbar_link.link,
+                      position: 5,
+                      active: :exact,
+                      target: navbar_link.target
+          end
         end
       end
 
@@ -150,7 +157,7 @@ module Decidim
           menu.item t("account", scope: "layouts.decidim.user_profile"),
                     decidim.account_path,
                     position: 1.0,
-                    active: :exact
+                    active:   :exact
 
           menu.item t("notifications_settings", scope: "layouts.decidim.user_profile"),
                     decidim.notifications_settings_path,
@@ -175,7 +182,7 @@ module Decidim
           menu.item t("delete_my_account", scope: "layouts.decidim.user_profile"),
                     decidim.delete_account_path,
                     position: 999,
-                    active: :exact
+                    active:   :exact
         end
       end
 
@@ -272,7 +279,7 @@ module Decidim
       initializer "decidim.core.register_resources" do
         Decidim.register_resource(:user) do |resource|
           resource.model_class_name = "Decidim::User"
-          resource.card = "decidim/user_profile"
+          resource.card             = "decidim/user_profile"
         end
       end
     end

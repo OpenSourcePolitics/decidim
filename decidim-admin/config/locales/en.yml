@@ -344,6 +344,7 @@ en:
         static_pages: Pages
         user_groups: User groups
         users: Users
+        navbar_links: Navbar links
       models:
         area:
           fields:
@@ -418,6 +419,11 @@ en:
             phone: Phone
             state: State
             users_count: Users count
+        navbar_link:
+          fields:
+            title: Title
+            link: Link
+            weight: Weight
       moderations:
         index:
           title: Moderations
@@ -426,6 +432,28 @@ en:
             does_not_belong: Does not belong
             offensive: Offensive
             spam: Spam
+      navbar_links:
+        no_links: No links created
+        form:
+          title: Title
+          link: Link
+          weight: Weight
+          new_tab: Open in a new tab
+          same_tab: Open in the same tab
+        new:
+          title: New navbar link
+          create: Create
+        edit:
+          title: Edit navbar link
+          update: Update
+        create:
+          error: There was an error when creating this link.
+          success: Link created successfully
+        update:
+          error: There was an error when updating this link.
+          success: Link updated successfully
+        destroy:
+          success: Link successfully destroyed
       newsletters:
         create:
           error: There's been an error creating this newsletter.
@@ -603,6 +631,7 @@ en:
         static_pages: Pages
         user_groups: User groups
         users: Users
+        navbar_links: Navbar links
       user_group:
         reject:
           invalid: There was an error when rejecting this user group.
@@ -641,6 +670,28 @@ en:
       errors:
         impersonate_user:
           reason: You need to provide a reason when impersonating a non managed user
+      navbar_links:
+        no_links: No links created
+        form:
+          title: Title
+          link: Link
+          weight: Weight
+          new_tab: Open in a new tab
+          same_tab: Open in the same tab
+        new:
+          title: New navbar link
+          create: Create
+        edit:
+          title: Edit navbar link
+          update: Update
+        create:
+          error: There was an error when creating this link.
+          success: Link created successfully
+        update:
+          error: There was an error when updating this link.
+          success: Link updated successfully
+        destroy:
+          success: Link successfully destroyed
     moderations:
       actions:
         hidden: Hidden

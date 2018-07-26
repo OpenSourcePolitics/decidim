@@ -129,6 +129,14 @@ FactoryBot.define do
     end
   end
 
+  factory :navbar_link, class: "Decidim::NavbarLink" do
+    organization
+    title { Faker::Hipster.word }
+    link { Faker::Internet.url }
+    target { ["blank", ""].sample }
+    weight { (1..10).to_a.sample }
+  end
+
   factory :participatory_space_private_user, class: "Decidim::ParticipatorySpacePrivateUser" do
     user
     privatable_to { create :participatory_process, organization: user.organization }
@@ -384,22 +392,22 @@ FactoryBot.define do
     action { "create" }
     extra do
       {
-        component: {
-          manifest_name: component.try(:manifest_name),
-          title: component.try(:name) || component.try(:title)
-        }.compact,
+        component:           {
+                               manifest_name: component.try(:manifest_name),
+                               title:         component.try(:name) || component.try(:title)
+                             }.compact,
         participatory_space: {
-          manifest_name: participatory_space.try(:class).try(:participatory_space_manifest).try(:name),
-          title: participatory_space.try(:name) || participatory_space.try(:title)
-        }.compact,
-        resource: {
-          title: resource.try(:name) || resource.try(:title)
-        }.compact,
-        user: {
-          ip: user.try(:current_sign_in_ip),
-          name: user.try(:name),
-          nickname: user.try(:nickname)
-        }.compact
+                               manifest_name: participatory_space.try(:class).try(:participatory_space_manifest).try(:name),
+                               title:         participatory_space.try(:name) || participatory_space.try(:title)
+                             }.compact,
+        resource:            {
+                               title: resource.try(:name) || resource.try(:title)
+                             }.compact,
+        user:                {
+                               ip:       user.try(:current_sign_in_ip),
+                               name:     user.try(:name),
+                               nickname: user.try(:nickname)
+                             }.compact
       }.deep_merge(extra_data)
     end
   end
