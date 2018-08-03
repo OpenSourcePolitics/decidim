@@ -24,19 +24,9 @@ module Decidim
       end
 
       describe "#validate_link_regex" do
-        it "should be false if link is correct" do
-          uri = URI.parse(subject.link)
-          expect(uri.host.nil?).to be_falsey
-        end
-
-        it "saves if link is incorrect" do
+        it "does not save if link is incorrect" do
           subject.link = "@foo"
           expect(subject.save).not_to change(Decidim::NavbarLink.count)
-        end
-
-        it "adds an error" do
-          subject.link = "@foo"
-          expect(subject.save).to change(subject.errors[:link]).by(1)
         end
 
         it "adds an error with specific message" do
