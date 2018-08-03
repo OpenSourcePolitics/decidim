@@ -49,7 +49,7 @@ module Decidim
       end
 
       context "when title is missing" do
-        let(:title)  { {} }
+        let(:title) { {} }
         it { is_expected.to be_invalid }
       end
 
@@ -68,6 +68,5 @@ module Decidim
         it { is_expected.to be_invalid }
       end
     end
-
   end
 end

@@ -29,17 +29,17 @@ module Decidim
           expect(uri.host.nil?).to be_falsey
         end
 
-        it "should not save if link is incorrect" do
+        it "saves if link is incorrect" do
           subject.link = "@foo"
           expect(subject.save).not_to change(Decidim::NavbarLink.count)
         end
 
-        it "should add an error" do
+        it "adds an error" do
           subject.link = "@foo"
           expect(subject.save).to change(subject.errors[:link]).by(1)
         end
 
-        it "should add an error with specific message" do
+        it "adds an error with specific message" do
           subject.link = "@foo"
           subject.save
           expect(subject.errors[:link]).to include("is invalid")

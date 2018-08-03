@@ -7,7 +7,7 @@ describe "Navbar Links", type: :system do
 
   let(:admin) { create :user, :admin, :confirmed }
   let(:organization) { admin.organization }
-  let(:target) { %W(navbar_link_target_blank navbar_link_target_).sample }
+  let(:target) { %w(navbar_link_target_blank navbar_link_target_).sample }
 
   before do
     switch_to_host(organization.host)

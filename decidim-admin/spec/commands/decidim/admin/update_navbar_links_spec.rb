@@ -40,7 +40,7 @@ module Decidim::Admin
       end
 
       it "updates the link of the NavbarLink" do
-        expect((navbar_link.title)).to eq(Decidim::Faker::Localized.literal("New title"))
+        expect(navbar_link.title).to eq(Decidim::Faker::Localized.literal("New title"))
       end
 
       it "updates the navbar link" do

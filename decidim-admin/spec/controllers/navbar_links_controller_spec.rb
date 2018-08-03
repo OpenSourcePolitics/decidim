@@ -30,7 +30,7 @@ module Decidim
           expect(assigns(:form).link).to eq(navbar_link.link)
         end
 
-        it "should calls CreateNavbarLink" do
+        it "calls CreateNavbarLink" do
           post :create, params: { navbar_link: navbar_link }
           expect_any_instance_of(CreateNavbarLink).to receive(:call)
         end
@@ -49,6 +49,7 @@ module Decidim
 
       context "when updating a navbar link" do
         let!(:navbar_link) { create(:navbar_link, organization: organization) }
+
         it "injects the link to the form" do
           put :update, params: { id: navbar_link.id }.with_indifferent_access
           expect(assigns(:form).link).to eq(navbar_link.link)
@@ -71,7 +72,6 @@ module Decidim
           put :update, params: { id: navbar_link.id }.with_indifferent_access
           expect(assigns(:form).link).to eq(navbar_link.link)
         end
-
       end
 
       context "when a link is given" do
@@ -83,6 +83,7 @@ module Decidim
 
       context "when a link is destroyed" do
         let(:navbar_link) { create(:navbar_link, organization: organization) }
+
         it "had a flash notice if successfull" do
           navbar_link.destroy!
           expect(flash[:notice]).to be_present
