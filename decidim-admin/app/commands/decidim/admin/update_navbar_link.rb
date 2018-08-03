@@ -30,7 +30,7 @@ module Decidim
       attr_reader :form
 
       def update_navbar_link
-        @navbar_link.update!(attributes)
+        @navbar_link.update_attributes!(attributes)
       end
 
       def attributes
@@ -39,7 +39,7 @@ module Decidim
           link: form.link,
           weight: form.weight,
           target: form.target,
-          decidim_organization_id: form.organization_id
+          organization: form.organization
         }
       end
     end
