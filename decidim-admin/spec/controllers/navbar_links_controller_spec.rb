@@ -9,16 +9,17 @@ module Decidim
 
       let(:organization) { create :organization }
       let(:user) { create(:user, :admin, :confirmed, organization: organization) }
-      let(:navbar_link) { create :navbar_link, organization: organization }
+      let(:navbar_link) { create(:navbar_link, organization: organization) }
 
       before do
         sign_in user, scope: :admin
+        request.env["decidim.current_organization"] = organization
       end
 
       describe "GET index" do
         it "renders the index template" do
           get :index
-          expect(response).to render_template(:index)
+          expect(response).to redirect_to("/admin/navbar_links")
         end
       end
 
@@ -41,8 +42,7 @@ module Decidim
         end
 
         it "had a flash alert if invalid" do
-          organization = nil
-          post :create, params: { navbar_link: navbar_link }
+          post :create, params: { organization: nil }
           expect(flash[:alert]).to be_present
         end
       end
