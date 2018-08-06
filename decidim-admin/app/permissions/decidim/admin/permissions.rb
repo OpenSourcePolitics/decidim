@@ -43,6 +43,7 @@ module Decidim
           allow! if permission_action.subject == :officialization
           allow! if permission_action.subject == :authorization
           allow! if permission_action.subject == :authorization_workflow
+          allow! if permission_action.subject == :navbar_link
         end
 
         permission_action
@@ -58,6 +59,7 @@ module Decidim
         return unless permission_action.subject == :admin_dashboard &&
                       permission_action.action == :read
 
+        return user_manager_permissions if user_manager?
         toggle_allow(user.admin? || space_allows_admin_access_to_current_action?)
       end
 

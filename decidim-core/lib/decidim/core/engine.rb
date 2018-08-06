@@ -40,6 +40,7 @@ require "cells-erb"
 require "kaminari"
 require "doorkeeper"
 require "doorkeeper-i18n"
+require "kaminari"
 
 require "decidim/api"
 
@@ -148,7 +149,6 @@ module Decidim
                       target: navbar_link.target
           end
         end
-
       end
 
       initializer "decidim.user_menu" do
