@@ -48,7 +48,7 @@ controller or added a new module you need to rename `feature` to `component`.
 ## [0.12.1](https://github.com/decidim/decidim/tree/v0.12.1)
 
 **Fixed**:
-
+- **decidim-accountability**: Fix accountability progress to be between 0 and 100 if provided. [\#3952](https://github.com/decidim/decidim/pull/3952)
 - **decidim-core**: Add readonly attribute to date_fields so that the user is forced to use the datepicker. [#3705](https://github.com/decidim/decidim/pull/3705)
 - **decidim-assemblies**: Let space users access the admin area from the public one [\#3683](https://github.com/decidim/decidim/pull/3683)
 - **decidim-participatory_processes**: Let space users access the admin area from the public one [\#3683](https://github.com/decidim/decidim/pull/3683)
