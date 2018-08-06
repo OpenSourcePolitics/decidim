@@ -23,7 +23,11 @@ module Decidim
 
       validates :total_budget, numericality: {
         less_than_or_equal_to: :maximum_budget
-      }
+      }, unless: :per_project
+
+      validates :total_projects, numericality: {
+        less_than_or_equal_to: :number_of_projects
+      }, if: :per_project
 
       scope :finished, -> { where.not(checked_out_at: nil) }
       scope :pending, -> { where(checked_out_at: nil) }

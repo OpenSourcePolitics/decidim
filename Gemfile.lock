@@ -318,6 +318,7 @@ GEM
     doorkeeper (4.3.2)
       railties (>= 4.2)
     doorkeeper-i18n (4.0.0)
+    dotenv (2.5.0)
     easy_translate (0.5.1)
       thread
       thread_safe
@@ -679,6 +680,7 @@ DEPENDENCIES
   decidim-consultations!
   decidim-dev!
   decidim-initiatives!
+  dotenv
   faker (~> 1.8)
   letter_opener_web (~> 1.3)
   listen (~> 3.1)

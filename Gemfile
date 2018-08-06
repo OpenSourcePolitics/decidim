@@ -17,6 +17,7 @@ group :development, :test do
   gem "byebug", "~> 10.0", platform: :mri
 
   gem "decidim-dev", path: "."
+  gem 'dotenv'
 end
 
 group :development do

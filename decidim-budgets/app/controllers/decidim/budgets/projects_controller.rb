@@ -7,9 +7,15 @@ module Decidim
       include FilterResource
       include NeedsCurrentOrder
 
+      helper_method :geocoded_projects
       helper_method :projects, :random_seed, :project
 
       private
+
+      def geocoded_projects
+        @geocoded_projects ||= search.results.select(&:geocoded?)
+      end
+
 
       def projects
         @projects ||= search.results.page(params[:page]).per(current_component.settings.projects_per_page)
