@@ -31,11 +31,6 @@ module Decidim
           expect(assigns(:form).link).to eq(navbar_link.link)
         end
 
-        it "calls CreateNavbarLink" do
-          post :create, params: { navbar_link: navbar_link }
-          expect_any_instance_of(CreateNavbarLink).to receive(:call)
-        end
-
         it "had a flash notice if successfull" do
           post :create, params: { navbar_link: navbar_link }
           expect(flash[:notice]).to be_present
