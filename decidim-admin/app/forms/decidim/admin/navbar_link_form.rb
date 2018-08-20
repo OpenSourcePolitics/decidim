@@ -19,6 +19,7 @@ module Decidim
       def link_error
         return if link.nil?
 
+        # TODO : Add link error traduction
         errors.add(:link, "LINK ERROR")
       end
     end
