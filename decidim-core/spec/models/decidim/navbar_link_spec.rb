@@ -24,13 +24,14 @@ module Decidim
       end
 
       describe "#validate_link_regex" do
-        it "does not save if link is incorrect" do
-          subject.link = "@foo"
-          expect(subject.save).not_to change(Decidim::NavbarLink.count)
+        it "return nil if link is not parsable" do
+          subject.link = "foo"
+          subject.save
+          expect(subject.validate_link_regex).to eq nil
         end
 
         it "adds an error with specific message" do
-          subject.link = "@foo"
+          subject.link = "%!,;"
           subject.save
           expect(subject.errors[:link]).to include("is invalid")
         end
