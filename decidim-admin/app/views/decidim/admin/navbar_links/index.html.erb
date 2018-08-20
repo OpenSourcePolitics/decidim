@@ -18,7 +18,7 @@
         </thead>
         <tbody>
           <% @navbar_links.each do |navbar_link| %>
-            <tr>
+            <tr id="<%= "navbar_link_#{navbar_link.id}" %>">
               <td>
                 <%= translated_attribute(navbar_link.title) %>
               </td>

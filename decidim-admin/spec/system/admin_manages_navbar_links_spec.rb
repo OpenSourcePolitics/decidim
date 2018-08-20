@@ -51,12 +51,12 @@ describe "Navbar Links", type: :system do
           expect(page).to have_content(translated(navbar_link.title, locale: :en))
           expect(page).to have_content(navbar_link.link)
           expect(page).to have_content(navbar_link.weight)
-          expect(page).to have_button("navbar_link_target_#{navbar_link.target}")
+          expect(find_link(navbar_link.link)[:target]).to eq(navbar_link.target)
         end
       end
 
       it "can edit them" do
-        within find("tr", text: translated(navbar_link.title)) do
+        within find("#navbar_link_#{navbar_link.id}", text: translated(navbar_link.title)) do
           click_link "Edit"
         end
 
@@ -78,15 +78,15 @@ describe "Navbar Links", type: :system do
           expect(page).to have_content("Another title")
         end
       end
-    end
 
-    it "can delete them" do
-      within find("tr", text: translated(navbar_link.title)) do
-        accept_confirm { click_link "Delete" }
-      end
-      expect(page).to have_admin_callout("successfully")
-      within ".card-section" do
-        expect(page).to have_no_content(translated(area.name))
+      it "can delete them" do
+        within find("#navbar_link_#{navbar_link.id}", text: translated(navbar_link.title)) do
+          accept_confirm { click_link "Destroy" }
+        end
+        expect(page).to have_admin_callout("successfully")
+        within ".card-section" do
+          expect(page).to have_content("No links created")
+        end
       end
     end
   end
