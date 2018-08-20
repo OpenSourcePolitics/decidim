@@ -9,12 +9,12 @@ module Decidim
       translatable_attribute :title, String
       attribute :link, String
       attribute :weight, Integer
-      attribute :organization, Decidim::Organization
+      attribute :organization_id, Integer
       attribute :target, String
 
       validates :link, format: { with: URI.regexp(%w(http https)) }, presence: true
       validates :title, translatable_presence: true
-      validates :weight, :organization, presence: true
+      validates :weight, :organization_id, presence: true
 
       def link_error
         return if link.nil?
