@@ -15,12 +15,12 @@ module Decidim::Admin
 
     let(:form) do
       double(
-        invalid?:                invalid,
-        title:                   title,
-        link:                    link,
-        weight:                  weight,
-        target:                  target,
-        organization:            organization
+        invalid?: invalid,
+        title: title,
+        link: link,
+        weight: weight,
+        target: target,
+        organization_id: organization.id
       )
     end
     let(:invalid) { false }
