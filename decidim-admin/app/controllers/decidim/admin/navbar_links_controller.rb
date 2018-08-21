@@ -36,7 +36,7 @@ module Decidim
 
       def edit
         enforce_permission_to :update, :navbar_link
-        @form = form(NavbarLinkForm).from_model(navbar_link)
+        @form = form(NavbarLinkForm).from_model(:navbar_link)
       end
 
       def update

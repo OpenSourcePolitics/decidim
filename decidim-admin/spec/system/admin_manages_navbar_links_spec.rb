@@ -17,7 +17,7 @@ describe "Navbar Links", type: :system do
     click_link "Navbar links"
   end
 
-  describe "Managing navabar links" do
+  describe "Managing navbar links" do
     it "can create new navbar links " do
       click_link "Add"
 
