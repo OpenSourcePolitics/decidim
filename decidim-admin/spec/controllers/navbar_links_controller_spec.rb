@@ -19,7 +19,7 @@ module Decidim
       describe "GET index" do
         it "renders the index template" do
           get :index
-          expect(response).to redirect_to("/admin/navbar_links")
+          expect(response).to redirect_to(navbar_links_path)
         end
       end
 
