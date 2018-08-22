@@ -51,12 +51,6 @@ module Decidim
         it { is_expected.to be_invalid }
       end
 
-      context "when target is missing" do
-        let(:target) { nil }
-
-        it { is_expected.to be_invalid }
-      end
-
       context "when weight is missing" do
         let(:weight) { nil }
 
