@@ -17,6 +17,7 @@ module Decidim
       let(:link) { "https://decidim.org/" }
       let(:weight) { (1..5).to_a.sample }
       let(:organization) { create(:organization) }
+      let(:organization_id) { organization.id }
       let(:target) { ["blank", ""].sample }
 
       let(:attributes) do
@@ -25,7 +26,7 @@ module Decidim
           "link" => link,
           "target" => target,
           "weight" => weight,
-          "organization_id" => organization.id
+          "organization_id" => organization_id
 
         }
       end
