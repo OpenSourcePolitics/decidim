@@ -1,108 +1,113 @@
 //Override Foundation defaults
-.table-scroll table{
+.table-scroll table {
   border-collapse: unset;
   width: 100%;
 }
 
 //Table list
-.table-list{
+.table-list {
   border-collapse: collapse;
 
-  th{
+  th {
     text-transform: uppercase;
   }
 
   th,
-  td{
+  td {
     border-bottom: 1px solid rgba(black, .05);
   }
 
   th:not(:first-child),
-  td:not(:first-child){
+  td:not(:first-child) {
     text-align: center;
   }
 
   th:first-child,
-  td:first-child{
+  td:first-child {
     padding-left: 0;
   }
 
   th:last-child,
-  td:last-child{
+  td:last-child {
     padding-right: 0;
     text-align: right;
   }
 
   th [type="checkbox"]:only-child,
-  td [type="checkbox"]:only-child{
+  td [type="checkbox"]:only-child {
     margin-bottom: 0;
   }
 
-  &.table-list--lastcenter{
+  &.table-list--lastcenter {
     th:last-child,
-    td:last-child{
+    td:last-child {
       text-align: center;
     }
   }
 
-  &.table-list--lastleft{
+  &.table-list--lastleft {
     th:last-child,
-    td:last-child{
+    td:last-child {
       text-align: left;
     }
   }
 
-  &.table-list--selectable{
+  &.table-list--selectable {
     th:nth-child(2),
-    td:nth-child(2){
+    td:nth-child(2) {
       text-align: left;
     }
   }
 
-  tr.selected{
+  tr.selected {
     background-color: rgba($brand, .05);
   }
 
-  a:not(.button){
+  a:not(.button) {
     color: $body-font-color;
 
-    &:hover{
+    &:hover {
       color: $primary-color;
     }
   }
 
-  td > .button{
+  td > .button {
     margin-bottom: 0;
   }
 
-  td{
+  td {
     @include modifiers(color, (muted: $muted));
   }
 
-  .switch.tiny{
+  .switch.tiny {
     margin: 0 auto;
     width: 48px;
   }
 }
 
-.table-list__actions{
+.table-list__actions {
   text-align: center;
   white-space: nowrap;
 
-  &:last-child{
+  &:last-child {
     text-align: right;
   }
 
   .action-icon,
-  a.action-icon{
+  a.action-icon {
     color: $muted;
   }
 
-  .action-icon.action-icon--remove{
+  .action-icon.action-icon--remove {
     color: $alert-color;
   }
 }
 
-.table-list__state{
+.table-list__messages {
+  text-align: center !important;
+  white-space: nowrap;
+}
+
+.table-list__state {
   text-align: center;
 }
