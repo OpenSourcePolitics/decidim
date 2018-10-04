@@ -66,23 +66,30 @@
 <% when "sorting" %>
   <div class="sortable-check-box-collection">
     <% answer.question.answer_options.each_with_index do |answer_option, idx| %>
-      <% choice = answer.selected_choices.find { |choice| choice.answer_option_id == answer_option.id } %>
+      <div class="row columns">
+        <div id="<%= "sortable-index_#{idx}"%>" class="columns sortable-index small-1">
+          <span><%= idx %></span>
+        </div>
+        <div id="<%= "sortable-choice_#{idx}"%>" class="columns small-11 sortable-choice">
+          <% choice = answer.selected_choices.find { |choice| choice.answer_option_id == answer_option.id } %>
 
-      <%= label_tag do %>
-        <%= check_box_tag "survey[survey_answers][#{answer_idx}][choices][#{idx}][body]",
-                          translated_attribute(answer_option.body),
-                          choice.present?, disabled: disabled %>
+          <%= label_tag do %>
+            <%= check_box_tag "survey[survey_answers][#{answer_idx}][choices][#{idx}][body]",
+                              translated_attribute(answer_option.body),
+                              choice.present?, disabled: disabled %>
 
-        <span class="position"><%= choice.try(:position) %></span>
+            <span class="position"><%= choice.try(:position) %></span>
 
-        <%= translated_attribute(answer_option.body) %>
+            <%= translated_attribute(answer_option.body) %>
 
-        <%= hidden_field_tag "survey[survey_answers][#{answer_idx}][choices][#{idx}][position]",
-                             choice.try(:position),
-                             disabled: true %>
+            <%= hidden_field_tag "survey[survey_answers][#{answer_idx}][choices][#{idx}][position]",
+                                 choice.try(:position),
+                                 disabled: true %>
 
-        <%= hidden_field_tag "survey[survey_answers][#{answer_idx}][choices][#{idx}][answer_option_id]", answer_option.id %>
-      <% end %>
+            <%= hidden_field_tag "survey[survey_answers][#{answer_idx}][choices][#{idx}][answer_option_id]", answer_option.id %>
+          <% end %>
+        </div>
+      </div>
     <% end %>
   </div>
 <% end %>

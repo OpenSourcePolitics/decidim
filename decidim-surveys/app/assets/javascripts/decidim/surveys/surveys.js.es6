@@ -1,8 +1,9 @@
 // = require ./option_attached_inputs.component
-// = require ./autosortable_checkboxes.component
+// = require ./create_sortable_list.component
+
 
 ((exports) => {
-  const { createOptionAttachedInputs, createAutosortableCheckboxes } = exports.Decidim;
+  const {createOptionAttachedInputs, createSortableList} = exports.Decidim;
 
   $(".radio-button-collection, .check-box-collection").each((idx, el) => {
     createOptionAttachedInputs({
@@ -12,9 +13,5 @@
     });
   });
 
-  $(".sortable-check-box-collection").each((idx, el) => {
-    createAutosortableCheckboxes({
-      wrapperField: $(el)
-    })
-  });
+  createSortableList({ class: "sortable-check-box-collection", index: "sortable-index", choice: "sortable-choice" })
 })(window);
