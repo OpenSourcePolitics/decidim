@@ -13,7 +13,7 @@ describe "Homepage", type: :system do
     visit decidim.root_path
   end
 
-  it "displays unhidden comments count" do
+  it "display unhidden debates count" do
     within(".debates_count") do
       expect(page).to have_content(2)
     end
