@@ -106,8 +106,6 @@ gl:
         create:
           error: Produciuse un erro ao crear unha nova conferencia.
           success: Conferencia creada con éxito.
-        destroy:
-          success: A conferencia eliminouse con éxito.
         edit:
           update: Actualización
         exports:

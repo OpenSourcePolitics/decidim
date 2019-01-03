@@ -417,8 +417,6 @@ de:
           no_similars_found: Gut gemacht! Keine ähnlichen kollaborativen Entwürfe gefunden
           title: Ähnliche kollaborative Entwürfe
         complete:
-          attachment_legend: "(Optional) Fügen Sie einen Anhang hinzu"
-          select_a_category: Bitte wählen sie eine Kategorie
           send: Senden
           title: Vervollständigen Sie Ihren gemeinsamen Entwurf
         count:
@@ -541,7 +539,6 @@ de:
           comment: Kommentar
           comments: Bemerkungen
           endorse: Befürworten
-          endorsements: Vermerke
       proposal_endorsements:
         create:
           error: Bei der Bestätigung des Vorschlags sind Fehler aufgetreten.
@@ -652,10 +649,6 @@ de:
           proposal_in_evaluation_reason: Dieser Vorschlag wird evaluiert
           proposal_rejected_reason: 'Dieser Vorschlag wurde abgelehnt, weil:'
           report: Bericht
-          sign_in: Anmelden
-          sign_in_or_up: "%{in} oder %{up} um teilzunehmen"
-          sign_in_to_participate: "%{in} um teilzunehmen"
-          sign_up: Anmelden
           withdraw_btn_hint: Sie können Ihren Vorschlag zurückziehen, wenn Sie es sich anders überlegen, solange Sie keine Unterstützung erhalten haben. Der Vorschlag wird nicht gelöscht, er erscheint in der Liste der zurückgezogenen Vorschläge.
           withdraw_confirmation: Sind Sie sicher, diesen Vorschlag zurückzuziehen?
           withdraw_proposal: Vorschlag zurückziehen

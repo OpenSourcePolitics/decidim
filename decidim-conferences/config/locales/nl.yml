@@ -106,8 +106,6 @@ nl:
         create:
           error: Er is een fout opgetreden bij het maken van een nieuwe conferentie.
           success: Conferentie met succes gemaakt.
-        destroy:
-          success: Conferentie met succes verwijderd.
         edit:
           update: Bijwerken
         exports:

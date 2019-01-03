@@ -83,8 +83,6 @@ eu:
         create:
           error: Errorea gertatu da batzar berri bat sortzean.
           success: Batzarra zuzen sortu da.
-        destroy:
-          success: Batzarra zuzen ezabatu da.
         edit:
           update: Eguneratu
         form:

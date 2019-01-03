@@ -83,8 +83,6 @@ hu:
         create:
           error: Hiba történt az új gyűlés létrehozása során.
           success: Gyűlés létrehozása sikeres.
-        destroy:
-          success: Gyűlés törlése sikeres.
         edit:
           update: Frissítés
         form:

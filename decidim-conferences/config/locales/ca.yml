@@ -1,3 +1,4 @@
+---
 ca:
   activemodel:
     attributes:
@@ -105,8 +106,6 @@ ca:
         create:
           error: S'ha produït un error en crear una nova conferència.
           success: La conferència s'ha creat correctament.
-        destroy:
-          success: La conferència s'ha suprimit correctament.
         edit:
           update: Actualitzar
         exports:

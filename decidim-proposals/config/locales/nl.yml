@@ -239,10 +239,6 @@ nl:
       participatory_process_groups:
         highlighted_proposals:
           proposals: Voorstellen
-    participatory_spaces:
-      highlighted_proposals:
-        proposals: Voorstellen
-        see_all_proposals: Bekijk alle voorstellen
     proposals:
       actions:
         answer: Antwoord
@@ -392,8 +388,6 @@ nl:
           no_similars_found: Goed gedaan! Geen vergelijkbare samenwerkingsconcepten gevonden
           title: Vergelijkbare samenwerkende concepten
         complete:
-          attachment_legend: "(Optioneel) Voeg een bijlage toe"
-          select_a_category: Selecteer een categorie
           send: Sturen
           title: Voltooi uw gezamenlijke concept
         count:
@@ -554,17 +548,10 @@ nl:
         endorsements_card_row:
           comments: Comments
         filters:
-          accepted: Aanvaard
           activity: Activiteit
-          all: Alle
           category: Categorie
           category_prompt: Kies een categorie
-          citizens: Burgers
-          evaluating: Aan het beoordelen
-          except_rejected: Alles behalve afgewezen
-          official: Officieel
           origin: Oorsprong
-          rejected: Verworpen
           related_to: Gerelateerd aan
           search: Zoeken
           state: Status
@@ -613,9 +600,6 @@ nl:
           proposal_in_evaluation_reason: Dit voorstel wordt geëvalueerd
           proposal_rejected_reason: 'Dit voorstel is afgewezen omdat:'
           report: Rapporteren
-          sign_in: Log in
-          sign_in_or_up: "%{in} of %{up} om deel te nemen"
-          sign_up: registreren
           withdraw_btn_hint: Je kan je voorstel intrekken als je van gedacht verandert, zolang je geen hulp hebt ontvangen. Het voorstel wordt niet verwijderd; het wordt weergegeven in de lijst met ingetrokken voorstellen.
           withdraw_confirmation: Ben je zeker dat je dit voorstel wilt intrekken?
           withdraw_proposal: Voorstel intrekken

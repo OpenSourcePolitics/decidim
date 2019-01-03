@@ -1,3 +1,4 @@
+---
 ru:
   activemodel:
     attributes:
@@ -18,9 +19,9 @@ ru:
   activerecord:
     models:
       decidim/debates/debate:
-        one: Обсуждение
         few: Обсуждения
         many: Обсуждений
+        one: Обсуждение
         other: Обсуждений
   decidim:
     components:
@@ -71,9 +72,9 @@ ru:
       debates:
         count:
           debates_count:
-            one: "%{count} обсуждение"
             few: "%{count} обсуждения"
             many: "%{count} обсуждений"
+            one: "%{count} обсуждение"
             other: "%{count} обсуждений"
         create:
           invalid: При попытке создать это обсуждение произошла ошибка.

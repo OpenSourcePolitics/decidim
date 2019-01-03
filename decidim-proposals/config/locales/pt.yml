@@ -411,8 +411,6 @@ pt:
           no_similars_found: Bem feito! Nenhum rascunho colaborativo semelhante encontrado
           title: Rascunhos colaborativos semelhantes
         complete:
-          attachment_legend: "(Opcional) Adicione um anexo"
-          select_a_category: Por favor, selecione uma categoria
           send: Enviar
           title: Complete seu rascunho colaborativo
         count:
@@ -535,7 +533,6 @@ pt:
           comment: Comente
           comments: Comentários
           endorse: Endossar
-          endorsements: Endossos
       proposal_endorsements:
         create:
           error: Houve erros ao endossar a proposta.
@@ -637,10 +634,6 @@ pt:
           proposal_in_evaluation_reason: Esta proposta está sendo avaliada
           proposal_rejected_reason: 'Esta proposta foi rejeitada porque:'
           report: Relatório
-          sign_in: assinar em
-          sign_in_or_up: "%{in} ou %{up} para participar"
-          sign_in_to_participate: "%{in} para participar"
-          sign_up: inscrever-se
           withdraw_btn_hint: Você pode retirar sua proposta se mudar de idéia, desde que não tenha recebido nenhum suporte. A proposta não é excluída, ela aparecerá na lista de propostas retiradas.
           withdraw_confirmation: Tem certeza de retirar essa proposta?
           withdraw_proposal: Retirar proposta

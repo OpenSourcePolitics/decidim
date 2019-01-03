@@ -83,8 +83,6 @@ sv:
         create:
           error: Det uppstod ett fel när ett nytt möte skulle skapas.
           success: Mötet skapades framgångsrikt.
-        destroy:
-          success: Mötes raderades framgångsrikt.
         edit:
           update: Uppdatera
         form:

@@ -83,8 +83,6 @@ nl:
         create:
           error: Er is een fout opgetreden bij het maken van een nieuw event.
           success: Bijeenkomst is succesvol gecreëerd.
-        destroy:
-          success: Vergadering is succesvol verwijderd.
         edit:
           update: Bijwerken
         form:

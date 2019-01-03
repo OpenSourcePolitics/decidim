@@ -572,7 +572,7 @@ es-PY:
       main_topic:
         default_page:
           content: "<p>En %{organization} puede participar y decidir sobre diferentes temas, a través de los espacios que ve en el menú superior: Procesos, Asambleas, Iniciativas, Consultas.</p> <p>Dentro de cada una encontrará diferentes opciones para participar: hacer propuestas, individualmente o con otras personas, participar en debates, priorizar proyectos para implementar, asistir a reuniones cara a cara y otras acciones.</p>\n"
-          title: '¿Qué puedo hacer en %{organization}?'
+          title: "¿Qué puedo hacer en %{organization}?"
         description: Leer más sobre %{organization}
         title: Ayuda general
     last_activities:

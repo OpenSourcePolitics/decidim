@@ -1,3 +1,4 @@
+---
 pt:
   activemodel:
     attributes:
@@ -140,7 +141,7 @@ pt:
       badges:
         commented_debates:
           conditions:
-            - Escolha um debate aberto para participar
+          - Escolha um debate aberto para participar
           description: Este crachá é concedido quando você participa ativamente dos diferentes debates deixando seus comentários.
           description_another: Este usuário participou em %{score} debates.
           description_own: Você participou de %{score} debates.

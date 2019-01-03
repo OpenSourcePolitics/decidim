@@ -138,7 +138,7 @@ fr:
         amended_by: Modifié par
         button: Modifier la %{model_name}
         error: Il y a eu une erreur en modifiant cette ressource.
-        help_text: "Améliorez cette %{model_name} <br/> en modifiant le(s) champs : <br/> %{amendable_fields}"
+        help_text: 'Améliorez cette %{model_name} <br/> en modifiant le(s) champs : <br/> %{amendable_fields}'
         no_amenders: Il n'y a pas d'amendement
         no_amendments: Il n'y a pas de modification
         promote_button: Transformer en %{model_name}
@@ -708,7 +708,6 @@ fr:
     menu:
       help: Aidez-moi
       home: Accueil
-      more_information: Plus d'informations
     messaging:
       conversation_mailer:
         new_conversation:

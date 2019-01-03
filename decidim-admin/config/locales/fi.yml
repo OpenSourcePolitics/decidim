@@ -609,7 +609,6 @@ fi:
         dashboard: Hallintapaneeli
         impersonatable_users: Käyttäjien puolesta tehdyt istunnot
         impersonations: Esiintymiset toisena käyttäjänä
-        officializations: Virallistamiset
         participants: Osallistujat
         scope_types: Teematyypit
         scopes: Teemat

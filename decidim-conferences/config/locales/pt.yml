@@ -106,8 +106,6 @@ pt:
         create:
           error: Ocorreu um erro ao criar uma nova conferência.
           success: Conferência criada com sucesso.
-        destroy:
-          success: Conferência excluída com sucesso.
         edit:
           update: Atualizar
         exports:

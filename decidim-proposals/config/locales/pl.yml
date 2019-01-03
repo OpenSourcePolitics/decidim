@@ -247,10 +247,6 @@ pl:
       participatory_process_groups:
         highlighted_proposals:
           proposals: Propozycje
-    participatory_spaces:
-      highlighted_proposals:
-        proposals: Propozycje
-        see_all_proposals: Zobacz wszystkie propozycje
     proposals:
       actions:
         answer: Odpowiedź
@@ -400,8 +396,6 @@ pl:
           no_similars_found: Dobra robota! Nie znaleziono podobnych projektów współpracy
           title: Podobne wersje robocze
         complete:
-          attachment_legend: "(Opcjonalnie) Dodaj załącznik"
-          select_a_category: Proszę wybierz kategorie
           send: Wysłać
           title: Uzupełnij swój wspólny projekt
         count:
@@ -568,17 +562,10 @@ pl:
         endorsements_card_row:
           comments: Komentarze
         filters:
-          accepted: Przyjęty
           activity: Czynność
-          all: Wszystko
           category: Kategoria
           category_prompt: Wybierz kategorię
-          citizens: Obywatele
-          evaluating: Ocena
-          except_rejected: Wszystkie oprócz odrzuconych
-          official: Urzędnik
           origin: Pochodzenie
-          rejected: Odrzucone
           related_to: Związany z
           search: Szukanie
           state: Stan
@@ -633,9 +620,6 @@ pl:
           proposal_in_evaluation_reason: Niniejszy wniosek jest oceniany
           proposal_rejected_reason: 'Niniejszy wniosek został odrzucony, ponieważ:'
           report: Raport
-          sign_in: Zaloguj
-          sign_in_or_up: "%{in} lub %{up} do wzięcia udziału"
-          sign_up: Zapisz się
           withdraw_btn_hint: Możesz wycofać swoją propozycję, jeśli zmienisz zdanie, o ile nie otrzymałeś żadnego wsparcia. Wniosek nie zostanie usunięty, pojawi się na liście wycofanych wniosków.
           withdraw_confirmation: Czy na pewno chcesz wycofać tę propozycję?
           withdraw_proposal: Wycofaj propozycję

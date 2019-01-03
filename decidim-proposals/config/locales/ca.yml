@@ -410,8 +410,6 @@ ca:
           no_similars_found: Enhorabona! No s'han trobat esborranys col·laboratius similars
           title: Esborranys col·laboratius similars
         complete:
-          attachment_legend: "(Opcional) Afegeix un fitxer adjunt"
-          select_a_category: Selecciona una categoria
           send: Enviar
           title: Completa el teu esborrany col·laboratiu
         count:
@@ -534,7 +532,6 @@ ca:
           comment: Comentari
           comments: Comentaris
           endorse: Endossar
-          endorsements: Aprovacions
       proposal_endorsements:
         create:
           error: Hi ha hagut errors en adherir-te a la proposta.
@@ -578,12 +575,10 @@ ca:
         endorsements_card_row:
           comments: Comentaris
         filters:
-          accepted: Acceptada
           activity: Activitat
           category: Categoria
           category_prompt: Selecciona una categoria
           origin: Origen
-          rejected: Rebutjada
           related_to: Relacionat amb
           search: Cerca
           state: Estat
@@ -638,10 +633,6 @@ ca:
           proposal_in_evaluation_reason: S'està avaluant aquesta proposta
           proposal_rejected_reason: 'Aquesta proposta ha estat rebutjada perquè:'
           report: Informe
-          sign_in: Inicia sessió
-          sign_in_or_up: "%{in} o %{up} per participar"
-          sign_in_to_participate: "%{in} per participar"
-          sign_up: Registra't
           withdraw_btn_hint: Pots retirar la teva proposta si canvies d'opinió, sempre que no hagis rebut cap suport. La proposta no s'esborra, apareixerà a la llista de propostes retirades.
           withdraw_confirmation: Estàs segur que vols retirar aquesta proposta?
           withdraw_proposal: Retirar proposta

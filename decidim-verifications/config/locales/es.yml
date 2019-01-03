@@ -138,7 +138,7 @@ es:
         authorizations:
           create:
             error: Hubo un problema con tu solicitud
-            success: '¡Gracias! Hemos enviado un SMS a tu teléfono.'
+            success: "¡Gracias! Hemos enviado un SMS a tu teléfono."
           edit:
             send: Confirmar
             title: Introduce el código de verificación que has recibido

@@ -615,6 +615,7 @@ en:
           comments: Comments
         filters:
           activity: Activity
+          amendment_type: Type
           category: Category
           category_prompt: Select a category
           origin: Origin
@@ -622,7 +623,6 @@ en:
           search: Search
           state: State
           voted: Voted
-          amendment_type: Type
         filters_small_view:
           close_modal: Close modal
           filter: Filter

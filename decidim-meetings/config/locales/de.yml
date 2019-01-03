@@ -129,7 +129,7 @@ de:
       badges:
         attended_meetings:
           conditions:
-            - Registrieren Sie sich in den Meetings, an denen Sie teilnehmen möchten
+          - Registrieren Sie sich in den Meetings, an denen Sie teilnehmen möchten
           description: Dieses Abzeichen wird gewährt, wenn Sie mehrere persönliche Treffen besuchen.
           description_another: Dieser Benutzer hat an %{score} Meetings teilgenommen.
           description_own: Sie haben an %{score} Sitzungen teilgenommen.
@@ -364,7 +364,7 @@ de:
           organizations: Teilnahme an Organisationen
           remaining_slots:
             one: "%{count} Slot bleibt übrig"
-            other: "Noch %{count} Slots"
+            other: Noch %{count} Slots
           view: Aussicht
       meetings_map:
         view_meeting: Besprechung anzeigen

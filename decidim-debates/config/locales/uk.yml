@@ -1,3 +1,4 @@
+---
 uk:
   activemodel:
     attributes:
@@ -18,9 +19,9 @@ uk:
   activerecord:
     models:
       decidim/debates/debate:
-        one: Обговорення
         few: Обговорення
         many: Обговорень
+        one: Обговорення
         other: Обговорень
   decidim:
     components:
@@ -71,9 +72,9 @@ uk:
       debates:
         count:
           debates_count:
-            one: "%{count} обговорення"
             few: "%{count} обговорення"
             many: "%{count} обговорень"
+            one: "%{count} обговорення"
             other: "%{count} обговорень"
         create:
           invalid: При спробі започаткувати обговорення сталася помилка.

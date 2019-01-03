@@ -411,8 +411,6 @@ es-PY:
           no_similars_found: "¡Enhorabuena! No se encontraron borradores colaborativos similares"
           title: Borradores colaborativos similares
         complete:
-          attachment_legend: "(Opcional) Agregar un archivo adjunto"
-          select_a_category: Por favor selecciona una categoría
           send: Enviar
           title: Completa tu borrador colaborativo
         count:
@@ -535,7 +533,6 @@ es-PY:
           comment: Comentario
           comments: Comentarios
           endorse: Endosar
-          endorsements: Endosos
       proposal_endorsements:
         create:
           error: Ha habido errores al adherirse a la propuesta.
@@ -579,12 +576,10 @@ es-PY:
         endorsements_card_row:
           comments: Comentarios
         filters:
-          accepted: Aceptada
           activity: Actividad
           category: Categoría
           category_prompt: Selecciona una categoría
           origin: Origen
-          rejected: Rechazada
           related_to: Relacionado con
           search: Buscar
           state: Estado
@@ -639,10 +634,6 @@ es-PY:
           proposal_in_evaluation_reason: Esta propuesta está siendo evaluada
           proposal_rejected_reason: 'Esta propuesta ha sido rechazada porque:'
           report: Denunciar
-          sign_in: Registrarse
-          sign_in_or_up: "%{in} o %{up} para participar"
-          sign_in_to_participate: "%{in} para participar"
-          sign_up: Regístrate
           withdraw_btn_hint: Puedes retirar tu propuesta si cambias de opinión, siempre que no haya recibido ningún soporte. La propuesta no se elimina, aparecerá en la lista de propuestas retiradas.
           withdraw_confirmation: "¿Seguro que quieres retirar esta propuesta?"
           withdraw_proposal: Retirar propuesta

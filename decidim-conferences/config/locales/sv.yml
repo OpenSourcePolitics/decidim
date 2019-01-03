@@ -106,8 +106,6 @@ sv:
         create:
           error: Det uppstod ett fel vid att skapa en ny konferens.
           success: Konferensen skapades framgångsrikt.
-        destroy:
-          success: Konferensen togs bort framgångsrikt.
         edit:
           update: Uppdatering
         exports:

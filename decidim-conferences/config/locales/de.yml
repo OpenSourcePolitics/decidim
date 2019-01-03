@@ -106,8 +106,6 @@ de:
         create:
           error: Beim Erstellen einer neuen Konferenz ist ein Fehler aufgetreten.
           success: Konferenz erfolgreich erstellt
-        destroy:
-          success: Konferenz wurde erfolgreich gelöscht.
         edit:
           update: Aktualisieren
         exports:

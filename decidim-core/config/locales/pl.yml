@@ -1,3 +1,4 @@
+---
 pl:
   activemodel:
     attributes:
@@ -36,18 +37,18 @@ pl:
         remember_me: Zapamiętaj mnie
     models:
       decidim/user:
-        one: Brak użytkowników
         few: Użytkownicy
         many: Użytkownicy
+        one: Brak użytkowników
         other: Użytkownicy
       decidim/user_group:
-        one: Grupa użytkowników
         few: Grupy użytkowników
         many: Grupy użytkowników
+        one: Grupa użytkowników
         other: Grupy użytkowników
   booleans:
-    'false': 'Nie'
-    'true': 'Tak'
+    'false': Nie
+    'true': Tak
   carrierwave:
     errors:
       image_too_big: Obraz jest zbyt duży
@@ -133,9 +134,9 @@ pl:
     application:
       collection:
         documents:
-          one: Dokument
           few: Dokumenty
           many: Dokumenty
+          one: Dokument
           other: Dokumenty
       documents:
         related_documents: Powiązane dokumenty
@@ -143,9 +144,9 @@ pl:
         related_photos: Powiązane zdjęcia
     author:
       comments:
-        one: komentarz
         few: komentarze
         many: komentarze
+        one: komentarz
         other: komentarze
     authorization_handlers:
       another_dummy_authorization_handler:
@@ -207,9 +208,9 @@ pl:
           title: Potwierdź swój email
     collapsible_list:
       hidden_elements_count:
-        one: i %{count} więcej
         few: i %{count} więcej
         many: i %{count} więcej
+        one: i %{count} więcej
         other: i %{count} więcej
       see_less: "(patrz mniej)"
       see_more: "(Zobacz więcej)"
@@ -455,7 +456,7 @@ pl:
       badges:
         continuity:
           conditions:
-            - Chodź tu często
+          - Chodź tu często
           description: Ta odznaka jest przyznawana podczas regularnego odwiedzania platformy. Lubimy mieć cię tutaj!
           description_another: Ten użytkownik nawiązał połączenie przez %{score} kolejnych dni w pewnym momencie.
           description_own: W pewnym momencie łączyłeś się przez %{score} kolejnych dni.
@@ -465,7 +466,7 @@ pl:
           unearned_own: Nie łączyłeś się przez więcej niż jeden kolejny dzień.
         followers:
           conditions:
-            - Bycie aktywnym i podążanie za innymi ludźmi z pewnością sprawi, że inne osoby będą za Tobą podążać.
+          - Bycie aktywnym i podążanie za innymi ludźmi z pewnością sprawi, że inne osoby będą za Tobą podążać.
           description: Ta odznaka jest przyznawana, gdy dotrzesz do określonej liczby obserwujących. %{organization_name} to sieć społeczna i polityczna, tkanie sieci w celu komunikowania się z innymi osobami na platformie.
           description_another: Ten użytkownik ma %{score} obserwujących.
           description_own: "%{score} użytkowników obserwuje Ciebie."
@@ -480,9 +481,9 @@ pl:
           title: Odznaki
         invitations:
           conditions:
-            - Użyj linku "zaproś znajomych" na swojej stronie użytkownika, aby zaprosić znajomych
-            - Dostosuj, jeśli chcesz, wiadomość, którą wysyłasz
-            - Możesz awansować na wyższy poziom, wysyłając zaproszenia i rejestrując je.
+          - Użyj linku "zaproś znajomych" na swojej stronie użytkownika, aby zaprosić znajomych
+          - Dostosuj, jeśli chcesz, wiadomość, którą wysyłasz
+          - Możesz awansować na wyższy poziom, wysyłając zaproszenia i rejestrując je.
           description: Ta odznaka jest przyznawana, gdy zaprosiłeś niektórych ludzi i spędzili trochę czasu, aby zarejestrować się w %{organization_name} i zostać uczestnikami. Dziękujemy za udostępnienie %{organization_name} innym osobom i pomoc w rozszerzeniu społeczności!
           description_another: Ten użytkownik właśnie zaprosił %{score} użytkowników.
           description_own: Zaprosiłeś %{score} użytkowników.
@@ -843,9 +844,9 @@ pl:
         unfold: Rozwijać się
       results:
         results:
-          one: "%{count} wynik"
           few: "%{count} wyników"
           many: "%{count} wyników"
+          one: "%{count} wynik"
           other: "%{count} wyników"
         view_all: Zobacz wszystko (%{count})
     shared:
@@ -1021,9 +1022,9 @@ pl:
         sign_in_with_provider: Zaloguj się, używając %{provider}
         sign_up: Zapisz się
       minimum_password_length:
-        one: "(Minimum%{count} znaków)"
         few: "(Minimum%{count} znaków)"
         many: "(Minimum%{count} znaków)"
+        one: "(Minimum%{count} znaków)"
         other: "(Minimum%{count} znaków)"
     unlocks:
       new:
@@ -1048,9 +1049,9 @@ pl:
       not_found: nie znaleziono
       not_locked: nie był zablokowany
       not_saved:
-        one: '1 błąd uniemożliwił zapisanie tego %{resource}:'
         few: "%{count} błędów uniemożliwiło zapisanie tego %{resource}:"
         many: "%{count} błędów uniemożliwiło zapisanie tego %{resource}:"
+        one: '1 błąd uniemożliwił zapisanie tego %{resource}:'
         other: "%{count} błędów uniemożliwiło zapisanie tego %{resource}:"
       too_many_marks: używa zbyt wielu kolejnych znaków interpunkcyjnych (np.! i?)
       too_much_caps: używa zbyt dużej liczby wielkich liter (ponad 25% tekstu)

@@ -1,3 +1,4 @@
+---
 eu:
   activemodel:
     attributes:
@@ -105,8 +106,6 @@ eu:
         create:
           error: Errore bat gertatu da konferentzia berri bat sortzean.
           success: Konferentzia ondo sortu da.
-        destroy:
-          success: Konferentzia zuzen ezabatu da.
         edit:
           update: eguneratzearen
         exports:
@@ -341,7 +340,7 @@ eu:
           invite:
             decline: Baztertu gonbidapena '%{conference_title}'
             invited_you_to_join_a_conference: "%{invited_by} gonbidatu zaitu hitzaldi batean %{application}. Beheko esteken bidez baztertu edo onartu dezakezu."
-            registration: '''%{conference_title}'' izen-ematea'
+            registration: "'%{conference_title}' izen-ematea"
         partners:
           index:
             title: Bazkideak
@@ -381,7 +380,7 @@ eu:
       conference_registration_mailer:
         confirmation:
           confirmed_html: Zure hitzaldirako izena emateko <a href="%{url}">%{title}</a> baieztatu da.
-          details_1: '%{registration_type} motako hitzaldian erregistratuta zaude. %{price} kostua dauka eta ondorengo ekitaldietara jo dezakezu:'
+          details_1: "%{registration_type} motako hitzaldian erregistratuta zaude. %{price} kostua dauka eta ondorengo ekitaldietara jo dezakezu:"
           details_2: Biltzarraren xehetasunak eranskinean aurkituko dituzu.
         pending_validation:
           confirmation_pending: Berrespena jasoko duzu laster
@@ -416,7 +415,7 @@ eu:
           collaborators: Bazkideak
           main_promotors: Antolatzaileak
         show:
-          login_as: '%{name} <%{email}> gisa erregistratuta zaude'
+          login_as: "%{name} <%{email}> gisa erregistratuta zaude"
           make_conference_registration: 'Egin zure izen ematea hitzaldian:'
           register: Eman izena
       content_blocks:
@@ -472,7 +471,7 @@ eu:
       registration_types:
         index:
           choose_an_option: 'Aukeratu zure erregistro-aukera:'
-          login_as: '%{name} <%{email}> gisa erregistratuta zaude'
+          login_as: "%{name} <%{email}> gisa erregistratuta zaude"
           register: Eman izena
           title: Izen-emate motak
       shared:

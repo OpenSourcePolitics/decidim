@@ -411,8 +411,6 @@ gl:
           no_similars_found: Ben feito! Non se atoparon borradores colaborativos similares
           title: Borradores colaborativos similares
         complete:
-          attachment_legend: "(Opcional) Engada un anexo"
-          select_a_category: Selecciona unha categoría
           send: Enviar
           title: Completa o teu borrador colaborativo
         count:
@@ -535,7 +533,6 @@ gl:
           comment: Comentario
           comments: Comentarios
           endorse: Endosar
-          endorsements: Aprobacións
       proposal_endorsements:
         create:
           error: Houbo erros ao aprobar a proposta.
@@ -637,10 +634,6 @@ gl:
           proposal_in_evaluation_reason: Esta proposta está a ser avaliada
           proposal_rejected_reason: 'Esta proposta foi rexeitada porque:'
           report: Informe
-          sign_in: Rexístrate
-          sign_in_or_up: "%{in} ou %{up} para participar"
-          sign_in_to_participate: "%{in} para participar"
-          sign_up: Rexistrarse
           withdraw_btn_hint: Pode retirar a súa proposta se cambia de opinión, sempre que non teña recibido ningún apoio. A proposta non se elimina, aparecerá na lista de propostas retiradas.
           withdraw_confirmation: "¿Estás seguro de retirar esta proposta?"
           withdraw_proposal: Retire a proposta

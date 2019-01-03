@@ -1,3 +1,4 @@
+---
 ca:
   activemodel:
     attributes:
@@ -82,8 +83,6 @@ ca:
         create:
           error: S'ha produït un error en crear una nova assemblea.
           success: Assemblea creada correctament.
-        destroy:
-          success: L'assemblea s'ha eliminat correctament.
         edit:
           update: Actualitzar
         form:

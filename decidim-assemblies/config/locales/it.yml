@@ -83,8 +83,6 @@ it:
         create:
           error: Si è verificato un errore durante la creazione di un nuovo assembly.
           success: L'assemblaggio è stato creato con successo.
-        destroy:
-          success: Assemblea cancellata con successo.
         edit:
           update: Aggiorna
         form:

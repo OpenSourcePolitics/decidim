@@ -106,8 +106,6 @@ hu:
         create:
           error: Hiba történt egy új konferencia létrehozásakor.
           success: A konferencia sikeresen létrejött.
-        destroy:
-          success: A konferencia sikeresen törölve.
         edit:
           update: frissítés
         exports:
@@ -417,7 +415,7 @@ hu:
           collaborators: partnerek
           main_promotors: szervezők
         show:
-          login_as: '%{name} <%{email}> -ként jelentkezett be'
+          login_as: "%{name} <%{email}> -ként jelentkezett be"
           make_conference_registration: 'Regisztráljon a konferencián:'
           register: Regisztráció
       content_blocks:
@@ -473,7 +471,7 @@ hu:
       registration_types:
         index:
           choose_an_option: 'Válassza ki a regisztrációs lehetőséget:'
-          login_as: '%{name} <%{email}> -ként jelentkezett be'
+          login_as: "%{name} <%{email}> -ként jelentkezett be"
           register: Regisztráció
           title: Regisztrációs típusok
       shared:

@@ -83,8 +83,6 @@ de:
         create:
           error: Beim Erstellen einer neuen Assembly ist ein Fehler aufgetreten.
           success: Assembly wurde erfolgreich erstellt.
-        destroy:
-          success: Die Baugruppe wurde erfolgreich gelöscht.
         edit:
           update: Aktualisieren
         form:

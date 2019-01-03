@@ -237,10 +237,6 @@ sv:
       participatory_process_groups:
         highlighted_proposals:
           proposals: Förslag
-    participatory_spaces:
-      highlighted_proposals:
-        proposals: Förslag
-        see_all_proposals: Se alla förslag
     proposals:
       actions:
         answer: Svara
@@ -390,8 +386,6 @@ sv:
           no_similars_found: Bra gjort! Inga liknande samarbetsutkast hittades
           title: Liknande samarbetsförslag
         complete:
-          attachment_legend: "(Valfritt) Lägg till en bilaga"
-          select_a_category: Var god välj en kategori
           send: Skicka
           title: Färdigställ i ditt samarbetsutkast
         count:
@@ -552,17 +546,10 @@ sv:
         endorsements_card_row:
           comments: Kommentarer
         filters:
-          accepted: Accepterad
           activity: Aktivitet
-          all: Allt
           category: Kategori
           category_prompt: Välj en kategori
-          citizens: Medborgare
-          evaluating: Utvärderas
-          except_rejected: Alla förutom avvisade
-          official: Officiell
           origin: Ursprung
-          rejected: Avslaget
           related_to: Relaterad till
           search: Sök
           state: Status
@@ -611,9 +598,6 @@ sv:
           proposal_in_evaluation_reason: Detta förslag utvärderas
           proposal_rejected_reason: 'Detta förslag har avslagits på grund av att:'
           report: Rapportera
-          sign_in: Logga in
-          sign_in_or_up: "%{in} eller %{up} för att delta"
-          sign_up: registrera
           withdraw_btn_hint: Du kan dra tillbaka ditt förslag om du ändrar dig, så länge du inte har fått något stöd. Förslaget är inte borttaget, det kommer att visas i listan över återkallade förslag.
           withdraw_confirmation: Är du säker på att dra tillbaka detta förslag?
           withdraw_proposal: Dra tillbaka förslaget

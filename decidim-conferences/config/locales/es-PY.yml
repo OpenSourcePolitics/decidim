@@ -1,3 +1,4 @@
+---
 es-PY:
   activemodel:
     attributes:
@@ -105,8 +106,6 @@ es-PY:
         create:
           error: Hubo un error al crear una nueva conferencia.
           success: Conferencia creada con éxito.
-        destroy:
-          success: Conferencia borrada con éxito.
         edit:
           update: Actualizar
         exports:
@@ -477,8 +476,8 @@ es-PY:
           title: Tipos de inscripción
       shared:
         conference_user_login:
-          already_account: '¿Ya tienes una cuenta en decidim?'
-          new_user: '¿Nuevo usuario?'
+          already_account: "¿Ya tienes una cuenta en decidim?"
+          new_user: "¿Nuevo usuario?"
           sign_in: Inicie sesión para registrarse para la conferencia
           sign_up: Crear una cuenta en decidim para registrarse para la conferencia
       show:

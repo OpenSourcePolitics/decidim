@@ -83,8 +83,6 @@ pt-BR:
         create:
           error: Ocorreu um erro ao criar uma nova assembleia.
           success: Assembleia criada com sucesso.
-        destroy:
-          success: Assembleia excluída com sucesso.
         edit:
           update: Atualizar
         form:

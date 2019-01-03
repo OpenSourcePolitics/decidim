@@ -1,3 +1,4 @@
+---
 gl:
   activemodel:
     attributes:
@@ -82,8 +83,6 @@ gl:
         create:
           error: Produciuse un erro ao crear un novo conxunto.
           success: Asemblea creada con éxito.
-        destroy:
-          success: Asemblea eliminouse con éxito.
         edit:
           update: Actualización
         form:

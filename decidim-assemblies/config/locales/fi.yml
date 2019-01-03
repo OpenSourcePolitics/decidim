@@ -83,8 +83,6 @@ fi:
         create:
           error: Virhe luotaessa uutta ryhmää.
           success: Ryhmän luonti onnistui.
-        destroy:
-          success: Ryhmä poistettu onnistuneesti.
         edit:
           update: Päivitä
         form:

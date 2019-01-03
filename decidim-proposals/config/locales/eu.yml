@@ -237,10 +237,6 @@ eu:
       participatory_process_groups:
         highlighted_proposals:
           proposals: proposamenak
-    participatory_spaces:
-      highlighted_proposals:
-        proposals: Proposamenak
-        see_all_proposals: Ikusi proposamen guztiak
     proposals:
       actions:
         answer: Erantzuna
@@ -390,8 +386,6 @@ eu:
           no_similars_found: Ongi egina! Ez da antzeko lankidetza zirriborro aurkitu
           title: Antzeko zirriborro kolaboratzaileak
         complete:
-          attachment_legend: "(Aukerakoa) Gehitu eranskina"
-          select_a_category: Hautatu kategoria bat
           send: Bidali
           title: Bete lankidetza zirriborroa
         count:
@@ -552,17 +546,10 @@ eu:
         endorsements_card_row:
           comments: Oharrak
         filters:
-          accepted: Onartuta
           activity: Jarduera
-          all: guztiak
           category: Kategoria
           category_prompt: Aukeratu kategoria bat
-          citizens: Hiritarrak
-          evaluating: Ebaluatzen
-          except_rejected: Guztiak baztertuak izan ezik
-          official: Ofiziala
           origin: Jatorria
-          rejected: Ukatua
           related_to: Honekin lotuta
           search: Bilatu
           state: Egoera
@@ -611,9 +598,6 @@ eu:
           proposal_in_evaluation_reason: Proposamen hau ebaluatzen ari da
           proposal_rejected_reason: 'Proposamen hau baztertu da arrazoi hauengatik:'
           report: Salatu
-          sign_in: Hasi saioa
-          sign_in_or_up: "%{in} edo %{up} parte hartzeko"
-          sign_up: Izena eman
           withdraw_btn_hint: Zure proposamena uka dezakezu zure kontuan aldatzen baduzu, laguntza jaso ez baduzu. Proposamena ez da ezabatu, kendutako proposamenen zerrendan agertuko da.
           withdraw_confirmation: Ziur al zaude proposamen hau kendu nahi duzula?
           withdraw_proposal: Ezabatu proposamena

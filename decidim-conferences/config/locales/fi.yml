@@ -106,8 +106,6 @@ fi:
         create:
           error: Uuden konferenssin luomisessa tapahtui virhe.
           success: Konferenssi luotu onnistuneesti.
-        destroy:
-          success: Kokous poistettu onnistuneesti.
         edit:
           update: Päivitä
         exports:
