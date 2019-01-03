@@ -91,9 +91,9 @@ fr:
       proposal_created:
         email_subject: Nouvelle proposition de %{author_name}.
         moderation:
-          email_intro: Email intro
-          email_subject: Email subject
-          moderation_url: Moderation url
+          email_intro: Introduction de l'email
+          email_subject: Objet de l'email
+          moderation_url: URL de la modération
         notification_title: Il y a une nouvelle proposition de %{author_name} dans <a href="%{resource_path}">%{resource_title}</a>a>a
         url: 'url de commentaire : %{resource_url}'
       proposals:
