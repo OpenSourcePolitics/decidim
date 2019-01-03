@@ -1,4 +1,3 @@
----
 fr:
   activemodel:
     attributes:
@@ -70,6 +69,7 @@ fr:
         destroy: Supprimer
         duplicate: Dupliquer
         edit: Modifier
+        new: New
         participatory_process:
           new: Nouvelle concertation
         preview: Aperçu
