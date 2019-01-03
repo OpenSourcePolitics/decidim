@@ -1,4 +1,3 @@
----
 fr:
   activemodel:
     attributes:
@@ -116,7 +115,6 @@ fr:
           name:
             one: Question
             other: Questions
-            zero: Question
         response:
           fields:
             created_at: Créée le
@@ -186,7 +184,6 @@ fr:
         title:
           one: "%{count} votation"
           other: "%{count} votations"
-          zero: "%{count} votation"
       filters:
         active: Actives
         all: Tout
