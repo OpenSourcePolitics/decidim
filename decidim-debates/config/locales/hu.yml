@@ -60,6 +60,9 @@ hu:
           update:
             invalid: Probléma merült fel a vita frissítése során.
             success: A vita sikeresen frissült.
+        exports:
+          comments: comments
+          debates: debates
         models:
           debate:
             name: Vita

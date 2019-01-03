@@ -60,6 +60,9 @@ it:
           update:
             invalid: C'è stato un problema durante l'aggiornamento di questo dibattito.
             success: Dibattito aggiornato con successo.
+        exports:
+          comments: comments
+          debates: debates
         models:
           debate:
             name: Discussione

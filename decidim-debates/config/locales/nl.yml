@@ -60,6 +60,9 @@ nl:
           update:
             invalid: Er is een probleem opgetreden tijdens het bijwerken van dit debat.
             success: Debat succesvol bijgewerkt.
+        exports:
+          comments: comments
+          debates: debates
         models:
           debate:
             name: Debat

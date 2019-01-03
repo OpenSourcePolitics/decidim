@@ -60,6 +60,9 @@ ca:
           update:
             invalid: Hi ha hagut un problema mentre s'actualitza aquest debat.
             success: El debat s'ha actualitzat correctament.
+        exports:
+          comments: comments
+          debates: debates
         models:
           debate:
             name: Debat

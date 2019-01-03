@@ -60,6 +60,9 @@ sv:
           update:
             invalid: Det har blivit ett problem under uppdateringen av denna debatt.
             success: Debatten uppdaterades.
+        exports:
+          comments: comments
+          debates: debates
         models:
           debate:
             name: Debatt

@@ -60,6 +60,9 @@ pt-BR:
           update:
             invalid: Ocorreu um problema ao atualizar esse debate.
             success: Debate atualizado com sucesso.
+        exports:
+          comments: comments
+          debates: debates
         models:
           debate:
             name: Debate

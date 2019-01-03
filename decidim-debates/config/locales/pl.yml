@@ -62,6 +62,9 @@ pl:
           update:
             invalid: Wystąpił problem podczas aktualizowania tej debaty.
             success: Debata zaktualizowana pomyślnie.
+        exports:
+          comments: comments
+          debates: debates
         models:
           debate:
             name: Debata

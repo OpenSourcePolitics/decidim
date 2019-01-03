@@ -107,6 +107,9 @@ it:
             created_at: Creato a
             published: Pubblicato
             title: Titolo
+          name:
+            one: Consultation
+            other: Consultations
         question:
           fields:
             created_at: Creato a

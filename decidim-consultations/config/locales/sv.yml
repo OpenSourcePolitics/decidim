@@ -107,6 +107,9 @@ sv:
             created_at: Skapad vid
             published: Publicerad
             title: Titel
+          name:
+            one: Consultation
+            other: Consultations
         question:
           fields:
             created_at: Skapad vid

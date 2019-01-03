@@ -107,6 +107,9 @@ gl:
             created_at: Creado en
             published: Publicado
             title: Título
+          name:
+            one: Consultation
+            other: Consultations
         question:
           fields:
             created_at: Creado en

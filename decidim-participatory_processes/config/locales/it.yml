@@ -100,6 +100,7 @@ it:
             promoted: Evidenziato
             published: Pubblicato
             title: Nome
+          name: Participatory process
         participatory_process_group:
           fields:
             name: Nome

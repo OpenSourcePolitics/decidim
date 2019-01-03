@@ -60,6 +60,9 @@ fi:
           update:
             invalid: Keskustelun päivittämisessä tapahtui virhe.
             success: Keskustelu päivitetty onnistuneesti.
+        exports:
+          comments: comments
+          debates: debates
         models:
           debate:
             name: Keskustelu
