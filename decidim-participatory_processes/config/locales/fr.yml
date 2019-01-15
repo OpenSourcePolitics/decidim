@@ -69,10 +69,12 @@ fr:
         destroy: Supprimer
         duplicate: Dupliquer
         edit: Modifier
-        new_process: Nouvelle concertation
+        new: New
         new_process_group: Nouveau groupe de concertations
         new_process_step: Nouvelle étape
         new_process_user_role: Nouvel utilisateur de la concertation
+        participatory_process:
+          new: New process
         preview: Aperçu
         publish: Publier
         resend_invitation: Renvoyer l'invitation
@@ -203,6 +205,9 @@ fr:
         index:
           not_published: Non publiée
           private: Privée
+          promoted:
+            'false': 'False'
+            'true': 'True'
           public: Publique
           published: Publiée
         new:
@@ -266,6 +271,11 @@ fr:
         description: Nombre de processus participatifs dans cette organisation
         object: processus participatifs
         title: Processus participatifs
+    pages:
+      participatory_space:
+        metrics:
+          headline: Participation in figures
+          link: Show all statistics
     participatory_process_groups:
       show:
         group_participatory_processes:
