@@ -184,7 +184,7 @@
   },
   "devDependencies": {
     "@types/classnames": "^2.2.3",
-    "@types/enzyme": "^3.1.0",
+    "@types/enzyme": "^3.1.15",
     "@types/enzyme-adapter-react-16": "^1.0.2",
     "@types/es6-promise": "^3.3.0",
     "@types/faker": "^4.1.1",
