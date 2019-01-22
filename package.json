@@ -254,7 +254,7 @@
     "jquery": "^3.2.1",
     "react": "^16.0.0",
     "react-apollo": "^2.0.4",
-    "react-dom": "^16.0.0",
+    "react-dom": "^16.2.1",
     "react-i18nify": "^1.8.8",
     "react-select": "^1.2.1",
     "react-test-renderer": "^16.0.0",
