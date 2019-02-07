@@ -379,6 +379,10 @@ fr:
         success: Vous vous êtes désabonné avec succès.
         token_error: Le lien a expiré.
         unsubscribe: Se désabonner
+    notification_mailer:
+      shared:
+        note: You received this message because you're subscribed to notification by email on %{organization_name}. You can change your settings on your <a href="%{link}">notifications page</a>.
+        see_on_website: Can’t see this email correctly? View it on the <a href="%{link}" target="_blank">website</a>.
     notifications:
       no_notifications: Il n'y a pas encore de notifications.
     notifications_settings:
