@@ -60,6 +60,11 @@ module Decidim
             settings.attribute :scopes, type: :array, default: %w(home)
             settings.attribute :weight, type: :integer, default: 4
           end
+      end
+      
+      initializer "decidim.content_processors" do |_app|
+        Decidim.configure do |config|
+          config.content_processors += [:result]
         end
       end
     end
