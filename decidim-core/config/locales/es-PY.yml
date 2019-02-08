@@ -778,6 +778,9 @@ es-PY:
         greetings: Saludos,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Hola,
         subject: '¿Desea seguir recibiendo información relevante sobre %{organization_name}?'
+    notification_mailer:
+      shared:
+        note: You received this message because you're subscribed to notification by email on %{organization_name}. You can change your settings on your <a href="%{link}">notifications page</a>.
     notifications:
       no_notifications: No hay notificaciones aún.
     notifications_settings:

@@ -13,7 +13,7 @@ fr:
         answer: Répondre
         answered_at: Répondu à
         automatic_hashtags: Hashtags ajoutés automatiquement
-        body: Corps du texte
+        body: Description
         category_id: Catégorie
         has_address: Renseigner une adresse
         scope_id: Périmètre d'application
@@ -71,7 +71,7 @@ fr:
         name: Propositions
         settings:
           global:
-            amendments_enabled: Modifications activées
+            amendments_enabled: Autoriser les ammendements
             announcement: Annonce
             attachments_allowed: Autoriser les pièces jointes
             can_accumulate_supports_beyond_threshold: Peut accumuler des supports au-delà du seuil
@@ -105,6 +105,7 @@ fr:
             votes_blocked: Bloquer les votes
             votes_enabled: Activer le module de vote simple
             votes_hidden: Cacher les votes (si le module de votes est activé, le décompte des votes sera caché)
+            votes_weight_enabled: Activer le module de votes "Pour/Contre/Abstention"
     events:
       proposals:
         collaborative_draft_access_accepted:
@@ -158,6 +159,14 @@ fr:
             email_outro: Vous venez de recevoir cette notification parce que vous suivez "%{resource_title}". Vous pouvez à tout moment arrêter de la suivre en cliquant sur ce dernier lien.
             email_subject: Une proposition que vous suivez a été acceptée
             notification_title: La proposition <a href="%{resource_path}">%{resource_title}</a> a été acceptée.
+        proposal_created:
+          email_subject: Nouvelle proposition de %{author_name}.
+          moderation:
+            email_intro: Email intro
+            email_subject: Email subject
+            moderation_url: Moderation url
+          notification_title: Il y a une nouvelle proposition de %{author_name} dans <a href="%{resource_path}">%{resource_title}</a>a>a
+          url: 'url de commentaire : %{resource_url}'
         proposal_endorsed:
           email_intro: '%{endorser_name} %{endorser_nickname}, qui vous suivez, vient d’approuver la proposition "%{resource_title}" et nous pensons que cela pourrait vous intéresser. Découvrez-le et contribuez:'
           email_outro: Vous avez reçu cette notification parce que vous suivez %{endorser_nickname}. Vous pouvez arrêter de recevoir des notifications en cliquant sur ce dernier lien.
@@ -251,9 +260,9 @@ fr:
         object: les propositions
         title: Propositions Acceptées
       endorsements:
-        description: Nombre d'avenants générés dans les propositions
-        object: avenants
-        title: Endossements
+        description: Nombre de soutiens dans les propositions
+        object: soutiens
+        title: Soutiens
       proposals:
         description: Nombre de propositions générées
         object: les propositions
@@ -399,14 +408,14 @@ fr:
       application_helper:
         filter_origin_values:
           all: Tout
-          citizens: Propositions citoyennes
-          meetings: Des réunions
-          official: Propositions officielles
-          user_groups: Groupes d'utilisateurs
+          citizens: Citoyens
+          meetings: Réunions
+          official: Officiel
+          user_groups: Groupes
         filter_state_values:
           accepted: Accepté
           all: Tout
-          evaluating: Évaluer
+          evaluating: "Évaluer les "
           except_rejected: Toutes sauf les propositions non retenues
           rejected: Rejeté
         filter_type_values:
@@ -442,7 +451,7 @@ fr:
         count:
           drafts_count:
             one: "%{count} projet collaboratif"
-            other: "%{count} projet collaboratif"
+            other: "%{count} projets collaboratifs"
         create:
           error: Il y a eu un problème lors de la création de ces brouillons collaboratifs
           success: Projet collaboratif créé avec succès.
@@ -562,7 +571,7 @@ fr:
           amend: Modifier
           comment: Commentaire
           comments: commentaires
-          endorse: Endosser
+          endorse: Soutenir
       proposal_endorsements:
         create:
           error: Des erreurs sont survenues au moment de soutenir la proposition.
@@ -590,9 +599,14 @@ fr:
           proposals_count:
             one: "%{count} proposition"
             other: "%{count} propositions"
+        dynamic_map_instructions:
+          primary: Vous pouvez déplacer le point sur la carte.
+          secondary: N'oubliez pas de cliquer sur le bouton "Mettre à jour la position" avant de publier votre proposition.
         edit:
+          address: Adresse (n'oubliez pas de préciser la ville)
           attachment_legend: "(Facultatif) Ajouter une pièce jointe"
           back: Retour
+          not_geocoded: Non géocodé
           select_a_category: Veuillez sélectionner une catégorie
           send: Envoyer
           title: Modifier la proposition
@@ -601,12 +615,16 @@ fr:
           discard_confirmation: Êtes-vous sûr de vouloir supprimer le brouillon de votre proposition ?
           send: Aperçu
           title: Modifier le brouillon de votre proposition
+        edit_form_fields:
+          address: Address
+          not_geocoded: Not geocoded
         endorsement_identities_cabin:
           endorse: Soutenir
         endorsements_card_row:
           comments: Commentaires
         filters:
           activity: Activité
+          amendment_type: Type
           category: Catégorie
           category_prompt: Sélectionner une catégorie
           origin: Auteurs
@@ -642,13 +660,18 @@ fr:
             document_index: Index de document
           view_index:
             see_index: Voir index
+        placeholder:
+          address: "<numéro> <adresse> <code-postal> <ville>"
         preview:
+          address: 'Adresse : %{address}'
           modify: Modifier la proposition
+          not_geocoded: Votre adresse n'a pas été géocodée, l'aperçu n'est pas disponible.
           proposal_edit_before_minutes:
             one: Vous avez la possibilité de modifier cette proposition dans la première minute suivant sa publication. Une fois ce laps de temps écoulé, vous ne pourrez plus la modifier.
             other: Vous avez la possibilité de modifier cette proposition dans les %{count} minutes suivant sa publication. Une fois ce laps de temps écoulé, vous ne pourrez plus la modifier.
           publish: Publier
           title: Publier la proposition
+          update_pos: Mettre à jour la position
         proposal:
           creation_date: 'Création : %{date}'
           view_proposal: Voir la proposition
@@ -678,12 +701,18 @@ fr:
           no_votes_remaining: Aucun vote restant
           vote: Voter
           votes_blocked: Votes désactivés
+          vote_weight:
+            maximum_votes_reached: Nombre maximal de voix obtenues
+            no_votes_remaining: Aucun vote restant
+            votes_blocked: Votes bloqués
         votes_count:
           count:
             one: VOTE
             other: VOTES
           most_popular_proposal: Proposition la plus populaire
           need_more_votes: Besoin de plus de votes
+        votes_weight:
+          count: Compter
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Chaque proposition doit rassembler plus de %{limit} votes

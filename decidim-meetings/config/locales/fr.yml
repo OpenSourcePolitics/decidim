@@ -91,8 +91,8 @@ fr:
       meetings:
         meeting_closed:
           affected_user:
-            email_intro: 'Votre réunion "%{resource_title}" était fermée. Vous pouvez lire les conclusions de sa page:'
-            email_outro: Vous avez reçu cette notification parce que vous avez organisé la réunion "%{resource_title}".
+            email_intro: 'Votre rencontre "%{resource_title}" est terminée. Vous pouvez lire les conclusions de sa page:'
+            email_outro: Vous avez reçu cette notification parce que vous avez organisé la rencontre "%{resource_title}".
             email_subject: La rencontre "%{resource_title}" est terminée
             notification_title: La rencontre <a href="%{resource_path}">%{resource_title}</a> est terminée.
           follower:

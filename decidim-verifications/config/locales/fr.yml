@@ -29,9 +29,9 @@ fr:
         authorization_workflows: Vérifications
     admin_log:
       organization:
-        update_id_documents_config: "%{user_name} mis à jour la configuration de la vérification des documents d'identité"
+        update_id_documents_config: "%{user_name} a mis à jour la configuration de la vérification des documents d'identité"
       user:
-        grant_id_documents_offline_verification: "%{user_name} vérifié %{resource_name} aide d'une vérification hors ligne des documents d'identité"
+        grant_id_documents_offline_verification: "%{user_name} vérifié %{resource_name} utilisant une vérification hors ligne des documents d'identité"
     authorization_handlers:
       admin:
         id_documents:
@@ -99,11 +99,11 @@ fr:
               verify: Vérifier
           offline_confirmations:
             create:
-              error: La vérification ne correspond pas. Réessayez ou dites à l'utilisateur de le modifier.
+              error: La vérification ne correspond pas. Essayez à nouveau ou demandez à l'utilisateur de le modifier
               success: Utilisateur vérifié avec succès
             new:
               cancel: Annuler
-              introduce_user_data: Introduire le courrier électronique de l'utilisateur et les données du document
+              introduce_user_data: Saisir le courrier électronique de l'utilisateur et les données du document
               verify: Vérifier
           pending_authorizations:
             index:
@@ -116,10 +116,10 @@ fr:
               success: Vérification rejetée. L'utilisateur sera invité à modifier ses documents
         authorizations:
           choose:
-            choose_a_type: "Veuillez sélectionner comment vous souhaitez être vérifié:"
+            choose_a_type: "Veuillez sélectionner la méthode de vérification:"
             offline: Hors ligne
             online: En ligne
-            title: Vérifiez-vous en utilisant votre pièce d'identité
+            title: Vérification en utilisant votre pièce d'identité
           create:
             error: Un problème est survenu lors du téléchargement de votre document
             success: Document téléchargé avec succès

@@ -778,6 +778,9 @@ nl:
         greetings: Groeten,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Hallo,
         subject: Wilt u relevante informatie over %{organization_name}blijven ontvangen?
+    notification_mailer:
+      shared:
+        note: U hebt dit bericht ontvangen omdat u bent aangemeld voor een e-mailmelding op% {organization_name}. U kunt uw instellingen wijzigen op uw <a href="%{link}"> meldingenpagina </a>.
     notifications:
       no_notifications: Nog geen meldingen.
     notifications_settings:

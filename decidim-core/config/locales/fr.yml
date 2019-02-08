@@ -128,15 +128,15 @@ fr:
       user_group:
         reject: "%{user_name} a rejeté la vérification du groupe d'utilisateurs %{resource_name}"
         verify: "%{user_name} a vérifié le groupe d'utilisateurs %{resource_name}"
-        verify_via_csv: "%{user_name} vérifié le groupe %{resource_name} utilisateur via un fichier CSV"
+        verify_via_csv: "%{user_name} a vérifié le groupe %{resource_name} utilisateur via un fichier CSV"
     amendments:
       accepted:
         error: Une erreur s'est produite lors de l'acceptation de l'amendement. Veuillez réessayer ultérieurement.
         success: Cette modification a été acceptée avec succès.
       amendable:
         amended_by: Modifié par
-        button: Modifier %{model_name}
-        promote_button: Promouvoir à %{model_name}
+        button: Modifier la %{model_name}
+        promote_button: Transformer en %{model_name}
         error: Une erreur s'est produite lors de la modification de cette ressource.
         help_text: Améliorer ce %{model_name} en modifiant son %{amendable_fields}
         promote_help_text: Vous pouvez promouvoir cette modification et la publier en tant qu'indépendant. %{model_name}
@@ -148,7 +148,7 @@ fr:
         success: L'amendement a été créé avec succès
       emendation:
         actions:
-          button_accept: Acceptez
+          button_accept: Accepter
           button_reject: Rejeter
           help_text: Passez en revue les modifications et acceptez ou refusez cet amendement. Une notification sera envoyée à son (ses) auteur (s).
         announcement:
@@ -170,12 +170,12 @@ fr:
         heading: Créez votre amendement
         help_text: Vous modifiez le %{model_name}
         send: Envoyer une amende
+      promoted:
+        error: Il y a eu des erreurs lors de la promotion de cet amendement.
+        success: L'amendement a été accepté
       rejected:
         error: Une erreur est survenue lors du rejet de cette modification. Veuillez réessayer ultérieurement.
         success: L'amendement a été rejeté avec succès
-      promoted:
-        success: Amendation promue avec succès
-        error: Il y a eu des erreurs lors de la promotion de l'amendation
       review:
         back: Retour
         heading: Revoir l'amendement
@@ -346,9 +346,9 @@ fr:
       shared:
         newsletter_modal:
           buttons:
-            check: Vérifiez et continuez
+            check: Oui, je souhaite m'inscrire à la newsletter
             close_modal: Fermer la fenêtre
-            uncheck: Désactiver
+            uncheck: Non merci, je m'informerai autrement
           notice: |-
             <p>Êtes-vous sûr de ne pas vouloir recevoir de newsletter ?<br>
             Nous vous conseillons vivement de cocher la case ci-dessous permettant de recevoir la newsletter.<br>
@@ -356,7 +356,7 @@ fr:
             <p>Si vous ne cochez pas cette case, vous pourriez manquer les résultats des concertations et l'annonce de l'ouverture de nouveaux espaces de participation au sein de la plateforme.<br>
             Si vous malgré tout ne pas recevoir des newsletters, nous comprenons parfaitement votre décision.</p>
             <p>Merci d'avoir lu ce message !</p>
-          title: Notifications de newsletter
+          title: La newsletter
         omniauth_buttons:
           or: Ou
     doorkeeper:
@@ -739,7 +739,7 @@ fr:
           error: Message non envoyé. Réessayez plus tard
     metrics:
       download:
-        csv: Données de téléchargement (csv)
+        csv: Télécharger les données (csv)
       followers:
         description: Nombre d'utilisateurs qui suivent dans l'organisation
         object: suiveurs
@@ -754,8 +754,8 @@ fr:
         title: Utilisateurs
     newsletter_mailer:
       newsletter:
-        note: Vous avez reçu cet email parce que vous êtes abonné aux newsletters de %{organization_name}. Vous pouvez modifier vos paramètres sur votre <a href="%{link}">page de notifications</a>.
-        see_on_website: Vous ne pouvez pas voir cet email correctement ? Consultez la <a href="%{link}" target="_blank">version web</a>.
+        note: Vous avez reçu ce message parce que vous êtes abonné aux newsletters de %{organization_name}. Vous pouvez modifier vos paramètres sur votre <a href="%{link}">page de notifications</a>.
+        see_on_website: Vous ne pouvez pas voir ce message correctement ? Consultez la <a href="%{link}" target="_blank">version web</a>.
         unsubscribe: Pour ne plus recevoir ce type d'email, <a href="%{link}" target="_blank" class="unsubscribe">Désabonnez-vous</a>.
     newsletters:
       unsubscribe:
@@ -778,6 +778,9 @@ fr:
         greetings: Salutations,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Bonjour,
         subject: Voulez-vous continuer à recevoir des informations pertinentes sur %{organization_name} ?
+    notification_mailer:
+      shared:
+        note: Vous avez reçu ce message parce que vous êtes abonné aux notifications par email de %{organization_name}. Vous pouvez modifier vos paramètres sur votre <a href="%{link}">page de notifications</a>.
     notifications:
       no_notifications: Il n'y a pas encore de notifications.
     notifications_settings:
@@ -835,7 +838,7 @@ fr:
           meetings_count: Rencontres
           orders_count: Votes
           pages_count: Pages
-          processes_count: Processus participatifs
+          processes_count: Concertations
           projects_count: Projets
           proposals_accepted: Propositions acceptées
           proposals_count: Propositions
@@ -879,6 +882,7 @@ fr:
       deleted: Utilisateur ayant supprimé son compte
       view: Voir
     profiles:
+      default_officialization_text: Justification
       default_officialization_text_for_user_groups: Ce groupe d'utilisateurs est publiquement vérifié, son nom a été vérifié pour correspondre à son vrai nom.
       default_officialization_text_for_users: L'identité de ce participant a été vérifiée. Son nom ou son rôle correspondent avec son vrai nom ou son vrai rôle dans le monde réel
       show:
@@ -990,9 +994,9 @@ fr:
         no_activities_warning: Cet utilisateur n'a pas encore eu d'activité.
     user_interests:
       show:
-        no_scopes: Cette organisation n'a pas encore de portée!
+        no_scopes: Cette organisation n'a pas encore de périmètre d'application!
         my_interests: Mes intérêts
-        select_your_interests: Sélectionnez les sujets qui vous intéressent pour recevoir des événements les concernant dans l'onglet Profil de votre profil.
+        select_your_interests: Sélectionnez les sujets qui vous intéressent pour recevoir les événements qui les concernent dans l'onglet Calendrier de votre profil.
         update_my_interests: Mettre à jour mes intérêts
       update:
         error: Une erreur s'est produite lors de la mise à jour de vos centres d'intérêt.

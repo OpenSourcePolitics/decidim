@@ -777,6 +777,9 @@ hu:
         greetings: Üdvözöljük <br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Helló!
         subject: 'Szeretnél továbbra is fontos információkat kapni róluk: a %{organization_name}?'
+    notification_mailer:
+      shared:
+        note: YEzt az üzenetet megkapta, mert feliratkozott e-mailben a (z)% {organization_name} e-mail címre. A <a href="%{link}"> értesítési oldalon </a> módosíthatja a beállításokat.
     notifications:
       no_notifications: Még nincs értesítés.
     notifications_settings:

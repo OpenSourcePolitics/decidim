@@ -778,6 +778,9 @@ de:
         greetings: Grüße,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Hallo,
         subject: Möchten Sie weiterhin relevante Informationen über %{organization_name} erhalten?
+    notification_mailer:
+      shared:
+        note: Sie haben diese Nachricht erhalten, weil Sie die Benachrichtigung per E-Mail unter% {organization_name} abonniert haben. Sie können Ihre Einstellungen auf Ihrer <a href="%{link}"> Benachrichtigungsseite </a> ändern.
     notifications:
       no_notifications: Noch keine Benachrichtigungen
     notifications_settings:

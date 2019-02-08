@@ -778,6 +778,9 @@ it:
         greetings: Saluti,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Ciao,
         subject: Vuoi continuare a ricevere informazioni rilevanti su %{organization_name}?
+    notification_mailer:
+      shared:
+        note: Hai ricevuto questo messaggio perché sei iscritto alla notifica via email su% {organization_name}. Puoi modificare le impostazioni sulla <a href="%{link}"> pagina delle notifiche </a>.
     notifications:
       no_notifications: Nessuna notifica.
     notifications_settings:

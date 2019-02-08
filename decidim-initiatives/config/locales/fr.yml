@@ -88,7 +88,7 @@ fr:
             email_intro: L'initiative %{resource_title} a atteint %{percentage}% des signatures requises !
             email_outro: Vous avez reçu cette notification parce que vous suivez %{resource_title}. Vous pouvez cesser de recevoir des notifications en suivant le lien précédent.
             email_subject: Nouvelle étape franchie !
-            notification_title: La pétition <a href="%{resource_path}">%{resource_title}</a> a atteint %{percentage}% des signatures requises.
+            notification_title: L'initiative <a href="%{resource_path}">%{resource_title}</a> a atteint %{percentage}% des signatures requises.
     gamification:
       badges:
         initiatives:
@@ -356,7 +356,7 @@ fr:
       states:
         accepted: Acceptées
         expired: Expirées
-      unavailable_scope: Portée indisponible
+      unavailable_scope: Périmètre indisponible
     menu:
       initiatives: Initiatives
   layouts:
