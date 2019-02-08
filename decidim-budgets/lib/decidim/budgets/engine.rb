@@ -41,7 +41,7 @@ module Decidim
           metric_operation.manager_class = "Decidim::Budgets::Metrics::BudgetFollowersMetricMeasure"
         end
       end
-      
+
       initializer "decidim.content_processors" do |_app|
         Decidim.configure do |config|
           config.content_processors += [:project]
