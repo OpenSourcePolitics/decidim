@@ -166,7 +166,7 @@ Decidim.register_component(:proposals) do |component|
                       elsif n > 1
                         ["evaluating", nil]
                       else
-                        [nil, nil]
+                        ["not_answered", nil]
                       end
 
       params = {
@@ -200,7 +200,7 @@ Decidim.register_component(:proposals) do |component|
         end
       end
 
-      if proposal.state.nil?
+      if proposal.state == "not_answered"
         email = "amendment-author-#{participatory_space.underscored_name}-#{participatory_space.id}-#{n}-amend#{n}@example.org"
         name = "#{Faker::Name.name} #{participatory_space.id} #{n} amend#{n}"
 
@@ -239,7 +239,7 @@ Decidim.register_component(:proposals) do |component|
           scope: Faker::Boolean.boolean(0.5) ? global : scopes.sample,
           title: "#{proposal.title} #{Faker::Lorem.sentence(1)}",
           body: "#{proposal.body} #{Faker::Lorem.sentence(3)}",
-          state: nil,
+          state: "evaluating",
           answer: nil,
           answered_at: Time.current,
           published_at: Time.current
