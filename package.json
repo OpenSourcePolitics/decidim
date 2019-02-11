@@ -193,7 +193,7 @@
     "@types/react": "^16.0.7",
     "@types/react-dom": "^16.0.2",
     "@types/react-select": "^1.2.6",
-    "@types/uuid": "^3.4.2",
+    "@types/uuid": "^3.4.4",
     "babel-core": "^6.26.0",
     "babel-eslint": "^8.2.2",
     "babel-jest": "^22.4.1",
