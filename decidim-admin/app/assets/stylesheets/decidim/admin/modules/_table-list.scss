@@ -106,3 +106,22 @@
 .table-list__state{
   text-align: center;
 }
+
+.table-list__type-icon{
+  position: relative;
+  top: 1px;
+  cursor: pointer;
+}
+
+.table-list__type-label{
+  margin-left: -1.5 * $global-padding;
+  font-size: 80%;
+  font-weight: 600;
+  text-transform: uppercase;
+  display: none;
+
+  &.expanded{
+    display: inline-block;
+  }
+}
+
