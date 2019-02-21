@@ -61,6 +61,16 @@ module Decidim
             expect(subject).not_to be_valid
           end
         end
+
+        context "and question type is sorting" do
+          let(:question_type) { "sorting" }
+
+          it "is not valid if no a single options checked" do
+            subject.choices = []
+
+            expect(subject).not_to be_valid
+          end
+        end
       end
 
       context "when the question has max_choices set" do
@@ -108,6 +118,12 @@ module Decidim
           ]
 
           expect(subject).not_to be_valid
+        end
+
+        it "is valid if no options checked" do
+          subject.choices = []
+
+          expect(subject).to be_valid
         end
       end
     end

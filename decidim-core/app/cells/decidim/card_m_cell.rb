@@ -85,6 +85,7 @@ module Decidim
     def card_classes
       classes = [base_card_class]
       return classes unless has_state?
+
       classes.concat(state_classes).join(" ")
     end
 
@@ -97,6 +98,7 @@ module Decidim
     end
 
     def comments_count
+      return model.comments.not_hidden.count if model.comments.respond_to? :not_hidden
       model.comments.count
     end
 

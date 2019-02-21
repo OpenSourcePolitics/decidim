@@ -1,3 +1,4 @@
+---
 pt:
   activemodel:
     attributes:
@@ -107,8 +108,8 @@ pt:
             published: Publicados
             title: Título
           name:
-            one: Consulta
-            other: Consultas
+            one: Consultation
+            other: Consultations
         question:
           fields:
             created_at: Criado em

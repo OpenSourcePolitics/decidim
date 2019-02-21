@@ -778,6 +778,9 @@ eu:
         greetings: Agurrak,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Kaixo,
         subject: '%{organization_name}inguruko informazio garrantzitsua jasotzen jarraitu nahi al duzu?'
+    notification_mailer:
+      shared:
+        note: Mezu hau jaso duzu jakinarazpenean harpidetuta zaudelako% {organization_name} helbidean. Zure ezarpenak alda ditzakezu <a href="%{link}"> jakinarazpenen orrian </a>.
     notifications:
       no_notifications: Oraindik ez dago jakinarazpenik.
     notifications_settings:

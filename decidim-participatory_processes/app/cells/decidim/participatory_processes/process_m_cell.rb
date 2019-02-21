@@ -25,6 +25,7 @@ module Decidim
 
       def state_classes
         return unless model.past?
+
         ["alert"]
       end
 
@@ -34,6 +35,14 @@ module Decidim
 
       def resource_image_path
         model.hero_image.url
+      end
+
+      def step_cta_text
+        if model.active_step&.cta_text
+          translated_attribute(model.active_step.cta_text)
+        else
+          t("participatory_processes.participatory_process.take_part", scope: "layouts.decidim")
+        end
       end
 
       def step_title

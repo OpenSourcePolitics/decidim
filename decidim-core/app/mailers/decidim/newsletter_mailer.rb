@@ -24,7 +24,7 @@ module Decidim
         @subject = parse_interpolations(subject, user, @newsletter.id)
         @body = parse_interpolations(body, user, @newsletter.id)
 
-        mail(to: "#{user.name} <#{user.email}>", subject: @subject)
+        mail(from: Decidim.config.mailer_sender, to: "#{user.name} <#{user.email}>", subject: @subject)
       end
     end
   end

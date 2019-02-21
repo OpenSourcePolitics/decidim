@@ -1,3 +1,4 @@
+---
 fi:
   activemodel:
     attributes:
@@ -69,10 +70,12 @@ fi:
         destroy: Poista
         duplicate: Kopioi
         edit: Muokkaa
-        new_process: Uusi prosessi
+        new: New
         new_process_group: Uusi prosessiryhmä
         new_process_step: Uusi vaihe
         new_process_user_role: Uusi prosessikäyttäjä
+        participatory_process:
+          new: New
         preview: Esikatsele
         publish: Julkaise
         resend_invitation: Lähetä kutsu uudelleen
@@ -203,6 +206,9 @@ fi:
         index:
           not_published: Ei julkaistu
           private: Yksityinen
+          promoted:
+            'false': 'False'
+            'true': 'True'
           public: Julkinen
           published: Julkaistu
         new:
@@ -266,6 +272,11 @@ fi:
         description: Osallisuusprosessien määrä tässä organisaatiossa
         object: osallisuusprosessit
         title: Osallisuusprosessit
+    pages:
+      participatory_space:
+        metrics:
+          headline: Headline
+          link: Link
     participatory_process_groups:
       show:
         group_participatory_processes:
@@ -348,21 +359,21 @@ fi:
         target: Kuka osallistuu
         unspecified: Ei määritelty
       statistics:
-        answers_count: Vastauksia
-        comments_count: Kommentteja
-        debates_count: Keskusteluja
-        endorsements_count: Suosituksia
+        answers_count: Vastausta
+        comments_count: Kommenttia
+        debates_count: Keskustelua
+        endorsements_count: Suositusta
         headline: Tilastot
-        meetings_count: Tapahtumia
-        orders_count: Ääniä
-        pages_count: Sivuja
-        processes_count: Prosesseja
-        projects_count: Suunnitelmia
-        proposals_count: Ehdotuksia
-        results_count: Tuloksia
-        surveys_count: Kyselyitä
-        users_count: Osallistujia
-        votes_count: Ääniä
+        meetings_count: Tapahtumaa
+        orders_count: Ääntä
+        pages_count: Sivua
+        processes_count: Prosessia
+        projects_count: Suunnitelmaa
+        proposals_count: Ehdotusta
+        results_count: Tulosta
+        surveys_count: Kyselyä
+        users_count: Osallistujaa
+        votes_count: Ääntä
   layouts:
     decidim:
       participatory_process_groups:

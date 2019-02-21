@@ -1,3 +1,4 @@
+---
 eu:
   activemodel:
     attributes:
@@ -69,10 +70,12 @@ eu:
         destroy: ezabatu
         duplicate: Kopiatu
         edit: Editatu
-        new_process: Prozesu berria
+        new: New
         new_process_group: Prozesu talde berria
         new_process_step: Urrats berria
         new_process_user_role: Prozesu berria erabiltzailea
+        participatory_process:
+          new: New
         preview: Aurreikusi
         publish: Argitaratu
         resend_invitation: Birbidali gonbita
@@ -203,6 +206,9 @@ eu:
         index:
           not_published: Argitaratu gabe
           private: Pribatua
+          promoted:
+            'false': 'False'
+            'true': 'True'
           public: Publiko
           published: Argitaratua
         new:
@@ -244,14 +250,14 @@ eu:
     events:
       participatory_process:
         step_activated:
-          email_intro: '%{resource_title} urratsa aktibo dago %{participatory_space_title}-ra. Orrialde hau ikusi dezakezu:'
+          email_intro: "%{resource_title} urratsa aktibo dago %{participatory_space_title}-ra. Orrialde hau ikusi dezakezu:"
           email_outro: Jakinarazpena jaso duzu %{participatory_space_title}jarraituz gero. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
-          email_subject: '%{participatory_space_title} eguneratze bat'
+          email_subject: "%{participatory_space_title} eguneratze bat"
           notification_title: '%{resource_title} urratsa aktiboa da <a href="%{resource_path}">%{participatory_space_title}</a>'
         step_changed:
-          email_intro: '%{participatory_space_title} %{resource_title} urratsen datak eguneratu dira. Orrialde hau ikusi dezakezu:'
+          email_intro: "%{participatory_space_title} %{resource_title} urratsen datak eguneratu dira. Orrialde hau ikusi dezakezu:"
           email_outro: Jakinarazpena jaso duzu %{participatory_space_title}jarraituz gero. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
-          email_subject: '%{participatory_space_title} eguneratze bat'
+          email_subject: "%{participatory_space_title} eguneratze bat"
           notification_title: <a href="%{resource_path}">%{resource_title}</a> urratsean datak <a href="%{participatory_space_url}">%{participatory_space_title}</a> eguneratu dira.
     help:
       participatory_spaces:
@@ -266,6 +272,11 @@ eu:
         description: Erakundeko prozesu parte-hartzaile kopurua
         object: prozesu parte-hartzaileak
         title: Parte hartze prozesuak
+    pages:
+      participatory_space:
+        metrics:
+          headline: Headline
+          link: Link
     participatory_process_groups:
       show:
         group_participatory_processes:
@@ -384,7 +395,7 @@ eu:
           more_info: Informazio gehiago
           take_part: Parte hartu
       process_header_steps:
-        step: '%{total} fasetatik %{current}.a'
+        step: "%{total} fasetatik %{current}.a"
         view_steps: Ikusi faseak
       process_navigation:
         process_menu_item: Prozesua

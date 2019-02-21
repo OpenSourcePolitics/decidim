@@ -1,3 +1,4 @@
+---
 gl:
   activemodel:
     attributes:
@@ -107,8 +108,8 @@ gl:
             published: Publicado
             title: Título
           name:
-            one: Consulta
-            other: Consultas
+            one: Consultation
+            other: Consultations
         question:
           fields:
             created_at: Creado en
@@ -191,8 +192,8 @@ gl:
           name: Consultas destacadas
       count:
         title:
-          one: "Consulta %{count}"
-          other: "Consultas %{count}"
+          one: Consulta %{count}
+          other: Consultas %{count}
       filters:
         active: Activo
         all: Todo

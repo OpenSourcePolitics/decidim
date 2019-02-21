@@ -246,6 +246,7 @@ module Decidim
       # Checks whether the proposal is inside the time window to be editable or not once published.
       def within_edit_time_limit?
         return true if draft?
+
         limit = updated_at + component.settings.proposal_edit_before_minutes.minutes
         Time.current < limit
       end

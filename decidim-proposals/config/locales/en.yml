@@ -1,3 +1,4 @@
+---
 en:
   activemodel:
     attributes:
@@ -10,6 +11,7 @@ en:
         title: Title
         user_group_id: Create collaborative draft as
       proposal:
+        address: Address
         answer: Answer
         answered_at: Answered at
         automatic_hashtags: Hashtags automatically added
@@ -105,7 +107,16 @@ en:
             votes_blocked: Voting blocked
             votes_enabled: Voting enabled
             votes_hidden: Votes hidden (if votes are enabled, checking this will hide the number of votes)
+            votes_weight_enabled: Up / Down / Neutral votes enabled
     events:
+      proposal_created:
+        email_subject: Nouvelle proposition de %{author_name}.
+        moderation:
+          email_intro: Email intro
+          email_subject: Email subject
+          moderation_url: Moderation url
+        notification_title: Il y a une nouvelle proposition de %{author_name} dans <a href="%{resource_path}">%{resource_title}</a>a>a
+        url: 'url de commentaire : %{resource_url}'
       proposals:
         collaborative_draft_access_accepted:
           email_intro: '%{requester_name} has been accepted to access as a contributor of the <a href="%{resource_path}">%{resource_title}</a> collaborative draft.'
@@ -153,11 +164,15 @@ en:
             email_outro: You have received this notification because you are an author of "%{resource_title}".
             email_subject: Your proposal has been accepted
             notification_title: Your proposal <a href="%{resource_path}">%{resource_title}</a> has been accepted.
+          email_intro: 'Пропозиція "%{resource_title}" була прийнята. Ви можете прочитати відповідь на сторінці:'
+          email_outro: Ви отримали це сповіщення, тому що ви стежите за "%{resource_title}". Ви можете припинити стежити за ним, перейшовши за наведеним вище посиланням.
+          email_subject: Пропозиція, за якою ви стежите, була прийнята
           follower:
             email_intro: 'The proposal "%{resource_title}" has been accepted. You can read the answer in this page:'
             email_outro: You have received this notification because you are following "%{resource_title}". You can unfollow it from the previous link.
             email_subject: A proposal you're following has been accepted
             notification_title: The <a href="%{resource_path}">%{resource_title}</a> proposal has been accepted.
+          notification_title: Пропозицію <a href="%{resource_path}">%{resource_title}</a> було прийнято.
         proposal_endorsed:
           email_intro: '%{endorser_name} %{endorser_nickname}, who you are following, has just endorsed the "%{resource_title}" proposal and we think it may be interesting to you. Check it out and contribute:'
           email_outro: You have received this notification because you are following %{endorser_nickname}. You can stop receiving notifications following the previous link.
@@ -169,11 +184,15 @@ en:
             email_outro: You have received this notification because you are an author of "%{resource_title}".
             email_subject: Your proposal is being evaluated
             notification_title: Your proposal <a href="%{resource_path}">%{resource_title}</a> is being evaluated.
+          email_intro: 'Пропозиція "%{resource_title}" зараз розглядається. Ви можете перевірити наявність відповіді на сторінці:'
+          email_outro: Ви отримали це сповіщення, тому що ви стежите за "%{resource_title}". Ви можете припинити стежити за ним, перейшовши за наведеним вище посиланням.
+          email_subject: Пропозиція, за якою ви стежите, зараз розглядається
           follower:
             email_intro: 'The proposal "%{resource_title}" is currently being evaluated. You can check for an answer in this page:'
             email_outro: You have received this notification because you are following "%{resource_title}". You can unfollow it from the previous link.
             email_subject: A proposal you're following is being evaluated
             notification_title: The <a href="%{resource_path}">%{resource_title}</a> proposal is being evaluated.
+          notification_title: Пропозиція <a href="%{resource_path}">%{resource_title}</a> розглядається.
         proposal_mentioned:
           email_intro: Your proposal "%{mentioned_proposal_title}" has been mentioned <a href="%{resource_path}">in this space</a> in the comments.
           email_outro: You have received this notification because you are an author of "%{resource_title}".
@@ -195,11 +214,15 @@ en:
             email_outro: You have received this notification because you are an author of "%{resource_title}".
             email_subject: Your proposal been rejected
             notification_title: Your proposal <a href="%{resource_path}">%{resource_title}</a> has been rejected.
+          email_intro: 'Пропозиція "%{resource_title}" була відхилена. Ви можете прочитати відповідь на сторінці:'
+          email_outro: Ви отримали це сповіщення, тому що ви стежите за "%{resource_title}". Ви можете припинити стежити за ним, перейшовши за наведеним вище посиланням.
+          email_subject: Пропозиція, за якою ви стежите, була відхилена
           follower:
             email_intro: 'The proposal "%{resource_title}" has been rejected. You can read the answer in this page:'
             email_outro: You have received this notification because you are following "%{resource_title}". You can unfollow it from the previous link.
             email_subject: A proposal you're following has been rejected
             notification_title: The <a href="%{resource_path}">%{resource_title}</a> proposal has been rejected.
+          notification_title: Пропозицію <a href="%{resource_path}">%{resource_title}</a> було відхилено.
         proposal_update_category:
           email_intro: 'An admin has updated the category of your proposal "%{resource_title}", check it out:'
           email_outro: You have received this notification because you are the author of the proposal.
@@ -214,8 +237,8 @@ en:
       badges:
         accepted_proposals:
           conditions:
-            - Choose the participation space of your interest with submission for proposals enabled
-            - Try to make proposals that can be carried out. This way they are more likely to be accepted.
+          - Choose the participation space of your interest with submission for proposals enabled
+          - Try to make proposals that can be carried out. This way they are more likely to be accepted.
           description: This badge is granted when you actively participate with new proposals and these are accepted.
           description_another: This user has gotten %{score} proposals accepted.
           description_own: You got %{score} proposals accepted.
@@ -225,8 +248,8 @@ en:
           unearned_own: You got no proposals accepted yet.
         proposal_votes:
           conditions:
-            - Browse and spend some time reading other people's proposals
-            - Give support to the proposals you like or find interesting
+          - Browse and spend some time reading other people's proposals
+          - Give support to the proposals you like or find interesting
           description: This badge is granted when you support other people's proposals.
           description_another: This user has given support to %{score} proposals.
           description_own: You have given support to %{score} proposals.
@@ -236,8 +259,8 @@ en:
           unearned_own: You have given support to no proposals yet.
         proposals:
           conditions:
-            - Choose the participation space of your interest with submission for proposals enabled
-            - Create a new proposal
+          - Choose the participation space of your interest with submission for proposals enabled
+          - Create a new proposal
           description: This badge is granted when you actively participate with new proposals.
           description_another: This user has created %{score} proposals.
           description_own: You have created %{score} proposals.
@@ -289,13 +312,16 @@ en:
             name: Proposal
         participatory_texts:
           bulk-actions:
+            are_you_sure: Are you sure to discard the whole participatory text draft?
             import_doc: Import document
+            discard_all: Discard all
           import:
             invalid: The form is invalid!
             success: Congratulations, the following sections have been parsed from the imported document, they have been converted to proposals. Now you can review and adjust whatever you need before publishing.
           index:
             info_1: The following sections have been parsed from the imported document, they have been converted to proposals. Now you can review and adjust whatever you need before publishing.
             publish_document: Publish document
+            save_draft: Save draft
             title: PREVIEW PARTICIPATORY TEXT
           new_import:
             bottom_hint: "(You will be able to preview and sort document sections)"
@@ -305,10 +331,14 @@ en:
           publish:
             invalid: Could not publish proposals
             success: All proposals have been published
+          discard:
+            success: All Participatory text drafts have been discarded.
           sections:
             article: "<em>Article</em>"
             section: "<em>Section:</em> <strong>%{title}</strong>"
             sub-section: "<em>Subsection:</em> %{title}"
+          update:
+             success: Participatory text updated successfully.
         proposal_answers:
           edit:
             accepted: Accepted
@@ -590,9 +620,14 @@ en:
           proposals_count:
             one: "%{count} proposal"
             other: "%{count} proposals"
+        dynamic_map_instructions:
+          primary: You can move the point on the map.
+          secondary: Don't forget to click on the "Update Position" button before publishing your proposal.
         edit:
+          address: Address (don't forget to specify the city)
           attachment_legend: "(Optional) Add an attachment"
           back: Back
+          not_geocoded: Not geocoded
           select_a_category: Please select a category
           send: Send
           title: Edit proposal
@@ -601,12 +636,16 @@ en:
           discard_confirmation: Are you sure you want to discard this proposal draft?
           send: Preview
           title: Edit Proposal Draft
+        edit_form_fields:
+          address: Address
+          not_geocoded: Not geocoded
         endorsement_identities_cabin:
           endorse: Endorse
         endorsements_card_row:
           comments: Comments
         filters:
           activity: Activity
+          amendment_type: Type
           category: Category
           category_prompt: Select a category
           origin: Origin
@@ -614,7 +653,6 @@ en:
           search: Search
           state: State
           voted: Voted
-          amendment_type: Type
         filters_small_view:
           close_modal: Close modal
           filter: Filter
@@ -642,13 +680,18 @@ en:
             document_index: Document index
           view_index:
             see_index: See index
+        placeholder:
+          address: 32 rue des cascades 75020 Paris
         preview:
+          address: 'Address: %{address}'
           modify: Modify the proposal
+          not_geocoded: Your address has not been geocoded, the preview is not available.
           proposal_edit_before_minutes:
             one: You will be able to edit this proposal during the first minute after the proposal is published. Once this time window passes, you will not be able to edit the proposal.
             other: You will be able to edit this proposal during the first %{count} minutes after the proposal is published. Once this time window passes, you will not be able to edit the proposal.
           publish: Publish
           title: Publish your proposal
+          update_pos: Update the position
         proposal:
           creation_date: 'Creation: %{date}'
           view_proposal: View proposal
@@ -678,12 +721,18 @@ en:
           no_votes_remaining: No votes remaining
           vote: Vote
           votes_blocked: Voting disabled
+        vote_weight:
+          maximum_votes_reached: Maximum votes reached
+          no_votes_remaining: No votes remaining
+          votes_blocked: Votes blocked
         votes_count:
           count:
             one: VOTE
             other: VOTES
           most_popular_proposal: Most popular proposal
           need_more_votes: Need more votes
+        votes_weight:
+          count: Count
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Each proposal can accumulate more than %{limit} supports

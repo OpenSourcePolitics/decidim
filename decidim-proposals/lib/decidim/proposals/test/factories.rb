@@ -29,7 +29,21 @@ FactoryBot.define do
     trait :with_votes_enabled do
       step_settings do
         {
-          participatory_space.active_step.id => { votes_enabled: true }
+          participatory_space.active_step.id => {
+            votes_enabled:         true,
+            votes_weight_enabled: false
+          }
+        }
+      end
+    end
+
+    trait :with_votes_by_weight_enabled do
+      step_settings do
+        {
+          participatory_space.active_step.id => {
+            votes_enabled:         false,
+            votes_weight_enabled: true
+          }
         }
       end
     end
@@ -37,7 +51,10 @@ FactoryBot.define do
     trait :with_votes_disabled do
       step_settings do
         {
-          participatory_space.active_step.id => { votes_enabled: false }
+          participatory_space.active_step.id => {
+            votes_enabled:         false,
+            votes_weight_enabled: false
+          }
         }
       end
     end
@@ -101,8 +118,9 @@ FactoryBot.define do
       step_settings do
         {
           participatory_space.active_step.id => {
-            votes_enabled: true,
-            votes_blocked: true
+            votes_enabled:         true,
+            votes_weight_enabled: false,
+            votes_blocked:         true
           }
         }
       end

@@ -87,6 +87,9 @@ search:
 #   # Get an API key and set billing info at https://code.google.com/apis/console to use Google Translate
 #   api_key: "AbC-dEf5"
 
+translation:
+  deepl_api_key: <%= ENV["DEEPL_API_KEY"] %>
+
 # Do not consider these keys missing:
 ignore_missing:
   - components.*
@@ -105,6 +108,7 @@ ignore_unused:
   - activerecord.models.*
   - booleans.*
   - '{date,time.formats}.*'
+  - carrierwave.errors.*
   - decidim.admin.participatory_process_steps.default_title
   - decidim.authorization_handlers.{direct,multistep}
   - decidim.admin.models.assembly_member.positions.*
@@ -188,6 +192,10 @@ ignore_unused:
   - decidim.amendments.accept.error
   - decidim.searches.filters.state.*
   - decidim.assemblies.filter.*
+  - decidim.proposals.proposals.edit.address
+  - decidim.proposals.proposals.edit.not_geocoded
+  - decidim.proposals.proposals.placeholder.address
+  - devise.invitations.*
 
 ## Exclude these keys from the `i18n-tasks eq-base' report:
 # ignore_eq_base:

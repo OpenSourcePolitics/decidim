@@ -140,6 +140,14 @@ FactoryBot.define do
     end
   end
 
+  factory :navbar_link, class: "Decidim::NavbarLink" do
+    organization
+    title { generate_localized_title }
+    link { Faker::Internet.url }
+    target { ["blank", ""].sample }
+    weight { (1..10).to_a.sample }
+  end
+
   factory :participatory_space_private_user, class: "Decidim::ParticipatorySpacePrivateUser" do
     user
     privatable_to { create :participatory_process, organization: user.organization }

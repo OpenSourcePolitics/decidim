@@ -778,6 +778,9 @@ gl:
         greetings: Saúdos,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Ola,
         subject: Queres seguir recibindo información relevante sobre %{organization_name}?
+    notification_mailer:
+      shared:
+        note: Recibiches esta mensaxe porque estás subscrito a unha notificación por correo electrónico en% {organization_name}. Pode cambiar a configuración na súa <a href="%{link}"> páxina de notificacións </a>.
     notifications:
       no_notifications: Aínda non hai notificacións.
     notifications_settings:

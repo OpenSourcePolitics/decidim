@@ -1,6 +1,12 @@
+---
 uk:
   activemodel:
     attributes:
+      config:
+        available_methods: Available methods
+        offline: Offline
+        offline_explanation: Instructions for offline verification
+        online: Online
       id_document_information:
         document_number: Номер документа (з літерою)
         document_type: Різновид документу
@@ -9,6 +15,8 @@ uk:
         document_type: Різновид вашого документу
         user: Учасник
         verification_attachment: Сканована копія вашого документа
+      offline_confirmation:
+        email: User email
       postal_letter_address:
         full_address: Повна адреса
       postal_letter_confirmation:
@@ -20,20 +28,25 @@ uk:
     admin:
       menu:
         authorization_workflows: Шляхи підтвердження особи
+    admin_log:
+      organization:
+        update_id_documents_config: "%{user_name} updated the Identity Documents verification configuration"
+      user:
+        grant_id_documents_offline_verification: "%{user_name} verified %{resource_name} using an offline Identity Documents verification"
     authorization_handlers:
       admin:
         id_documents:
           help:
-            - Учасники вводять свої особисті відомості та завантажують світлину свого документа.
-            - Введіть відомості з завантаженої вами світлини.
-            - Відомості повинні відповідати тим, які надав учасник.
-            - Якщо ви не можете до пуття переглянути відомості, або не можете звірити їх, відхиліть запит, і нехай учасник їх виправить.
+          - Учасники вводять свої особисті відомості та завантажують світлину свого документа.
+          - Введіть відомості з завантаженої вами світлини.
+          - Відомості повинні відповідати тим, які надав учасник.
+          - Якщо ви не можете до пуття переглянути відомості, або не можете звірити їх, відхиліть запит, і нехай учасник їх виправить.
         postal_letter:
           help:
-            - Учасники подають запит на надсилання перевірочного коду на їх адресу.
-            - Ви надсилаєте листа з перевірочним кодом на їх адресу.
-            - Ви позначаєте лист як надісланий.
-            - Після позначення вами листа як відправленого, учасник зможе ввести код та підтвердити свою особу.
+          - Учасники подають запит на надсилання перевірочного коду на їх адресу.
+          - Ви надсилаєте листа з перевірочним кодом на їх адресу.
+          - Ви позначаєте лист як надісланий.
+          - Після позначення вами листа як відправленого, учасник зможе ввести код та підтвердити свою особу.
       direct: Пряме
       help: Допомога
       id_documents:
@@ -49,6 +62,7 @@ uk:
         create:
           error: При спробі створити підтвердження особи сталася помилка.
           success: Вашу особу успішно підтверджено.
+          unconfirmed: You need to confirm your email in order to authorize yourself.
         first_login:
           actions:
             another_dummy_authorization_handler: Підтвердьте, порівнявши з іншим прикладом підтвердження своєї особи
@@ -65,12 +79,19 @@ uk:
         start_exploring: почати досліджувати
       dummy_authorization:
         extra_explanation:
+          few: Участь обмежується лише учасниками з поштовими кодами %{postal_codes}.
+          many: Участь обмежується лише учасниками з поштовими кодами %{postal_codes}.
           one: Участь обмежується лише учасниками з поштовим кодом %{postal_codes}.
-          few: 'Участь обмежується лише учасниками з поштовими кодами %{postal_codes}.'
-          many: 'Участь обмежується лише учасниками з поштовими кодами %{postal_codes}.'
-          other: 'Участь обмежується лише учасниками з поштовими кодами %{postal_codes}.'
+          other: Участь обмежується лише учасниками з поштовими кодами %{postal_codes}.
       id_documents:
         admin:
+          config:
+            edit:
+              title: Identity documents configuration
+              update: Update
+            update:
+              error: There was an error updating the configuration.
+              success: Configuration successfully updated
           confirmations:
             create:
               error: Підтвердження не збігається. Спробуйте ще раз, або відхиліть підтвердження, щоб учасник міг його виправити
@@ -79,19 +100,36 @@ uk:
               introduce_user_data: Введіть відомості на картинці
               reject: Відхилити
               verify: Підтвердити
+          offline_confirmations:
+            create:
+              error: Verification doesn't match. Try again or tell the user to amend it
+              success: User successfully verified
+            new:
+              cancel: Cancel
+              introduce_user_data: Introduce the user email and the document data
+              verify: Verify
           pending_authorizations:
             index:
+              config: Config
+              offline_verification: Offline verification
               title: Підтвердження, які очікують на розгляд
               verification_number: 'Підтвердження #%{n}'
           rejections:
             create:
               success: Підтвердження особи відхилено. Учаснику буде запропоновано виправити свої документи
         authorizations:
+          choose:
+            choose_a_type: 'Please select how you want to be verified:'
+            offline: Offline
+            online: Online
+            title: Verify yourself using your identity document
           create:
             error: Під час завантаження вашого документа сталася помилка
             success: Документ успішно завантажено
           edit:
             being_reviewed: Ми розглядаємо ваші документи. Вашу особу буде незабаром перевірено
+            offline: Use offline verification
+            online: Use online verification
             rejection_clarity: Переконайтеся, що у завантаженому зображенні чітко видно відомості
             rejection_correctness: Переконайтеся в тому, що відомості вказано вірно
             rejection_notice: Під час підтвердження вашої особи сталася помилка. Будь ласка, спробуйте ще раз
@@ -134,6 +172,20 @@ uk:
           update:
             error: Ваш перевірочний код не відповідає нашому. Будь ласка, ще раз перегляньте лист, який ми надіслали вам
             success: Вітаємо! Вашу особу успішно підтверджено
+      sms:
+        authorizations:
+          create:
+            error: There was a problem with your request
+            success: Thanks! We've sent an SMS to your phone.
+          edit:
+            send: Confirm
+            title: Introduce the verification code you received
+          new:
+            send: Send me an SMS
+            title: Request your verification code
+          update:
+            error: Your verification code doesn't match ours. Please double-check the SMS we sent you.
+            success: Congratulations. You've been successfully verified.
   errors:
     messages:
       uppercase_only_letters_numbers: повинен містити лише титульні літери та цифри

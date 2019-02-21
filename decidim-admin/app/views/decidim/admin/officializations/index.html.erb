@@ -2,21 +2,21 @@
   <div class="column medium-3">
     <span class="dropdown-menu-inverted_label"><%= t(".filter_by") %> :</span>
     <ul class="dropdown menu dropdown-inverted" data-dropdown-menu data-close-on-click-inside="false">
-        <li class="is-dropdown-submenu-parent">
-          <a href="#">
+      <li class="is-dropdown-submenu-parent">
+        <a href="#">
           <% if @state.present? %>
             <%= t(".filter.#{@state}") %>
           <% else %>
             <%= t(".filter.all") %>
           <% end %>
-          </a>
-          <ul class="menu is-dropdown-submenu">
-            <li><%= link_to t(".filter.officialized"), url_for(state: "officialized", q: @query) %></li>
-            <li><%= link_to t(".filter.not_officialized"), url_for(state: "not_officialized", q: @query) %></li>
-            <li><%= link_to t(".filter.all"), url_for(q: @query) %></li>
-          </ul>
-        </li>
-      </ul>
+        </a>
+        <ul class="menu is-dropdown-submenu">
+          <li><%= link_to t(".filter.officialized"), url_for(state: "officialized", q: @query) %></li>
+          <li><%= link_to t(".filter.not_officialized"), url_for(state: "not_officialized", q: @query) %></li>
+          <li><%= link_to t(".filter.all"), url_for(q: @query) %></li>
+        </ul>
+      </li>
+    </ul>
   </div>
   <div class="column medium-4">
     <%= form_tag "", method: :get do %>
@@ -43,14 +43,14 @@
     <div class="table-scroll">
       <table class="table-list">
         <thead>
-          <tr>
-            <th><%= t(".name") %></th>
-            <th><%= t(".nickname") %></th>
-            <th><%= t(".created_at") %></th>
-            <th><%= t(".status") %></th>
-            <th><%= t(".badge") %></th>
-            <th><%= t(".actions") %></th>
-          </tr>
+        <tr>
+          <th><%= t(".name") %></th>
+          <th><%= t(".nickname") %></th>
+          <th><%= t(".created_at") %></th>
+          <th><%= t(".status") %></th>
+          <th><%= t(".badge") %></th>
+          <th><%= t(".actions") %></th>
+        </tr>
         </thead>
         <tbody>
           <% @users.each do |user| %>

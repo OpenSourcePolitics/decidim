@@ -5,6 +5,7 @@ module Decidim
   # a events are received.
   class NotificationMailer < Decidim::ApplicationMailer
     helper Decidim::ResourceHelper
+    helper Decidim::TranslationsHelper
 
     def event_received(event, event_class_name, resource, user, user_role, extra) # rubocop:disable Metrics/ParameterLists
       return if user.email.blank?
@@ -14,8 +15,7 @@ module Decidim
         event_class = event_class_name.constantize
         @event_instance = event_class.new(resource: resource, event_name: event, user: user, extra: extra, user_role: user_role)
         subject = @event_instance.email_subject
-
-        mail(to: user.email, subject: subject)
+        mail(from: Decidim.config.mailer_sender, to: user.email, subject: subject)
       end
     end
   end

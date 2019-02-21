@@ -778,6 +778,9 @@ fi:
         greetings: Tervehdys,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Hei,
         subject: Haluatko jatkaa olennaisen tiedon vastaanottamista koskien %{organization_name} -palvelua?
+    notification_mailer:
+      shared:
+        note: Sait tämän viestin, koska olet tilannut ilmoituksen sähköpostitse osoitteessa% {organisation_name}. Voit muuttaa asetuksia <a href="%{link}"> ilmoitussivulla </a>.
     notifications:
       no_notifications: Ei vielä ilmoituksia.
     notifications_settings:
@@ -826,23 +829,23 @@ fi:
           headline: Osallistuminen lukuina
         statistics:
           answers_count: Kyselyiden vastauksia
-          assemblies_count: Kehitysryhmää
-          comments_count: Kommenttia
-          conferences_count: Konferenssit
-          debates_count: Keskustelua
+          assemblies_count: Kehitysryhmiä
+          comments_count: Kommenteja
+          conferences_count: Konferensseja
+          debates_count: Keskusteluja
           endorsements_count: Suosituksia
           headline: '%{organization} numeroina'
-          meetings_count: Tapahtumat
-          orders_count: Ääntä
-          pages_count: Sivua
+          meetings_count: Tapahtumia
+          orders_count: Ääniä
+          pages_count: Sivuja
           processes_count: Prosesseja
-          projects_count: Projektit
-          proposals_accepted: Hyväksyttyä ehdotusta
-          proposals_count: Ehdotukset
-          results_count: Tulokset
-          surveys_count: Kyselyä
+          projects_count: Projekteja
+          proposals_accepted: Hyväksyttyjä ehdotuksia
+          proposals_count: Ehdotuksia
+          results_count: Tuloksia
+          surveys_count: Kyselyjä
           users_count: Osallistujia
-          votes_count: Ääntä
+          votes_count: Ääniä
         sub_hero:
           register: Rekisteröidy
       index:

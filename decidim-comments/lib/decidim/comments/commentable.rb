@@ -44,7 +44,20 @@ module Decidim
         # other users, eg. admins.
         # Returns: a relation of Decidim::User objects.
         def users_to_notify_on_comment_created
-          Decidim::User.none
+          users_with_role
+        end
+
+        def users_with_role
+          participatory_process = component.participatory_space
+          admins = component.organization.admins
+          users_with_role = component.organization.users_with_any_role
+          process_users_with_role = get_user_with_process_role(participatory_process.id)
+          users = admins + users_with_role + process_users_with_role
+          users.uniq
+        end
+
+        def get_user_with_process_role(participatory_process_id)
+          Decidim::ParticipatoryProcessUserRole.where(decidim_participatory_process_id: participatory_process_id).map(&:user)
         end
       end
     end

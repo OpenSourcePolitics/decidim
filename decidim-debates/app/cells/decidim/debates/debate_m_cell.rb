@@ -7,6 +7,10 @@ module Decidim
     class DebateMCell < Decidim::CardMCell
       include DebateCellsHelper
 
+      def date
+        render
+      end
+
       private
 
       def resource_icon
@@ -19,6 +23,7 @@ module Decidim
 
       def debate_date
         return render(:multiple_dates) if spans_multiple_dates?
+
         render(:single_date)
       end
 

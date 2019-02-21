@@ -5,6 +5,7 @@ require "decidim/components/namer"
 Decidim.register_component(:proposals) do |component|
   component.engine = Decidim::Proposals::Engine
   component.admin_engine = Decidim::Proposals::AdminEngine
+  component.stylesheet = "decidim/proposals/proposals"
   component.icon = "decidim/proposals/icon.svg"
 
   component.on(:before_destroy) do |instance|
@@ -48,6 +49,7 @@ Decidim.register_component(:proposals) do |component|
     settings.attribute :endorsements_enabled, type: :boolean, default: true
     settings.attribute :endorsements_blocked, type: :boolean
     settings.attribute :votes_enabled, type: :boolean
+    settings.attribute :votes_weight_enabled, type: :boolean
     settings.attribute :votes_blocked, type: :boolean
     settings.attribute :votes_hidden, type: :boolean, default: false
     settings.attribute :comments_blocked, type: :boolean, default: false

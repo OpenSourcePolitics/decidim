@@ -1,3 +1,4 @@
+---
 eu:
   activemodel:
     attributes:
@@ -107,8 +108,8 @@ eu:
             published: Argitaratutako
             title: Izenburua
           name:
-            one: Consulta
-            other: kontsultak
+            one: Consultation
+            other: Consultations
         question:
           fields:
             created_at: Sortutako at
@@ -206,7 +207,7 @@ eu:
         filter_by: Iragazi arabera
         unfold: Zabaldu
       highlighted_questions:
-        title: '%{scope_name}galdera'
+        title: "%{scope_name}galdera"
       index:
         title: kontsultak
       last_activity:
@@ -271,7 +272,7 @@ eu:
       vote_button:
         already_voted: Bozkatu
         already_voted_hover: Ezeztatu laguntza
-        starting_from: '%{date}tik hasita'
+        starting_from: "%{date}tik hasita"
         vote: Bozkatu
       vote_modal:
         contextual_help: Aukeratu aukera bat.

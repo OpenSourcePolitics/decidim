@@ -61,15 +61,17 @@ shared_examples "a proposal form" do |options|
   end
 
   context "when the title is too long" do
-    let(:body) { "A" * 200 }
+    let(:title) { "A" * 200 }
 
     it { is_expected.to be_invalid }
   end
 
-  context "when the body is not etiquette-compliant" do
-    let(:body) { "A" }
+  unless options[:skip_etiquette_validation]
+    context "when the body is not etiquette-compliant" do
+      let(:body) { "A" }
 
-    it { is_expected.to be_invalid }
+      it { is_expected.to be_invalid }
+    end
   end
 
   context "when there's no body" do
@@ -123,6 +125,64 @@ shared_examples "a proposal form" do |options|
           expect(subject).to be_valid
           expect(subject.latitude).to eq(latitude)
           expect(subject.longitude).to eq(longitude)
+        end
+      end
+    end
+
+    if options && !options[:admin]
+      context "when latitude and longitude are manually set" do
+        let(:latitude) { 2.389643 }
+        let(:longitude) { 48.8682538 }
+        let(:address) { "Carrer Pare Llaurador 113, baixos, 08224 Terrassa" }
+        let(:params) do
+          {
+            title: title,
+            body: body,
+            author: author,
+            category_id: category_id,
+            scope_id: scope_id,
+            has_address: has_address,
+            address: address,
+            attachment: attachment_params,
+            latitude: latitude,
+            longitude: longitude
+          }
+        end
+
+        context "when the has address checkbox is unchecked" do
+          let(:has_address) { false }
+
+          it "is valid" do
+            expect(subject).to be_valid
+            expect(subject.latitude).to eq(latitude)
+            expect(subject.longitude).to eq(longitude)
+          end
+        end
+
+        context "when the proposal is unchanged" do
+          let(:previous_proposal) { create(:proposal, address: address) }
+
+          let(:params) do
+            {
+              id: previous_proposal.id,
+              title: previous_proposal.title,
+              body: previous_proposal.body,
+              author: previous_proposal.authors,
+              category_id: previous_proposal.try(:category_id),
+              scope_id: previous_proposal.try(:scope_id),
+              has_address: has_address,
+              address: address,
+              attachment: previous_proposal.try(:attachment_params),
+              latitude: latitude,
+              longitude: longitude
+            }
+          end
+
+          it "is valid" do
+            expect(subject).to be_valid
+            expect(subject.latitude).to eq(latitude)
+            expect(subject.longitude).to eq(longitude)
+          end
         end
       end
     end
@@ -270,7 +330,7 @@ shared_examples "a proposal form" do |options|
   end
 end
 
-shared_examples "a proposal form with meeting as author" do |_options|
+shared_examples "a proposal form with meeting as author" do |options|
   subject { form }
 
   let(:organization) { create(:organization, available_locales: [:en]) }
@@ -312,15 +372,17 @@ shared_examples "a proposal form with meeting as author" do |_options|
   end
 
   context "when the title is too long" do
-    let(:body) { "A" * 200 }
+    let(:title) { "A" * 200 }
 
     it { is_expected.to be_invalid }
   end
 
-  context "when the body is not etiquette-compliant" do
-    let(:body) { "A" }
+  unless options[:skip_etiquette_validation]
+    context "when the body is not etiquette-compliant" do
+      let(:body) { "A" }
 
-    it { is_expected.to be_invalid }
+      it { is_expected.to be_invalid }
+    end
   end
 
   context "when there's no body" do

@@ -4,6 +4,11 @@ module Decidim
   # This mailer sends a notification email containing the export as an
   # attachment.
   class ExportMailer < ApplicationMailer
+    # TODO: REMOVE the "default from: Decidim.config.mailer_sender"
+    # The :from should've been inherited from ApplicationMailer
+    # For an unknown reason, it doesn't
+    default from: Decidim.config.mailer_sender
+
     # Public: Sends a notification email with the result of an export in a
     # zipped file.
     #

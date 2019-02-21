@@ -790,6 +790,9 @@ pl:
         greetings: Pozdrowienia,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Cześć,
         subject: Czy chcesz nadal otrzymywać odpowiednie informacje o %{organization_name}?
+    notification_mailer:
+      shared:
+        note: Otrzymujesz tę wiadomość, ponieważ subskrybujesz powiadomienie e-mailem w% {organisation_name}. Możesz zmienić swoje ustawienia na <a href="%{link}"> stronie powiadomień </a>.
     notifications:
       no_notifications: Nie powiadomienia.
     notifications_settings:

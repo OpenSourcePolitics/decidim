@@ -1,3 +1,4 @@
+---
 de:
   activemodel:
     attributes:
@@ -107,8 +108,8 @@ de:
             published: Veröffentlicht
             title: Titel
           name:
-            one: Beratung
-            other: Konsultationen
+            one: Consultation
+            other: Consultations
         question:
           fields:
             created_at: Hergestellt in
