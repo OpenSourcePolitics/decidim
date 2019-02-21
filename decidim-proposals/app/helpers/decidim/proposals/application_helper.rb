@@ -185,6 +185,18 @@ module Decidim
           parent
         end
       end
+
+      def type_label_for_all(proposals)
+        type_label_toggler = ""
+        proposals.each do |proposal|
+          type_label_toggler += "type-label-#{proposal.id} "
+        end
+        return type_label_toggler
+      end
+
+      def type_label_for(proposal)
+        return "type-label-#{proposal.id}"
+      end
     end
   end
 end

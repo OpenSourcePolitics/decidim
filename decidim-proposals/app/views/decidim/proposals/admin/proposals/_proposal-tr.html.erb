@@ -2,6 +2,28 @@
   <td>
     <%= check_box_tag "proposal_ids_s[]", proposal.id, false, class: "js-check-all-proposal js-proposal-list-check  js-proposal-id-#{proposal.id}" %><br />
   </td>
+
+  <% if component_settings.amendments_enabled %>
+    <td>
+      <span class="table-list__type-icon" data-toggle="<%= type_label_for_all(proposals) %>">
+        <% if proposal.emendation? %>
+          <%= icon "paperclip", aria_label: t("decidim/amendment", scope: "activerecord.models", count: 1) %>
+        <% else %>
+          <%= icon "file", aria_label: t("decidim/proposals/proposal", scope: "activerecord.models", count: 1) %>
+        <% end %>
+      </span>
+    </td>
+    <td>
+      <span id="<%= type_label_for(proposal) %>" class="table-list__type-label" data-toggler=".expanded">
+        <% if proposal.emendation? %>
+          <%= t("decidim/amendment", scope: "activerecord.models", count: 1) %>
+        <% else %>
+          <%= t("decidim/proposals/proposal", scope: "activerecord.models", count: 1) %>
+        <% end %>
+      </span>
+    </td>
+  <% end %>
+
   <td>
     <%= proposal.id %><br />
   </td>
@@ -29,9 +51,7 @@
 
   <% unless params[:q] && params[:q][:state_eq] %>
     <td>
-      <%= t("decidim/amendment", scope: "activerecord.models", count: 1) if proposal.emendation? %>
       <strong class="<%= proposal_state_css_class proposal.state %>">
-        <%= t("decidim/amendment", scope: "activerecord.models", count: 1) if proposal.emendation? %>
         <%= humanize_proposal_state proposal.state %>
       </strong>
     </td>

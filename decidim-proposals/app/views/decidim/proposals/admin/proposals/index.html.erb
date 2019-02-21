@@ -83,6 +83,14 @@
             <th>
               <%= check_box_tag "proposals_bulk", "all", false, class: "js-check-all" %>
             </th>
+            
+            <% if component_settings.amendments_enabled %>
+              <th>
+                <%= sort_link(query, :id, t("proposals.filters.amendment_type", scope: "decidim.proposals") ) %>
+              </th>
+              <th></th>
+            <% end %>
+
             <th>
               <%= sort_link(query, :id, t("models.proposal.fields.id", scope: "decidim.proposals"), default_order: :desc ) %>
             </th>
