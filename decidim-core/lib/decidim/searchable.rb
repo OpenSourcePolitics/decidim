@@ -38,6 +38,13 @@ module Decidim
         end
       end
 
+      ransacker :id do
+        Arel.sql(
+          "regexp_replace(
+            to_char(\"#{table_name}\".\"id\", '9999999'), ' ', '', 'g')"
+        )
+      end
+
       after_destroy do |searchable|
         if self.class.search_resource_fields_mapper
           org = self.class.search_resource_fields_mapper.retrieve_organization(searchable)
