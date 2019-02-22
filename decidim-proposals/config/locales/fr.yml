@@ -433,7 +433,7 @@ fr:
           rejected: Rejetées
         filter_type_values:
           all: Tous
-          amendments: Modifications
+          amendments: Amendements
           proposals: Propositions
       collaborative_drafts:
         collaborative_draft:

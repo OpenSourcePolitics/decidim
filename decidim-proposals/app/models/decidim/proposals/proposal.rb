@@ -230,6 +230,19 @@ module Decidim
         Arel.sql(query)
       end
 
+      ransacker :is_emendation do |parent|
+        query = <<-SQL
+        (
+          SELECT EXISTS (
+            SELECT 1 FROM decidim_amendments
+            WHERE decidim_amendments.decidim_emendation_type = 'Decidim::Proposals::Proposal'
+            AND decidim_amendments.decidim_emendation_id = decidim_proposals_proposals.id
+          )
+        )
+        SQL
+        Arel.sql(query)
+      end
+
       def self.export_serializer
         Decidim::Proposals::ProposalSerializer
       end

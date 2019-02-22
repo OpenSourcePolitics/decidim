@@ -3,7 +3,7 @@
     <%= check_box_tag "proposal_ids_s[]", proposal.id, false, class: "js-check-all-proposal js-proposal-list-check  js-proposal-id-#{proposal.id}" %><br />
   </td>
 
-  <% if component_settings.amendments_enabled %>
+  <% if component_settings.amendments_enabled && !(params[:q] && params[:q][:is_emendation_true].present?) %>
     <td>
       <span class="table-list__type-icon" data-toggle="<%= type_label_for_all(proposals) %>">
         <% if proposal.emendation? %>

@@ -9,71 +9,7 @@
     </h2>
   </div>
   <div class="filters__section">
-    <div class="fcell filter">
-      <ul class="dropdown menu" data-dropdown-menu data-close-on-click-inside="false">
-        <li class="is-dropdown-submenu-parent">
-          <a href="#" class="dropdown button">
-            <%= t("decidim.admin.actions.filter") %>
-          </a>
-          <ul class="nested vertical menu" data-close-on-click-inside="false">
-            <li class="is-dropdown-submenu-parent">
-              <a href="#"><%= t("models.proposal.fields.state", scope: "decidim.proposals") %></a>
-              <ul class="nested vertical menu">
-                <% filter_admin_state_values.each do |state| %>
-                  <li><%= link_to (humanize_proposal_state state), q: merge_query(state_eq: state) %></li>
-                <% end %>
-              </ul>
-            </li>
-            <li class="is-dropdown-submenu-parent">
-              <a href="#"><%= t("models.proposal.fields.category", scope: "decidim.proposals") %></a>
-              <ul class="nested vertical menu">
-                <% categories_for_select(categories).each do |category| %>
-                  <li><%= link_to category[0], q: merge_query(category_id_eq: category[1]) %></li>
-                <% end %>
-              </ul>
-            </li>
-          </ul>
-        </li>
-      </ul>
-    </div>
-    <div class="fcell search">
-      <%= search_form_for query do |f| %>
-        <% if params[:q] %>
-          <% if params[:q][:state_eq] %>
-            <%= hidden_field_tag "q[state_eq]", params[:q][:state_eq]  %>
-          <% end %>
-          <% if params[:q][:category_id_eq] %>
-            <%= hidden_field_tag "q[category_id_eq]", params[:q][:category_id_eq]  %>
-          <% end %>
-        <% end %>
-        <div class="input-group">
-          <%= f.search_field :title_or_body_cont,label: false, class: "input-group-field", placeholder: t("decidim.admin.impersonatable_users.index.search") %>
-          <div class="input-group-button">
-            <button type="submit" class="button button--muted">
-              <%= icon "magnifying-glass", aria_label: t("decidim.admin.impersonatable_users.index.search") %>
-            </button>
-          </div>
-        </div>
-      <% end %>
-    </div>
-    <% if params[:q] %>
-      <div class="fcell status">
-        <% if params[:q][:state_eq] %>
-          <span class="label secondary">
-            <%= t("models.proposal.fields.state", scope: "decidim.proposals") %> :
-            <%= humanize_proposal_state params[:q][:state_eq] %>
-            <%= icon_link_to "circle-x", url_for(q: drop_query(:state_eq)), t("decidim.admin.actions.cancel"), class: "action-icon--remove" %>
-          </span>
-        <% end %>
-        <% if params[:q][:category_id_eq] %>
-          <span class="label secondary">
-            <%= t("models.proposal.fields.category", scope: "decidim.proposals") %> :
-            <%= translated_attribute categories.find(params[:q][:category_id_eq]).name %>
-            <%= icon_link_to "circle-x", url_for(q: drop_query(:category_id_eq)), t("decidim.admin.actions.cancel"), class: "action-icon--remove" %>
-          </span>
-        <% end %>
-      </div>
-    <% end %>
+    <%= render partial: "filters" %>
   </div>
   <div class="card-section">
     <div class="table-scroll">
@@ -84,7 +20,7 @@
               <%= check_box_tag "proposals_bulk", "all", false, class: "js-check-all" %>
             </th>
 
-            <% if component_settings.amendments_enabled %>
+            <% if component_settings.amendments_enabled && !(params[:q] && params[:q][:is_emendation_true].present?)  %>
               <th>
                 <%= sort_link(query, :id, t("proposals.filters.type", scope: "decidim.proposals") ) %>
               </th>
