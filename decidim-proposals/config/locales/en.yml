@@ -645,6 +645,7 @@ en:
           comments: Comments
         filters:
           activity: Activity
+          type: Type
           amendment_type: Type
           category: Category
           category_prompt: Select a category

@@ -637,6 +637,7 @@ fr:
           comments: Commentaires
         filters:
           activity: Activité
+          type: Type
           amendment_type: Type de proposition
           category: Catégorie
           category_prompt: Sélectionner une catégorie
