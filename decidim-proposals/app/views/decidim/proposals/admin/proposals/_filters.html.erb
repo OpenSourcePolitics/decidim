@@ -4,7 +4,7 @@
       <a href="#" class="dropdown button">
         <%= t("decidim.admin.actions.filter") %>
       </a>
-      <ul class="nested vertical menu" data-close-on-click-inside="false">
+      <ul class="nested vertical menu">
         <li class="is-dropdown-submenu-parent">
           <a href="#"><%= t("proposals.filters.type", scope: "decidim.proposals") %></a>
           <ul class="nested vertical menu">
@@ -23,9 +23,7 @@
         <li class="is-dropdown-submenu-parent">
           <a href="#"><%= t("models.proposal.fields.category", scope: "decidim.proposals") %></a>
           <ul class="nested vertical menu">
-            <% categories_for_select(categories).each do |category| %>
-              <li><%= link_to category[0], q: merge_query(category_id_eq: category[1]) %></li>
-            <% end %>
+            <%= categories_nested_dropdown(categories) %>
           </ul>
         </li>
       </ul>
