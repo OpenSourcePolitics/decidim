@@ -369,8 +369,8 @@ fr:
           error: Message non envoyé. Réessayez plus tard
     newsletter_mailer:
       newsletter:
-        note: Vous avez reçu cet email parce que vous êtes abonné aux newsletters de %{organization_name}. Vous pouvez modifier vos paramètres sur votre <a href="%{link}">page de notifications</a>.
-        see_on_website: Vous ne pouvez pas voir cet email correctement ? Consultez la <a href="%{link}" target="_blank">version web</a>.
+        note: Vous avez reçu ce message parce que vous êtes abonné aux newsletters de %{organization_name}. Vous pouvez modifier vos paramètres sur votre <a href="%{link}">page de notifications</a>.
+        see_on_website: Vous ne pouvez pas voir cet message correctement ? Consultez la <a href="%{link}" target="_blank">version web</a>.
         unsubscribe: Pour ne plus recevoir ce type d'email, <a href="%{link}" target="_blank" class="unsubscribe">Désabonnez-vous</a>.
     newsletters:
       unsubscribe:
@@ -381,7 +381,7 @@ fr:
         unsubscribe: Se désabonner
     notification_mailer:
       shared:
-        note: You received this message because you're subscribed to notification by email on %{organization_name}. You can change your settings on your <a href="%{link}">notifications page</a>.
+        note: Vous avez reçu ce message parce que vous êtes abonné aux notifications par email de %{organization_name}. Vous pouvez modifier vos paramètres sur votre <a href="%{link}">page de notifications</a>.
     notifications:
       no_notifications: Il n'y a pas encore de notifications.
     notifications_settings:
@@ -425,7 +425,7 @@ fr:
           meetings_count: Rencontres
           orders_count: Votes
           pages_count: Pages
-          processes_count: Processus participatifs
+          processes_count: Concertations
           projects_count: Projets
           proposals_accepted: Propositions acceptées
           proposals_count: Propositions
