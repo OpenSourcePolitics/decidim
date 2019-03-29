@@ -5,6 +5,7 @@ module Decidim
     # This controller allows admins to manage moderations in a participatory process.
     class UpstreamModerationsController < Decidim::Admin::ApplicationController
       helper_method :upstream_moderations, :allowed_to?
+      helper Decidim::Messaging::ConversationHelper
 
       def index
         enforce_permission_to :read, :moderation

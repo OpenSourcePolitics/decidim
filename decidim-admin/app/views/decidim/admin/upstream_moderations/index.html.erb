@@ -19,6 +19,7 @@
         <thead>
         <tr>
           <th><%= t("models.upstream_moderation.fields.reportable", scope: "decidim.upstream_moderations") %></th>
+          <th><%= t("models.upstream_moderation.fields.user", scope: "decidim.upstream_moderations") %></th>
           <th><%= t("models.upstream_moderation.fields.reportable_title", scope: "decidim.upstream_moderations") %></th>
           <th><%= t("models.upstream_moderation.fields.reported_content_url", scope: "decidim.upstream_moderations") %></th>
           <% unless params[:visible] %>
@@ -31,6 +32,13 @@
           <tr data-id="<%= upstream_moderation.id %>">
             <td class="reportable-type">
               <%= upstream_moderation.upstream_reportable.class.name.demodulize %>
+            </td>
+            <td>
+              <% if upstream_moderation.upstream_reportable.try(:author) %>
+                <%= link_to upstream_moderation.upstream_reportable.author.name, current_or_new_conversation_path_with(upstream_moderation.upstream_reportable.author) %>
+              <% elsif upstream_moderation.upstream_reportable.try(:authors) %>
+                <%= link_to upstream_moderation.upstream_reportable.authors.first.name, current_or_new_conversation_path_with(upstream_moderation.upstream_reportable.authors.first) %>
+              <% end %>
             </td>
             <td>
               <div class="reportable-content">
