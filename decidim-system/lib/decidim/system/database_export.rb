@@ -36,7 +36,7 @@ module Decidim
       end
 
       def file_path(time)
-        Rails.root.join("backup_#{database}_#{time}.psql")
+        Rails.root.join("tmp", "backup_#{database}_#{time}.psql")
       end
     end
   end
