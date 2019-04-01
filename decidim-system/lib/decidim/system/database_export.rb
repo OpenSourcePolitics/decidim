@@ -1,12 +1,14 @@
 # frozen_string_literal: true
 
+require "securerandom"
+
 module Decidim
   module System
     class DatabaseExport
       attr_reader :path
 
       def initialize
-        @file_name = Time.zone.now.strftime("%F_%H-%M-%S")
+        @file_name = "#{Time.zone.now.strftime("%F")}_#{SecureRandom.urlsafe_base64}"
         @path = dump_database
       end
 
