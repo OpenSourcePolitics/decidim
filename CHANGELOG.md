@@ -1,7 +1,10 @@
 # Change Log
 
 
-## 0.12.2 - OSP specific changes:
+## 0.16 - OSP specific changes:
+
+Upgrade note:
+- Changes ruby version from 2.3 to 2.5.3 
 
 **Added**:
 
@@ -83,6 +86,7 @@ use the following command in your rails console : `Decidim::User.find_each { |us
 - **decidim-participatory_processes**: Fix hastag display on participatory processes. [\#200](https://github.com/OpenSourcePolitics/decidim/pull/200)
 - **decidim-core**: Fix test consistency [#222](https://github.com/OpenSourcePolitics/decidim/pull/222)
 - **decidim-core**: Add shinier signature. [#186](https://github.com/OpenSourcePolitics/decidim/pull/186)
+- **decidim-comments**: Comments not displayed with IE [#432](https://github.com/OpenSourcePolitics/decidim/issues/432)
 
 **Backported**:
 
@@ -94,6 +98,7 @@ use the following command in your rails console : `Decidim::User.find_each { |us
 - **decidim-proposals**: Hide withdrawn proposals from index [\#4012](https://github.com/decidim/decidim/pull/4012)
 - **decidim-core**: Allows users with admin access to preview unpublished components [\#209](https://github.com/OpenSourcePolitics/decidim/pull/209)
 - **decidim-core**: Fix proposal mentioned notification. [\#4281](https://github.com/decidim/decidim/pull/4281)
+- **decidim-core**: Use org default locale as fallback on emails [#4892](https://github.com/decidim/decidim/pull/4892)
 
 ## [Unreleased](https://github.com/decidim/decidim/tree/0.11-stable)
 ## [Unreleased](https://github.com/decidim/decidim/tree/0.15-stable)
@@ -117,6 +122,29 @@ use the following command in your rails console : `Decidim::User.find_each { |us
 
 ## [0.15.0](https://github.com/decidim/decidim/tree/v0.15.0)
 
+### Upgrade notes
+
+#### User follow counters
+
+After running the migrations, please run this code from a console:
+
+```ruby
+Decidim::UserBaseEntity.find_each do |entity|
+  follower_count = Decidim::Follow.where(followable: entity).count
+  following_count = Decidim::Follow.where(decidim_user_id: entity.id).count
+  following_users_count = Decidim::Follow.where(decidim_user_id: entity.id, decidim_followable_type: ["Decidim::UserBaseEntity", "Decidim::User", "Decidim::UserGroup"]).count
+
+  # We use `update_columns` to skip Searchable callbacks
+  entity.update_columns(
+    followers_count: follower_count,
+    following_count: following_count,
+    following_users_count: following_users_count
+  )
+end
+```
+
+### Changes
+
 **Added**:
 
 - **decidim-proposals**: Added a button to reset all participatory text drafts. [\#4817](https://github.com/decidim/decidim/pull/4817)
@@ -132,6 +160,7 @@ use the following command in your rails console : `Decidim::User.find_each { |us
 
 **Fixed**:
 
+- **decidim-core**: Fix wrong check of avatar_url in `/oauth/me` controller  [#4917](https://github.com/decidim/decidim/pull/4917)
 - **decidim-assemblies**: Fix parent assemblies children_count counter (add migration) [\#4855](https://github.com/decidim/decidim/pull/4855/)
 - **decidim-assemblies**: Fix parent assemblies children_count counter [\#4847](https://github.com/decidim/decidim/pull/4847/)
 - **decidim-proposals**: Fix Proposals Last Activity feed. [\#4836](https://github.com/decidim/decidim/pull/4836)
@@ -153,7 +182,6 @@ use the following command in your rails console : `Decidim::User.find_each { |us
 - **decidim-debates** Fix debates card and ordering [\#4879](https://github.com/decidim/decidim/pull/4879)
 - **decidim-proposals** Don't count withdrawn proposals when publishing one [\#4875](https://github.com/decidim/decidim/pull/4875)
 - **decidim-core**: Fix process filters [\#4872](https://github.com/decidim/decidim/pull/4872)
-
 
 ## [0.16.0](https://github.com/decidim/decidim/tree/v0.16.0)
 
@@ -762,6 +790,11 @@ In order to generate Open Data exports you should add this to your crontab or re
 - **decidim-core**: Fix background-size on home page [\#4678](https://github.com/decidim/decidim/pull/4678)
 - **decidim-meetings**: Filter meeting by end time instead of start time [\#4701](https://github.com/decidim/decidim/pull/4701)
 - **decidim-core**: MetricResolver filtering corrected comparison between symbol and string [\#4736](https://github.com/decidim/decidim/pull/4736)
+- **decidim-meetings**: Fix meeting questionnaire migration [\#4949](https://github.com/decidim/decidim/pull/4949/)
+- **decidim-core**: Speed up `AddFollowingAndFollowersCountersToUsers` migration [\#4955](https://github.com/decidim/decidim/pull/4955/)
+- **decidim-admin**: Let admins visit the autrhorization workflows index page [\#4963](https://github.com/decidim/decidim/pull/4963/)
+- **decidim-admin**: Do not generate profile URL in officializations view if nickname is missing [\#4962](https://github.com/decidim/decidim/pull/4962/)
+- **decidim-core**: Fix user presenter for user groups breaking notifications views [\#4973](https://github.com/decidim/decidim/pull/4973/)
 
 **Removed**:
 

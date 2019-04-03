@@ -55,7 +55,7 @@ fr:
         initiatives:
           fields:
             created_at: Créé à
-            id: ID
+            id: IDENTIFIANT
             state: État
             supports_count: Soutiens
             title: Titre
@@ -81,15 +81,19 @@ fr:
           notification_title: La date de fin de recueil des signatures pour l'initiative <a href="%{resource_path}">%{resource_title}</a> a été prolongée.
         milestone_completed:
           affected_user:
-            email_intro: Votre initiative %{resource_title} a réalisé le %{percentage}% de signatures!
-            email_outro: Vous avez reçu cette notification car vous êtes l'auteur de l'initiative %{resource_title}.
-            email_subject: Nouvelle étape franchie !
-            notification_title: Votre initiative <a href="%{resource_path}">%{resource_title}</a> a atteint les %{percentage}% de signatures.
+            email_intro: Votre initiative %{resource_title} a atteint le %{percentage}% des signatures !
+            email_outro: Vous avez reçu cette notification parce que vous êtes l'auteur de l'initiative %{resource_title}.
+            email_subject: Nouveau jalon franchi !
+            notification_title: Votre initiative <a href="%{resource_path}">%{resource_title}</a> a> a atteint le %{percentage}% des signatures.
+          email_intro: L'initiative %{resource_title} a atteint %{percentage}% des signatures requises !
+          email_outro: Vous avez reçu cette notification parce que vous suivez %{resource_title}. Vous pouvez arrêter de recevoir des notifications à partir du lien précédent.
+          email_subject: Nouvelle étape franchie !
           follower:
-            email_intro: L'initiative %{resource_title} a atteint %{percentage}% des signatures requises !
+            email_intro: L'initiative %{resource_title} a atteint le %{percentage}% des signatures !
             email_outro: Vous avez reçu cette notification parce que vous suivez %{resource_title}. Vous pouvez cesser de recevoir des notifications en suivant le lien précédent.
-            email_subject: Nouvelle étape franchie !
-            notification_title: L'initiative <a href="%{resource_path}">%{resource_title}</a> a atteint %{percentage}% des signatures requises.
+            email_subject: Nouveau jalon franchi !
+            notification_title: L'initiative <a href="%{resource_path}">%{resource_title}</a> a> a atteint le %{percentage}% des signatures.
+          notification_title: La pétition <a href="%{resource_path}">%{resource_title}</a> a atteint %{percentage}% des signatures requises.
     gamification:
       badges:
         initiatives:
@@ -247,7 +251,7 @@ fr:
         select_initiative_type:
           back: Retour
           more_information: "(Plus d'informations)"
-          select: Choisir
+          select: Sélectionner
           select_initiative_type_help: Les initiatives sont un moyen par lequel la communauté des citoyens peut se manifester afin que le conseil municipal entreprenne des actions d'intérêt général qui relèvent des champs de compétence municipaux. Quelle initiative voulez-vous lancer ?
         share_committee_link:
           continue: Continuer
@@ -260,12 +264,12 @@ fr:
       events:
         create_initiative_event:
           email_intro: "%{author_name} %{author_nickname}, que vous suivez, a créé une nouvelle initiative, lisez -la et contribuez :"
-          email_outro: Vous avez reçu cette notification, car vous suivez %{author_nickname}. Vous pouvez arrêter de recevoir des notifications à partir du lien précédent.
+          email_outro: Vous avez reçu cette notification, car vous suivez %{author_nickname}. Vous pouvez vous désabonner de cet utilisateur depuis sa <a href="%{author_path}">page de profil</a>.
           email_subject: Nouvelle initiative de %{author_nickname}
           notification_title: L'initiative <a href="%{resource_path}">%{resource_title}</a> a été créée par <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         endorse_initiative_event:
           email_intro: "%{author_name} %{author_nickname}, que vous suivez, a soutenu l'initiative suivante; vous pouvez y contribuer si vous le souhaitez :"
-          email_outro: Vous avez reçu cette notification parce que vous suivez %{author_nickname}. Vous pouvez arrêter de recevoir des notifications à partir du lien précédent.
+          email_outro: Vous avez reçu cette notification parce que vous suivez %{author_nickname}. Vous pouvez vous désabonner de cet utilisateur depuis sa <a href="%{author_path}">page de profil</a>.
           email_subject: Initiative soutenue par %{author_nickname}
           notification_title: L'initiative<a href="%{resource_path}">%{resource_title}</a> a été soutenue par <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
       index:
