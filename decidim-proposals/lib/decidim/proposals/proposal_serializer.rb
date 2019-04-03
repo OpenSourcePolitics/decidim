@@ -25,6 +25,11 @@ module Decidim
             id: @proposal.scope.try(:id),
             name: @proposal.scope.try(:name) || empty_translatable
           },
+          geolocation: {
+            address: @proposal.try(:address),
+            latitude: @proposal.try(:latitude),
+            longitude: @proposal.try(:longitude)
+          },
           title: @proposal.title,
           body: @proposal.body,
           votes: @proposal.proposal_votes_count,

@@ -9,7 +9,11 @@ module Decidim
         described_class.new(proposal)
       end
 
-      let!(:proposal) { create(:proposal) }
+      let(:address) { "1 Rue de la Libération, Île-de-Sein, Bretagne, France" }
+      let(:latitude) { 48.0378 }
+      let(:longitude) { -4.853650000000016 }
+      let(:proposal_component) { create(:proposal_component, :with_geocoding_enabled) }
+      let!(:proposal) { create(:proposal, address: address, component: proposal_component) }
       let!(:category) { create(:category, participatory_space: component.participatory_space) }
       let!(:scope) { create(:scope, organization: component.participatory_space.organization) }
       let(:participatory_process) { component.participatory_space }
@@ -22,6 +26,11 @@ module Decidim
         proposal.update!(category: category)
         proposal.update!(scope: scope)
         proposal.link_resources(meetings, "proposals_from_meeting")
+
+        Geocoder::Lookup::Test.add_stub(
+          address,
+          [{ "latitude" => latitude, "longitude" => longitude }]
+        )
       end
 
       describe "#serialize" do
@@ -47,6 +56,12 @@ module Decidim
 
         it "serializes the body" do
           expect(serialized).to include(body: proposal.body)
+        end
+
+        it "serializes the geolocation" do
+          expect(serialized[:geolocation]).to include(address: proposal.address)
+          expect(serialized[:geolocation]).to include(latitude: proposal.latitude)
+          expect(serialized[:geolocation]).to include(longitude: proposal.longitude)
         end
 
         it "serializes the amount of votes" do
