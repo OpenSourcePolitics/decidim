@@ -9,11 +9,11 @@ module Decidim
         let(:default_main_menu) { helper.main_menu.render }
 
         it "renders the default main menu" do
-          expect(default_main_menu).to \
-            have_selector("li", count: 3) &
-            have_link("Dashboard", href: "/system/") &
-            have_link("Organizations", href: "/system/organizations") &
-            have_link("Admins", href: "/system/admins")
+          expect(default_main_menu).to have_selector("li", count: 4)
+          expect(default_main_menu).to have_link("Dashboard", href: "/system/")
+          expect(default_main_menu).to have_link("Organizations", href: "/system/organizations")
+          expect(default_main_menu).to have_link("Admins", href: "/system/admins")
+          expect(default_main_menu).to have_link("Administration", href: "/system/administration")
         end
 
         it "selects the correct default active option" do
