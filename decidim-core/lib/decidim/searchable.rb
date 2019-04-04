@@ -56,10 +56,10 @@ module Decidim
 
       def contents_to_searchable_resource_attributes(fields, locale)
         contents = fields[:i18n][locale]
-        content_a = I18n.transliterate(contents[:A] || "")
-        content_b = I18n.transliterate(contents[:B] || "")
-        content_c = I18n.transliterate(contents[:C] || "")
-        content_d = I18n.transliterate(contents[:D] || "")
+        content_a = I18n.transliterate(contents.try(:A) || "")
+        content_b = I18n.transliterate(contents.try(:B) || "")
+        content_c = I18n.transliterate(contents.try(:C) || "")
+        content_d = I18n.transliterate(contents.try(:D) || "")
         {
           content_a: content_a, content_b: content_b, content_c: content_c, content_d: content_d,
           locale: locale,
