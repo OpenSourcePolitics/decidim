@@ -36,6 +36,7 @@ module Decidim
 
     def has_label?
       return true if model.respond_to?("emendation?") && model.emendation?
+
       context[:label].presence
     end
 
@@ -98,13 +99,15 @@ module Decidim
     end
 
     def comments_count
+      return model.comments.not_hidden.count if model.comments.respond_to? :not_hidden
+
       model.comments.count
     end
 
     def statuses
       collection = [:creation_date]
       collection << :follow if model.is_a?(Decidim::Followable) && model != try(:current_user)
-      collection << :comments_count if model.is_a?(Decidim::Comments::Commentable)
+      collection << :comments_count if model.is_a?(Decidim::Comments::Commentable) && model.commentable?
       collection
     end
 

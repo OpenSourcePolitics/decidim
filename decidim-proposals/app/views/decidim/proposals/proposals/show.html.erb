@@ -4,6 +4,15 @@
   url: proposal_url(@proposal.id)
 }) %>
 
+<%
+edit_link(
+  resource_locator(@proposal).edit,
+  :edit,
+  :proposal,
+  proposal: @proposal
+)
+%>
+
 <%= render partial: "voting_rules" %>
 <% if component_settings.participatory_texts_enabled? %>
   <div class="row column">
@@ -80,7 +89,7 @@
         <%= simple_format present(@proposal).body(links: true) %>
       <% end %>
       <% if component_settings.geocoding_enabled? %>
-        <%= render partial: "decidim/shared/static_map", locals: { icon_name: "proposals", geolocalizable: @proposal } %>
+        <%= render partial: "decidim/shared/static_map", locals: { icon_name: "map-marker", geolocalizable: @proposal } %>
       <% end %>
       <%= cell "decidim/proposals/proposal_tags", @proposal %>
     </div>

@@ -56,7 +56,7 @@ module Decidim
       end
 
       initializer "decidim.middleware" do |app|
-        app.config.middleware.use Decidim::CurrentOrganization
+        app.config.middleware.insert_before Warden::Manager, Decidim::CurrentOrganization
         app.config.middleware.use BatchLoader::Middleware
       end
 
@@ -104,9 +104,9 @@ module Decidim
             # IP address geocoding service (see below for supported options):
             # :ip_lookup => :maxmind,
             # to use an API key:
-            api_key: [Decidim.geocoder&.fetch(:here_app_id), Decidim.geocoder&.fetch(:here_app_code)]
+            api_key: [Decidim.geocoder&.fetch(:here_app_id), Decidim.geocoder&.fetch(:here_app_code)],
             # geocoding service request timeout, in seconds (default 3):
-            # :timeout => 5,
+            timeout: 15,
             # set default units to kilometers:
             # :units => :km,
             # caching (see below for details):

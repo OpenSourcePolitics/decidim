@@ -2,7 +2,7 @@ fr:
   activemodel:
     attributes:
       assembly:
-        area_id: Zone d'application
+        area_id: Périmètre d'assemblée
         assembly_type: Type d'assemblée
         assembly_type_other: Autre type d'assemblée
         banner_image: Image d'en-tête
@@ -15,8 +15,8 @@ fr:
         created_by: Créé par
         created_by_other: Si "autres", précisez
         creation_date: Date de création
-        decidim_area_id: Zone d'application
-        decidim_scope_id: Périmètre d'application
+        decidim_area_id: Périmètre d'assemblée
+        decidim_scope_id: Secteur
         description: Description
         developer_group: Groupe initiateur
         domain: Domaine
@@ -29,18 +29,18 @@ fr:
         instagram: Instagram
         internal_organisation: Organisation interne
         is_transparent: Visible par les non-membres
-        local_area: Zone d'organisation
-        meta_scope: Échelle
+        local_area: Lieu d'organisation
+        meta_scope: Secteur
         parent_id: Assemblée parentale
         participatory_processes_ids: Concertations associées
-        participatory_scope: Ce qui est décidé
+        participatory_scope: Objectif
         participatory_structure: Comment est-il décidé
-        private_space: Espace privé
+        private_space: Assemblée privée
         promoted: Mise en avant
         published_at: Publiée à
         purpose_of_action: But de l'action
-        scope_id: Périmètre d'application
-        scopes_enabled: Périmètres d'application activés
+        scope_id: Secteur
+        scopes_enabled: Secteurs activés
         short_description: Résumé
         show_statistics: Afficher les statistiques
         slug: Identifiant
@@ -58,9 +58,9 @@ fr:
         designation_mode: Mode de désignation
         full_name: Nom et prénom
         gender: Genre
-        position: Statut
+        position: Rôle
       assembly_user_role:
-        email: E-mail
+        email: email
         name: Nom 
         role: Fonction
   activerecord:
@@ -77,7 +77,7 @@ fr:
   decidim:
     admin:
       actions:
-        new_assembly: Nouvel assemblée
+        new_assembly: Nouvelle assemblée
       assemblies:
         create:
           error: Une erreur s'est produite lors de la création d'une nouvelle assemblée.
@@ -109,7 +109,7 @@ fr:
       assembly_members:
         create:
           error: Une erreur s'est produite lors de l'ajout d'un membre pour cette assemblée.
-          success: Membre créé avec succès pour cette assemblée.
+          success: Membre ajouté avec succès pour cette assemblée.
         destroy:
           success: Membre supprimé avec succès pour cette assemblée.
         edit:
@@ -154,18 +154,18 @@ fr:
           assembly_members: Membres
           attachment_collections: Dossiers
           attachment_files: Fichiers
-          attachments: Documents liés
+          attachments: Pièce jointes
           categories: Catégories
-          components: Composants
+          components: Fonctionnalités
           info: Information
-          moderations: Modérations
+          moderations: Modération
           private_users: Utilisateurs privés
       models:
         assembly:
           fields:
             created_at: Créée le
-            private: Privé
-            promoted: Mise en évidence
+            private: Assemblée privée
+            promoted: Mise en avant
             published: Publiée
             title: Titre
           name: Assemblée
@@ -174,7 +174,7 @@ fr:
             ceased_date: Date de radiation
             designation_date: Date de désignation
             full_name: Nom et prénom
-            position: Statut
+            position: Rôle
           name: Membre
           positions:
             other: Autre
@@ -183,7 +183,7 @@ fr:
             vice_president: Vice président
         assembly_user_role:
           fields:
-            email: Email
+            email: email
             name: Nom
             role: Fonction
           name: Utilisateur de l'assemblée
@@ -200,7 +200,7 @@ fr:
         unpublish: "%{user_name} a dépublié l'assemblée %{resource_name}"
         update: "%{user_name} a mis à jour l'assemblée %{resource_name}"
       assembly_member:
-        create: "%{user_name} a créé le membre %{resource_name} membre dans l'assemblée %{space_name}"
+        create: "%{user_name} a ajouté le membre %{resource_name} dans l'assemblée %{space_name}"
         delete: "%{user_name} enlevé le membre %{resource_name} de l'assemblée %{space_name}"
         update: "%{user_name} a mis à jour le membre %{resource_name} de l'assemblée %{space_name}"
       assembly_user_role:
@@ -214,19 +214,19 @@ fr:
             duration_help: Si la durée de cette assemblée est limitée, sélectionnez la date de fin. Sinon sa durée ne sera pas limitée.
             included_at_help: Sélectionnez la date à laquelle cet assemblée a été ajoutée à Decidim. Elle ne doit pas nécessairement être identique à la date de création.
             select_a_created_by: Sélectionnez un créateur
-            select_an_area: Sélectionnez une zone d'application
+            select_an_area: Sélectionnez un périmètre d'assemblée
             select_an_assembly_type: Sélectionnez un type d'assemblée
-            select_parent_assembly: Sélectionner l'assemblage parent
+            select_parent_assembly: Sélectionner l'assemblée parente
             slug_help: 'Les identifiants d''URL sont utilisés pour générer les liens qui renvoient vers cette assemblée. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple: %{url}'
             social_handlers: Réseaux sociaux
         assembly_copies:
           form:
-            slug_help: 'Les identifiants d''URL sont utilisés pour générer les liens qui envoient vers cette agora. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple: %{url}'
+            slug_help: 'Les identifiants d''URL sont utilisés pour générer les liens qui envoient vers cette assemblée. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple: %{url}'
         assembly_members:
           form:
             existing_user: Utilisateur existant
             non_user: Utilisateur inconnu
-            select_a_position: Sélectionnez un statut
+            select_a_position: Sélectionnez un rôle
             select_user: Sélectionnez un utilisateur
             user_type: Type d'utilisateur
           index:
@@ -252,18 +252,18 @@ fr:
         working_group: Groupe de travail
       content_blocks:
         highlighted_assemblies:
-          name: Assemblages en surbrillance
+          name: Assemblées mises en avant
       created_by:
         city_council: Conseil municipal
         others: Autres
         public: Public
       filter:
-        all: Tous
+        all: Toutes
         commission: Commission
         consultative_advisory: Consultatif/Consultatif
         executive: Exécutif
         government: Gouvernement
-        label: 'Montrer :'
+        label: 'Afficher :'
         others: Autres
         participatory: Participatif
         placeholder: Filtrer par type
@@ -281,12 +281,12 @@ fr:
           member_of:
             member_of: Membre de
       show:
-        area: Zone d'application
+        area: Périmètre d'assemblée
         assembly_type: Type d'assemblée
         children: Assemblées
         closing_date: Date de clôture
         composition: Composition
-        created_by: Créé par
+        created_by: Créée par
         creation_date: Date de création
         developer_group: Groupe initiateur
         duration: Durée
@@ -296,15 +296,15 @@ fr:
         is_transparent:
           'false': non-visible par les non-membres
           'true': visible par les non-membres
-        local_area: Zone d'organisation
-        participatory_scope: Ce qui est décidé
-        participatory_structure: Comment est-il décidé
+        local_area: Lieu d'organisation
+        participatory_scope: Modalités de participation
+        participatory_structure: Comment est-ce décidé
         private_space: Ceci est une assemblée privée
-        purpose_of_action: But de l'action
+        purpose_of_action: Objectif de l'action
         read_less: Voir moins
         read_more: Voir la suite
         related_participatory_processes: Concertations associées
-        scope: Périmètre d'application
+        scope: Secteur
         social_networks: Réseaux sociaux
         target: Qui participe
       statistics:
@@ -331,8 +331,8 @@ fr:
     help:
       participatory_spaces:
         assemblies:
-          contextual: "<p>Une assemblée est un groupe de membres d'une organisation qui se réunissent périodiquement pour prendre des décisions concernant un domaine spécifique ou la portée de l'organisation.</p> <p>assemblées tiennent des réunions, certaines sont privées et d'autres sont ouvertes. S'ils sont ouverts, il est possible d'y participer (par exemple: participer si la capacité le permet, ajouter des points à l'ordre du jour ou commenter les propositions et décisions prises par cet organe).</p> <p>Exemples: Une assemblée générale (qui se réunit une fois par an pour définir les principaux axes d'action de l'organisation ainsi que ses organes exécutifs par vote), un conseil consultatif sur l'égalité (qui se réunit tous les deux mois pour formuler des propositions sur la manière d'améliorer les relations entre les hommes et les femmes). dans l’organisation), une commission d’évaluation (qui se réunit tous les mois pour contrôler un processus) ou un organisme de garantie (qui collecte des incidents, des abus ou des propositions pour améliorer les processus décisionnels) sont tous des exemples de réunions.</p>\n"
-          page: "<p>Une assemblée est un groupe de membres d'une organisation qui se réunissent périodiquement pour prendre des décisions concernant un domaine spécifique ou la portée de l'organisation.</p> <p>assemblées tiennent des réunions, certaines sont privées et d'autres sont ouvertes. S'ils sont ouverts, il est possible d'y participer (par exemple: participer si la capacité le permet, ajouter des points à l'ordre du jour ou commenter les propositions et décisions prises par cet organe).</p> <p>Exemples: Une assemblée générale (qui se réunit une fois par an pour définir les principaux axes d'action de l'organisation ainsi que ses organes exécutifs par vote), un conseil consultatif sur l'égalité (qui se réunit tous les deux mois pour formuler des propositions sur la manière d'améliorer les relations entre les hommes et les femmes). dans l’organisation), une commission d’évaluation (qui se réunit tous les mois pour contrôler un processus) ou un organisme de garantie (qui collecte des incidents, des abus ou des propositions pour améliorer les processus décisionnels) sont tous des exemples de réunions.</p>\n"
+          contextual: "<p>Une assemblée est un groupe de membres d'une organisation qui se réunissent pour prendre des décisions concernant l'organisation.</p><p>Les assemblées tiennent des réunions, certaines sont privées et d'autres sont ouvertes. Si elles sont ouvertes, il est possible d'y contribuer (par exemple : en y participant si la capacité le permet, en ajoutant des points à l'ordre du jour ou en commentant les propositions et décisions prises).</p><p>Exemples :<ul><li> une assemblée générale qui se réunit une fois par an pour définir les principaux axes d'action de l'organisation,</li> <li>un conseil consultatif sur l'égalité qui se réunit tous les deux mois pour formuler des propositions sur la manière d'améliorer les relations entre les hommes et les femmes dans l’organisation, </li><li>une commission d’évaluation qui se réunit tous les mois pour contrôler un processus,</li><li> un organisme de garantie qui collecte des incidents,</li><li>des abus ou des propositions pour améliorer les processus décisionnels sont tous des exemples de réunions.</li></ul></p>\n"
+          page: "<p>Une assemblée est un groupe de membres d'une organisation qui se réunissent pour prendre des décisions concernant l'organisation.</p><p>Les assemblées tiennent des réunions, certaines sont privées et d'autres sont ouvertes. Si elles sont ouvertes, il est possible d'y contribuer (par exemple : en y participant si la capacité le permet, en ajoutant des points à l'ordre du jour ou en commentant les propositions et décisions prises).</p><p>Exemples :<ul><li> une assemblée générale qui se réunit une fois par an pour définir les principaux axes d'action de l'organisation,</li> <li>un conseil consultatif sur l'égalité qui se réunit tous les deux mois pour formuler des propositions sur la manière d'améliorer les relations entre les hommes et les femmes dans l’organisation, </li><li>une commission d’évaluation qui se réunit tous les mois pour contrôler un processus,</li><li> un organisme de garantie qui collecte des incidents, des abus ou des propositions pour améliorer les processus décisionnels sont tous des exemples de réunions.</li></ul></p>\n"
           title: Que sont les assemblées?
     log:
       value_types:
@@ -342,9 +342,9 @@ fr:
       assemblies: Assemblées
     metrics:
       assemblies:
-        description: Nombre d'assemblages créés
+        description: Nombre d'assemblées créées
         object: assemblées
-        title: Assemblages
+        title: Assemblées
   errors:
     messages:
       cannot_be_blank: ne peut être vide
@@ -359,14 +359,14 @@ fr:
           reset_chart: Réinitialiser
         order_by_assemblies:
           assemblies:
-            one: "%{count} assemblées"
+            one: "%{count} assemblée"
             other: "%{count} assemblées"
         promoted_assembly:
           more_info: Plus d'informations
           take_part: Participer
       assembly_navigation:
         assembly_member_menu_item: Membres
-        assembly_menu_item: L'assemblée
+        assembly_menu_item: Présentation
       assembly_widgets:
         show:
           take_part: Participer
