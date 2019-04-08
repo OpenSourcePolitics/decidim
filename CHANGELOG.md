@@ -15,6 +15,7 @@ use the following command in your rails console : `Decidim::User.find_each { |us
 
 **Added**:
 
+- **decidim-proposals**: Add geolocation to proposals export. [#572](https://github.com/OpenSourcePolitics/decidim/pull/572)
 - **decidim-admin**: Add pagination to private user list. [\#345](https://github.com/OpenSourcePolitics/decidim/pull/345)
 - **decidim-budgets**: Re-introduce vote on budget by number of project.[\#330](https://github.com/OpenSourcePolitics/decidim/pull/330)
 - **decidim-debates**: Allow debates to be reported [\#199](https://github.com/OpenSourcePolitics/decidim/pull/199)
@@ -40,6 +41,9 @@ use the following command in your rails console : `Decidim::User.find_each { |us
 
 **Fixed**:
 
+- **decidim-proposals**: Fix stats display.[\#356](https://github.com/OpenSourcePolitics/decidim/pull/356)
+- **decidim-debates**: Fix stats display.[\#356](https://github.com/OpenSourcePolitics/decidim/pull/356)
+- **decidim-debates**: Fix stats display.[\#356](https://github.com/OpenSourcePolitics/decidim/pull/356)
 - **decidim-core**: Fix comments count when a comment has been moderated [\#349](https://github.com/OpenSourcePolitics/decidim/pull/349)
 - **decidim-participatory_processes**: Fix participatory processes pagination[\#351](https://github.com/OpenSourcePolitics/decidim/pull/351)
 - **decidim-core**: Fix newsletter notification modal [\#342](https://github.com/OpenSourcePolitics/decidim/pull/342)
@@ -60,6 +64,7 @@ use the following command in your rails console : `Decidim::User.find_each { |us
 - **decidim-participatory_processes**: Fix hastag display on participatory processes. [\#200](https://github.com/OpenSourcePolitics/decidim/pull/200)
 - **decidim-core**: Fix test consistency [#222](https://github.com/OpenSourcePolitics/decidim/pull/222)
 - **decidim-core**: Add shinier signature. [#186](https://github.com/OpenSourcePolitics/decidim/pull/186)
+- **decidim-comments**: Comments not displayed with IE [#432](https://github.com/OpenSourcePolitics/decidim/issues/432)
 
 **Backported**:
 
@@ -70,6 +75,7 @@ use the following command in your rails console : `Decidim::User.find_each { |us
 - **decidim-proposals**: Hide withdrawn proposals from index [\#4012](https://github.com/decidim/decidim/pull/4012)
 - **decidim-core**: Allows users with admin access to preview unpublished components [\#209](https://github.com/OpenSourcePolitics/decidim/pull/209)
 - **decidim-core**: Fix proposal mentioned notification. [\#4281](https://github.com/decidim/decidim/pull/4281)
+- **decidim-core**: Use org default locale as fallback on emails [#4892](https://github.com/decidim/decidim/pull/4892)
 
 ## [Unreleased](https://github.com/decidim/decidim/tree/0.11-stable)
 
