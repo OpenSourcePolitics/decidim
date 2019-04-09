@@ -18,7 +18,8 @@ Upgrade note:
 
 **Fixed**:
 
-- **decidim-comments**: Fix comment reply when comments blocked [\#]()
+- **decidim-proposals** Fix unhideable reported collaborative drafts and mail jobs [\#4938](https://github.com/decidim/decidim/pull/4938)
+- **decidim-comments**: Fix comment reply when comments blocked [\#578](https://github.com/OpenSourcePolitics/decidim/pull/578)
 - **decidim-proposals**: Fix attachments not being inherited from collaborative draft when published as proposal. [\#4815](https://github.com/decidim/decidim/pull/4815)
 - **decidim-proposals**: Fix participatory texts error uploading files with accents and special characters. [\#4801](https://github.com/decidim/decidim/pull/4801)
 - **decidim-proposals** Public view of Participatory Text is now preserving new lines. [\#4801](https://github.com/decidim/decidim/pull/4801)
