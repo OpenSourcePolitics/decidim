@@ -35,9 +35,9 @@
             </td>
             <td>
               <% if upstream_moderation.upstream_reportable.try(:author) %>
-                <%= link_to upstream_moderation.upstream_reportable.author.name, current_or_new_conversation_path_with(upstream_moderation.upstream_reportable.author) %>
+                <%= link_to upstream_moderation.upstream_reportable.author.name, current_or_new_conversation_path_with(upstream_moderation.upstream_reportable.author), target: "_blank" %>
               <% elsif upstream_moderation.upstream_reportable.try(:authors) %>
-                <%= link_to upstream_moderation.upstream_reportable.authors.first.name, current_or_new_conversation_path_with(upstream_moderation.upstream_reportable.authors.first) %>
+                <%= link_to upstream_moderation.upstream_reportable.authors.first.name, current_or_new_conversation_path_with(upstream_moderation.upstream_reportable.authors.first), target: "_blank" %>
               <% end %>
             </td>
             <td>
