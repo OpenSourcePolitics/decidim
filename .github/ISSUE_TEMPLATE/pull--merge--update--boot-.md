@@ -7,18 +7,15 @@ assignees: ''
 
 ---
 
-##OSP
+## OSP
 **Merge**
 - [ ] - 
 
 **Boot & Updates**
 - [ ] - 
  
-**Merge if dealt with** 
-- [ ] - 
- 
 ## BCN
-**Pull if available**
+**Pull / Backport**
 - [ ] - 
 
 **Send**
