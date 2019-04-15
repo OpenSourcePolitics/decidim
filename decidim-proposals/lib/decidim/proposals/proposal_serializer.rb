@@ -78,7 +78,7 @@ module Decidim
       end
 
       def attachments_url
-        proposal.attachments.map(&:url)
+        proposal.attachments.map { |attachment| Decidim::ResourceLocatorPresenter.new(attachment).url }
       end
     end
   end
