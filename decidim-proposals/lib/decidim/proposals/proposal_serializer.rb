@@ -74,7 +74,7 @@ module Decidim
       end
 
       def authors_nickname
-        proposal.authors.map(&:nickname)
+        proposal.authors.map { |author| author.try(:nickname) || author.try(:name) }
       end
 
       def attachments_url

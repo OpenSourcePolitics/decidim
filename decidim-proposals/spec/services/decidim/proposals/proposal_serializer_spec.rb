@@ -109,8 +109,29 @@ module Decidim
           expect(serialized[:related_proposals].first).to match(%r{http.*/proposals})
         end
 
-        it "serializes the authors" do
+        it "serializes the author" do
           expect(serialized).to include(authors_nickname: proposal.authors.map(&:nickname))
+        end
+
+        context "when multiple authors" do
+          let!(:users) { create_list(:user, 3, organization: proposals_component.organization) }
+          let!(:proposal) { create(:proposal, :accepted) }
+
+          it "serializes the authors" do
+            users.each { |user| proposal.add_coauthor(user) }
+            expect(serialized).to include(authors_nickname: proposal.authors.map(&:nickname))
+          end
+        end
+
+        context "when authors includes an official" do
+          let!(:users) { create_list(:user, 3, organization: proposals_component.organization) }
+          let!(:proposal) { create(:proposal, :accepted, :official) }
+
+          it "serializes the authors" do
+            users.each { |user| proposal.add_coauthor(user) }
+
+            expect(serialized).to include(authors_nickname: proposal.authors.map { |author| author.try(:nickname) || author.try(:name) })
+          end
         end
       end
     end
