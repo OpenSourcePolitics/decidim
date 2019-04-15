@@ -21,6 +21,9 @@ module Decidim
       let!(:proposals_component) { create(:component, manifest_name: "proposals", participatory_space: participatory_process) }
       let(:other_proposals) { create_list(:proposal, 2, component: proposals_component) }
 
+      let!(:emendation) { create(:proposal, component: component) }
+      let!(:amendment) { create(:amendment, amendable: proposal, emendation: emendation) }
+
       before do
         proposal.update!(category: category)
         proposal.update!(scope: scope)
@@ -59,6 +62,11 @@ module Decidim
 
         it "serializes the amount of comments" do
           expect(serialized).to include(comments: proposal.comments.count)
+        end
+
+        it "serializes the amount of amendments" do
+          expect(serialized).to include(amendments: proposal.amendments.count)
+          expect(serialized[:amendments]).to eq(1)
         end
 
         it "serializes the date of creation" do

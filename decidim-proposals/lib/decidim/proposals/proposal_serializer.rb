@@ -38,6 +38,7 @@ module Decidim
           supports: proposal.proposal_votes_count,
           endorsements: proposal.endorsements.count,
           comments: proposal.comments.count,
+          amendments: proposal.amendments.count,
           attachments_url: attachments_url,
           attachments: proposal.attachments.count,
           followers: proposal.followers.count,
