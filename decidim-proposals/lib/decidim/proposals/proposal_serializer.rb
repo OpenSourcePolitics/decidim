@@ -43,7 +43,8 @@ module Decidim
           published_at: proposal.published_at,
           url: url,
           meeting_urls: meetings,
-          related_proposals: related_proposals
+          related_proposals: related_proposals,
+          authors_nickname: authors_nickname
         }
       end
 
@@ -69,6 +70,10 @@ module Decidim
 
       def url
         Decidim::ResourceLocatorPresenter.new(proposal).url
+      end
+
+      def authors_nickname
+        proposal.authors.map(&:nickname)
       end
     end
   end

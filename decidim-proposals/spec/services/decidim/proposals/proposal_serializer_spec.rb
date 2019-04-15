@@ -103,6 +103,10 @@ module Decidim
           expect(serialized[:related_proposals].length).to eq(2)
           expect(serialized[:related_proposals].first).to match(%r{http.*/proposals})
         end
+
+        it "serializes the authors" do
+          expect(serialized).to include(authors_nickname: proposal.authors.map(&:nickname))
+        end
       end
     end
   end
