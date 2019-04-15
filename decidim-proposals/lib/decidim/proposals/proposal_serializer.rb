@@ -38,6 +38,7 @@ module Decidim
           supports: proposal.proposal_votes_count,
           endorsements: proposal.endorsements.count,
           comments: proposal.comments.count,
+          attachments_url: attachments_url,
           attachments: proposal.attachments.count,
           followers: proposal.followers.count,
           published_at: proposal.published_at,
@@ -74,6 +75,10 @@ module Decidim
 
       def authors_nickname
         proposal.authors.map(&:nickname)
+      end
+
+      def attachments_url
+        proposal.attachments.map(&:url)
       end
     end
   end
