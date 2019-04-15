@@ -20,6 +20,7 @@ Upgrade note:
 
 **Fixed**:
 
+- **decidim-budgets**: Fix button updates [\#4941](https://github.com/decidim/decidim/pull/4941)
 - **decidim-proposals** Fix unhideable reported collaborative drafts and mail jobs [\#4938](https://github.com/decidim/decidim/pull/4938)
 - **decidim-comments**: Fix comment reply when comments blocked [\#578](https://github.com/OpenSourcePolitics/decidim/pull/578)
 - **decidim-meetings**: Fix pasting to meetings description at the admin panel (and other quill editors that have hashtags enabled) [\#4980](https://github.com/decidim/decidim/pull/4980)
