@@ -20,6 +20,7 @@ Upgrade note:
 
 **Fixed**:
 
+- **decidim-participatory_processes**: Fix step CTA URL when abse URL had params [#5082](https://github.com/decidim/decidim/pull/5082)
 - **decidim-budgets**: Fix button updates [\#4941](https://github.com/decidim/decidim/pull/4941)
 - **decidim-proposals** Fix unhideable reported collaborative drafts and mail jobs [\#4938](https://github.com/decidim/decidim/pull/4938)
 - **decidim-comments**: Fix comment reply when comments blocked [\#578](https://github.com/OpenSourcePolitics/decidim/pull/578)

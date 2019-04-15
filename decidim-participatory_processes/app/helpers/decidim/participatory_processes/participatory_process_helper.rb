@@ -15,6 +15,22 @@ module Decidim
         dates.map { |date| date ? localize(date.to_date, format: :default) : "?" }.join(" - ")
       end
 
+      # Public: Builds the URL for the step Call To Action. Takes URL params
+      # into account.
+      #
+      # process - a ParticipatoryProcess
+      #
+      # Returns a String that can be used as a URL.
+      def step_cta_url(process)
+        base_url, params = decidim_participatory_processes.participatory_process_path(process).split("?")
+
+        if params.present?
+          [base_url, "/", process.active_step.cta_path, "?", params].join("")
+        else
+          [base_url, "/", process.active_step.cta_path].join("")
+        end
+      end
+
       def cta(process, locale)
         if translated_in_current_locale(process.active_step&.cta_text)
           translated_attribute(process.active_step.cta_text)
