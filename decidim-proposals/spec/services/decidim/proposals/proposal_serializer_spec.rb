@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim
   module Proposals
-    describe ProposalSerializer do
+    describe ProposalSerializer, processing_uploads_for: Decidim::AttachmentUploader do
       subject do
         described_class.new(proposal)
       end
@@ -24,16 +24,18 @@ module Decidim
       let!(:emendation) { create(:proposal, component: component) }
       let!(:amendment) { create(:amendment, amendable: proposal, emendation: emendation) }
 
-      let!(:attachment) { Decidim::Attachment.create(attachment_params) }
+      let!(:attachment) { Decidim::Attachment.new(attachment_params) }
       let(:attachment_params) do
         {
           title: "My attachment",
           file: Decidim::Dev.test_file("city.jpeg", "image/jpeg"),
+          content_type: "image/jpeg",
           attached_to: proposal
         }
       end
 
       before do
+        attachment.save!
         proposal.update!(category: category)
         proposal.update!(scope: scope)
         proposal.link_resources(meetings, "proposals_from_meeting")
@@ -113,7 +115,7 @@ module Decidim
         end
 
         it "serializes attachments url" do
-          expect(serialized).to include(attachments_url: proposal.attachments.map { |attachment| proposals_component.organisation.host + attachment.url })
+          expect(serialized).to include(attachments_url: proposal.attachments.map(&:url))
           expect(serialized[:attachments_url].length).to eq(proposal.attachments.count)
           expect(serialized[:attachments_url].length).to eq(1)
         end
