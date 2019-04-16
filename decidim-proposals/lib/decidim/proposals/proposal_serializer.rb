@@ -30,6 +30,7 @@ module Decidim
             id: proposal.participatory_space.id,
             url: Decidim::ResourceLocatorPresenter.new(proposal.participatory_space).url
           },
+          collaborative_draft_origin: proposal.collaborative_draft_origin,
           component: { id: component.id },
           title: present(proposal).title,
           body: present(proposal).body,

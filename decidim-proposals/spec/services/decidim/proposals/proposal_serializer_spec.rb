@@ -18,11 +18,20 @@ module Decidim
       let!(:meetings_component) { create(:component, manifest_name: "meetings", participatory_space: participatory_process) }
       let(:meetings) { create_list(:meeting, 2, component: meetings_component) }
 
-      let!(:proposals_component) { create(:component, manifest_name: "proposals", participatory_space: participatory_process) }
+      let!(:proposals_component) { create(:proposal_component, :with_attachments_allowed, manifest_name: "proposals", participatory_space: participatory_process) }
       let(:other_proposals) { create_list(:proposal, 2, component: proposals_component) }
 
       let!(:emendation) { create(:proposal, component: component) }
       let!(:amendment) { create(:amendment, amendable: proposal, emendation: emendation) }
+
+      let!(:attachment) { Decidim::Attachment.create(attachment_params) }
+      let(:attachment_params) do
+        {
+          title: "My attachment",
+          file: Decidim::Dev.test_file("city.jpeg", "image/jpeg"),
+          attached_to: proposal
+        }
+      end
 
       before do
         proposal.update!(category: category)
@@ -54,6 +63,10 @@ module Decidim
 
         it "serializes the body" do
           expect(serialized).to include(body: proposal.body)
+        end
+
+        it "serializes the origin" do
+          expect(serialized).to include(collaborative_draft_origin: proposal.collaborative_draft_origin)
         end
 
         it "serializes the amount of supports" do
@@ -102,6 +115,7 @@ module Decidim
         it "serializes attachments url" do
           expect(serialized).to include(attachments_url: proposal.attachments.map { |attachment| proposals_component.organisation.host + attachment.url })
           expect(serialized[:attachments_url].length).to eq(proposal.attachments.count)
+          expect(serialized[:attachments_url].length).to eq(1)
         end
 
         it "serializes the amount of attachments" do

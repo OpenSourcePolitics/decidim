@@ -20,10 +20,7 @@ module Decidim
 
       context "when the file is a malicious image" do
         subject do
-          build(
-            :attachment,
-            file: Rack::Test::UploadedFile.new(attachment_path, "image/jpg")
-          )
+          &
         end
 
         let(:attachment_path) { Decidim::Dev.asset("malicious.jpg") }
