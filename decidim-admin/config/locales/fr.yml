@@ -782,6 +782,7 @@ fr:
       models:
         upstream_moderation:
           fields:
+            user: Utilisateur
             reportable: Signalements
             reportable_title: Titre
             reported_content_url: URL du contenu

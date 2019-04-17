@@ -787,7 +787,7 @@ en:
             reportable_title: Reportable title
             reported_content_url: Reported content url
             visit_url: Visit url
-            user: Utilisateur
+            user: User
   errors:
     messages:
       invalid_json: Invalid JSON

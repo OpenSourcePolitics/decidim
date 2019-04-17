@@ -63,13 +63,17 @@ module Decidim
         raise NotImplementedError
       end
 
-      private
-
       def send_notification_to_moderators
         participatory_space_moderators.each do |moderator|
           Decidim::Admin::UpstreamModerationMailer.notify_moderator(moderator, self).deliver_now
         end
       end
+
+      def participatory_space_moderators
+        @participatory_space_moderators ||= participatory_space.moderators
+      end
+
+      private
 
       def send_notification_to_author
         Decidim::EventsManager.publish(
@@ -99,10 +103,6 @@ module Decidim
                    authors.first
                  end
         participatory_space_moderators.include? author
-      end
-
-      def participatory_space_moderators
-        @participatory_space_moderators ||= participatory_space.moderators
       end
 
       def participatory_space
