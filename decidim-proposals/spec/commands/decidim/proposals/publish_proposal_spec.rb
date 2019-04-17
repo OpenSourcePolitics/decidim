@@ -42,28 +42,28 @@ module Decidim
             create(:follow, followable: component.participatory_space, user: other_follower)
 
             allow(Decidim::EventsManager).to receive(:publish)
-                                               .with(hash_including(event: "decidim.events.gamification.badge_earned"))
+              .with(hash_including(event: "decidim.events.gamification.badge_earned"))
 
             expect(Decidim::EventsManager)
               .to receive(:publish)
-                    .with(
-                      event: "decidim.events.proposals.proposal_published",
-                      event_class: Decidim::Proposals::PublishProposalEvent,
-                      resource: kind_of(Decidim::Proposals::Proposal),
-                      followers: [follower]
-                    )
+              .with(
+                event: "decidim.events.proposals.proposal_published",
+                event_class: Decidim::Proposals::PublishProposalEvent,
+                resource: kind_of(Decidim::Proposals::Proposal),
+                followers: [follower]
+              )
 
             expect(Decidim::EventsManager)
               .to receive(:publish)
-                    .with(
-                      event: "decidim.events.proposals.proposal_published",
-                      event_class: Decidim::Proposals::PublishProposalEvent,
-                      resource: kind_of(Decidim::Proposals::Proposal),
-                      followers: [other_follower],
-                      extra: {
-                        participatory_space: true
-                      }
-                    )
+              .with(
+                event: "decidim.events.proposals.proposal_published",
+                event_class: Decidim::Proposals::PublishProposalEvent,
+                resource: kind_of(Decidim::Proposals::Proposal),
+                followers: [other_follower],
+                extra: {
+                  participatory_space: true
+                }
+              )
 
             subject.call
           end
