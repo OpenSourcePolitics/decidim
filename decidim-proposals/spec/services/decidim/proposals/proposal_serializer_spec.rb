@@ -133,28 +133,32 @@ module Decidim
           expect(serialized[:related_proposals].first).to match(%r{http.*/proposals})
         end
 
-        it "serializes the author" do
-          expect(serialized).to include(authors_nickname: proposal.authors.map(&:nickname))
+        it "serializes the author profile url" do
+          expect(serialized[:authors_url]).to all(match(%r{http.*/profiles}))
+          expect(serialized[:authors_url].length).to eq(1)
         end
 
         context "when multiple authors" do
           let!(:users) { create_list(:user, 3, organization: proposals_component.organization) }
           let!(:proposal) { create(:proposal, :accepted) }
 
-          it "serializes the authors" do
+          before do
             users.each { |user| proposal.add_coauthor(user) }
-            expect(serialized).to include(authors_nickname: proposal.authors.map(&:nickname))
           end
-        end
 
-        context "when authors includes an official" do
-          let!(:users) { create_list(:user, 3, organization: proposals_component.organization) }
-          let!(:proposal) { create(:proposal, :accepted, :official) }
+          it "serializes the authors url" do
+            expect(serialized[:authors_url]).to all(match(%r{http.*/profiles}))
+            expect(serialized[:authors_url].length).to eq(4)
+          end
 
-          it "serializes the authors" do
-            users.each { |user| proposal.add_coauthor(user) }
+          context "when authors includes an official" do
+            let!(:proposal) { create(:proposal, :accepted, :official) }
 
-            expect(serialized).to include(authors_nickname: proposal.authors.map { |author| author.try(:nickname) || author.try(:name) })
+            it "serializes the authors" do
+              expect(serialized[:authors_url].first).to eq("")
+              expect(serialized[:authors_url][1..-1]).to all(match(%r{http.*/profiles}))
+              expect(serialized[:authors_url].length).to eq(4)
+            end
           end
         end
       end

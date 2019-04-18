@@ -47,7 +47,7 @@ module Decidim
           url: url,
           meeting_urls: meetings,
           related_proposals: related_proposals,
-          authors_nickname: authors_nickname
+          authors_url: authors_url
         }
       end
 
@@ -75,8 +75,8 @@ module Decidim
         Decidim::ResourceLocatorPresenter.new(proposal).url
       end
 
-      def authors_nickname
-        proposal.authors.map { |author| author.try(:nickname) || author.try(:name) }
+      def authors_url
+        proposal.authors.map { |author| Decidim::UserPresenter.new(author).profile_url }
       end
 
       def attachments_url
