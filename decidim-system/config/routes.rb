@@ -12,6 +12,8 @@ Decidim::System::Engine.routes.draw do
 
   authenticate(:admin) do
     resources :organizations, except: [:destroy]
+    get :administration, to: "administration#index"
+    get :backup, to: "administration#backup"
     resources :admins
     root to: "dashboard#show"
   end

@@ -2,6 +2,12 @@
 en:
   decidim:
     system:
+      administration:
+        index:
+          title: Administration
+          task_name: Task name
+          db_backup: Backup database
+          save: Sauvegarder
       actions:
         confirm_destroy: Are you sure you want to delete this?
         destroy: Delete
@@ -31,6 +37,7 @@ en:
           content: Please add meaningful content to the %{page} static page on the admin dashboard.
           title: Default title for %{page}
       menu:
+        administration: Administration
         admins: Admins
         dashboard: Dashboard
         organizations: Organizations

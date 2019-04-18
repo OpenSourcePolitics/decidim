@@ -1,0 +1,23 @@
+<% provide :title do %>
+  <h2><%= t ".title" %></h2>
+<% end %>
+
+<table class="stack">
+  <thead>
+  <tr>
+    <th><%= t(".task_name") %></th>
+    <th class="actions"><%= t("actions.title", scope: "decidim.system") %></th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      <%= t(".db_backup") %>
+      <br />
+    </td>
+    <td class="actions">
+      <%= link_to t(".save"), backup_path, method: :get, class: "button" %>
+    </td>
+  </tr>
+  </tbody>
+</table>

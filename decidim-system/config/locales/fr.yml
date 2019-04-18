@@ -9,6 +9,12 @@ fr:
         new: Nouvelle
         save: Sauvegarder
         title: Actions
+      administration:
+        index:
+          db_backup: Sauvegarde de la base de données
+          save: Sauvegarder
+          task_name: Nom de la tâche
+          title: Administration
       admins:
         create:
           error: Une erreur s'est produite lors de la création d'un nouvel administrateur.
@@ -31,6 +37,7 @@ fr:
           content: Ajoutez un contenu pertinent à la page %{page} en allant sur l'interface d'administration.
           title: Titre par défaut pour %{page}
       menu:
+        administration: Administration
         admins: Administrateurs
         dashboard: Journal d'administration
         organizations: Organisations
