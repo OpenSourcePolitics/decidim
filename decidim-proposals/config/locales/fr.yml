@@ -23,7 +23,7 @@ fr:
         url: "Url de la proposition : %{resource_url}"
         email_subject: 'Nouvelle proposition de %{author_name}'
         moderation:
-          email_intro: "%{author_name} a publié une nouvelle proposition dans"
+          email_intro: '%{author_name} a publié une nouvelle proposition dans'
           moderation_url: "Vous pouvez modérer le contenu en suivant ce lien : %{moderation_url}"
           email_subject: 'Nouvelle proposition de %{author_name} en attente de modération'
       proposals:
@@ -92,7 +92,6 @@ fr:
             can_accumulate_supports_beyond_threshold: Peut accumuler des supports au-delà du seuil
             comments_enabled: Activer le module de commentaire
             geocoding_enabled: Géocodage activé
-            maximum_votes_per_proposal: Nombre maximum de soutiens par proposition
             new_proposal_help_text: Texte d'aide à la création d'une nouvelle proposition
             official_proposals_enabled: Autoriser la création de propositions officielles
             proposal_answering_enabled: Autoriser la réponse officielle aux propositions
@@ -115,7 +114,6 @@ fr:
             proposal_answering_enabled: Autoriser la réponse officielle aux propositions
             votes_blocked: Empêcher les utilisateurs de soutenir une proposition
             votes_enabled: Autoriser les utilisateurs à soutenir une proposition
-            votes_weight_enabled: Votes pour / contre / absention activés
             votes_hidden: Cacher les soutiens (si les soutiens sont activés, le compte des soutiens sera caché)
     participatory_processes:
       participatory_process_groups:
@@ -267,7 +265,6 @@ fr:
           title: Propositions similaires
         count:
           proposals_count:
-            zero: "%{count} proposition"
             one: 1 proposition
             other: "%{count} propositions"
         edit:
@@ -365,8 +362,6 @@ fr:
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Le seuil indicatif de soutien peut être dépassé
-          maximum_votes_per_proposal:
-            description: Chaque proposition peut recevoir un maximum de %{limit} soutiens.
           proposal_limit:
             description: Vous pouvez créer jusqu'à %{limit} propositions.
           threshold_per_proposal:

@@ -384,12 +384,11 @@ fr:
             weight: Rang d'affichage
       moderations:
         index:
-          title: Modérations
           title:
             upstream: Modération a priori
             downstream: Modération a posteriori
-          unmoderated: Non modérés
           moderated: Modérés
+          unmoderated: Non modérés
         report:
           reasons:
             does_not_belong: N'appartient pas

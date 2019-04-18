@@ -68,10 +68,10 @@ fr:
           categories: Catégories
           features: Fonctionnalités
           info: Information
-          moderations: Modérations
           moderation:
-            upstream: A priori
             downstream: A posteriori
+            upstream: A priori
+          moderations: Modérations
           process_admins: Administrateurs de la concertation
           steps: Etapes
       models:
@@ -303,7 +303,7 @@ fr:
           browse: Parcourir
       participatory_process_widgets:
         show:
-          active_step: "Etape actuelle :"
+          active_step: 'Etape actuelle :'
           take_part: Participer
       participatory_processes:
         index:

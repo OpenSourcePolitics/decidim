@@ -3,10 +3,6 @@ fr:
     attributes:
       account:
         delete_reason: Pour quelle raison de supprimez-vous votre compte ?
-      dummy_authorization_handler:
-        document_number: Numéro de document d'identité
-        postal_code: Code postal
-        birthday: Date de naissance
       report:
         details: Commentaires additionnels
       user:
@@ -27,7 +23,6 @@ fr:
         current_password: Mot de passe actuel
         email: Email
         name: Nom d'utilisateur
-        nickname: Votre pseudonyme
         password: Mot de passe
         password_confirmation: Confirmation mot de passe
         remember_me: Retenir le mot de passe
@@ -111,7 +106,6 @@ fr:
         fields:
           document_number: Numéro de document d'identité
           postal_code: Code postal
-          birthday: Date de naissance
         name: Formulaire de vérification d'identité
       dummy_authorization_workflow:
         name: Procédure d'autorisation factice
@@ -428,18 +422,6 @@ fr:
       version_author:
         deleted: Utilisateur supprimé
   devise:
-    omniauth_registrations:
-      facebook: Facebook
-      twitter: Twitter
-      google: Google
-      developer: Developpeur
-      saml: SAML
-    omniauth_callbacks:
-      facebook: Facebook
-      twitter: Twitter
-      google: Google
-      developer: Developpeur
-      saml: SAML
     shared:
       links:
         facebook: Facebook
