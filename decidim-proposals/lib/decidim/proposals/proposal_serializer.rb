@@ -80,7 +80,7 @@ module Decidim
       end
 
       def attachments_url
-        proposal.attachments.map(&:url)
+        proposal.attachments.map { |attachment| proposal.organization.host + attachment.url }
       end
     end
   end

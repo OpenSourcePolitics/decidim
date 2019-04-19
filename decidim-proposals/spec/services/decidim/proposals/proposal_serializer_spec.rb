@@ -115,8 +115,7 @@ module Decidim
         end
 
         it "serializes attachments url" do
-          expect(serialized).to include(attachments_url: proposal.attachments.map(&:url))
-          expect(serialized[:attachments_url].length).to eq(proposal.attachments.count)
+          expect(serialized[:attachments_url].first).to eq(proposal.organization.host + proposal.attachments.first.url)
           expect(serialized[:attachments_url].length).to eq(1)
         end
 
