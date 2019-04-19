@@ -28,11 +28,18 @@ module Decidim
         private
 
         def create_post!
-          @post = Post.create!(
+          attributes = {
             title: @form.title,
             body: @form.body,
             component: @form.current_component,
-            decidim_author_id: @current_user.id
+            author: @current_user
+          }
+
+          @post = Decidim.traceability.create!(
+            Post,
+            @current_user,
+            attributes,
+            visibility: "all"
           )
         end
 
@@ -41,7 +48,7 @@ module Decidim
             event: "decidim.events.blogs.post_created",
             event_class: Decidim::Blogs::CreatePostEvent,
             resource: @post,
-            recipient_ids: @post.participatory_space.followers.pluck(:id)
+            followers: @post.participatory_space.followers
           )
         end
       end

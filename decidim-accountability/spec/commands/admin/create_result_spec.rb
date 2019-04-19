@@ -130,7 +130,7 @@ module Decidim::Accountability
         expect(linked_meetings).to eq [meeting]
       end
 
-      it "notifies the process followers" do
+      it "notifies the linked proposals followers" do
         follower = create(:user, organization: organization)
         create(:follow, followable: proposals.first, user: follower)
 
@@ -140,7 +140,8 @@ module Decidim::Accountability
             event: "decidim.events.accountability.proposal_linked",
             event_class: Decidim::Accountability::ProposalLinkedEvent,
             resource: kind_of(Result),
-            recipient_ids: [proposals.first.author.id, follower.id],
+            affected_users: [proposals.first.creator_author],
+            followers: [follower],
             extra: {
               proposal_id: proposals.first.id
             }
@@ -152,7 +153,8 @@ module Decidim::Accountability
             event: "decidim.events.accountability.proposal_linked",
             event_class: Decidim::Accountability::ProposalLinkedEvent,
             resource: kind_of(Result),
-            recipient_ids: [proposals.second.author.id],
+            affected_users: [proposals.second.creator_author],
+            followers: [],
             extra: {
               proposal_id: proposals.second.id
             }
@@ -164,7 +166,8 @@ module Decidim::Accountability
             event: "decidim.events.accountability.proposal_linked",
             event_class: Decidim::Accountability::ProposalLinkedEvent,
             resource: kind_of(Result),
-            recipient_ids: [proposals.third.author.id],
+            affected_users: [proposals.third.creator_author],
+            followers: [],
             extra: {
               proposal_id: proposals.third.id
             }
@@ -181,6 +184,17 @@ module Decidim::Accountability
       it "sets the weight" do
         subject.call
         expect(result.weight).to eq weight
+      end
+
+      it "traces the action", versioning: true do
+        expect(Decidim.traceability)
+          .to receive(:create!)
+          .with(Result, user, kind_of(Hash), visibility: "all")
+          .and_call_original
+
+        expect { subject.call }.to change(Decidim::ActionLog, :count)
+        action_log = Decidim::ActionLog.last
+        expect(action_log.version).to be_present
       end
     end
   end

@@ -3,7 +3,6 @@
 require "decidim/core/engine"
 require "decidim/core/api"
 require "decidim/core/version"
-
 # Decidim configuration.
 module Decidim
   autoload :TranslatableAttributes, "decidim/translatable_attributes"
@@ -18,6 +17,7 @@ module Decidim
   autoload :Loggable, "decidim/loggable"
   autoload :Reportable, "decidim/reportable"
   autoload :Authorable, "decidim/authorable"
+  autoload :Coauthorable, "decidim/coauthorable"
   autoload :Participable, "decidim/participable"
   autoload :Publicable, "decidim/publicable"
   autoload :Scopable, "decidim/scopable"
@@ -36,7 +36,6 @@ module Decidim
   autoload :FriendlyDates, "decidim/friendly_dates"
   autoload :Nicknamizable, "decidim/nicknamizable"
   autoload :HasReference, "decidim/has_reference"
-  autoload :HasClassExtends, "decidim/has_class_extends"
   autoload :Attributes, "decidim/attributes"
   autoload :StatsRegistry, "decidim/stats_registry"
   autoload :Exporters, "decidim/exporters"
@@ -49,6 +48,12 @@ module Decidim
   autoload :EngineRouter, "decidim/engine_router"
   autoload :Events, "decidim/events"
   autoload :ViewHooks, "decidim/view_hooks"
+  autoload :ContentBlockRegistry, "decidim/content_block_registry"
+  autoload :ContentBlockManifest, "decidim/content_block_manifest"
+  autoload :MetricRegistry, "decidim/metric_registry"
+  autoload :MetricManifest, "decidim/metric_manifest"
+  autoload :MetricOperation, "decidim/metric_operation"
+  autoload :MetricOperationManifest, "decidim/metric_operation_manifest"
   autoload :NewsletterEncryptor, "decidim/newsletter_encryptor"
   autoload :Searchable, "decidim/searchable"
   autoload :SearchResourceFieldsMapper, "decidim/search_resource_fields_mapper"
@@ -58,9 +63,19 @@ module Decidim
   autoload :ViewModel, "decidim/view_model"
   autoload :FingerprintCalculator, "decidim/fingerprint_calculator"
   autoload :Fingerprintable, "decidim/fingerprintable"
+  autoload :DataPortability, "decidim/data_portability"
+  autoload :DataPortabilitySerializers, "decidim/data_portability_serializers"
+  autoload :DataPortabilityFileReader, "decidim/data_portability_file_reader"
+  autoload :DataPortabilityFileZipper, "decidim/data_portability_file_zipper"
+  autoload :Amendable, "decidim/amendable"
+  autoload :Gamification, "decidim/gamification"
+  autoload :Hashtag, "decidim/hashtag"
+  autoload :Hashtaggable, "decidim/hashtaggable"
+  autoload :Paddable, "decidim/paddable"
+  autoload :OpenDataExporter, "decidim/open_data_exporter"
+  autoload :IoEncoder, "decidim/io_encoder"
 
   include ActiveSupport::Configurable
-
   # Loads seeds from all engines.
   def self.seed!
     # Faker needs to have the `:en` locale in order to work properly, so we
@@ -74,7 +89,30 @@ module Decidim
       railtie.load_seed
     end
 
-    Decidim.participatory_space_manifests.each(&:seed!)
+    participatory_space_manifests.each do |manifest|
+      manifest.seed!
+
+      Organization.all.each do |organization|
+        ContextualHelpSection.set_content(
+          organization,
+          manifest.name,
+          Decidim::Faker::Localized.wrapped("<p>", "</p>") do
+            Decidim::Faker::Localized.sentence(15)
+          end
+        )
+      end
+    end
+
+    Gamification.badges.each do |badge|
+      puts "Setting random values for the \"#{badge.name}\" badge..."
+      User.all.find_each do |user|
+        Gamification::BadgeScore.find_or_create_by!(
+          user: user,
+          badge_name: badge.name,
+          value: Random.rand(0...20)
+        )
+      end
+    end
 
     I18n.available_locales = original_locale
   end
@@ -88,7 +126,7 @@ module Decidim
 
   # Exposes a configuration option: The application available locales.
   config_accessor :available_locales do
-    %w(en ca es es-PY eu fi fr gl hu it nl pt pt-BR ru sv uk)
+    %w(en ca de es es-PY eu fi fr gl hu it nl pt pt-BR ru sv uk)
   end
 
   # Exposes a configuration option: an array of symbols representing processors
@@ -147,14 +185,14 @@ module Decidim
     end
   end
 
-  # Exposes a configuration option: the first_login_authorization boolean
-  config_accessor :skip_first_login_authorization do
-    false
-  end
-
   # Exposes a configuration option: the currency unit
   config_accessor :currency_unit do
     "€"
+  end
+
+  # Exposes a configuration option: The image uploader quality.
+  config_accessor :image_uploader_quality do
+    80
   end
 
   # Exposes a configuration option: The maximum file size of an attachment (client side).
@@ -192,6 +230,11 @@ module Decidim
     true
   end
 
+  # Time that data portability files are available in server
+  config_accessor :data_portability_expiry_time do
+    7.days
+  end
+
   # Max requests in a time period to prevent DoS attacks. Only applied on production.
   config_accessor :throttling_max_requests do
     100
@@ -202,11 +245,22 @@ module Decidim
     1.minute
   end
 
+  # Time window were users can access the website even if their email is not confirmed.
+  config_accessor :unconfirmed_access_for do
+    2.days
+  end
+
+  # Exposes a configuration option: an object to configure Etherpad
+  config_accessor :etherpad
+
   # A base path for the uploads. If set, make sure it ends in a slash.
   # Uploads will be set to `<base_path>/uploads/`. This can be useful if you
   # want to use the same uploads place for both staging and production
   # environments, but in different folders.
   config_accessor :base_uploads_path
+
+  # Exposes a configuration option: an object to deliver SMS codes to users.
+  config_accessor :sms_gateway_service
 
   # Public: Registers a global engine. This method is intended to be used
   # by component engines that also offer unscoped functionality
@@ -218,7 +272,7 @@ module Decidim
   #
   # Returns nothing.
   def self.register_global_engine(name, engine, options = {})
-    return if global_engines.keys.include?(name)
+    return if global_engines.has_key?(name)
 
     options[:at] ||= "/#{name}"
 
@@ -279,6 +333,14 @@ module Decidim
   # Returns nothing.
   def self.register_resource(name, &block)
     resource_registry.register(name, &block)
+  end
+
+  # Public: Finds all registered resource manifests via the `register_component`
+  # method.
+  #
+  # Returns an Array[ResourceManifest].
+  def self.resource_manifests
+    resource_registry.manifests
   end
 
   # Public: Finds all registered component manifest's via the `register_component`
@@ -360,8 +422,23 @@ module Decidim
     @view_hooks ||= ViewHooks.new
   end
 
+  # Public: Stores an instance of ContentBlockRegistry
+  def self.content_blocks
+    @content_blocks ||= ContentBlockRegistry.new
+  end
+
   # Public: Stores an instance of Traceability
   def self.traceability
     @traceability ||= Traceability.new
+  end
+
+  # Public: Stores an instance of MetricRegistry
+  def self.metrics_registry
+    @metrics_registry ||= MetricRegistry.new
+  end
+
+  # Public: Stores an instance of MetricOperation
+  def self.metrics_operation
+    @metrics_operation ||= MetricOperation.new
   end
 end

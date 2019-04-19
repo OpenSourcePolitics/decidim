@@ -6,6 +6,7 @@ module Decidim
     # user and component and contains a collection of projects
     class Order < Budgets::ApplicationRecord
       include Decidim::HasComponent
+      include Decidim::DataPortability
 
       component_manifest_name "budgets"
 
@@ -45,6 +46,7 @@ module Decidim
       # Public: Returns the required minimum budget to checkout
       def minimum_budget
         return 0 unless component
+
         component.settings.total_budget.to_f * (component.settings.vote_threshold_percent.to_f / 100)
       end
 
@@ -64,6 +66,7 @@ module Decidim
 
       def limit_project_reached?
         return false unless per_project
+
         total_projects == number_of_projects
       end
 
@@ -89,7 +92,16 @@ module Decidim
 
       def maximum_budget
         return 0 unless component || !per_project
+
         component&.settings&.total_budget.to_f
+      end
+
+      def self.user_collection(user)
+        where(decidim_user_id: user.id)
+      end
+
+      def self.export_serializer
+        Decidim::Budgets::DataPortabilityBudgetsOrderSerializer
       end
 
       private
@@ -98,6 +110,7 @@ module Decidim
         organization = component&.organization
 
         return if !user || !organization
+
         errors.add(:user, :invalid) unless user.organization == organization
       end
     end

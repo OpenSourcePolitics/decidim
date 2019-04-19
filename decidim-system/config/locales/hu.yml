@@ -14,7 +14,7 @@ hu:
           error: Hiba történt egy új rendszergazda létrehozásakor.
           success: Admin létrehozása sikeres
         destroy:
-          success: Az admin törlése sikeres volt
+          success: Admin törlése sikeres
         edit:
           title: Admin szerkesztése
           update: Frissítés
@@ -64,6 +64,10 @@ hu:
         update:
           error: Hiba történt a szervezet frissítése során.
           success: Szervezet frissítése sikeres.
+        users_registration_mode:
+          disabled: A hozzáférés csak külső fiókokkal végezhető el
+          enabled: Engedélyezze a felhasználók regisztrálását és bejelentkezését
+          existing: Ne engedélyezze a felhasználók regisztrációját, hanem engedélyezze a meglévő felhasználók számára a bejelentkezést
       shared:
         notices:
           no_organization_warning_html: 'A kezdéshez hozz létre egy szervezetet. Mielőtt folytatnád, olvasd el az útmutatót: %{guide}.'

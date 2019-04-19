@@ -29,6 +29,14 @@ module Decidim
       def deleted?
         false
       end
+
+      def can_be_contacted?
+        false
+      end
+
+      def has_tooltip?
+        false
+      end
     end
   end
 end

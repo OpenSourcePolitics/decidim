@@ -25,6 +25,7 @@ module Decidim
 
           answer_proposal
           notify_followers
+          increment_score
 
           broadcast(:ok)
         end
@@ -73,8 +74,21 @@ module Decidim
             event: event,
             event_class: event_class,
             resource: proposal,
-            recipient_ids: proposal.followers.pluck(:id)
+            affected_users: proposal.notifiable_identities,
+            followers: proposal.followers - proposal.notifiable_identities
           )
+        end
+
+        def increment_score
+          return unless proposal.accepted?
+
+          proposal.coauthorships.find_each do |coauthorship|
+            if coauthorship.user_group
+              Decidim::Gamification.increment_score(coauthorship.user_group, :accepted_proposals)
+            else
+              Decidim::Gamification.increment_score(coauthorship.author, :accepted_proposals)
+            end
+          end
         end
       end
     end

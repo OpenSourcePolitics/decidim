@@ -44,18 +44,18 @@ module Decidim
             :with_steps,
             :published,
             organization: organization,
-            end_date: Time.current.advance(days: 10)
+            end_date: Date.current.advance(days: 10)
           )
-          first.active_step.update!(end_date: Time.current.advance(days: 2))
+          first.active_step.update!(end_date: Date.current.advance(days: 2))
 
           second = create(
             :participatory_process,
             :with_steps,
             :published,
             organization: organization,
-            end_date: Time.current.advance(days: 20)
+            end_date: Date.current.advance(days: 20)
           )
-          second.active_step.update!(end_date: Time.current.advance(days: 4))
+          second.active_step.update!(end_date: Date.current.advance(days: 4))
 
           expect(controller.helpers.participatory_processes.count).to eq(3)
           expect(controller.helpers.participatory_processes).not_to include(unpublished)
@@ -104,7 +104,21 @@ module Decidim
           )
 
           expect(controller.helpers.collection)
-            .to match_array([*published, *organization_groups, *organization_groups.map(&:participatory_processes).flatten])
+            .to match_array([*published, *organization_groups])
+        end
+
+        describe "filter" do
+          it "ignores invalid filters" do
+            controller.params = { filter: "foo-filter" }
+
+            expect(controller.helpers.filter).to eq("active")
+          end
+
+          it "allows known filters" do
+            controller.params = { filter: "past" }
+
+            expect(controller.helpers.filter).to eq("past")
+          end
         end
       end
 

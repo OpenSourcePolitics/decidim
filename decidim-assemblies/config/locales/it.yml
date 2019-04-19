@@ -1,4 +1,3 @@
----
 it:
   activemodel:
     attributes:
@@ -19,7 +18,7 @@ it:
         decidim_area_id: La zona
         decidim_scope_id: Scopo
         description: Descrizione
-        developer_group: Gruppo sviluppatori
+        developer_group: Gruppo promotore
         domain: Dominio
         duration: Durata
         facebook: Facebook
@@ -30,11 +29,12 @@ it:
         instagram: Instagram
         internal_organisation: Organizzazione interna
         is_transparent: È trasparente
-        local_area: Municipi
+        local_area: Area organizzativa
         meta_scope: Metadati di ambito
+        parent_id: Assemblaggio genitore
         participatory_processes_ids: Processi partecipativi correlati
-        participatory_scope: Visibilità/ambito partecipativo
-        participatory_structure: Struttura partecipativa
+        participatory_scope: Cosa è deciso
+        participatory_structure: Come è deciso?
         private_space: Spazio privato
         promoted: Promosso
         published_at: Pubblicato a
@@ -46,7 +46,7 @@ it:
         slug: URL slug
         special_features: Caratteristiche speciali
         subtitle: Sottotitolo
-        target: Target
+        target: Chi partecipa
         title: Titolo
         twitter: cinguettio
         youtube: Youtube
@@ -77,14 +77,11 @@ it:
   decidim:
     admin:
       actions:
-        assembly:
-          new: New assembly
+        new_assembly: Nuovo assemblaggio
       assemblies:
         create:
           error: Si è verificato un errore durante la creazione di un nuovo assembly.
           success: L'assemblaggio è stato creato con successo.
-        destroy:
-          success: Assemblea distrutta con successo.
         edit:
           update: Aggiorna
         form:
@@ -114,7 +111,7 @@ it:
           error: Si è verificato un errore durante l'aggiunta di un membro per questo assembly.
           success: Membro creato con successo per questo assembly.
         destroy:
-          success: Membro distrutto con successo per questo assemblaggio.
+          success: Membro cancellato con successo per questo assembly.
         edit:
           title: Aggiorna membro dell'assembly.
           update: Aggiornare
@@ -136,9 +133,9 @@ it:
       assembly_user_roles:
         create:
           error: Si è verificato un errore durante l'aggiunta di un utente per questo assembly.
-          success: Utente creato con successo per questo assembly.
+          success: Utente aggiunto correttamente a questo assembly.
         destroy:
-          success: Utente distrutto correttamente per questo assembly.
+          success: Utente rimosso con successo da questo assembly.
         edit:
           title: Aggiorna utente dell'assieme.
           update: Aggiornare
@@ -155,7 +152,7 @@ it:
         assemblies_submenu:
           assembly_admins: Utenti dell'assemblaggio
           assembly_members: Utenti
-          attachment_collections: collezioni
+          attachment_collections: Cartelle
           attachment_files: File
           attachments: Allegati
           categories: Categorie
@@ -171,6 +168,7 @@ it:
             promoted: Evidenziato
             published: Pubblicato
             title: Nome
+          name: montaggio
         assembly_member:
           fields:
             ceased_date: Data di fine
@@ -218,6 +216,7 @@ it:
             select_a_created_by: Seleziona un creato da
             select_an_area: Seleziona un'area
             select_an_assembly_type: Seleziona un tipo di assieme
+            select_parent_assembly: Seleziona il gruppo genitore
             slug_help: 'Gli slug URL vengono utilizzati per generare gli URL che puntano a questo assembly. Accetta solo lettere, numeri e trattini, e deve iniziare con una lettera. Esempio: %{url}'
             social_handlers: Sociale
         assembly_copies:
@@ -237,6 +236,9 @@ it:
               not_ceased: Non è cessato
             filter_by: Filtra per
             search: Ricerca
+        content_blocks:
+          highlighted_assemblies:
+            max_results: Quantità massima di elementi da mostrare
       assembly_members:
         index:
           members: Utenti
@@ -248,12 +250,29 @@ it:
         others: Altri
         participatory: Participatory
         working_group: Gruppo di lavoro
+      content_blocks:
+        highlighted_assemblies:
+          name: Assiemi evidenziati
       created_by:
         city_council: Consiglio comunale
         others: Altri
         public: Pubblico
+      filter:
+        all: Tutti
+        commission: Commissione
+        consultative_advisory: Consultivo / Advisory
+        executive: Esecutivo
+        government: Governo
+        help: 'Mostrare:'
+        label: 'Mostrare:'
+        others: Altri
+        participatory: Participatory
+        placeholder: Filtra per tipo
+        working_group: Gruppo di lavoro
       index:
         title: assemblee
+      last_activity:
+        new_assembly: Nuovo assemblaggio
       pages:
         home:
           highlighted_assemblies:
@@ -278,9 +297,9 @@ it:
         is_transparent:
           'false': opaco
           'true': trasparente
-        local_area: Municipi
-        participatory_scope: Visibilità/ambito partecipativo
-        participatory_structure: Struttura partecipativa
+        local_area: Area organizzativa
+        participatory_scope: Cosa è deciso
+        participatory_structure: Come è deciso?
         private_space: Questo è un assemblaggio privato
         purpose_of_action: Scopo dell'azione
         read_less: Leggi di meno
@@ -288,7 +307,7 @@ it:
         related_participatory_processes: Processi partecipativi correlati
         scope: Objetivos
         social_networks: Social networks
-        target: A chi è destinato il processo?
+        target: Chi partecipa
       statistics:
         answers_count: risposte
         assemblies_count: assemblee
@@ -310,12 +329,23 @@ it:
         designated_on: Designato su
       index:
         title: Utenti
+    help:
+      participatory_spaces:
+        assemblies:
+          contextual: "<p>Un assemblaggio è un gruppo di membri di un'organizzazione che si incontrano periodicamente per prendere decisioni su un'area o un ambito specifico dell'organizzazione.</p> <p>assemblee tengono riunioni, alcune sono private e altre sono aperte. Se sono aperti, è possibile parteciparvi (ad esempio: partecipare se la capacità lo consente, aggiungendo punti all'ordine del giorno, o commentando le proposte e le decisioni prese da questo organo).</p> <p>Esempi: un'assemblea generale (che si riunisce una volta all'anno per definire le principali linee di azione dell'organizzazione e gli organi esecutivi per voto), un consiglio consultivo per la parità (che si riunisce ogni due mesi per presentare proposte su come migliorare le relazioni di genere nell'organizzazione), una commissione di valutazione (che si riunisce ogni mese per monitorare un processo) o un organismo di garanzia (che raccoglie incidenti, abusi o proposte per migliorare le procedure decisionali) sono tutti esempi di assemblee.</p>\n"
+          page: "<p>Un assemblaggio è un gruppo di membri di un'organizzazione che si incontrano periodicamente per prendere decisioni su un'area o un ambito specifico dell'organizzazione.</p> <p>assemblee tengono riunioni, alcune sono private e altre sono aperte. Se sono aperti, è possibile parteciparvi (ad esempio: partecipare se la capacità lo consente, aggiungendo punti all'ordine del giorno, o commentando le proposte e le decisioni prese da questo organo).</p> <p>Esempi: un'assemblea generale (che si riunisce una volta all'anno per definire le principali linee di azione dell'organizzazione e gli organi esecutivi per voto), un consiglio consultivo per la parità (che si riunisce ogni due mesi per presentare proposte su come migliorare le relazioni di genere nell'organizzazione), una commissione di valutazione (che si riunisce ogni mese per monitorare un processo) o un organismo di garanzia (che raccoglie incidenti, abusi o proposte per migliorare le procedure decisionali) sono tutti esempi di assemblee.</p>\n"
+          title: Cosa sono gli assiemi?
     log:
       value_types:
         assembly_presenter:
           not_found: 'L''assembly non è stato trovato nel database (ID: %{id})'
     menu:
       assemblies: assemblee
+    metrics:
+      assemblies:
+        description: Numero di assiemi creati
+        object: assiemi
+        title: assemblee
   errors:
     messages:
       cannot_be_blank: non può essere vuoto
@@ -325,18 +355,19 @@ it:
         assembly:
           take_part: Partecipa
         index:
+          organizational_chart: Grafico organizzativo
           promoted_assemblies: Assiemi evidenziati
+          reset_chart: Reset
         order_by_assemblies:
           assemblies:
             one: "%{count} montaggio"
-            other: "%{count} assemblies"
+            other: "%{count} assemblaggi"
         promoted_assembly:
           more_info: Maggiori informazioni
           take_part: Partecipa
-      assembly_header:
+      assembly_navigation:
         assembly_member_menu_item: Utenti
         assembly_menu_item: L'assemblea
-        unfold: Espandi
       assembly_widgets:
         show:
           take_part: Partecipa

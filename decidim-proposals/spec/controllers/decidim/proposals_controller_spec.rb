@@ -22,6 +22,31 @@ module Decidim
         sign_in user
       end
 
+      describe "GET index" do
+        context "when participatory texts are disabled" do
+          let(:component) { create(:proposal_component) }
+
+          it "sorts proposals by search defaults" do
+            get :index
+            expect(response).to have_http_status(:ok)
+            expect(subject).to render_template(:index)
+            expect(assigns(:proposals).order_values).to eq(["RANDOM()"])
+          end
+        end
+
+        context "when participatory texts are enabled" do
+          let(:component) { create(:proposal_component, :with_participatory_texts_enabled) }
+
+          it "sorts proposals by position" do
+            get :index
+            expect(response).to have_http_status(:ok)
+            expect(subject).to render_template(:participatory_text)
+            # expect(assigns(:proposals).order_values.first.expr.name).to eq(:position)
+            expect(assigns(:proposals).order_values.first.expr.name).to eq("position")
+          end
+        end
+      end
+
       describe "GET new" do
         let(:component) { create(:proposal_component, :with_creation_enabled) }
 
@@ -74,7 +99,7 @@ module Decidim
         let(:component) { create(:proposal_component, :with_creation_enabled) }
 
         context "when an authorized user is withdrawing a proposal" do
-          let(:proposal) { create(:proposal, component: component, author: user) }
+          let(:proposal) { create(:proposal, component: component, users: [user]) }
 
           it "withdraws the proposal" do
             put :withdraw, params: params.merge(id: proposal.id)
@@ -86,7 +111,7 @@ module Decidim
 
         describe "when current user is NOT the author of the proposal" do
           let(:current_user) { create(:user, organization: component.organization) }
-          let(:proposal) { create(:proposal, component: component, author: current_user) }
+          let(:proposal) { create(:proposal, component: component, users: [current_user]) }
 
           context "and the proposal has no supports" do
             it "is not able to withdraw the proposal" do

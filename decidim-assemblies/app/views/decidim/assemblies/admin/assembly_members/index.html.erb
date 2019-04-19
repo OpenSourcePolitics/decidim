@@ -23,7 +23,7 @@
       <div class="filters__search">
         <div class="input-group">
           <%= search_field_tag :q, @query,label: false, class: "input-group-field", placeholder: t(".search") %>
-          <%= hidden_field_tag :state, @state %>
+          <%= hidden_field_tag :status, @status %>
           <div class="input-group-button">
             <button type="submit" class="button button--muted">
               <%= icon "magnifying-glass", aria_label: t(".search") %>
@@ -68,10 +68,10 @@
                 <%= member_presenter.position %>
               </td>
               <td>
-                <%= l member.designation_date, format: :datepicker %>
+                <%= l member.designation_date, format: :decidim_short %>
               </td>
               <td>
-                <%= member.ceased_date ? l(member.ceased_date, format: :datepicker) : nil %>
+                <%= member.ceased_date ? l(member.ceased_date, format: :decidim_short) : nil %>
               </td>
               <td class="table-list__actions">
                 <% if allowed_to? :update, :assembly_member, member: member %>

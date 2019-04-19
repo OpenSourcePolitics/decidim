@@ -49,6 +49,7 @@ module Decidim
         appearance_attributes
           .merge(highlighted_content_banner_attributes)
           .merge(omnipresent_banner_attributes)
+          .merge(colors_attributes)
           .tap do |attributes|
             attributes[:header_snippets] = form.header_snippets if Decidim.enable_html_header_snippets
           end
@@ -59,9 +60,6 @@ module Decidim
           cta_button_path: form.cta_button_path,
           cta_button_text: form.cta_button_text,
           description: form.description,
-          welcome_text: form.welcome_text,
-          homepage_image: form.homepage_image,
-          remove_homepage_image: form.remove_homepage_image,
           logo: form.logo,
           remove_logo: form.remove_logo,
           favicon: form.favicon,
@@ -94,6 +92,18 @@ module Decidim
           omnipresent_banner_url: form.omnipresent_banner_url,
           omnipresent_banner_short_description: form.omnipresent_banner_short_description,
           omnipresent_banner_title: form.omnipresent_banner_title
+        }
+      end
+
+      def colors_attributes
+        {
+          colors: {
+            primary: form.primary_color,
+            secondary: form.secondary_color,
+            success: form.success_color,
+            warning: form.warning_color,
+            alert: form.alert_color
+          }
         }
       end
     end

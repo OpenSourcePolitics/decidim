@@ -17,6 +17,7 @@ module Decidim
       include Decidim::HasReference
       include Decidim::Traceable
       include Decidim::Loggable
+      include Decidim::DataPortability
 
       component_manifest_name "debates"
 
@@ -30,7 +31,7 @@ module Decidim
       #
       # Returns a boolean.
       def official?
-        author.blank?
+        author.is_a?(Decidim::Organization)
       end
 
       # Public: Overrides the `reported_content_url` Reportable concern method.
@@ -70,6 +71,7 @@ module Decidim
       # Public: Overrides the `accepts_new_comments?` Commentable concern method.
       def accepts_new_comments?
         return false unless open?
+
         commentable? && !comments_blocked?
       end
 
@@ -96,7 +98,12 @@ module Decidim
       # Public: Override Commentable concern method `users_to_notify_on_comment_created`
       def users_to_notify_on_comment_created
         return Decidim::User.where(id: followers).or(Decidim::User.where(id: component.participatory_space.admins)).distinct if official?
+
         followers
+      end
+
+      def self.export_serializer
+        Decidim::Debates::DataPortabilityDebateSerializer
       end
 
       private

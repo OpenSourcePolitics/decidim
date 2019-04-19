@@ -7,6 +7,15 @@ if !Rails.env.production? || ENV["SEED"]
 
   seeds_root = File.join(__dir__, "seeds")
 
+  # Since we usually migrate and seed in the same process, make sure
+  # that we don't have invalid or cached information after a migration.
+  decidim_tables = ActiveRecord::Base.connection.tables.select do |table|
+    table.starts_with?("decidim_")
+  end
+  decidim_tables.map do |table|
+    table.tr("_", "/").classify.safe_constantize
+  end.compact.each(&:reset_column_information)
+
   organization = Decidim::Organization.first || Decidim::Organization.create!(
     name: Faker::Company.name,
     twitter_handler: Faker::Hipster.word,
@@ -15,16 +24,18 @@ if !Rails.env.production? || ENV["SEED"]
     youtube_handler: Faker::Hipster.word,
     github_handler: Faker::Hipster.word,
     host: ENV["DECIDIM_HOST"] || "localhost",
-    welcome_text: Decidim::Faker::Localized.sentence(5),
     description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
       Decidim::Faker::Localized.sentence(15)
     end,
-    homepage_image: File.new(File.join(seeds_root, "homepage_image.jpg")),
     default_locale: Decidim.default_locale,
     available_locales: Decidim.available_locales,
     reference_prefix: Faker::Name.suffix,
     available_authorizations: Decidim.authorization_workflows.map(&:name),
-    tos_version: Time.current
+    users_registration_mode: :enabled,
+    tos_version: Time.current,
+    badges_enabled: true,
+    user_groups_enabled: true,
+    send_welcome_notification: true
   )
 
   if organization.top_scopes.none?
@@ -133,14 +144,20 @@ if !Rails.env.production? || ENV["SEED"]
     [nil, Time.current].each do |verified_at|
       user_group = Decidim::UserGroup.create!(
         name: Faker::Company.unique.name,
-        document_number: Faker::Number.number(10),
-        phone: Faker::PhoneNumber.phone_number,
-        verified_at: verified_at,
+        nickname: Faker::Twitter.unique.screen_name,
+        email: Faker::Internet.email,
+        extended_data: {
+          document_number: Faker::Number.number(10),
+          phone: Faker::PhoneNumber.phone_number,
+          verified_at: verified_at
+        },
         decidim_organization_id: user.organization.id
       )
+      user_group.confirm
 
       Decidim::UserGroupMembership.create!(
         user: user,
+        role: "creator",
         user_group: user_group
       )
     end
@@ -155,4 +172,14 @@ if !Rails.env.production? || ENV["SEED"]
     scopes: "public",
     organization: organization
   )
+
+  Decidim::System::CreateDefaultContentBlocks.call(organization)
+
+  hero_content_block = Decidim::ContentBlock.find_by(organization: organization, manifest_name: :hero, scope: :homepage)
+  hero_content_block.images_container.background_image = File.new(File.join(seeds_root, "homepage_image.jpg"))
+  settings = {}
+  welcome_text = Decidim::Faker::Localized.sentence(5)
+  settings = welcome_text.inject(settings) { |acc, (k, v)| acc.update("welcome_text_#{k}" => v) }
+  hero_content_block.settings = settings
+  hero_content_block.save!
 end

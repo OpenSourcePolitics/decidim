@@ -1,15 +1,24 @@
-<% provide(:title, translated_attribute(meeting.title)) %>
+<% provide(:title, present(meeting).title) %>
 
 <% add_decidim_meta_tags({
-  title: translated_attribute(meeting.title),
-  description: translated_attribute(meeting.description),
+  title: present(meeting).title,
+  description: present(meeting).description,
   url: meeting_url(meeting.id)
 }) %>
 
+<%
+edit_link(
+  resource_locator(meeting).edit,
+  :update,
+  :meeting,
+  meeting: meeting
+)
+%>
+
 <div class="row column view-header">
-  <h2 class="heading2"><%= translated_attribute meeting.title %></h2>
+  <h2 class="heading2"><%= present(meeting).title(links: true) %></h2>
   <% if meeting.organizer.present? %>
-    <%= render partial: "decidim/shared/author_reference", locals: { author: present(meeting.organizer) } %>
+    <%= cell "decidim/author", present(meeting.organizer) %>
   <% end %>
 </div>
 <div class="row">
@@ -24,7 +33,7 @@
           <%= meeting.start_time.strftime("%H:%M") %> - <%= meeting.end_time.strftime("%H:%M") %>
         </div>
         <%= cell "decidim/meetings/join_meeting_button", meeting, big_button: true, show_remaining_slots: true %>
-        <%= render partial: "decidim/shared/follow_button", locals: { followable: meeting } %>
+        <%= render partial: "decidim/shared/follow_button", locals: { followable: meeting, large: false  } %>
       </div>
       <% if meeting.closed? %>
         <div class="card card--secondary extra definition-data">
@@ -50,6 +59,18 @@
         </div>
       <% end %>
     </div>
+
+    <% if registration %>
+      <div class="card extra">
+        <div class="card__content">
+            <div class="registration_code">
+              <span><%= registration_code_help_text %></span>
+              <span><strong><%= registration.code %></strong></span>
+              <div class="text-small"><%= registration_validation_state %></div>
+            </div>
+        </div>
+      </div>
+    <% end %>
 
     <% if meeting.services.any? %>
       <div class="card card--list">
@@ -83,7 +104,7 @@
           <%= t("transparent", scope: "decidim.meetings.types") %>
         </span>
       <% end %>
-      <p><%= decidim_sanitize translated_attribute meeting.description %></p>
+      <p><%= decidim_sanitize(present(meeting).description(links: true)) %></p>
       <%= render partial: "decidim/shared/static_map", locals: { icon_name: "meetings", geolocalizable: meeting } %>
       <%= render partial: "decidim/shared/tags", locals: { resource: meeting, tags_class_extra: "tags--meeting" } %>
     </div>
@@ -108,6 +129,7 @@
 </div>
 <%= attachments_for meeting %>
 <%= comments_for meeting %>
+<%= pad_iframe_for meeting %>
 
 <%= javascript_include_tag "decidim/proposals/social_share" %>
 <%= stylesheet_link_tag "decidim/proposals/social_share" %>

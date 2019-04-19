@@ -10,11 +10,17 @@ module Decidim
         let(:organization) { component.organization }
         let!(:current_user) { create(:user, organization: organization) }
         let(:follower) { create(:user, organization: organization) }
-        let(:proposal_draft) { create(:proposal, :draft, component: component, author: current_user) }
+        let(:proposal_draft) { create(:proposal, :draft, component: component, users: [current_user]) }
         let!(:follow) { create :follow, followable: current_user, user: follower }
 
         it "broadcasts ok" do
           expect { described_class.call(proposal_draft, current_user) }.to broadcast(:ok)
+        end
+
+        it "scores on the proposals badge" do
+          expect { described_class.call(proposal_draft, current_user) }.to change {
+            Decidim::Gamification.status_for(current_user, :proposals).score
+          }.by(1)
         end
 
         it "broadcasts invalid when the proposal is from another author" do
@@ -31,14 +37,8 @@ module Decidim
             create(:follow, followable: component.participatory_space, user: follower)
             create(:follow, followable: component.participatory_space, user: other_follower)
 
-            expect(Decidim::EventsManager)
-              .to receive(:publish)
-              .with(
-                event: "decidim.events.proposals.proposal_published",
-                event_class: Decidim::Proposals::PublishProposalEvent,
-                resource: kind_of(Decidim::Proposals::Proposal),
-                recipient_ids: [follower.id]
-              ).ordered
+            allow(Decidim::EventsManager).to receive(:publish)
+              .with(hash_including(event: "decidim.events.gamification.badge_earned"))
 
             expect(Decidim::EventsManager)
               .to receive(:publish)
@@ -46,11 +46,20 @@ module Decidim
                 event: "decidim.events.proposals.proposal_published",
                 event_class: Decidim::Proposals::PublishProposalEvent,
                 resource: kind_of(Decidim::Proposals::Proposal),
-                recipient_ids: [other_follower.id],
+                followers: [follower]
+              )
+
+            expect(Decidim::EventsManager)
+              .to receive(:publish)
+              .with(
+                event: "decidim.events.proposals.proposal_published",
+                event_class: Decidim::Proposals::PublishProposalEvent,
+                resource: kind_of(Decidim::Proposals::Proposal),
+                followers: [other_follower],
                 extra: {
                   participatory_space: true
                 }
-              ).ordered
+              )
 
             subject.call
           end

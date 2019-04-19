@@ -14,26 +14,27 @@ module Decidim::ParticipatoryProcesses
         current_user: user,
         title: { en: "title" },
         description: { en: "description" },
-        start_date: Time.current,
-        end_date: Time.current + 1.week,
-        action_btn_text: { en: "see" },
-        invalid?: invalid
+        start_date: Date.current,
+        end_date: Date.current + 1.week,
+        invalid?: invalid,
+        cta_text: { en: "CTA" }
       )
     end
     let(:invalid) { false }
 
     context "when action btn text is not present" do
-      let(:action_btn_text) { nil }
+      let(:cta_text) { nil }
 
       it "broadcasts invalid" do
         expect { subject.call }.to broadcast(:ok)
       end
     end
 
+    # TODO: remove useless test
     context "when action btn text is present" do
-      let(:action_btn_text) { "SEE" }
+      let(:cta_text) { "SEE" }
 
-      it "broadcasts invalid" do
+      it "broadcasts ok" do
         expect { subject.call }.to broadcast(:ok)
       end
     end
@@ -58,7 +59,7 @@ module Decidim::ParticipatoryProcesses
       it "traces the action", versioning: true do
         expect(Decidim.traceability)
           .to receive(:create!)
-          .with(Decidim::ParticipatoryProcessStep, user, hash_including(:title, :description, :start_date, :end_date, :action_btn_text, :participatory_process, :active))
+          .with(Decidim::ParticipatoryProcessStep, user, hash_including(:title, :description, :start_date, :end_date, :cta_text, :participatory_process, :active))
           .and_call_original
 
         expect { subject.call }.to change(Decidim::ActionLog, :count)

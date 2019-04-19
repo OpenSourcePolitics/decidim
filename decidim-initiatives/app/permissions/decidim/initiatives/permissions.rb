@@ -46,6 +46,7 @@ module Decidim
 
         return allow! if initiative.published? || initiative.rejected? || initiative.accepted?
         return allow! if user && (initiative.has_authorship?(user) || user.admin?)
+
         disallow!
       end
 
@@ -67,7 +68,7 @@ module Decidim
         Decidim::Initiatives.creation_enabled && (
           Decidim::Initiatives.do_not_require_authorization ||
             UserAuthorizations.for(user).any? ||
-            user.user_groups.verified.any?
+            Decidim::UserGroups::ManageableUserGroups.for(user).verified.any?
         )
       end
 
@@ -80,7 +81,7 @@ module Decidim
                       (
                         Decidim::Initiatives.do_not_require_authorization ||
                         UserAuthorizations.for(user).any? ||
-                        user.user_groups.verified.any?
+                        Decidim::UserGroups::ManageableUserGroups.for(user).verified.any?
                       )
 
         toggle_allow(can_request)
@@ -97,6 +98,7 @@ module Decidim
 
       def user_can_read_admin_dashboard?
         return unless user
+
         allow! if has_initiatives?
       end
 
@@ -107,7 +109,7 @@ module Decidim
         can_vote = initiative.votes_enabled? &&
                    initiative.organization&.id == user.organization&.id &&
                    initiative.votes.where(decidim_author_id: user.id, decidim_user_group_id: decidim_user_group_id).empty? &&
-                   (can_user_support?(initiative) || user.user_groups.verified.any?)
+                   (can_user_support?(initiative) || Decidim::UserGroups::ManageableUserGroups.for(user).verified.any?)
 
         toggle_allow(can_vote)
       end
@@ -119,7 +121,7 @@ module Decidim
         can_unvote = initiative.votes_enabled? &&
                      initiative.organization&.id == user.organization&.id &&
                      initiative.votes.where(decidim_author_id: user.id, decidim_user_group_id: decidim_user_group_id).any? &&
-                     (can_user_support?(initiative) || user.user_groups.verified.any?)
+                     (can_user_support?(initiative) || Decidim::UserGroups::ManageableUserGroups.for(user).verified.any?)
 
         toggle_allow(can_unvote)
       end

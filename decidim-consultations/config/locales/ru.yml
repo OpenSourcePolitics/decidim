@@ -6,12 +6,12 @@ ru:
         banner_image: Изображение баннера
         decidim_highlighted_scope_id: Рекомендуемый охват
         description: Описание
-        end_voting_date: Дата окончания
+        end_voting_date: Голосование заканчивается
         introductory_image: Вводное изображение
         introductory_video_url: Веб-адрес вводного видео
         questions: Вопросы
         slug: Сокращенный веб-адрес
-        start_voting_date: Дата начала
+        start_voting_date: Голосование начинается
         subtitle: Подзаголовок
         title: Название
       question:
@@ -39,11 +39,9 @@ ru:
           not_found: Ответ не найден.
   activerecord:
     models:
-      decidim/consultations:
-        few: Консультации
-        many: Консультаций
-        one: Консультация
-        other: Консультаций
+      decidim/consultation:
+        one: Consultation
+        other: Consultations
       decidim/consultations/question:
         few: Вопроса
         many: Вопросов
@@ -62,8 +60,9 @@ ru:
   decidim:
     admin:
       actions:
-        consultation:
-          new: New consultation
+        new_consultation: Добавить консультацию
+        new_question: Добавить вопрос
+        new_response: Добавить ответ
         publish_results: Обнародовать итоги
         unpublish_results: Отменить обнародование итогов
       consultation_publications:
@@ -84,8 +83,6 @@ ru:
         create:
           error: При попытке создать новую консультацию произошла ошибка.
           success: Консультация успешно создана.
-        destroy:
-          success: Консультация успешно удалена.
         edit:
           update: Обновить
         form:
@@ -116,6 +113,11 @@ ru:
             created_at: 'Создано:'
             published: Обнародовано
             title: Заголовок
+          name:
+            few: Консультации
+            many: Консультаций
+            one: Консультация
+            other: Консультаций
         question:
           fields:
             created_at: 'Создано:'
@@ -183,6 +185,10 @@ ru:
         questions: Вопросы
         responses: Ответы
     consultations:
+      admin:
+        content_blocks:
+          highlighted_consultations:
+            max_results: Maximum amount of elements to show
       consultation:
         start_voting_date: Голосование начинается
         view_results: Посмотреть итоги
@@ -193,6 +199,9 @@ ru:
           label: 'Упорядочить консультации по признаку:'
           random: Произвольно
           recent: Самые последние
+      content_blocks:
+        highlighted_consultations:
+          name: Highlighted consultations
       count:
         title:
           few: "%{count} консультации"
@@ -215,6 +224,18 @@ ru:
         title: Вопросы из %{scope_name}
       index:
         title: Консультации
+      last_activity:
+        new_consultation: New consultation
+        new_question_at_html: "<span>New question at %{link}</span>"
+      pages:
+        home:
+          highlighted_consultations:
+            active_consultations: Действующие консультации
+            see_all_consultations: See all consultations
+            voting_ends_in:
+              one: Voting ends <strong>tomorrow</strong>
+              other: Voting ends in <strong>%{count} days</strong>
+            voting_ends_today: Voting ends <strong>today</strong>
       question:
         take_part: Принять участие
         view_results: Посмотреть итоги
@@ -240,6 +261,12 @@ ru:
           view_results: Посмотреть итоги
           vote: Голосовать
         unspecified: Не указано
+    help:
+      participatory_spaces:
+        consultations:
+          contextual: "<p>Consultations are a space that allows you to ask a clear question to all the people who form an organization, make a call to participate in the consultation, spark and order the debate for or against a response. When the consultation date arrives, you can vote and publish the results of the votes.</p> <p>Examples: The consultations can be about almost any aspect that affects an organization: some examples are changing the name or logo of the organization offering several alternatives, deciding Yes or No to become part of a larger organization, validating or rejecting a new strategic plan or the result of a working group, or defining whether the positions should remain a maximum of 1, 2 or 3 mandates.</p>\n"
+          page: "<p>Consultations are a space that allows you to ask a clear question to all the people who form an organization, make a call to participate in the consultation, spark and order the debate for or against a response. When the consultation date arrives, you can vote and publish the results of the votes.</p> <p>Examples: The consultations can be about almost any aspect that affects an organization: some examples are changing the name or logo of the organization offering several alternatives, deciding Yes or No to become part of a larger organization, validating or rejecting a new strategic plan or the result of a working group, or defining whether the positions should remain a maximum of 1, 2 or 3 mandates.</p>ard in the organization.</p>\n"
+          title: What are consultations?
     menu:
       consultations: Консультации
     pages:

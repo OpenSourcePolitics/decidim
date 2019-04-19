@@ -1,7 +1,11 @@
----
 ca:
   activemodel:
     attributes:
+      config:
+        available_methods: Mètodes disponibles
+        offline: Sense connexió
+        offline_explanation: Instruccions per a la verificació sense connexió
+        online: En línia
       id_document_information:
         document_number: Número de document (amb lletra)
         document_type: Tipus del document
@@ -10,6 +14,8 @@ ca:
         document_type: Tipus del teu document
         user: Usuari
         verification_attachment: Còpia escanejada del teu document
+      offline_confirmation:
+        email: Correu electrònic d'usuari
       postal_letter_address:
         full_address: Adreça completa
       postal_letter_confirmation:
@@ -21,20 +27,25 @@ ca:
     admin:
       menu:
         authorization_workflows: Verificacions
+    admin_log:
+      organization:
+        update_id_documents_config: "%{user_name} ha actualitzat la configuració de verificació mitjançant documents d'identitat"
+      user:
+        grant_id_documents_offline_verification: "%{user_name} ha verificat %{resource_name} utilitzant la verificació presencial mitjançant documents d'identitat"
     authorization_handlers:
       admin:
         id_documents:
           help:
-          - Els usuaris omplen la informació de la seva identitat i carreguen una còpia del seu document.
-          - Emplenes la informació que es mostra a la imatge penjada.
-          - La informació ha de coincidir amb el que hagi omplert l'usuari.
-          - Si no pots veure la informació amb claredat o no la pots verificar, pots rebutjar la sol·licitud i l'usuari la podrà solucionar.
+            - Els usuaris omplen la informació de la seva identitat i carreguen una còpia del seu document.
+            - Emplenes la informació que es mostra a la imatge penjada.
+            - La informació ha de coincidir amb el que hagi omplert l'usuari.
+            - Si no pots veure la informació amb claredat o no la pots verificar, pots rebutjar la sol·licitud i l'usuari la podrà solucionar.
         postal_letter:
           help:
-          - Els usuaris sol·liciten un codi de verificació que s'enviarà a la seva adreça.
-          - Envies la carta a la seva adreça amb el codi de verificació.
-          - Marques la carta com a enviada.
-          - Una vegada la carta està marcada com a enviada, l'usuari podrà introduir el codi i verificar-se.
+            - Els usuaris sol·liciten un codi de verificació que s'enviarà a la seva adreça.
+            - Envies la carta a la seva adreça amb el codi de verificació.
+            - Marques la carta com a enviada.
+            - Una vegada la carta està marcada com a enviada, l'usuari podrà introduir el codi i verificar-se.
       direct: Directe
       help: Ajuda
       id_documents:
@@ -50,6 +61,7 @@ ca:
         create:
           error: S'ha produït un error en crear l'autorització.
           success: Has estat autoritzat amb èxit.
+          unconfirmed: Cal que confirmis el teu correu electrònic per a poder autoritzar-te.
         first_login:
           actions:
             another_dummy_authorization_handler: Verifiqueu contra un altre exemple de controlador d'autorització
@@ -70,6 +82,13 @@ ca:
           other: 'La participació està restringida als usuaris amb algun dels següents codis postals: %{postal_codes}.'
       id_documents:
         admin:
+          config:
+            edit:
+              title: Configuració dels documents d'identitat
+              update: Actualitzar
+            update:
+              error: S'ha produït un error en actualitzar la configuració.
+              success: La configuració s'ha actualitzat correctament
           confirmations:
             create:
               error: La verificació no coincideix. Torna-ho a provar o rebutja la verificació perquè l'usuari pugui modificar-la
@@ -78,19 +97,36 @@ ca:
               introduce_user_data: Introdueix les dades de la imatge
               reject: Rebutjar
               verify: Verificar
+          offline_confirmations:
+            create:
+              error: La verificació no coincideix. Torna-ho a provar o digue-li a l'usuari que la modifiqui
+              success: S'ha verificat l'usuari correctament
+            new:
+              cancel: Cancel · lar
+              introduce_user_data: Introdueix el correu electrònic de l'usuari i les dades del document
+              verify: Verificar
           pending_authorizations:
             index:
-              title: Verificacions pendents
+              config: Configuració
+              offline_verification: Verificació presencial
+              title: Verificacions online pendents
               verification_number: 'Verificació #%{n}'
           rejections:
             create:
               success: S'ha rebutjat la verificació. Es demanarà a l'usuari que modifiqui els seus documents
         authorizations:
+          choose:
+            choose_a_type: "Si us plau selecciona com et vols verificar:"
+            offline: Presencial
+            online: Online
+            title: Verifica't utilitzant el teu document d'identitat
           create:
             error: S'ha produït un problema en penjar el document
             success: Document penjat correctament
           edit:
             being_reviewed: Estem revisant els teus documents. Et verificarem aviat
+            offline: Utilitzar la verificació presencial
+            online: Utilitzar la verificació online
             rejection_clarity: Assegura't que la informació sigui visible a la imatge carregada
             rejection_correctness: Assegura't que la informació introduïda sigui correcta
             rejection_notice: S'ha produït un problema amb la teva verificació. Siusplau torna-ho a provar
@@ -133,6 +169,20 @@ ca:
           update:
             error: El teu codi de verificació no coincideix amb el nostre. Si us plau, revisa la carta que t'hem enviat
             success: Felicitats. T'has verificat correctament
+      sms:
+        authorizations:
+          create:
+            error: S'ha produït un problema amb la teva sol·licitud
+            success: Gràcies! Hem enviat un SMS al teu telèfon.
+          edit:
+            send: Confirmar
+            title: Introdueix el codi de verificació que has rebut
+          new:
+            send: Envia'm un SMS
+            title: Sol·licita el teu codi de verificació
+          update:
+            error: El codi de verificació que has introduït no coincideix amb el nostre. Si us plau, revisa el SMS que t'hem enviat.
+            success: Felicitats. T'has verificat correctament.
   errors:
     messages:
       uppercase_only_letters_numbers: ha d'estar en majúscules i contenir lletres i/o nombres

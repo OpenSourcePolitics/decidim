@@ -8,7 +8,7 @@ describe "Edit proposals", type: :system do
 
   let!(:user) { create :user, :confirmed, organization: participatory_process.organization }
   let!(:another_user) { create :user, :confirmed, organization: participatory_process.organization }
-  let!(:proposal) { create :proposal, author: user, component: component }
+  let!(:proposal) { create :proposal, users: [user], component: component }
 
   before do
     switch_to_host user.organization.host
@@ -30,9 +30,11 @@ describe "Edit proposals", type: :system do
 
       expect(page).to have_content "EDIT PROPOSAL"
 
-      fill_in "Title", with: new_title
-      fill_in "Body", with: new_body
-      click_button "Send"
+      within "form.edit_proposal" do
+        fill_in :proposal_title, with: new_title
+        fill_in :proposal_body, with: new_body
+        click_button "Send"
+      end
 
       expect(page).to have_content(new_title)
       expect(page).to have_content(new_body)
@@ -42,7 +44,13 @@ describe "Edit proposals", type: :system do
       let(:component) { create(:proposal_component, :with_geocoding_enabled, participatory_space: participatory_process) }
       let(:address) { "6 Villa des Nymphéas 75020 Paris" }
       let(:new_address) { "6 rue Sorbier 75020 Paris" }
-      let!(:proposal) { create :proposal, address: address, author: user, component: component }
+      let!(:proposal) { create :proposal, address: address, users: [user], component: component }
+      let(:latitude) { "48.8682538" }
+      let(:longitude) { "2.389643" }
+
+      before do
+        stub_geocoding(new_address, [latitude, longitude])
+      end
 
       it "can be updated with address" do
         visit_component
@@ -55,17 +63,9 @@ describe "Edit proposals", type: :system do
         expect(page).to have_field("Body", with: proposal.body)
         expect(page).to have_field("Address", with: proposal.address)
 
-        fill_in "Address", with: new_address
-
-        Geocoder.configure(lookup: :test)
-
-        Geocoder::Lookup::Test.add_stub(
-          new_address,
-          [{
-            "latitude" => 48.8682538,
-            "longitude" => 2.389643
-          }]
-        )
+        within "form.edit_proposal" do
+          fill_in :proposal_address, with: new_address
+        end
 
         click_button "Send"
         expect(page).to have_content(new_address)
@@ -83,10 +83,30 @@ describe "Edit proposals", type: :system do
 
         expect(page).to have_content "EDIT PROPOSAL"
 
-        fill_in "Body", with: "A"
+        within "form.edit_proposal" do
+          fill_in :proposal_body, with: "A"
+          click_button "Send"
+        end
+
+        expect(page).to have_content("is using too many capital letters (over 25% of the text), is too short (under 15 characters)")
+      end
+
+      it "keeps the submitted values" do
+        visit_component
+
+        click_link proposal.title
+        click_link "Edit proposal"
+
+        expect(page).to have_content "EDIT PROPOSAL"
+
+        within "form.edit_proposal" do
+          fill_in :proposal_title, with: "A title with a #hashtag"
+          fill_in :proposal_body, with: "Ỳü"
+        end
         click_button "Send"
 
-        expect(page).to have_content("is using too much caps, is too short")
+        expect(page).to have_selector("input[value='A title with a #hashtag']")
+        expect(page).to have_content("Ỳü")
       end
     end
   end
@@ -108,7 +128,7 @@ describe "Edit proposals", type: :system do
   end
 
   describe "editing my proposal outside the time limit" do
-    let!(:proposal) { create :proposal, author: user, component: component, created_at: 1.hour.ago }
+    let!(:proposal) { create :proposal, users: [user], component: component, created_at: 1.hour.ago }
 
     before do
       login_as another_user, scope: :user

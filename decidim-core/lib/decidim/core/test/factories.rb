@@ -7,7 +7,15 @@ require "decidim/participatory_processes/test/factories"
 require "decidim/assemblies/test/factories"
 require "decidim/comments/test/factories"
 
+def generate_localized_title
+  Decidim::Faker::Localized.localized { generate(:title) }
+end
+
 FactoryBot.define do
+  sequence(:title) do |n|
+    "#{Faker::Lorem.sentence(3)} #{n}"
+  end
+
   sequence(:name) do |n|
     "#{Faker::Name.name} #{n}"
   end
@@ -16,8 +24,16 @@ FactoryBot.define do
     "#{Faker::Lorem.characters(rand(1..10))}_#{n}"
   end
 
+  sequence(:hashtag_name) do |n|
+    "#{Faker::Lorem.characters(rand(1..10))}_#{n}"
+  end
+
   sequence(:email) do |n|
     "user#{n}@example.org"
+  end
+
+  sequence(:user_group_email) do |n|
+    "usergroup#{n}@example.org"
   end
 
   sequence(:slug) do |n|
@@ -37,8 +53,8 @@ FactoryBot.define do
   end
 
   factory :category, class: "Decidim::Category" do
-    name { Decidim::Faker::Localized.sentence(3) }
-    description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(2) } }
+    name { generate_localized_title }
+    description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
 
     association :participatory_space, factory: :participatory_process
   end
@@ -58,53 +74,48 @@ FactoryBot.define do
     youtube_handler { Faker::Hipster.word }
     github_handler { Faker::Hipster.word }
     sequence(:host) { |n| "#{n}.lvh.me" }
-    description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(2) } }
-    welcome_text { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(2) } }
-    homepage_image { Decidim::Dev.test_file("city.jpeg", "image/jpeg") }
+    description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
     favicon { Decidim::Dev.test_file("icon.png", "image/png") }
     default_locale { Decidim.default_locale }
     available_locales { Decidim.available_locales }
+    users_registration_mode { :enabled }
     official_img_header { Decidim::Dev.test_file("avatar.jpg", "image/jpeg") }
     official_img_footer { Decidim::Dev.test_file("avatar.jpg", "image/jpeg") }
     official_url { Faker::Internet.url }
-    highlighted_content_banner_enabled false
-    enable_omnipresent_banner false
-    tos_version { Time.current }
+    highlighted_content_banner_enabled { false }
+    enable_omnipresent_banner { false }
+    badges_enabled { true }
+    user_groups_enabled { true }
+    send_welcome_notification { true }
 
-    trait :with_tos do
-      after(:create) do |organization|
-        tos_page = Decidim::StaticPage.find_by(slug: "terms-and-conditions", organization: organization)
-        create(:static_page, :tos, organization: organization) if tos_page.nil?
-      end
+    after(:create) do |organization|
+      tos_page = Decidim::StaticPage.find_by(slug: "terms-and-conditions", organization: organization)
+      create(:static_page, :tos, organization: organization) if tos_page.nil?
     end
   end
 
   factory :user, class: "Decidim::User" do
     email { generate(:email) }
-    password "password1234"
-    password_confirmation "password1234"
+    password { "password1234" }
+    password_confirmation { password }
     name { generate(:name) }
     nickname { generate(:nickname) }
     organization
     locale { organization.default_locale }
-    tos_agreement "1"
+    tos_agreement { "1" }
     avatar { Decidim::Dev.test_file("avatar.jpg", "image/jpeg") }
     personal_url { Faker::Internet.url }
     about { Faker::Lorem.paragraph(2) }
-
-    after(:create) do |user|
-      tos_page = Decidim::StaticPage.find_by(slug: "terms-and-conditions", organization: user.organization)
-      create(:static_page, :tos, organization: user.organization) if tos_page.nil?
-      user.accepted_tos_version = user.organization.tos_version
-      user.save
-    end
+    confirmation_sent_at { Time.current }
+    accepted_tos_version { organization.tos_version }
+    email_on_notification { true }
 
     trait :confirmed do
       confirmed_at { Time.current }
     end
 
     trait :deleted do
-      email ""
+      email { "" }
       deleted_at { Time.current }
     end
 
@@ -124,14 +135,14 @@ FactoryBot.define do
     end
 
     trait :officialized do
-      officialized_at { Time.zone.now }
-      officialized_as { Decidim::Faker::Localized.sentence(3) }
+      officialized_at { Time.current }
+      officialized_as { generate_localized_title }
     end
   end
 
   factory :navbar_link, class: "Decidim::NavbarLink" do
     organization
-    title { Decidim::Faker::Localized.word }
+    title { generate_localized_title }
     link { Faker::Internet.url }
     target { ["blank", ""].sample }
     weight { (1..10).to_a.sample }
@@ -148,14 +159,21 @@ FactoryBot.define do
   end
 
   factory :user_group, class: "Decidim::UserGroup" do
-    name { Faker::Educator.unique.course }
-    document_number { Faker::Number.number(8) + "X" }
-    phone { Faker::PhoneNumber.phone_number }
+    transient do
+      document_number { Faker::Number.number(8) + "X" }
+      phone { Faker::PhoneNumber.phone_number }
+      rejected_at { nil }
+      verified_at { nil }
+    end
+
+    sequence(:name) { |n| "#{Faker::Company.name} #{n}" }
+    email { generate(:user_group_email) }
+    nickname { generate(:nickname) }
     avatar { Decidim::Dev.test_file("avatar.jpg", "image/jpeg") }
     organization
 
     transient do
-      users []
+      users { [] }
     end
 
     trait :verified do
@@ -166,23 +184,40 @@ FactoryBot.define do
       rejected_at { Time.current }
     end
 
+    trait :confirmed do
+      confirmed_at { Time.current }
+    end
+
+    after(:build) do |user_group, evaluator|
+      user_group.extended_data = {
+        document_number: evaluator.document_number,
+        phone: evaluator.phone,
+        rejected_at: evaluator.rejected_at,
+        verified_at: evaluator.verified_at
+      }
+    end
+
     after(:create) do |user_group, evaluator|
-      users = evaluator.users
+      users = evaluator.users.dup
       next if users.empty?
 
+      creator = users.shift
+      create(:user_group_membership, user: creator, user_group: user_group, role: :creator)
+
       users.each do |user|
-        create(:user_group_membership, user: user, user_group: user_group)
+        create(:user_group_membership, user: user, user_group: user_group, role: :admin)
       end
     end
   end
 
   factory :user_group_membership, class: "Decidim::UserGroupMembership" do
     user
+    role { :creator }
     user_group
   end
 
   factory :identity, class: "Decidim::Identity" do
-    provider "facebook"
+    provider { "facebook" }
     sequence(:uid)
     user
     organization { user.organization }
@@ -199,36 +234,54 @@ FactoryBot.define do
     end
 
     trait :pending do
-      granted_at nil
+      granted_at { nil }
     end
   end
 
   factory :static_page, class: "Decidim::StaticPage" do
     slug { generate(:slug) }
-    title { Decidim::Faker::Localized.sentence(3) }
-    content { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(4) } }
-    organization
+    title { generate_localized_title }
+    content { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
+    organization { build(:organization) }
 
     trait :default do
-      slug { Decidim::StaticPage::DEFAULT_PAGES.sample }
+      slug { (Decidim::StaticPage::DEFAULT_PAGES - ["terms-and-conditions"]).sample }
     end
 
     trait :tos do
       slug { "terms-and-conditions" }
+      after(:create) do |tos_page|
+        tos_page.organization.tos_version = tos_page.updated_at
+        tos_page.organization.save!
+      end
+    end
+
+    trait :with_topic do
+      after(:create) do |static_page|
+        topic = create(:static_page_topic, organization: static_page.organization)
+        static_page.topic = topic
+        static_page.save
+      end
     end
   end
 
+  factory :static_page_topic, class: "Decidim::StaticPageTopic" do
+    title { generate_localized_title }
+    description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
+    organization
+  end
+
   factory :attachment_collection, class: "Decidim::AttachmentCollection" do
-    name { Decidim::Faker::Localized.sentence(1) }
-    description { Decidim::Faker::Localized.sentence(2) }
+    name { generate_localized_title }
+    description { generate_localized_title }
     weight { Faker::Number.number(1) }
 
     association :collection_for, factory: :participatory_process
   end
 
   factory :attachment, class: "Decidim::Attachment" do
-    title { Decidim::Faker::Localized.sentence(3) }
-    description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(4) } }
+    title { generate_localized_title }
+    description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
     file { Decidim::Dev.test_file("city.jpeg", "image/jpeg") }
     weight { Faker::Number.number(1) }
     attached_to { build(:participatory_process) }
@@ -251,9 +304,9 @@ FactoryBot.define do
       organization { create(:organization) }
     end
 
-    name { Decidim::Faker::Localized.sentence(3) }
+    name { generate_localized_title }
     participatory_space { create(:participatory_process, organization: organization) }
-    manifest_name "dummy"
+    manifest_name { "dummy" }
     published_at { Time.current }
 
     trait :unpublished do
@@ -274,7 +327,7 @@ FactoryBot.define do
   factory :scope, class: "Decidim::Scope" do
     name { Decidim::Faker::Localized.literal(generate(:scope_name)) }
     code { generate(:scope_code) }
-    scope_type
+    scope_type { create(:scope_type, organization: organization) }
     organization { parent ? parent.organization : build(:organization) }
   end
 
@@ -297,6 +350,14 @@ FactoryBot.define do
     organization
   end
 
+  factory :coauthorship, class: "Decidim::Coauthorship" do
+    coauthorable { create(:dummy_resource) }
+    transient do
+      organization { coauthorable.component.participatory_space.organization }
+    end
+    author { create(:user, :confirmed, organization: organization) }
+  end
+
   factory :dummy_resource, class: "Decidim::DummyResources::DummyResource" do
     title { generate(:name) }
     component { create(:component, manifest_name: "dummy") }
@@ -314,9 +375,9 @@ FactoryBot.define do
     author { build(:user, :confirmed, organization: organization) }
     organization
 
-    subject { Decidim::Faker::Localized.sentence(3) }
+    subject { generate_localized_title }
 
-    body { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(4) } }
+    body { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
 
     trait :sent do
       sent_at { Time.current }
@@ -335,7 +396,7 @@ FactoryBot.define do
   factory :report, class: "Decidim::Report" do
     moderation
     user { build(:user, organization: moderation.reportable.organization) }
-    reason "spam"
+    reason { "spam" }
   end
 
   factory :impersonation_log, class: "Decidim::ImpersonationLog" do
@@ -382,6 +443,7 @@ FactoryBot.define do
     component { build :component, participatory_space: participatory_space }
     resource { build(:dummy_resource, component: component) }
     action { "create" }
+    visibility { "admin-only" }
     extra do
       {
         component: {
@@ -419,7 +481,7 @@ FactoryBot.define do
     application { build(:oauth_application) }
     token { SecureRandom.hex(32) }
     expires_in { 1.month.from_now }
-    created_at { Time.zone.now }
+    created_at { Time.current }
     scopes { "public" }
   end
 
@@ -432,6 +494,42 @@ FactoryBot.define do
     locale { I18n.locale }
     scope { resource.scope }
     content_a { Faker::Lorem.sentence }
-    datetime { DateTime.current }
+    datetime { Time.current }
+  end
+
+  factory :content_block, class: "Decidim::ContentBlock" do
+    organization
+    scope { :homepage }
+    manifest_name { :hero }
+    weight { 1 }
+    published_at { Time.current }
+  end
+
+  factory :hashtag, class: "Decidim::Hashtag" do
+    name { generate(:hashtag_name) }
+    organization
+  end
+
+  factory :metric, class: "Decidim::Metric" do
+    organization
+    day { Time.zone.today }
+    metric_type { "random_metric" }
+    cumulative { 2 }
+    quantity { 1 }
+    category { create :category }
+    participatory_space { create :participatory_process, organization: organization }
+    related_object { create :component, participatory_space: participatory_space }
+  end
+
+  factory :amendment, class: "Decidim::Amendment" do
+    amender do
+      build(
+        :user,
+        organization: amendable.try(:organization) || build(:organization)
+      )
+    end
+    state { "evaluating" }
+    amendable { build(:dummy_resource) }
+    emendation { build(:dummy_resource) }
   end
 end

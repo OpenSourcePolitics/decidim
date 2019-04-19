@@ -61,8 +61,8 @@ de:
             invalid: Bei der Aktualisierung dieser Debatte ist ein Problem aufgetreten.
             success: Die Diskussion wurde erfolgreich aktualisiert.
         exports:
-          comments: comments
-          debates: debates
+          comments: kommentare
+          debates: debatten
         models:
           debate:
             name: Debatte
@@ -104,6 +104,8 @@ de:
           close_window: Fenster schließen
           share: Aktie
           share_link: Einen Link teilen
+      last_activity:
+        new_debate_at_html: "<span>Neue Debatte bei %{link}</span>"
       models:
         debate:
           fields:
@@ -116,18 +118,18 @@ de:
         create_debate_event:
           space_followers:
             email_intro: |-
-              Hi,
-              eine neue Debatte über den %{space_title} partizipativen Raum erstellt, schaue es dir an und trage dazu bei:
+              Hallo,
+              Eine neue Debatte "%{resource_title}" wurde auf den %{space_title} Partizipationsräumen erstellt, check it out und trage mit:
             email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie dem %{space_title} Teilnahmebereich folgen. Sie können nach dem vorherigen Link keine Benachrichtigungen mehr erhalten.
-            email_subject: Neue Debatte über %{space_title}
+            email_subject: Neue Debatte "%{resource_title}" am %{space_title}
             notification_title: Die <a href="%{resource_path}">%{resource_title}</a> Debatte wurde am <a href="%{space_path}">%{space_title}</a>.
           user_followers:
             email_intro: |-
-              Hi,
-              %{author_name} %{author_nickname}, wem du folgst, hat eine neue Debatte erstellt, schaue es dir an und trage dazu bei:
+              Hallo,
+              %{author_name} %{author_nickname}, dem Sie folgen, hat eine neue Debatte "%{resource_title}" erstellt. Überprüfen Sie es und tragen Sie bei:
             email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{author_nickname}. Sie können nach dem vorherigen Link keine Benachrichtigungen mehr erhalten.
-            email_subject: Neue Debatte mit %{author_nickname}
-            notification_title: Die <a href="%{resource_path}">%{resource_title}</a> -Diskussion wurde von <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+            email_subject: Neue Debatte "%{resource_title}" von %{author_nickname}
+            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> hat die <a href="%{resource_path}">%{resource_title}</a> Debatte geschaffen.
         creation_disabled:
           email_intro: 'Die Erstellung von Debatten ist in %{participatory_space_title}nicht mehr aktiv. Sie können weiterhin an offenen Debatten von dieser Seite teilnehmen:'
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{participatory_space_title}. Sie können nach dem vorherigen Link keine Benachrichtigungen mehr erhalten.
@@ -138,3 +140,20 @@ de:
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{participatory_space_title}. Sie können nach dem vorherigen Link keine Benachrichtigungen mehr erhalten.
           email_subject: Debatten jetzt in %{participatory_space_title}verfügbar
           notification_title: Sie können jetzt <a href="%{resource_path}">neue Debatten</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>starten
+    gamification:
+      badges:
+        commented_debates:
+          conditions:
+          - Wählen Sie eine offene Debatte, an der Sie teilnehmen können
+          description: Dieses Abzeichen wird gewährt, wenn Sie aktiv an den verschiedenen Debatten teilnehmen, indem Sie Ihre Kommentare hinterlassen.
+          description_another: Dieser Benutzer hat an %{score} Debatten teilgenommen.
+          description_own: Sie haben an %{score} Debatten teilgenommen.
+          name: Debatten
+          next_level_in: Nimm an %{score} weiteren Debatten teil, um das nächste Level zu erreichen!
+          unearned_another: Dieser Benutzer hat noch keine Diskussionen geführt.
+          unearned_own: Sie haben bereits an Debatten teilgenommen.
+    metrics:
+      debates:
+        description: Anzahl der erstellten Debatten
+        object: Debatten
+        title: Debatten

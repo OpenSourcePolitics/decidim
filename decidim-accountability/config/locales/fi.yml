@@ -7,11 +7,11 @@ fi:
         decidim_category_id: Aihepiiri
         decidim_scope_id: Teema
         description: Kuvaus
-        end_date: Päättymisaika
+        end_date: Päättymispäivä
         progress: Edistyminen
-        project_ids: Liitetyt projektit
+        project_ids: Liitetyt suunnitelmat
         proposals: Sisällytetyt ehdotukset
-        start_date: Aloitusaika
+        start_date: Alkamispäivä
         title: Otsikko
         updated_at: Päivitysaika
       status:
@@ -24,6 +24,7 @@ fi:
         entry_date: Päivämäärä
     models:
       decidim/accountability/proposal_linked_event: Ehdotus sisältyy tulokseen
+      decidim/accountability/result_progress_updated_event: Tuloksen edistyminen päivitetty
   activerecord:
     models:
       decidim/accountability/result:
@@ -117,12 +118,14 @@ fi:
         value_types:
           parent_presenter:
             not_found: 'Pääelementtiä ei löytynyt tietokannasta (ID: %{id})'
+      last_activity:
+        new_result_at_html: "<span>Uusi tulos osoitteessa %{link}</span>"
       models:
         result:
           fields:
-            end_date: Päättymisaika
+            end_date: Päättymispäivä
             progress: Edistyminen
-            start_date: Aloitusaika
+            start_date: Alkamispäivä
             status: Tila
             title: Otsikko
         status:
@@ -184,32 +187,41 @@ fi:
         name: Vastuullisuus
         settings:
           global:
-            categories_label: Nimi kohteelle "Luokat"
+            categories_label: Nimi termille "Aihepiirit"
             comments_enabled: Kommentointi käytössä
             display_progress_enabled: Näytä edistyminen
-            heading_leaf_level_results: Nimi kohteelle "Projektit"
-            heading_parent_level_results: Nimi kohteelle "Tulokset"
+            heading_leaf_level_results: Nimi termille "Suunnitelmat"
+            heading_parent_level_results: Nimi termille "Tulokset"
             intro: Esittelyteksti
-            subcategories_label: Nimi kohteelle "Ala-aihepiirit"
+            subcategories_label: Nimi termille "Ala-aihepiirit"
           step:
             comments_blocked: Kommentointi estetty
     events:
       accountability:
         proposal_linked:
           email_intro: 'Ehdotus "%{proposal_title}" on sisällytetty tulokseen. Voit nähdä sen tällä sivulla:'
-          email_outro: Olet vastaanottanut tämän ilmoituksen, koska seuraat "%{proposal_title}". Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin kautta.
+          email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat "%{proposal_title}". Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
           email_subject: Päivitys kohtaan %{proposal_title}
           notification_title: Ehdotus <a href="%{proposal_path}">%{proposal_title}</a> on sisällytetty tulokseen <a href="%{resource_path}">%{resource_title}</a>.
+        result_progress_updated:
+          email_intro: 'Tulos "%{resource_title}", joka sisältää ehdotuksen "%{proposal_title}", on nyt %{progress}% valmis. Voit nähdä sen tällä sivulla:'
+          email_outro: Saat tämän ilmoituksen, koska seuraat ehdotusta "%{proposal_title}" ja se sisältyy tulokseen "%{resource_title}". Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
+          email_subject: Päivitys kohteen %{resource_title} edistykseen
+          notification_title: Tulos <a href="%{resource_path}">%{resource_title}</a>, joka sisältää ehdotuksen <a href="%{proposal_path}">%{proposal_title}</a>, on nyt %{progress}% valmis.
+    metrics:
+      results:
+        description: Luotujen tulosten lukumäärä
+        object: tulokset
+        title: Tulokset
     participatory_processes:
       participatory_process_groups:
         highlighted_results:
           results: Tulokset
     participatory_spaces:
       highlighted_results:
-        results: Tulokset
-        see_all_results: Katso kaikki tulokset
+        see_all: Näytä kaikki (%{count})
     resource_links:
       included_projects:
-        result_project: Tähän tulokseen liittyvät hankkeet
+        result_project: Tähän tulokseen liittyvät suunnitelmat
       included_proposals:
         result_proposal: Tähän tulokseen liittyvät ehdotukset

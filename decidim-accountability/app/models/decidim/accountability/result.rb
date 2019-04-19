@@ -13,6 +13,7 @@ module Decidim
       include Decidim::Comments::Commentable
       include Decidim::Traceable
       include Decidim::Loggable
+      include Decidim::DataPortability
 
       component_manifest_name "accountability"
 
@@ -78,7 +79,10 @@ module Decidim
       private
 
       # Private: When a row uses weight 1 and there's more than one, weight shouldn't be considered
+      # Handle special case when all children weight are nil
       def children_use_weighted_progress?
+        return false if children.pluck(:weight).all?(&:nil?)
+
         children.length == 1 || children.pluck(:weight).none? { |weight| weight == 1.0 }
       end
     end

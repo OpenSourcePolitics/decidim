@@ -5,6 +5,8 @@ module Decidim
     module Admin
       # A command with all the business logic when a user creates a new proposal.
       class CreateProposal < Rectify::Command
+        include HashtagsMethods
+
         # Public: Initializes the command.
         #
         # form - A form object with the params.
@@ -40,23 +42,24 @@ module Decidim
         attr_reader :form, :proposal, :attachment
 
         def create_proposal
-          @proposal = Decidim.traceability.create!(
-            Proposal,
-            form.current_user,
-            attributes
+          @proposal = Decidim::Proposals::ProposalBuilder.create(
+            attributes: attributes,
+            author: form.author,
+            action_user: form.current_user
           )
         end
 
         def attributes
           {
-            title: form.title,
-            body: form.body,
+            title: title_with_hashtags,
+            body: body_with_hashtags,
             category: form.category,
             scope: form.scope,
             component: form.component,
             address: form.address,
             latitude: form.latitude,
             longitude: form.longitude,
+            created_in_meeting: form.created_in_meeting,
             published_at: Time.current
           }
         end
@@ -98,7 +101,7 @@ module Decidim
             event: "decidim.events.proposals.proposal_published",
             event_class: Decidim::Proposals::PublishProposalEvent,
             resource: proposal,
-            recipient_ids: @proposal.participatory_space.followers.pluck(:id),
+            followers: @proposal.participatory_space.followers,
             extra: {
               participatory_space: true
             }

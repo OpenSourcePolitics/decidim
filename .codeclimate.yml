@@ -1,5 +1,3 @@
----
-
 version: "2"
 
 checks:
@@ -98,13 +96,14 @@ plugins:
     exclude_patterns:
       - "decidim_app-design/**/*"
       - "**/*/locales/*.yml"
-
+      - "**/*/*.svg"
 
   markdownlint:
     enabled: true
 
     exclude_patterns:
       - .github/*
+      - decidim-dev/lib/decidim/dev/assets/participatory_text.md
 
     issue_override:
       severity: minor

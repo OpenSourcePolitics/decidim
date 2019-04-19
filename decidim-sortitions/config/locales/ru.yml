@@ -45,7 +45,7 @@ ru:
         actions:
           destroy: Отменить жеребьевку
           edit: Редактировать
-          new: Добавить
+          new: Добавить жеребьевку
           show: Подробности жеребьевки
         models:
           sortition:

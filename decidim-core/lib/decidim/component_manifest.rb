@@ -21,6 +21,10 @@ module Decidim
 
     attribute :query_type, String, default: "Decidim::Core::ComponentType"
 
+    # An array with the name of the classes that will be exported with
+    # the data portability feature for this component. For example, `Decidim::<MyModule>::<MyClass>``
+    attribute :data_portable_entities, Array, default: []
+
     # A path with the `scss` stylesheet this engine provides. It is used to
     # mix this engine's stylesheets with the main app's stylesheets so it can
     # use the scss variables and mixins provided by Decidim::Core.
@@ -75,6 +79,7 @@ module Decidim
     # Returns nothing.
     def run_hooks(event_name, context = nil)
       return unless hooks[event_name]
+
       hooks[event_name.to_sym].each do |hook|
         hook.call(context)
       end
@@ -137,6 +142,8 @@ module Decidim
     #
     # Returns nothing.
     def exports(name, &block)
+      return unless name
+
       @exports ||= []
       @exports << [name, block]
       @export_manifests = nil
@@ -147,8 +154,8 @@ module Decidim
     #
     # Returns an Array<Decidim::Components::ExportManifest>.
     def export_manifests
-      @export_manifests ||= @exports.map do |(name, block)|
-        Decidim::Components::ExportManifest.new(name).tap do |manifest|
+      @export_manifests ||= Array(@exports).map do |(name, block)|
+        Decidim::Components::ExportManifest.new(name, self).tap do |manifest|
           block.call(manifest)
         end
       end

@@ -66,7 +66,10 @@ search:
   exclude:
     - decidim-comments/app/assets/javascripts/decidim/comments/bundle.js
     - decidim-comments/app/assets/javascripts/decidim/comments/bundle.js.map
+    - decidim-dev/lib/decidim/dev/assets/iso-8859-15.md
     - "*.jpeg"
+    - "*.odt"
+    - "*.docx"
 
   ## Alternatively, the only files or `File.fnmatch patterns` to search in `paths`:
   ## If specified, this settings takes priority over `exclude`, but `exclude` still applies.
@@ -84,9 +87,12 @@ search:
 #   # Get an API key and set billing info at https://code.google.com/apis/console to use Google Translate
 #   api_key: "AbC-dEf5"
 
+translation:
+  deepl_api_key: <%= ENV["DEEPL_API_KEY"] %>
+
 # Do not consider these keys missing:
 ignore_missing:
-  - '{devise,components}.*'
+  - components.*
   - email_subject
   - email_intro
   - email_outro
@@ -94,6 +100,7 @@ ignore_missing:
 
 # Consider these keys used:
 ignore_unused:
+  - devise.*
   - activemodel.attributes.*
   - activemodel.errors.*
   - activemodel.models.*
@@ -101,6 +108,7 @@ ignore_unused:
   - activerecord.models.*
   - booleans.*
   - '{date,time.formats}.*'
+  - carrierwave.errors.*
   - decidim.admin.participatory_process_steps.default_title
   - decidim.authorization_handlers.{direct,multistep}
   - decidim.admin.models.assembly_member.positions.*
@@ -129,6 +137,7 @@ ignore_unused:
   - decidim.debates.admin_log.*
   - decidim.meetings.admin_log.*
   - decidim.budgets.admin_log.*
+  - decidim.budgets.admin.models.project.name
   - decidim.sortitions.admin_log.*
   - decidim.sortitions.sortitions.orders.*
   - decidim.consultations.admin_log.*
@@ -146,6 +155,43 @@ ignore_unused:
   - doorkeeper.scopes.*
   - decidim.proposals.proposals.votes_count.count.*
   - decidim.proposals.proposals.show.hidden_endorsers_count.*
+  - decidim.admin.models.*.name
+  - decidim.admin.models.*.name.*
+  - password_validator.*
+  - decidim.participatory_processes.participatory_processes.filters.*
+  - decidim.participatory_processes.pages.home.highlighted_processes.*
+  - decidim.consultations.pages.home.highlighted_consultations.*
+  - decidim.assemblies.pages.home.highlighted_assemblies.*
+  - decidim.initiatives.pages.home.highlighted_initiatives.*
+  - decidim.content_blocks.*.name
+  - decidim.participatory_processes.content_blocks.*.name
+  - decidim.assemblies.content_blocks.*.name
+  - decidim.initiatives.content_blocks.*.name
+  - decidim.consultations.content_blocks.*.name
+  - decidim.meetings.content_blocks.*.name
+  - decidim.proposals.collaborative_drafts.show.hidden_authors_count.*
+  - decidim.proposals.collaborative_drafts.orders*
+  - decidim.proposals.collaborative_drafts.filters*
+  - decidim.proposals.collaborative_drafts.show.withdraw
+  - decidim.proposals.collaborative_drafts.show.publish
+  - decidim.conferences.content_blocks.*.name
+  - decidim.conferences.pages.home.highlighted_conferences.*
+  - decidim.conferences.conference_speaker.*
+  - decidim.conferences.statistics.*
+  - decidim.conferences.show.*
+  - decidim.conferences.models.conference_registration.fields.states.*
+  - decidim.proposals.admin.participatory_texts.sections.*
+  - decidim.gamification.badges.*
+  - decidim.surveys.surveys.answer.*
+  - decidim.surveys.admin.surveys.update.*
+  - decidim.groups.roles.*
+  - decidim.welcome_notification.*
+  - decidim.help.*
+  - decidim.amendments.amendable.error
+  - decidim.amendments.emendation.announcement.*
+  - decidim.amendments.accept.error
+  - decidim.searches.filters.state.*
+  - decidim.assemblies.filter.*
   - decidim.proposals.proposals.edit.address
   - decidim.proposals.proposals.edit.not_geocoded
   - decidim.proposals.proposals.placeholder.address

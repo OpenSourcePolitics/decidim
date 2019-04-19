@@ -12,9 +12,10 @@ module Decidim
       isolate_namespace Decidim::Assemblies::Admin
 
       paths["db/migrate"] = nil
+      paths["lib/tasks"] = nil
 
       routes do
-        resources :assemblies, param: :slug, except: :show do
+        resources :assemblies, param: :slug, except: [:show, :destroy] do
           resource :publish, controller: "assembly_publications", only: [:create, :destroy]
           resources :copies, controller: "assembly_copies", only: [:new, :create]
           resources :members, controller: "assembly_members"
@@ -45,6 +46,7 @@ module Decidim
             member do
               put :unreport
               put :hide
+              put :unhide
             end
           end
 

@@ -6,40 +6,54 @@ module Decidim
     class ProposalsController < Decidim::Proposals::ApplicationController
       helper Decidim::WidgetUrlsHelper
       helper ProposalWizardHelper
+      helper ParticipatoryTextsHelper
+      include Decidim::ApplicationHelper
       include FormFactory
       include FilterResource
       include Orderable
       include Paginable
 
-      helper_method :geocoded_proposals
+      helper_method :form_presenter
+
       before_action :authenticate_user!, only: [:new, :create, :complete]
       before_action :ensure_is_draft, only: [:compare, :complete, :preview, :publish, :edit_draft, :update_draft, :destroy_draft]
       before_action :set_proposal, only: [:show, :edit, :update, :withdraw]
       before_action :edit_form, only: [:edit_draft, :edit]
 
+      before_action :set_participatory_text
+
       def index
-        @proposals = search
-                     .results
-                     .published
-                     .not_hidden
-                     .includes(:author)
-                     .includes(:category)
-                     .includes(:scope)
+        if component_settings.participatory_texts_enabled?
+          @proposals = Decidim::Proposals::Proposal
+                       .where(component: current_component)
+                       .published
+                       .not_hidden
+                       .includes(:category, :scope)
+                       .order(position: :asc)
+          render "decidim/proposals/proposals/participatory_texts/participatory_text"
+        else
+          @proposals = search
+                       .results
+                       .published
+                       .not_hidden
+                       .includes(:category)
+                       .includes(:scope)
 
-        @voted_proposals = if current_user
-                             ProposalVote.where(
-                               author: current_user,
-                               proposal: @proposals.pluck(:id)
-                             ).pluck(:decidim_proposal_id)
-                           else
-                             []
-                           end
-
-        @proposals = paginate(@proposals)
-        @proposals = reorder(@proposals)
+          @voted_proposals = if current_user
+                               ProposalVote.where(
+                                 author: current_user,
+                                 proposal: @proposals.pluck(:id)
+                               ).pluck(:decidim_proposal_id)
+                             else
+                               []
+                             end
+          @proposals = paginate(@proposals)
+          @proposals = reorder(@proposals)
+        end
       end
 
       def show
+        raise ActionController::RoutingError, "Not Found" unless set_proposal
         @report_form = form(Decidim::ReportForm).from_params(reason: "spam")
       end
 
@@ -62,8 +76,7 @@ module Decidim
           on(:ok) do |proposal|
             flash[:notice] = I18n.t("proposals.create.success", scope: "decidim")
 
-            compare_path = Decidim::ResourceLocatorPresenter.new(proposal).path + "/compare"
-            redirect_to compare_path
+            redirect_to Decidim::ResourceLocatorPresenter.new(proposal).path + "/compare"
           end
 
           on(:invalid) do
@@ -176,24 +189,32 @@ module Decidim
 
       def withdraw
         enforce_permission_to :withdraw, :proposal, proposal: @proposal
-
-        WithdrawProposal.call(@proposal, current_user) do
-          on(:ok) do |_proposal|
-            flash[:notice] = I18n.t("proposals.update.success", scope: "decidim")
-            redirect_to Decidim::ResourceLocatorPresenter.new(@proposal).path
+        if @proposal.emendation?
+          Decidim::Amendable::Withdraw.call(@proposal, current_user) do
+            on(:ok) do |_proposal|
+              flash[:notice] = I18n.t("proposals.update.success", scope: "decidim")
+              redirect_to Decidim::ResourceLocatorPresenter.new(@emendation).path
+            end
+            on(:invalid) do
+              flash[:alert] = I18n.t("proposals.update.error", scope: "decidim")
+              redirect_to Decidim::ResourceLocatorPresenter.new(@emendation).path
+            end
           end
-          on(:invalid) do
-            flash[:alert] = I18n.t("proposals.update.error", scope: "decidim")
-            redirect_to Decidim::ResourceLocatorPresenter.new(@proposal).path
+        else
+          WithdrawProposal.call(@proposal, current_user) do
+            on(:ok) do |_proposal|
+              flash[:notice] = I18n.t("proposals.update.success", scope: "decidim")
+              redirect_to Decidim::ResourceLocatorPresenter.new(@proposal).path
+            end
+            on(:invalid) do
+              flash[:alert] = I18n.t("proposals.update.error", scope: "decidim")
+              redirect_to Decidim::ResourceLocatorPresenter.new(@proposal).path
+            end
           end
         end
       end
 
       private
-
-      def geocoded_proposals
-        @geocoded_proposals ||= search.results.not_hidden.select(&:geocoded?)
-      end
 
       def search_klass
         ProposalSearch
@@ -207,12 +228,13 @@ module Decidim
           category_id: "",
           state: "except_rejected",
           scope_id: nil,
-          related_to: ""
+          related_to: "",
+          type: "all"
         }
       end
 
       def proposal_draft
-        Proposal.not_hidden.where(component: current_component, author: current_user).find_by(published_at: nil)
+        Proposal.from_all_author_identities(current_user).not_hidden.where(component: current_component).find_by(published_at: nil)
       end
 
       def ensure_is_draft
@@ -221,7 +243,7 @@ module Decidim
       end
 
       def set_proposal
-        @proposal = Proposal.published.not_hidden.where(component: current_component).find(params[:id])
+        @proposal = Proposal.published.not_hidden.where(component: current_component).find_by(id: params[:id])
       end
 
       def form_proposal_params
@@ -230,6 +252,10 @@ module Decidim
 
       def form_proposal_model
         form(ProposalForm).from_model(@proposal)
+      end
+
+      def form_presenter
+        @form_presenter ||= present(@form, presenter_class: Decidim::Proposals::ProposalPresenter)
       end
 
       def form_attachment_new
@@ -241,6 +267,10 @@ module Decidim
         @form = form_proposal_model
         @form.attachment = form_attachment_model
         @form
+      end
+
+      def set_participatory_text
+        @participatory_text = Decidim::Proposals::ParticipatoryText.find_by(component: current_component)
       end
     end
   end

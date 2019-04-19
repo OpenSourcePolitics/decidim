@@ -9,6 +9,8 @@ module Decidim
         helper_method :current_assembly, :parent_assembly, :parent_assemblies, :current_participatory_space
         layout "decidim/admin/assemblies"
 
+        before_action :set_all_assemblies, except: [:index]
+
         def index
           enforce_permission_to :read, :assembly_list
           @assemblies = collection
@@ -63,20 +65,15 @@ module Decidim
           end
         end
 
-        def destroy
-          enforce_permission_to :destroy, :assembly, assembly: current_assembly
-          current_assembly.destroy!
-
-          flash[:notice] = I18n.t("assemblies.destroy.success", scope: "decidim.admin")
-
-          redirect_to assemblies_path
-        end
-
         def copy
           enforce_permission_to :create, :assembly
         end
 
         private
+
+        def set_all_assemblies
+          @all_assemblies = OrganizationAssemblies.new(current_user.organization).query
+        end
 
         def current_assembly
           scope = OrganizationAssemblies.new(current_user.organization).query

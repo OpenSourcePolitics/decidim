@@ -15,6 +15,11 @@ module Decidim
         resource_locator.url(url_params)
       end
 
+      def resource_text
+        renderer = Decidim::ContentRenderers::HashtagRenderer.new(comment.body)
+        renderer.render
+      end
+
       private
 
       def comment

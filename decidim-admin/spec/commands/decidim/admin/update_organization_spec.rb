@@ -12,7 +12,10 @@ module Decidim::Admin
           organization: {
             name: "My super organization",
             reference_prefix: "MSO",
-            default_locale: "en"
+            default_locale: "en",
+            badges_enabled: true,
+            user_groups_enabled: true,
+            send_welcome_notification: false
           }
         }
       end

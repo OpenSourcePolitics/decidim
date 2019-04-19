@@ -20,6 +20,11 @@ module Decidim
       Decidim::AdminLog::ComponentPresenter
     end
 
+    # Other components with the same manifest and same participatory space as this one.
+    def siblings
+      @siblings ||= participatory_space.components.where.not(id: id).where(manifest_name: manifest_name)
+    end
+
     # Public: Finds the manifest this component is associated to.
     #
     # Returns a ComponentManifest.
@@ -59,6 +64,14 @@ module Decidim
     def primary_stat
       @primary_stat ||= manifest.stats.filter(primary: true).with_context([self]).map { |name, value| [name, value] }.first&.last
     end
+
+    # Public: Returns the component's name as resource title
+    def resource_title
+      name
+    end
+
+    # Public: Returns an empty description
+    def resource_description; end
 
     private
 

@@ -1,4 +1,3 @@
----
 gl:
   activemodel:
     attributes:
@@ -11,11 +10,10 @@ gl:
         organization: Organización
         plural: Plural
       attachment:
-        attachment_collection_id: Colección
+        attachment_collection_id: Cartafol
         description: Descrición
         file: Arquivo
         title: Título
-        weight: Rang d'affichage
       attachment_collection:
         description: Descrición
         name: Nome
@@ -38,6 +36,7 @@ gl:
         organization_url: URL da organización
         redirect_uri: Redirixir URI
       organization:
+        badges_enabled: Activar emblemas
         cta_button_path: Camiño do botón de chamada a acción
         cta_button_text: Texto do botón de chamada a acción
         default_locale: Configuración predeterminada
@@ -54,7 +53,6 @@ gl:
         highlighted_content_banner_image: Imaxe
         highlighted_content_banner_short_description: Descrición curta
         highlighted_content_banner_title: Título
-        homepage_image: Imaxe da páxina de inicio
         instagram_handler: Administrador de Instagram
         logo: Logo
         name: Nome
@@ -68,7 +66,7 @@ gl:
         show_statistics: Amosar estatísticas
         tos_version: Versión de condicións de servizo
         twitter_handler: Xestor de Twitter
-        welcome_text: Texto de benvida
+        user_groups_enabled: Activar grupos de usuarios
         youtube_handler: Xestor de YouTube
       scope:
         code: Código
@@ -85,44 +83,31 @@ gl:
         changed_notably: Houbo cambios notables.
         content: Contido
         organization: Organización
+        show_in_footer: Amosar no pé de páxina
         slug: URL slug
         title: Título
+        weight: Peso
+      static_page_topic:
+        description: Descrición
+        show_in_footer: Amosar no pé de páxina
+        title: Título
+        weight: Peso
+      user_group_csv_verification:
+        file: Arquivo
     errors:
       models:
         oauth_application:
           attributes:
             redirect_uri:
               must_be_ssl: O URI de redirección debe ser un URI de SSL
+        organization:
+          attributes:
+            official_img_header:
+              allowed_file_content_types: Ficheiro de imaxe non válido
+            official_img_footer:
+              allowed_file_content_types: Ficheiro de imaxe non válido
   activerecord:
     attributes:
-      decidim/participatory_process:
-        banner_image: Imaxe do banner
-        description: Descrición
-        developer_group: Grupo de desenvolvedores
-        domain: Dominio
-        end_date: Data de finalización
-        hashtag: Etiqueta
-        hero_image: Imaxe na casa
-        local_area: Área local
-        meta_scope: Metadatos de ámbito
-        participatory_scope: Alcance participativo
-        participatory_structure: Estrutura participativa
-        promoted: Promocionado
-        scope: Alcance
-        short_description: Descrición curta
-        slug: URL slug
-        start_date: Data de inicio
-        subtitle: Subtítulo
-        target: Obxectivo
-        title: Título
-      decidim/participatory_process_group:
-        description: Descrición
-        hero_image: Imaxe na casa
-        name: Nome
-        participatory_processes: Procesos participativos
-      decidim/participatory_process_step:
-        end_date: Data de finalización
-        start_date: Data de inicio
       decidim/static_page:
         content: Contido
         slug: URL slug
@@ -134,10 +119,7 @@ gl:
         organization_name: Nome da Organización
         organization_url: URL da organización
         redirect_uri: Redirixir URI
-        site: Sitio
-  date:
-    formats:
-      datepicker: "%m / %d / %Y"
+        site: Sitio web
   decidim:
     admin:
       actions:
@@ -145,6 +127,7 @@ gl:
         browse: Buscar
         export: Exportar
         manage: Xestionar
+        new: Novo %{name}
         permissions: Permisos
         reject: Rexeitar
         verify: Verifique
@@ -181,22 +164,22 @@ gl:
           success: Área actualizada correctamente
       attachment_collections:
         create:
-          error: Produciuse un erro ao crear unha nova colección.
-          success: Colección creada con éxito.
+          error: Produciuse un erro ao crear un cartafol novo.
+          success: Cartafol creada con éxito.
         destroy:
-          success: A colección foi destruída con éxito.
+          success: A carpeta foi destruída con éxito.
         edit:
-          title: Editar colección
+          title: Editar carpeta
           update: Actualización
         index:
-          attachment_collection_used: Esta colección non se pode eliminar porque está en uso.
-          attachment_collections_title: Coleccións anexas
+          attachment_collection_used: Non se pode eliminar este cartafol porque está en uso.
+          attachment_collections_title: Cartafoles adxuntos
         new:
           create: Crear
-          title: Nova colección
+          title: Nova carpeta
         update:
-          error: Houbo un erro ao actualizar esta colección.
-          success: A colección actualizouse con éxito.
+          error: Produciuse un erro ao actualizar esta carpeta.
+          success: A carpeta actualizouse con éxito.
       attachments:
         create:
           error: Produciuse un erro ao crear un anexo novo.
@@ -281,6 +264,11 @@ gl:
       exports:
         export_as: "%{name} como %{export_format}"
         notice: A súa exportación está en progreso. Recibirás un correo electrónico cando finalice.
+      help_sections:
+        error: Produciuse un erro ao actualizar as seccións de axuda
+        form:
+          save: Gardar
+        success: As seccións de axuda actualizáronse con éxito
       impersonatable_users:
         index:
           filter:
@@ -318,11 +306,6 @@ gl:
         logs_list:
           no_logs_yet: Aínda non hai rexistros
       managed_users:
-        index:
-          impersonate: Impersonate
-          needs_authoriation_warning: Needs authoriation warning
-          promote: Promote
-          view_logs: View logs
         promotion:
           error: Produciuse un erro ao promover o usuario xestor.
           success: O usuario xestionado foi promovido con éxito.
@@ -339,11 +322,12 @@ gl:
         areas: Campos
         configuration: Configuración
         dashboard: Taboleiro de instrumentos
+        help_sections: Seccións de axuda
+        homepage: Páxina de inicio
         impersonations: Impersonacións
-        navbar_links: Navbar links
         newsletters: Boletíns informativos
         oauth_applications: Aplicacións OAuth
-        officializations: Oficinas
+        participants: Participantes
         scope_types: Tipos de alcance
         scopes: Ámbitos
         settings: Configuración
@@ -361,13 +345,13 @@ gl:
             plural: Plural
         attachment:
           fields:
-            collection: Colección
+            collection: Cartafol
             content_type: Tipo
             file_size: Tamaño
             title: Título
           name: Anexo
         attachment_collection:
-          name: Colección
+          name: Cartafol
         category:
           name: Categoría
         impersonation_log:
@@ -378,13 +362,6 @@ gl:
             reason: Motivo
             started_at: Comezou en
             user: Usuario
-        managed_user:
-          name: Name
-        navbar_link:
-          fields:
-            link: Link
-            title: Title
-            weight: Weight
         newsletter:
           fields:
             created_at: Creado en
@@ -396,6 +373,7 @@ gl:
           fields:
             created_at: Creado en
             name: Nome
+          name: Aplicación de OAuth
         participatory_space_private_user:
           name: Espazo participativo usuario privado
         scope:
@@ -420,6 +398,7 @@ gl:
             roles:
               admin: Admin
               user_manager: Xestor de usuarios
+          name: Usuario
         user_group:
           fields:
             actions: Accións
@@ -437,28 +416,6 @@ gl:
             does_not_belong: Non pertence
             offensive: Ofensivo
             spam: Correo non desexado
-      navbar_links:
-        create:
-          error: There was an error when creating this link.
-          success: Link created successfully
-        destroy:
-          success: Link successfully destroyed
-        edit:
-          title: Edit navbar link
-          update: Update
-        form:
-          link: Link
-          new_tab: Open in a new tab
-          same_tab: Open in the same tab
-          title: Title
-          weight: Weight
-        new:
-          create: Create
-          title: New navbar link
-        no_links: No links created
-        update:
-          error: There was an error when updating this link.
-          success: Link updated successfully
       newsletters:
         create:
           error: Produciuse un erro ao crear este boletín informativo.
@@ -475,21 +432,19 @@ gl:
         form:
           interpolations_hint: 'Consello: podes usar "%{name}" en calquera parte do corpo ou asunto e será substituído polo nome do destinatario.'
         index:
-          confirm_delete: "¿Estás seguro de que queres eliminar este boletín informativo?"
+          confirm_delete: '¿Estás seguro de que queres eliminar este boletín informativo?'
           title: Boletíns informativos
         new:
           save: Gardar
           title: Novo boletín informativo
         show:
-          confirm_deliver: "¿Estás seguro de que desexas enviar este boletín informativo? Non se pode desfacer esta acción."
+          confirm_deliver: '¿Estás seguro de que desexas enviar este boletín informativo? Non se pode desfacer esta acción.'
           deliver: Enviar boletín informativo
           preview: Vista previa
           subject: Asunto
         update:
           error: Produciuse un erro ao actualizar este boletín informativo.
           success: Boletín informativo actualizado con éxito. Revisa isto antes de enviar.
-      oauth_application:
-        new: Nouvelle application Oauth
       oauth_applications:
         create:
           error: Produciuse un erro ao crear esta aplicación.
@@ -561,12 +516,20 @@ gl:
           homepage_appearance_title: Editar o aspecto da páxina de inicio
           homepage_highlighted_content_banner_title: Banner de contido de alto nivel
           layout_appearance_title: Editar aspecto de deseño
-          omnipresent_banner_appearance_title: Editar omnipresente
+          omnipresent_banner_appearance_title: Editar o banner omnipresente
+      organization_homepage:
+        edit:
+          active_content_blocks: Bloques de contido activo
+          inactive_content_blocks: Bloques de contido inactivo
+      organization_homepage_content_blocks:
+        edit:
+          update: Actualización
       participatory_space_private_users:
         create:
           error: Produciuse un erro engadindo un usuario privado a este espazo participativo.
           success: O acceso ao usuario privado do espazo participativo creouse con éxito.
         destroy:
+          error: Produciuse un erro ao eliminar un usuario privado deste espazo participativo.
           success: O acceso ao usuario privado do espazo participativo foi destruído con éxito.
         index:
           title: Espazo participativo usuario privado
@@ -604,6 +567,21 @@ gl:
         update:
           error: Produciuse un erro ao actualizar este alcance.
           success: Ámbito actualizado con éxito
+      static_page_topics:
+        create:
+          error: Produciuse un erro ao crear un tema novo.
+          success: O tema creouse con éxito.
+        destroy:
+          success: Tema destruído con éxito
+        edit:
+          title: Editar tema
+          update: Actualizar tema
+        new:
+          create: Crear tema
+          title: Novo tema
+        update:
+          error: Produciuse un erro ao actualizar este tema.
+          success: Tema actualizado correctamente
       static_pages:
         actions:
           view: Ver páxina pública
@@ -616,11 +594,18 @@ gl:
           changed_notably_help: Se está marcado, os usuarios serán notificados para aceptar os novos termos e condicións.
           title: Editar páxina
           update: Actualización
+        form:
+          none: Nada
         index:
           last_notable_change: Último cambio notable
         new:
-          create: Crear
+          create: Crear páxina
           title: Nova páxina
+        topic:
+          destroy: Eliminar tema
+          edit: Editar tema
+          empty: Non hai ningunha páxina neste tema
+          without_topic: Páxinas sen tema
         update:
           error: Produciuse un erro ao actualizar esta páxina.
           success: Páxina actualizada con éxito
@@ -632,17 +617,16 @@ gl:
         dashboard: Taboleiro de instrumentos
         impersonatable_users: Usuarios privilexiados
         impersonations: Impersonacións
-        managed_users: Managed users
-        navbar_links: Navbar links
-        officializations: Oficinas
+        participants: Usuarios
         scope_types: Tipos de alcance
         scopes: Ámbitos
         static_pages: Páxinas
         user_groups: Grupos de usuarios
         users: Usuarios
-      user:
-        new: New
       user_group:
+        csv_verify:
+          invalid: Produciuse un erro ao ler o ficheiro CSV.
+          success: O ficheiro CSV cargouse con éxito, verificamos os grupos de usuarios que coinciden cos criterios. Isto pode levar un tempo.
         reject:
           invalid: Produciuse un erro ao rexeitar este grupo de usuarios.
           success: Grupo de usuarios rexeitado con éxito
@@ -662,6 +646,12 @@ gl:
             pending: Pendente
             rejected: Rexeitado
             verified: Verificado
+          verify_via_csv: Verifique a través de CSV
+      user_groups_csv_verifications:
+        new:
+          explanation: Carga o teu ficheiro CSV. Debe ter os correos electrónicos oficiais dos grupos de usuarios da súa organización na primeira columna do ficheiro, sen cabeceiras. Só se validarán os grupos de usuarios que confirmaron o seu correo electrónico e que teñen un correo electrónico que aparece no ficheiro CSV.
+          title: Carga o teu ficheiro CSV
+          upload: Cargar
       users:
         create:
           error: Produciuse un erro ao invitar a este usuario.
@@ -676,6 +666,7 @@ gl:
         new:
           create: Invitar
           title: Convidar ao usuario como administrador
+      view_public_page: Ver páxina pública
     forms:
       errors:
         impersonate_user:
@@ -716,7 +707,3 @@ gl:
           title: Configuración
         users:
           title: Usuarios
-  time:
-    formats:
-      datepicker: "%m / %d / %Y"
-      timepicker: "%m / %d / %Y %H:%M"

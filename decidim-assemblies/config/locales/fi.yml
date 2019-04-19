@@ -1,9 +1,8 @@
----
 fi:
   activemodel:
     attributes:
       assembly:
-        area_id: alue
+        area_id: Alue
         assembly_type: Ryhmän tyyppi
         assembly_type_other: Muu ryhmän tyyppi
         banner_image: Bannerikuva
@@ -19,7 +18,7 @@ fi:
         decidim_area_id: alue
         decidim_scope_id: Teema
         description: Kuvaus
-        developer_group: Kehittäjäryhmä
+        developer_group: Perustajaryhmä
         domain: Toimintaympäristö
         duration: Kesto
         facebook: Facebook
@@ -30,14 +29,15 @@ fi:
         instagram: Instagram
         internal_organisation: Sisäinen organisaatio
         is_transparent: On läpinäkyvä
-        local_area: Paikallisalue
+        local_area: Organisaatioalue
         meta_scope: Teeman metadata
-        participatory_processes_ids: Liittyvät osallistumisprosessit
-        participatory_scope: Osallistumiskonteksti
-        participatory_structure: Osallistumisen rakenne
+        parent_id: Liittyvä ryhmä
+        participatory_processes_ids: Liittyvät osallisuusprosessit
+        participatory_scope: Mitä päätetään
+        participatory_structure: Miten päätetään
         private_space: Yksityinen tila
         promoted: Korostettu
-        published_at: Julkaistu osoitteessa
+        published_at: Julkaisuaika
         purpose_of_action: Toiminnan tarkoitus
         scope_id: Teema
         scopes_enabled: Teemat käytössä
@@ -46,7 +46,7 @@ fi:
         slug: URL-tunniste
         special_features: Lisäominaisuudet
         subtitle: Alaotsikko
-        target: Kohde
+        target: Kuka osallistuu
         title: Otsikko
         twitter: Twitter
         youtube: YouTube
@@ -66,25 +66,22 @@ fi:
   activerecord:
     models:
       decidim/assembly:
-        one: Kehitysryhmä
-        other: Kehitysryhmät
+        one: Ryhmä
+        other: Ryhmät
       decidim/assembly_member:
-        one: Kehitysryhmän jäsen
-        other: Kehitysryhmän jäsenet
+        one: Ryhmän jäsen
+        other: Ryhmän jäsenet
       decidim/assembly_user_role:
-        one: Kehitysryhmän käyttäjärooli
-        other: Kehitysryhmän käyttäjäroolit
+        one: Ryhmän käyttäjärooli
+        other: Ryhmän käyttäjäroolit
   decidim:
     admin:
       actions:
-        assembly:
-          new: New assembly
+        new_assembly: Uusi ryhmä
       assemblies:
         create:
-          error: Virhe luotaessa uutta kehitysryhmää.
-          success: Kehitysryhmän luonti onnistui.
-        destroy:
-          success: Kehitysryhmän tuhoaminen onnistui.
+          error: Virhe luotaessa uutta ryhmää.
+          success: Ryhmän luonti onnistui.
         edit:
           update: Päivitä
         form:
@@ -96,66 +93,66 @@ fi:
           published: Julkaistu
         new:
           create: Luo
-          title: Uusi kehitysryhmä
+          title: Uusi ryhmä
         update:
-          error: Kehitysryhmää päivitettäessä tapahtui virhe.
-          success: Kehitysryhmä päivitettiin onnistuneesti.
+          error: Ryhmän päivityksessä tapahtui virhe.
+          success: Ryhmä päivitettiin onnistuneesti.
       assemblies_copies:
         create:
-          error: Virhe kopioitaessa kehitysryhmää.
-          success: Kehitysryhmä kopioitu onnistuneesti.
+          error: Virhe kopioitaessa ryhmää.
+          success: Ryhmä kopioitu onnistuneesti.
       assembly_copies:
         new:
           copy: Kopioi
           select: Valitse, mitkä tiedot haluat kopioida
-          title: Kopioi kehitysryhmä
+          title: Kopioi ryhmä
       assembly_members:
         create:
-          error: Jäsenen lisääminen kehitysryhmään ei onnistunut.
-          success: Jäsen lisättiin onnistuneesti kehitysryhmään.
+          error: Jäsenen lisääminen ryhmään ei onnistunut.
+          success: Jäsen lisättiin onnistuneesti ryhmään.
         destroy:
-          success: Käyttäjä poistettu ryhmästä onnistuneesti.
+          success: Jäsen poistettiin onnistuneesti ryhmästä.
         edit:
-          title: Päivitä kehitysryhmän jäsenen tietoja.
+          title: Päivitä ryhmän jäsenen tietoja.
           update: Päivittää
         index:
-          assembly_members_title: Edustajat
+          assembly_members_title: Ryhmän jäsenet
         new:
           create: Luoda
-          title: Uusi kehitysryhmän jäsen.
+          title: Uusi ryhmän jäsen.
         update:
-          error: Kehitysryhmän jäsenen päivityksessä tapahtui virhe.
-          success: Kehitysryhmän jäsenen tiedot päivitettiin onnistuneesti.
+          error: Ryhmän jäsenen päivityksessä tapahtui virhe.
+          success: Ryhmän jäsenen tiedot päivitettiin onnistuneesti.
       assembly_publications:
         create:
-          error: Kehitysryhmän julkaisussa tapahtui virhe.
-          success: Kehitysryhmä julkaistiin onnistuneesti.
+          error: Ryhmän julkaisussa tapahtui virhe.
+          success: Ryhmä julkaistiin onnistuneesti.
         destroy:
-          error: Kehitysryhmän julkaisun lopettamisessa tapahtui virhe.
-          success: Kehitysryhmän julkaisu lopetettu onnistuneesti.
+          error: Ryhmän julkaisun perumisessa tapahtui virhe.
+          success: Ryhmän julkaisu lopetettu onnistuneesti.
       assembly_user_roles:
         create:
-          error: Virhe lisätessä käyttäjää tälle kehitysryhmälle.
-          success: Käyttäjä on luotu onnistuneesti kehitysryhmään.
+          error: Virhe lisätessä käyttäjää tälle ryhmälle.
+          success: Käyttäjä lisätty onnistuneesti ryhmään.
         destroy:
-          success: Käyttäjä tuhottu onnistuneesti kehitysryhmästä.
+          success: Käyttäjä poistettiin onnistuneesti ryhmästä.
         edit:
-          title: Päivitä kehitysryhmän käyttäjän tietoja.
+          title: Päivitä ryhmän käyttäjän tietoja.
           update: Päivitä
         index:
-          assembly_admins_title: Kehitysryhmän käyttäjät
+          assembly_admins_title: Ryhmän käyttäjät
         new:
           create: Luo
-          title: Uusi kehitysryhmän käyttäjä.
+          title: Uusi ryhmän käyttäjä.
         update:
-          error: Kehitysryhmän käyttäjän päivityksessä tapahtui virhe.
-          success: Kehitysryhmän käyttäjä päivitetty onnistuneesti.
+          error: Ryhmän käyttäjän päivityksessä tapahtui virhe.
+          success: Ryhmän käyttäjä päivitetty onnistuneesti.
       menu:
-        assemblies: Kehitysryhmät
+        assemblies: Ryhmät
         assemblies_submenu:
-          assembly_admins: Kehitysryhmän käyttäjät
+          assembly_admins: Ryhmän käyttäjät
           assembly_members: Jäsenet
-          attachment_collections: kokoelmat
+          attachment_collections: Kansiot
           attachment_files: Tiedostot
           attachments: Liitteet
           categories: Aihepiirit
@@ -171,6 +168,7 @@ fi:
             promoted: Korostettu
             published: Julkaistu
             title: Otsikko
+          name: Ryhmä
         assembly_member:
           fields:
             ceased_date: Päättymispäivä
@@ -188,27 +186,27 @@ fi:
             email: Sähköposti
             name: Nimi
             role: Rooli
-          name: Kehitysryhmän käyttäjä
+          name: Ryhmän käyttäjä
           roles:
             admin: Hallinnointikäyttäjä
             collaborator: Osallistumiskäyttäjä
-            moderator: Moderaattori
+            moderator: Moderoija
       titles:
-        assemblies: Kehitysryhmät
+        assemblies: Ryhmät
     admin_log:
       assembly:
-        create: "%{user_name} loi %{resource_name} kehitysryhmän"
-        publish: "%{user_name} julkaisi %{resource_name} kehitysryhmän"
-        unpublish: "%{user_name} lopetti %{resource_name} kehitysryhmän julkaisemisen"
-        update: "%{user_name} päivitti %{resource_name} kehitysryhmän"
+        create: "%{user_name} loi %{resource_name} ryhmän"
+        publish: "%{user_name} julkaisi %{resource_name} ryhmän"
+        unpublish: "%{user_name} lopetti %{resource_name} ryhmän julkaisemisen"
+        update: "%{user_name} päivitti %{resource_name} ryhmän"
       assembly_member:
-        create: "%{user_name} loi %{resource_name} jäsenen %{space_name} kehitysryhmässä"
-        delete: "%{user_name} poisti %{resource_name} jäsenen %{space_name} kehitysryhmästä"
+        create: "%{user_name} loi %{resource_name} jäsenen %{space_name} ryhmässä"
+        delete: "%{user_name} poisti %{resource_name} jäsenen %{space_name} ryhmästä"
         update: "%{user_name} päivitti %{resource_name} jäsenen %{space_name} ryhmään"
       assembly_user_role:
         create: "%{user_name} kutsui %{resource_name} %{space_name} ryhmään"
         delete: "%{user_name} poisti käyttäjän %{resource_name} %{space_name} ryhmästä"
-        update: "%{user_name} muutti %{resource_name}: n roolia %{space_name} ryhmässä"
+        update: "%{user_name} muutti %{resource_name} roolia %{space_name} ryhmässä"
     assemblies:
       admin:
         assemblies:
@@ -218,11 +216,12 @@ fi:
             select_a_created_by: Valitse luoja
             select_an_area: Valitse alue
             select_an_assembly_type: Valitse ryhmän tyyppi
-            slug_help: 'URL-tunnisteita käytetään tähän kehitysryhmään osoittavien URL-osoitteiden luonnissa. Hyväksyy kirjaimet, numerot ja viivat. Ensimmäinen merkki on oltava kirjain. Esimerkiksi: %{url}'
+            select_parent_assembly: Valitse pääryhmä
+            slug_help: 'URL-tunnisteita käytetään tähän ryhmään osoittavien URL-osoitteiden luonnissa. Hyväksyy kirjaimet, numerot ja viivat. Ensimmäinen merkki on oltava kirjain. Esimerkiksi: %{url}'
             social_handlers: Sosiaalinen media
         assembly_copies:
           form:
-            slug_help: 'URL-tunnisteita käytetään tähän kehitysryhmään osoittavien URL-osoitteiden luonnissa. Hyväksyy kirjaimet, numerot ja viivat. Ensimmäinen merkki on oltava kirjain. Esimerkiksi: %{url}'
+            slug_help: 'URL-tunnisteita käytetään tähän ryhmään osoittavien URL-osoitteiden luonnissa. Hyväksyy kirjaimet, numerot ja viivat. Ensimmäinen merkki on oltava kirjain. Esimerkiksi: %{url}'
         assembly_members:
           form:
             existing_user: Olemassa oleva käyttäjä
@@ -237,6 +236,9 @@ fi:
               not_ceased: Ei lakkautettu
             filter_by: Suodata
             search: Hae
+        content_blocks:
+          highlighted_assemblies:
+            max_results: Näytettävien elementtien enimmäismäärä
       assembly_members:
         index:
           members: Jäsenet
@@ -246,19 +248,36 @@ fi:
         executive: Johtaja
         government: Hallitus
         others: Muut
-        participatory: Osallistuva
+        participatory: Osallisuus
         working_group: Työryhmä
+      content_blocks:
+        highlighted_assemblies:
+          name: Tärkeimmät ryhmät
       created_by:
         city_council: Kaupunginvaltuusto
         others: Muut
         public: Julkinen
+      filter:
+        all: Kaikki
+        commission: Komitea
+        consultative_advisory: Konsultti/neuvonantaja
+        executive: Johtaja
+        government: Hallinto
+        help: 'Show:'
+        label: 'Näytä:'
+        others: Muut
+        participatory: Osallistava
+        placeholder: Suodata tyypin mukaan
+        working_group: Työryhmä
       index:
-        title: Kehitysryhmät
+        title: Ryhmät
+      last_activity:
+        new_assembly: Uusi ryhmä
       pages:
         home:
           highlighted_assemblies:
-            active_assemblies: Aktiiviset kehitysryhmät
-            see_all_assemblies: Näytä kaikki kehitysryhmät
+            active_assemblies: Aktiiviset ryhmät
+            see_all_assemblies: Näytä kaikki ryhmät
         user_profile:
           member_of:
             member_of: Jäsen ryhmässä
@@ -270,7 +289,7 @@ fi:
         composition: Kokoonpano
         created_by: Luonut
         creation_date: Luontipäivämäärä
-        developer_group: Kehittäjäryhmä
+        developer_group: Perustajaryhmä
         duration: Kesto
         included_at: Mukana osoitteessa
         indefinite_duration: Määrittelemätön
@@ -278,44 +297,55 @@ fi:
         is_transparent:
           'false': läpinäkymätön
           'true': läpinäkyvä
-        local_area: Paikallisalue
-        participatory_scope: Osallistumiskonteksti
-        participatory_structure: Osallistumisen rakenne
-        private_space: Tämä on yksityinen kehitysryhmä
+        local_area: Organisaatioalue
+        participatory_scope: Mitä päätetään
+        participatory_structure: Miten päätetään
+        private_space: Tämä on yksityinen ryhmä
         purpose_of_action: Toiminnan tarkoitus
         read_less: Vähennä tekstiä
         read_more: Lue lisää
-        related_participatory_processes: Liittyvät osallistumisprosessit
+        related_participatory_processes: Liittyvät osallisuusprosessit
         scope: Teema
         social_networks: Sosiaalinen media
-        target: Kohde
+        target: Kuka osallistuu
       statistics:
-        answers_count: Vastaukset
-        assemblies_count: Kehitysryhmät
-        comments_count: Kommentit
-        debates_count: Keskustelut
-        endorsements_count: Suositukset
+        answers_count: Vastausta
+        assemblies_count: Ryhmää
+        comments_count: Kommenttia
+        debates_count: Keskustelua
+        endorsements_count: Suositusta
         headline: Tilastot
-        meetings_count: Tapaamiset
-        orders_count: Äänet
-        pages_count: Sivut
-        projects_count: Projektit
-        proposals_count: Ehdotukset
-        results_count: Tulokset
-        surveys_count: Kyselyt
-        users_count: Osallistujat
-        votes_count: Äänet
+        meetings_count: Tapaamista
+        orders_count: Ääntä
+        pages_count: Sivua
+        projects_count: Suunnitelmaa
+        proposals_count: Ehdotusta
+        results_count: Tulosta
+        surveys_count: Kyselyä
+        users_count: Osallistujaa
+        votes_count: Ääntä
     assembly_members:
       assembly_member:
         designated_on: Nimetty
       index:
         title: Jäsenet
+    help:
+      participatory_spaces:
+        assemblies:
+          contextual: "<p>Ryhmä on joukko organisaation jäseniä, jotka kokoontuvat säännöllisesti tekemään päätöksiä tietyllä alueella tai organisaation osastossa.</p> <p>Ryhmät järjestävät tapaamisia, joista jotkut ovat yksityisiä ja jotkut ovat avoimia. Jos tapaamiset ovat avoimia, niihin on mahdollista osallistua (esimerkiksi lisätäksesi esityslistalle asioita tai kommentoidaksesi kyseisen elimen ehdotuksia ja päätöksiä).</p> <p>Esimerkkejä: yleisryhmä (joka kokoontuu kerran vuodessa määritelläkseen organisaation keskeiset toimintalinjat sekä äänestääkseen sen päätöksentekijöistä), tasa-neuvottelukunta (joka kokoontuu joka toinen kuukausi tehdäkseen ehdotuksia siitä, miten parantaa sukupuolten välisiä suhteita organisaatiossa), arviointikomitea (joka kokoontuu kuukausittain seuratakseen prosessia) tai takaajaryhmä (joka selvittää epäselvyyksiä, väärinkäytöksiä tai ehdotuksia parantaakseen päätöksenteon luotettavuutta).</p>\n"
+          page: "<p>Ryhmä on joukko organisaation jäseniä, jotka kokoontuvat säännöllisesti tekemään päätöksiä tietyllä alueella tai organisaation osastossa.</p> <p>Ryhmät järjestävät tapaamisia, joista jotkut ovat yksityisiä ja jotkut ovat avoimia. Jos tapaamiset ovat avoimia, niihin on mahdollista osallistua (esimerkiksi lisätäksesi esityslistalle asioita tai kommentoidaksesi kyseisen elimen ehdotuksia ja päätöksiä).</p> <p>Esimerkkejä: yleisryhmä (joka kokoontuu kerran vuodessa määritelläkseen organisaation keskeiset toimintalinjat sekä äänestääkseen sen päätöksentekijöistä), tasa-neuvottelukunta (joka kokoontuu joka toinen kuukausi tehdäkseen ehdotuksia siitä, miten parantaa sukupuolten välisiä suhteita organisaatiossa), arviointikomitea (joka kokoontuu kuukausittain seuratakseen prosessia) tai takaajaryhmä (joka selvittää epäselvyyksiä, väärinkäytöksiä tai ehdotuksia parantaakseen päätöksenteon luotettavuutta).</p>"
+          title: Mitä ovat ryhmät?
     log:
       value_types:
         assembly_presenter:
-          not_found: 'Kehitysryhmää ei löytynyt tietokannasta (ID: %{id})'
+          not_found: 'Ryhmää ei löytynyt tietokannasta (ID: %{id})'
     menu:
-      assemblies: Kehitysryhmät
+      assemblies: Ryhmät
+    metrics:
+      assemblies:
+        description: Ryhmien määrä
+        object: ryhmät
+        title: Ryhmät
   errors:
     messages:
       cannot_be_blank: ei voi olla tyhjä
@@ -325,18 +355,19 @@ fi:
         assembly:
           take_part: Osallistu
         index:
-          promoted_assemblies: Korostetut kehitysryhmät
+          organizational_chart: Organisaatiokaavio
+          promoted_assemblies: Korostetut ryhmät
+          reset_chart: Palauta
         order_by_assemblies:
           assemblies:
-            one: "%{count} kehitysryhmä"
-            other: "%{count} kehitysryhmää"
+            one: "%{count} ryhmä"
+            other: "%{count} ryhmää"
         promoted_assembly:
           more_info: Lisätiedot
           take_part: Osallistu
-      assembly_header:
+      assembly_navigation:
         assembly_member_menu_item: Jäsenet
-        assembly_menu_item: Kehitysryhmä
-        unfold: Avaa
+        assembly_menu_item: Ryhmä
       assembly_widgets:
         show:
           take_part: Osallistu

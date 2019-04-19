@@ -15,6 +15,9 @@ module Decidim
       # An association with all the links that are originated from this model.
       has_many :resource_links_from, as: :from, class_name: "Decidim::ResourceLink"
 
+      # An association with the permissions settings for the resource
+      has_one :resource_permission, as: :resource, class_name: "Decidim::ResourcePermission"
+
       # Finds all the linked resources to or from this model for a given resource
       # name and link name.
       #
@@ -69,6 +72,7 @@ module Decidim
               to_id: resource.id
             }
             event_name = "decidim.resourceable.#{link_name}.created"
+
             ActiveSupport::Notifications.instrument event_name, this: payload do
               Decidim::ResourceLink.create!(
                 from: self,
@@ -103,6 +107,28 @@ module Decidim
         else
           true
         end
+      end
+
+      # Public: Whether the permissions for this object actions can be set at resource level.
+      def allow_resource_permissions?
+        false
+      end
+
+      # Public: Returns permissions for this object actions if they can be set at resource level.
+      def permissions
+        resource_permission&.permissions if allow_resource_permissions?
+      end
+
+      # Public: This method will be used to represent this resource in other contexts, like cards
+      # or search results.
+      def resource_title
+        try(:title) || try(:name)
+      end
+
+      # Public: This method will be used to represent this resource in other contexts, like cards
+      # or search results.
+      def resource_description
+        try(:description) || try(:body) || try(:content)
       end
     end
 

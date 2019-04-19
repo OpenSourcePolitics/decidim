@@ -5,18 +5,19 @@ require "spec_helper"
 describe "Proposal", type: :system do
   include_context "with a component"
   let(:manifest_name) { "proposals" }
+  let(:organization) { create :organization }
 
   let!(:category) { create :category, participatory_space: participatory_process }
   let!(:scope) { create :scope, organization: organization }
   let!(:user) { create :user, :confirmed, organization: organization }
   let(:scoped_participatory_process) { create(:participatory_process, :with_steps, organization: organization, scope: scope) }
 
-  let(:address) { "Carrer Pare Llaurador 113, baixos, 08224 Terrassa" }
-  let(:latitude) { 40.1234 }
-  let(:longitude) { 2.1234 }
+  let(:address) { "Plaça Santa Jaume, 1, 08002 Barcelona" }
+  let(:latitude) { 41.3825 }
+  let(:longitude) { 2.1772 }
 
-  let(:proposal_title) { "Oriol for president" }
-  let(:proposal_body) { "He will solve everything" }
+  let(:proposal_title) { "More sidewalks and less roads" }
+  let(:proposal_body) { "Cities need more people, not more cars" }
 
   let!(:component) do
     create(:proposal_component,
@@ -24,6 +25,7 @@ describe "Proposal", type: :system do
            manifest: manifest,
            participatory_space: participatory_process)
   end
+  let(:component_path) { Decidim::EngineRouter.main_proxy(component) }
 
   context "when creating a new proposal" do
     before do
@@ -32,7 +34,7 @@ describe "Proposal", type: :system do
       click_link "New proposal"
     end
 
-    context "when in step_1: Start" do
+    context "when in step_1: Create your proposal" do
       it "show current step_1 highlighted" do
         within ".wizard__steps" do
           expect(page).to have_css(".step--active", count: 1)
@@ -48,13 +50,24 @@ describe "Proposal", type: :system do
           find("*[type=submit]").click
         end
       end
+
+      context "when the back button is clicked" do
+        before do
+          click_link "Back"
+        end
+
+        it "redirects to proposals_path" do
+          expect(page).to have_content("PROPOSALS")
+          expect(page).to have_content("New proposal")
+        end
+      end
     end
 
     context "when in step_2: Compare" do
       context "with similar results" do
         before do
-          create(:proposal, title: "Agusti for president", body: "He will solve everything", component: component)
-          create(:proposal, title: "Homer for president", body: "He will not solve everything", component: component)
+          create(:proposal, title: "More sidewalks and less roads", body: "Cities need more people, not more cars", component: component)
+          create(:proposal, title: "More sidewalks and less roadways", body: "Green is always better", component: component)
           visit_component
           click_link "New proposal"
           within ".new_proposal" do
@@ -74,12 +87,17 @@ describe "Proposal", type: :system do
         end
 
         it "shows similar proposals" do
-          expect(page).to have_css(".card--proposal", text: "Agusti for president")
+          expect(page).to have_content("SIMILAR PROPOSALS (2)")
+          expect(page).to have_css(".card--proposal", text: "More sidewalks and less roads")
           expect(page).to have_css(".card--proposal", count: 2)
         end
 
         it "show continue button" do
-          expect(page).to have_content("My proposal is different")
+          expect(page).to have_link("Continue")
+        end
+
+        it "does not show the back button" do
+          expect(page).not_to have_link("Back")
         end
       end
 
@@ -95,7 +113,7 @@ describe "Proposal", type: :system do
           end
         end
 
-        it "redirects to the complete step" do
+        it "redirects to step_3: complete" do
           within ".section-heading" do
             expect(page).to have_content("COMPLETE YOUR PROPOSAL")
           end
@@ -135,16 +153,24 @@ describe "Proposal", type: :system do
         expect(page).to have_field("Body", with: proposal_body)
         expect(page).to have_button("Send")
       end
+
+      context "when the back button is clicked" do
+        before do
+          create(:proposal, title: proposal_title, component: component)
+          click_link "Back"
+        end
+
+        it "redirects to step_3: complete" do
+          expect(page).to have_content("SIMILAR PROPOSALS (1)")
+        end
+      end
     end
 
     context "when in step_4: Publish" do
-      let!(:proposal_draft) { create(:proposal, :draft, author: user, component: component, title: proposal_title, body: proposal_body) }
-      let!(:preview_proposal_path) do
-        Decidim::EngineRouter.main_proxy(component).proposal_path(proposal_draft) + "/preview"
-      end
+      let!(:proposal_draft) { create(:proposal, :draft, users: [user], component: component, title: proposal_title, body: proposal_body) }
 
       before do
-        visit preview_proposal_path
+        visit component_path.preview_proposal_path(proposal_draft)
       end
 
       it "show current step_4 highlighted" do
@@ -156,7 +182,9 @@ describe "Proposal", type: :system do
       end
 
       it "shows a preview" do
-        expect(page).to have_css(".card.card--proposal", count: 1)
+        expect(page).to have_content(proposal_title)
+        expect(page).to have_content(user.name)
+        expect(page).to have_content(proposal_body)
       end
 
       it "shows a publish button" do
@@ -166,11 +194,21 @@ describe "Proposal", type: :system do
       it "shows a modify proposal link" do
         expect(page).to have_selector("a", text: "Modify the proposal")
       end
+
+      context "when the back button is clicked" do
+        before do
+          click_link "Back"
+        end
+
+        it "redirects to edit the proposal draft" do
+          expect(page).to have_content("EDIT PROPOSAL DRAFT")
+        end
+      end
     end
 
     context "when editing a proposal draft" do
       context "when in step_4: edit proposal draft" do
-        let!(:proposal_draft) { create(:proposal, :draft, author: user, component: component, title: proposal_title, body: proposal_body) }
+        let!(:proposal_draft) { create(:proposal, :draft, users: [user], component: component, title: proposal_title, body: proposal_body) }
         let!(:edit_draft_proposal_path) do
           Decidim::EngineRouter.main_proxy(component).proposal_path(proposal_draft) + "/edit_draft"
         end

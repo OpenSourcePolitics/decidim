@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require "decidim/has_class_extends"
+
 module MeetingExtend
   include Decidim::HasClassExtends
 

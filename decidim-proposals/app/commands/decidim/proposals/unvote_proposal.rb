@@ -20,14 +20,45 @@ module Decidim
       #
       # Returns nothing.
       def call
-        destroy_proposal_vote
+        ActiveRecord::Base.transaction do
+          ProposalVote.where(
+            author: @current_user,
+            proposal: @proposal
+          ).destroy_all
+
+          update_temporary_votes
+        end
+
+        Decidim::Gamification.decrement_score(@current_user, :proposal_votes)
+
         broadcast(:ok, @proposal)
       end
 
       private
 
-      def destroy_proposal_vote
-        @proposal.votes.where(author: @current_user).destroy_all
+      def component
+        @component ||= @proposal.component
+      end
+
+      def minimum_votes_per_user
+        component.settings.minimum_votes_per_user
+      end
+
+      def minimum_votes_per_user?
+        minimum_votes_per_user.positive?
+      end
+
+      def update_temporary_votes
+        return unless minimum_votes_per_user? && user_votes.count < minimum_votes_per_user
+
+        user_votes.each { |vote| vote.update(temporary: true) }
+      end
+
+      def user_votes
+        @user_votes ||= ProposalVote.where(
+          author: @current_user,
+          proposal: Proposal.where(component: component)
+        )
       end
     end
   end

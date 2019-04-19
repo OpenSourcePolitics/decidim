@@ -14,12 +14,11 @@ ca:
         end_date: Data de finalització
         hashtag: Hashtag
         hero_image: Imatge de portada
-        local_area: Àrea municipal
+        local_area: Àrea d'organització
         meta_scope: Metadades d'àmbit
         participatory_process_group_id: Grup de processos
-        participatory_scope: Àmbit participatiu
-        participatory_structure: Estructura participativa
-        private_space: Espace privé
+        participatory_scope: El que es decideix
+        participatory_structure: Com es decideix
         promoted: Destacat
         published_at: Publicat el
         scope_id: Àmbit
@@ -29,7 +28,7 @@ ca:
         slug: Nom curt d'URL
         start_date: Data d'inici
         subtitle: Subtítol
-        target: A qui va dirigit
+        target: Qui participa
         title: Títol
       participatory_process_group:
         description: Descripció
@@ -37,7 +36,8 @@ ca:
         name: Nom
         participatory_process_ids: Processos relacionats
       participatory_process_step:
-        action_btn_text: Action bouton text
+        cta_path: Ruta del botó d'acció
+        cta_text: Text del botó d'acció
         description: Descripció
         end_date: Data de finalització
         short_description: Descripció breu
@@ -66,13 +66,16 @@ ca:
       actions:
         activate: Activar
         configure: Configurar
-        confirm_destroy: N'estàs segur?
-        destroy: Eliminar
+        confirm_destroy: Confirma eliminació
+        destroy: Suprimeix
         duplicate: Duplicar
         edit: Editar
-        new: Nou/va
+        new: New
+        new_process_group: Nou grup de processos
+        new_process_step: Nova fase
+        new_process_user_role: Nou usuari del procés
         participatory_process:
-          new: nou procés participatiu
+          new: New
         preview: Previsualitzar
         publish: Publicar
         resend_invitation: Tornar a enviar invitació
@@ -81,7 +84,7 @@ ca:
         participatory_process_groups: Grups de processos
         participatory_processes: Processos
         participatory_processes_submenu:
-          attachment_collections: Col·leccions
+          attachment_collections: Carpetes
           attachment_files: Fitxers
           attachments: Adjunts
           categories: Categories
@@ -99,6 +102,7 @@ ca:
             promoted: Destacat
             published: Publicat
             title: Títol
+          name: Procés participatiu
         participatory_process_group:
           fields:
             name: Nom
@@ -114,7 +118,7 @@ ca:
             email: Correu electrònic
             name: Nom
             role: Rol
-          name: Usuari del procés
+          name: Usuari de procés participatiu
           roles:
             admin: Administrador
             collaborator: Col·laborador
@@ -130,7 +134,7 @@ ca:
           title: Duplicar procés participatiu
       participatory_process_groups:
         destroy:
-          success: Grup eliminat correctament.
+          success: El grup de processos participatius s'ha suprimit correctament.
         edit:
           title: Editar grup de procés
           update: Actualitzar
@@ -153,7 +157,6 @@ ca:
           success: La fase de procés participatiu s'ha activat correctament.
       participatory_process_steps:
         create:
-          action_btn_text_help: By default, the action button text is "Take part"
           error: S'ha produït un error en crear una nova fase de procés participatiu.
           success: La fase de procés participatiu s'ha creat correctament.
         default_title: Introducció
@@ -161,7 +164,7 @@ ca:
           error:
             active_step: No es pot eliminar la fase activa.
             last_step: No es pot eliminar l'última fase d'un procés.
-          success: La fase de procés participatiu s'ha eliminat correctament.
+          success: La fase del procés participatiu s'ha eliminat correctament.
         edit:
           title: Editar fase de procés participatiu
           update: Actualitzar
@@ -178,9 +181,9 @@ ca:
       participatory_process_user_roles:
         create:
           error: S'ha produït un error en afegir un usuari a aquest procés participatiu.
-          success: Usuari creat amb èxit per a aquest procés participatiu.
+          success: L'usuari s'ha afegit amb èxit a aquest procés participatiu.
         destroy:
-          success: Usuari eliminat amb èxit per a aquest procés participatiu.
+          success: L'usuari s'ha eliminat correctament d'aquest procés participatiu.
         edit:
           title: Editar usuari de procés participatiu.
           update: Actualitzar
@@ -196,8 +199,6 @@ ca:
         create:
           error: S'ha produït un error en crear un nou procés participatiu.
           success: El procés participatiu s'ha creat correctament. Continua ara amb la configuració de les fases.
-        destroy:
-          success: El procés participatiu s'ha eliminat correctament.
         edit:
           update: Actualitzar
         form:
@@ -206,8 +207,8 @@ ca:
           not_published: No publicada
           private: Privat
           promoted:
-            'false': 'No'
-            'true': 'Yes'
+            'false': 'False'
+            'true': 'True'
           public: Públic
           published: Publicat
         new:
@@ -258,11 +259,29 @@ ca:
           email_outro: Has rebut aquesta notificació perquè estàs seguint %{participatory_space_title}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
           email_subject: Una actualització a %{participatory_space_title}
           notification_title: Les dates de la fase <a href="%{resource_path}">%{resource_title}</a> a <a href="%{participatory_space_url}">%{participatory_space_title}</a> s'han actualitzat.
+    help:
+      participatory_spaces:
+        participatory_processes:
+          contextual: "<p>Un procés participatiu és una seqüència d'activitats participatives (p.e. primer omplir una enquesta, després fer propostes, debatre-les en trobades presencials o virtuals, i finalment prioritzar-les) amb l'objectiu de definir i prendre una decisió sobre un tema específic.</p> <p>Exemples de processos participatius són: un procés d'elecció dels membres d'un comitè (on primer es presenten unes candidatures, després es debat i finalment es tria una candidatura), pressupostos participatius (on es fan propostes, es valoren econòmicament i es vota amb els diners disponibles), un procés de planificació estratègica, la redacció col·laborativa d'un reglament o norma, el disseny d'un espai urbà o la producció d'un pla de polítiques públiques.</p>\n"
+          page: "<p>Un procés participatiu és una seqüència d'activitats participatives (p.e. primer omplir una enquesta, després fer propostes, debatre-les en trobades presencials o virtuals, i finalment prioritzar-les) amb l'objectiu de definir i prendre una decisió sobre un tema específic.</p> <p>Exemples de processos participatius són: un procés d'elecció dels membres d'un comitè (on primer es presenten unes candidatures, després es debat i finalment es tria una candidatura), pressupostos participatius (on es fan propostes, es valoren econòmicament i es vota amb els diners disponibles), un procés de planificació estratègica, la redacció col·laborativa d'un reglament o norma, el disseny d'un espai urbà o la producció d'un pla de polítiques públiques.</p>\n"
+          title: Què és un procés participatiu?
     menu:
       processes: Processos
+    metrics:
+      participatory_processes:
+        description: Nombre de processos participatius d'aquesta organització
+        object: processos participatius
+        title: Processos participatius
+    pages:
+      participatory_space:
+        metrics:
+          headline: Headline
+          link: Link
     participatory_process_groups:
       show:
-        group_participatory_processes: Processos per a %{group}
+        group_participatory_processes:
+          one: 1 procés per a %{group}
+          other: "%{count} processos per a %{group}"
         title: Grups de processos participatius
     participatory_process_steps:
       index:
@@ -270,29 +289,62 @@ ca:
         title: Fases del procés participatiu
     participatory_processes:
       admin:
+        content_blocks:
+          highlighted_processes:
+            max_results: Quantitat màxima d'elements que es mostraran
         participatory_process_copies:
           form:
             slug_help: 'Els noms curts d''URL s''utilitzen per generar els URL que apunten a aquest procés. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
+        participatory_process_steps:
+          form:
+            cta_path_help: 'Utilitza rutes parcials, no URL complerts aquí. Accepta lletres, números, guions i barres, i ha de començar amb una lletra. Si no s''estableix cap ruta, el botó no es mostrarà. Exemple: %{url}'
+            cta_text_help: Si no s'estableix cap ruta el botó no es mostrarà.
         participatory_processes:
           form:
             announcement_help: El text que introdueixis aquí es mostrarà a l'usuari just a sota de la informació del procés.
             slug_help: 'Els noms curts d''URL s''utilitzen per generar els URL que apunten a aquest procés. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
+      content_blocks:
+        highlighted_processes:
+          name: Processos destacats
       index:
         title: Processos participatius
-      order_by_processes:
-        active: Actius
-        all: Tots
-        past: Passats
-        upcoming: Propers
+      last_activity:
+        new_participatory_process: Nou procés participatiu
       pages:
         home:
           highlighted_processes:
             active_processes: Processos actius
             active_step: Pas actiu
+            more_information: Més informació
+            participate: Participa
             see_all_processes: Veure tots els processos
       participatory_process_groups:
         none: Cap
       participatory_processes:
+        filters:
+          counters:
+            active:
+              one: 1 procés actiu
+              other: "%{count} processos actius"
+            all:
+              one: 1 procés
+              other: "%{count} processos"
+            past:
+              one: 1 procés passat
+              other: "%{count} processos passats"
+            upcoming:
+              one: 1 procés proper
+              other: "%{count} processos propers"
+          explanations:
+            no_active: Sense processos actius
+            no_active_nor_upcoming: No hi ha processos actius ni futurs
+            no_active_nor_upcoming_callout: No hi ha processos actius ni futurs. Aquí hi ha una llista dels anteriors.
+          names:
+            active: Actius
+            all: Tots
+            past: Passats
+            upcoming: Propers
+          see: Veure
         index:
           loading: Carregant resultats...
       show:
@@ -335,10 +387,6 @@ ca:
       participatory_processes:
         index:
           promoted_processes: Processos destacats
-        order_by_processes:
-          processes:
-            one: "%{count} procés"
-            other: "%{count} processos"
         participatory_process:
           active_step: 'Fase actual:'
           take_part: Participa
@@ -346,9 +394,8 @@ ca:
           active_step: 'Fase actual:'
           more_info: Més informació
           take_part: Participa
-      process_header:
-        process_menu_item: El procés
-        unfold: Desplega
       process_header_steps:
         step: Fase %{current} de %{total}
         view_steps: Veure les fases
+      process_navigation:
+        process_menu_item: El procés

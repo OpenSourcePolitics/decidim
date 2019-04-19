@@ -11,11 +11,15 @@ module Decidim
         render
       end
 
-      private
-
-      def resource_icon
-        icon "meetings", class: "icon--big"
+      def address
+        render
       end
+
+      def title
+        present(model).title
+      end
+
+      private
 
       def spans_multiple_dates?
         start_date != end_date
@@ -23,6 +27,7 @@ module Decidim
 
       def meeting_date
         return render(:multiple_dates) if spans_multiple_dates?
+
         render(:single_date)
       end
 

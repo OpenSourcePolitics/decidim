@@ -8,10 +8,7 @@ shared_examples "manage proposals" do
   let(:participatory_process_scope) { nil }
 
   before do
-    Geocoder::Lookup::Test.add_stub(
-      address,
-      [{ "latitude" => latitude, "longitude" => longitude }]
-    )
+    stub_geocoding(address, [latitude, longitude])
   end
 
   context "when previewing proposals" do
@@ -50,7 +47,7 @@ shared_examples "manage proposals" do
 
         context "when process is not related to any scope" do
           it "can be related to a scope" do
-            click_link "New"
+            click_link "New proposal"
 
             within "form" do
               expect(page).to have_content(/Scope/i)
@@ -58,7 +55,7 @@ shared_examples "manage proposals" do
           end
 
           it "creates a new proposal", :slow do
-            click_link "New"
+            click_link "New proposal"
 
             within ".new_proposal" do
               fill_in :proposal_title, with: "Make decidim great again"
@@ -85,7 +82,7 @@ shared_examples "manage proposals" do
           let(:participatory_process_scope) { scope }
 
           it "cannot be related to a scope, because it has no children" do
-            click_link "New"
+            click_link "New proposal"
 
             within "form" do
               expect(page).to have_no_content(/Scope/i)
@@ -93,7 +90,7 @@ shared_examples "manage proposals" do
           end
 
           it "creates a new proposal related to the process scope" do
-            click_link "New"
+            click_link "New proposal"
 
             within ".new_proposal" do
               fill_in :proposal_title, with: "Make decidim great again"
@@ -118,7 +115,7 @@ shared_examples "manage proposals" do
             let!(:child_scope) { create :scope, parent: scope }
 
             it "can be related to a scope" do
-              click_link "New"
+              click_link "New proposal"
 
               within "form" do
                 expect(page).to have_content(/Scope/i)
@@ -126,7 +123,7 @@ shared_examples "manage proposals" do
             end
 
             it "creates a new proposal related to a process scope child" do
-              click_link "New"
+              click_link "New proposal"
 
               within ".new_proposal" do
                 fill_in :proposal_title, with: "Make decidim great again"
@@ -155,7 +152,7 @@ shared_examples "manage proposals" do
             end
 
             it "creates a new proposal related to the process scope" do
-              click_link "New"
+              click_link "New proposal"
 
               within ".new_proposal" do
                 fill_in :proposal_title, with: "Make decidim great again"
@@ -185,7 +182,7 @@ shared_examples "manage proposals" do
           end
 
           it "creates a new proposal with attachments" do
-            click_link "New"
+            click_link "New proposal"
 
             within ".new_proposal" do
               fill_in :proposal_title, with: "Proposal with attachments"
@@ -199,6 +196,35 @@ shared_examples "manage proposals" do
 
             visit resource_locator(Decidim::Proposals::Proposal.last).path
             expect(page).to have_selector("img[src*=\"city.jpeg\"]", count: 1)
+          end
+        end
+
+        context "when proposals comes from a meeting" do
+          let!(:meeting_component) { create(:meeting_component, participatory_space: participatory_process) }
+          let!(:meetings) { create_list(:meeting, 3, component: meeting_component) }
+
+          it "creates a new proposal with meeting as author" do
+            click_link "New proposal"
+
+            within ".new_proposal" do
+              fill_in :proposal_title, with: "Proposal with meeting as author"
+              fill_in :proposal_body, with: "Proposal body of meeting as author"
+              execute_script("$('#proposal_created_in_meeting').change()")
+              find(:css, "#proposal_created_in_meeting").set(true)
+              select translated(meetings.first.title), from: :proposal_meeting_id
+              select category.name["en"], from: :proposal_category_id
+              find("*[type=submit]").click
+            end
+
+            expect(page).to have_admin_callout("successfully")
+
+            within "table" do
+              proposal = Decidim::Proposals::Proposal.last
+
+              expect(page).to have_content("Proposal with meeting as author")
+              expect(proposal.body).to eq("Proposal body of meeting as author")
+              expect(proposal.category).to eq(category)
+            end
           end
         end
       end
@@ -356,6 +382,19 @@ shared_examples "manage proposals" do
         visit current_path
 
         within find("tr", text: proposal.title) do
+          expect(page).to have_no_link("Answer")
+        end
+      end
+    end
+
+    context "when the proposal is an emendation" do
+      let!(:amendable) { create(:proposal, component: current_component) }
+      let!(:emendation) { create(:proposal, component: current_component) }
+      let!(:amendment) { create :amendment, amender: emendation.creator_author, amendable: amendable, emendation: emendation, state: "evaluating" }
+
+      it "cannot answer a proposal" do
+        visit_component_admin
+        within find("tr", text: I18n.t("decidim/amendment", scope: "activerecord.models", count: 1)) do
           expect(page).to have_no_link("Answer")
         end
       end

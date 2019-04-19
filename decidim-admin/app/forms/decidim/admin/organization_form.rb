@@ -18,6 +18,16 @@ module Decidim
       attribute :youtube_handler, String
       attribute :github_handler, String
       attribute :default_locale, String
+      attribute :badges_enabled, Boolean
+      attribute :user_groups_enabled, Boolean
+
+      attribute :send_welcome_notification, Boolean
+      attribute :customize_welcome_notification, Boolean
+
+      translatable_attribute :welcome_notification_subject, String
+      translatable_attribute :welcome_notification_body, String
+
+      validates :welcome_notification_subject, :welcome_notification_body, translatable_presence: true, if: proc { |form| form.customize_welcome_notification }
 
       validates :name, presence: true
       validates :default_locale, :reference_prefix, presence: true

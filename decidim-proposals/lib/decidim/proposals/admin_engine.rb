@@ -7,15 +7,29 @@ module Decidim
       isolate_namespace Decidim::Proposals::Admin
 
       paths["db/migrate"] = nil
+      paths["lib/tasks"] = nil
 
       routes do
-        resources :proposals, only: [:index, :new, :create] do
+        resources :proposals, only: [:index, :new, :create, :edit, :update] do
           post :update_category, on: :collection
           collection do
             resource :proposals_import, only: [:new, :create]
+            resource :proposals_merge, only: [:create]
+            resource :proposals_split, only: [:create]
           end
           resources :proposal_answers, only: [:edit, :update]
           resources :proposal_notes, only: [:index, :create]
+        end
+        scope "/proposal_components/:component_id" do
+          resources :participatory_texts, only: [:index] do
+            collection do
+              get :new_import
+              post :import
+              patch :import
+              post :update
+              post :discard
+            end
+          end
         end
 
         root to: "proposals#index"

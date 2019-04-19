@@ -6,7 +6,7 @@ module Decidim
     # public layout.
     class ParticipatoryProcessesController < Decidim::ParticipatoryProcesses::ApplicationController
       include ParticipatorySpaceContext
-      participatory_space_layout only: :show
+      participatory_space_layout only: [:show, :statistics]
 
       helper Decidim::AttachmentsHelper
       helper Decidim::IconHelper
@@ -16,7 +16,8 @@ module Decidim
 
       helper ParticipatoryProcessHelper
 
-      helper_method :collection, :promoted_participatory_processes, :participatory_processes, :stats, :filter
+      helper_method :collection, :promoted_participatory_processes, :participatory_processes, :stats, :metrics, :filter
+      helper_method :process_count_by_filter
 
       def index
         redirect_to "/404" if published_processes.none?
@@ -26,7 +27,11 @@ module Decidim
       end
 
       def show
-        check_current_user_can_visit_space
+        enforce_permission_to :read, :process, process: current_participatory_space
+      end
+
+      def statistics
+        enforce_permission_to :read, :process, process: current_participatory_space
       end
 
       private
@@ -51,32 +56,58 @@ module Decidim
         @collection ||= (participatory_processes.to_a + participatory_process_groups).flatten
       end
 
-      def filtered_participatory_processes(filter = default_filter)
-        OrganizationPrioritizedParticipatoryProcesses.new(current_organization, filter, current_user)
+      def filtered_participatory_processes(filter_name = filter)
+        OrganizationPrioritizedParticipatoryProcesses.new(current_organization, filter_name, current_user)
       end
 
       def participatory_processes
-        @participatory_processes ||= filtered_participatory_processes(filter)
+        @participatory_processes ||= filtered_participatory_processes(filter).query.where(decidim_participatory_process_group_id: nil)
       end
 
       def promoted_participatory_processes
-        @promoted_participatory_processes ||= filtered_participatory_processes | PromotedParticipatoryProcesses.new
+        @promoted_participatory_processes ||= filtered_participatory_processes("all") | PromotedParticipatoryProcesses.new
+      end
+
+      def filtered_participatory_process_groups(filter_name = filter)
+        OrganizationPrioritizedParticipatoryProcessGroups.new(current_organization, filter_name)
       end
 
       def participatory_process_groups
-        @participatory_process_groups ||= OrganizationPrioritizedParticipatoryProcessGroups.new(current_organization, filter)
+        @participatory_process_groups ||= filtered_participatory_process_groups(filter)
       end
 
       def stats
         @stats ||= ParticipatoryProcessStatsPresenter.new(participatory_process: current_participatory_space)
       end
 
+      def metrics
+        @metrics ||= ParticipatoryProcessMetricChartsPresenter.new(participatory_process: current_participatory_space)
+      end
+
       def filter
-        @filter = params[:filter] || default_filter
+        return default_filter unless ProcessFiltersCell::ALL_FILTERS.include?(params[:filter])
+
+        @filter ||= params[:filter] || default_filter
       end
 
       def default_filter
+        return "active" if process_count_by_filter["active"].positive?
+        return "upcoming" if process_count_by_filter["upcoming"].positive?
+        return "past" if process_count_by_filter["past"].positive?
+
         "active"
+      end
+
+      def process_count_by_filter
+        return @process_count_by_filter if @process_count_by_filter
+
+        @process_count_by_filter = %w(active upcoming past).inject({}) do |collection_by_filter, filter_name|
+          processes = filtered_participatory_processes(filter_name).query.where(decidim_participatory_process_group_id: nil)
+          groups = filtered_participatory_process_groups(filter_name)
+          collection_by_filter.merge(filter_name.to_s => processes.count + groups.count)
+        end
+        @process_count_by_filter["all"] = @process_count_by_filter.values.sum
+        @process_count_by_filter
       end
     end
   end

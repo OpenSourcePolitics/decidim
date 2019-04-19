@@ -31,7 +31,8 @@ module Decidim
         Decidim.traceability.perform_action!(
           :publish,
           component,
-          current_user
+          current_user,
+          visibility: "all"
         ) do
           component.publish!
           component
@@ -43,7 +44,7 @@ module Decidim
           event: "decidim.events.components.component_published",
           event_class: Decidim::ComponentPublishedEvent,
           resource: component,
-          recipient_ids: component.participatory_space.followers.pluck(:id)
+          followers: component.participatory_space.followers
         )
       end
     end

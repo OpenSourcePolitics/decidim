@@ -26,7 +26,7 @@ module Decidim
             follower = create(:user, organization: proposal.organization)
             create(:follow, followable: current_user, user: follower)
             author_follower = create(:user, organization: proposal.organization)
-            create(:follow, followable: proposal.author, user: author_follower)
+            create(:follow, followable: proposal.authors.first, user: author_follower)
 
             expect(Decidim::EventsManager)
               .to receive(:publish)
@@ -34,7 +34,7 @@ module Decidim
                 event: "decidim.events.proposals.proposal_endorsed",
                 event_class: Decidim::Proposals::ProposalEndorsedEvent,
                 resource: proposal,
-                recipient_ids: [follower.id],
+                followers: [follower],
                 extra: {
                   endorser_id: current_user.id
                 }
@@ -46,8 +46,9 @@ module Decidim
 
         context "when the endorsement is not valid" do
           before do
-            proposal.update(answered_at: DateTime.current, state: "rejected")
+            proposal.update(answered_at: Time.current, state: "rejected")
           end
+
           it "broadcasts invalid" do
             expect { command.call }.to broadcast(:invalid)
           end
@@ -61,13 +62,8 @@ module Decidim
       end
 
       describe "Organization endorses Proposal" do
-        let(:user_group) { create(:user_group, verified_at: DateTime.current) }
+        let(:user_group) { create(:user_group, verified_at: Time.current, users: [current_user]) }
         let(:command) { described_class.new(proposal, current_user, user_group.id) }
-
-        before do
-          current_user.user_groups << user_group
-          current_user.save!
-        end
 
         context "when in normal conditions" do
           it "broadcasts ok" do
@@ -83,8 +79,9 @@ module Decidim
 
         context "when the endorsement is not valid" do
           before do
-            proposal.update(answered_at: DateTime.current, state: "rejected")
+            proposal.update(answered_at: Time.current, state: "rejected")
           end
+
           it "Do not increase the endorsements counter by one" do
             command.call
             proposal.reload

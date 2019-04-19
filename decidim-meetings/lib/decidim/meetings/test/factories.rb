@@ -1,33 +1,37 @@
 # frozen_string_literal: true
 
 require "decidim/core/test/factories"
+require "decidim/forms/test/factories"
 require "decidim/participatory_processes/test/factories"
+require "decidim/assemblies/test/factories"
 
 FactoryBot.define do
   factory :meeting_component, parent: :component do
     name { Decidim::Components::Namer.new(participatory_space.organization.available_locales, :meetings).i18n_name }
-    manifest_name :meetings
+    manifest_name { :meetings }
     participatory_space { create(:participatory_process, :with_steps, organization: organization) }
   end
 
   factory :meeting, class: "Decidim::Meetings::Meeting" do
-    title { Decidim::Faker::Localized.sentence(3) }
-    description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(4) } }
-    location { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(4) } }
-    location_hints { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(4) } }
+    title { generate_localized_title }
+    description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
+    location { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
+    location_hints { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
     address { Faker::Lorem.sentence(3) }
     latitude { Faker::Address.latitude }
     longitude { Faker::Address.longitude }
     start_time { 1.day.from_now }
     end_time { start_time.advance(hours: 2) }
-    private_meeting false
-    transparent true
+    private_meeting { false }
+    transparent { true }
     services do
       [
-        { title: Decidim::Faker::Localized.sentence(2), description: Decidim::Faker::Localized.sentence(5) },
-        { title: Decidim::Faker::Localized.sentence(2), description: Decidim::Faker::Localized.sentence(5) }
+        { title: generate_localized_title, description: generate_localized_title },
+        { title: generate_localized_title, description: generate_localized_title }
       ]
     end
+    questionnaire { build(:questionnaire) }
+    registration_form_enabled { true }
     component { build(:component, manifest_name: "meetings") }
 
     organizer do
@@ -35,7 +39,7 @@ FactoryBot.define do
     end
 
     trait :closed do
-      closing_report { Decidim::Faker::Localized.sentence(3) }
+      closing_report { generate_localized_title }
       attendees_count { rand(50) }
       contributions_count { rand(50) }
       attending_organizations { Array.new(3) { Faker::GameOfThrones.house }.join(", ") }
@@ -46,7 +50,7 @@ FactoryBot.define do
       registrations_enabled { true }
       available_slots { 10 }
       reserved_slots { 4 }
-      registration_terms { Decidim::Faker::Localized.sentence(3) }
+      registration_terms { generate_localized_title }
     end
 
     trait :past do
@@ -66,7 +70,7 @@ FactoryBot.define do
 
   factory :agenda, class: "Decidim::Meetings::Agenda" do
     meeting
-    title { Decidim::Faker::Localized.sentence(3) }
+    title { generate_localized_title }
     visible { true }
 
     trait :with_agenda_items do
@@ -78,8 +82,8 @@ FactoryBot.define do
 
   factory :agenda_item, class: "Decidim::Meetings::AgendaItem" do
     agenda
-    title { Decidim::Faker::Localized.sentence(3) }
-    description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(4) } }
+    title { generate_localized_title }
+    description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
     duration { 15 }
     position { 0 }
 
@@ -95,10 +99,26 @@ FactoryBot.define do
   end
 
   factory :minutes, class: "Decidim::Meetings::Minutes" do
-    description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(4) } }
+    description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
     video_url { Faker::Internet.url }
     audio_url { Faker::Internet.url }
-    visible true
+    visible { true }
     meeting
+  end
+
+  factory :invite, class: "Decidim::Meetings::Invite" do
+    meeting
+    user
+    sent_at { Time.current - 1.day }
+    accepted_at { nil }
+    rejected_at { nil }
+
+    trait :accepted do
+      accepted_at { Time.current }
+    end
+
+    trait :rejected do
+      rejected_at { Time.current }
+    end
   end
 end

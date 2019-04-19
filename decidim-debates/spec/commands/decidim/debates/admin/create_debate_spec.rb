@@ -21,7 +21,8 @@ describe Decidim::Debates::Admin::CreateDebate do
       end_time: 1.day.from_now + 1.hour,
       category: category,
       current_user: user,
-      current_component: current_component
+      current_component: current_component,
+      current_organization: organization
     )
   end
   let(:invalid) { false }
@@ -51,10 +52,21 @@ describe Decidim::Debates::Admin::CreateDebate do
       expect(debate.component).to eq current_component
     end
 
+    it "sets the organization as author" do
+      subject.call
+
+      expect(debate.author).to eq(organization)
+    end
+
     it "traces the action", versioning: true do
       expect(Decidim.traceability)
         .to receive(:create!)
-        .with(Decidim::Debates::Debate, user, hash_including(:category, :title, :description, :information_updates, :instructions, :end_time, :start_time, :component))
+        .with(
+          Decidim::Debates::Debate,
+          user,
+          hash_including(:category, :title, :description, :information_updates, :instructions, :end_time, :start_time, :component),
+          visibility: "all"
+        )
         .and_call_original
 
       expect { subject.call }.to change(Decidim::ActionLog, :count)
@@ -74,7 +86,7 @@ describe Decidim::Debates::Admin::CreateDebate do
             event: "decidim.events.debates.debate_created",
             event_class: Decidim::Debates::CreateDebateEvent,
             resource: kind_of(Decidim::Debates::Debate),
-            recipient_ids: [space_follower.id],
+            followers: [space_follower],
             extra: { type: "participatory_space" }
           )
 

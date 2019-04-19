@@ -3,7 +3,12 @@
 module Decidim
   module Proposals
     class PublishProposalEvent < Decidim::Events::SimpleEvent
-      include Decidim::Events::AuthorEvent
+      include Decidim::Events::CoauthorEvent
+
+      def resource_text
+        renderer = Decidim::ContentRenderers::HashtagRenderer.new(resource.body)
+        renderer.render
+      end
 
       private
 

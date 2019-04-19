@@ -20,6 +20,7 @@ module Decidim
         def call
           meeting.with_lock do
             return broadcast(:invalid) if form.invalid?
+
             update_meeting_registrations
             send_notification if should_notify_followers?
           end
@@ -33,6 +34,7 @@ module Decidim
 
         def update_meeting_registrations
           meeting.registrations_enabled = form.registrations_enabled
+          meeting.registration_form_enabled = form.registration_form_enabled
 
           if form.registrations_enabled
             meeting.available_slots = form.available_slots
@@ -48,7 +50,7 @@ module Decidim
             event: "decidim.events.meetings.registrations_enabled",
             event_class: Decidim::Meetings::MeetingRegistrationsEnabledEvent,
             resource: meeting,
-            recipient_ids: meeting.followers.pluck(:id)
+            followers: meeting.followers
           )
         end
 

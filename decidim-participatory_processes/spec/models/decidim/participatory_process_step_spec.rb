@@ -14,16 +14,16 @@ module Decidim
       it { is_expected.to be_versioned }
 
       context "when action button" do
-        let(:participatory_process_step) { build(:participatory_process_step, :action_btn, position: position) }
+        let(:participatory_process_step) { build(:participatory_process_step, :cta, position: position) }
 
         context "with value" do
-          let(:action_btn_text) { "SEE" }
+          let(:cta_text) { "SEE" }
 
           it { is_expected.to be_valid }
         end
 
         context "without value" do
-          let(:action_btn_text) { nil }
+          let(:cta_text) { nil }
 
           it { is_expected.to be_valid }
         end

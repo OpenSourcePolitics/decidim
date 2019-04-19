@@ -1,4 +1,3 @@
----
 pt:
   activemodel:
     attributes:
@@ -11,11 +10,10 @@ pt:
         organization: Organização
         plural: Plural
       attachment:
-        attachment_collection_id: Coleção
+        attachment_collection_id: Pasta
         description: Descrição
         file: Arquivo
         title: Título
-        weight: Rang d'affichage
       attachment_collection:
         description: Descrição
         name: Nome
@@ -38,6 +36,7 @@ pt:
         organization_url: URL da organização
         redirect_uri: URI de redirecionamento
       organization:
+        badges_enabled: Ativar emblemas
         cta_button_path: Caminho do botão Chamar para Ação
         cta_button_text: Texto do botão Chamar para Ação
         default_locale: Idioma por defeito
@@ -54,7 +53,6 @@ pt:
         highlighted_content_banner_image: Imagem
         highlighted_content_banner_short_description: Pequena descrição
         highlighted_content_banner_title: Título
-        homepage_image: Imagem do site inicial
         instagram_handler: Instagram handler
         logo: Logotipo
         name: Nome
@@ -68,7 +66,7 @@ pt:
         show_statistics: Mostre estatisticas
         tos_version: Termos de versão do serviço
         twitter_handler: Manipulador do Twitter
-        welcome_text: Texto de boas-vindas
+        user_groups_enabled: Ativar grupos de usuários
         youtube_handler: Manipulador do YouTube
       scope:
         code: Código
@@ -85,44 +83,31 @@ pt:
         changed_notably: Houve mudanças notáveis.
         content: Conteúdo
         organization: Organização
+        show_in_footer: Mostrar no rodapé
         slug: Texto curto de URL
         title: Título
+        weight: Peso
+      static_page_topic:
+        description: Descrição
+        show_in_footer: Mostrar no rodapé
+        title: Título
+        weight: Peso
+      user_group_csv_verification:
+        file: Arquivo
     errors:
       models:
         oauth_application:
           attributes:
             redirect_uri:
               must_be_ssl: O URI de redirecionamento deve ser um URI de SSL
+        organization:
+          attributes:
+            official_img_header:
+              allowed_file_content_types: Arquivo de imagem inválido
+            official_img_footer:
+              allowed_file_content_types: Arquivo de imagem inválido
   activerecord:
     attributes:
-      decidim/participatory_process:
-        banner_image: Imagem do banner
-        description: Descrição
-        developer_group: Grupo de desenvolvedores
-        domain: Domínio
-        end_date: Data de fim
-        hashtag: Hashtag
-        hero_image: Imagem da página principal
-        local_area: Área municipal
-        meta_scope: Metadados do âmbito
-        participatory_scope: Âmbito participativo
-        participatory_structure: Estrutura participativa
-        promoted: Destacado
-        scope: Âmbito
-        short_description: Pequena descrição
-        slug: Texto curto de URL
-        start_date: Data de início
-        subtitle: Subtítulo
-        target: Público alvo
-        title: Título
-      decidim/participatory_process_group:
-        description: Descrição
-        hero_image: Imagem inicial
-        name: Nome
-        participatory_processes: Processos participativos
-      decidim/participatory_process_step:
-        end_date: Data final
-        start_date: Data de início
       decidim/static_page:
         content: Conteúdo
         slug: Texto curto de URL
@@ -134,10 +119,7 @@ pt:
         organization_name: Nome da organização
         organization_url: URL da organização
         redirect_uri: URI de redirecionamento
-        site: Local
-  date:
-    formats:
-      datepicker: "%d/%m/%Y"
+        site: Local na rede Internet
   decidim:
     admin:
       actions:
@@ -145,6 +127,7 @@ pt:
         browse: Explorar
         export: Exportar
         manage: Gerir
+        new: Novo %{name}
         permissions: Permissões
         reject: Rejeitar
         verify: Verificar
@@ -181,22 +164,22 @@ pt:
           success: Área atualizada com sucesso
       attachment_collections:
         create:
-          error: Ocorreu um erro ao criar uma nova coleção.
-          success: Coleção criada com sucesso.
+          error: Houve um erro ao criar uma nova pasta.
+          success: Pasta criada com sucesso.
         destroy:
-          success: Coleção destruída com sucesso.
+          success: Pasta destruída com sucesso.
         edit:
-          title: Editar coleção
+          title: Editar pasta
           update: Atualizar
         index:
-          attachment_collection_used: Esta coleção não pode ser removida porque está em uso.
-          attachment_collections_title: Coleções de anexos
+          attachment_collection_used: Esta pasta não pode ser removida porque está em uso.
+          attachment_collections_title: Pastas de anexos
         new:
           create: Crio
-          title: Nova coleção
+          title: Nova pasta
         update:
-          error: Ocorreu um erro ao atualizar essa coleção.
-          success: Coleção atualizada com sucesso.
+          error: Houve um erro ao atualizar esta pasta.
+          success: Pasta atualizada com sucesso.
       attachments:
         create:
           error: Ocorreu um erro ao criar um novo anexo.
@@ -281,6 +264,11 @@ pt:
       exports:
         export_as: "%{name} como %{export_format}"
         notice: Sua exportação está atualmente em andamento. Você receberá um e-mail quando estiver completo.
+      help_sections:
+        error: Houve um erro ao atualizar as seções de ajuda
+        form:
+          save: Salve 
+        success: Seções de ajuda atualizadas com sucesso
       impersonatable_users:
         index:
           filter:
@@ -318,11 +306,6 @@ pt:
         logs_list:
           no_logs_yet: Ainda não há logs
       managed_users:
-        index:
-          impersonate: Impersonate
-          needs_authoriation_warning: Needs authoriation warning
-          promote: Promote
-          view_logs: View logs
         promotion:
           error: Ocorreu um erro ao promover o usuário gerenciado.
           success: O usuário gerenciado foi promovido com sucesso.
@@ -339,11 +322,12 @@ pt:
         areas: Áreas
         configuration: Configuração
         dashboard: Painel de controlo
+        help_sections: Seções de ajuda
+        homepage: Pagina inicial
         impersonations: Imitações
-        navbar_links: Navbar links
         newsletters: Boletins informativos
         oauth_applications: Aplicações OAuth
-        officializations: Oficializações
+        participants: Participantes
         scope_types: Tipos de âmbito
         scopes: Âmbitos
         settings: Configurações
@@ -361,13 +345,13 @@ pt:
             plural: Plural
         attachment:
           fields:
-            collection: Coleção
+            collection: Pasta
             content_type: Tipo
             file_size: Tamanho
             title: Título
           name: Anexo
         attachment_collection:
-          name: Coleção
+          name: Pasta
         category:
           name: Categoria
         impersonation_log:
@@ -378,13 +362,6 @@ pt:
             reason: Razão
             started_at: Começou em
             user: Do utilizador
-        managed_user:
-          name: Name
-        navbar_link:
-          fields:
-            link: Link
-            title: Title
-            weight: Weight
         newsletter:
           fields:
             created_at: Criado em
@@ -396,6 +373,7 @@ pt:
           fields:
             created_at: Criado em
             name: Nome
+          name: Aplicação OAuth
         participatory_space_private_user:
           name: Espaço participativo usuário particular
         scope:
@@ -420,6 +398,7 @@ pt:
             roles:
               admin: Administrador
               user_manager: Gerente de usuário
+          name: Do utilizador
         user_group:
           fields:
             actions: Ações
@@ -437,28 +416,6 @@ pt:
             does_not_belong: Não pertence
             offensive: Ofensiva
             spam: Spam
-      navbar_links:
-        create:
-          error: There was an error when creating this link.
-          success: Link created successfully
-        destroy:
-          success: Link successfully destroyed
-        edit:
-          title: Edit navbar link
-          update: Update
-        form:
-          link: Link
-          new_tab: Open in a new tab
-          same_tab: Open in the same tab
-          title: Title
-          weight: Weight
-        new:
-          create: Create
-          title: New navbar link
-        no_links: No links created
-        update:
-          error: There was an error when updating this link.
-          success: Link updated successfully
       newsletters:
         create:
           error: Ocorreu um erro ao criar este boletim informativo.
@@ -488,8 +445,6 @@ pt:
         update:
           error: Ocorreu um erro ao atualizar este boletim informativo.
           success: Newsletter atualizada com sucesso. Por favor, reveja-o antes de enviar.
-      oauth_application:
-        new: Nouvelle application Oauth
       oauth_applications:
         create:
           error: Houve um erro ao criar este aplicativo.
@@ -561,12 +516,20 @@ pt:
           homepage_appearance_title: Editar a aparência da página inicial
           homepage_highlighted_content_banner_title: Banner de conteúdo elevado
           layout_appearance_title: Editar aparência do layout
-          omnipresent_banner_appearance_title: Editar omnipresente
+          omnipresent_banner_appearance_title: Editar banner onipresente
+      organization_homepage:
+        edit:
+          active_content_blocks: Blocos de conteúdo ativo
+          inactive_content_blocks: Blocos de conteúdo inativo
+      organization_homepage_content_blocks:
+        edit:
+          update: Atualizar
       participatory_space_private_users:
         create:
           error: Ocorreu um erro ao adicionar um usuário privado para este espaço participativo.
           success: Espaço participativo acesso de usuário privado criado com sucesso.
         destroy:
+          error: Houve um erro ao excluir um usuário particular desse espaço participativo.
           success: Espaço participativo acesso de usuário privado destruído com sucesso.
         index:
           title: Espaço participativo usuário particular
@@ -604,6 +567,21 @@ pt:
         update:
           error: Ocorreu um erro ao atualizar esse âmbito.
           success: Âmbito atualizado com sucesso
+      static_page_topics:
+        create:
+          error: Ocorreu um erro ao criar um novo tópico.
+          success: Tópico criado com sucesso.
+        destroy:
+          success: Tópico destruído com sucesso
+        edit:
+          title: Editar tópico
+          update: Atualize o tópico
+        new:
+          create: Criar tópico
+          title: Novo topico
+        update:
+          error: Houve um erro ao atualizar este tópico.
+          success: Tópico atualizado com sucesso
       static_pages:
         actions:
           view: Ver página pública
@@ -616,11 +594,18 @@ pt:
           changed_notably_help: Se marcado, os usuários serão notificados para aceitar os novos termos e condições.
           title: Editar Página
           update: Actualizar
+        form:
+          none: Nenhum
         index:
           last_notable_change: Última alteração notável
         new:
-          create: Crio
+          create: Criar página
           title: Nova página
+        topic:
+          destroy: Remover tópico
+          edit: Editar tópico
+          empty: Não há página sob este tópico
+          without_topic: Páginas sem tópico
         update:
           error: Ocorreu um erro ao atualizar esta página.
           success: Página atualizada com sucesso
@@ -631,18 +616,17 @@ pt:
         authorization_workflows: Métodos de verificação
         dashboard: painel de controle
         impersonatable_users: Usuários impersonáveis
-        impersonations: Personagens
-        managed_users: Managed users
-        navbar_links: Navbar links
-        officializations: Oficializações
+        impersonations: Imitações
+        participants: Comercial
         scope_types: Tipos de âmbito
         scopes: Âmbitos
         static_pages: Páginas
         user_groups: Grupos de usuários
         users: Utilizadores
-      user:
-        new: New
       user_group:
+        csv_verify:
+          invalid: Ocorreu um erro ao ler o arquivo CSV.
+          success: O arquivo CSV foi enviado com sucesso, estamos verificando os grupos de usuários que correspondem aos critérios. Isso pode demorar um pouco.
         reject:
           invalid: Ocorreu um erro ao rejeitar esse grupo de usuários.
           success: Grupo de usuários rejeitado com sucesso
@@ -662,6 +646,12 @@ pt:
             pending: Pendente
             rejected: Rejeitado
             verified: Verificado
+          verify_via_csv: Verificar via CSV
+      user_groups_csv_verifications:
+        new:
+          explanation: Envie seu arquivo CSV. Deve ter os e-mails oficiais dos grupos de usuários em sua organização na primeira coluna do arquivo, sem cabeçalhos. Somente grupos de usuários que confirmaram seus e-mails e que tenham um e-mail aparecendo no arquivo CSV serão validados.
+          title: Envie seu arquivo CSV
+          upload: Envio
       users:
         create:
           error: Ocorreu um erro ao convidar esse usuário.
@@ -676,6 +666,7 @@ pt:
         new:
           create: Convite
           title: Convide o usuário como administrador
+      view_public_page: Ver página pública
     forms:
       errors:
         impersonate_user:
@@ -716,7 +707,3 @@ pt:
           title: Configurações
         users:
           title: Utilizadores
-  time:
-    formats:
-      datepicker: "%d/%m/%Y"
-      timepicker: "%d/%m/%Y %H:%M"

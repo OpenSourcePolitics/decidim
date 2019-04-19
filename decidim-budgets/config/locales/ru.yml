@@ -13,10 +13,6 @@ ru:
     errors:
       messages:
         equal_to: must be equal to %{count}
-      models:
-        decidim/budgets/project:
-          one: Project
-          other: Projects
     models:
       decidim/budgets/project:
         few: Проекта
@@ -31,7 +27,8 @@ ru:
         confirm_destroy: Вы действительно хотите удалить этот проект?
         destroy: Удалить
         edit: Редактировать
-        new: Добавить
+        import: Внести в проекты позаимствованные предложения
+        new: Новый проект
         preview: Предпросмотр
         title: Действия
       admin:
@@ -56,10 +53,18 @@ ru:
             title: Проекты
           new:
             create: Создать
-            title: Добавить итог
+            title: Новый проект
           update:
             invalid: При попытке обновить этот проект произошла ошибка
             success: Проект успешно обновлен
+        proposals_imports:
+          create:
+            invalid: При попытке позаимствовать эти предложения в проекты произошла ошибка
+            success: "%{number} предложений успешно позаимствованы для проектов"
+          new:
+            create: Внести в проекты позаимствованные предложения
+            no_components: В этом пространстве соучастия нет других составляющих предложений, куда можно было бы внести позаимствованные предложения.
+            select_component: Пожалуйста, выберите составляющую
       admin_log:
         project:
           create: "%{user_name} создал проект %{resource_name} в пространстве %{space_name}"
@@ -163,6 +168,7 @@ ru:
             comments_enabled: Комментарии включены
             geocoding_enabled: Geocoding enabled
             projects_per_page: Проектов на страницу
+            resources_permissions_enabled: Для каждой встречи можно задать те или иные разрешения на действия
             total_budget: Общий бюджет
             total_projects: Total projects
             vote_per_budget: budget sum enabled (default)

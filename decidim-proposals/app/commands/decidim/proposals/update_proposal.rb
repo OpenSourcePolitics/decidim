@@ -4,6 +4,9 @@ module Decidim
   module Proposals
     # A command with all the business logic when a user updates a proposal.
     class UpdateProposal < Rectify::Command
+      include AttachmentMethods
+      include HashtagsMethods
+
       # Public: Initializes the command.
       #
       # form         - A form object with the params.
@@ -13,6 +16,7 @@ module Decidim
         @form = form
         @current_user = current_user
         @proposal = proposal
+        @attached_to = proposal
       end
 
       # Executes the command. Broadcasts these events:
@@ -34,7 +38,11 @@ module Decidim
         end
 
         transaction do
-          update_proposal
+          if @proposal.draft?
+            update_draft
+          else
+            update_proposal
+          end
           create_attachment if process_attachments?
         end
 
@@ -45,18 +53,35 @@ module Decidim
 
       attr_reader :form, :proposal, :current_user, :attachment
 
+      # Prevent PaperTrail from creating an additional version
+      # in the proposal multi-step creation process (step 3: complete)
+      #
+      # A first version will be created in step 4: publish
+      # for diff rendering in the proposal control version
+      def update_draft
+        PaperTrail.request(enabled: false) do
+          @proposal.update(attributes)
+          @proposal.coauthorships.clear
+          @proposal.add_coauthor(current_user, user_group: user_group)
+        end
+      end
+
       def update_proposal
-        @proposal.update!(
-          title: form.title,
-          body: form.body,
+        @proposal.update!(attributes)
+        @proposal.coauthorships.clear
+        @proposal.add_coauthor(current_user, user_group: user_group)
+      end
+
+      def attributes
+        {
+          title: title_with_hashtags,
+          body: body_with_hashtags,
           category: form.category,
           scope: form.scope,
-          author: current_user,
-          decidim_user_group_id: user_group.try(:id),
           address: has_address? ? form.address : nil,
           latitude: has_address? ? form.latitude : nil,
           longitude: has_address? ? form.longitude : nil
-        )
+        }
       end
 
       def proposal_limit_reached?
@@ -80,45 +105,11 @@ module Decidim
       end
 
       def current_user_proposals
-        Proposal.where(author: current_user, component: form.current_component).published.where.not(id: proposal.id)
+        Proposal.from_author(current_user).where(component: form.current_component).published.where.not(id: proposal.id).except_withdrawn
       end
 
       def user_group_proposals
-        Proposal.where(user_group: user_group, component: form.current_component).published.where.not(id: proposal.id)
-      end
-
-      def build_attachment
-        @attachment = Attachment.new(
-          title: form.attachment.title,
-          file: form.attachment.file,
-          attached_to: @proposal
-        )
-      end
-
-      def attachment_invalid?
-        if form.attachment.invalid? && form.attachment.errors.has_key?(:file)
-          form.attachment.errors.add :file, attachment.errors[:file]
-          true
-        end
-      end
-
-      def attachment_present?
-        return if form.attachment.nil?
-
-        form.attachment.file.present?
-      end
-
-      def create_attachment
-        attachment.attached_to = proposal
-        attachment.save!
-      end
-
-      def attachments_allowed?
-        form.current_component.settings.attachments_allowed?
-      end
-
-      def process_attachments?
-        attachments_allowed? && attachment_present?
+        Proposal.from_user_group(user_group).where(component: form.current_component).published.where.not(id: proposal.id).except_withdrawn
       end
 
       def has_address?

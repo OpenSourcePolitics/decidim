@@ -55,7 +55,8 @@ module Decidim::Meetings
         transparent: transparent,
         services_to_persist: services_to_persist,
         current_user: current_user,
-        current_component: current_component
+        current_component: current_component,
+        current_organization: organization
       )
     end
 
@@ -106,10 +107,15 @@ module Decidim::Meetings
         expect(meeting.services).to eq(services)
       end
 
+      it "sets the questionnaire for registrations" do
+        subject.call
+        expect(meeting.questionnaire).to be_a(Decidim::Forms::Questionnaire)
+      end
+
       it "traces the action", versioning: true do
         expect(Decidim.traceability)
           .to receive(:create!)
-          .with(Meeting, current_user, kind_of(Hash))
+          .with(Meeting, current_user, kind_of(Hash), visibility: "all")
           .and_call_original
 
         expect { subject.call }.to change(Decidim::ActionLog, :count)
@@ -144,7 +150,7 @@ module Decidim::Meetings
             event: "decidim.events.meetings.meeting_created",
             event_class: Decidim::Meetings::CreateMeetingEvent,
             resource: kind_of(Meeting),
-            recipient_ids: [follower.id]
+            followers: [follower]
           )
 
         subject.call

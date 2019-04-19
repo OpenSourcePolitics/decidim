@@ -15,7 +15,6 @@ uk:
         description: Опис
         file: Файл
         title: Назва
-        weight: Rang d'affichage
       attachment_collection:
         description: Опис
         name: Назва
@@ -38,6 +37,7 @@ uk:
         organization_url: Адреса сайту організації
         redirect_uri: URI перенаправлення
       organization:
+        badges_enabled: Enable badges
         cta_button_path: Шлях до кнопки "Закликати до дії"
         cta_button_text: Текст кнопки "Закликати до дії"
         default_locale: Мова за замовчуванням
@@ -54,7 +54,6 @@ uk:
         highlighted_content_banner_image: Зображення
         highlighted_content_banner_short_description: Стислий опис
         highlighted_content_banner_title: Назва
-        homepage_image: Зображення головної сторінки
         instagram_handler: Адреса Instagram
         logo: Логотип
         name: Назва
@@ -68,7 +67,6 @@ uk:
         show_statistics: Показувати статистику
         tos_version: Версія умов участі
         twitter_handler: Адреса Twitter
-        welcome_text: Текст привітання
         youtube_handler: Адреса YouTube
       scope:
         code: Код
@@ -85,44 +83,31 @@ uk:
         changed_notably: Було внесено помітні зміни.
         content: Вміст
         organization: Організація
+        show_in_footer: Show in the footer
         slug: Скорочена веб-адреса
         title: Назва
+        weight: Weight
+      static_page_topic:
+        description: Description
+        show_in_footer: Show in the footer
+        title: Title
+        weight: Weight
+      user_group_csv_verification:
+        file: File
     errors:
       models:
         oauth_application:
           attributes:
             redirect_uri:
               must_be_ssl: URI перенаправлення має бути SSL URI
+        organization:
+          attributes:
+            official_img_footer:
+              allowed_file_content_types: Invalid image file
+            official_img_header:
+              allowed_file_content_types: Invalid image file
   activerecord:
     attributes:
-      decidim/participatory_process:
-        banner_image: Банерне зображення
-        description: Опис
-        developer_group: Робочий гурт з просування
-        domain: Домен
-        end_date: Дата закінчення
-        hashtag: Хештег
-        hero_image: Зображення головної сторінки
-        local_area: Дільниця організації
-        meta_scope: Метавідомості обсягу
-        participatory_scope: Що вирішується
-        participatory_structure: Як це вирішується
-        promoted: Висвітлено
-        scope: Обсяг
-        short_description: Стислий опис
-        slug: Скорочена веб-адреса
-        start_date: Дата початку
-        subtitle: Підзаголовок
-        target: Хто бере участь
-        title: Назва
-      decidim/participatory_process_group:
-        description: Опис
-        hero_image: Зображення головної сторінки
-        name: Ім'я
-        participatory_processes: Рухи співучасті
-      decidim/participatory_process_step:
-        end_date: Дата закінчення
-        start_date: Дата початку
       decidim/static_page:
         content: Вміст
         slug: Скорочена веб-адреса
@@ -134,10 +119,7 @@ uk:
         organization_name: Назва організації
         organization_url: Адреса сайту організації
         redirect_uri: URI перенаправлення
-        site: Сайт
-  date:
-    formats:
-      datepicker: "%d.%m.%Y"
+        site: Веб-сайт
   decidim:
     admin:
       actions:
@@ -190,10 +172,10 @@ uk:
           update: Оновити
         index:
           attachment_collection_used: Цю теку не можна видалити, оскільки вона використовується.
-          attachment_collections_title: Тека вкладень
+          attachment_collections_title: Теки вкладень
         new:
           create: Додати
-          title: Створити теку
+          title: Додати теку
         update:
           error: При спробі оновити цю теку сталася помилка.
           success: Теку успішно оновлено.
@@ -281,6 +263,11 @@ uk:
       exports:
         export_as: "%{name} як %{export_format}"
         notice: Зараз відбувається збереження у вигляді файлу. Ви отримаєте електронного листа після його завершення.
+      help_sections:
+        error: There's been an error updating the help sections
+        form:
+          save: Save
+        success: Help sections updated successfully
       impersonatable_users:
         index:
           filter:
@@ -339,11 +326,13 @@ uk:
         areas: Дільниці
         configuration: Конфігурація
         dashboard: Приладна дошка
+        help_sections: Help sections
+        homepage: Домашня сторінка
         impersonations: Виступи в ролі учасника
         navbar_links: Navbar links
         newsletters: Розсилання новин
         oauth_applications: Додатки OAuth
-        officializations: Надання службового статусу
+        participants: Participants
         scope_types: Різновиди обсягу
         scopes: Обсяги
         settings: Налаштування
@@ -367,7 +356,7 @@ uk:
             title: Назва
           name: Вкладений файл
         attachment_collection:
-          name: Тека
+          name: теку
         category:
           name: Категорія
         impersonation_log:
@@ -391,7 +380,7 @@ uk:
             progress: Перебіг
             sent_at: 'Надіслане:'
             subject: Тема
-          name: Випуск новин
+          name: Розсилання новин
         oauth_application:
           fields:
             created_at: 'Створено:'
@@ -468,14 +457,14 @@ uk:
           success: Випуск новин успішно доставлено.
         destroy:
           error_already_sent: 'Неможливо видалити цей випуск новин: його вже надіслано.'
-          success: Випуск новин успішно видалено.
+          success: Розсилання новин успішно видалено.
         edit:
           save_and_preview: Зберегти та попередньо переглянути
-          title: Редагувати випуск новин
+          title: Редагувати розсилання новин
         form:
           interpolations_hint: 'Підказка: Ви можете використовувати "%{name}" будь-де в основному тексті або темі, і воно буде замінене на ім''я одержувача.'
         index:
-          confirm_delete: Ви дійсно бажаєте видалити цей випуск новин?
+          confirm_delete: Ви дійсно бажаєте видалити це розсилання новин?
           title: Розсилання новин
         new:
           save: Зберегти
@@ -562,11 +551,19 @@ uk:
           homepage_highlighted_content_banner_title: Банер висвітленого вмісту
           layout_appearance_title: Редагувати зовнішній вигляд шаблону
           omnipresent_banner_appearance_title: Редагувати всюдисущий банер
+      organization_homepage:
+        edit:
+          active_content_blocks: Блоки діючого вмісту
+          inactive_content_blocks: Блоки недіючого вмісту
+      organization_homepage_content_blocks:
+        edit:
+          update: Update
       participatory_space_private_users:
         create:
           error: При спробі додати приватного учасника до цього простору співучасті сталася помилка.
           success: Приватним учасникам успішно надано доступ до простору співучасті.
         destroy:
+          error: There was an error deleting a private user for this participatory space.
           success: Успішно скасовано доступ приватних учасників до простору співучасті.
         index:
           title: Приватний учасник простору співучасті
@@ -604,6 +601,21 @@ uk:
         update:
           error: При спробі оновити цей обсяг сталася помилка.
           success: Обсяг успішно оновлено
+      static_page_topics:
+        create:
+          error: There was an error creating a new topic.
+          success: Topic created successfully.
+        destroy:
+          success: Topic successfully destroyed
+        edit:
+          title: Edit topic
+          update: Update topic
+        new:
+          create: Create topic
+          title: New topic
+        update:
+          error: There was an error when updating this topic.
+          success: Topic updated successfully
       static_pages:
         actions:
           view: Переглянути загальнодоступну сторінку
@@ -616,11 +628,18 @@ uk:
           changed_notably_help: Якщо позначено цей пункт, учасникам буде надіслано сповіщення щодо прийняття нових умов участі.
           title: Редагувати сторінку
           update: Оновити
+        form:
+          none: None
         index:
           last_notable_change: Остання помітна зміна
         new:
-          create: Створити
+          create: Додати
           title: Створити сторінку
+        topic:
+          destroy: Remove topic
+          edit: Edit topic
+          empty: There's no page under this topic
+          without_topic: Pages without topic
         update:
           error: При спробі оновити цю сторінку сталася помилка.
           success: Сторінку успішно оновлено
@@ -634,7 +653,7 @@ uk:
         impersonations: Виступи в ролі учасника
         managed_users: Managed users
         navbar_links: Navbar links
-        officializations: Надання службового статусу
+        participants: Participants
         scope_types: Різновиди обсягу
         scopes: Обсяги
         static_pages: Сторінки
@@ -643,6 +662,9 @@ uk:
       user:
         new: New
       user_group:
+        csv_verify:
+          invalid: There was an error reading the CSV file.
+          success: CSV file uploaded successfully, we're verifying the user groups matching the criteria. This might take a while.
         reject:
           invalid: При відхиленні цього гурту учасників сталася помилка.
           success: Гурт учасників успішно відхилено
@@ -662,6 +684,12 @@ uk:
             pending: Очікує на розгляд
             rejected: Відхилено
             verified: Перевірено
+          verify_via_csv: Verify via CSV
+      user_groups_csv_verifications:
+        new:
+          explanation: Upload your CSV file. It must have the official emails of the user groups in your organization in the first column of the file, without headers. Only user groups that have confirmed their email and that have an email appearing in the CSV file will be validated.
+          title: Upload your CSV file
+          upload: Upload
       users:
         create:
           error: Під час запрошення цього учасника сталася помилка.
@@ -676,6 +704,7 @@ uk:
         new:
           create: Запросити
           title: Запросити учасника в якості адміністратора
+      view_public_page: View public page
     forms:
       errors:
         impersonate_user:
@@ -716,7 +745,3 @@ uk:
           title: Налаштування
         users:
           title: Учасники
-  time:
-    formats:
-      datepicker: "%d.%m.%Y"
-      timepicker: "%H:%M %d.%m.%Y"

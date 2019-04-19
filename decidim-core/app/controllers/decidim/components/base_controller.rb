@@ -7,7 +7,6 @@ module Decidim
     # fooling the engine into thinking it's isolated.
     class BaseController < Decidim::ApplicationController
       include Settings
-      include ActionAuthorization
       include Decidim::NeedsPermission
 
       include ParticipatorySpaceContext
@@ -23,6 +22,7 @@ module Decidim
       helper Decidim::ActionAuthorizationHelper
       helper Decidim::AttachmentsHelper
       helper Decidim::SanitizeHelper
+      helper Decidim::PadHelper
 
       helper_method :current_component,
                     :current_participatory_space,

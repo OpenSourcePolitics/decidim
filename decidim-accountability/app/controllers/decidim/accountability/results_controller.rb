@@ -11,6 +11,10 @@ module Decidim
 
       helper_method :results, :result, :first_class_categories, :count_calculator
 
+      def show
+        raise ActionController::RoutingError, "Not Found" unless result
+      end
+
       private
 
       def results
@@ -29,7 +33,7 @@ module Decidim
       def default_filter_params
         {
           search_text: "",
-          scope_id:    "",
+          scope_id: "",
           category_id: ""
         }
       end

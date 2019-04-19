@@ -14,7 +14,7 @@ hu:
         confirm_destroy: Biztos, hogy törlöd ezt a bejegyzést?
         destroy: Törlés
         edit: Szerkesztés
-        new: Új
+        new: Új bejegyzés
         title: Műveletek
       admin:
         models:
@@ -38,6 +38,8 @@ hu:
           update:
             invalid: Hiba történt a bejegyzés mentése során.
             success: Bejegyzés mentése sikeres
+      last_activity:
+        new_post_at_html: "<span>Új hozzászólás %{link}</span>kor"
       models:
         post:
           fields:

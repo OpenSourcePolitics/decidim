@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "spec_helper"
+require "decidim/core/test/shared_examples/has_contextual_help"
 
 describe "Assemblies", type: :system do
   let(:organization) { create(:organization) }
@@ -11,7 +12,8 @@ describe "Assemblies", type: :system do
       organization: organization,
       description: { en: "Description", ca: "Descripció", es: "Descripción" },
       short_description: { en: "Short description", ca: "Descripció curta", es: "Descripción corta" },
-      show_statistics: show_statistics
+      show_statistics: show_statistics,
+      assembly_type: "others"
     )
   end
 
@@ -66,11 +68,19 @@ describe "Assemblies", type: :system do
 
   context "when there are some published assemblies" do
     let!(:assembly) { base_assembly }
-    let!(:promoted_assembly) { create(:assembly, :promoted, organization: organization) }
+    let!(:child_assembly) { create(:assembly, parent: assembly, organization: organization) }
+    let!(:promoted_assembly) { create(:assembly, :promoted, organization: organization, assembly_type: "government") }
     let!(:unpublished_assembly) { create(:assembly, :unpublished, organization: organization) }
 
     before do
       visit decidim_assemblies.assemblies_path
+    end
+
+    it_behaves_like "editable content for admins"
+
+    it_behaves_like "shows contextual help" do
+      let(:index_path) { decidim_assemblies.assemblies_path }
+      let(:manifest_name) { :assemblies }
     end
 
     context "and accessing from the homepage" do
@@ -93,9 +103,9 @@ describe "Assemblies", type: :system do
       end
     end
 
-    it "lists all the assemblies" do
-      within "#assemblies-grid" do
-        within "#assemblies-grid h2" do
+    it "lists the parent assemblies" do
+      within "#parent-assemblies" do
+        within "#parent-assemblies h2" do
           expect(page).to have_content("2")
         end
 
@@ -103,7 +113,68 @@ describe "Assemblies", type: :system do
         expect(page).to have_content(translated(promoted_assembly.title, locale: :en))
         expect(page).to have_selector("article.card", count: 2)
 
+        expect(page).not_to have_content(translated(child_assembly.title, locale: :en))
         expect(page).not_to have_content(translated(unpublished_assembly.title, locale: :en))
+      end
+    end
+
+    context "when filtering the parent assemblies" do
+      let!(:assembly3) { create(:assembly, :published, organization: organization, assembly_type: "consultative_advisory") }
+      let!(:assembly4) { create(:assembly, :published, organization: organization, assembly_type: "participatory") }
+      let!(:assembly5) { create(:assembly, :published, organization: organization, assembly_type: "executive") }
+      let!(:assembly6) { create(:assembly, :published, organization: organization, assembly_type: "working_group") }
+      let!(:assembly7) { create(:assembly, :published, organization: organization, assembly_type: "commission") }
+
+      before do
+        visit decidim_assemblies.assemblies_path
+        click_button "All"
+      end
+
+      it "filters by All types" do
+        click_link "All"
+        expect(page).to have_selector("article.card.card--assembly", count: 7)
+      end
+
+      it "filters by Government type" do
+        click_link "Government"
+        expect(page).to have_selector("article.card.card--assembly", count: 1)
+        expect(page).to have_selector("#button-text", text: "Government")
+      end
+
+      it "filters by Executive type" do
+        click_link "Executive"
+        expect(page).to have_selector("article.card.card--assembly", count: 1)
+        expect(page).to have_selector("#button-text", text: "Executive")
+      end
+
+      it "filters by Consultative/Advisory type" do
+        click_link "Consultative/Advisory"
+        expect(page).to have_selector("article.card.card--assembly", count: 1)
+        expect(page).to have_selector("#button-text", text: "Consultative/Advisory")
+      end
+
+      it "filters by Participatory type" do
+        click_link "Participatory"
+        expect(page).to have_selector("article.card.card--assembly", count: 1)
+        expect(page).to have_selector("#button-text", text: "Participatory")
+      end
+
+      it "filters by Working group type" do
+        click_link "Working group"
+        expect(page).to have_selector("article.card.card--assembly", count: 1)
+        expect(page).to have_selector("#button-text", text: "Working group")
+      end
+
+      it "filters by Commission type" do
+        click_link "Commission"
+        expect(page).to have_selector("article.card.card--assembly", count: 1)
+        expect(page).to have_selector("#button-text", text: "Commission")
+      end
+
+      it "filters by Others type" do
+        click_link "Others"
+        expect(page).to have_selector("article.card.card--assembly", count: 1)
+        expect(page).to have_selector("#button-text", text: "Others")
       end
     end
 
@@ -111,6 +182,18 @@ describe "Assemblies", type: :system do
       click_link(translated(assembly.title, locale: :en))
 
       expect(page).to have_current_path decidim_assemblies.assembly_path(assembly)
+    end
+
+    it "shows the organizational chart" do
+      within "#assemblies-chart" do
+        within ".js-orgchart" do
+          expect(page).to have_selector(".svg-chart-container")
+
+          within ".svg-chart-container" do
+            expect(page).to have_selector("g.node", count: 2)
+          end
+        end
+      end
     end
   end
 
@@ -126,8 +209,10 @@ describe "Assemblies", type: :system do
       visit decidim_assemblies.assembly_path(assembly)
     end
 
+    it_behaves_like "editable content for admins"
+
     it "shows the details of the given assembly" do
-      within "div.wrapper" do
+      within "main" do
         expect(page).to have_content(translated(assembly.title, locale: :en))
         expect(page).to have_content(translated(assembly.subtitle, locale: :en))
         expect(page).to have_content(translated(assembly.description, locale: :en))

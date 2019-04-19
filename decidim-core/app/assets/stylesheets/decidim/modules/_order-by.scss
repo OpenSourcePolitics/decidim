@@ -4,9 +4,19 @@ $order-border: $border;
 /* Order by styles */
 .order-by{
   margin-bottom: 1rem;
-  display: flex;
+  display: inline-flex;
   align-items: baseline;
   flex-wrap: wrap;
+
+  & + &{
+    @include breakpoint(medium){
+      margin-left: $global-margin;
+    }
+
+    @include breakpoint(large){
+      margin-left: $global-margin * 3;
+    }
+  }
 }
 
 .order-by__dropdown{
@@ -37,6 +47,10 @@ $order-border: $border;
 
 .order-by__tabs{
   display: inline-block;
+
+  span{
+    opacity: .5;
+  }
 }
 
 .order-by__tab{
@@ -63,4 +77,3 @@ $order-border: $border;
     border-left: none;
   }
 }
-

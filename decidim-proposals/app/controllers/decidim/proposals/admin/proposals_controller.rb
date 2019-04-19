@@ -5,8 +5,10 @@ module Decidim
     module Admin
       # This controller allows admins to manage proposals in a participatory process.
       class ProposalsController < Admin::ApplicationController
+        include Decidim::ApplicationHelper
+
         helper Proposals::ApplicationHelper
-        helper_method :proposals, :query
+        helper_method :proposals, :query, :form_presenter
 
         def new
           enforce_permission_to :create, :proposal
@@ -61,10 +63,37 @@ module Decidim
           end
         end
 
+        def edit
+          enforce_permission_to :edit, :proposal, proposal: proposal
+          @form = form(Admin::ProposalForm).from_model(proposal)
+          @form.attachment = form(AttachmentForm).from_params({})
+        end
+
+        def update
+          enforce_permission_to :edit, :proposal, proposal: proposal
+
+          @form = form(Admin::ProposalForm).from_params(params)
+          Admin::UpdateProposal.call(@form, @proposal) do
+            on(:ok) do |_proposal|
+              flash[:notice] = I18n.t("proposals.update.success", scope: "decidim")
+              redirect_to proposals_path
+            end
+
+            on(:invalid) do
+              flash.now[:alert] = I18n.t("proposals.update.error", scope: "decidim")
+              render :edit
+            end
+          end
+        end
+
         private
 
         def query
-          @query ||= Proposal.where(component: current_component).published.ransack(params[:q])
+          @query ||= if current_component.settings.participatory_texts_enabled?
+                       Proposal.where(component: current_component).published.order(:position).ransack(params[:q])
+                     else
+                       Proposal.where(component: current_component).published.ransack(params[:q])
+                     end
         end
 
         def proposals
@@ -77,6 +106,7 @@ module Decidim
 
         def update_proposals_category_response_successful(response)
           return if response[:successful].blank?
+
           I18n.t(
             "proposals.update_category.success",
             category: response[:category_name],
@@ -87,12 +117,17 @@ module Decidim
 
         def update_proposals_category_response_errored(response)
           return if response[:errored].blank?
+
           I18n.t(
             "proposals.update_category.invalid",
             category: response[:category_name],
             proposals: response[:errored].to_sentence,
             scope: "decidim.proposals.admin"
           )
+        end
+
+        def form_presenter
+          @form_presenter ||= present(@form, presenter_class: Decidim::Proposals::ProposalPresenter)
         end
       end
     end

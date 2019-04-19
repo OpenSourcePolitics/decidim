@@ -12,7 +12,7 @@ end
 
 describe "Registration", type: :system do
   let(:organization) { create(:organization) }
-  let!(:terms_and_conditions_page) { create(:static_page, slug: "terms-and-conditions", organization: organization) }
+  let!(:terms_and_conditions_page) { Decidim::StaticPage.find_by(slug: "terms-and-conditions", organization: organization) }
 
   before do
     switch_to_host(organization.host)
@@ -22,7 +22,7 @@ describe "Registration", type: :system do
   context "when signing up" do
     describe "on first sight" do
       it "shows fields empty" do
-        expect(page).to have_content("Sign up as")
+        expect(page).to have_content("Sign up to participate")
         expect(page).to have_field("user_name", with: "")
         expect(page).to have_field("user_nickname", with: "")
         expect(page).to have_field("user_email", with: "")

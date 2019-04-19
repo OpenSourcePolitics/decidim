@@ -13,10 +13,6 @@ es-PY:
     errors:
       messages:
         equal_to: must be equal to %{count}
-      models:
-        decidim/budgets/project:
-          one: Project
-          other: Projects
     models:
       decidim/budgets/project:
         one: Proyecto
@@ -24,12 +20,13 @@ es-PY:
   decidim:
     budgets:
       actions:
-        attachment_collections: Colecciones
+        attachment_collections: Carpetas
         attachments: Archivos adjuntos
         confirm_destroy: "¿Estás seguro de que deseas eliminar este proyecto?"
         destroy: Borrar
         edit: Editar
-        new: Nuevo
+        import: Importar propuestas a proyectos
+        new: Nuevo proyecto
         preview: Previsualizar
         title: Acciones
       admin:
@@ -41,7 +38,7 @@ es-PY:
             invalid: Ha habido un problema al crear este proyecto
             success: Proyecto creado con éxito
           destroy:
-            success: Proyecto eliminado exitosamente
+            success: Proyecto eliminado con éxito
           edit:
             title: Editar proyecto
             update: Actualizar
@@ -54,10 +51,18 @@ es-PY:
             title: Proyectos
           new:
             create: Crear
-            title: Nuevo resultado
+            title: Nuevo proyecto
           update:
             invalid: Ha habido un problema al actualizar este proyecto
             success: Proyecto actualizado correctamente
+        proposals_imports:
+          create:
+            invalid: Ha habido un problema al importar las propuestas en proyectos
+            success: "%{number} propuestas importadas con éxito en proyectos"
+          new:
+            create: Importar propuestas a proyectos
+            no_components: No hay otros componentes de la propuesta en este espacio participativo para importar las propuestas en los proyectos.
+            select_component: Por favor seleccione un componente
       admin_log:
         project:
           create: "%{user_name} creó el proyecto %{resource_name} en el espacio %{space_name}"
@@ -155,6 +160,7 @@ es-PY:
             comments_enabled: Comentarios habilitados
             geocoding_enabled: Geocoding enabled
             projects_per_page: Proyectos por página
+            resources_permissions_enabled: Los permisos sobre acciones pueden establecerse para cada reunión
             total_budget: Presupuesto total
             total_projects: Total projects
             vote_per_budget: budget sum enabled (default)
@@ -164,7 +170,7 @@ es-PY:
             announcement: Anuncio
             comments_blocked: Comentarios bloqueados
             show_votes: Mostrar los votos
-            votes_enabled: Votos habilitados
+            votes_enabled: Votación habilitada
     orders:
       checkout:
         error: Se ha producido un error al procesar tu voto

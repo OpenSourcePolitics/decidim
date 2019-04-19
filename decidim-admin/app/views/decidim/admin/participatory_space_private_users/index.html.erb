@@ -9,7 +9,7 @@
   </div>
 
   <div class="card-section">
-    <% if @private_users.any? %>
+    <% if collection.any? %>
       <div class="table-scroll">
         <table class="stack">
           <thead>
@@ -22,7 +22,7 @@
             </tr>
           </thead>
           <tbody>
-            <% @private_users.each do |private_user| %>
+            <% collection.each do |private_user| %>
               <tr>
                 <td>
                   <%= private_user.user.name %><br />
@@ -54,7 +54,7 @@
           </tbody>
         </table>
       </div>
-      <%= paginate @private_users, theme: "decidim" %>
+      <%= decidim_paginate collection %>
     <% end %>
   </div>
 </div>

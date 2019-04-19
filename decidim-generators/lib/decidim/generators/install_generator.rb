@@ -131,37 +131,21 @@ module Decidim
         soft_rails "db:environment:set", "db:drop"
         rails "db:create"
 
-        # In order to ensure that migrations don't eager load models with not
-        # yet fully populated schemas (which could break commands which load
-        # migrations and seeds in the same process, such as `rails db:migrate
-        # db:seed`), we make sure to run them in the same process if seeds are
-        # requested so that we can catch these situations earlier than end
-        # users.
-        if options[:seed_db]
-          rails "db:migrate", "db:seed"
-        else
-          rails "db:migrate"
-        end
+        rails "db:migrate"
+
+        rails "db:seed" if options[:seed_db]
 
         rails "db:test:prepare"
       end
 
       # Runs rails commands in a subprocess, and aborts if it doesn't suceeed
       def rails(*args)
-        with_original_env do
-          abort unless system("bin/rails", *args)
-        end
+        abort unless system("bin/rails", *args)
       end
 
       # Runs rails commands in a subprocess silencing errors, and ignores status
       def soft_rails(*args)
-        with_original_env do
-          system("bin/rails", *args, err: File::NULL)
-        end
-      end
-
-      def with_original_env
-        options[:skip_gemfile] ? yield : Bundler.with_original_env { yield }
+        system("bin/rails", *args, err: File::NULL)
       end
 
       def scss_variables

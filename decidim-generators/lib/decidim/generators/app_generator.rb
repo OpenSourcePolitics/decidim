@@ -74,12 +74,20 @@ module Decidim
         template "docker-compose.yml.erb", "docker-compose.yml"
       end
 
+      def etherpad
+        template "docker-compose-etherpad.yml", "docker-compose-etherpad.yml"
+      end
+
       def cable_yml
         template "cable.yml.erb", "config/cable.yml", force: true
       end
 
       def readme
         template "README.md.erb", "README.md", force: true
+      end
+
+      def license
+        template "LICENSE-AGPLv3.txt", "LICENSE-AGPLv3.txt"
       end
 
       def gemfile
@@ -106,13 +114,15 @@ module Decidim
           if options[:demo]
             gsub_file "Gemfile", /gem "decidim-consultations".*/, "gem \"decidim-consultations\", #{gem_modifier}"
             gsub_file "Gemfile", /gem "decidim-initiatives".*/, "gem \"decidim-initiatives\", #{gem_modifier}"
+            gsub_file "Gemfile", /gem "decidim-conferences".*/, "gem \"decidim-conferences\", #{gem_modifier}"
           else
             gsub_file "Gemfile", /gem "decidim-consultations".*/, "# gem \"decidim-consultations\", #{gem_modifier}"
             gsub_file "Gemfile", /gem "decidim-initiatives".*/, "# gem \"decidim-initiatives\", #{gem_modifier}"
+            gsub_file "Gemfile", /gem "decidim-conferences".*/, "# gem \"decidim-conferences\", #{gem_modifier}"
           end
         end
 
-        Bundler.with_original_env { run "bundle install" }
+        run "bundle install"
       end
 
       def tweak_bootsnap
@@ -126,8 +136,8 @@ module Decidim
             development_mode: env == "development",
             load_path_cache: true,
             autoload_paths_cache: true,
-            disable_trace: true,
-            compile_cache_iseq: false,
+            disable_trace: false,
+            compile_cache_iseq: !ENV["SIMPLECOV"],
             compile_cache_yaml: true
           )
         RUBY
@@ -142,14 +152,24 @@ module Decidim
         remove_file "public/500.html"
       end
 
-      def authorization_handler
+      def decidim_initializer
         copy_file "initializer.rb", "config/initializers/decidim.rb"
+      end
 
-        if options[:demo]
-          copy_file "dummy_authorization_handler.rb", "app/services/dummy_authorization_handler.rb"
-          copy_file "another_dummy_authorization_handler.rb", "app/services/another_dummy_authorization_handler.rb"
-          copy_file "verifications_initializer.rb", "config/initializers/decidim_verifications.rb"
-        end
+      def authorization_handler
+        return unless options[:demo]
+
+        copy_file "dummy_authorization_handler.rb", "app/services/dummy_authorization_handler.rb"
+        copy_file "another_dummy_authorization_handler.rb", "app/services/another_dummy_authorization_handler.rb"
+        copy_file "verifications_initializer.rb", "config/initializers/decidim_verifications.rb"
+      end
+
+      def sms_gateway
+        return unless options[:demo]
+
+        gsub_file "config/initializers/decidim.rb",
+                  /# config.sms_gateway_service = \"MySMSGatewayService\"/,
+                  "config.sms_gateway_service = 'Decidim::Verifications::Sms::ExampleGateway'"
       end
 
       def install

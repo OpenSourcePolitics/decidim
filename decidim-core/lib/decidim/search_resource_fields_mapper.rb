@@ -58,15 +58,28 @@ module Decidim
       fields
     end
 
+    def retrieve_organization(resource)
+      if @declared_fields[:organization_id].present?
+        organization_id = read_field(resource, @declared_fields, :organization_id)
+        Decidim::Organization.find(organization_id)
+      else
+        participatory_space(resource).organization
+      end
+    end
+
     private
 
+    def participatory_space(resource)
+      read_field(resource, @declared_fields, :participatory_space)
+    end
+
     def map_common_fields(resource)
-      participatory_space = read_field(resource, @declared_fields, :participatory_space)
-      @organization = participatory_space.organization
+      participatory_space = participatory_space(resource)
+      @organization = retrieve_organization(resource)
       {
         decidim_scope_id: read_field(resource, @declared_fields, :scope_id),
-        decidim_participatory_space_id: participatory_space.id,
-        decidim_participatory_space_type: participatory_space.class.name,
+        decidim_participatory_space_id: participatory_space&.id,
+        decidim_participatory_space_type: participatory_space&.class&.name,
         decidim_organization_id: @organization.id,
         datetime: read_field(resource, @declared_fields, :datetime)
       }
@@ -85,6 +98,7 @@ module Decidim
         if value_field.is_a?(Array)
           value_field.collect do |vfield_name|
             raise ArgumentError, "nested fields not supported for translations" if vfield_name.is_a?(Hash)
+
             resource.send(vfield_name.to_sym)
           end
         else
@@ -109,6 +123,7 @@ module Decidim
     def read_i18n_field(resource, locale, field_name)
       content = read_field(resource, @declared_fields, field_name)
       return if content.nil?
+
       content = Array.wrap(content).collect do |item|
         item.is_a?(Hash) ? item[locale] : item
       end

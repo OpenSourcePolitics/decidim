@@ -17,6 +17,8 @@ es-PY:
   decidim:
     comments:
       comments: Comentarios
+      last_activity:
+        new_comment_at_html: "<span>Nuevo comentario en %{link}</span>"
       votes:
         create:
           error: Ha habido errores al votar el comentario.
@@ -66,8 +68,8 @@ es-PY:
         blocked_comments_warning: Los comentarios están deshabilitados en este momento, pero puedes leer los anteriores.
         loading: Cargando los comentarios ...
         title: "%{count} comentarios"
-        title_0: Il n'y a pas encore de commentaire
-        title_1: "%{count} commentaire"
+        title_0: There are no comments yet
+        title_1: "%{count} comment"
     events:
       comments:
         comment_by_followed_user:
@@ -90,6 +92,11 @@ es-PY:
           email_outro: Has recibido esta notificación porque has sido mencionado en %{resource_title}.
           email_subject: Has sido mencionado en %{resource_title}
           notification_title: Has sido mencionado en <a href="%{resource_path}">%{resource_title}</a> por <a href="%{author_path}">%{author_name} %{author_nickname}</a>
+    metrics:
+      comments:
+        description: Número de comentarios generados por los usuarios.
+        object: comentarios
+        title: Comentarios
   errors:
     messages:
       cannot_have_comments: no puede tener comentarios

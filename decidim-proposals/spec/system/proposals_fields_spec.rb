@@ -15,14 +15,11 @@ describe "Proposals", type: :system do
   let(:latitude) { 40.1234 }
   let(:longitude) { 2.1234 }
 
-  let(:proposal_title) { "Oriol for president" }
-  let(:proposal_body) { "He will solve everything" }
+  let(:proposal_title) { "More sidewalks and less roads" }
+  let(:proposal_body) { "Cities need more people, not more cars" }
 
   before do
-    Geocoder::Lookup::Test.add_stub(
-      address,
-      [{ "latitude" => latitude, "longitude" => longitude }]
-    )
+    stub_geocoding(address, [latitude, longitude])
   end
 
   matcher :have_author do |name|
@@ -74,8 +71,8 @@ describe "Proposals", type: :system do
           visit complete_proposal_path(component, proposal_draft)
 
           within ".edit_proposal" do
-            fill_in :proposal_title, with: "Oriol for president"
-            fill_in :proposal_body, with: "He will solve everything"
+            fill_in :proposal_title, with: "More sidewalks and less roads"
+            fill_in :proposal_body, with: "Cities need more people, not more cars"
             select translated(category.name), from: :proposal_category_id
             scope_pick scope_picker, scope
 
@@ -85,8 +82,8 @@ describe "Proposals", type: :system do
           click_button "Publish"
 
           expect(page).to have_content("successfully")
-          expect(page).to have_content("Oriol for president")
-          expect(page).to have_content("He will solve everything")
+          expect(page).to have_content("More sidewalks and less roads")
+          expect(page).to have_content("Cities need more people, not more cars")
           expect(page).to have_content(translated(category.name))
           expect(page).to have_content(translated(scope.name))
           expect(page).to have_author(user.name)
@@ -101,15 +98,15 @@ describe "Proposals", type: :system do
                    participatory_space: participatory_process)
           end
 
-          let(:proposal_draft) { create(:proposal, :draft, author: user, component: component, title: "Oriol for president", body: "He will not solve everything") }
+          let(:proposal_draft) { create(:proposal, :draft, users: [user], component: component, title: "More sidewalks and less roads", body: "He will not solve everything") }
 
           it "creates a new proposal", :slow do
             visit complete_proposal_path(component, proposal_draft)
 
             within ".edit_proposal" do
               check :proposal_has_address
-              fill_in :proposal_title, with: "Oriol for president"
-              fill_in :proposal_body, with: "He will solve everything"
+              fill_in :proposal_title, with: "More sidewalks and less roads"
+              fill_in :proposal_body, with: "Cities need more people, not more cars"
               fill_in :proposal_address, with: address
               select translated(category.name), from: :proposal_category_id
               scope_pick scope_picker, scope
@@ -120,8 +117,8 @@ describe "Proposals", type: :system do
             click_button "Publish"
 
             expect(page).to have_content("successfully")
-            expect(page).to have_content("Oriol for president")
-            expect(page).to have_content("He will solve everything")
+            expect(page).to have_content("More sidewalks and less roads")
+            expect(page).to have_content("Cities need more people, not more cars")
             expect(page).to have_content(address)
             expect(page).to have_content(translated(category.name))
             expect(page).to have_content(translated(scope.name))
@@ -129,9 +126,42 @@ describe "Proposals", type: :system do
           end
         end
 
+        context "when component has extra hashtags defined" do
+          let(:component) do
+            create(:proposal_component,
+                   :with_extra_hashtags,
+                   suggested_hashtags: component_suggested_hashtags,
+                   automatic_hashtags: component_automatic_hashtags,
+                   manifest: manifest,
+                   participatory_space: participatory_process)
+          end
+
+          let(:proposal_draft) { create(:proposal, :draft, users: [user], component: component, title: "More sidewalks and less roads", body: "He will not solve everything") }
+          let(:component_automatic_hashtags) { "AutoHashtag1 AutoHashtag2" }
+          let(:component_suggested_hashtags) { "SuggestedHashtag1 SuggestedHashtag2" }
+
+          it "offers and save extra hashtags", :slow do
+            visit complete_proposal_path(component, proposal_draft)
+
+            within ".edit_proposal" do
+              check :proposal_suggested_hashtags_suggestedhashtag1
+
+              find("*[type=submit]").click
+            end
+
+            click_button "Publish"
+
+            expect(page).to have_content("successfully")
+            expect(page).to have_content("#AutoHashtag1")
+            expect(page).to have_content("#AutoHashtag2")
+            expect(page).to have_content("#SuggestedHashtag1")
+            expect(page).not_to have_content("#SuggestedHashtag2")
+          end
+        end
+
         context "when the user has verified organizations" do
           let(:user_group) { create(:user_group, :verified, organization: organization) }
-          let(:user_group_proposal_draft) { create(:proposal, :draft, author: user, component: component, title: "Clara for president", body: "She will solve everything") }
+          let(:user_group_proposal_draft) { create(:proposal, :draft, users: [user], component: component, title: "More sidewalks and less roads", body: "Cities need more people, not more cars") }
 
           before do
             create(:user_group_membership, user: user, user_group: user_group)
@@ -141,8 +171,8 @@ describe "Proposals", type: :system do
             visit complete_proposal_path(component, user_group_proposal_draft)
 
             within ".edit_proposal" do
-              fill_in :proposal_title, with: "Clara for president"
-              fill_in :proposal_body, with: "She will solve everything"
+              fill_in :proposal_title, with: "More sidewalks and less roads"
+              fill_in :proposal_body, with: "Cities need more people, not more cars"
               select translated(category.name), from: :proposal_category_id
               scope_pick scope_picker, scope
               select user_group.name, from: :proposal_user_group_id
@@ -153,8 +183,8 @@ describe "Proposals", type: :system do
             click_button "Publish"
 
             expect(page).to have_content("successfully")
-            expect(page).to have_content("Clara for president")
-            expect(page).to have_content("She will solve everything")
+            expect(page).to have_content("More sidewalks and less roads")
+            expect(page).to have_content("Cities need more people, not more cars")
             expect(page).to have_content(translated(category.name))
             expect(page).to have_content(translated(scope.name))
             expect(page).to have_author(user_group.name)
@@ -169,14 +199,14 @@ describe "Proposals", type: :system do
                      participatory_space: participatory_process)
             end
 
-            let(:proposal_draft) { create(:proposal, :draft, author: user, component: component, title: "Oriol for president", body: "He will not solve everything") }
+            let(:proposal_draft) { create(:proposal, :draft, users: [user], component: component, title: "More sidewalks and less roads", body: "He will not solve everything") }
 
             it "creates a new proposal as a user group", :slow do
               visit complete_proposal_path(component, proposal_draft)
 
               within ".edit_proposal" do
-                fill_in :proposal_title, with: "Oriol for president"
-                fill_in :proposal_body, with: "He will solve everything"
+                fill_in :proposal_title, with: "More sidewalks and less roads"
+                fill_in :proposal_body, with: "Cities need more people, not more cars"
                 check :proposal_has_address
                 fill_in :proposal_address, with: address
                 select translated(category.name), from: :proposal_category_id
@@ -189,8 +219,8 @@ describe "Proposals", type: :system do
               click_button "Publish"
 
               expect(page).to have_content("successfully")
-              expect(page).to have_content("Oriol for president")
-              expect(page).to have_content("He will solve everything")
+              expect(page).to have_content("More sidewalks and less roads")
+              expect(page).to have_content("Cities need more people, not more cars")
               expect(page).to have_content(address)
               expect(page).to have_content(translated(category.name))
               expect(page).to have_content(translated(scope.name))
@@ -226,7 +256,7 @@ describe "Proposals", type: :system do
                    participatory_space: participatory_process)
           end
 
-          let(:proposal_draft) { create(:proposal, :draft, author: user, component: component, title: "Proposal with attachments", body: "This is my proposal and I want to upload attachments.") }
+          let(:proposal_draft) { create(:proposal, :draft, users: [user], component: component, title: "Proposal with attachments", body: "This is my proposal and I want to upload attachments.") }
 
           it "creates a new proposal with attachments" do
             visit complete_proposal_path(component, proposal_draft)
@@ -266,7 +296,7 @@ describe "Proposals", type: :system do
                  participatory_space: participatory_process)
         end
 
-        let!(:proposal_first) { create(:proposal, author: user, component: component, title: "Creating my first and only proposal", body: "This is my only proposal's body and I'm using it unwisely.") }
+        let!(:proposal_first) { create(:proposal, users: [user], component: component, title: "Creating my first and only proposal", body: "This is my only proposal's body and I'm using it unwisely.") }
 
         before do
           visit_component

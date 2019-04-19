@@ -15,10 +15,11 @@ module Decidim
       attribute :host, String
       attribute :secondary_hosts, String
       attribute :available_authorizations, Array[String]
+      attribute :users_registration_mode, String
 
-      validates :name, presence: true
-      validates :host, presence: true
+      validates :name, :host, :users_registration_mode, presence: true
       validate :validate_organization_uniqueness
+      validates :users_registration_mode, inclusion: { in: Decidim::Organization.users_registration_modes }
 
       def map_model(model)
         self.secondary_hosts = model.secondary_hosts.join("\n")
@@ -26,11 +27,13 @@ module Decidim
 
       def clean_secondary_hosts
         return unless secondary_hosts
+
         secondary_hosts.split("\n").map(&:chomp).select(&:present?)
       end
 
       def clean_available_authorizations
         return unless available_authorizations
+
         available_authorizations.select(&:present?)
       end
 

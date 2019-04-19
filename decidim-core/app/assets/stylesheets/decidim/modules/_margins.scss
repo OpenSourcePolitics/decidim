@@ -7,6 +7,7 @@ $margin-l: $global-margin * 5;
 //Sections
 .section{
   margin-bottom: $margin-sm;
+  word-wrap: break-word;
 
   @include breakpoint(large){
     margin-bottom: $margin-m;
@@ -43,12 +44,12 @@ $side:(
   @each $p-key, $prop in $property{
     @each $v-key, $value in $size{
       .#{$p-key}-#{$v-key}{
-        #{$prop}: #{$value};
+        #{$prop}: #{$value} !important;
       }
 
       @each $s-key, $side in $side{
         .#{$p-key}#{$s-key}-#{$v-key}{
-          #{$prop}-#{$side}: #{$value};
+          #{$prop}-#{$side}: #{$value} !important;
         }
       }
     }

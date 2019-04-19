@@ -17,6 +17,8 @@ hu:
   decidim:
     comments:
       comments: Megjegyzések
+      last_activity:
+        new_comment_at_html: "<span>Új megjegyzés: %{link}</span>"
       votes:
         create:
           error: Hiba történt a megjegyzésre való szavazáskor.
@@ -90,6 +92,11 @@ hu:
           email_outro: Ezt az értesítést azért kaptad, mert korábban megemlítettek a(z) "%{resource_title}" témában.
           email_subject: Megemlítettek a(z) %{resource_title} témában
           notification_title: '<a href="%{author_path}">%{author_name} %{author_nickname}</a> megemlített itt: <a href="%{resource_path}">%{resource_title}</a>'
+    metrics:
+      comments:
+        description: A felhasználók által generált megjegyzések száma
+        object: Hozzászólások
+        title: Hozzászólások
   errors:
     messages:
       cannot_have_comments: nem tudsz megjegyzéseket tenni

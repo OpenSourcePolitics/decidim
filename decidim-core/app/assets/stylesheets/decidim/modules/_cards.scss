@@ -14,13 +14,13 @@ $card-margin-bottom: map-get($grid-column-gutter, medium);
 
 $card-footer-bg: $light-gray-dark;
 
-$card-proposal: $proposals;
-$card-action: $actions;
-$card-debate: $debates;
-$card-meeting: $meetings;
-$card-spaces: $card-meeting;
+$card-proposal: var(--proposals);
+$card-action: var(--actions);
+$card-debate: var(--debates);
+$card-meeting: var(--meetings);
+$card-spaces: var(--meetings);
 
-$datetime-bg: $primary;
+$datetime-bg: var(--primary);
 
 /* Cards */
 .card{
@@ -50,11 +50,17 @@ $datetime-bg: $primary;
 
 .card__content{
   padding: $card-padding-small;
-  padding-bottom: $card-padding-small / 2;
+
+  &:not(:only-child){
+    padding-bottom: $card-padding-small / 2;
+  }
 
   @include breakpoint(medium){
     padding: $card-padding;
-    padding-bottom: $card-padding / 2;
+
+    &:not(:only-child){
+      padding-bottom: $card-padding / 2;
+    }
   }
 }
 
@@ -169,7 +175,7 @@ $datetime-bg: $primary;
   font-weight: 600;
   display: flex;
   align-items: baseline;
-  border-left: 4px solid $primary;
+  border-left: 4px solid var(--primary);
   background: $card-secondary-bg;
   line-height: 1;
 }
@@ -440,6 +446,16 @@ $datetime-bg: $primary;
   @include breakpoint(medium){
     padding-left: $card-padding;
   }
+
+  svg{
+    flex-basis: 15%;
+    flex-shrink: 0;
+  }
+
+  svg + div{
+    max-width: calc(85% - #{$global-margin});
+    overflow-wrap: break-word;
+  }
 }
 
 .card--list__icon{
@@ -709,6 +725,7 @@ $datetime-bg: $primary;
 // card status
 .card__status{
   .card-data__item{
+    flex-basis: 20%;
     flex-basis: initial;
     padding: 1em .5em;
 
@@ -745,7 +762,7 @@ $datetime-bg: $primary;
     content: " ";
     height: $border-width;
     display: inline-block;
-    background: $card-bg;
+    background-color: $body-background;
     position: absolute;
     left: 0;
     right: 0;
@@ -754,6 +771,7 @@ $datetime-bg: $primary;
   }
 
   .card.success &,
+  .card.secondary &,
   .card.muted &,
   .card.warning &,
   .card.alert &{
@@ -797,7 +815,7 @@ $datetime-bg: $primary;
     }
 
     li:first-child{
-      color: $primary;
+      color: var(--primary);
       flex: 0;
     }
 
@@ -908,8 +926,24 @@ $datetime-bg: $primary;
       }
     }
   }
+}
 
-  &:not(:last-child){
-    margin-bottom: $global-margin;
+// card - participatory space
+.card__top{
+  @extend .card__footer;
+
+  border-top: 0;
+
+  .card__content{
+    line-height: $global-lineheight;
+    padding: $card-padding-small / 4 $card-padding-small;
+
+    > :first-child{
+      flex-shrink: 0;
+    }
+
+    @include breakpoint(medium){
+      padding: $card-padding / 4 $card-padding;
+    }
   }
 }

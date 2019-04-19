@@ -5,6 +5,7 @@ require "spec_helper"
 module Decidim
   describe StaticPage do
     let(:page) { build(:static_page) }
+    let(:default_pages) { described_class::DEFAULT_PAGES - ["terms-and-conditions"] }
 
     it { is_expected.to be_versioned }
 
@@ -47,14 +48,15 @@ module Decidim
       let!(:page2) { create :static_page, title: { ca: "Abcd", en: "Defg" } }
 
       before { I18n.locale = :ca }
+
       after { I18n.locale = :en }
 
       it "orders by the title in the current locale" do
-        expect(described_class.sorted_by_i18n_title).to eq [page2, page1]
+        expect(described_class.where.not(slug: "terms-and-conditions").sorted_by_i18n_title).to eq [page2, page1]
       end
 
       it "orders by the title in the specified locale" do
-        expect(described_class.sorted_by_i18n_title(:en)).to eq [page1, page2]
+        expect(described_class.where.not(slug: "terms-and-conditions").sorted_by_i18n_title(:en)).to eq [page1, page2]
       end
     end
 
@@ -68,7 +70,7 @@ module Decidim
       let(:page) { create(:static_page, slug: slug) }
 
       context "with a default slug" do
-        let(:slug) { described_class::DEFAULT_PAGES.sample }
+        let(:slug) { default_pages.sample }
 
         context "when editing" do
           it "makes sure the slug is not changed" do
@@ -114,7 +116,7 @@ module Decidim
       subject(:static_page) { build(:static_page, slug: slug) }
 
       context "when the slug is a default one" do
-        let(:slug) { described_class::DEFAULT_PAGES.sample }
+        let(:slug) { default_pages.sample }
 
         it { is_expected.to be_default }
       end

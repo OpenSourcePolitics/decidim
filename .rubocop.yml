@@ -15,6 +15,8 @@ AllCops:
     - "development_app/**/*"
     - "spec/decidim_dummy_app/**/*"
     - "node_modules/**/*"
+    - "decidim-generators/pkg/gems/**/*"
+    - "pkg/gems/**/*"
   # Default formatter will be used if no -f/--format option is given.
   DefaultFormatter: progress
   # Cop names are not displayed in offense messages by default. Change behavior
@@ -64,7 +66,7 @@ AllCops:
   # If a value is specified for TargetRubyVersion then it is used.
   # Else if .ruby-version exists and it contains an MRI version it is used.
   # Otherwise we fallback to the oldest officially supported Ruby version (2.0).
-  TargetRubyVersion: 2.3
+  TargetRubyVersion: 2.5
 
   RSpec:
     Patterns:
@@ -508,12 +510,12 @@ Style/FrozenStringLiteralComment:
   EnforcedStyle: when_needed
   SupportedStyles:
     # `when_needed` will add the frozen string literal comment to files
-    # only when the `TargetRubyVersion` is set to 2.3+.
+    # only when the `TargetRubyVersion` is set to 2.5+.
     - when_needed
     # `always` will always add the frozen string literal comment to a file
     # regardless of the Ruby version or if `freeze` or `<<` are called on a
     # string literal. If you run code against multiple versions of Ruby, it is
-    # possible that this will create errors in Ruby 2.3.0+.
+    # possible that this will create errors in Ruby 2.5.0+.
     - always
 
 # Built-in global variables are allowed by default.
@@ -811,7 +813,7 @@ Style/PreferredHashMethods:
   EnforcedStyle: verbose
 
 Style/DateTime:
-  Enabled: false
+  Enabled: true
 
 Style/Documentation:
   Enabled: false
@@ -956,6 +958,9 @@ Layout/SpaceInsideStringInterpolation:
     - space
     - no_space
 
+Style/AccessModifierDeclarations:
+  Enabled: false
+
 Style/SymbolArray:
   EnforcedStyle: brackets
   SupportedStyles:
@@ -1069,7 +1074,7 @@ Style/WordArray:
   # The MinSize option causes the WordArray rule to be ignored for arrays
   # smaller than a certain size.  The rule is only applied to arrays
   # whose element count is greater than or equal to MinSize.
-  MinSize: 0
+  MinSize: 2
   # The regular expression WordRegex decides what is considered a word.
   WordRegex: !ruby/regexp '/\A[\p{Word}\n\t]+\z/'
 
@@ -1111,6 +1116,8 @@ Metrics/LineLength:
     - https
   Exclude:
     - "**/spec/**/*"
+    - "decidim-generators/pkg/**/*"
+    - "pkg/**/*"
 
 Metrics/MethodLength:
   CountComments: false  # count full line comments?
@@ -1194,9 +1201,6 @@ Performance/RedundantMerge:
 Metrics/BlockLength:
   Enabled: false
 
-FactoryBot/StaticAttributeDefinedDynamically:
-  Enabled: false
-
 RSpec/BeforeAfterAll:
   Enabled: true
 
@@ -1210,12 +1214,12 @@ RSpec/ContextWording:
 
 RSpec/DescribeClass:
   Exclude:
-    - spec/bundle_spec.rb
+    - spec/gemfiles_spec.rb
+    - spec/js_bundles_spec.rb
     - spec/i18n_spec.rb
-    - spec/generator_spec.rb
-    - decidim-admin/spec/bundles_spec.rb
-    - decidim-comments/spec/bundle_spec.rb
+    - "**/*/spec/**/*_badge_spec.rb"
     - decidim-core/spec/lib/global_engines_spec.rb
+    - "**/tasks/**/*"
 
 RSpec/EmptyExampleGroup:
   Exclude:

@@ -9,6 +9,7 @@ module Decidim
       include Decidim::DeviseControllers
       include NeedsTosAccepted
 
+      before_action :check_sign_up_enabled
       before_action :configure_permitted_parameters
 
       invisible_captcha
@@ -23,8 +24,6 @@ module Decidim
 
       def create
         @form = form(RegistrationForm).from_params(params[:user])
-
-        @form.user_group_document_number = UserGroup.get_unique_random_user_group_document_number(current_organization) if @form.sign_up_as == "user_group"
 
         CreateRegistration.call(@form) do
           on(:ok) do |user|
@@ -46,6 +45,10 @@ module Decidim
       end
 
       protected
+
+      def check_sign_up_enabled
+        redirect_to new_user_session_path unless current_organization.sign_up_enabled?
+      end
 
       def configure_permitted_parameters
         devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :tos_agreement])

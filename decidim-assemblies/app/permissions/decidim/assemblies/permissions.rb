@@ -22,6 +22,7 @@ module Decidim
         end
 
         return permission_action unless user
+
         if !has_manageable_assemblies? && !user.admin?
           disallow!
           return permission_action
@@ -31,7 +32,6 @@ module Decidim
         user_can_read_assembly_list?
         user_can_read_current_assembly?
         user_can_create_assembly?
-        user_can_destroy_assembly?
 
         # org admins and space admins can do everything in the admin section
         org_admin_action?
@@ -56,12 +56,14 @@ module Decidim
       # Checks if it has any manageable assembly, with any possible role.
       def has_manageable_assemblies?(role: :any)
         return unless user
+
         assemblies_with_role_privileges(role).any?
       end
 
       # Whether the user can manage the given assembly or not.
       def can_manage_assembly?(role: :any)
         return unless user
+
         assemblies_with_role_privileges(role).include? assembly
       end
 
@@ -83,9 +85,17 @@ module Decidim
                       [:assembly, :participatory_space].include?(permission_action.subject) &&
                       assembly
 
+        return disallow! if cannot_view_private_space
         return allow! if user&.admin?
         return allow! if assembly.published?
+
         toggle_allow(can_manage_assembly?)
+      end
+
+      def cannot_view_private_space
+        return unless assembly.private_space && !assembly.is_transparent
+
+        !user || !user.admin && !assembly.users.include?(user)
       end
 
       def public_list_members_action?
@@ -137,23 +147,17 @@ module Decidim
         toggle_allow(user.admin?)
       end
 
-      # Only organization admins can destroy a assembly
-      def user_can_destroy_assembly?
-        return unless permission_action.action == :destroy &&
-                      permission_action.subject == :assembly
-
-        toggle_allow(user.admin?)
-      end
-
       # Everyone can read the assembly list
       def user_can_read_assembly_list?
         return unless read_assembly_list_permission_action?
+
         toggle_allow(user.admin? || has_manageable_assemblies?)
       end
 
       def user_can_read_current_assembly?
         return unless read_assembly_list_permission_action?
         return if permission_action.subject == :assembly_list
+
         toggle_allow(user.admin? || can_manage_assembly?)
       end
 
@@ -174,13 +178,11 @@ module Decidim
 
       # Process admins can eprform everything *inside* that assembly. They cannot
       # create a assembly or perform actions on assembly groups or other
-      # assemblies. They cannot destroy their assembly either.
+      # assemblies.
       def assembly_admin_action?
         return unless can_manage_assembly?(role: :admin)
         return if user.admin?
         return disallow! if permission_action.action == :create &&
-                            permission_action.subject == :assembly
-        return disallow! if permission_action.action == :destroy &&
                             permission_action.subject == :assembly
 
         is_allowed = [

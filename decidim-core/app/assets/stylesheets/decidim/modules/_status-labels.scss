@@ -3,14 +3,15 @@
 }
 
 .label--highlight{
-  background-color: $secondary;
+  background-color: var(--secondary);
 }
 
 .label--admin{
-  background-color: $primary;
+  background-color: var(--primary);
 }
 
-.proposal-status{
+.proposal-status,
+.collaborative-draft-status{
   float: left;
   margin-right: .5rem;
 }

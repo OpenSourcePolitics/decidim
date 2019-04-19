@@ -49,6 +49,7 @@ module Decidim::Accountability
     end
 
     it { is_expected.to be_valid }
+
     describe "when progress is negative" do
       let(:progress) { -12 }
 

@@ -6,11 +6,15 @@ module Decidim
   # for resources that have a single author.
   class AuthorCell < Decidim::ViewModel
     include LayoutHelper
+    include CellsHelper
     include ::Devise::Controllers::Helpers
     include ::Devise::Controllers::UrlHelpers
     include Messaging::ConversationHelper
+    include ERB::Util
 
     property :profile_path
+    property :can_be_contacted?
+    property :has_tooltip?
 
     delegate :current_user, to: :controller, prefix: false
 
@@ -26,11 +30,19 @@ module Decidim
       render
     end
 
-    private
-
-    def from_context
-      options[:from].presence || context[:from].presence
+    def date
+      render
     end
+
+    def flag
+      render
+    end
+
+    def withdraw
+      render
+    end
+
+    private
 
     def from_context_path
       resource_locator(from_context).path
@@ -40,31 +52,28 @@ module Decidim
       from_context_path + "/withdraw"
     end
 
-    def withdrawable?
-      return unless from_context
-      return unless proposals_controller?
-      return if index_action?
-      from_context.withdrawable_by?(current_user)
-    end
-
-    def flagable?
-      return unless from_context
-      return unless proposals_controller? || debates_controller?
-      return if index_action?
-      return if from_context.official?
-      true
-    end
-
     def creation_date?
       return true if posts_controller?
       return unless from_context
-      return unless proposals_controller?
+      return unless proposals_controller? || collaborative_drafts_controller?
       return unless show_action?
+
       true
+    end
+
+    def creation_date
+      date_at = if proposals_controller?
+                  from_context.published_at
+                else
+                  from_context.created_at
+                end
+
+      l date_at, format: :decidim_short
     end
 
     def commentable?
       return unless posts_controller?
+
       true
     end
 
@@ -75,6 +84,7 @@ module Decidim
     def actionable?
       return false if options[:has_actions] == false
       return true if user_author? && posts_controller?
+
       true if withdrawable? || flagable?
     end
 
@@ -82,32 +92,12 @@ module Decidim
       true if "Decidim::UserPresenter".include? model.class.to_s
     end
 
-    def proposals_controller?
-      context[:controller].class.to_s == "Decidim::Proposals::ProposalsController"
-    end
-
-    def debates_controller?
-      context[:controller].class.to_s == "Decidim::Debates::DebatesController"
-    end
-
-    def posts_controller?
-      context[:controller].class.to_s == "Decidim::Blogs::PostsController"
-    end
-
-    def index_action?
-      context[:controller].action_name == "index"
-    end
-
-    def show_action?
-      context[:controller].action_name == "show"
-    end
-
-    def current_component
-      from_context.component
-    end
-
     def profile_path?
       profile_path.present?
+    end
+
+    def raw_model
+      model.try(:__getobj__) || model
     end
   end
 end

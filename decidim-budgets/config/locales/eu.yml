@@ -13,10 +13,6 @@ eu:
     errors:
       messages:
         equal_to: must be equal to %{count}
-      models:
-        decidim/budgets/project:
-          one: Project
-          other: Projects
     models:
       decidim/budgets/project:
         one: Proiektua
@@ -24,12 +20,13 @@ eu:
   decidim:
     budgets:
       actions:
-        attachment_collections: Bilduma
+        attachment_collections: Karpetak
         attachments: Fitxategi erantsiak
         confirm_destroy: Ziur zaude proiektu hau ezabatu nahi duzula?
         destroy: Ezabatu
         edit: Editatu
-        new: Berria
+        import: Inportatu proposamenak proiektuetarako
+        new: Proiektu berria
         preview: Aurreikusi
         title: Ekintzak
       admin:
@@ -41,7 +38,7 @@ eu:
             invalid: Arazo bat izan da proiektu hau sortzean
             success: Proiektua ongi sortu da
           destroy:
-            success: Proiektua ongi ezabatu da
+            success: Proiektua behar bezala ezabatu da
           edit:
             title: Editatu proiektua
             update: Eguneratu
@@ -54,10 +51,18 @@ eu:
             title: Proiektuak
           new:
             create: Sortu
-            title: Emaitza berria
+            title: Proiektu berria
           update:
             invalid: Arazo bat izan da proiektu hau eguneratzean
             success: Proiektua zuzen eguneratu da
+        proposals_imports:
+          create:
+            invalid: Arazo bat izan da proiektuen proposamenak inportatzea
+            success: "%{number} proposamen arrakastaz proiektuak inportatu"
+          new:
+            create: Inportatu proposamenak proiektuetarako
+            no_components: Proposamenak proiektuetan inportatzeko espazio parte hartzaile honetan ez dago proposamenrik.
+            select_component: Hautatu osagaia
       admin_log:
         project:
           create: "%{user_name} %{resource_name} proiektua %{space_name} espazioan sortu zen"
@@ -155,6 +160,7 @@ eu:
             comments_enabled: Iruzkinak gaituta
             geocoding_enabled: Geocoding enabled
             projects_per_page: Orrialde bakoitzeko proiektuak
+            resources_permissions_enabled: Akzioen baimenak bilera bakoitzerako ezarri daitezke
             total_budget: Aurrekontu osoa
             total_projects: Total projects
             vote_per_budget: budget sum enabled (default)
@@ -164,7 +170,7 @@ eu:
             announcement: Anuntzio
             comments_blocked: Iruzkinak blokeatuta
             show_votes: Erakutsi botoak
-            votes_enabled: Botoiak gaituta
+            votes_enabled: Botoak gaituta
     orders:
       checkout:
         error: Errorea gertatu da zure botoa prozesatzean

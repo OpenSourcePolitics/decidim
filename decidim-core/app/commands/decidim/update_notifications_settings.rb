@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Decidim
-  # This command updates the user's notifictions settings.
+  # This command updates the user's notifications settings.
   class UpdateNotificationsSettings < Rectify::Command
     # Updates a user's notifications settings.
     #
@@ -25,7 +25,8 @@ module Decidim
 
     def update_notifications_settings
       @user.email_on_notification = @form.email_on_notification
-      @user.newsletter_notifications = @form.newsletter_notifications
+      @user.newsletter_notifications_at = @form.newsletter_notifications_at
+      @user.notification_types = @form.notification_types
     end
   end
 end

@@ -43,7 +43,7 @@ module Decidim
             end_date: form.end_date,
             participatory_process: @participatory_process,
             active: @participatory_process.steps.empty?,
-            action_btn_text: form.action_btn_text
+            cta_text: form.cta_text
           )
         end
       end

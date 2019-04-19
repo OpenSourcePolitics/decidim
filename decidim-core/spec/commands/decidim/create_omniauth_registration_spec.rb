@@ -6,7 +6,7 @@ module Decidim
   module Comments
     describe CreateOmniauthRegistration do
       describe "call" do
-        let(:organization) { create(:organization, :with_tos) }
+        let(:organization) { create(:organization) }
         let(:email) { "user@from-facebook.com" }
         let(:provider) { "facebook" }
         let(:uid) { "12345" }
@@ -35,17 +35,17 @@ module Decidim
         end
         let(:command) { described_class.new(form, verified_email) }
 
+        before do
+          stub_request(:get, "http://www.example.com/foo.jpg")
+            .to_return(status: 200, body: File.read("spec/assets/avatar.jpg"), headers: { "Content-Type" => "image/jpeg" })
+        end
+
         describe "when the form oauth_signature cannot ve verified" do
           let(:oauth_signature) { "1234" }
 
           it "raises a InvalidOauthSignature exception" do
             expect { command.call }.to raise_error InvalidOauthSignature
           end
-        end
-
-        before do
-          stub_request(:get, "http://www.example.com/foo.jpg")
-            .to_return(status: 200, body: File.read("spec/assets/avatar.jpg"), headers: { "Content-Type" => "image/jpeg" })
         end
 
         context "when the form is not valid" do
@@ -80,10 +80,32 @@ module Decidim
             expect(user.encrypted_password).not_to be_nil
             expect(user.email).to eq(form.email)
             expect(user.organization).to eq(organization)
-            expect(user.newsletter_notifications).to eq(false)
+            expect(user.newsletter_notifications_at).to be_nil
             expect(user.email_on_notification).to eq(true)
             expect(user).to be_confirmed
             expect(user.valid_password?("abcde1234")).to eq(true)
+          end
+
+          it "notifies about registration with oauth data" do
+            user = create(:user, email: email, organization: organization)
+            identity = Decidim::Identity.new(id: 1234)
+            expect(command).to receive(:create_identity).and_return(identity)
+
+            expect(ActiveSupport::Notifications)
+              .to receive(:publish)
+              .with(
+                "decidim.events.user.omniauth_registration",
+                user_id: user.id,
+                identity_id: 1234,
+                provider: provider,
+                uid: uid,
+                email: email,
+                name: "Facebook User",
+                nickname: "facebook_user",
+                avatar_url: "http://www.example.com/foo.jpg",
+                raw_data: {}
+              )
+            command.call
           end
 
           describe "user linking" do

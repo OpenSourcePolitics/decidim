@@ -22,18 +22,20 @@ module Decidim
             ca: "Descripció"
           }
         end
-        let(:start_date) {}
-        let(:end_date) {}
-        let(:action_btn_text) do
+        let(:cta_text) do
           {
-            en: "SEE",
-            es: "VER",
-            ca: "VEURE"
+            en: "A valid CTA text",
+            es: "Un texto CTA válido",
+            ca: "Un text CTA vàlid"
           }
         end
+        let(:start_date) {}
+        let(:end_date) {}
+        let(:cta_path) { nil }
         let(:attributes) do
           {
             "participatory_process_step" => {
+              "cta_path" => cta_path,
               "title_en" => title[:en],
               "title_es" => title[:es],
               "title_ca" => title[:ca],
@@ -42,9 +44,9 @@ module Decidim
               "description_ca" => description[:ca],
               "start_date" => start_date,
               "end_date" => end_date,
-              "action_btn_text_en" => action_btn_text[:en],
-              "action_btn_text_es" => action_btn_text[:es],
-              "action_btn_text_ca" => action_btn_text[:ca]
+              "cta_text_en" => cta_text[:en],
+              "cta_text_es" => cta_text[:es],
+              "cta_text_ca" => cta_text[:ca]
             }
           }
         end
@@ -52,12 +54,12 @@ module Decidim
 
         describe "dates" do
           context "when the dates are set" do
-            let(:start_date) { Time.zone.local(2016, 1, 1, 15, 0) }
-            let(:end_date) { Time.zone.local(2016, 1, 1, 15, 0) }
+            let(:start_date) { "22/01/2016" }
+            let(:end_date) { "13/10/2017" }
 
-            it "returns them at midnight" do
-              expect(subject.start_date).to eq(Time.zone.local(2016, 1, 1, 0, 0))
-              expect(subject.end_date).to eq(Time.zone.local(2016, 1, 1, 0, 0))
+            it "returns them" do
+              expect(subject.start_date).to eq(Date.new(2016, 1, 22))
+              expect(subject.end_date).to eq(Date.new(2017, 10, 13))
             end
           end
 
@@ -70,6 +72,18 @@ module Decidim
         end
 
         context "when everything is OK" do
+          it { is_expected.to be_valid }
+        end
+
+        context "when cta_path is a full URL" do
+          let(:cta_path) { "http://example.org" }
+
+          it { is_expected.not_to be_valid }
+        end
+
+        context "when cta_path is a valid path" do
+          let(:cta_path) { "processes/my-process/" }
+
           it { is_expected.to be_valid }
         end
 
@@ -109,14 +123,15 @@ module Decidim
 
           it { is_expected.to be_valid }
         end
-        context "when action_btn_text is present" do
-          let(:action_btn_text_en) { "SEE" }
+
+        context "when cta_text is present" do
+          let(:cta_text_en) { "SEE" }
 
           it { is_expected.to be_valid }
         end
 
-        context "when action_btn_text is present" do
-          let(:action_btn_text_en) { nil }
+        context "when cta_text is present" do
+          let(:cta_text_en) { nil }
 
           it { is_expected.to be_valid }
         end

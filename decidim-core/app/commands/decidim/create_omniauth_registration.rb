@@ -26,8 +26,9 @@ module Decidim
 
         transaction do
           create_or_find_user
-          create_identity
+          @identity = create_identity
         end
+        trigger_omniauth_registration
 
         broadcast(:ok, @user)
       rescue ActiveRecord::RecordInvalid => error
@@ -51,7 +52,7 @@ module Decidim
         @user.email = (verified_email || form.email)
         @user.name = form.name
         @user.nickname = form.normalized_nickname
-        @user.newsletter_notifications = false
+        @user.newsletter_notifications_at = nil
         @user.email_on_notification = true
         @user.password = generated_password
         @user.password_confirmation = generated_password
@@ -90,6 +91,21 @@ module Decidim
     def signature_valid?
       signature = OmniauthRegistrationForm.create_signature(form.provider, form.uid)
       form.oauth_signature == signature
+    end
+
+    def trigger_omniauth_registration
+      ActiveSupport::Notifications.publish(
+        "decidim.events.user.omniauth_registration",
+        user_id: @user.id,
+        identity_id: @identity.id,
+        provider: form.provider,
+        uid: form.uid,
+        email: form.email,
+        name: form.name,
+        nickname: form.normalized_nickname,
+        avatar_url: form.avatar_url,
+        raw_data: form.raw_data
+      )
     end
   end
 

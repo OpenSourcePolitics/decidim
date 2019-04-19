@@ -19,6 +19,8 @@
     </div>
   </div>
 
+  <%= render "decidim/devise/shared/omniauth_buttons" %>
+
   <div class="row">
     <div class="columns large-6 medium-10 medium-centered">
 
@@ -26,11 +28,6 @@
         <%= invisible_captcha %>
         <div class="card">
           <div class="card__content">
-            <fieldset class="text-center">
-              <legend><%= t(".sign_up_as.legend") %></legend>
-              <%= f.collection_radio_buttons :sign_up_as, [["user", t(".sign_up_as.user")], ["user_group", t(".sign_up_as.user_group") ]], :first, :last %>
-            </fieldset>
-
             <div class="user-person">
               <div class="field">
                 <%= f.text_field :name, help_text: t(".username_help") %>
@@ -53,16 +50,6 @@
 
             <div class="field">
               <%= f.password_field :password_confirmation %>
-            </div>
-
-            <div class="user-group-fields">
-              <div class="field">
-                <%= f.text_field :user_group_name %>
-              </div>
-
-              <div class="field">
-                <%= f.text_field :user_group_phone %>
-              </div>
             </div>
           </div>
         </div>
@@ -104,8 +91,6 @@
       <% end %>
     </div>
   </div>
-
-  <%= render "decidim/devise/shared/omniauth_buttons" %>
 </div>
 </main>
 <%= render "decidim/devise/shared/newsletter_modal" %>

@@ -16,6 +16,7 @@ module Decidim
     include Decidim::Loggable
     include Decidim::Initiatives::InitiativeSlug
     include Decidim::Resourceable
+    include Decidim::HasReference
 
     belongs_to :organization,
                foreign_key: "decidim_organization_id",
@@ -64,14 +65,14 @@ module Decidim
     scope :open, lambda {
       published
         .where.not(state: [:discarded, :rejected, :accepted])
-        .where("signature_start_time <= ?", Time.now.utc)
-        .where("signature_end_time >= ?", Time.now.utc)
+        .where("signature_start_date <= ?", Date.current)
+        .where("signature_end_date >= ?", Date.current)
     }
     scope :closed, lambda {
       published
         .where(state: [:discarded, :rejected, :accepted])
-        .or(where("signature_start_time > ?", Time.now.utc))
-        .or(where("signature_end_time < ?", Time.now.utc))
+        .or(where("signature_start_date > ?", Date.current))
+        .or(where("signature_end_date < ?", Date.current))
     }
     scope :published, -> { where.not(published_at: nil) }
     scope :with_state, ->(state) { where(state: state) if state.present? }
@@ -95,6 +96,14 @@ module Decidim
         connection.execute("SELECT setseed(#{connection.quote(seed)})")
         select('"decidim_initiatives".*, RANDOM()').order(Arel.sql("RANDOM()")).load
       end
+    end
+
+    def self.future_spaces
+      none
+    end
+
+    def self.past_spaces
+      closed
     end
 
     def self.log_presenter_class_for(_log)
@@ -165,8 +174,8 @@ module Decidim
 
     def votes_enabled?
       published? &&
-        signature_start_time <= Time.zone.today &&
-        signature_end_time >= Time.zone.today
+        signature_start_date <= Date.current &&
+        signature_end_date >= Date.current
     end
 
     # Public: Checks if the organization has given an answer for the initiative.
@@ -195,11 +204,12 @@ module Decidim
     # Returns true if the record was properly saved, false otherwise.
     def publish!
       return false if published?
+
       update(
         published_at: Time.current,
         state: "published",
-        signature_start_time: DateTime.now.utc,
-        signature_end_time: DateTime.now.utc + Decidim::Initiatives.default_signature_time_period_length
+        signature_start_date: Date.current,
+        signature_end_date: Date.current + Decidim::Initiatives.default_signature_time_period_length
       )
     end
 
@@ -209,12 +219,13 @@ module Decidim
     # Returns true if the record was properly saved, false otherwise.
     def unpublish!
       return false unless published?
+
       update(published_at: nil, state: "discarded")
     end
 
     # Public: Returns wether the signature interval is already defined or not.
     def has_signature_interval_defined?
-      signature_end_time.present? && signature_start_time.present?
+      signature_end_date.present? && signature_start_date.present?
     end
 
     # Public: Returns the hashtag for the initiative.
@@ -263,6 +274,7 @@ module Decidim
     # RETURNS boolean
     def has_authorship?(user)
       return true if author.id == user.id
+
       committee_members.approved.where(decidim_users_id: user.id).any?
     end
 
@@ -276,6 +288,7 @@ module Decidim
 
     def notify_state_change
       return unless saved_change_to_state?
+
       notifier = Decidim::Initiatives::StatusChangeNotifier.new(initiative: self)
       notifier.notify
     end

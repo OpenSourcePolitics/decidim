@@ -19,7 +19,6 @@ uk:
         participatory_process_group_id: Сукупність рухів
         participatory_scope: Що вирішується
         participatory_structure: Як це вирішується
-        private_space: Espace privé
         promoted: Висвітлено
         published_at: 'Оприлюднено:'
         scope_id: Обсяг
@@ -37,7 +36,8 @@ uk:
         name: Ім'я
         participatory_process_ids: Супутні рухи
       participatory_process_step:
-        action_btn_text: Action bouton text
+        cta_path: Call to Action path
+        cta_text: Call to Action text
         description: Опис
         end_date: Дата закінчення
         short_description: Стислий опис
@@ -76,9 +76,12 @@ uk:
         destroy: Видалити
         duplicate: Створити копію
         edit: Редагувати
-        new: Додати
+        new: New
+        new_process_group: Створити сукупність рухів
+        new_process_step: Додати крок
+        new_process_user_role: Додати учасника руху
         participatory_process:
-          new: new participatory process
+          new: New
         preview: Попередній перегляд
         publish: Оприлюднити
         resend_invitation: Повторно надіслати запрошення
@@ -105,6 +108,7 @@ uk:
             promoted: Висвітлено
             published: Оприлюднено
             title: Назва
+          name: Рух співучасті
         participatory_process_group:
           fields:
             name: Ім'я
@@ -159,7 +163,6 @@ uk:
           success: Крок руху співучасті успішно започато.
       participatory_process_steps:
         create:
-          action_btn_text_help: By default, the action button text is "Take part"
           error: При спробі створити новий крок руху співучасті сталася помилка.
           success: Крок руху співучасті успішно створено.
         default_title: Вступ
@@ -202,8 +205,6 @@ uk:
         create:
           error: При спробі створити новий рух співучасті сталася помилка.
           success: Рух співучасті успішно створено. Тепер налаштуйте його кроки.
-        destroy:
-          success: Рух співучасті успішно видалено.
         edit:
           update: Оновити
         form:
@@ -212,8 +213,8 @@ uk:
           not_published: Не оприлюднено
           private: Приватний
           promoted:
-            'false': 'No'
-            'true': 'Yes'
+            'false': 'False'
+            'true': 'True'
           public: Оприлюдені
           published: Оприлюднено
         new:
@@ -264,11 +265,31 @@ uk:
           email_outro: Ви отримали це сповіщення, тому що ви стежите за %{participatory_space_title}. Ви можете відписатися від цих сповіщень, перейшовши за наведеним вище посиланням.
           email_subject: Оновлення до %{participatory_space_title}
           notification_title: Дати для кроку <a href="%{resource_path}">%{resource_title}</a> у <a href="%{participatory_space_url}">%{participatory_space_title}</a> були оновлені.
+    help:
+      participatory_spaces:
+        participatory_processes:
+          contextual: "<p>A <strong>participatory process</strong> is a sequence of participatory activities (e.g. first filling out a survey, then making proposals, discussing them in face-to-face or virtual meetings, and finally prioritizing them) with the aim of defining and making a decision on a specific topic.</p> <p>Examples of participatory processes are: a process of electing committee members (where candidatures are first presented, then debated and finally a candidacy is chosen), participatory budgets (where proposals are made, valued economically and voted on with the money available), a strategic planning process, the collaborative drafting of a regulation or norm, the design of an urban space or the production of a public policy plan.</p>\n"
+          page: "<p>A <strong>participatory process</strong> is a sequence of participatory activities (e.g. first filling out a survey, then making proposals, discussing them in face-to-face or virtual meetings, and finally prioritizing them) with the aim of defining and making a decision on a specific topic.</p> <p>Examples of participatory processes are: a process of electing committee members (where candidatures are first presented, then debated and finally a candidacy is chosen), participatory budgets (where proposals are made, valued economically and voted on with the money available), a strategic planning process, the collaborative drafting of a regulation or norm, the design of an urban space or the production of a public policy plan.</p>\n"
+          title: What is a participatory process?
     menu:
       processes: Рухи
+    metrics:
+      participatory_processes:
+        description: Number of participatory processes in this organization
+        object: participatory processes
+        title: Participatory processes
+    pages:
+      participatory_space:
+        metrics:
+          headline: Headline
+          link: Link
     participatory_process_groups:
       show:
-        group_participatory_processes: Рухи для %{group}
+        group_participatory_processes:
+          few: "%{count} рухи у %{group}"
+          many: "%{count} рухів у %{group}"
+          one: 1 рух у %{group}
+          other: "%{count} рухів у %{group}"
         title: Сукупності рухів співучасті
     participatory_process_steps:
       index:
@@ -276,29 +297,70 @@ uk:
         title: Кроки руху співучасті
     participatory_processes:
       admin:
+        content_blocks:
+          highlighted_processes:
+            max_results: Maximum amount of elements to show
         participatory_process_copies:
           form:
             slug_help: 'Cкорочені веб-адреси використовуються для створення посилань на цей рух. В них припустимі лише букви, цифри та тире, і вони мають починатися з букви. Приклад: %{url}'
+        participatory_process_steps:
+          form:
+            cta_path_help: 'Use partial paths, not full URLs here. Accepts letters, numbers, dashes and slashes, and must start with a letter. If not set, the button will not be shown. Example: %{url}'
+            cta_text_help: If not set, the button will not be shown.
         participatory_processes:
           form:
             announcement_help: Текст, який ви введете тут, буде показано учаснику трохи нижче опису руху.
             slug_help: 'Cкорочені веб-адреси використовуються для створення посилань на цей рух. В них припустимі лише букви, цифри та тире, і вони мають починатися з букви. Приклад: %{url}'
+      content_blocks:
+        highlighted_processes:
+          name: Висвітлені рухи
       index:
         title: Рухи співучасті
-      order_by_processes:
-        active: Діючі
-        all: Усі
-        past: Минулі
-        upcoming: Прийдешні
+      last_activity:
+        new_participatory_process: New participatory process
       pages:
         home:
           highlighted_processes:
             active_processes: Діючі рухи
             active_step: Діючий крок
+            more_information: Додаткові відомості
+            participate: Взяти участь
             see_all_processes: Переглянути всі рухи
       participatory_process_groups:
         none: Жоден
       participatory_processes:
+        filters:
+          counters:
+            active:
+              few: "%{count} діючих рухи"
+              many: "%{count} діючих рухів"
+              one: 1 діючий рух
+              other: "%{count} діючих рухів"
+            all:
+              few: "%{count} рухи"
+              many: "%{count} рухів"
+              one: 1 рух
+              other: "%{count} рухів"
+            past:
+              few: "%{count} минулі рухи"
+              many: "%{count} минулих рухів"
+              one: 1 минулий рух
+              other: "%{count} минулих рухів"
+            upcoming:
+              few: "%{count} прийдешні рухи"
+              many: "%{count} прийдешніх рухів"
+              one: 1 прийдешній рух
+              other: "%{count} прийдешніх рухів"
+          explanations:
+            no_active: Нема діючих рухів
+            no_active_nor_upcoming: Немає діючих чи прийдешніх рухів
+            no_active_nor_upcoming_callout: Немає ні діючих, ні прийдешніх процесів. Ось список минулих.
+          names:
+            active: Діючі
+            all: Усі
+            past: Минулі
+            upcoming: Прийдешні
+          see: Подивитися
         index:
           loading: Завантаження результатів...
       show:
@@ -341,12 +403,6 @@ uk:
       participatory_processes:
         index:
           promoted_processes: Висвітлені рухи
-        order_by_processes:
-          processes:
-            few: "%{count} рухи"
-            many: "%{count} рухів"
-            one: "%{count} рух"
-            other: "%{count} рухів"
         participatory_process:
           active_step: 'Поточний крок:'
           take_part: Взяти участь
@@ -354,9 +410,8 @@ uk:
           active_step: 'Поточний крок:'
           more_info: Додаткові відомості
           take_part: Взяти участь
-      process_header:
-        process_menu_item: Рух
-        unfold: Розгорнути
       process_header_steps:
         step: "%{current}-й крок з %{total} кроків"
         view_steps: Переглянути кроки
+      process_navigation:
+        process_menu_item: Рух

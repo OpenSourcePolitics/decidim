@@ -2,11 +2,12 @@
 
 require "decidim/core/test/factories"
 require "decidim/participatory_processes/test/factories"
+require "decidim/meetings/test/factories"
 
 FactoryBot.define do
   factory :proposal_component, parent: :component do
     name { Decidim::Components::Namer.new(participatory_space.organization.available_locales, :proposals).i18n_name }
-    manifest_name :proposals
+    manifest_name { :proposals }
     participatory_space { create(:participatory_process, :with_steps, organization: organization) }
 
     trait :with_endorsements_enabled do
@@ -29,17 +30,18 @@ FactoryBot.define do
       step_settings do
         {
           participatory_space.active_step.id => {
-            votes_enabled:         true,
+            votes_enabled: true,
             votes_weight_enabled: false
           }
         }
       end
     end
+
     trait :with_votes_by_weight_enabled do
       step_settings do
         {
           participatory_space.active_step.id => {
-            votes_enabled:         false,
+            votes_enabled: false,
             votes_weight_enabled: true
           }
         }
@@ -50,7 +52,7 @@ FactoryBot.define do
       step_settings do
         {
           participatory_space.active_step.id => {
-            votes_enabled:         false,
+            votes_enabled: false,
             votes_weight_enabled: false
           }
         }
@@ -67,7 +69,7 @@ FactoryBot.define do
 
     trait :with_vote_limit do
       transient do
-        vote_limit 10
+        vote_limit { 10 }
       end
 
       settings do
@@ -79,7 +81,7 @@ FactoryBot.define do
 
     trait :with_proposal_limit do
       transient do
-        proposal_limit 1
+        proposal_limit { 1 }
       end
 
       settings do
@@ -116,9 +118,9 @@ FactoryBot.define do
       step_settings do
         {
           participatory_space.active_step.id => {
-            votes_enabled:         true,
+            votes_enabled: true,
             votes_weight_enabled: false,
-            votes_blocked:         true
+            votes_blocked: true
           }
         }
       end
@@ -149,9 +151,13 @@ FactoryBot.define do
     end
 
     trait :with_threshold_per_proposal do
+      transient do
+        threshold_per_proposal { 1 }
+      end
+
       settings do
         {
-          threshold_per_proposal: 1
+          threshold_per_proposal: threshold_per_proposal
         }
       end
     end
@@ -163,55 +169,174 @@ FactoryBot.define do
         }
       end
     end
+
+    trait :with_collaborative_drafts_enabled do
+      settings do
+        {
+          collaborative_drafts_enabled: true
+        }
+      end
+    end
+
+    trait :with_geocoding_and_collaborative_drafts_enabled do
+      settings do
+        {
+          geocoding_enabled: true,
+          collaborative_drafts_enabled: true
+        }
+      end
+    end
+
+    trait :with_attachments_allowed_and_collaborative_drafts_enabled do
+      settings do
+        {
+          attachments_allowed: true,
+          collaborative_drafts_enabled: true
+        }
+      end
+    end
+
+    trait :with_minimum_votes_per_user do
+      transient do
+        minimum_votes_per_user { 3 }
+      end
+
+      settings do
+        {
+          minimum_votes_per_user: minimum_votes_per_user
+        }
+      end
+    end
+
+    trait :with_participatory_texts_enabled do
+      settings do
+        {
+          participatory_texts_enabled: true
+        }
+      end
+    end
+
+    trait :with_amendments_enabled do
+      settings do
+        {
+          amendments_enabled: true
+        }
+      end
+    end
+
+    trait :with_amendments_and_participatory_texts_enabled do
+      settings do
+        {
+          participatory_texts_enabled: true,
+          amendments_enabled: true
+        }
+      end
+    end
+
+    trait :with_comments_disabled do
+      settings do
+        {
+          comments_enabled: false
+        }
+      end
+    end
+
+    trait :with_extra_hashtags do
+      transient do
+        automatic_hashtags { "AutoHashtag AnotherAutoHashtag" }
+        suggested_hashtags { "SuggestedHashtag AnotherSuggestedHashtag" }
+      end
+
+      step_settings do
+        {
+          participatory_space.active_step.id => {
+            automatic_hashtags: automatic_hashtags,
+            suggested_hashtags: suggested_hashtags,
+            creation_enabled: true
+          }
+        }
+      end
+    end
   end
 
   factory :proposal, class: "Decidim::Proposals::Proposal" do
-    title { Faker::Lorem.sentence }
+    transient do
+      users { nil }
+      # user_groups correspondence to users is by sorting order
+      user_groups { [] }
+    end
+
+    title { generate(:title) }
     body { Faker::Lorem.sentences(3).join("\n") }
     component { create(:proposal_component) }
     published_at { Time.current }
     address { "#{Faker::Address.street_name}, #{Faker::Address.city}" }
 
-    author do
-      create(:user, organization: component.organization) if component
+    after(:build) do |proposal, evaluator|
+      if proposal.component
+        users = evaluator.users || [create(:user, organization: proposal.component.participatory_space.organization)]
+        users.each_with_index do |user, idx|
+          user_group = evaluator.user_groups[idx]
+          proposal.coauthorships.build(author: user, user_group: user_group)
+        end
+      end
+    end
+
+    trait :published do
+      published_at { Time.current }
+    end
+
+    trait :unpublished do
+      published_at { nil }
     end
 
     trait :official do
-      author nil
+      after :build do |proposal|
+        proposal.coauthorships.clear
+        proposal.coauthorships.build(author: proposal.organization)
+      end
+    end
+
+    trait :official_meeting do
+      after :build do |proposal|
+        proposal.coauthorships.clear
+        component = create(:meeting_component, participatory_space: proposal.component.participatory_space)
+        proposal.coauthorships.build(author: build(:meeting, component: component))
+      end
     end
 
     trait :evaluating do
-      state "evaluating"
+      state { "evaluating" }
       answered_at { Time.current }
     end
 
     trait :accepted do
-      state "accepted"
+      state { "accepted" }
       answered_at { Time.current }
     end
 
     trait :rejected do
-      state "rejected"
+      state { "rejected" }
       answered_at { Time.current }
     end
 
     trait :withdrawn do
-      state "withdrawn"
+      state { "withdrawn" }
     end
 
     trait :with_answer do
-      state "accepted"
-      answer { Decidim::Faker::Localized.sentence }
+      state { "accepted" }
+      answer { generate_localized_title }
       answered_at { Time.current }
     end
 
     trait :draft do
-      published_at nil
+      published_at { nil }
     end
 
     trait :hidden do
-      moderation do
-        create(:moderation, hidden_at: Time.current)
+      after :create do |proposal|
+        create(:moderation, hidden_at: Time.current, reportable: proposal)
       end
     end
 
@@ -241,12 +366,55 @@ FactoryBot.define do
   factory :user_group_proposal_endorsement, class: "Decidim::Proposals::ProposalEndorsement" do
     proposal { build(:proposal) }
     author { build(:user, organization: proposal.organization) }
-    user_group { create(:user_group, verified_at: Time.zone.now, organization: proposal.organization, users: [author]) }
+    user_group { create(:user_group, verified_at: Time.current, organization: proposal.organization, users: [author]) }
   end
 
   factory :proposal_note, class: "Decidim::Proposals::ProposalNote" do
     body { Faker::Lorem.sentences(3).join("\n") }
     proposal { build(:proposal) }
     author { build(:user, organization: proposal.organization) }
+  end
+
+  factory :collaborative_draft, class: "Decidim::Proposals::CollaborativeDraft" do
+    transient do
+      users { nil }
+      # user_groups correspondence to users is by sorting order
+      user_groups { [] }
+    end
+
+    title { generate(:title) }
+    body { Faker::Lorem.sentences(3).join("\n") }
+    component { create(:proposal_component) }
+    address { "#{Faker::Address.street_name}, #{Faker::Address.city}" }
+    state { "open" }
+
+    after(:build) do |collaborative_draft, evaluator|
+      if collaborative_draft.component
+        users = evaluator.users || [create(:user, organization: collaborative_draft.component.participatory_space.organization)]
+        users.each_with_index do |user, idx|
+          user_group = evaluator.user_groups[idx]
+          collaborative_draft.coauthorships.build(author: user, user_group: user_group)
+        end
+      end
+    end
+
+    trait :published do
+      state { "published" }
+      published_at { Time.current }
+    end
+
+    trait :open do
+      state { "open" }
+    end
+
+    trait :withdrawn do
+      state { "withdrawn" }
+    end
+  end
+
+  factory :participatory_text, class: "Decidim::Proposals::ParticipatoryText" do
+    title { Faker::Hacker.say_something_smart }
+    description { Faker::Lorem.sentences(3).join("\n") }
+    component { create(:proposal_component) }
   end
 end

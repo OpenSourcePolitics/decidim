@@ -7,6 +7,9 @@ module Decidim
     include Decidim::Publicable
     include Decidim::Resourceable
     include Decidim::Consultations::PublicableResults
+    include Decidim::Traceable
+    include Decidim::Loggable
+    include Decidim::ParticipatorySpaceResourceable
 
     belongs_to :organization,
                foreign_key: "decidim_organization_id",

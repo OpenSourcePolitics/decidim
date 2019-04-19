@@ -10,8 +10,6 @@ module Decidim
 
       mimic :organization
 
-      attribute :homepage_image
-      attribute :remove_homepage_image
       attribute :logo
       attribute :remove_logo
       attribute :favicon
@@ -31,9 +29,14 @@ module Decidim
       attribute :enable_omnipresent_banner, Boolean, default: false
       attribute :omnipresent_banner_url, String
 
+      attribute :primary_color, String, default: "#ef604d"
+      attribute :secondary_color, String, default: "#599aa6"
+      attribute :success_color, String, default: "#57d685"
+      attribute :warning_color, String, default: "#ffae00"
+      attribute :alert_color, String, default: "#ec5840"
+
       translatable_attribute :cta_button_text, String
       translatable_attribute :description, String
-      translatable_attribute :welcome_text, String
       translatable_attribute :highlighted_content_banner_title, String
       translatable_attribute :highlighted_content_banner_short_description, String
       translatable_attribute :highlighted_content_banner_action_title, String
@@ -44,7 +47,6 @@ module Decidim
       validates :cta_button_path, format: { with: %r{\A[a-zA-Z]+[a-zA-Z0-9\-\_/]+\z} }, allow_blank: true
       validates :official_img_header,
                 :official_img_footer,
-                :homepage_image,
                 :logo,
                 file_size: { less_than_or_equal_to: ->(_record) { Decidim.maximum_attachment_size } },
                 file_content_type: { allow: ["image/jpeg", "image/png"] }

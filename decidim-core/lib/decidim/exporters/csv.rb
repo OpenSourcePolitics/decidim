@@ -21,7 +21,6 @@ module Decidim
             csv << headers.map { |header| resource[header] }
           end
         end
-
         ExportData.new(data, "csv")
       end
 
@@ -29,6 +28,7 @@ module Decidim
 
       def headers
         return [] if processed_collection.empty?
+
         processed_collection.first.keys
       end
 

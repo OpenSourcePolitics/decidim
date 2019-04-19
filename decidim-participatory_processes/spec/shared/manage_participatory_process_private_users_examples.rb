@@ -43,7 +43,7 @@ shared_examples "manage participatory process private users examples" do
 
     it "deletes a assembly_private_user" do
       within find("#private_users tr", text: other_user.email) do
-        accept_confirm { click_link "Destroy" }
+        accept_confirm { click_link "Delete" }
       end
 
       expect(page).to have_admin_callout("successfully")
@@ -79,8 +79,8 @@ shared_examples "manage participatory process private users examples" do
     end
   end
 
-  describe "when managing more than 15 users" do
-    let(:participatory_space_private_user) { create_list(:participatory_space_private_user, 16, user: user, privatable_to: participatory_process) }
+  describe "when managing more than 20 users" do
+    let(:participatory_space_private_user) { create_list(:participatory_space_private_user, 21, user: user, privatable_to: participatory_process) }
 
     before do
       visit current_path

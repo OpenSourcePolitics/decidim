@@ -4,7 +4,7 @@ eu:
     system:
       actions:
         confirm_destroy: "‘Ziur zaude ezabatu nahi duzula?’"
-        destroy: Kendu
+        destroy: ezabatu
         edit: Editatu
         new: Berria
         save: Gorde
@@ -14,7 +14,7 @@ eu:
           error: Errorea gertatu da administratzaile berri bat sortzean.
           success: Administratzailea zuzen sortu da
         destroy:
-          success: Administratzailea zuzen sortu da
+          success: Admin ezabatu da
         edit:
           title: Editatu administratzailea
           update: Eguneratu
@@ -64,6 +64,10 @@ eu:
         update:
           error: Errorea gertatu da erakunde hau eguneratzean.
           success: Erakundea zuzen eguneratu da.
+        users_registration_mode:
+          disabled: Sarbidea soilik kanpoko kontuekin egin daiteke
+          enabled: Baimendu erabiltzaileei erregistratzea eta saioa hasteko
+          existing: Ez utzi erabiltzaileek erregistratu, baizik eta existitzen diren erabiltzaileei saioa hasteko
       shared:
         notices:
           no_organization_warning_html: Hasteko erakunde bat sortu behar duzu. Jarraitu aurretik ziurta zaitez %{guide} irakurri duzula.

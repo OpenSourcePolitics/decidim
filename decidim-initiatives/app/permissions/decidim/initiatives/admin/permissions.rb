@@ -140,12 +140,12 @@ module Decidim
             toggle_allow(initiative.offline? || initiative.any?)
           when :accept
             allowed = initiative.published? &&
-                      initiative.signature_end_time < Time.zone.today &&
+                      initiative.signature_end_date < Date.current &&
                       initiative.percentage >= 100
             toggle_allow(allowed)
           when :reject
             allowed = initiative.published? &&
-                      initiative.signature_end_time < Time.zone.today &&
+                      initiative.signature_end_date < Date.current &&
                       initiative.percentage < 100
             toggle_allow(allowed)
           else
@@ -156,6 +156,7 @@ module Decidim
         def read_initiative_list_action?
           return unless permission_action.subject == :initiative &&
                         permission_action.action == :list
+
           allow!
         end
 
@@ -173,7 +174,7 @@ module Decidim
             allowed = initiative.created? && (
                         !initiative.decidim_user_group_id.nil? ||
                           initiative.committee_members.approved.count >= Decidim::Initiatives.minimum_committee_members
-            )
+                      )
 
             toggle_allow(allowed)
           when :manage_membership

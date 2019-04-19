@@ -36,6 +36,7 @@ module Decidim
       @resource = resource
       @version_id = version_id
       @resource_extra = resource_extra
+      @visibility = resource_extra.delete(:visibility).presence || "admin-only"
     end
 
     # Public: Logs the given `action` by the given `user` on the given
@@ -52,14 +53,17 @@ module Decidim
         resource_type: resource.class.name,
         participatory_space: participatory_space,
         component: component,
+        area: area,
+        scope: scope,
         version_id: version_id,
-        extra: extra_data
+        extra: extra_data,
+        visibility: visibility
       )
     end
 
     private
 
-    attr_reader :action, :user, :resource, :resource_extra, :version_id
+    attr_reader :action, :user, :resource, :resource_extra, :version_id, :visibility
 
     def organization
       user.organization
@@ -71,7 +75,16 @@ module Decidim
 
     def participatory_space
       return component.participatory_space if component.respond_to?(:participatory_space)
+
       resource.participatory_space if resource.respond_to?(:participatory_space)
+    end
+
+    def area
+      resource.try(:area) || participatory_space.try(:area)
+    end
+
+    def scope
+      resource.try(:scope) || participatory_space.try(:scope)
     end
 
     def title_for(resource)

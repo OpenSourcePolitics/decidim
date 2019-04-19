@@ -39,7 +39,7 @@ module Decidim
     def grant!
       remove_verification_attachment!
 
-      update!(granted_at: Time.zone.now, verification_metadata: {})
+      update!(granted_at: Time.current, verification_metadata: {})
     end
 
     def granted?
@@ -53,11 +53,12 @@ module Decidim
     def expires_at
       return unless workflow_manifest
       return if workflow_manifest.expires_in.zero?
+
       (granted_at || created_at) + workflow_manifest.expires_in
     end
 
     def expired?
-      expires_at.present? && expires_at < Time.zone.now
+      expires_at.present? && expires_at < Time.current
     end
 
     private

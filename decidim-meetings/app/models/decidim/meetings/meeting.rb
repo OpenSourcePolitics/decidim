@@ -17,9 +17,13 @@ module Decidim
       include Decidim::Searchable
       include Decidim::Traceable
       include Decidim::Loggable
+      include Decidim::Hashtaggable
+      include Decidim::Forms::HasQuestionnaire
+      include Decidim::Paddable
 
       belongs_to :organizer, foreign_key: "organizer_id", class_name: "Decidim::User", optional: true
       has_many :registrations, class_name: "Decidim::Meetings::Registration", foreign_key: "decidim_meeting_id", dependent: :destroy
+      has_many :invites, class_name: "Decidim::Meetings::Invite", foreign_key: "decidim_meeting_id", dependent: :destroy
       has_one :minutes, class_name: "Decidim::Meetings::Minutes", foreign_key: "decidim_meeting_id", dependent: :destroy
       has_one :agenda, class_name: "Decidim::Meetings::Agenda", foreign_key: "decidim_meeting_id", dependent: :destroy
 
@@ -31,7 +35,7 @@ module Decidim
       geocoded_by :address, http_headers: ->(proposal) { { "Referer" => proposal.component.organization.host } }
 
       scope :past, -> { where(arel_table[:end_time].lteq(Time.current)) }
-      scope :upcoming, -> { where(arel_table[:start_time].gt(Time.current)) }
+      scope :upcoming, -> { where(arel_table[:end_time].gteq(Time.current)) }
 
       scope :visible_meeting_for, lambda { |user|
                                     joins("LEFT JOIN decidim_meetings_registrations ON
@@ -39,6 +43,8 @@ module Decidim
                                       .where("(private_meeting = ? and decidim_meetings_registrations.decidim_user_id = ?)
                                     or private_meeting = ? or (private_meeting = ? and transparent = ?)", true, user, false, true, true).distinct
                                   }
+
+      scope :visible, -> { where("decidim_meetings_meetings.private_meeting != ? OR decidim_meetings_meetings.transparent = ?", true, true) }
 
       searchable_fields({
                           scope_id: :decidim_scope_id,
@@ -64,6 +70,7 @@ module Decidim
 
       def has_available_slots?
         return true if available_slots.zero?
+
         (available_slots - reserved_slots) > registrations.count
       end
 
@@ -83,6 +90,11 @@ module Decidim
       # Public: Overrides the `accepts_new_comments?` Commentable concern method.
       def accepts_new_comments?
         commentable? && !component.current_settings.comments_blocked
+      end
+
+      # Public: Overrides the `allow_resource_permissions?` Resourceable concern method.
+      def allow_resource_permissions?
+        component.settings.resources_permissions_enabled
       end
 
       # Public: Overrides the `comments_have_alignment?` Commentable concern method.
@@ -114,6 +126,7 @@ module Decidim
 
       def organizer_belongs_to_organization
         return if !organizer || !organization
+
         errors.add(:organizer, :invalid) unless organizer.organization == organization
       end
 
@@ -133,6 +146,22 @@ module Decidim
 
       def resource_visible?
         !private_meeting? || transparent?
+      end
+
+      # Overwrites method from Paddable to add custom rules in order to know
+      # when to display a pad or not.
+      def pad_is_visible?
+        return false unless pad
+
+        (start_time - Time.current) <= 24.hours
+      end
+
+      # Overwrites method from Paddable to add custom rules in order to know
+      # when a pad is writable or not.
+      def pad_is_writable?
+        return false unless pad_is_visible?
+
+        (Time.current - end_time) < 72.hours
       end
     end
   end

@@ -1,4 +1,3 @@
----
 nl:
   activemodel:
     attributes:
@@ -19,7 +18,7 @@ nl:
         decidim_area_id: onderwerp
         decidim_scope_id: Bereik
         description: Beschrijving
-        developer_group: Ontwikkelaarsgroep
+        developer_group: Promotergroep
         domain: Domein
         duration: Looptijd
         facebook: Facebook
@@ -30,11 +29,12 @@ nl:
         instagram: Instagram
         internal_organisation: Interne organisatie
         is_transparent: Is transparant
-        local_area: Lokaal gebied
+        local_area: Organisatiegebied
         meta_scope: Omvang metadata
+        parent_id: Montage van de ouders
         participatory_processes_ids: Verwante burgerinspraken
-        participatory_scope: Participatieve scope
-        participatory_structure: Participatieve structuur
+        participatory_scope: Wat wordt besloten
+        participatory_structure: Hoe is het besloten
         private_space: Prive ruimte
         promoted: gepromoveerd
         published_at: Gepubliceerd op
@@ -46,7 +46,7 @@ nl:
         slug: URL slak
         special_features: Speciale functies
         subtitle: Ondertiteling
-        target: Doel
+        target: Wie doet mee
         title: Titel
         twitter: Twitter
         youtube: YouTube
@@ -77,14 +77,11 @@ nl:
   decidim:
     admin:
       actions:
-        assembly:
-          new: New assembly
+        new_assembly: Nieuwe vergadering
       assemblies:
         create:
           error: Er is een fout opgetreden bij het maken van een nieuw event.
           success: Bijeenkomst is succesvol gecreëerd.
-        destroy:
-          success: Bijeenkomst is succesvol vernietigd.
         edit:
           update: Bijwerken
         form:
@@ -114,7 +111,7 @@ nl:
           error: Er is een fout opgetreden bij het toevoegen van een lid voor deze assembly.
           success: Lid is met succes voor deze assembly gemaakt.
         destroy:
-          success: Lid succesvol vernietigd voor deze assembly.
+          success: Lid is met succes verwijderd voor deze assembly.
         edit:
           title: Update assembly-lid.
           update: Bijwerken
@@ -136,9 +133,9 @@ nl:
       assembly_user_roles:
         create:
           error: Er is een fout opgetreden bij het toevoegen van een gebruiker voor dit event.
-          success: Gebruiker is succesvol gemaakt voor deze vergadering.
+          success: Gebruiker is succesvol toegevoegd aan deze assembly.
         destroy:
-          success: Gebruiker met succes vernietigd voor dit event.
+          success: Gebruiker is met succes van deze assembly verwijderd.
         edit:
           title: Update event gebruiker.
           update: Bijwerken
@@ -155,14 +152,14 @@ nl:
         assemblies_submenu:
           assembly_admins: Gebruikersbijeenkomst
           assembly_members: leden
-          attachment_collections: Verzamelingen
+          attachment_collections: folders
           attachment_files: bestanden
           attachments: Bijlagen
           categories: Categorieën
           components: Onderdelen
           info: info
           moderations: Moderaties
-          private_users: Privégebruikers
+          private_users: Particuliere gebruikers
       models:
         assembly:
           fields:
@@ -171,6 +168,7 @@ nl:
             promoted: Gemarkeerd
             published: Gepubliceerd
             title: Titel
+          name: Bijeenkomst
         assembly_member:
           fields:
             ceased_date: Gestaakte datum
@@ -218,6 +216,7 @@ nl:
             select_a_created_by: Selecteer op 'gemaakt door'
             select_an_area: Selecteer een onderwerp
             select_an_assembly_type: Selecteer een vergadering type
+            select_parent_assembly: Selecteer de ouderassemblage
             slug_help: 'URL-slugs worden gebruikt om de URL''s te genereren die naar deze bijeenkomst verwijzen. Enkel letters, cijfers en streepjes worden toegestaan en deze moet beginnen met een letter. Voorbeeld: %{url}'
             social_handlers: sociaal
         assembly_copies:
@@ -237,6 +236,9 @@ nl:
               not_ceased: Niet opgehouden
             filter_by: Filteren op
             search: Zoeken
+        content_blocks:
+          highlighted_assemblies:
+            max_results: Maximum aantal elementen dat kan worden weergegeven
       assembly_members:
         index:
           members: leden
@@ -248,12 +250,29 @@ nl:
         others: Overige
         participatory: deelnemende
         working_group: Werkgroep
+      content_blocks:
+        highlighted_assemblies:
+          name: Gemarkeerde vergaderingen
       created_by:
         city_council: Gemeenteraad
         others: Overige
         public: Openbaar
+      filter:
+        all: Alle
+        commission: Commissie
+        consultative_advisory: Consultative / Advisory
+        executive: uitvoerend
+        government: Regering
+        help: 'Laten zien:'
+        label: 'Laten zien:'
+        others: anderen
+        participatory: deelnemend
+        placeholder: Filteren op type
+        working_group: Werkgroep
       index:
         title: Events
+      last_activity:
+        new_assembly: Nieuwe vergadering
       pages:
         home:
           highlighted_assemblies:
@@ -270,7 +289,7 @@ nl:
         composition: Samenstelling
         created_by: Aangemaakt door
         creation_date: Gemaakt op
-        developer_group: Ontwikkelaarsgroep
+        developer_group: Promotergroep
         duration: Looptijd
         included_at: Inbegrepen bij
         indefinite_duration: onbepaald
@@ -278,9 +297,9 @@ nl:
         is_transparent:
           'false': ondoorzichtig
           'true': Transparant
-        local_area: Lokaal gebied
-        participatory_scope: Participatieve scope
-        participatory_structure: Participatieve structuur
+        local_area: Organisatiegebied
+        participatory_scope: Wat wordt besloten
+        participatory_structure: Hoe is het besloten
         private_space: Dit is een privé event
         purpose_of_action: Doel van actie
         read_less: Minder lezen
@@ -288,7 +307,7 @@ nl:
         related_participatory_processes: Verwante burgerinspraken
         scope: Scope
         social_networks: Sociale netwerken
-        target: Doel
+        target: Wie doet mee
       statistics:
         answers_count: Antwoorden
         assemblies_count: Bijeenkomsten
@@ -310,12 +329,23 @@ nl:
         designated_on: Aangewezen op
       index:
         title: leden
+    help:
+      participatory_spaces:
+        assemblies:
+          contextual: "<p>Een vergadering is een groep leden van een organisatie die periodiek bijeenkomen om beslissingen te nemen over een specifiek gebied of een bepaald bereik van de organisatie.</p> <p>Vergaderingen houden vergaderingen, sommige zijn privé en sommige zijn open. Als ze open zijn, is het mogelijk om eraan deel te nemen (bijvoorbeeld: aanwezig zijn als de capaciteit het toelaat, punten toevoegen aan de agenda of commentaar geven op de voorstellen en beslissingen van dit orgel).</p> <p>Voorbeelden: een algemene vergadering (die eenmaal per jaar bijeenkomt om de hoofdlijnen van de organisatie te bepalen, evenals haar uitvoerende organen bij stemming), een gelijkheidsadviesraad (die om de twee maanden bijeenkomt om voorstellen te doen over het verbeteren van de genderrelaties in de organisatie) zijn een evaluatiecommissie (die elke maand bijeenkomt om een ​​proces te volgen) of een garantieorgaan (dat incidenten, misbruiken of voorstellen verzamelt om de besluitvormingsprocedures te verbeteren) allemaal voorbeelden van vergaderingen.</p>\n"
+          page: "<p>Een vergadering is een groep leden van een organisatie die periodiek bijeenkomen om beslissingen te nemen over een specifiek gebied of een bepaald bereik van de organisatie.</p> <p>Vergaderingen houden vergaderingen, sommige zijn privé en sommige zijn open. Als ze open zijn, is het mogelijk om eraan deel te nemen (bijvoorbeeld: aanwezig zijn als de capaciteit het toelaat, punten toevoegen aan de agenda of commentaar geven op de voorstellen en beslissingen van dit orgel).</p> <p>Voorbeelden: een algemene vergadering (die eenmaal per jaar bijeenkomt om de hoofdlijnen van de organisatie te bepalen, evenals haar uitvoerende organen bij stemming), een gelijkheidsadviesraad (die om de twee maanden bijeenkomt om voorstellen te doen over het verbeteren van de genderrelaties in de organisatie) zijn een evaluatiecommissie (die elke maand bijeenkomt om een ​​proces te volgen) of een garantieorgaan (dat incidenten, misbruiken of voorstellen verzamelt om de besluitvormingsprocedures te verbeteren) allemaal voorbeelden van vergaderingen.</p>\n"
+          title: Wat zijn vergaderingen?
     log:
       value_types:
         assembly_presenter:
           not_found: 'De assembly is niet gevonden in de database (ID: %{id})'
     menu:
       assemblies: Events
+    metrics:
+      assemblies:
+        description: Aantal aangemaakte vergaderingen
+        object: assemblages
+        title: Assemblies
   errors:
     messages:
       cannot_be_blank: mag niet leeg zijn
@@ -325,7 +355,9 @@ nl:
         assembly:
           take_part: Deelnemen
         index:
+          organizational_chart: Organisatieschema
           promoted_assemblies: Uitgelichte events
+          reset_chart: Reset
         order_by_assemblies:
           assemblies:
             one: "%{count} bijeenkomst"
@@ -333,10 +365,9 @@ nl:
         promoted_assembly:
           more_info: Meer informatie
           take_part: Deelnemen
-      assembly_header:
+      assembly_navigation:
         assembly_member_menu_item: leden
         assembly_menu_item: De bijeenkomst
-        unfold: Uitvouwen
       assembly_widgets:
         show:
           take_part: Deelnemen

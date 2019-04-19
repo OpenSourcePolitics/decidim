@@ -21,6 +21,7 @@ module Decidim
       # Returns nothing.
       def call
         return broadcast(:invalid) unless @user_group.valid?
+
         reject_user_group
         broadcast(:ok)
       end
@@ -33,7 +34,7 @@ module Decidim
           @user_group,
           @current_user
         ) do
-          @user_group.update!(rejected_at: Time.current, verified_at: nil)
+          @user_group.reject!
         end
       end
     end

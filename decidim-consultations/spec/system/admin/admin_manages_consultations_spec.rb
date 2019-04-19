@@ -19,10 +19,10 @@ describe "Admin manages consultations", type: :system do
     end
 
     it "creates a new consultation" do
-      execute_script("$('#date_field_consultation_start_voting_date').focus()")
+      execute_script("$('#consultation_start_voting_date').focus()")
       find(".active").click
 
-      execute_script("$('#date_field_consultation_end_voting_date').focus()")
+      execute_script("$('#consultation_end_voting_date').focus()")
       find(".active").click
 
       within ".new_consultation" do
@@ -72,10 +72,10 @@ describe "Admin manages consultations", type: :system do
     end
 
     it "fails to create a new consultation" do
-      execute_script("$('#date_field_consultation_start_voting_date').focus()")
+      execute_script("$('#consultation_start_voting_date').focus()")
       find(".active").click
 
-      execute_script("$('#date_field_consultation_end_voting_date').focus()")
+      execute_script("$('#consultation_end_voting_date').focus()")
       find(".active").click
 
       within ".new_consultation" do
@@ -178,25 +178,6 @@ describe "Admin manages consultations", type: :system do
 
       expect(page).to have_admin_callout("successfully")
       expect(page).to have_css("img[src*='#{consultation3.banner_image.url}']")
-    end
-  end
-
-  describe "deleting a consultation" do
-    let!(:consultation2) { create(:consultation, organization: organization) }
-
-    before do
-      visit decidim_admin_consultations.consultations_path
-    end
-
-    it "deletes a consultation" do
-      click_link translated(consultation2.title)
-      accept_confirm { click_link "Destroy" }
-
-      expect(page).to have_admin_callout("successfully")
-
-      within "table" do
-        expect(page).not_to have_content(translated(consultation2.title))
-      end
     end
   end
 

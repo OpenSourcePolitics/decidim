@@ -29,7 +29,7 @@ module Decidim::Meetings
     let(:services_to_persist) do
       services.map { |service| Admin::MeetingServiceForm.from_params(service) }
     end
-    let(:user) { create :user, :admin }
+    let(:user) { create :user, :admin, organization: organization }
     let(:organizer) { create :user, organization: organization }
     let(:private_meeting) { false }
     let(:transparent) { true }
@@ -51,7 +51,8 @@ module Decidim::Meetings
         private_meeting: private_meeting,
         transparent: transparent,
         services_to_persist: services_to_persist,
-        current_user: user
+        current_user: user,
+        current_organization: organization
       )
     end
 
@@ -130,7 +131,8 @@ module Decidim::Meetings
             private_meeting: private_meeting,
             transparent: transparent,
             services_to_persist: services_to_persist,
-            current_user: user
+            current_user: user,
+            current_organization: organization
           )
         end
 
@@ -175,7 +177,7 @@ module Decidim::Meetings
                 event: "decidim.events.meetings.meeting_updated",
                 event_class: UpdateMeetingEvent,
                 resource: meeting,
-                recipient_ids: [user.id]
+                followers: [user]
               )
 
             subject.call
@@ -203,7 +205,7 @@ module Decidim::Meetings
                 event: "decidim.events.meetings.meeting_updated",
                 event_class: UpdateMeetingEvent,
                 resource: meeting,
-                recipient_ids: [user.id]
+                followers: [user]
               )
 
             subject.call
@@ -220,7 +222,7 @@ module Decidim::Meetings
                 event: "decidim.events.meetings.meeting_updated",
                 event_class: UpdateMeetingEvent,
                 resource: meeting,
-                recipient_ids: [user.id]
+                followers: [user]
               )
 
             subject.call

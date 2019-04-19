@@ -1,3 +1,4 @@
+---
 fr:
   activemodel:
     models:
@@ -16,6 +17,8 @@ fr:
   decidim:
     comments:
       comments: Commentaires
+      last_activity:
+        new_comment_at_html: "<span>Nouveau commentaire à %{link}</span>"
       votes:
         create:
           error: Une erreur s'est produite lors du vote sur le commentaire.
@@ -71,12 +74,12 @@ fr:
       comments:
         comment_by_followed_user:
           email_intro: "%{author_name} a laissé un commentaire dans %{resource_title}. Vous pouvez le lire sur la page suivante :"
-          email_outro: Vous avez reçu cette notification, car vous suivez %{author_name}. Vous pouvez vous désabonner de cet utilisateur depuis sa page de profil.
+          email_outro: Vous avez reçu cette notification, car vous suivez %{author_name}. Vous pouvez vous désabonner de cet utilisateur depuis sa <a href="%{author_path}">page de profil</a>.
           email_subject: Un nouveau commentaire vient d'être déposé par %{author_name} dans %{resource_title}
           notification_title: Un nouveau commentaire a été publié par <a href="%{author_path}">%{author_name} %{author_nickname}</a> dans <a href="%{resource_path}">%{resource_title}</a>.
         comment_created:
           email_intro: "%{resource_title} a été commenté. Vous pouvez lire le commentaire sur cette page :"
-          email_outro: Vous venez de recevoir cette notification parce que vous suivez "%{resource_title}" ou son auteur. Vous pouvez vous désabonner à partir du lien précédant.
+          email_outro: Vous venez de recevoir cette notification parce que vous suivez "<a href="%{resource_path}">%{resource_title}</a>" ou son <a href="%{author_path}">auteur</a>. Vous pouvez vous désabonner à partir des liens précédents.
           email_subject: Un nouveau commentaire vient d'être publié par %{author_name} dans %{resource_title}
           notification_title: Un nouveau commentaire de <a href="%{author_path}">%{author_name} %{author_nickname}</a> vient d'être publié dans <a href="%{resource_path}">%{resource_title}</a>
         reply_created:
@@ -89,6 +92,11 @@ fr:
           email_outro: Vous avez reçu cette notification parce que vous avez été mentionné dans %{resource_title}.
           email_subject: Vous avez été mentionné dans %{resource_title}
           notification_title: Vous avez été mentionné dans <a href="%{resource_path}">%{resource_title}</a> par <a href="%{author_path}">%{author_name} %{author_nickname}</a>
+    metrics:
+      comments:
+        description: Nombre de commentaires générés par les utilisateurs
+        object: Commentaires
+        title: commentaires
   errors:
     messages:
       cannot_have_comments: ne peut pas être commenté

@@ -61,18 +61,15 @@ module Decidim
         )
       end
 
-      initializer "decidim_initiatives.view_hooks" do
-        Decidim.view_hooks.register(:highlighted_elements, priority: Decidim::ViewHooks::MEDIUM_PRIORITY) do |view_context|
-          highlighted_initiatives = OrganizationPrioritizedInitiatives.new(view_context.current_organization)
+      initializer "decidim_initiatives.content_blocks" do
+        Decidim.content_blocks.register(:homepage, :highlighted_initiatives) do |content_block|
+          content_block.cell = "decidim/initiatives/content_blocks/highlighted_initiatives"
+          content_block.public_name_key = "decidim.initiatives.content_blocks.highlighted_initiatives.name"
+          content_block.settings_form_cell = "decidim/initiatives/content_blocks/highlighted_initiatives_settings_form"
 
-          next unless highlighted_initiatives.any?
-
-          view_context.render(
-            partial: "decidim/initiatives/pages/home/highlighted_initiatives",
-            locals: {
-              highlighted_initiatives: highlighted_initiatives
-            }
-          )
+          content_block.settings do |settings|
+            settings.attribute :max_results, type: :integer, default: 4
+          end
         end
       end
 
@@ -87,6 +84,27 @@ module Decidim
                     decidim_initiatives.initiatives_path,
                     position: 2.6,
                     active: :inclusive
+        end
+      end
+
+      initializer "decidim_initiatives.badges" do
+        Decidim::Gamification.register_badge(:initiatives) do |badge|
+          badge.levels = [1, 5, 15, 30, 50]
+
+          badge.valid_for = [:user, :user_group]
+
+          badge.reset = lambda { |model|
+            if model.is_a?(User)
+              Decidim::Initiative.where(
+                author: model,
+                user_group: nil
+              ).published.count
+            elsif model.is_a?(UserGroup)
+              Decidim::Initiative.where(
+                user_group: model
+              ).published.count
+            end
+          }
         end
       end
     end

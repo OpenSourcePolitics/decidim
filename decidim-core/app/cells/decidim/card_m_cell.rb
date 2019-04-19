@@ -10,6 +10,7 @@ module Decidim
     include Decidim::SanitizeHelper
     include Decidim::CardHelper
     include Decidim::LayoutHelper
+    include Decidim::SearchesHelper
 
     def show
       render
@@ -34,12 +35,16 @@ module Decidim
     end
 
     def has_label?
+      return true if model.respond_to?("emendation?") && model.emendation?
+
       context[:label].presence
     end
 
     def label
       return if [false, "false"].include? context[:label]
+      return @label ||= t("decidim/amendment", scope: "activerecord.models", count: 1) if model.respond_to?("emendation?") && model.emendation?
       return @label ||= t(model.class.model_name.i18n_key, scope: "activerecord.models", count: 1) if [true, "true"].include? context[:label]
+
       context[:label]
     end
 
@@ -54,16 +59,8 @@ module Decidim
       decidim_sanitize(html_truncate(text, length: 100))
     end
 
-    def decidim
-      Decidim::Core::Engine.routes.url_helpers
-    end
-
-    def has_author?
-      model.is_a?(Decidim::Authorable)
-    end
-
-    def author
-      present(model).author
+    def has_authors?
+      model.is_a?(Decidim::Authorable) || model.is_a?(Decidim::Coauthorable)
     end
 
     def has_actions?
@@ -89,6 +86,7 @@ module Decidim
     def card_classes
       classes = [base_card_class]
       return classes unless has_state?
+
       classes.concat(state_classes).join(" ")
     end
 
@@ -102,6 +100,7 @@ module Decidim
 
     def comments_count
       return model.comments.not_hidden.count if model.comments.respond_to? :not_hidden
+
       model.comments.count
     end
 
@@ -132,6 +131,18 @@ module Decidim
       with_tooltip t("decidim.comments.comments") do
         render :comments_counter
       end
+    end
+
+    def render_authorship
+      cell("decidim/coauthorships", model, extra_small: true, has_actions: has_actions?)
+    end
+
+    def render_space?
+      context[:show_space].presence && model.respond_to?(:participatory_space)
+    end
+
+    def render_top?
+      render_space?
     end
   end
 end

@@ -49,9 +49,20 @@ module Decidim
       # Public: The String to use as scope to search for the keys
       # when using I18n.t
       #
-      # By default is the same value as the event name.
+      # By default is the same value as the event name. If the event has roles,
+      # then the role is appended to the i18n scope.
       def i18n_scope
-        event_name
+        return event_name if user_role.blank? || !event_has_roles?
+
+        "#{event_name}.#{user_role}"
+      end
+
+      # Public: Whether the event differentiates between different user roles.
+      # This will change the default i18n scope.
+      #
+      # Returns a boolean.
+      def event_has_roles?
+        false
       end
 
       # Public: The Hash of options to pass to the I18.t method.
@@ -62,12 +73,14 @@ module Decidim
       # Caches the path for the given resource when it's a Decidim::Component.
       def resource_path
         return super unless resource.is_a?(Decidim::Component)
+
         @resource_path ||= main_component_path(resource)
       end
 
       # Caches the URL for the given resource when it's a Decidim::Component.
       def resource_url
         return super unless resource.is_a?(Decidim::Component)
+
         @resource_url ||= main_component_url(resource)
       end
 
@@ -76,6 +89,15 @@ module Decidim
         return unless participatory_space
 
         @participatory_space_url ||= ResourceLocatorPresenter.new(participatory_space).url
+      end
+
+      # Caches the text to render as a quote in the email. It will appear, if
+      # present, after the `intro` section. This method is intended to be
+      # overwritten by each event class.
+      #
+      # Returns a string.
+      def resource_text
+        nil
       end
 
       private

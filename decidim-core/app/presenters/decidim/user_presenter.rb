@@ -7,12 +7,13 @@ module Decidim
   class UserPresenter < SimpleDelegator
     include Rails.application.routes.mounted_helpers
     include ActionView::Helpers::UrlHelper
+    include Decidim::TranslatableAttributes
 
     #
     # nickname presented in a twitter-like style
     #
     def nickname
-      "@#{__getobj__.nickname}"
+      __getobj__.respond_to?(:nickname) ? "@#{__getobj__.nickname}" : ""
     end
 
     def badge
@@ -24,13 +25,15 @@ module Decidim
     delegate :url, to: :avatar, prefix: true
 
     def profile_url
-      return "" if deleted?
+      return "" if respond_to?(:deleted?) && deleted?
+      return "" unless __getobj__.respond_to?(:nickname) && __getobj__.nickname.present?
 
       decidim.profile_url(__getobj__.nickname, host: __getobj__.organization.host)
     end
 
     def profile_path
-      return "" if deleted?
+      return "" if respond_to?(:deleted?) && deleted?
+      return "" unless __getobj__.respond_to?(:nickname) && __getobj__.nickname.present?
 
       decidim.profile_path(__getobj__.nickname)
     end
@@ -39,12 +42,22 @@ module Decidim
       link_to nickname, profile_path, class: "user-mention"
     end
 
-    def followers_count
-      __getobj__.followers.count
+    def can_be_contacted?
+      true
     end
 
-    def following_count
-      __getobj__.following_follows.count
+    def officialization_text
+      translated_attribute(officialized_as).presence ||
+        I18n.t("decidim.profiles.default_officialization_text_for_users")
+    end
+
+    def can_follow?
+      true
+    end
+
+    def has_tooltip?
+      respond_to?(:deleted?) && deleted? &&
+        __getobj__.respond_to?(:nickname) && __getobj__.nickname.present?
     end
   end
 end

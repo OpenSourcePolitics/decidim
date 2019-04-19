@@ -43,6 +43,8 @@ module Decidim
           allow! if permission_action.subject == :officialization
           allow! if permission_action.subject == :authorization
           allow! if permission_action.subject == :authorization_workflow
+          allow! if permission_action.subject == :static_page_topic
+          allow! if permission_action.subject == :help_sections
           allow! if permission_action.subject == :navbar_link
         end
 
@@ -60,6 +62,7 @@ module Decidim
                       permission_action.action == :read
 
         return user_manager_permissions if user_manager?
+
         toggle_allow(user.admin? || space_allows_admin_access_to_current_action?)
       end
 
@@ -70,6 +73,7 @@ module Decidim
 
       def static_page_action?
         return unless permission_action.subject == :static_page
+
         static_page = context.fetch(:static_page, nil)
 
         case permission_action.action
@@ -108,6 +112,7 @@ module Decidim
 
       def user_action?
         return unless [:user, :impersonatable_user].include?(permission_action.subject)
+
         subject_user = context.fetch(:user, nil)
 
         case permission_action.action
@@ -138,16 +143,14 @@ module Decidim
 
       def space_allows_admin_access_to_current_action?
         Decidim.participatory_space_manifests.any? do |manifest|
-          begin
-            new_permission_action = Decidim::PermissionAction.new(
-              action: permission_action.action,
-              scope: permission_action.scope,
-              subject: permission_action.subject
-            )
-            manifest.permissions_class.new(user, new_permission_action, context).permissions.allowed?
-          rescue Decidim::PermissionAction::PermissionNotSetError
-            nil
-          end
+          new_permission_action = Decidim::PermissionAction.new(
+            action: permission_action.action,
+            scope: permission_action.scope,
+            subject: permission_action.subject
+          )
+          manifest.permissions_class.new(user, new_permission_action, context).permissions.allowed?
+        rescue Decidim::PermissionAction::PermissionNotSetError
+          nil
         end
       end
 

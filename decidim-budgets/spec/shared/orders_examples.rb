@@ -267,11 +267,17 @@ shared_examples "orders" do |options|
               projects.each do |project|
                 within "#project-#{project.id}-item" do
                   page.find(".budget--list__action").click
+                  wait_for_ajax
                 end
+              end
+
+              within "#projects" do
+                expect(page).to have_selector(".budget--list__action.success", count: projects.count)
               end
 
               within "#project-#{other_project.id}-item" do
                 page.find(".budget--list__action").click
+                wait_for_ajax
               end
 
               within "#limit-excess" do
@@ -482,7 +488,7 @@ shared_examples "orders" do |options|
 
         proposals.each do |proposal|
           expect(page).to have_content(proposal.title)
-          expect(page).to have_content(proposal.author.name)
+          expect(page).to have_content(proposal.creator_author.name)
           expect(page).to have_content(proposal.votes.size)
         end
       end

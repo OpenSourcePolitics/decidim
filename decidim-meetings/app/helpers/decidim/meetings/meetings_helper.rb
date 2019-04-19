@@ -16,7 +16,7 @@ module Decidim
       # Returns the meeting's description truncated.
       def meeting_description(meeting, max_length = 120)
         link = resource_locator(meeting).path
-        description = translated_attribute(meeting.description)
+        description = present(meeting).description
         tail = "... #{link_to(t("read_more", scope: "decidim.meetings"), link)}".html_safe
         CGI.unescapeHTML html_truncate(description, max_length: max_length, tail: tail)
       end
@@ -86,6 +86,24 @@ module Decidim
           html += "[ #{agenda_items_times[index][:start_time].strftime("%H:%M")} - #{agenda_items_times[index][:end_time].strftime("%H:%M")}]"
         end
         html.html_safe
+      end
+
+      def registration
+        @registration ||= Decidim::Meetings::Registration
+                          .where(decidim_user_id: current_user)
+                          .find_by(decidim_meeting_id: @meeting.id)
+      end
+
+      def registration_code_help_text
+        t("registration_code_help_text", scope: "decidim.meetings.meetings.show")
+      end
+
+      def registration_validation_state
+        if @registration.validated_at
+          t("validated", scope: "decidim.meetings.meetings.show.registration_state")
+        else
+          t("validation_pending", scope: "decidim.meetings.meetings.show.registration_state")
+        end
       end
     end
   end

@@ -1,4 +1,3 @@
----
 de:
   activemodel:
     attributes:
@@ -11,11 +10,10 @@ de:
         organization: Organisation
         plural: Plural
       attachment:
-        attachment_collection_id: Sammlung
+        attachment_collection_id: Mappe
         description: Beschreibung
         file: Datei
         title: Titel
-        weight: Rang d'affichage
       attachment_collection:
         description: Beschreibung
         name: Name
@@ -38,6 +36,7 @@ de:
         organization_url: Organisations-URL
         redirect_uri: URI umleiten
       organization:
+        badges_enabled: Abzeichen aktivieren
         cta_button_path: Call To Action Schaltfläche Pfad
         cta_button_text: Call To Action Schaltfläche Text
         default_locale: Standardgebietsschema
@@ -54,7 +53,6 @@ de:
         highlighted_content_banner_image: Bild
         highlighted_content_banner_short_description: Kurze Beschreibung
         highlighted_content_banner_title: Titel
-        homepage_image: Bild der Startseite
         instagram_handler: Instagram-Handler
         logo: Logo
         name: Name
@@ -68,7 +66,7 @@ de:
         show_statistics: Zeige Statistiken
         tos_version: Nutzungsbedingungen Version
         twitter_handler: Twitter-Handler
-        welcome_text: Begrüßungstext
+        user_groups_enabled: Benutzergruppen aktivieren
         youtube_handler: YouTube-Handler
       scope:
         code: Code
@@ -85,44 +83,31 @@ de:
         changed_notably: Es gab bemerkenswerte Änderungen.
         content: Inhalt
         organization: Organisation
+        show_in_footer: In der Fußzeile anzeigen
         slug: URL-Block
         title: Titel
+        weight: Gewicht
+      static_page_topic:
+        description: Beschreibung
+        show_in_footer: In der Fußzeile anzeigen
+        title: Titel
+        weight: Gewicht
+      user_group_csv_verification:
+        file: Datei
     errors:
       models:
         oauth_application:
           attributes:
             redirect_uri:
               must_be_ssl: Der Umleitungs-URI muss ein SSL-URI sein
+        organization:
+          attributes:
+            official_img_header:
+              allowed_file_content_types: Ungültige Bilddatei
+            official_img_footer:
+              allowed_file_content_types: Ungültige Bilddatei
   activerecord:
     attributes:
-      decidim/participatory_process:
-        banner_image: Bannerbild
-        description: Beschreibung
-        developer_group: Entwicklergruppe
-        domain: Domain
-        end_date: Endtermin
-        hashtag: Hashtag
-        hero_image: Hauptbild
-        local_area: Ortsbereich
-        meta_scope: Bereichs-Metadaten
-        participatory_scope: Partizipativer Bereich
-        participatory_structure: Partizipative Struktur
-        promoted: Gefördert
-        scope: Umfang
-        short_description: Kurze Beschreibung
-        slug: URL-Block
-        start_date: Anfangsdatum
-        subtitle: Untertitel
-        target: Ziel
-        title: Titel
-      decidim/participatory_process_group:
-        description: Beschreibung
-        hero_image: Hauptbild
-        name: Name
-        participatory_processes: Partizipative Prozesse
-      decidim/participatory_process_step:
-        end_date: Endtermin
-        start_date: Anfangsdatum
       decidim/static_page:
         content: Inhalt
         slug: URL-Block
@@ -134,10 +119,7 @@ de:
         organization_name: Name der Organisation
         organization_url: Organisations-URL
         redirect_uri: URI umleiten
-        site: Seite? ˅
-  date:
-    formats:
-      datepicker: "%m/%d/%Y"
+        site: Webseite
   decidim:
     admin:
       actions:
@@ -145,6 +127,7 @@ de:
         browse: Durchsuche
         export: Export
         manage: Verwalten
+        new: Neu %{name}
         permissions: Berechtigungen
         reject: Ablehnen
         verify: Überprüfen
@@ -181,22 +164,22 @@ de:
           success: Bereich wurde erfolgreich aktualisiert
       attachment_collections:
         create:
-          error: Beim Erstellen einer neuen Sammlung ist ein Fehler aufgetreten.
-          success: Sammlung erfolgreich erstellt
+          error: Beim Erstellen eines neuen Ordners ist ein Fehler aufgetreten.
+          success: Ordner erfolgreich erstellt
         destroy:
-          success: Die Sammlung wurde erfolgreich zerstört.
+          success: Der Ordner wurde erfolgreich zerstört.
         edit:
-          title: Sammlung bearbeiten
+          title: Ordner bearbeiten
           update: Aktualisieren
         index:
-          attachment_collection_used: Diese Sammlung kann nicht entfernt werden, weil sie verwendet wird.
-          attachment_collections_title: Anlagensammlungen
+          attachment_collection_used: Dieser Ordner kann nicht entfernt werden, weil er verwendet wird.
+          attachment_collections_title: Anhang Ordner
         new:
           create: Erstellen
-          title: Neue Kollektion
+          title: Neuer Ordner
         update:
-          error: Beim Aktualisieren dieser Sammlung ist ein Fehler aufgetreten.
-          success: Sammlung wurde erfolgreich aktualisiert.
+          error: Beim Aktualisieren dieses Ordners ist ein Fehler aufgetreten.
+          success: Der Ordner wurde erfolgreich aktualisiert.
       attachments:
         create:
           error: Beim Erstellen eines neuen Anhangs ist ein Fehler aufgetreten.
@@ -281,6 +264,11 @@ de:
       exports:
         export_as: "%{name} als %{export_format}"
         notice: Ihr Export wird gerade ausgeführt. Sie erhalten nach Fertigstellung eine E-Mail.
+      help_sections:
+        error: Beim Aktualisieren der Hilfeabschnitte ist ein Fehler aufgetreten
+        form:
+          save: sparen
+        success: Hilfeabschnitte wurden erfolgreich aktualisiert
       impersonatable_users:
         index:
           filter:
@@ -318,11 +306,6 @@ de:
         logs_list:
           no_logs_yet: Es gibt noch keine Protokolle
       managed_users:
-        index:
-          impersonate: Impersonate
-          needs_authoriation_warning: Needs authoriation warning
-          promote: Promote
-          view_logs: View logs
         promotion:
           error: Es ist ein Fehler aufgetreten, der den verwalteten Benutzer unterstützt.
           success: Der verwaltete Benutzer wurde erfolgreich hochgestuft.
@@ -339,11 +322,12 @@ de:
         areas: Bereiche
         configuration: Aufbau
         dashboard: Instrumententafel
+        help_sections: Hilfeabschnitte
+        homepage: Startseite
         impersonations: Identitätswechsel
-        navbar_links: Navbar links
         newsletters: Newsletter
         oauth_applications: OAuth-Anwendungen
-        officializations: Ausschreibungen
+        participants: Teilnehmer
         scope_types: Bereichstypen
         scopes: Bereiche
         settings: die Einstellungen
@@ -361,13 +345,13 @@ de:
             plural: Plural
         attachment:
           fields:
-            collection: Sammlung
+            collection: Mappe
             content_type: Art
             file_size: Größe
             title: Titel
           name: Befestigung
         attachment_collection:
-          name: Sammlung
+          name: Mappe
         category:
           name: Kategorie
         impersonation_log:
@@ -378,13 +362,6 @@ de:
             reason: Grund
             started_at: Fing an bei
             user: Benutzer
-        managed_user:
-          name: Name
-        navbar_link:
-          fields:
-            link: Link
-            title: Title
-            weight: Weight
         newsletter:
           fields:
             created_at: Hergestellt in
@@ -396,6 +373,7 @@ de:
           fields:
             created_at: Hergestellt in
             name: Name
+          name: OAuth-Anwendung
         participatory_space_private_user:
           name: Participatory Space privater Benutzer
         scope:
@@ -420,6 +398,7 @@ de:
             roles:
               admin: Administrator
               user_manager: Benutzer Manager
+          name: Benutzer
         user_group:
           fields:
             actions: Aktionen
@@ -437,28 +416,6 @@ de:
             does_not_belong: Gehört nicht
             offensive: Beleidigend
             spam: Spam
-      navbar_links:
-        create:
-          error: There was an error when creating this link.
-          success: Link created successfully
-        destroy:
-          success: Link successfully destroyed
-        edit:
-          title: Edit navbar link
-          update: Update
-        form:
-          link: Link
-          new_tab: Open in a new tab
-          same_tab: Open in the same tab
-          title: Title
-          weight: Weight
-        new:
-          create: Create
-          title: New navbar link
-        no_links: No links created
-        update:
-          error: There was an error when updating this link.
-          success: Link updated successfully
       newsletters:
         create:
           error: Beim Erstellen dieses Newsletters ist ein Fehler aufgetreten.
@@ -488,8 +445,6 @@ de:
         update:
           error: Beim Aktualisieren dieses Newsletters ist ein Fehler aufgetreten.
           success: Newsletter erfolgreich aktualisiert. Bitte überprüfen Sie es vor dem Senden.
-      oauth_application:
-        new: Nouvelle application Oauth
       oauth_applications:
         create:
           error: Beim Erstellen dieser Anwendung ist ein Fehler aufgetreten.
@@ -535,7 +490,7 @@ de:
         new:
           badge: Offizielles Abzeichen
           officialize: Offizialisieren
-          title: Officialize user "%{name}"
+          title: Benutzer "%{name}" offiziellisieren
       organization:
         edit:
           title: Organisation bearbeiten
@@ -561,12 +516,20 @@ de:
           homepage_appearance_title: Homepage-Erscheinungsbild bearbeiten
           homepage_highlighted_content_banner_title: Highlighted Inhaltsbanner
           layout_appearance_title: Layout-Layout bearbeiten
-          omnipresent_banner_appearance_title: Edit omnipräsent
+          omnipresent_banner_appearance_title: Bearbeiten Sie das allgegenwärtige Banner
+      organization_homepage:
+        edit:
+          active_content_blocks: Aktive Inhaltsblöcke
+          inactive_content_blocks: Inaktive Inhaltsblöcke
+      organization_homepage_content_blocks:
+        edit:
+          update: Aktualisieren
       participatory_space_private_users:
         create:
           error: Beim Hinzufügen eines privaten Benutzers für diesen partizipativen Bereich ist ein Fehler aufgetreten.
           success: Participatory Space Privater Benutzerzugriff erfolgreich erstellt.
         destroy:
+          error: Beim Löschen eines privaten Benutzers für diesen partizipativen Bereich ist ein Fehler aufgetreten.
           success: Participatory Space Privater Benutzerzugriff wurde erfolgreich zerstört.
         index:
           title: Participatory Space privater Benutzer
@@ -604,6 +567,21 @@ de:
         update:
           error: Beim Aktualisieren dieses Bereichs ist ein Fehler aufgetreten.
           success: Bereich wurde erfolgreich aktualisiert
+      static_page_topics:
+        create:
+          error: Beim Erstellen eines neuen Themas ist ein Fehler aufgetreten.
+          success: Thema erfolgreich erstellt.
+        destroy:
+          success: Thema erfolgreich zerstört
+        edit:
+          title: Thema bearbeiten
+          update: Thema aktualisieren
+        new:
+          create: Thema erstellen
+          title: Neues Thema
+        update:
+          error: Beim Aktualisieren dieses Themas ist ein Fehler aufgetreten.
+          success: Thema erfolgreich aktualisiert
       static_pages:
         actions:
           view: Öffentliche Seite anzeigen
@@ -616,11 +594,18 @@ de:
           changed_notably_help: Wenn diese Option aktiviert ist, werden Benutzer benachrichtigt, um die neuen Nutzungsbedingungen zu akzeptieren.
           title: Seite bearbeiten
           update: Aktualisieren
+        form:
+          none: Keiner
         index:
           last_notable_change: Letzte bemerkenswerte Änderung
         new:
-          create: Erstellen
+          create: Seite erstellen
           title: Neue Seite
+        topic:
+          destroy: Thema entfernen
+          edit: Thema bearbeiten
+          empty: Es gibt keine Seite zu diesem Thema
+          without_topic: Seiten ohne Thema
         update:
           error: Beim Aktualisieren dieser Seite ist ein Fehler aufgetreten.
           success: Seite wurde erfolgreich aktualisiert
@@ -632,17 +617,16 @@ de:
         dashboard: Instrumententafel
         impersonatable_users: Impersonable Benutzer
         impersonations: Identitätswechsel
-        managed_users: Managed users
-        navbar_links: Navbar links
-        officializations: Ausschreibungen
+        participants: Benutzer
         scope_types: Bereichstypen
         scopes: Bereiche
         static_pages: Seiten
         user_groups: Benutzergruppen
         users: Benutzer
-      user:
-        new: New
       user_group:
+        csv_verify:
+          invalid: Beim Lesen der CSV-Datei ist ein Fehler aufgetreten.
+          success: CSV-Datei wurde erfolgreich hochgeladen. Wir überprüfen, ob die Benutzergruppen den Kriterien entsprechen. Das kann eine Weile dauern.
         reject:
           invalid: Beim Ablehnen dieser Benutzergruppe ist ein Fehler aufgetreten.
           success: Benutzergruppe wurde erfolgreich abgelehnt
@@ -662,6 +646,12 @@ de:
             pending: steht aus
             rejected: Abgelehnt
             verified: Überprüft
+          verify_via_csv: Überprüfen Sie über CSV
+      user_groups_csv_verifications:
+        new:
+          explanation: Laden Sie Ihre CSV-Datei hoch. In der ersten Spalte der Datei müssen die offiziellen E-Mails der Benutzergruppen in Ihrer Organisation enthalten sein, ohne Kopfzeilen. Nur Benutzergruppen, die ihre E-Mail bestätigt haben und deren E-Mail in der CSV-Datei enthalten ist, werden überprüft.
+          title: Laden Sie Ihre CSV-Datei hoch
+          upload: Hochladen
       users:
         create:
           error: Beim Einladen dieses Benutzers ist ein Fehler aufgetreten.
@@ -676,6 +666,7 @@ de:
         new:
           create: Einladen
           title: Benutzer als Administrator einladen
+      view_public_page: Öffentliche Seite anzeigen
     forms:
       errors:
         impersonate_user:
@@ -716,7 +707,3 @@ de:
           title: die Einstellungen
         users:
           title: Benutzer
-  time:
-    formats:
-      datepicker: "%m/%d/%Y"
-      timepicker: "%m/%d/%Y %H:%M"

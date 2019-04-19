@@ -5,25 +5,52 @@ require "decidim/search_resource_fields_mapper"
 
 module Decidim
   # A concern with the features needed when you want a model to be searchable.
+  #
+  # A Searchable should include this concern and declare its `searchable_fields`.
+  # You'll also need to define it as `searchable` in its resource manifest,
+  # otherwise it won't appear as possible results.
+  #
+  # The indexing of Searchables is managed through:
+  # - after_create callback configurable via `index_on_create`.
+  # - after_update callback configurable via `index_on_update`.
+  # - searchable_resources are destroyed when the Searchable is destroyed.
+  #
   module Searchable
     extend ActiveSupport::Concern
-
-    @searchable_resources = {}
 
     # Public: a Hash of searchable resources where keys are class names, and values
     #   are the class instance for the resources.
     def self.searchable_resources
-      @searchable_resources
+      Decidim.resource_manifests.select(&:searchable).inject({}) do |searchable_resources, manifest|
+        searchable_resources.update(manifest.model_class_name => manifest.model_class)
+      end
     end
 
     included do
-      has_many :searchable_resources, class_name: "Decidim::SearchableResource", inverse_of: :resource, foreign_key: :resource_id, dependent: :destroy
+      # Always access to this association scoping by_organization
+      clazz = self
+      has_many :searchable_resources, -> { where(resource_type: clazz.name) },
+               class_name: "Decidim::SearchableResource",
+               inverse_of: :resource,
+               foreign_key: :resource_id do
+        def by_organization(org_id)
+          where(decidim_organization_id: org_id)
+        end
+      end
+
+      after_destroy do |searchable|
+        if self.class.search_resource_fields_mapper
+          org = self.class.search_resource_fields_mapper.retrieve_organization(searchable)
+          searchable.searchable_resources.by_organization(org.id).destroy_all
+        end
+      end
       # after_create and after_update callbacks are dynamically setted in `searchable_fields` method.
 
       # Public: after_create callback to index the model as a SearchableResource, if configured so.
       #
       def try_add_to_index_as_search_resource
         return unless self.class.search_resource_fields_mapper.index_on_create?(self)
+
         add_to_index_as_search_resource
       end
 
@@ -31,24 +58,26 @@ module Decidim
       def add_to_index_as_search_resource
         fields = self.class.search_resource_fields_mapper.mapped(self)
         fields[:i18n].keys.each do |locale|
-          Decidim::SearchableResource.create(contents_to_searchable_resource_attributes(fields, locale))
+          Decidim::SearchableResource.create!(contents_to_searchable_resource_attributes(fields, locale))
         end
       end
 
       # Public: after_update callback to update index information of the model.
       #
       def try_update_index_for_search_resource
+        org = self.class.search_resource_fields_mapper.retrieve_organization(self)
+        searchables_in_org = searchable_resources.by_organization(org.id)
         if self.class.search_resource_fields_mapper.index_on_update?(self)
-          if searchable_resources.empty?
+          if searchables_in_org.empty?
             add_to_index_as_search_resource
           else
             fields = self.class.search_resource_fields_mapper.mapped(self)
-            searchable_resources.each do |sr|
+            searchables_in_org.find_each do |sr|
               sr.update(contents_to_searchable_resource_attributes(fields, sr.locale))
             end
           end
-        elsif searchable_resources.any?
-          searchable_resources.clear
+        elsif searchables_in_org.any?
+          searchables_in_org.destroy_all
         end
       end
 
@@ -68,7 +97,8 @@ module Decidim
           decidim_participatory_space_id: fields[:decidim_participatory_space_id],
           decidim_participatory_space_type: fields[:decidim_participatory_space_type],
           decidim_organization_id: fields[:decidim_organization_id],
-          resource: self
+          resource_id: id,
+          resource_type: self.class.name
         }
       end
     end
@@ -76,7 +106,16 @@ module Decidim
     class_methods do
       def search_resource_fields_mapper
         raise "`searchable_fields` should be declared when including Searchable" unless defined?(@search_resource_indexable_fields)
+
         @search_resource_indexable_fields
+      end
+
+      def order_by_id_list(id_list)
+        return ApplicationRecord.none if id_list.to_a.empty?
+
+        values_clause = id_list.each_with_index.map { |id, i| "(#{id}, #{i})" }.join(", ")
+        joins("JOIN (VALUES #{values_clause}) AS #{table_name}_id_order(id, ordering) ON #{table_name}.id = #{table_name}_id_order.id")
+          .order("#{table_name}_id_order.ordering")
       end
 
       # Declares the searchable fields for this instance and, optionally, some conditions.
@@ -96,7 +135,6 @@ module Decidim
       #
       def searchable_fields(declared_fields, conditions = {})
         @search_resource_indexable_fields = SearchResourceFieldsMapper.new(declared_fields)
-        Decidim::Searchable.searchable_resources[name] = self unless Decidim::Searchable.searchable_resources.has_key?(name)
         conditions = { index_on_create: true, index_on_update: true }.merge(conditions)
         if conditions[:index_on_create]
           after_create :try_add_to_index_as_search_resource

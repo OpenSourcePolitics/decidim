@@ -19,14 +19,14 @@ fr:
         hashtag: Hashtag
         hero_image: Image de la page d'accueil
         i_frame_url: URL du système de vote externe
-        origin_scope: Périmètre
+        origin_scope: Secteur
         origin_title: Origine
-        origin_url: URL d'origine
+        origin_url: URL de l'origine
         participatory_scope: Objectif
         promoter_group: Organisateur
         question_context: Contexte
         reference: Référence
-        scope: Échelle
+        scope: Secteur
         slug: Identifiant
         subtitle: Sous-titre
         title: Titre
@@ -38,9 +38,9 @@ fr:
           not_found: Réponse introuvable.
   activerecord:
     models:
-      decidim/consultations:
-        one: Votation
-        other: Votations
+      decidim/consultation:
+        one: Consultation
+        other: Consultations
       decidim/consultations/question:
         one: Question
         other: Questions
@@ -49,12 +49,13 @@ fr:
         other: Réponses
       decidim/consultations/vote:
         one: Vote
-        other: Votes
+        other: Vote
   decidim:
     admin:
       actions:
-        consultation:
-          new: Nouvelle consultation
+        new_consultation: Nouvelle votation
+        new_question: Nouvelle question
+        new_response: Nouvelle réponse
         publish_results: Publier les résultats
         unpublish_results: Dépublier des résultats
       consultation_publications:
@@ -75,8 +76,6 @@ fr:
         create:
           error: Une erreur s'est produite lors de la création d'une nouvelle votation.
           success: La votation a été créée avec succès.
-        destroy:
-          success: La votation a été supprimée avec succès.
         edit:
           update: Mettre à jour
         form:
@@ -107,6 +106,9 @@ fr:
             created_at: Créée le
             published: Publiée
             title: Titre
+          name:
+            one: Votation
+            other: Votations
         question:
           fields:
             created_at: Créée le
@@ -170,6 +172,10 @@ fr:
         questions: Questions
         responses: Réponses
     consultations:
+      admin:
+        content_blocks:
+          highlighted_consultations:
+            max_results: Quantité maximale d'éléments à afficher
       consultation:
         start_voting_date: Le vote commence le
         view_results: Voir les résultats
@@ -180,6 +186,9 @@ fr:
           label: 'Trier les votations par :'
           random: Aléatoire
           recent: Les plus récentes
+      content_blocks:
+        highlighted_consultations:
+          name: Consultations mises en avant
       count:
         title:
           one: "%{count} votation"
@@ -187,7 +196,7 @@ fr:
       filters:
         active: Actives
         all: Tout
-        finished: Passées
+        finished: Archivées
         search: Rechercher
         state: État
         upcoming: À venir
@@ -200,6 +209,18 @@ fr:
         title: Questions de %{scope_name}
       index:
         title: Votations
+      last_activity:
+        new_consultation: Nouvelle consultation
+        new_question_at_html: "<span>Nouvelle question à %{link}</span>"
+      pages:
+        home:
+          highlighted_consultations:
+            active_consultations: Consultations actives
+            see_all_consultations: Voir toutes les consultations
+            voting_ends_in:
+              one: Le vote se termine <strong>demain</strong>
+              other: Le vote prend fin à <strong>%{count} jour</strong>
+            voting_ends_today: Fin du vote <strong>aujourd'hui</strong>
       question:
         take_part: Participer
         view_results: Voir les résultats
@@ -223,6 +244,12 @@ fr:
           view_results: Voir les résultats
           vote: Voter
         unspecified: Non précisé
+    help:
+      participatory_spaces:
+        consultations:
+          contextual: "<p>consultations sont un espace qui vous permet de poser une question claire à toutes les personnes qui forment une organisation, de lancer un appel à participer à la consultation, de susciter et d’organiser le débat pour ou contre une réponse. Lorsque la date de consultation arrive, vous pouvez voter et publier les résultats des votes.</p> <p>Exemples: Les consultations peuvent porter sur presque tous les aspects touchant une organisation: certains exemples changent le nom ou le logo de l’organisation offrant plusieurs alternatives, décidant par oui ou non de faire partie d’une organisation plus grande, validant ou rejetant une nouvelle stratégie. plan ou le résultat d’un groupe de travail, ou de définir si les postes doivent rester au maximum d’un, deux ou trois mandats.</p>\n"
+          page: "<p>consultations sont un espace qui vous permet de poser une question claire à toutes les personnes qui forment une organisation, de lancer un appel à participer à la consultation, de susciter et d’organiser le débat pour ou contre une réponse. Lorsque la date de consultation arrive, vous pouvez voter et publier les résultats des votes.</p> <p>Exemples: Les consultations peuvent porter sur presque tous les aspects touchant une organisation: certains exemples changent le nom ou le logo de l’organisation offrant plusieurs alternatives, décidant par oui ou non de faire partie d’une organisation plus grande, validant ou rejetant une nouvelle stratégie. plan ou le résultat d’un groupe de travail, ou de définir si les postes doivent rester au maximum d’un, deux ou trois mandats.</p>ard dans l'organisation.</p>\n"
+          title: Que sont les consultations?
     menu:
       consultations: Votations
     pages:
@@ -258,7 +285,7 @@ fr:
     decidim:
       admin:
         question:
-          attachments: Documents liés
+          attachments: Pièces jointes
           categories: Catégories
       consultation_voting_data:
         start_voting_date: Le vote commence le

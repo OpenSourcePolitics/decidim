@@ -6,15 +6,23 @@ module Decidim
       #
       # Handles verification by identity document upload
       #
-      class AuthorizationsController < Decidim::ApplicationController
-        helper_method :authorization
+      class AuthorizationsController < ApplicationController
+        helper_method :authorization, :verification_type, :using_offline?, :using_online?, :available_methods
 
         before_action :load_authorization
 
+        def choose
+          return redirect_to action: :new, using: verification_type if available_methods.count == 1
+
+          render :choose
+        end
+
         def new
+          raise ActionController::RoutingError, "Method not available" unless available_methods.include?(verification_type)
+
           enforce_permission_to :create, :authorization, authorization: @authorization
 
-          @form = UploadForm.new
+          @form = UploadForm.from_params(id_document_upload: { verification_type: verification_type })
         end
 
         def create
@@ -47,6 +55,7 @@ module Decidim
           @form = UploadForm.from_params(
             params.merge(
               user: current_user,
+              verification_type: verification_type,
               verification_attachment: params[:id_document_upload][:verification_attachment] || @authorization.verification_attachment
             )
           )
@@ -77,6 +86,28 @@ module Decidim
             user: current_user,
             name: "id_documents"
           )
+        end
+
+        def verification_type
+          params[:using] || authorization_verification_type || available_methods.first
+        end
+
+        def authorization_verification_type
+          return unless @authorization
+
+          @authorization.verification_metadata["verification_type"]
+        end
+
+        def using_online?
+          verification_type == "online"
+        end
+
+        def using_offline?
+          verification_type == "offline"
+        end
+
+        def available_methods
+          @available_methods ||= current_organization.id_documents_methods
         end
       end
     end

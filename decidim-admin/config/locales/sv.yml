@@ -1,4 +1,3 @@
----
 sv:
   activemodel:
     attributes:
@@ -11,11 +10,10 @@ sv:
         organization: Organisation
         plural: Flertal
       attachment:
-        attachment_collection_id: Samling
+        attachment_collection_id: Mapp
         description: Beskrivning
         file: Fil
         title: Titel
-        weight: Rang d'affichage
       attachment_collection:
         description: Beskrivning
         name: Namn
@@ -38,6 +36,7 @@ sv:
         organization_url: Organisationens hemsida
         redirect_uri: Omdirigerings-URI
       organization:
+        badges_enabled: Aktivera märken
         cta_button_path: Knappsökväg till Uppmaning till Handing
         cta_button_text: Knapptext för Uppmaning till Handling
         default_locale: Standardspråk
@@ -54,7 +53,6 @@ sv:
         highlighted_content_banner_image: Bild
         highlighted_content_banner_short_description: Kort beskrivning
         highlighted_content_banner_title: Titel
-        homepage_image: Hemsida bild
         instagram_handler: Instagram-hanterare
         logo: Logo
         name: Namn
@@ -68,7 +66,7 @@ sv:
         show_statistics: Visa statistik
         tos_version: Version på användarvillkor
         twitter_handler: Twitter-hanterare
-        welcome_text: Välkomsttext
+        user_groups_enabled: Aktivera användargrupper
         youtube_handler: YouTube-hanterare
       scope:
         code: Kod
@@ -85,44 +83,31 @@ sv:
         changed_notably: Det har förekommit märkbara förändringar.
         content: Innehåll
         organization: Organisation
+        show_in_footer: Visa i sidfoten
         slug: URL slug
         title: Titel
+        weight: Vikt
+      static_page_topic:
+        description: Beskrivning
+        show_in_footer: Visa i sidfoten
+        title: Titel
+        weight: Vikt
+      user_group_csv_verification:
+        file: Fil
     errors:
       models:
         oauth_application:
           attributes:
             redirect_uri:
               must_be_ssl: Omdirigerings-URI måste vara en SSL URI
+        organization:
+          attributes:
+            official_img_header:
+              allowed_file_content_types: Ogiltig bildfil
+            official_img_footer:
+              allowed_file_content_types: Ogiltig bildfil
   activerecord:
     attributes:
-      decidim/participatory_process:
-        banner_image: Bannerbild
-        description: Beskrivning
-        developer_group: Utvecklargrupp
-        domain: Domän
-        end_date: Slutdatum
-        hashtag: Hashtag
-        hero_image: Hembild
-        local_area: Lokalt område
-        meta_scope: Omfattning metadata
-        participatory_scope: Deltagandeomfattning
-        participatory_structure: Deltagande struktur
-        promoted: Främjad
-        scope: Omfattning
-        short_description: Kort beskrivning
-        slug: URL slug
-        start_date: Startdatum
-        subtitle: Underrubrik
-        target: Mål
-        title: Titel
-      decidim/participatory_process_group:
-        description: Beskrivning
-        hero_image: Hembild
-        name: Namn
-        participatory_processes: Deltagande processer
-      decidim/participatory_process_step:
-        end_date: Slutdatum
-        start_date: Startdatum
       decidim/static_page:
         content: Innehåll
         slug: URL slug
@@ -135,9 +120,6 @@ sv:
         organization_url: Organisationsadress
         redirect_uri: Omdirigera URI
         site: Webbplats
-  date:
-    formats:
-      datepicker: "%d/%m/%Y"
   decidim:
     admin:
       actions:
@@ -145,6 +127,7 @@ sv:
         browse: Bläddra
         export: Exportera
         manage: Hantera
+        new: Ny %{name}
         permissions: Behörigheter
         reject: Avvisa
         verify: Kontrollera
@@ -181,22 +164,22 @@ sv:
           success: Området uppdateras framgångsrikt
       attachment_collections:
         create:
-          error: Det uppstod ett fel när ny samling skulle skapas.
-          success: Samlingen skapades framgångsrikt.
+          error: Det uppstod ett fel vid att skapa en ny mapp.
+          success: Mapp skapad framgångsrikt.
         destroy:
-          success: Samlingen förstördes framgångsrikt.
+          success: Mappen förstördes framgångsrikt.
         edit:
-          title: Redigera samling
+          title: Redigera mapp
           update: Uppdatera
         index:
-          attachment_collection_used: Denna samling kan inte tas bort eftersom den är i bruk.
-          attachment_collections_title: Samlingar av bilagor
+          attachment_collection_used: Den här mappen kan inte tas bort eftersom den används.
+          attachment_collections_title: Bilagor
         new:
           create: Skapa
-          title: Ny samling
+          title: Ny mapp
         update:
-          error: Det uppstod ett fel vid uppdateringen av denna samling.
-          success: Samlingen uppdaterades framgångsrikt.
+          error: Det uppstod ett fel vid uppdateringen av den här mappen.
+          success: Mapp uppdaterad.
       attachments:
         create:
           error: Det uppstod ett fel vid att skapa en ny bilaga.
@@ -281,17 +264,22 @@ sv:
       exports:
         export_as: "%{name} som %{export_format}"
         notice: Din export är pågående. Du får ett mail när det är klart.
+      help_sections:
+        error: Det har uppstått ett fel vid uppdateringen av hjälpavsnitten
+        form:
+          save: Spara
+        success: Hjälpsektionerna uppdateras framgångsrikt
       impersonatable_users:
         index:
           filter:
-            all: Allt
+            all: Alla
             managed: Managed
             not_managed: Inte hanterad
           filter_by: Filtrera efter
           impersonate: Uppträd som
           impersonate_new_managed_user: Impersonera ny hanterad användare
           managed: Managed
-          name: namn
+          name: Namn
           needs_authorization_warning: Du behöver minst en auktorisering aktiverad för den här organisationen.
           not_managed: Inte hanterad
           promote: Främja
@@ -307,7 +295,7 @@ sv:
           success: Den hanterade användaren har skapats.
         form:
           authorization_method: Auktoriseringsmetod
-          name: namn
+          name: Namn
           reason: Anledning
         new:
           impersonate: Uppträd som
@@ -318,11 +306,6 @@ sv:
         logs_list:
           no_logs_yet: Det finns inga loggar än
       managed_users:
-        index:
-          impersonate: Impersonate
-          needs_authoriation_warning: Needs authoriation warning
-          promote: Promote
-          view_logs: View logs
         promotion:
           error: Det har inträffat ett fel som främjar den hanterade användaren.
           success: Den hanterade användaren har framgångsrikt marknadsförts.
@@ -339,11 +322,12 @@ sv:
         areas: Områden
         configuration: Konfiguration
         dashboard: Kontrollpanel
+        help_sections: Hjälpavsnitt
+        homepage: Hemsida
         impersonations: impersonations
-        navbar_links: Navbar links
         newsletters: Nyhetsbrev
         oauth_applications: OAuth applikationer
-        officializations: Officializations
+        participants: Deltagarna
         scope_types: Omfattningstyper
         scopes: Omfattningar
         settings: inställningar
@@ -361,13 +345,13 @@ sv:
             plural: Flertal
         attachment:
           fields:
-            collection: Samling
+            collection: Mapp
             content_type: Typ
             file_size: Storlek
             title: Titel
           name: Bifogad fil
         attachment_collection:
-          name: Samling
+          name: Mapp
         category:
           name: Kategori
         impersonation_log:
@@ -378,13 +362,6 @@ sv:
             reason: Anledning
             started_at: Börjat vid
             user: Användare
-        managed_user:
-          name: Name
-        navbar_link:
-          fields:
-            link: Link
-            title: Title
-            weight: Weight
         newsletter:
           fields:
             created_at: Skapad vid
@@ -395,7 +372,8 @@ sv:
         oauth_application:
           fields:
             created_at: Skapad vid
-            name: namn
+            name: Namn
+          name: OAuth ansökan
         participatory_space_private_user:
           name: Deltagande utrymme privat användare
         scope:
@@ -420,6 +398,7 @@ sv:
             roles:
               admin: Admin
               user_manager: Användarhanteraren
+          name: Användare
         user_group:
           fields:
             actions: Handlingar
@@ -437,28 +416,6 @@ sv:
             does_not_belong: Hör inte hemma
             offensive: Offensiv
             spam: Spam
-      navbar_links:
-        create:
-          error: There was an error when creating this link.
-          success: Link created successfully
-        destroy:
-          success: Link successfully destroyed
-        edit:
-          title: Edit navbar link
-          update: Update
-        form:
-          link: Link
-          new_tab: Open in a new tab
-          same_tab: Open in the same tab
-          title: Title
-          weight: Weight
-        new:
-          create: Create
-          title: New navbar link
-        no_links: No links created
-        update:
-          error: There was an error when updating this link.
-          success: Link updated successfully
       newsletters:
         create:
           error: Det har varit ett fel att skapa detta nyhetsbrev.
@@ -488,8 +445,6 @@ sv:
         update:
           error: Det har inträffat ett fel vid uppdatering av detta nyhetsbrev.
           success: Nyhetsbrev uppdateras framgångsrikt. Kontrollera det innan du skickar.
-      oauth_application:
-        new: Nouvelle application Oauth
       oauth_applications:
         create:
           error: Det har uppstått ett fel vid skapandet av den här applikationen.
@@ -561,12 +516,20 @@ sv:
           homepage_appearance_title: Redigera startsidans utseende
           homepage_highlighted_content_banner_title: Högupplysad innehållsbanner
           layout_appearance_title: Ändra layoututseende
-          omnipresent_banner_appearance_title: Ändra allmänt
+          omnipresent_banner_appearance_title: Ändra allmänt förekommande banner
+      organization_homepage:
+        edit:
+          active_content_blocks: Aktiva innehållsblock
+          inactive_content_blocks: Inaktiva innehållsblock
+      organization_homepage_content_blocks:
+        edit:
+          update: Uppdatera
       participatory_space_private_users:
         create:
           error: Det gick inte att lägga till en privat användare för detta deltagande utrymme.
           success: Deltagande utrymme privat användaråtkomst skapades framgångsrikt.
         destroy:
+          error: Det gick inte att ta bort en privat användare för det här deltagande rummet.
           success: Deltagande utrymme privat användaråtkomst förstörs framgångsrikt.
         index:
           title: Deltagande utrymme privat användare
@@ -604,6 +567,21 @@ sv:
         update:
           error: Ett fel uppstod vid uppdatering av detta räckvidd.
           success: Omfattning uppdateras framgångsrikt
+      static_page_topics:
+        create:
+          error: Det uppstod ett fel vid skapandet av ett nytt ämne.
+          success: Ämne skapades framgångsrikt.
+        destroy:
+          success: Ämne framgångsrikt förstört
+        edit:
+          title: Redigera ämne
+          update: Uppdatera ämne
+        new:
+          create: Skapa ämne
+          title: Nytt ämne
+        update:
+          error: Det uppstod ett fel vid uppdateringen av det här ämnet.
+          success: Ämnet uppdaterades framgångsrikt
       static_pages:
         actions:
           view: Visa allmän sida
@@ -616,11 +594,18 @@ sv:
           changed_notably_help: Om den är markerad kommer användarna att bli underrättad om att acceptera de nya villkoren.
           title: Redigera sida
           update: Uppdatera
+        form:
+          none: Ingen
         index:
           last_notable_change: Senast anmärkningsvärda förändring
         new:
-          create: Skapa
+          create: Skapa sida
           title: Ny sida
+        topic:
+          destroy: Ta bort ämne
+          edit: Redigera ämne
+          empty: Det finns ingen sida under det här ämnet
+          without_topic: Sidor utan ämne
         update:
           error: Det uppstod ett fel vid uppdateringen av den här sidan.
           success: Sidan uppdaterad framgångsrikt
@@ -632,17 +617,16 @@ sv:
         dashboard: Kontrollpanel
         impersonatable_users: Impersonatable användare
         impersonations: impersonations
-        managed_users: Managed users
-        navbar_links: Navbar links
-        officializations: Officializations
+        participants: användare
         scope_types: Omfattningstyper
         scopes: Omfattningar
         static_pages: Sidor
         user_groups: Användargrupper
         users: Användare
-      user:
-        new: New
       user_group:
+        csv_verify:
+          invalid: Det gick inte att läsa CSV-filen.
+          success: CSV-filen laddades upp, vi verifierar användargrupperna som matchar kriterierna. Det kan ta ett tag.
         reject:
           invalid: Det uppstod ett fel när du avvisade den här användargruppen.
           success: Användargruppen avvisades framgångsrikt
@@ -659,9 +643,15 @@ sv:
           filter_by: Filtrera efter
           search: Sök
           state:
-            pending: Avvaktan
+            pending: Väntande
             rejected: avvisade
             verified: Verifierad
+          verify_via_csv: Verifiera via CSV
+      user_groups_csv_verifications:
+        new:
+          explanation: Ladda upp din CSV-fil. Den måste ha de officiella e-postmeddelandena för användargrupperna i din organisation i den första kolumnen i filen, utan rubriker. Endast användargrupper som har bekräftat sitt e-postmeddelande och som har ett e-postmeddelande som visas i CSV-filen kommer att valideras.
+          title: Ladda upp din CSV-fil
+          upload: Ladda upp
       users:
         create:
           error: Det uppstod ett fel vid inbjudan till den här användaren.
@@ -676,6 +666,7 @@ sv:
         new:
           create: Bjud in
           title: Bjud in användaren som administratör
+      view_public_page: Visa allmän sida
     forms:
       errors:
         impersonate_user:
@@ -716,7 +707,3 @@ sv:
           title: inställningar
         users:
           title: Användare
-  time:
-    formats:
-      datepicker: "%d/%m/%Y"
-      timepicker: "%d/%m/%Y %H:%M"

@@ -6,12 +6,12 @@ en:
         banner_image: Banner image
         decidim_highlighted_scope_id: Highlighted scope
         description: Description
-        end_voting_date: End date
+        end_voting_date: Voting ends
         introductory_image: Introductory image
         introductory_video_url: Introductory video URL
         questions: Questions
         slug: URL slug
-        start_voting_date: Start date
+        start_voting_date: Voting begins
         subtitle: Subtitle
         title: Title
       question:
@@ -39,7 +39,7 @@ en:
           not_found: Response not found.
   activerecord:
     models:
-      decidim/consultations:
+      decidim/consultation:
         one: Consultation
         other: Consultations
       decidim/consultations/question:
@@ -49,13 +49,14 @@ en:
         one: Response
         other: Responses
       decidim/consultations/vote:
-        one: Vote
+        one: No votes
         other: Votes
   decidim:
     admin:
       actions:
-        consultation:
-          new: New consultation
+        new_consultation: New consultation
+        new_question: New question
+        new_response: New response
         publish_results: Publish results
         unpublish_results: Unpublish results
       consultation_publications:
@@ -76,8 +77,6 @@ en:
         create:
           error: There was an error creating a new consultation.
           success: Consultation successfully created.
-        destroy:
-          success: Consultation successfully destroyed.
         edit:
           update: Update
         form:
@@ -108,6 +107,9 @@ en:
             created_at: Created at
             published: Published
             title: Title
+          name:
+            one: Consultation
+            other: Consultations
         question:
           fields:
             created_at: Created at
@@ -135,7 +137,7 @@ en:
           error: There was an error creating a new question.
           success: Question successfully created.
         destroy:
-          success: Question successfully destroyed.
+          success: Question successfully deleted.
         edit:
           update: Update
         form:
@@ -155,7 +157,7 @@ en:
           success: Response successfully created.
         destroy:
           error: There was an error when removing the response.
-          success: Response successfully destroyed.
+          success: Response successfully deleted.
         edit:
           update: Update
         form:
@@ -171,8 +173,12 @@ en:
         questions: Questions
         responses: Responses
     consultations:
+      admin:
+        content_blocks:
+          highlighted_consultations:
+            max_results: Maximum amount of elements to show
       consultation:
-        start_voting_date: Voting from
+        start_voting_date: Voting begins
         view_results: View results
       consultation_card:
         view_results: View results
@@ -181,6 +187,9 @@ en:
           label: 'Sort consultations by:'
           random: Random
           recent: Most recent
+      content_blocks:
+        highlighted_consultations:
+          name: Highlighted consultations
       count:
         title:
           one: "%{count} consultation"
@@ -201,6 +210,18 @@ en:
         title: Questions from %{scope_name}
       index:
         title: Consultations
+      last_activity:
+        new_consultation: New consultation
+        new_question_at_html: "<span>New question at %{link}</span>"
+      pages:
+        home:
+          highlighted_consultations:
+            active_consultations: Active consultations
+            see_all_consultations: See all consultations
+            voting_ends_in:
+              one: Voting ends <strong>tomorrow</strong>
+              other: Voting ends in <strong>%{count} days</strong>
+            voting_ends_today: Voting ends <strong>today</strong>
       question:
         take_part: Take part
         view_results: View results
@@ -224,6 +245,12 @@ en:
           view_results: View results
           vote: Vote
         unspecified: Not specified
+    help:
+      participatory_spaces:
+        consultations:
+          contextual: "<p>Consultations are a space that allows you to ask a clear question to all the people who form an organization, make a call to participate in the consultation, spark and order the debate for or against a response. When the consultation date arrives, you can vote and publish the results of the votes.</p> <p>Examples: The consultations can be about almost any aspect that affects an organization: some examples are changing the name or logo of the organization offering several alternatives, deciding Yes or No to become part of a larger organization, validating or rejecting a new strategic plan or the result of a working group, or defining whether the positions should remain a maximum of 1, 2 or 3 mandates.</p>\n"
+          page: "<p>Consultations are a space that allows you to ask a clear question to all the people who form an organization, make a call to participate in the consultation, spark and order the debate for or against a response. When the consultation date arrives, you can vote and publish the results of the votes.</p> <p>Examples: The consultations can be about almost any aspect that affects an organization: some examples are changing the name or logo of the organization offering several alternatives, deciding Yes or No to become part of a larger organization, validating or rejecting a new strategic plan or the result of a working group, or defining whether the positions should remain a maximum of 1, 2 or 3 mandates in the organization.</p>\n"
+          title: What are consultations?
     menu:
       consultations: Consultations
     pages:
@@ -239,7 +266,7 @@ en:
         assistants_count_title: Assistants
         comments_count_title: Comments
         meetings_count_title: Meetings
-        supports_count_title: Adhesions
+        supports_count_title: Supports
       technical_info:
         technical_data: Technical data
       vote_button:
@@ -262,7 +289,7 @@ en:
           attachments: Attachments
           categories: Categories
       consultation_voting_data:
-        start_voting_date: Voting from
+        start_voting_date: Voting begins
       question_components:
         question_menu_item: The question
         unfold: Unfold

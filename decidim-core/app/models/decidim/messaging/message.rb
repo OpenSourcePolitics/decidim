@@ -16,6 +16,7 @@ module Decidim
 
       belongs_to :conversation,
                  foreign_key: :decidim_conversation_id,
+                 touch: true,
                  class_name: "Decidim::Messaging::Conversation"
 
       has_many :receipts,
@@ -38,7 +39,7 @@ module Decidim
       # @param recipients [Array<Decidim::User>]
       #
       def envelope_for(recipients)
-        receipts.build(recipient: sender, read_at: Time.zone.now)
+        receipts.build(recipient: sender, read_at: Time.current)
 
         recipients.each { |recipient| receipts.build(recipient: recipient) }
       end

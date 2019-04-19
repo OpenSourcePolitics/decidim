@@ -16,6 +16,7 @@ module Decidim
       return if model.nil?
       return unless current_user
       return if current_user.tos_accepted?
+
       render model
     end
 
@@ -30,10 +31,6 @@ module Decidim
         }
       }
       args
-    end
-
-    def decidim
-      Decidim::Core::Engine.routes.url_helpers
     end
   end
 end

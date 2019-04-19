@@ -9,14 +9,76 @@ shared_examples "manage meetings" do
   let(:service_titles) { ["This is the first service", "This is the second service"] }
 
   before do
-    Geocoder::Lookup::Test.add_stub(
-      address,
-      [{ "latitude" => latitude, "longitude" => longitude }]
-    )
+    stub_geocoding(address, [latitude, longitude])
+  end
+
+  describe "when rendering the text in the update page" do
+    context "when there are multiple locales" do
+      before do
+        click_link "Edit"
+      end
+
+      it "shows the title correctly in all available locales" do
+        within "#meeting-title-tabs" do
+          click_link "English"
+        end
+        expect(page).to have_css("input", text: meeting.title[:en], visible: true)
+
+        within "#meeting-title-tabs" do
+          click_link "Català"
+        end
+        expect(page).to have_css("input", text: meeting.title[:ca], visible: true)
+
+        within "#meeting-title-tabs" do
+          click_link "Castellano"
+        end
+        expect(page).to have_css("input", text: meeting.title[:es], visible: true)
+      end
+
+      it "shows the description correctly in all available locales" do
+        within "#meeting-description-tabs" do
+          click_link "English"
+        end
+        expect(page).to have_css("input", text: meeting.description[:en], visible: true)
+
+        within "#meeting-description-tabs" do
+          click_link "Català"
+        end
+        expect(page).to have_css("input", text: meeting.description[:ca], visible: true)
+
+        within "#meeting-description-tabs" do
+          click_link "Castellano"
+        end
+        expect(page).to have_css("input", text: meeting.description[:es], visible: true)
+      end
+    end
+
+    context "when there is only one locale" do
+      let(:organization) { create :organization, available_locales: [:en] }
+      let(:component) { create(:component, manifest_name: manifest_name, organization: organization) }
+      let!(:meeting) do
+        create(:meeting, scope: scope, services: [], component: component,
+                         title: { en: "Title" }, description: { en: "Description" })
+      end
+
+      before do
+        click_link "Edit"
+      end
+
+      it "shows the title correctly" do
+        expect(page).not_to have_css("#meeting-title-tabs")
+        expect(page).to have_css("input", text: meeting.title[:en], visible: true)
+      end
+
+      it "shows the description correctly" do
+        expect(page).not_to have_css("#meeting-description-tabs")
+        expect(page).to have_css("input", text: meeting.description[:en], visible: true)
+      end
+    end
   end
 
   it "updates a meeting" do
-    within find("tr", text: translated(meeting.title)) do
+    within find("tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title) do
       click_link "Edit"
     end
 
@@ -41,7 +103,7 @@ shared_examples "manage meetings" do
   end
 
   it "adds a few services to the meeting" do
-    within find("tr", text: translated(meeting.title)) do
+    within find("tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title) do
       click_link "Edit"
     end
 
@@ -56,7 +118,7 @@ shared_examples "manage meetings" do
 
     expect(page).to have_admin_callout("successfully")
 
-    within find("tr", text: translated(meeting.title)) do
+    within find("tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title) do
       click_link "Edit"
     end
 
@@ -65,7 +127,7 @@ shared_examples "manage meetings" do
   end
 
   it "allows the user to preview the meeting" do
-    within find("tr", text: translated(meeting.title)) do
+    within find("tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title) do
       klass = "action-icon--preview"
       href = resource_locator(meeting).path
       target = "blank"
@@ -112,12 +174,12 @@ shared_examples "manage meetings" do
     fill_in :meeting_address, with: address
     fill_in_services
 
-    page.execute_script("$('#datetime_field_meeting_start_time').focus()")
+    page.execute_script("$('#meeting_start_time').focus()")
     page.find(".datepicker-dropdown .day", text: "12").click
     page.find(".datepicker-dropdown .hour", text: "10:00").click
     page.find(".datepicker-dropdown .minute", text: "10:50").click
 
-    page.execute_script("$('#datetime_field_meeting_end_time').focus()")
+    page.execute_script("$('#meeting_end_time').focus()")
     page.find(".datepicker-dropdown .day", text: "12").click
     page.find(".datepicker-dropdown .hour", text: "12:00").click
     page.find(".datepicker-dropdown .minute", text: "12:50").click
@@ -140,7 +202,7 @@ shared_examples "manage meetings" do
 
   describe "duplicating a meeting" do
     it "creates a new meeting", :slow do
-      within find("tr", text: translated(meeting.title)) do
+      within find("tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title) do
         click_link "Duplicate"
       end
 
@@ -175,12 +237,12 @@ shared_examples "manage meetings" do
 
       fill_in :meeting_address, with: address
 
-      page.execute_script("$('#datetime_field_meeting_start_time').focus()")
+      page.execute_script("$('#meeting_start_time').focus()")
       page.find(".datepicker-dropdown .day", text: "12").click
       page.find(".datepicker-dropdown .hour", text: "10:00").click
       page.find(".datepicker-dropdown .minute", text: "10:50").click
 
-      page.execute_script("$('#datetime_field_meeting_end_time').focus()")
+      page.execute_script("$('#meeting_end_time').focus()")
       page.find(".datepicker-dropdown .day", text: "12").click
       page.find(".datepicker-dropdown .hour", text: "12:00").click
       page.find(".datepicker-dropdown .minute", text: "12:50").click
@@ -207,14 +269,14 @@ shared_examples "manage meetings" do
     end
 
     it "deletes a meeting" do
-      within find("tr", text: translated(meeting2.title)) do
+      within find("tr", text: Decidim::Meetings::MeetingPresenter.new(meeting2).title) do
         accept_confirm { click_link "Delete" }
       end
 
       expect(page).to have_admin_callout("successfully")
 
       within "table" do
-        expect(page).to have_no_content(translated(meeting2.title))
+        expect(page).to have_no_content(Decidim::Meetings::MeetingPresenter.new(meeting2).title)
       end
     end
   end
@@ -225,7 +287,7 @@ shared_examples "manage meetings" do
     end
 
     it "updates a meeting" do
-      within find("tr", text: translated(meeting.title)) do
+      within find("tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title) do
         click_link "Edit"
       end
 
@@ -282,12 +344,12 @@ shared_examples "manage meetings" do
       )
 
       fill_in :meeting_address, with: address
-      page.execute_script("$('#datetime_field_meeting_start_time').focus()")
+      page.execute_script("$('#meeting_start_time').focus()")
       page.find(".datepicker-dropdown .day", text: "12").click
       page.find(".datepicker-dropdown .hour", text: "10:00").click
       page.find(".datepicker-dropdown .minute", text: "10:50").click
 
-      page.execute_script("$('#datetime_field_meeting_end_time').focus()")
+      page.execute_script("$('#meeting_end_time').focus()")
       page.find(".datepicker-dropdown .day", text: "12").click
       page.find(".datepicker-dropdown .hour", text: "12:00").click
       page.find(".datepicker-dropdown .minute", text: "12:50").click
@@ -316,7 +378,7 @@ shared_examples "manage meetings" do
     let!(:proposals) { create_list(:proposal, 3, component: proposal_component) }
 
     it "closes a meeting with a report" do
-      within find("tr", text: translated(meeting.title)) do
+      within find("tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title) do
         page.click_link "Close"
       end
 
@@ -337,7 +399,7 @@ shared_examples "manage meetings" do
 
       expect(page).to have_admin_callout("Meeting successfully closed")
 
-      within find("tr", text: translated(meeting.title)) do
+      within find("tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title) do
         expect(page).to have_content("Yes")
       end
     end
@@ -346,7 +408,7 @@ shared_examples "manage meetings" do
       let!(:meeting) { create(:meeting, :closed, component: current_component) }
 
       it "can update the information" do
-        within find("tr", text: translated(meeting.title)) do
+        within find("tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title) do
           page.click_link "Close"
         end
 

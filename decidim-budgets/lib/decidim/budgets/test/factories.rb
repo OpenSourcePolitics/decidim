@@ -9,13 +9,13 @@ require "decidim/participatory_processes/test/factories"
 FactoryBot.define do
   factory :budget_component, parent: :component do
     name { Decidim::Components::Namer.new(participatory_space.organization.available_locales, :budgets).i18n_name }
-    manifest_name :budgets
+    manifest_name { :budgets }
     participatory_space { create(:participatory_process, :with_steps, organization: organization) }
 
     trait :with_total_budget_and_vote_threshold_percent do
       transient do
-        total_budget 100_000_000
-        vote_threshold_percent 70
+        total_budget { 100_000_000 }
+        vote_threshold_percent { 70 }
       end
 
       settings do
@@ -28,8 +28,8 @@ FactoryBot.define do
 
     trait :with_vote_per_project do
       transient do
-        total_projects 5
-        vote_per_project true
+        total_projects { 5 }
+        vote_per_project { true }
       end
 
       settings do
@@ -62,8 +62,8 @@ FactoryBot.define do
   end
 
   factory :project, class: "Decidim::Budgets::Project" do
-    title { Decidim::Faker::Localized.sentence(3) }
-    description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(4) } }
+    title { generate_localized_title }
+    description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
     budget { Faker::Number.number(8) }
     component { create(:budget_component) }
   end

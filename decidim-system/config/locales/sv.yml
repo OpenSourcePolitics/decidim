@@ -4,7 +4,7 @@ sv:
     system:
       actions:
         confirm_destroy: Är du säker på att du vill radera detta?
-        destroy: Förstöra
+        destroy: Radera
         edit: Redigera
         new: Ny
         save: Spara
@@ -14,7 +14,7 @@ sv:
           error: Det uppstod ett fel vid skapandet av en ny admin.
           success: Admin skapades framgångsrikt
         destroy:
-          success: Admin förstördes framgångsrikt
+          success: Admin har raderats
         edit:
           title: Redigera admin
           update: Uppdatera
@@ -64,6 +64,10 @@ sv:
         update:
           error: Det uppstod ett fel vid uppdateringen av den här organisationen.
           success: Organisationen uppdaterades.
+        users_registration_mode:
+          disabled: Endast åtkomst kan göras med externa konton
+          enabled: Tillåt användare att registrera och logga in
+          existing: Låt inte användare registrera sig, men låta befintliga användare logga in
       shared:
         notices:
           no_organization_warning_html: Du måste skapa en organisation för att komma igång. Se till att du läser %{guide} innan du fortsätter.

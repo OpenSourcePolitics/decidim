@@ -16,10 +16,7 @@ describe "Proposals", type: :system do
   let(:longitude) { 2.1234 }
 
   before do
-    Geocoder::Lookup::Test.add_stub(
-      address,
-      [{ "latitude" => latitude, "longitude" => longitude }]
-    )
+    stub_geocoding(address, [latitude, longitude])
   end
 
   matcher :have_author do |name|
@@ -50,9 +47,9 @@ describe "Proposals", type: :system do
 
       expect(page).to have_content(proposal.title)
       expect(page).to have_content(proposal.body)
-      expect(page).to have_author(proposal.author.name)
+      expect(page).to have_author(proposal.creator_author.name)
       expect(page).to have_content(proposal.reference)
-      expect(page).to have_creation_date(I18n.l(proposal.created_at, format: :decidim_short))
+      expect(page).to have_creation_date(I18n.l(proposal.published_at, format: :decidim_short))
     end
 
     context "when process is not related to any scope" do
@@ -77,12 +74,22 @@ describe "Proposals", type: :system do
     end
 
     context "when it is an official proposal" do
-      let!(:official_proposal) { create(:proposal, component: component, author: nil) }
+      let!(:official_proposal) { create(:proposal, :official, component: component) }
 
       it "shows the author as official" do
         visit_component
         click_link official_proposal.title
         expect(page).to have_content("Official proposal")
+      end
+    end
+
+    context "when it is an official meeting proposal" do
+      let!(:official_meeting_proposal) { create(:proposal, :official_meeting, component: component) }
+
+      it "shows the author as meeting" do
+        visit_component
+        click_link official_meeting_proposal.title
+        expect(page).to have_content(translated(official_meeting_proposal.authors.first.title))
       end
     end
 
@@ -122,20 +129,20 @@ describe "Proposals", type: :system do
 
     context "when a proposal has been linked in a result" do
       let(:proposal) { create(:proposal, component: component) }
-      let(:dummy_component) do
-        create(:component, manifest_name: :dummy, participatory_space: proposal.component.participatory_space)
+      let(:accountability_component) do
+        create(:component, manifest_name: :accountability, participatory_space: proposal.component.participatory_space)
       end
-      let(:dummy_resource) { create(:dummy_resource, component: dummy_component) }
+      let(:result) { create(:result, component: accountability_component) }
 
       before do
-        dummy_resource.link_resources([proposal], "included_proposals")
+        result.link_resources([proposal], "included_proposals")
       end
 
       it "shows related resources" do
         visit_component
         click_link proposal.title
 
-        expect(page).to have_i18n_content(dummy_resource.title)
+        expect(page).to have_i18n_content(result.title)
       end
     end
 
@@ -193,7 +200,7 @@ describe "Proposals", type: :system do
       let(:proposal) { proposals.first }
 
       before do
-        Decidim::DestroyAccount.call(proposal.author, Decidim::DeleteAccountForm.from_params({}))
+        Decidim::DestroyAccount.call(proposal.creator_author, Decidim::DeleteAccountForm.from_params({}))
       end
 
       it "the user is displayed as a deleted user" do
@@ -242,6 +249,7 @@ describe "Proposals", type: :system do
         expect(page).to have_selector(".card--proposal", count: 2)
         expect(page).to have_selector(".card--proposal", text: lucky_proposal.title)
         expect(page).to have_selector(".card--proposal", text: unlucky_proposal.title)
+        expect(page).to have_author(lucky_proposal.creator_author.name)
       end
     end
 
@@ -254,6 +262,14 @@ describe "Proposals", type: :system do
 
       visit_component
       expect(page).to have_css(".card--proposal", count: 3)
+    end
+
+    describe "editable content" do
+      before do
+        visit_component
+      end
+
+      it_behaves_like "editable content for admins"
     end
 
     context "when comments have been moderated" do
@@ -402,7 +418,7 @@ describe "Proposals", type: :system do
           visit_component
 
           within "form.new_filter" do
-            expect(page).to have_no_content(/Origin/i)
+            expect(page).to have_no_content(/Official/i)
           end
         end
       end
@@ -658,6 +674,51 @@ describe "Proposals", type: :system do
       let!(:resource_selector) { ".card--proposal" }
 
       it_behaves_like "a paginated resource"
+    end
+
+    context "when amendments_enabled setting is enabled" do
+      let!(:proposal) { create(:proposal, component: component, scope: scope) }
+      let!(:emendation) { create(:proposal, component: component, scope: scope) }
+      let!(:amendment) { create(:amendment, amendable: proposal, emendation: emendation) }
+
+      before do
+        component.update!(settings: { amendments_enabled: true })
+        visit_component
+      end
+
+      context "with 'all' type" do
+        it "lists the filtered proposals" do
+          find('input[id="filter_type_all"]').click
+
+          expect(page).to have_css(".card.card--proposal", count: 2)
+          expect(page).to have_content("2 PROPOSALS")
+          expect(page).to have_content("AMENDMENT", count: 1)
+        end
+      end
+
+      context "with 'proposals' type" do
+        it "lists the filtered proposals" do
+          within ".filters" do
+            choose "Proposals"
+          end
+
+          expect(page).to have_css(".card.card--proposal", count: 1)
+          expect(page).to have_content("1 PROPOSAL")
+          expect(page).to have_content("AMENDMENT", count: 0)
+        end
+      end
+
+      context "with 'amendments' type" do
+        it "lists the filtered proposals" do
+          within ".filters" do
+            choose "Amendments"
+          end
+
+          expect(page).to have_css(".card.card--proposal", count: 1)
+          expect(page).to have_content("1 PROPOSAL")
+          expect(page).to have_content("AMENDMENT", count: 1)
+        end
+      end
     end
   end
 

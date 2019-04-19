@@ -11,6 +11,9 @@ module Decidim
       include Decidim::Followable
       include Decidim::HasAttachments
       include Decidim::HasAttachmentCollections
+      include Decidim::Traceable
+      include Decidim::Loggable
+      include Decidim::ParticipatorySpaceResourceable
 
       belongs_to :consultation,
                  foreign_key: "decidim_consultation_id",
@@ -48,6 +51,8 @@ module Decidim
       delegate :start_voting_date, to: :consultation
       delegate :end_voting_date, to: :consultation
       delegate :results_published?, to: :consultation
+
+      alias participatory_space consultation
 
       # Sorted results for the given question.
       def sorted_results
@@ -142,6 +147,10 @@ module Decidim
           connection.execute("SELECT setseed(#{connection.quote(seed)})")
           select('"decidim_consultations_questions".*, RANDOM()').order(Arel.sql("RANDOM()")).load
         end
+      end
+
+      def resource_description
+        subtitle
       end
     end
   end

@@ -13,10 +13,6 @@ it:
     errors:
       messages:
         equal_to: must be equal to %{count}
-      models:
-        decidim/budgets/project:
-          one: Project
-          other: Projects
     models:
       decidim/budgets/project:
         one: Progetto
@@ -24,12 +20,13 @@ it:
   decidim:
     budgets:
       actions:
-        attachment_collections: collezioni
+        attachment_collections: Cartelle
         attachments: Allegati
         confirm_destroy: Sei certo di voler cancellare questo progetto?
         destroy: Cancella
         edit: Modifica
-        new: Nuovo
+        import: Importa proposte per progetti
+        new: Nuovo progetto
         preview: Anteprima
         title: Azioni
       admin:
@@ -41,7 +38,7 @@ it:
             invalid: C'è stato un problema durante la creazione di questo progetto.
             success: OK, progetto creato.
           destroy:
-            success: OK, progetto eliminato.
+            success: Progetto eliminato con successo
           edit:
             title: Modifica il progetto
             update: Aggiorna
@@ -54,10 +51,18 @@ it:
             title: Progetti
           new:
             create: Crea
-            title: Nuovo risultato
+            title: Nuovo progetto
           update:
             invalid: C'è stato un problema durante l'aggiornamento di questo progetto.
             success: OK, progetto aggiornato.
+        proposals_imports:
+          create:
+            invalid: C'è stato un problema nell'importazione delle proposte nei progetti
+            success: "%{number} proposte importate con successo nei progetti"
+          new:
+            create: Importa proposte per progetti
+            no_components: Non ci sono altri componenti della proposta in questo spazio partecipativo per importare le proposte in progetti.
+            select_component: Si prega di selezionare un componente
       admin_log:
         project:
           create: "%{user_name} ha creato il progetto %{resource_name} nello spazio %{space_name}"
@@ -155,6 +160,7 @@ it:
             comments_enabled: Commenti abilitati
             geocoding_enabled: Geocoding enabled
             projects_per_page: Progetti per pagina
+            resources_permissions_enabled: Le autorizzazioni delle azioni possono essere impostate per ogni riunione
             total_budget: Budget totale
             total_projects: Total projects
             vote_per_budget: budget sum enabled (default)
@@ -164,7 +170,7 @@ it:
             announcement: Annuncio
             comments_blocked: Commenti bloccati
             show_votes: Mostra voti
-            votes_enabled: Voti abilitati
+            votes_enabled: Voto abilitato
     orders:
       checkout:
         error: C'è stato un errore durante l'acquisizione del voto.

@@ -113,13 +113,13 @@ module Decidim
 
       describe "when the password is present" do
         before do
-          form.password = "test123"
-          form.password_confirmation = "test123"
+          form.password = "pNY6h9crVtVHZbdE"
+          form.password_confirmation = "pNY6h9crVtVHZbdE"
         end
 
         it "updates the password" do
           expect { command.call }.to broadcast(:ok)
-          expect(user.reload.valid_password?("test123")).to eq(true)
+          expect(user.reload.valid_password?("pNY6h9crVtVHZbdE")).to eq(true)
         end
       end
 
@@ -148,7 +148,7 @@ module Decidim
               event: "decidim.events.users.profile_updated",
               event_class: Decidim::ProfileUpdatedEvent,
               resource: kind_of(Decidim::User),
-              recipient_ids: [follower.id]
+              followers: [follower]
             )
 
           command.call

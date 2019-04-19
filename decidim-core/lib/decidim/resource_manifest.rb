@@ -36,6 +36,20 @@ module Decidim
     # The main card to render an instance of the resource.
     attribute :card, String
 
+    # Set this to `true` if you want this resource to be searchable. It requires
+    # the model to include the `Decidim::Searchable` concern.
+    attribute :searchable, Boolean, default: false
+
+    # Actions are used to validate permissions of a resource against particular
+    # authorizations or potentially other authorization rules.
+    #
+    # An example would be `vote` on a specific proposal, or `join` on a meeting.
+    #
+    # A resource can expose as many actions as it wants and the admin panel will
+    # generate a UI to handle them. There's a set of controller helpers available
+    # as well that allows checking for those permissions.
+    attribute :actions, Array[String]
+
     validates :model_class_name, :route_name, :name, presence: true
 
     # Finds an ActiveRecord::Relation of the resource `model_class`, scoped to the

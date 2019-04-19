@@ -38,6 +38,7 @@ module Decidim
 
     class DummyResource < ApplicationRecord
       include HasComponent
+      include HasReference
       include Resourceable
       include Reportable
       include Authorable
@@ -47,7 +48,10 @@ module Decidim
       include Followable
       include Traceable
       include Publicable
+      include Decidim::DataPortability
       include Searchable
+      include Paddable
+      include Amendable
 
       searchable_fields(
         scope_id: { scope: :id },
@@ -57,10 +61,27 @@ module Decidim
         datetime: :published_at
       )
 
+      amendable(
+        fields: [:title],
+        form: "Decidim::DummyResources::DummyResourceForm"
+      )
+
       component_manifest_name "dummy"
 
       def reported_content_url
         ResourceLocatorPresenter.new(self).url
+      end
+
+      def allow_resource_permissions?
+        component.settings.resources_permissions_enabled
+      end
+
+      def self.user_collection(user)
+        where(decidim_author_id: user.id, decidim_author_type: "Decidim::User")
+      end
+
+      def self.export_serializer
+        DummySerializer
       end
     end
   end
@@ -87,8 +108,11 @@ Decidim.register_component(:dummy) do |component|
 
   component.settings(:global) do |settings|
     settings.attribute :comments_enabled, type: :boolean, default: true
+    settings.attribute :resources_permissions_enabled, type: :boolean, default: true
     settings.attribute :dummy_global_attribute_1, type: :boolean
     settings.attribute :dummy_global_attribute_2, type: :boolean
+    settings.attribute :enable_pads_creation, type: :boolean, default: false
+    settings.attribute :amendments_enabled, type: :boolean, default: false
   end
 
   component.settings(:step) do |settings|
@@ -101,6 +125,8 @@ Decidim.register_component(:dummy) do |component|
     resource.name = :dummy
     resource.model_class_name = "Decidim::DummyResources::DummyResource"
     resource.template = "decidim/dummy_resource/linked_dummys"
+    resource.actions = %w(foo)
+    resource.searchable = true
   end
 
   component.register_stat :dummies_count_high, primary: true, priority: Decidim::StatsRegistry::HIGH_PRIORITY do |components, _start_at, _end_at|
@@ -126,15 +152,19 @@ RSpec.configure do |config|
       unless ActiveRecord::Base.connection.data_source_exists?("decidim_dummy_resources_dummy_resources")
         ActiveRecord::Migration.create_table :decidim_dummy_resources_dummy_resources do |t|
           t.string :title
+          t.string :body
           t.text :address
           t.float :latitude
           t.float :longitude
           t.datetime :published_at
+          t.integer :coauthorships_count, null: false, default: 0
 
           t.references :decidim_component, index: false
-          t.references :decidim_author, index: false
+          t.integer :decidim_author_id, index: false
+          t.string :decidim_author_type, index: false
           t.references :decidim_category, index: false
           t.references :decidim_scope, index: false
+          t.string :reference
 
           t.timestamps
         end

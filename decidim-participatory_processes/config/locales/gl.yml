@@ -9,17 +9,16 @@ gl:
         copy_components: Copiar compoñentes
         copy_steps: Copiar os pasos
         description: Descrición
-        developer_group: Grupo de desenvolvedores
+        developer_group: Grupo promotor
         domain: Dominio
         end_date: Data de finalización
         hashtag: Etiqueta
         hero_image: Imaxe na casa
-        local_area: Área local
+        local_area: Área de organización
         meta_scope: Metadatos de ámbito
         participatory_process_group_id: Grupo de procesos
-        participatory_scope: Alcance participativo
-        participatory_structure: Estrutura participativa
-        private_space: Espace privé
+        participatory_scope: O que se decide
+        participatory_structure: Como se decide
         promoted: Promocionado
         published_at: Publicado en
         scope_id: Alcance
@@ -29,7 +28,7 @@ gl:
         slug: URL slug
         start_date: Data de inicio
         subtitle: Subtítulo
-        target: Obxectivo
+        target: Quen participa
         title: Título
       participatory_process_group:
         description: Descrición
@@ -37,7 +36,8 @@ gl:
         name: Nome
         participatory_process_ids: Procesos relacionados
       participatory_process_step:
-        action_btn_text: Action bouton text
+        cta_path: Camiño de chamada a Acción
+        cta_text: Texto de chamada a acción
         description: Descrición
         end_date: Data de finalización
         short_description: Descrición curta
@@ -66,13 +66,16 @@ gl:
       actions:
         activate: Activar
         configure: Configurar
-        confirm_destroy: Confirmar destruír
-        destroy: Destruír
+        confirm_destroy: Confirma eliminar
+        destroy: Eliminar
         duplicate: Duplicar
         edit: Editar
-        new: Novo
+        new: New
+        new_process_group: Novo grupo de procesos
+        new_process_step: Novo paso
+        new_process_user_role: Novo usuario do proceso
         participatory_process:
-          new: new participatory process
+          new: New
         preview: Vista previa
         publish: Publicar
         resend_invitation: Reenvio a invitación
@@ -81,7 +84,7 @@ gl:
         participatory_process_groups: Grupos de procesos
         participatory_processes: Procesos
         participatory_processes_submenu:
-          attachment_collections: Coleccións
+          attachment_collections: Carpetas
           attachment_files: Arquivos
           attachments: Anexos
           categories: Categorías
@@ -99,6 +102,7 @@ gl:
             promoted: Destacado
             published: Publicado
             title: Título
+          name: Proceso participativo
         participatory_process_group:
           fields:
             name: Nome
@@ -130,7 +134,7 @@ gl:
           title: Duplicar o proceso participativo
       participatory_process_groups:
         destroy:
-          success: O grupo de procesos participativo foi destruído con éxito.
+          success: Grupo de proceso participativo eliminado con éxito.
         edit:
           title: Editar o grupo de procesos
           update: Actualización
@@ -153,7 +157,6 @@ gl:
           success: O paso do proceso participativo activouse con éxito.
       participatory_process_steps:
         create:
-          action_btn_text_help: By default, the action button text is "Take part"
           error: Produciuse un erro ao crear un novo paso de proceso participativo.
           success: Paso de proceso participativo creouse con éxito.
         default_title: Introdución
@@ -161,7 +164,7 @@ gl:
           error:
             active_step: Non se pode eliminar o paso activo.
             last_step: Non se pode eliminar o último paso dun proceso.
-          success: Paso de proceso participativo destruíuse con éxito.
+          success: Paso de proceso participativo eliminado con éxito.
         edit:
           title: Edita paso de proceso participativo
           update: Actualización
@@ -178,9 +181,9 @@ gl:
       participatory_process_user_roles:
         create:
           error: Houbo un erro engadindo un usuario a este proceso participativo.
-          success: Usuario creado con éxito para este proceso participativo.
+          success: O usuario engadiuse con éxito a este proceso participativo.
         destroy:
-          success: Usuario destruído con éxito por este proceso participativo.
+          success: Usuario eliminado con éxito deste proceso participativo.
         edit:
           title: Actualiza o usuario de proceso participativo.
           update: Actualización
@@ -196,8 +199,6 @@ gl:
         create:
           error: Produciuse un erro ao crear un novo proceso participativo.
           success: Proceso participativo creouse con éxito. Configure agora os seus pasos.
-        destroy:
-          success: O proceso participativo foi destruído con éxito.
         edit:
           update: Actualización
         form:
@@ -206,8 +207,8 @@ gl:
           not_published: Non publicado
           private: Privado
           promoted:
-            'false': 'No'
-            'true': 'Yes'
+            'false': 'False'
+            'true': 'True'
           public: Público
           published: Publicado
         new:
@@ -258,11 +259,29 @@ gl:
           email_outro: Recibiches esta notificación porque estás seguindo %{participatory_space_title}. Podes deixar de recibir notificacións seguindo a ligazón anterior.
           email_subject: Unha actualización a %{participatory_space_title}
           notification_title: As datas para o <a href="%{resource_path}">%{resource_title}</a> paso en <a href="%{participatory_space_url}">%{participatory_space_title}</a> foron actualizadas.
+    help:
+      participatory_spaces:
+        participatory_processes:
+          contextual: "<p>A <strong>proceso de participación</strong> é unha secuencia de actividades de participación (por exemplo, primeiro o recheo dunha enquisa, a continuación, facendo propostas, discutindo los cara a cara ou virtuais reunións, e, finalmente, privilexiando a eles) co obxectivo de establecer e de tomar unha decisión sobre un tema específico.</p> <p>exemplos de procesos participativos son: un proceso de elección dos membros do comité (onde se presentan as candidaturas, despois debatidas e, finalmente, unha candidatura escolleita), orzamentos participativos (onde se formulan propostas, valoradas económicamente e votan co diñeiro dispoñible). un proceso de planificación estratéxica, a redacción colaborativa dunha regulación ou norma, o deseño dun espazo urbano ou a elaboración dun plan de política pública.</p>\n"
+          page: "<p>A <strong>proceso de participación</strong> é unha secuencia de actividades de participación (por exemplo, primeiro o recheo dunha enquisa, a continuación, facendo propostas, discutindo los cara a cara ou virtuais reunións, e, finalmente, privilexiando a eles) co obxectivo de establecer e de tomar unha decisión sobre un tema específico.</p> <p>exemplos de procesos participativos son: un proceso de elección dos membros do comité (onde se presentan as candidaturas, despois debatidas e, finalmente, unha candidatura escolleita), orzamentos participativos (onde se formulan propostas, valoradas económicamente e votan co diñeiro dispoñible). un proceso de planificación estratéxica, a redacción colaborativa dunha regulación ou norma, o deseño dun espazo urbano ou a elaboración dun plan de política pública.</p>\n"
+          title: "¿Que é un proceso participativo?"
     menu:
       processes: Procesos
+    metrics:
+      participatory_processes:
+        description: Número de procesos participativos nesta organización
+        object: procesos participativos
+        title: Procesos participativos
+    pages:
+      participatory_space:
+        metrics:
+          headline: Headline
+          link: Link
     participatory_process_groups:
       show:
-        group_participatory_processes: Procesos para %{group}
+        group_participatory_processes:
+          one: 1 procesos para %{group}
+          other: "%{count} procesos para %{group}"
         title: Grupos de procesos participativos
     participatory_process_steps:
       index:
@@ -270,33 +289,66 @@ gl:
         title: Pasos de proceso participativo
     participatory_processes:
       admin:
+        content_blocks:
+          highlighted_processes:
+            max_results: Cantidade máxima de elementos para mostrar
         participatory_process_copies:
           form:
             slug_help: 'As babosas de URL úsanse para xerar os URL que apuntan a este proceso. Só acepta letras, números e guións, e debe comezar cunha letra. Exemplo: %{url}'
+        participatory_process_steps:
+          form:
+            cta_path_help: 'Use aquí rutas parciais, non URL completo. Acepta letras, números, guións e barras, e debe comezar cunha letra. Se non está establecido, non se mostrará o botón. Exemplo: %{url}'
+            cta_text_help: Se non está establecido, non se mostrará o botón.
         participatory_processes:
           form:
             announcement_help: O texto que introduce aquí será mostrado ao usuario debaixo da información do proceso.
             slug_help: 'As babosas de URL úsanse para xerar os URL que apuntan a este proceso. Só acepta letras, números e guións, e debe comezar cunha letra. Exemplo: %{url}'
+      content_blocks:
+        highlighted_processes:
+          name: Procesos destacados
       index:
         title: Procesos participativos
-      order_by_processes:
-        active: Activo
-        all: Todo
-        past: Pasado
-        upcoming: Próximos
+      last_activity:
+        new_participatory_process: Novo proceso participativo
       pages:
         home:
           highlighted_processes:
             active_processes: Procesos activos
             active_step: Paso activo
+            more_information: Máis información
+            participate: Participar
             see_all_processes: Ver todos os procesos
       participatory_process_groups:
         none: Nada
       participatory_processes:
+        filters:
+          counters:
+            active:
+              one: 1 proceso activo
+              other: "%{count} procesos activos"
+            all:
+              one: 1 proceso
+              other: "%{count} procesos"
+            past:
+              one: 1 proceso pasado
+              other: "%{count} procesos pasados"
+            upcoming:
+              one: 1 proceso seguinte
+              other: "%{count} próximos procesos"
+          explanations:
+            no_active: Non hai procesos activos
+            no_active_nor_upcoming: Non hai procesos activos nin futuros
+            no_active_nor_upcoming_callout: Non hai procesos activos nin próximos. Aquí tes unha lista dos últimos.
+          names:
+            active: Activo
+            all: Todo
+            past: Pasado
+            upcoming: Próximos
+          see: Ver
         index:
           loading: Cargando resultados ...
       show:
-        developer_group: Grupo de desenvolvedores
+        developer_group: Grupo promotor
         end_date: Data de finalización
         local_area: Área de organización
         participatory_scope: O que se decide
@@ -335,10 +387,6 @@ gl:
       participatory_processes:
         index:
           promoted_processes: Procesos destacados
-        order_by_processes:
-          processes:
-            one: Proceso %{count}
-            other: Procesos %{count}
         participatory_process:
           active_step: 'Paso actual:'
           take_part: Tomar parte en
@@ -346,9 +394,8 @@ gl:
           active_step: 'Paso actual:'
           more_info: Máis información
           take_part: Tomar parte en
-      process_header:
-        process_menu_item: O proceso
-        unfold: Despregar
       process_header_steps:
         step: Paso %{current} de %{total}
         view_steps: Ver pasos
+      process_navigation:
+        process_menu_item: O proceso

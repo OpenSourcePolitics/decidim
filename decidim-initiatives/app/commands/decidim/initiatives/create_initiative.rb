@@ -23,6 +23,7 @@ module Decidim
       # Returns nothing.
       def call
         return broadcast(:invalid) if form.invalid?
+
         initiative = create_initiative
 
         if initiative.persisted?
@@ -95,7 +96,7 @@ module Decidim
           event: "decidim.events.initiatives.initiative_created",
           event_class: Decidim::Initiatives::CreateInitiativeEvent,
           resource: initiative,
-          recipient_ids: initiative.author.followers.pluck(:id)
+          followers: initiative.author.followers
         )
       end
 

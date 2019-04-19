@@ -11,36 +11,37 @@ FactoryBot.define do
   end
 
   factory :participatory_process, class: "Decidim::ParticipatoryProcess" do
-    title { Decidim::Faker::Localized.sentence(3) }
+    title { generate_localized_title }
     slug { generate(:participatory_process_slug) }
-    subtitle { Decidim::Faker::Localized.sentence(1) }
-    short_description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(2) } }
-    description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(4) } }
+    subtitle { generate_localized_title }
+    short_description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
+    description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
     hero_image { Decidim::Dev.test_file("city.jpeg", "image/jpeg") }
     banner_image { Decidim::Dev.test_file("city2.jpeg", "image/jpeg") }
     published_at { Time.current }
     organization
     meta_scope { Decidim::Faker::Localized.word }
-    developer_group { Decidim::Faker::Localized.sentence(1) }
-    local_area { Decidim::Faker::Localized.sentence(2) }
-    target { Decidim::Faker::Localized.sentence(3) }
-    participatory_scope { Decidim::Faker::Localized.sentence(1) }
-    participatory_structure { Decidim::Faker::Localized.sentence(2) }
-    show_statistics true
-    private_space false
-    start_date { Time.current }
-    end_date { 2.months.from_now.at_midnight }
+    developer_group { generate_localized_title }
+    local_area { generate_localized_title }
+    target { generate_localized_title }
+    participatory_scope { generate_localized_title }
+    participatory_structure { generate_localized_title }
+    announcement { generate_localized_title }
+    show_statistics { true }
+    private_space { false }
+    start_date { Date.current }
+    end_date { 2.months.from_now }
 
     trait :private_space do
-      private_space true
+      private_space { true }
     end
 
     trait :promoted do
-      promoted true
+      promoted { true }
     end
 
     trait :unpublished do
-      published_at nil
+      published_at { nil }
     end
 
     trait :published do
@@ -48,7 +49,7 @@ FactoryBot.define do
     end
 
     trait :with_steps do
-      transient { current_step_ends 1.month.from_now }
+      transient { current_step_ends { 1.month.from_now } }
 
       after(:create) do |participatory_process, evaluator|
         create(:participatory_process_step,
@@ -60,6 +61,11 @@ FactoryBot.define do
       end
     end
 
+    trait :active do
+      start_date { 2.weeks.ago }
+      end_date { 1.week.from_now }
+    end
+
     trait :past do
       start_date { 2.weeks.ago }
       end_date { 1.week.ago }
@@ -69,11 +75,16 @@ FactoryBot.define do
       start_date { 1.week.from_now }
       end_date { 2.weeks.from_now }
     end
+
+    trait :with_scope do
+      scopes_enabled { true }
+      scope { create :scope, organization: organization }
+    end
   end
 
   factory :participatory_process_group, class: "Decidim::ParticipatoryProcessGroup" do
-    name { Decidim::Faker::Localized.sentence(3) }
-    description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(4) } }
+    name { generate_localized_title }
+    description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
     hero_image { Decidim::Dev.test_file("city.jpeg", "image/jpeg") }
     organization
 
@@ -85,11 +96,11 @@ FactoryBot.define do
   end
 
   factory :participatory_process_step, class: "Decidim::ParticipatoryProcessStep" do
-    title { Decidim::Faker::Localized.sentence(3) }
-    description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(4) } }
-    start_date { 1.month.ago.at_midnight }
-    end_date { 2.months.from_now.at_midnight }
-    position nil
+    title { generate_localized_title }
+    description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
+    start_date { 1.month.ago }
+    end_date { 2.months.from_now }
+    position { nil }
     participatory_process
 
     after(:create) do |step, _evaluator|
@@ -98,11 +109,11 @@ FactoryBot.define do
     end
 
     trait :active do
-      active true
+      active { true }
     end
 
-    trait :action_btn do
-      action_btn_text { Decidim::Faker::Localized.word }
+    trait :cta do
+      cta_text { Decidim::Faker::Localized.word }
     end
   end
 
@@ -154,6 +165,6 @@ FactoryBot.define do
   factory :participatory_process_user_role, class: "Decidim::ParticipatoryProcessUserRole" do
     user
     participatory_process { create :participatory_process, organization: user.organization }
-    role "admin"
+    role { "admin" }
   end
 end

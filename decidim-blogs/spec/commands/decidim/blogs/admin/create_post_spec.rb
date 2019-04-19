@@ -21,8 +21,7 @@ module Decidim
             invalid?: invalid,
             title: { en: title },
             body: { en: body },
-            current_component: current_component,
-            decidim_author_id: current_user.id
+            current_component: current_component
           )
         end
 
@@ -53,7 +52,7 @@ module Decidim
 
           it "sets the author" do
             subject.call
-            expect(post.decidim_author_id).to eq current_user.id
+            expect(post.author).to eq current_user
           end
 
           it "sets the component" do
@@ -75,10 +74,23 @@ module Decidim
                 event: "decidim.events.blogs.post_created",
                 event_class: Decidim::Blogs::CreatePostEvent,
                 resource: kind_of(Post),
-                recipient_ids: [follower.id]
+                followers: [follower]
               )
 
             subject.call
+          end
+
+          it "traces the action", versioning: true do
+            expect(Decidim.traceability)
+              .to receive(:create!)
+              .with(Post, current_user, kind_of(Hash), visibility: "all")
+              .and_call_original
+
+            expect { subject.call }.to change(Decidim::ActionLog, :count)
+
+            action_log = Decidim::ActionLog.last
+            expect(action_log.version).to be_present
+            expect(action_log.version.event).to eq "create"
           end
         end
       end

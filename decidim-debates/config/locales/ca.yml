@@ -61,8 +61,8 @@ ca:
             invalid: Hi ha hagut un problema mentre s'actualitza aquest debat.
             success: El debat s'ha actualitzat correctament.
         exports:
-          comments: comentaris
-          debates: debats
+          comments: comments
+          debates: debates
         models:
           debate:
             name: Debat
@@ -104,6 +104,8 @@ ca:
           close_window: Tanca la finestra
           share: Compartir
           share_link: Comparteix l'enllaç
+      last_activity:
+        new_debate_at_html: "<span>Nou debat a %{link}</span>"
       models:
         debate:
           fields:
@@ -115,15 +117,19 @@ ca:
       debates:
         create_debate_event:
           space_followers:
-            email_intro: 'S''ha creat un nou debat a l''espai participatiu %{space_title}, fes-hi un cop d''ull i contribueix:'
+            email_intro: |-
+              Hola,
+              S'ha creat un nou debat "%{resource_title}" a l'espai participatiu %{space_title}, fes-hi un cop d'ull i contribueix:
             email_outro: Has rebut aquesta notificació perquè estàs seguint %{space_title}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
-            email_subject: Nou debat a %{space_title}
+            email_subject: Nou debat "%{resource_title}" el dia %{space_title}
             notification_title: El debat <a href="%{resource_path}">%{resource_title}</a> s'ha creat a <a href="%{space_path}">%{space_title}</a>.
           user_followers:
-            email_intro: "%{author_name} %{author_nickname}, a qui segueixes, ha creat un nou debat. Revisa'l i contribueix:"
+            email_intro: |-
+              Hola,
+              %{author_name} %{author_nickname}, a qui segueixes, ha creat un nou debat "%{resource_title}". Consulta i contribueix:
             email_outro: Has rebut aquesta notificació perquè estàs seguint %{author_nickname}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
-            email_subject: Nou debat d'en/na %{author_nickname}
-            notification_title: En/na <a href="%{author_path}">%{author_name} %{author_nickname}</a> ha creat el debat <a href="%{resource_path}">%{resource_title}</a>.
+            email_subject: Nou debat "%{resource_title}" de %{author_nickname}
+            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> ha creat el debat <a href="%{resource_path}">%{resource_title}</a>.
         creation_disabled:
           email_intro: 'La creació de debats ja no està activa a %{participatory_space_title}. Encara pots participar en debats oberts d''aquesta pàgina:'
           email_outro: Has rebut aquesta notificació perquè estàs seguint l'espai %{participatory_space_title}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
@@ -134,3 +140,20 @@ ca:
           email_outro: Has rebut aquesta notificació perquè estàs seguint %{participatory_space_title}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
           email_subject: Els debats ja estan disponibles a %{participatory_space_title}
           notification_title: Ja pots començar <a href="%{resource_path}">nous debats</a> a <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+    gamification:
+      badges:
+        commented_debates:
+          conditions:
+          - Tria un debat obert per participar
+          description: Aquest distintiu es desbloqueja quan participes activament en els diferents debats deixant els teus comentaris.
+          description_another: Aquest usuari ha participat en %{score} debats.
+          description_own: Has participat en %{score} debats.
+          name: Debats
+          next_level_in: Participa en %{score} debats més per arribar al següent nivell!
+          unearned_another: Aquest usuari encara no ha participat en cap debat.
+          unearned_own: No has participat a cap debat encara.
+    metrics:
+      debates:
+        description: Nombre de debats creats
+        object: debats
+        title: Debats

@@ -34,6 +34,7 @@ module Decidim
 
     private
 
+    # This is done since we only allow one level of subcategories.
     def forbid_deep_nesting
       return unless parent
       return if parent.parent.blank?
@@ -43,6 +44,7 @@ module Decidim
 
     def subcategories_have_same_participatory_space
       return unless parent
+
       self.participatory_space = parent.participatory_space
     end
   end

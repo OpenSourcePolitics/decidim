@@ -68,15 +68,6 @@ module Decidim
           end
         end
 
-        def destroy
-          enforce_permission_to :destroy, :process, process: current_participatory_process
-          current_participatory_process.destroy!
-
-          flash[:notice] = I18n.t("participatory_processes.destroy.success", scope: "decidim.admin")
-
-          redirect_to participatory_processes_path
-        end
-
         def copy
           enforce_permission_to :create, Decidim::ParticipatoryProcess
         end
@@ -89,6 +80,7 @@ module Decidim
 
         def participatory_processes
           return @participatory_processes = collection if params.empty?
+
           @participatory_processes = query.result.page(params[:page]).per(15)
         end
 

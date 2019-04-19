@@ -5,6 +5,8 @@ require "spec_helper"
 describe Decidim::AuthorCell, type: :cell do
   subject { my_cell.call }
 
+  controller Decidim::PagesController
+
   let(:my_cell) { cell("decidim/author", model) }
   let!(:organization) { create(:organization) }
   let(:user) { create(:user, :confirmed, organization: organization) }
@@ -12,10 +14,6 @@ describe Decidim::AuthorCell, type: :cell do
   let(:model) { Decidim::UserPresenter.new(user) }
 
   context "when rendering a user" do
-    before do
-      allow(my_cell).to receive(:user_signed_in?).and_return(false)
-    end
-
     it "renders a User author card" do
       expect(subject).to have_css(".author-data")
     end

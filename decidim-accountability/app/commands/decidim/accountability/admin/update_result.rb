@@ -26,6 +26,7 @@ module Decidim
             link_proposals
             link_meetings
             link_projects
+            send_notifications if should_notify_followers?
           end
 
           broadcast(:ok)
@@ -39,17 +40,17 @@ module Decidim
           Decidim.traceability.update!(
             result,
             form.current_user,
-            scope:                            @form.scope,
-            category:                         @form.category,
-            parent_id:                        @form.parent_id,
-            title:                            @form.title,
-            description:                      @form.description,
-            start_date:                       @form.start_date,
-            end_date:                         @form.end_date,
-            progress:                         @form.progress,
+            scope: @form.scope,
+            category: @form.category,
+            parent_id: @form.parent_id,
+            title: @form.title,
+            description: @form.description,
+            start_date: @form.start_date,
+            end_date: @form.end_date,
+            progress: @form.progress,
             decidim_accountability_status_id: @form.decidim_accountability_status_id,
-            external_id:                      @form.external_id.presence,
-            weight:                           @form.weight
+            external_id: @form.external_id.presence,
+            weight: @form.weight
           )
         end
 
@@ -81,6 +82,26 @@ module Decidim
 
         def link_meetings
           result.link_resources(meetings, "meetings_through_proposals")
+        end
+
+        def send_notifications
+          result.linked_resources(:proposals, "included_proposals").each do |proposal|
+            Decidim::EventsManager.publish(
+              event: "decidim.events.accountability.result_progress_updated",
+              event_class: Decidim::Accountability::ResultProgressUpdatedEvent,
+              resource: result,
+              affected_users: proposal.notifiable_identities,
+              followers: proposal.followers - proposal.notifiable_identities,
+              extra: {
+                progress: result.progress,
+                proposal_id: proposal.id
+              }
+            )
+          end
+        end
+
+        def should_notify_followers?
+          result.previous_changes["progress"].present?
         end
       end
     end

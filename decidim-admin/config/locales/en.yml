@@ -11,11 +11,10 @@ en:
         organization: Organization
         plural: Plural
       attachment:
-        attachment_collection_id: Collection
+        attachment_collection_id: Folder
         description: Description
         file: File
         title: Title
-        weight: Rang d'affichage
       attachment_collection:
         description: Description
         name: Name
@@ -38,6 +37,8 @@ en:
         organization_url: Organization URL
         redirect_uri: Redirect URI
       organization:
+        alert_color: Alert
+        badges_enabled: Enable badges
         cta_button_path: Call To Action button path
         cta_button_text: Call To Action button text
         default_locale: Default locale
@@ -54,7 +55,6 @@ en:
         highlighted_content_banner_image: Image
         highlighted_content_banner_short_description: Short description
         highlighted_content_banner_title: Title
-        homepage_image: Homepage image
         instagram_handler: Instagram handler
         logo: Logo
         name: Name
@@ -64,11 +64,15 @@ en:
         omnipresent_banner_short_description: Short description
         omnipresent_banner_title: Title
         omnipresent_banner_url: URL
+        primary_color: Primary
         reference_prefix: Reference prefix
+        secondary_color: Secondary
         show_statistics: Show statistics
+        success_color: Success
         tos_version: Terms of service version
         twitter_handler: Twitter handler
-        welcome_text: Welcome text
+        user_groups_enabled: Enable user groups
+        warning_color: Warning
         youtube_handler: YouTube handler
       scope:
         code: Code
@@ -85,44 +89,31 @@ en:
         changed_notably: There have been noticeable changes.
         content: Content
         organization: Organization
+        show_in_footer: Show in the footer
         slug: URL slug
         title: Title
+        weight: Weight
+      static_page_topic:
+        description: Description
+        show_in_footer: Show in the footer
+        title: Title
+        weight: Weight
+      user_group_csv_verification:
+        file: File
     errors:
       models:
         oauth_application:
           attributes:
             redirect_uri:
               must_be_ssl: The redirect URI must be a SSL URI
+        organization:
+          attributes:
+            official_img_footer:
+              allowed_file_content_types: Invalid image file
+            official_img_header:
+              allowed_file_content_types: Invalid image file
   activerecord:
     attributes:
-      decidim/participatory_process:
-        banner_image: Banner image
-        description: Description
-        developer_group: Developer group
-        domain: Domain
-        end_date: End date
-        hashtag: Hashtag
-        hero_image: Home image
-        local_area: Local area
-        meta_scope: Scope metadata
-        participatory_scope: Participatory scope
-        participatory_structure: Participatory structure
-        promoted: Promoted
-        scope: Scope
-        short_description: Short description
-        slug: URL slug
-        start_date: Start date
-        subtitle: Subtitle
-        target: Target
-        title: Title
-      decidim/participatory_process_group:
-        description: Description
-        hero_image: Home image
-        name: Name
-        participatory_processes: Participatory processes
-      decidim/participatory_process_step:
-        end_date: End date
-        start_date: Start date
       decidim/static_page:
         content: Content
         slug: URL slug
@@ -134,10 +125,7 @@ en:
         organization_name: Organization name
         organization_url: Organization URL
         redirect_uri: Redirect URI
-        site: Site
-  date:
-    formats:
-      datepicker: "%m/%d/%Y"
+        site: Website
   decidim:
     admin:
       actions:
@@ -181,22 +169,22 @@ en:
           success: Area updated successfully
       attachment_collections:
         create:
-          error: There was an error creating a new collection.
-          success: Collection created successfully.
+          error: There was an error creating a new folder.
+          success: Folder created successfully.
         destroy:
-          success: Collection destroyed successfully.
+          success: Folder destroyed successfully.
         edit:
-          title: Edit collection
+          title: Edit folder
           update: Update
         index:
-          attachment_collection_used: This collection cannot be removed because it is in use.
-          attachment_collections_title: Attachment collections
+          attachment_collection_used: This folder cannot be removed because it is in use.
+          attachment_collections_title: Attachment folders
         new:
           create: Create
-          title: New collection
+          title: New folder
         update:
-          error: There was an error when updating this collection.
-          success: Collection updated successfully.
+          error: There was an error when updating this folder.
+          success: Folder updated successfully.
       attachments:
         create:
           error: There was an error creating a new attachment.
@@ -281,6 +269,11 @@ en:
       exports:
         export_as: "%{name} as %{export_format}"
         notice: Your export is currently in progress. You'll receive an email when it's complete.
+      help_sections:
+        error: There's been an error updating the help sections
+        form:
+          save: Save
+        success: Help sections updated successfully
       impersonatable_users:
         index:
           filter:
@@ -339,11 +332,13 @@ en:
         areas: Areas
         configuration: Configuration
         dashboard: Dashboard
+        help_sections: Help sections
+        homepage: Homepage
         impersonations: Impersonations
         navbar_links: Navbar links
         newsletters: Newsletters
         oauth_applications: OAuth applications
-        officializations: Officializations
+        participants: Participants
         scope_types: Scope types
         scopes: Scopes
         settings: Settings
@@ -361,13 +356,13 @@ en:
             plural: Plural
         attachment:
           fields:
-            collection: Collection
+            collection: Folder
             content_type: Type
             file_size: Size
             title: Title
           name: Attachment
         attachment_collection:
-          name: Collection
+          name: Folder
         category:
           name: Category
         impersonation_log:
@@ -555,18 +550,27 @@ en:
         edit:
           update: Update
         form:
+          colors_title: Organization colors
           cta_button_path_help: 'You can overwrite where the Call To Action button in the homepage links to. Use partial paths, not full URLs here. Accepts letters, numbers, dashes and slashes, and must start with a letter. The Call To Action button is shown in the homepage between the welcome text and the description. Example: %{url}'
           cta_button_text_help: You can overwrite the Call To Action button text in the homepage for each available language in your organization. If not set, the default value will be used. The Call To Action button is shown in the homepage between the welcome text and the description.
           header_snippets_help: Use this field to add things to the HTML head. The most common use is to integrate third-party services that require some extra JavaScript or CSS. Also, you can use it to add extra meta tags to the HTML. Note that this will only be rendered in public pages, not in the admin section.
           homepage_appearance_title: Edit homepage appearance
           homepage_highlighted_content_banner_title: Highligted content banner
           layout_appearance_title: Edit layout appearance
-          omnipresent_banner_appearance_title: Edit omnipresent
+          omnipresent_banner_appearance_title: Edit omnipresent banner
+      organization_homepage:
+        edit:
+          active_content_blocks: Active content blocks
+          inactive_content_blocks: Inactive content blocks
+      organization_homepage_content_blocks:
+        edit:
+          update: Update
       participatory_space_private_users:
         create:
           error: There was an error adding a private user for this participatory space.
           success: Participatory space private user access created successfully.
         destroy:
+          error: There was an error deleting a private user for this participatory space.
           success: Participatory space private user access destroyed successfully.
         index:
           title: Participatory space private user
@@ -604,6 +608,21 @@ en:
         update:
           error: There was an error when updating this scope.
           success: Scope updated successfully
+      static_page_topics:
+        create:
+          error: There was an error creating a new topic.
+          success: Topic created successfully.
+        destroy:
+          success: Topic successfully destroyed
+        edit:
+          title: Edit topic
+          update: Update topic
+        new:
+          create: Create topic
+          title: New topic
+        update:
+          error: There was an error when updating this topic.
+          success: Topic updated successfully
       static_pages:
         actions:
           view: View public page
@@ -616,11 +635,18 @@ en:
           changed_notably_help: If checked, users will be notified to accept the new terms and conditions.
           title: Edit page
           update: Update
+        form:
+          none: None
         index:
           last_notable_change: Last notable change
         new:
-          create: Create
+          create: Create page
           title: New page
+        topic:
+          destroy: Remove topic
+          edit: Edit topic
+          empty: There's no page under this topic
+          without_topic: Pages without topic
         update:
           error: There was an error when updating this page.
           success: Page updated successfully
@@ -630,11 +656,11 @@ en:
         areas: Areas
         authorization_workflows: Verification methods
         dashboard: Dashboard
-        impersonatable_users: Impersonatable users
-        impersonations: Impersonations
+        impersonatable_users: Manageable users
+        impersonations: Users management
         managed_users: Managed users
         navbar_links: Navbar links
-        officializations: Officializations
+        participants: Users
         scope_types: Scope types
         scopes: Scopes
         static_pages: Pages
@@ -643,6 +669,9 @@ en:
       user:
         new: New user
       user_group:
+        csv_verify:
+          invalid: There was an error reading the CSV file.
+          success: CSV file uploaded successfully, we're verifying the user groups matching the criteria. This might take a while.
         reject:
           invalid: There was an error when rejecting this user group.
           success: User group rejected successfully
@@ -662,6 +691,12 @@ en:
             pending: Pending
             rejected: Rejected
             verified: Verified
+          verify_via_csv: Verify via CSV
+      user_groups_csv_verifications:
+        new:
+          explanation: Upload your CSV file. It must have the official emails of the user groups in your organization in the first column of the file, without headers. Only user groups that have confirmed their email and that have an email appearing in the CSV file will be validated.
+          title: Upload your CSV file
+          upload: Upload
       users:
         create:
           error: There was an error when inviting this user.
@@ -676,6 +711,7 @@ en:
         new:
           create: Invite
           title: Invite user as administrator
+      view_public_page: View public page
     forms:
       errors:
         impersonate_user:
@@ -686,12 +722,16 @@ en:
         hide: Hide
         not_hidden: Not hidden
         title: Actions
+        unhide: Unhide
         unreport: Unreport
       admin:
         reportable:
           hide:
             invalid: There's been a problem hiding the resource.
             success: Resource successfully hidden.
+          unhide:
+            invalid: There's been a problem unhiding the resource.
+            success: Resource successfully unhidden.
           unreport:
             invalid: There's been a problem unreporting the resource.
             success: Resource successfully unreported.
@@ -716,7 +756,3 @@ en:
           title: Settings
         users:
           title: Users
-  time:
-    formats:
-      datepicker: "%m/%d/%Y"
-      timepicker: "%m/%d/%Y %H:%M"

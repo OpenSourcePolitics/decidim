@@ -108,6 +108,8 @@ pl:
           close_window: Zamknij okno
           share: Dzielić
           share_link: Udostępnij link
+      last_activity:
+        new_debate_at_html: "<span>Nowa debata na %{link}</span>"
       models:
         debate:
           fields:
@@ -119,15 +121,19 @@ pl:
       debates:
         create_debate_event:
           space_followers:
-            email_intro: 'Cześć, Nowa debata została utworzona na %{space_title} obszarze partycypacyjnym, sprawdź i pomóż:'
+            email_intro: |-
+              Cześć,
+              Nowa debata "%{resource_title}" została utworzona na %{space_title} przestrzeni uczestniczącej, sprawdź ją i przyczyń się do:
             email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{space_title} przestrzeń partycypacyjną. Możesz przestać otrzymywać powiadomienia po poprzednim linku.
-            email_subject: Nowa debata na temat %{space_title}
+            email_subject: Nowa debata "%{resource_title}" na %{space_title}
             notification_title: Debata <a href="%{resource_path}">%{resource_title}</a> została utworzona na <a href="%{space_path}">%{space_title}</a>.
           user_followers:
-            email_intro: 'Witaj, %{author_name} %{author_nickname}, którego obserwujesz, stworzył nową debatę, sprawdź i pomóż:'
+            email_intro: |-
+              Witaj,
+              %{author_name} %{author_nickname}, którego obserwujesz, stworzył nową debatę "%{resource_title}". Sprawdź i pomóż:
             email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{author_nickname}. Możesz przestać otrzymywać powiadomienia po poprzednim linku.
-            email_subject: Nowa debata %{author_nickname}
-            notification_title: Debata <a href="%{resource_path}">%{resource_title}</a> została utworzona przez <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+            email_subject: Nowa debata "%{resource_title}" o %{author_nickname}
+            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> utworzyło debatę <a href="%{resource_path}">%{resource_title}</a>.
         creation_disabled:
           email_intro: 'Tworzenie debaty nie jest już aktywne w %{participatory_space_title}. Nadal możesz uczestniczyć w otwartych debatach na tej stronie:'
           email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{participatory_space_title}. Możesz przestać otrzymywać powiadomienia po poprzednim linku.
@@ -138,3 +144,20 @@ pl:
           email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{participatory_space_title}. Możesz przestać otrzymywać powiadomienia po poprzednim linku.
           email_subject: Debaty są teraz dostępne w %{participatory_space_title}
           notification_title: Możesz teraz uruchomić <a href="%{resource_path}">nowych debat</a> w <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+    gamification:
+      badges:
+        commented_debates:
+          conditions:
+          - Wybierz otwartą debatę, w której możesz wziąć udział
+          description: Ta odznaka jest przyznawana, gdy aktywnie uczestniczysz w różnych debatach, pozostawiając komentarze.
+          description_another: Ten użytkownik uczestniczył w %{score} debatach.
+          description_own: Brałeś udział w %{score} debatach.
+          name: Debaty
+          next_level_in: Weź udział w %{score} kolejnych debatach, aby przejść do następnego poziomu!
+          unearned_another: Ten użytkownik nie uczestniczył jeszcze w żadnej debacie.
+          unearned_own: Brałeś już udział w jakichkolwiek debatach.
+    metrics:
+      debates:
+        description: Liczba utworzonych debat
+        object: debaty
+        title: Debaty

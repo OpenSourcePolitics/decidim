@@ -35,17 +35,9 @@ shared_examples "manage process steps examples" do
       ca: "Descripció més llarga"
     )
 
-    fill_in_i18n(
-      :participatory_process_step_action_btn_text,
-      "#participatory_process_step-action_btn_text-tabs",
-      en: "SEE",
-      es: "VEO",
-      ca: "VEURE"
-    )
-
-    page.execute_script("$('#date_field_participatory_process_step_start_date').focus()")
+    page.execute_script("$('#participatory_process_step_start_date').focus()")
     page.find(".datepicker-dropdown .day", text: "12").click
-    page.execute_script("$('#date_field_participatory_process_step_end_date').focus()")
+    page.execute_script("$('#participatory_process_step_end_date').focus()")
     page.find(".datepicker-dropdown .day", text: "22").click
 
     within ".new_participatory_process_step" do
@@ -78,8 +70,8 @@ shared_examples "manage process steps examples" do
       )
 
       fill_in_i18n(
-        :participatory_process_step_action_btn_text,
-        "#participatory_process_step-action_btn_text-tabs",
+        :participatory_process_step_cta_text,
+        "#participatory_process_step-cta_text-tabs",
         en: "My new button",
         es: "Mi nuevo impulso",
         ca: "El meu nou botó"
@@ -105,7 +97,7 @@ shared_examples "manage process steps examples" do
 
     it "deletes a participatory_process_step" do
       within find("tr", text: translated(process_step2.title)) do
-        accept_confirm { click_link "Destroy" }
+        accept_confirm { click_link "Delete" }
       end
 
       expect(page).to have_admin_callout("successfully")

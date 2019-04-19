@@ -18,10 +18,15 @@ describe "Admin manages officializations", type: :system do
     let!(:officialized) { create(:user, :officialized, organization: organization) }
 
     let!(:not_officialized) { create(:user, organization: organization) }
+    let!(:deleted) do
+      user = create(:user, organization: organization)
+      result = Decidim::DestroyAccount.call(user, OpenStruct.new(valid?: true, delete_reason: "Testing"))
+      result["ok"]
+    end
     let!(:external_not_officialized) { create(:user) }
 
     before do
-      click_link "Officializations"
+      click_link "Participants"
     end
 
     it "shows each user and its officialization status" do
@@ -40,7 +45,7 @@ describe "Admin manages officializations", type: :system do
       let!(:user) { create(:user, organization: organization) }
 
       before do
-        click_link "Officializations"
+        click_link "Participants"
 
         within "tr[data-user-id=\"#{user.id}\"]" do
           click_link "Officialize"
@@ -86,7 +91,7 @@ describe "Admin manages officializations", type: :system do
       end
 
       before do
-        click_link "Officializations"
+        click_link "Participants"
 
         within "tr[data-user-id=\"#{user.id}\"]" do
           click_link "Reofficialize"
@@ -116,7 +121,7 @@ describe "Admin manages officializations", type: :system do
     let!(:user) { create(:user, :officialized, organization: organization) }
 
     before do
-      click_link "Officializations"
+      click_link "Participants"
 
       within "tr[data-user-id=\"#{user.id}\"]" do
         click_link "Unofficialize"
@@ -136,7 +141,7 @@ describe "Admin manages officializations", type: :system do
     let!(:user) { create(:user, organization: organization) }
 
     before do
-      click_link "Officializations"
+      click_link "Participants"
     end
 
     it "redirect to conversation path" do
@@ -151,14 +156,17 @@ describe "Admin manages officializations", type: :system do
     let!(:user) { create(:user, organization: organization) }
 
     before do
-      click_link "Officializations"
+      click_link "Participants"
     end
 
     it "redirect to user profile page" do
       within "tr[data-user-id=\"#{user.id}\"]" do
         click_link user.name
       end
-      expect(page).to have_current_path decidim.profile_path(user.nickname)
+
+      within ".profile--sidebar" do
+        expect(page).to have_content(user.name)
+      end
     end
   end
 
@@ -166,14 +174,17 @@ describe "Admin manages officializations", type: :system do
     let!(:user) { create(:user, organization: organization) }
 
     before do
-      click_link "Officializations"
+      click_link "Participants"
     end
 
     it "redirect to user profile page" do
       within "tr[data-user-id=\"#{user.id}\"]" do
         click_link user.nickname
       end
-      expect(page).to have_current_path decidim.profile_path(user.nickname)
+
+      within ".profile--sidebar" do
+        expect(page).to have_content(user.name)
+      end
     end
   end
 end

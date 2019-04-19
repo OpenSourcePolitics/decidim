@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "spec_helper"
+require "decidim/core/test/shared_examples/has_contextual_help"
 
 describe "Participatory Processes", type: :system do
   let(:organization) { create(:organization) }
@@ -75,10 +76,19 @@ describe "Participatory Processes", type: :system do
     let!(:unpublished_process) { create(:participatory_process, :unpublished, organization: organization) }
     let!(:past_process) { create :participatory_process, :past, organization: organization }
     let!(:upcoming_process) { create :participatory_process, :upcoming, organization: organization }
+    let!(:grouped_process) { create :participatory_process, organization: organization }
+    let!(:group) { create :participatory_process_group, participatory_processes: [grouped_process], organization: organization }
 
     before do
       visit decidim_participatory_processes.participatory_processes_path
     end
+
+    it_behaves_like "shows contextual help" do
+      let(:index_path) { decidim_participatory_processes.participatory_processes_path }
+      let(:manifest_name) { :participatory_processes }
+    end
+
+    it_behaves_like "editable content for admins"
 
     context "and accessing from the homepage" do
       it "the menu link is not shown" do
@@ -103,16 +113,18 @@ describe "Participatory Processes", type: :system do
     it "lists the active processes" do
       within "#processes-grid" do
         within "#processes-grid h2" do
-          expect(page).to have_content("2")
+          expect(page).to have_content("3 ACTIVE PROCESSES")
         end
 
         expect(page).to have_content(translated(participatory_process.title, locale: :en))
         expect(page).to have_content(translated(promoted_process.title, locale: :en))
-        expect(page).to have_selector("article.card", count: 2)
+        expect(page).to have_content(translated(group.name, locale: :en))
+        expect(page).to have_selector("article.card", count: 3)
 
         expect(page).to have_no_content(translated(unpublished_process.title, locale: :en))
         expect(page).to have_no_content(translated(past_process.title, locale: :en))
         expect(page).to have_no_content(translated(upcoming_process.title, locale: :en))
+        expect(page).to have_no_content(translated(grouped_process.title, locale: :en))
       end
     end
 
@@ -124,15 +136,9 @@ describe "Participatory Processes", type: :system do
 
     context "and filtering processes" do
       context "and choosing 'active' processes" do
-        before do
-          within ".order-by__tabs" do
-            click_link "Active"
-          end
-        end
-
         it "lists the active processes" do
           within "#processes-grid h2" do
-            expect(page).to have_content("2")
+            expect(page).to have_content("3 ACTIVE PROCESSES")
           end
 
           expect(page).to have_content(translated(participatory_process.title, locale: :en))
@@ -181,7 +187,7 @@ describe "Participatory Processes", type: :system do
 
         it "lists all processes" do
           within "#processes-grid h2" do
-            expect(page).to have_content("4")
+            expect(page).to have_content("5 PROCESSES")
           end
 
           expect(page).to have_content(translated(participatory_process.title, locale: :en))
@@ -235,17 +241,26 @@ describe "Participatory Processes", type: :system do
           end
 
           context "with action button" do
-            let(:action_btn_text) { { en: "SEE", ca: "", es: "" } }
+            let(:cta_text) { { en: "SEE", ca: "SEE", es: "SEE" } }
             let!(:active_step) do
               create(:participatory_process_step,
                      :active,
-                     action_btn_text: action_btn_text,
+                     cta_text: cta_text,
                      participatory_process: promoted_process,
                      title: { en: "Active step", ca: "Fase activa", es: "Fase activa" })
             end
 
+            it "display custom button" do
+              visit decidim_participatory_processes.participatory_processes_path
+              within find("#processes-grid .column", text: translated(promoted_process.title)) do
+                within ".card__footer .card__button" do
+                  expect(page).to have_content("SEE")
+                end
+              end
+            end
+
             context "when action btn is nil" do
-              let(:action_btn_text) { nil }
+              let(:cta_text) { nil }
 
               it "display default button" do
                 visit decidim_participatory_processes.participatory_processes_path
@@ -258,7 +273,7 @@ describe "Participatory Processes", type: :system do
             end
 
             context "when action btn is blank in current locale" do
-              let(:action_btn_text) { { en: "", ca: "HEY!", es: "HEY!" } }
+              let(:cta_text) { { en: "", ca: "HEY!", es: "HEY!" } }
 
               it "display default button" do
                 visit decidim_participatory_processes.participatory_processes_path
@@ -271,7 +286,7 @@ describe "Participatory Processes", type: :system do
             end
 
             context "when action btn is blank in another locale" do
-              let(:action_btn_text) { { en: "HEY!", ca: "", es: "" } }
+              let(:cta_text) { { en: "HEY!", ca: "", es: "" } }
 
               it "display default button" do
                 visit decidim_participatory_processes.participatory_processes_path
@@ -279,15 +294,6 @@ describe "Participatory Processes", type: :system do
                   within ".card__footer .card__button" do
                     expect(page).to have_content("HEY!")
                   end
-                end
-              end
-            end
-
-            it "display custom button" do
-              visit decidim_participatory_processes.participatory_processes_path
-              within find("#processes-grid .column", text: translated(promoted_process.title)) do
-                within ".card__footer .card__button" do
-                  expect(page).to have_content("SEE")
                 end
               end
             end
@@ -305,12 +311,12 @@ describe "Participatory Processes", type: :system do
             end
           end
 
-          context "with action button" do
-            let(:action_btn_text) { { en: "SEE", ca: "SEE", es: "SEE" } }
+          context "with cta button" do
+            let(:cta_text) { { en: "SEE", ca: "SEE", es: "SEE" } }
             let!(:active_step) do
               create(:participatory_process_step,
                      :active,
-                     action_btn_text: action_btn_text,
+                     cta_text: cta_text,
                      participatory_process: promoted_process,
                      title: { en: "Active step", ca: "Fase activa", es: "Fase activa" })
             end
@@ -324,8 +330,8 @@ describe "Participatory Processes", type: :system do
               end
             end
 
-            context "when action btn is nil" do
-              let(:action_btn_text) { nil }
+            context "when cta btn is nil" do
+              let(:cta_text) { nil }
 
               it "display default button" do
                 visit decidim_participatory_processes.participatory_processes_path
@@ -337,8 +343,8 @@ describe "Participatory Processes", type: :system do
               end
             end
 
-            context "when action btn is blank in current locale" do
-              let(:action_btn_text) { { en: "", ca: "HEY!", es: "HEY!" } }
+            context "when cta btn is blank in en" do
+              let(:cta_text) { { en: "", ca: "HEY!", es: "HEY!" } }
 
               it "display default button" do
                 visit decidim_participatory_processes.participatory_processes_path
@@ -350,8 +356,8 @@ describe "Participatory Processes", type: :system do
               end
             end
 
-            context "when action btn is blank in another locale" do
-              let(:action_btn_text) { { en: "HEY!", ca: "", es: "" } }
+            context "when cta btn is blank in ca" do
+              let(:cta_text) { { en: "HEY!", ca: "", es: "" } }
 
               it "display default button" do
                 visit decidim_participatory_processes.participatory_processes_path
@@ -380,8 +386,10 @@ describe "Participatory Processes", type: :system do
       visit decidim_participatory_processes.participatory_process_path(participatory_process)
     end
 
+    it_behaves_like "editable content for admins"
+
     it "shows the details of the given process" do
-      within "div.wrapper" do
+      within "main" do
         expect(page).to have_content(translated(participatory_process.title, locale: :en))
         expect(page).to have_content(translated(participatory_process.subtitle, locale: :en))
         expect(page).to have_content(translated(participatory_process.description, locale: :en))
@@ -421,6 +429,40 @@ describe "Participatory Processes", type: :system do
         end
       end
 
+      context "and organization show_statistics attribute is true" do
+        let(:organization) { create(:organization, show_statistics: true) }
+        let(:metrics) do
+          Decidim.metrics_registry.filtered(highlight: true, scope: "participatory_process").each do |metric_registry|
+            create(:metric, metric_type: metric_registry.metric_name, day: Time.zone.today - 1.week, organization: organization, participatory_space_type: Decidim::ParticipatoryProcess.name, participatory_space_id: participatory_process.id, cumulative: 5, quantity: 2)
+          end
+        end
+
+        before do
+          metrics
+          visit current_path
+        end
+
+        it "shows the metrics charts" do
+          within "#metrics" do
+            expect(page).to have_content(/Participation in figures/i)
+            Decidim.metrics_registry.filtered(highlight: true, scope: "participatory_process").each do |metric_registry|
+              expect(page).to have_css(%(##{metric_registry.metric_name}_chart))
+            end
+          end
+        end
+
+        it "check link its present" do
+          within "#metrics" do
+            expect(page).to have_link("Show all statistics")
+          end
+        end
+
+        it "click link" do
+          click_link("Show all statistics")
+          have_current_path(decidim_participatory_processes.statistics_participatory_process_path(participatory_process))
+        end
+      end
+
       context "and the process stats are not enabled" do
         let(:show_statistics) { false }
 
@@ -434,6 +476,22 @@ describe "Participatory Processes", type: :system do
           it "the stats for those components are not visible" do
             expect(page).to have_no_content("#")
           end
+        end
+      end
+
+      context "and the process doesn't have hashtag" do
+        let(:hashtag) { false }
+
+        it "the stats for those components are not visible" do
+          expect(page).to have_no_content("#")
+        end
+      end
+
+      context "and the process doesn't have hashtag" do
+        let(:hashtag) { false }
+
+        it "the stats for those components are not visible" do
+          expect(page).to have_no_content("#")
         end
       end
     end

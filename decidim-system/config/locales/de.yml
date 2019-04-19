@@ -4,7 +4,7 @@ de:
     system:
       actions:
         confirm_destroy: Möchtest du das wirklich löschen?
-        destroy: Zerstören
+        destroy: Löschen
         edit: Bearbeiten
         new: Neu
         save: sparen
@@ -14,7 +14,7 @@ de:
           error: Beim Erstellen eines neuen Administrators ist ein Fehler aufgetreten.
           success: Administrator erfolgreich erstellt
         destroy:
-          success: Administrator erfolgreich zerstört
+          success: Der Administrator wurde erfolgreich gelöscht
         edit:
           title: Administrator bearbeiten
           update: Aktualisieren
@@ -64,6 +64,10 @@ de:
         update:
           error: Beim Aktualisieren dieser Organisation ist ein Fehler aufgetreten.
           success: Die Organisation wurde erfolgreich aktualisiert.
+        users_registration_mode:
+          disabled: Der Zugriff kann nur mit externen Konten erfolgen
+          enabled: Benutzern erlauben, sich zu registrieren und sich anzumelden
+          existing: Erlauben Sie Benutzern keine Registrierung, sondern erlauben Sie bestehenden Benutzern, sich anzumelden
       shared:
         notices:
           no_organization_warning_html: Sie müssen eine Organisation erstellen, um zu beginnen. Stellen Sie sicher, dass Sie %{guide} lesen, bevor Sie fortfahren.

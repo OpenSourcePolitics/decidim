@@ -18,19 +18,28 @@ module Decidim
       # into a `text` type so that we can search.
       def search_search_text
         query
-          .where("title::text ILIKE ?", "%#{search_text}%")
-          .or(query.where("description::text ILIKE ?", "%#{search_text}%"))
+          .where("decidim_debates_debates.title::text ILIKE ?", "%#{search_text}%")
+          .or(query.where("decidim_debates_debates.description::text ILIKE ?", "%#{search_text}%"))
       end
 
       # Handle the origin filter
-      # The 'official' debates don't have an author ID
       def search_origin
         if origin == "official"
-          query.where(decidim_author_id: nil)
+          query.where(author: component.organization)
         elsif origin == "citizens"
-          query.where.not(decidim_author_id: nil)
+          query.where.not(decidim_author_type: "Decidim::Organization")
         else # Assume 'all'
           query
+        end
+      end
+
+      def search_order_start_time
+        if order_start_time == "asc"
+          query.order("start_time ASC")
+        elsif order_start_time == "desc"
+          query.order("start_time DESC")
+        else
+          query.order("start_time ASC")
         end
       end
     end

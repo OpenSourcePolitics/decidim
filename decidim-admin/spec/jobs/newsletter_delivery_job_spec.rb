@@ -14,6 +14,7 @@ module Decidim
         NewsletterDeliveryJob.perform_now(user, newsletter)
         expect(ActionMailer::Base.deliveries).not_to be_empty
       end
+
       context "when the user is deleted" do
         let(:user) { create(:user, :deleted) }
 

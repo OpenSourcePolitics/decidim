@@ -18,7 +18,7 @@ module Decidim::Admin
     it "traces the action", versioning: true do
       expect(Decidim.traceability)
         .to receive(:perform_action!)
-        .with(:publish, component, user)
+        .with(:publish, component, user, visibility: "all")
         .and_call_original
 
       expect { subject.call }.to change(Decidim::ActionLog, :count)
@@ -27,13 +27,15 @@ module Decidim::Admin
     end
 
     it "fires an event" do
+      create :follow, followable: participatory_process, user: user
+
       expect(Decidim::EventsManager)
         .to receive(:publish)
         .with(
           event: "decidim.events.components.component_published",
           event_class: Decidim::ComponentPublishedEvent,
           resource: component,
-          recipient_ids: kind_of(Array)
+          followers: [user]
         )
 
       subject.call

@@ -9,14 +9,17 @@ module Decidim
       isolate_namespace Decidim::Meetings::Admin
 
       paths["db/migrate"] = nil
+      paths["lib/tasks"] = nil
 
       routes do
         resources :meetings do
           resources :meeting_closes, only: [:edit, :update]
           resource :registrations, only: [:edit, :update] do
-            resource :invites, only: [:new, :create]
+            resources :invites, only: [:index, :create]
+            resource :form, only: [:edit, :update], controller: "registration_form"
             collection do
               get :export
+              post :validate_registration_code
             end
           end
           resources :agenda, except: [:index, :destroy]
@@ -30,10 +33,6 @@ module Decidim
 
       def load_seed
         nil
-      end
-
-      initializer "decidim_meetings.assets" do |app|
-        app.config.assets.precompile += %w(admin/decidim_meetings_manifest.js)
       end
     end
   end

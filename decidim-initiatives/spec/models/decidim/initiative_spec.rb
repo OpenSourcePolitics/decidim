@@ -4,6 +4,12 @@ require "spec_helper"
 
 module Decidim
   describe Initiative do
+    subject { initiative }
+
+    let(:initiative) { build :initiative }
+
+    include_examples "has reference"
+
     context "when created initiative" do
       let(:initiative) { create(:initiative, :created) }
       let(:administrator) { create(:user, :admin, organization: initiative.organization) }
@@ -81,8 +87,8 @@ module Decidim
         build(:initiative,
               state: "validating",
               published_at: nil,
-              signature_start_time: nil,
-              signature_end_time: nil)
+              signature_start_date: nil,
+              signature_end_date: nil)
       end
 
       it "is valid" do

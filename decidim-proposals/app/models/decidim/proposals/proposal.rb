@@ -5,7 +5,7 @@ module Decidim
     # The data store for a Proposal in the Decidim::Proposals component.
     class Proposal < Proposals::ApplicationRecord
       include Decidim::Resourceable
-      include Decidim::Authorable
+      include Decidim::Coauthorable
       include Decidim::HasComponent
       include Decidim::ScopableComponent
       include Decidim::HasReference
@@ -18,13 +18,30 @@ module Decidim
       include Decidim::Traceable
       include Decidim::Loggable
       include Decidim::Fingerprintable
+      include Decidim::DataPortability
+      include Decidim::Hashtaggable
+      include Decidim::Proposals::ParticipatoryTextSection
+      include Decidim::Amendable
 
       fingerprint fields: [:title, :body]
+
+      amendable(
+        fields: [:title, :body],
+        ignore: [:published_at, :reference, :state, :answered_at, :answer],
+        form: "Decidim::Proposals::ProposalForm"
+      )
 
       component_manifest_name "proposals"
 
       has_many :endorsements, foreign_key: "decidim_proposal_id", class_name: "ProposalEndorsement", dependent: :destroy, counter_cache: "proposal_endorsements_count"
-      has_many :votes, foreign_key: "decidim_proposal_id", class_name: "ProposalVote", dependent: :destroy, counter_cache: "proposal_votes_count"
+
+      has_many :votes,
+               -> { final },
+               foreign_key: "decidim_proposal_id",
+               class_name: "Decidim::Proposals::ProposalVote",
+               dependent: :destroy,
+               counter_cache: "proposal_votes_count"
+
       has_many :notes, foreign_key: "decidim_proposal_id", class_name: "ProposalNote", dependent: :destroy, counter_cache: "proposal_notes_count"
 
       validates :title, :body, presence: true
@@ -37,16 +54,19 @@ module Decidim
       scope :withdrawn, -> { where(state: "withdrawn") }
       scope :except_rejected, -> { where.not(state: "rejected").or(where(state: nil)) }
       scope :except_withdrawn, -> { where.not(state: "withdrawn").or(where(state: nil)) }
+      scope :drafts, -> { where(published_at: nil) }
       scope :published, -> { where.not(published_at: nil) }
+
+      acts_as_list scope: :decidim_component_id
 
       searchable_fields({
                           scope_id: :decidim_scope_id,
                           participatory_space: { component: :participatory_space },
-                          A: :title,
-                          D: :body,
+                          D: :search_body,
+                          A: :search_title,
                           datetime: :published_at
                         },
-                        index_on_create: false,
+                        index_on_create: ->(proposal) { proposal.official? },
                         index_on_update: ->(proposal) { proposal.visible? })
 
       def self.order_randomly(seed)
@@ -60,11 +80,30 @@ module Decidim
         Decidim::Proposals::AdminLog::ProposalPresenter
       end
 
+      # Returns a collection scoped by an author.
+      # Overrides this method in DataPortability to support Coauthorable.
+      def self.user_collection(author)
+        return unless author.is_a?(Decidim::User)
+
+        joins(:coauthorships)
+          .where("decidim_coauthorships.coauthorable_type = ?", name)
+          .where("decidim_coauthorships.decidim_author_id = ? AND decidim_coauthorships.decidim_author_type = ? ", author.id, author.class.base_class.name)
+      end
+
+      # Public: Updates the vote count of this proposal.
+      #
+      # Returns nothing.
+      # rubocop:disable Rails/SkipsModelValidations
+      def update_votes_count
+        update_columns(proposal_votes_count: votes.count)
+      end
+      # rubocop:enable Rails/SkipsModelValidations
+
       # Public: Check if the user has voted the proposal.
       #
       # Returns Boolean.
       def voted_by?(user)
-        votes.where(author: user).any?
+        ProposalVote.where(proposal: self, author: user).any?
       end
 
       # Public: Check if the user has endorsed the proposal.
@@ -124,7 +163,12 @@ module Decidim
 
       # Public: Whether the proposal is official or not.
       def official?
-        author.nil?
+        authors.first.is_a?(Decidim::Organization)
+      end
+
+      # Public: Whether the proposal is created in a meeting or not.
+      def official_meeting?
+        authors.first.class.name == "Decidim::Meetings::Meeting"
       end
 
       # Public: The maximum amount of votes allowed for this proposal.
@@ -158,7 +202,8 @@ module Decidim
       # user - the user to check for authorship
       def editable_by?(user)
         return true if draft?
-        authored_by?(user) && !answered? && within_edit_time_limit? && !copied_from_other_component?
+
+        !answered? && within_edit_time_limit? && !copied_from_other_component? && created_by?(user)
       end
 
       # Checks whether the user can withdraw the given proposal.
@@ -176,24 +221,38 @@ module Decidim
       # method for sort_link by number of comments
       ransacker :commentable_comments_count do
         query = <<-SQL
-              (SELECT COUNT(decidim_comments_comments.id)
-                 FROM decidim_comments_comments
-                WHERE decidim_comments_comments.decidim_commentable_id = decidim_proposals_proposals.id
-                  AND decidim_comments_comments.decidim_commentable_type = 'Decidim::Proposals::Proposal'
-                GROUP BY decidim_comments_comments.decidim_commentable_id
-              )
-            SQL
+        (SELECT COUNT(decidim_comments_comments.id)
+         FROM decidim_comments_comments
+         WHERE decidim_comments_comments.decidim_commentable_id = decidim_proposals_proposals.id
+         AND decidim_comments_comments.decidim_commentable_type = 'Decidim::Proposals::Proposal'
+         GROUP BY decidim_comments_comments.decidim_commentable_id
+         )
+        SQL
         Arel.sql(query)
       end
 
-      private
+      def self.export_serializer
+        Decidim::Proposals::ProposalSerializer
+      end
+
+      def self.data_portability_images(user)
+        user_collection(user).map { |p| p.attachments.collect(&:file) }
+      end
+
+      # Public: Overrides the `allow_resource_permissions?` Resourceable concern method.
+      def allow_resource_permissions?
+        component.settings.resources_permissions_enabled
+      end
 
       # Checks whether the proposal is inside the time window to be editable or not once published.
       def within_edit_time_limit?
         return true if draft?
+
         limit = updated_at + component.settings.proposal_edit_before_minutes.minutes
         Time.current < limit
       end
+
+      private
 
       def copied_from_other_component?
         linked_resources(:proposals, "copied_from_component").any?

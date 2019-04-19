@@ -1,5 +1,13 @@
+<%
+edit_link(
+  decidim_admin_consultations.consultations_path,
+  :read,
+  :consultation
+)
+%>
 <% provide :meta_title, t("consultations.index.title", scope: "decidim") %>
-<main class="wrapper">
+
+<%= participatory_space_wrapper do %>
   <div class="row columns">
     <div class="title-action">
       <div class="row collapse">
@@ -21,7 +29,7 @@
       <%= render partial: "consultations" %>
     </div>
   </div>
-</main>
+<% end %>
 
 <%= javascript_include_tag "decidim/filters" %>
 <%= javascript_include_tag "decidim/orders" %>

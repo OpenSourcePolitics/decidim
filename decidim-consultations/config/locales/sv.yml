@@ -6,18 +6,18 @@ sv:
         banner_image: Banner image
         decidim_highlighted_scope_id: Markerat omfattning
         description: Beskrivning
-        end_voting_date: Slutdatum
+        end_voting_date: Röstningen slutar
         introductory_image: Inledande bild
         introductory_video_url: Inledande videoadress
         questions: frågor
         slug: URL slug
-        start_voting_date: Start datum
+        start_voting_date: Röstningen börjar
         subtitle: Texta
         title: Titel
       question:
         banner_image: Banner image
         decidim_scope_id: Kommunala området
-        hashtag: hashtag
+        hashtag: Hashtag
         hero_image: Hembild
         i_frame_url: Webbplats för externt röstningssystem
         origin_scope: Omfattning
@@ -25,7 +25,7 @@ sv:
         origin_url: Ursprungsadress
         participatory_scope: Deltagande räckvidd
         promoter_group: Promotorgrupp
-        question_context: Sammanhang
+        question_context: Kontext
         reference: Referens
         scope: Kommunala området
         slug: URL slug
@@ -39,23 +39,24 @@ sv:
           not_found: Svar ej hittat.
   activerecord:
     models:
-      decidim/consultations:
+      decidim/consultation:
         one: Samråd
         other: samråd
       decidim/consultations/question:
         one: Fråga
-        other: frågor
+        other: Frågor
       decidim/consultations/response:
         one: Svar
         other: Svar
       decidim/consultations/vote:
         one: Rösta
-        other: röster
+        other: Rösta
   decidim:
     admin:
       actions:
-        consultation:
-          new: New consultation
+        new_consultation: Nytt samråd
+        new_question: Ny fråga
+        new_response: Nytt svar
         publish_results: Publicera resultat
         unpublish_results: Uppdatera resultaten
       consultation_publications:
@@ -76,10 +77,8 @@ sv:
         create:
           error: Det uppstod ett fel vid att skapa ett nytt samråd.
           success: Samråd med framgångsrikt skapat.
-        destroy:
-          success: Samråd har framgångsrikt förstörts.
         edit:
-          update: Uppdatering
+          update: Uppdatera
         form:
           slug_help: 'URL-slitsar används för att generera de webbadresser som pekar på detta samråd. Accepterar bara bokstäver, siffror och bindestreck, och måste börja med ett brev. Exempel: %{url}'
           title: Allmän information
@@ -108,6 +107,9 @@ sv:
             created_at: Skapad vid
             published: Publicerad
             title: Titel
+          name:
+            one: Consultation
+            other: Consultations
         question:
           fields:
             created_at: Skapad vid
@@ -135,9 +137,9 @@ sv:
           error: Ett fel uppstod med att skapa en ny fråga.
           success: Fråga med framgång skapad.
         destroy:
-          success: Frågan lyckades förstörs.
+          success: Fråga med framgång raderad.
         edit:
-          update: Uppdatering
+          update: Uppdatera
         form:
           title: Allmän information
         index:
@@ -155,9 +157,9 @@ sv:
           success: Svar skapat.
         destroy:
           error: Ett fel uppstod när svaret togs bort.
-          success: Svaret förstöras framgångsrikt.
+          success: Svaret har tagits bort.
         edit:
-          update: Uppdatering
+          update: Uppdatera
         form:
           title: Allmän information
         new:
@@ -171,8 +173,12 @@ sv:
         questions: frågor
         responses: Svar
     consultations:
+      admin:
+        content_blocks:
+          highlighted_consultations:
+            max_results: Maximal mängd element att visa
       consultation:
-        start_voting_date: Röstning från
+        start_voting_date: Röstningen börjar
         view_results: Se Resultat
       consultation_card:
         view_results: Se Resultat
@@ -181,26 +187,41 @@ sv:
           label: 'Sortera samråd med:'
           random: Slumpmässig
           recent: Senaste
+      content_blocks:
+        highlighted_consultations:
+          name: Markerade samråd
       count:
         title:
           one: "%{count} konsultation"
           other: "%{count} konsultationer"
       filters:
-        active: Aktiva
-        all: Allt
+        active: Aktiv
+        all: Alla
         finished: Färdiga
         search: Sök
-        state: stat
-        upcoming: kommande
+        state: Status
+        upcoming: Kommande
       filters_small_view:
         close_modal: Stäng fönstret
-        filter: Filtrera
+        filter: Filter
         filter_by: Filtrera efter
         unfold: Veckla ut
       highlighted_questions:
         title: Frågor från %{scope_name}
       index:
         title: samråd
+      last_activity:
+        new_consultation: Nytt samråd
+        new_question_at_html: "<span>Ny fråga till %{link}</span>"
+      pages:
+        home:
+          highlighted_consultations:
+            active_consultations: Aktiva samråd
+            see_all_consultations: Se alla samråd
+            voting_ends_in:
+              one: Röstningen slutar <strong>morgon</strong>
+              other: Röstningen slutar i <strong>%{count} dagar</strong>
+            voting_ends_today: Omröstning slutar <strong>idag</strong>
       question:
         take_part: Ta del
         view_results: Se Resultat
@@ -214,7 +235,7 @@ sv:
         title: Frågor för detta samråd
       show:
         badge_name:
-          finished: Färdiga
+          finished: Avslutad
           open: Öppen
           open_votes: Öppna röster
           published_results: Resultat publicerade
@@ -224,6 +245,12 @@ sv:
           view_results: Se Resultat
           vote: Rösta
         unspecified: Ej angivet
+    help:
+      participatory_spaces:
+        consultations:
+          contextual: "<p>Samråd är ett utrymme som låter dig ställa en tydlig fråga till alla personer som bildar en organisation, ringa för att delta i samrådet, gnista och beställa debatten för eller mot ett svar. När samrådsdatumet anländer kan du rösta och publicera resultatet av rösterna.</p> <p>Exempel: Konsultationerna kan handla om nästan alla aspekter som påverkar en organisation: några exempel ändrar organisationens namn eller logotyp som erbjuder flera alternativ, bestämmer ja eller nej för att bli en del av en större organisation, att validera eller avvisa en ny strategisk planen eller resultatet av en arbetsgrupp, eller definiera om positionerna ska förbli högst 1, 2 eller 3 mandat.</p>\n"
+          page: "<p>Samråd är ett utrymme som låter dig ställa en tydlig fråga till alla personer som bildar en organisation, ringa för att delta i samrådet, gnista och beställa debatten för eller mot ett svar. När samrådsdatumet anländer kan du rösta och publicera resultatet av rösterna.</p> <p>Exempel: Konsultationerna kan handla om nästan alla aspekter som påverkar en organisation: några exempel ändrar organisationens namn eller logotyp som erbjuder flera alternativ, bestämmer ja eller nej för att bli en del av en större organisation, att validera eller avvisa en ny strategisk planen eller resultatet av en arbetsgrupp, eller definiera om positionerna ska förbli högst 1, 2 eller 3 mandat.</p>ard i organisationen.</p>\n"
+          title: Vad är samråd?
     menu:
       consultations: samråd
     pages:
@@ -237,9 +264,9 @@ sv:
         read_more: Läs mer
       statistics:
         assistants_count_title: assistenter
-        comments_count_title: kommentarer
-        meetings_count_title: möten
-        supports_count_title: sammanväxningar
+        comments_count_title: Kommentarer
+        meetings_count_title: Möten
+        supports_count_title: Stöder
       technical_info:
         technical_data: Teknisk data
       vote_button:
@@ -251,7 +278,7 @@ sv:
         contextual_help: Var god välj ett alternativ.
         title: 'Samråd: Frågestöd'
       vote_modal_confirm:
-        change: Byta
+        change: Ändra
         confirm: Bekräfta
         contextual_help: Vänligen bekräfta det valda alternativet.
         title: 'Samråd: bekräfta support'
@@ -262,7 +289,7 @@ sv:
           attachments: bilagor
           categories: kategorier
       consultation_voting_data:
-        start_voting_date: Röstning från
+        start_voting_date: Röstningen börjar
       question_components:
         question_menu_item: Frågan
         unfold: Veckla ut

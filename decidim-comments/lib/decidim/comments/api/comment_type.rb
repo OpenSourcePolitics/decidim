@@ -8,9 +8,14 @@ module Decidim
       description "A comment"
 
       interfaces [
-        -> { Decidim::Comments::CommentableInterface },
-        -> { Decidim::Core::AuthorableInterface }
+        -> { Decidim::Comments::CommentableInterface }
       ]
+
+      field :author, !Decidim::Core::AuthorInterface, "The resource author" do
+        resolve lambda { |obj, _args, _ctx|
+          obj.user_group || obj.author
+        }
+      end
 
       field :id, !types.ID, "The Comment's unique ID"
 
@@ -60,7 +65,7 @@ module Decidim
 
       field :hasComments, !types.Boolean, "Check if the commentable has comments" do
         resolve lambda { |obj, _args, _ctx|
-          obj.accepts_new_comments? && obj.comment_threads.size.positive?
+          obj.comment_threads.size.positive?
         }
       end
 
