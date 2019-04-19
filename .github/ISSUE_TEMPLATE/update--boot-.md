@@ -1,15 +1,15 @@
 ---
-name: BCN
+name: 'Update, Boot '
 about: Master issue for weekly issues delivery and instances booting
-title: BCN
-labels: Backport, PR to BCN
+title: 'Update, Boot '
+labels: Bump-needed
 assignees: ''
 
 ---
 
-## BCN
-**Pull / Backport**
+## OSP
+**Boots**
 - [ ] - 
 
-**Send**
+**Updates**
 - [ ] -
