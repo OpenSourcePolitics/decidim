@@ -1,10 +1,11 @@
+---
 fr:
   activemodel:
     attributes:
       result:
         decidim_accountability_status_id: Statut
         decidim_category_id: Catégorie
-        decidim_scope_id: Filtre géographique (concertation)
+        decidim_scope_id: Secteur (concertation)
         description: Description
         end_date: Date de fin
         progress: Avancement
@@ -35,7 +36,7 @@ fr:
         confirm_destroy: Êtes-vous sûr de vouloir supprimer ce %{name}?
         destroy: Supprimer
         edit: Modifier
-        new: Nouveau %{name}
+        new: Nouvelle %{name}
         preview: Aperçu
         timeline_entries: Évolution du projet
         title: Actions
@@ -87,8 +88,8 @@ fr:
           index:
             title: Etats d'avancement
           new:
-            create: Créer un état
-            title: Nouvel état
+            create: Créer un statut
+            title: Nouveau statut
           update:
             invalid: Un problème est survenu lors de la mise à jour de cet état
             success: Etat mis à jour avec succès
@@ -140,11 +141,11 @@ fr:
       results:
         count:
           results_count:
-            one: 1 réalisation
+            one: "%{count} réalisation"
             other: "%{count} réalisations"
         filters:
           all: Tous
-          scopes: Filtres géographiques (concertation)
+          scopes: Secteurs (concertation)
         home:
           categories_label: Catégories
           subcategories_label: Sous-catégories
@@ -163,7 +164,7 @@ fr:
             last_edited_by: Dernière édition par
             last_updated_at: Dernière mise à jour à
             meetings: Réunions
-            number_of_versions: Versions
+            number_of_versions: Nombre de versions
             proposals: Propositions
             show_all_versions: Afficher toutes les versions
             version_author: Auteur de la version
