@@ -5,7 +5,8 @@
 
 **Added**:
 
-- **decidim-proposals** Lists are imported as a single proposal. [\#4801](https://github.com/decidim/decidim/pull/4801)
+- **decidim-budgets**: Add Email notification for vote confirmation. [\#489](https://github.com/OpenSourcePolitics/decidim/pull/489)
+- **decidim-proposals**: Lists are imported as a single proposal. [\#4801](https://github.com/decidim/decidim/pull/4801)
 - **decidim-proposals**: Add Participatory Text support for links in Markdown. [\#4801](https://github.com/decidim/decidim/pull/4801)
 - **decidim-proposals**: Add Participatory Text support for images in Markdown. [\#4801](https://github.com/decidim/decidim/pull/4801)
 
