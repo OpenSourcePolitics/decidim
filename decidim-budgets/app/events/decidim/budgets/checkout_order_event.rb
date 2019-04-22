@@ -6,7 +6,7 @@ module Decidim
       i18n_attributes :participatory_space_title
 
       def participatory_space_title
-        @resource_name ||= translated_attribute(resource.participatory_space.title)
+        @participatory_space_title ||= translated_attribute(resource.participatory_space.title)
       end
     end
   end
