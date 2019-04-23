@@ -253,7 +253,7 @@
     "graphql": "^0.13.0",
     "graphql-anywhere": "^4.1.5",
     "graphql-tag": "^2.8.0",
-    "jquery": "^3.2.1",
+    "jquery": "^3.4.0",
     "react": "^16.0.0",
     "react-apollo": "^2.0.4",
     "react-dom": "^16.0.0",
