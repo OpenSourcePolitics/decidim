@@ -44,7 +44,7 @@ shared_examples "create amendment" do
   end
 
   context "when the form is invalid" do
-    let(:title) { "Too short" }
+    let(:title) { "T" }
 
     it "broadcasts invalid" do
       expect { command.call }.to broadcast(:invalid)
