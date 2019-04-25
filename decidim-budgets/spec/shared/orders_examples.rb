@@ -426,171 +426,175 @@ shared_examples "orders" do |*options|
 
   describe "index" do
     context "when voting by budget" do
-      let!(:projects) { create_list(:project, 4, budget: 25_000_000, component: component) }
+      if options.include? :total_budget
+        let!(:projects) { create_list(:project, 4, budget: 25_000_000, component: component) }
 
-      before do
-        login_as user, scope: :user
-      end
+        before do
+          login_as user, scope: :user
+        end
 
-      it "displays the minimum vote amount" do
-        visit_component
-
-        expect(find(".progress-meter--minimum")[:style]).to eq("width: 70%;")
-      end
-
-      context "when no project in order" do
-        it "displays the right percentage" do
+        it "displays the minimum vote amount" do
           visit_component
 
-          within ".progress-meter-text--right" do
-            expect(page).to have_content "0%"
+          expect(find(".progress-meter--minimum")[:style]).to eq("width: 70%;")
+        end
+
+        context "when no project in order" do
+          it "displays the right percentage" do
+            visit_component
+
+            within ".progress-meter-text--right" do
+              expect(page).to have_content "0%"
+            end
+          end
+
+          it "doesn't displays the state color" do
+            visit_component
+
+            expect(page).not_to have_css(".budget_summary_state--pending")
+            expect(page).not_to have_css(".progress_meter_state--pending")
+            expect(page).not_to have_css(".budget_summary_state--completed")
+            expect(page).not_to have_css(".progress_meter_state--completed")
           end
         end
 
-        it "doesn't displays the state color" do
-          visit_component
+        context "when half full project in order" do
+          let!(:order) do
+            order = create(:order, user: user, component: component)
+            order.projects << projects.take(2)
+            order.save!
+            order
+          end
 
-          expect(page).not_to have_css(".budget_summary_state--pending")
-          expect(page).not_to have_css(".progress_meter_state--pending")
-          expect(page).not_to have_css(".budget_summary_state--completed")
-          expect(page).not_to have_css(".progress_meter_state--completed")
-        end
-      end
+          it "displays the right percentage" do
+            visit_component
 
-      context "when half full project in order" do
-        let!(:order) do
-          order = create(:order, user: user, component: component)
-          order.projects << projects.take(2)
-          order.save!
-          order
-        end
+            within ".progress-meter-text--right" do
+              expect(page).to have_content "50%"
+            end
+          end
 
-        it "displays the right percentage" do
-          visit_component
+          it "displays the state color" do
+            visit_component
 
-          within ".progress-meter-text--right" do
-            expect(page).to have_content "50%"
+            expect(page).to have_css(".budget_summary_state--pending")
+            expect(page).to have_css(".progress_meter_state--pending")
           end
         end
 
-        it "displays the state color" do
-          visit_component
-
-          expect(page).to have_css(".budget_summary_state--pending")
-          expect(page).to have_css(".progress_meter_state--pending")
-        end
-      end
-
-      context "when full project in order" do
-        let!(:order) do
-          order = create(:order, user: user, component: component)
-          order.projects << projects
-          order.save!
-          order
-        end
-
-        it "displays the right percentage" do
-          visit_component
-
-          within ".progress-meter-text--right" do
-            expect(page).to have_content "100%"
+        context "when full project in order" do
+          let!(:order) do
+            order = create(:order, user: user, component: component)
+            order.projects << projects
+            order.save!
+            order
           end
-        end
 
-        it "displays the state color" do
-          visit_component
+          it "displays the right percentage" do
+            visit_component
 
-          expect(page).to have_css(".budget_summary_state--completed")
-          expect(page).to have_css(".progress_meter_state--completed")
+            within ".progress-meter-text--right" do
+              expect(page).to have_content "100%"
+            end
+          end
+
+          it "displays the state color" do
+            visit_component
+
+            expect(page).to have_css(".budget_summary_state--completed")
+            expect(page).to have_css(".progress_meter_state--completed")
+          end
         end
       end
     end
 
     context "when voting by project" do
-      let!(:component) do
-        create(:budget_component,
-               :with_vote_per_project,
-               total_projects: 5,
-               manifest: manifest,
-               participatory_space: participatory_process)
-      end
+      if options.include? :total_projects
+        let!(:component) do
+          create(:budget_component,
+                 :with_vote_per_project,
+                 total_projects: 5,
+                 manifest: manifest,
+                 participatory_space: participatory_process)
+        end
 
-      let!(:projects) { create_list(:project, 5, budget: 25_000_000, component: component) }
+        let!(:projects) { create_list(:project, 5, component: component) }
 
-      before do
-        login_as user, scope: :user
-      end
+        before do
+          login_as user, scope: :user
+        end
 
-      it "displays the minimum vote amount" do
-        visit_component
-
-        expect(find(".progress-meter--minimum")[:style]).to eq("width: 100%;")
-      end
-
-      context "when no project in order" do
-        it "displays the right percentage" do
+        it "displays the minimum vote amount" do
           visit_component
 
-          within ".progress-meter-text--right" do
-            expect(page).to have_content "0%"
+          expect(find(".progress-meter--minimum")[:style]).to eq("width: 100%;")
+        end
+
+        context "when no project in order" do
+          it "displays the right percentage" do
+            visit_component
+
+            within ".progress-meter-text--right" do
+              expect(page).to have_content "0%"
+            end
+          end
+
+          it "displays the state color" do
+            visit_component
+
+            expect(page).not_to have_css(".budget_summary_state--pending")
+            expect(page).not_to have_css(".progress_meter_state--pending")
+            expect(page).not_to have_css(".budget_summary_state--completed")
+            expect(page).not_to have_css(".progress_meter_state--completed")
           end
         end
 
-        it "displays the state color" do
-          visit_component
+        context "when half full project in order" do
+          let!(:order) do
+            order = create(:order, user: user, component: component)
+            order.projects << projects.take(3)
+            order.save!
+            order
+          end
 
-          expect(page).not_to have_css(".budget_summary_state--pending")
-          expect(page).not_to have_css(".progress_meter_state--pending")
-          expect(page).not_to have_css(".budget_summary_state--completed")
-          expect(page).not_to have_css(".progress_meter_state--completed")
-        end
-      end
+          it "displays the right percentage" do
+            visit_component
 
-      context "when half full project in order" do
-        let!(:order) do
-          order = create(:order, user: user, component: component)
-          order.projects << projects.take(3)
-          order.save!
-          order
-        end
+            within ".progress-meter-text--right" do
+              expect(page).to have_content "60%"
+            end
+          end
 
-        it "displays the right percentage" do
-          visit_component
+          it "displays the state color" do
+            visit_component
 
-          within ".progress-meter-text--right" do
-            expect(page).to have_content "60%"
+            expect(page).to have_css(".budget_summary_state--pending")
+            expect(page).to have_css(".progress_meter_state--pending")
           end
         end
 
-        it "displays the state color" do
-          visit_component
-
-          expect(page).to have_css(".budget_summary_state--pending")
-          expect(page).to have_css(".progress_meter_state--pending")
-        end
-      end
-
-      context "when full project in order" do
-        let!(:order) do
-          order = create(:order, user: user, component: component)
-          order.projects << projects
-          order.save!
-          order
-        end
-
-        it "displays the right percentage" do
-          visit_component
-
-          within ".progress-meter-text--right" do
-            expect(page).to have_content "100%"
+        context "when full project in order" do
+          let!(:order) do
+            order = create(:order, user: user, component: component)
+            order.projects << projects
+            order.save!
+            order
           end
-        end
 
-        it "displays the state color" do
-          visit_component
+          it "displays the right percentage" do
+            visit_component
 
-          expect(page).to have_css(".budget_summary_state--completed")
-          expect(page).to have_css(".progress_meter_state--completed")
+            within ".progress-meter-text--right" do
+              expect(page).to have_content "100%"
+            end
+          end
+
+          it "displays the state color" do
+            visit_component
+
+            expect(page).to have_css(".budget_summary_state--completed")
+            expect(page).to have_css(".progress_meter_state--completed")
+          end
         end
       end
     end
