@@ -9,6 +9,8 @@ Upgrade note:
 **Added**:
 
 - **decidim-budgets**: Add Email notification for vote confirmation. [\#489](https://github.com/OpenSourcePolitics/decidim/pull/489)
+- **decidim-proposals**: Add multiple fields to proposals export. [\#602](https://github.com/OpenSourcePolitics/decidim/pull/602) 
+- **decidim-proposals**: Change collaborative draft contributors permissions [\#4712](https://github.com/decidim/decidim/pull/4712)
 - **decidim-proposals**: Lists are imported as a single proposal. [\#4801](https://github.com/decidim/decidim/pull/4801)
 - **decidim-admin**: Add css variables for multitenant custom colors. [\#4882](https://github.com/decidim/decidim/pull/4882)
 - **decidim-proposals** Change collaborative draft contributors permissions [\#4712](https://github.com/decidim/decidim/pull/4712)
