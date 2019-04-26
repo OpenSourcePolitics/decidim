@@ -41,8 +41,15 @@ module Decidim
         {
           name: form.name,
           parent_id: form.parent_id,
+          color: category_color,
           description: form.description
         }
+      end
+
+      def category_color
+        return form.color if form.parent_id.blank?
+
+        Decidim::Category.find(form.parent_id).color
       end
     end
   end

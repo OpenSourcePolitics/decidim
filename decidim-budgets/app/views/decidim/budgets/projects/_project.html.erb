@@ -1,4 +1,5 @@
-<div id="project-<%= project.id %>-item" class="card card--list__item">
+<div id="project-<%= project.id %>-item" class="card card--list__item"
+     style="<%= border_helper(project) %>">
   <div class="card--list__text">
     <div>
       <%= link_to project, class: "card__link" do %>

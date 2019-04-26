@@ -11,6 +11,7 @@ module Decidim
 
     validate :forbid_deep_nesting
     before_validation :subcategories_have_same_participatory_space
+    after_update :update_descendants_color unless parents.nil?
 
     # Scope to return only the first-class categories, that is, those that are
     # not subcategories.
@@ -22,6 +23,10 @@ module Decidim
 
     def descendants
       @descendants ||= Category.where(parent_id: id)
+    end
+
+    def update_descendants_color
+      descendants.each { |descendant| descendant.update!(color: color) }
     end
 
     def translated_name
