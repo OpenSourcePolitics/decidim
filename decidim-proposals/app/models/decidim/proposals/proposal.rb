@@ -231,7 +231,7 @@ module Decidim
         Arel.sql(query)
       end
 
-      ransacker :is_emendation do |parent|
+      ransacker :is_emendation do |_parent|
         query = <<-SQL
         (
           SELECT EXISTS (

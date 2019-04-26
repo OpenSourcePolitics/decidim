@@ -2,6 +2,7 @@
 
 require "active_support/concern"
 require "decidim/search_resource_fields_mapper"
+require "ransack"
 
 module Decidim
   # A concern with the features needed when you want a model to be searchable.

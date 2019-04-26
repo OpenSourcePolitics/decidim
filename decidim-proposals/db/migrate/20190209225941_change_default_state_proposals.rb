@@ -1,6 +1,7 @@
+# frozen_string_literal: true
+
 class ChangeDefaultStateProposals < ActiveRecord::Migration[5.2]
   def change
-
     Decidim::Proposals::Proposal.where(state: nil).find_each do |proposal|
       proposal.update state: "not_answered"
     end

@@ -228,11 +228,11 @@ module Decidim
         proposals.each do |proposal|
           type_label_toggler += "type-label-#{proposal.id} "
         end
-        return type_label_toggler
+        type_label_toggler
       end
 
       def type_label_for(proposal)
-        return "type-label-#{proposal.id}"
+        "type-label-#{proposal.id}"
       end
     end
   end
