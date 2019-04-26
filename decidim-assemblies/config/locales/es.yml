@@ -258,12 +258,13 @@ es:
         others: Otros
         public: Público
       filter:
-        all: Todos
+        all: Todas
         commission: Comisión
         consultative_advisory: Consultivo / Asesoramiento
         executive: Ejecutivo
         government: Gobierno
-        label: 'Show:'
+        help: 'Show:'
+        label: 'Mostrar:'
         others: Otros
         participatory: Participativo
         placeholder: Filtrar por tipo
@@ -359,7 +360,7 @@ es:
           reset_chart: Reiniciar
         order_by_assemblies:
           assemblies:
-            one: "%{count} asamblea"
+            one: "%{count} asambleas"
             other: "%{count} asambleas"
         promoted_assembly:
           more_info: Más información

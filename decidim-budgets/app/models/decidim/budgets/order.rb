@@ -75,6 +75,7 @@ module Decidim
 
       def limit_project_reached?
         return false unless per_project?
+
         total_projects == number_of_projects
       end
 
@@ -100,6 +101,7 @@ module Decidim
 
       def maximum_budget
         return 0 unless component || !per_project?
+
         component&.settings&.total_budget.to_f
       end
 
