@@ -13,15 +13,11 @@
     </div>
 
     <div class="row column">
-      <%= form.color_field :color,
-                           value: @form.color,
-                           disabled: @form.parent_id.present?
-      %>
+      <%= form.check_box :has_color, checked: @form.color.present? %>
     </div>
 
     <div class="row column">
-      <%= form.check_box :delete_color
-      %>
+      <%= form.color_field :color, value: @form.color, disabled: @form.parent_id.present? %>
     </div>
 
     <div class="row column">

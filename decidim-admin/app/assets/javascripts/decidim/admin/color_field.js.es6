@@ -1,14 +1,9 @@
 (() => {
-  const colorField = $("[name='category[color]']");
-  const deleteColor = $("[name='category[delete_color]']");
-  const parentField = $("[name='category[parent_id]']");
+  let hasColor = $("[name='category[has_color]']");
+  let colorField = $("[name='category[color]']");
 
-  let parentFieldEmpty = function () {
-    return parentField.val() === "";
-  };
-
-  let deleteColorChecked = function () {
-    return deleteColor.is(":checked");
+  let hasColorChecked = function () {
+    return hasColor.is(":checked");
   };
 
   let colorFieldEnabled = function () {
@@ -21,34 +16,18 @@
     colorField.parent().hide();
   };
 
-  let deleteColorDisabled = function () {
-    deleteColor.parent().hide();
-  };
-
-  let deleteColorEnabled = function () {
-    deleteColor.parent().show();
-  };
-
-  if (!parentFieldEmpty()) {
+  // default state
+  if (hasColorChecked()) {
+    colorFieldEnabled();
+  } else {
     colorFieldDisabled();
-    deleteColorDisabled();
   }
 
-  parentField.on("change", function () {
-    if (parentFieldEmpty()) {
+  hasColor.on("change", function () {
+    if (hasColorChecked()) {
       colorFieldEnabled();
-      deleteColorEnabled();
     } else {
       colorFieldDisabled();
-      deleteColorDisabled();
-    }
-  });
-
-  deleteColor.on("change", function () {
-    if (deleteColorChecked()) {
-      colorFieldDisabled();
-    } else {
-      colorFieldEnabled();
     }
   });
 })();

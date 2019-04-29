@@ -425,6 +425,21 @@ shared_examples "orders" do |options|
   end
 
   describe "index" do
+    context "when category has color" do
+      let(:color) { "#ffffff" }
+      let!(:category) { create(:category, participatory_space: component.participatory_space, color: color) }
+      let!(:project) { create(:project, component: component) }
+      let!(:other_project) { create(:project, component: component) }
+
+      it "displays a border" do
+        project.update!(category: category)
+        visit_component
+
+        expect(page.find("#project-#{project.id}-item").style(:border)).not_to eq("border" => "1px solid rgb(232, 232, 232)")
+        expect(page.find("#project-#{other_project.id}-item").style(:border)).to eq("border" => "1px solid rgb(232, 232, 232)")
+      end
+    end
+
     it "respects the projects_per_page setting when under total projects" do
       component.update!(settings: { projects_per_page: 1 })
 
