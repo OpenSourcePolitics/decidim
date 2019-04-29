@@ -48,6 +48,7 @@ module Decidim
 
       def category_color
         return form.color if form.parent_id.blank?
+        return nil if form.delete_color
 
         Decidim::Category.find(form.parent_id).color
       end

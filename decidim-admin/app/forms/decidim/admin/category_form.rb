@@ -9,7 +9,8 @@ module Decidim
 
       translatable_attribute :name, String
       translatable_attribute :description, String
-      attribute :color, String, default: "#e8e8e8"
+      attribute :color, String, default: nil
+      attribute :delete_color, String, defautl: true
       attribute :parent_id, Integer
 
       mimic :category

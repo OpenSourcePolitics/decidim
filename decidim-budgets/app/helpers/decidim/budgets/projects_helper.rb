@@ -24,19 +24,11 @@ module Decidim
         current_order&.can_checkout?
       end
 
-      def category_name(project)
-        project.category.translated_name
-      end
-
-      def category_color(project)
-        project.category.color
-      end
-
       def border_helper(project)
-        return "" if category_color(project) == "#e8e8e8"
-        return "" if category_color(project).empty?
+        return unless project&.category
+        return "" if project.category.color.blank?
 
-        "border: 1px solid #{category_color(project)}; border-top: 3px solid #{category_color(project)};"
+        "border: 1px solid #{project.category.color}; border-top: 3px solid #{project.category.color};"
       end
     end
   end
