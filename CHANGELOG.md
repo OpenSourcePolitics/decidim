@@ -26,6 +26,7 @@ Upgrade note:
 
 **Fixed**:
 
+- **decidim-participatory_processes**: Fix visibility of private processes on process groups. [#4965](https://github.com/decidim/decidim/pull/4965)
 - **decidim-core**: Fix CSS transparencies using customized colors. [\#5071](https://github.com/decidim/decidim/pull/5071)
 - **decidim-proposals**: Fix admin proposals manager: show proposal state [\#4789](https://github.com/decidim/decidim/pull/4789/)
 - **decidim-core**: Ensure email is downcased when authenticating a user [\#4926](https://github.com/decidim/decidim/pull/4926)
