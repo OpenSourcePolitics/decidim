@@ -26,6 +26,7 @@ Upgrade note:
 
 **Fixed**:
 
+- **decidim-proposals**: Filter emendations by rendering only amendments. [#5025](https://github.com/decidim/decidim/pull/5025)
 - **decidim-proposals**: Update error message when a Proposal can not be withdrawn due to already existing supports.  [#4961](https://github.com/decidim/decidim/pull/4961)
 - **decidim-participatory_processes**: Fix visibility of private processes on process groups. [#4965](https://github.com/decidim/decidim/pull/4965)
 - **decidim-core**: Fix CSS transparencies using customized colors. [\#5071](https://github.com/decidim/decidim/pull/5071)
