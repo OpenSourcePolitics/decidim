@@ -23,7 +23,7 @@ module Decidim
       belongs_to :status, foreign_key: "decidim_accountability_status_id", class_name: "Decidim::Accountability::Status", inverse_of: :results, optional: true
 
       has_many :timeline_entries, -> { order(:entry_date) }, foreign_key: "decidim_accountability_result_id",
-                                                             class_name: "Decidim::Accountability::TimelineEntry", inverse_of: :result, dependent: :destroy
+               class_name: "Decidim::Accountability::TimelineEntry", inverse_of: :result, dependent: :destroy
 
       after_save :update_parent_progress, if: -> { parent_id.present? }
 
@@ -74,6 +74,11 @@ module Decidim
       # Public: Overrides the `comments_have_votes?` Commentable concern method.
       def comments_have_votes?
         true
+      end
+
+      # Public: Whether the object can have new comments or not.
+      def user_allowed_to_comment?(user)
+        can_participate_in_space?(user)
       end
 
       private

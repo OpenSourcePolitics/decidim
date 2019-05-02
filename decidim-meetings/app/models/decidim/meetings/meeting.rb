@@ -112,6 +112,11 @@ module Decidim
         followers
       end
 
+      # Public: Whether the object can have new comments or not.
+      def user_allowed_to_comment?(user)
+        can_participate?(user)
+      end
+
       # rubocop:disable Metrics/PerceivedComplexity,Metrics/CyclomaticComplexity
       def can_participate?(user)
         return true unless participatory_space.try(:private_space?) || private_meeting?

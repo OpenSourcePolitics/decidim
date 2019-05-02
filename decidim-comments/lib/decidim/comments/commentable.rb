@@ -47,6 +47,11 @@ module Decidim
           users_with_role
         end
 
+        # Public: Whether the object can have new comments or not.
+        def user_allowed_to_comment?(_user)
+          true
+        end
+
         def users_with_role
           participatory_process = component.participatory_space
           admins = component.organization.admins
