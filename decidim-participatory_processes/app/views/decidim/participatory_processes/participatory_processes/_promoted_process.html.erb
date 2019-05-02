@@ -25,7 +25,7 @@
               <% if translated_in_current_locale(promoted_process.active_step&.cta_text) %>
                 <%= translated_attribute(promoted_process.active_step.cta_text) %>
               <% else %>
-                <%= t("participatory_processes.promoted_process.take_part", scope: "layouts.decidim") %>
+                <%= t(promoted_process.cta_button_text_key, scope: "layouts.decidim.participatory_processes.promoted_process") %>
               <% end %>
               <% if promoted_process.active_step %>
                 <span class="button__info">
