@@ -67,6 +67,9 @@ fr:
         show_statistics: Afficher les statistiques
         tos_version: Version des conditions d'utilisation
         twitter_handler: Gestionnaire Twitter
+        customize_welcome_notification: Personnaliser la notification d'accueil
+        send_welcome_notification: Envoyer la notification d'accueil
+        user_groups_enabled: Activer les groupes d'utilisateurs
         youtube_handler: Gestionnaire YouTube
       scope:
         code: Code
@@ -745,12 +748,16 @@ fr:
         hide: Masquer
         not_hidden: Visibles
         title: Actions
+        unhide: Unhide
         unreport: Annuler le signalement
       admin:
         reportable:
           hide:
             invalid: Il y a eu un problème au moment de masquer le contenu.
             success: Contenu masqué avec succès.
+          unhide:
+            invalid: There's been a problem unhiding the resource.
+            success: Resource successfully unhidden.
           unreport:
             invalid: Il y a eu un problème lors de l'annulation du signalement du contenu.
             success: Le contenu n'est plus signalé.
