@@ -117,7 +117,7 @@ module Decidim
           it "withdraws the proposal" do
             put :withdraw, params: params.merge(id: proposal.id)
 
-            expect(flash[:notice]).to eq("Proposal successfully updated.")
+            expect(flash[:notice]).to eq("Proposal updated successfully.")
             expect(response).to have_http_status(:found)
             proposal.reload
             expect(proposal.withdrawn?).to be true
