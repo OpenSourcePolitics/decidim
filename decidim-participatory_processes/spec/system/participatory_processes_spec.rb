@@ -235,7 +235,7 @@ describe "Participatory Processes", type: :system do
 
             within find("#processes-grid .column", text: translated(promoted_process.title)) do
               within ".card__footer .card__button " do
-                expect(page).to have_content("TAKE PART")
+                expect(page).to have_content("MORE INFO")
               end
             end
           end
