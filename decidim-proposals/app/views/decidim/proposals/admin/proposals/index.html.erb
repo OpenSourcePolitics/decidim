@@ -20,7 +20,7 @@
               <%= check_box_tag "proposals_bulk", "all", false, class: "js-check-all" %>
             </th>
 
-            <% if component_settings.amendments_enabled && !(params[:q] && params[:q][:is_emendation_true].present?)  %>
+            <% if component_settings.amendments_enabled && !(params[:q] && params[:q][:is_emendation_true].present?) %>
               <th>
                 <%= sort_link(query, :id, t("proposals.filters.type", scope: "decidim.proposals") ) %>
               </th>

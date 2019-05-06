@@ -8,15 +8,19 @@
         <li class="is-dropdown-submenu-parent">
           <a href="#"><%= t("proposals.filters.type", scope: "decidim.proposals") %></a>
           <ul class="nested vertical menu">
-            <li><%= link_to t("proposals", scope: "decidim.proposals.application_helper.filter_type_values"), q: merge_query(is_emendation_true: '0') %></li>
-            <li><%= link_to t("amendments", scope: "decidim.proposals.application_helper.filter_type_values"), q: merge_query(is_emendation_true: '1') %></li>
+            <li><%= link_to t("proposals", scope: "decidim.proposals.application_helper.filter_type_values"), q: merge_query(is_emendation_true: "0") %></li>
+            <li><%= link_to t("amendments", scope: "decidim.proposals.application_helper.filter_type_values"), q: merge_query(is_emendation_true: "1") %></li>
           </ul>
         </li>
         <li class="is-dropdown-submenu-parent">
           <a href="#"><%= t("models.proposal.fields.state", scope: "decidim.proposals") %></a>
           <ul class="nested vertical menu">
             <% filter_admin_state_values.each do |state| %>
-              <li><%= link_to (humanize_proposal_state state), q: merge_query(state_eq: state) %></li>
+              <% if state == "not_answered" %>
+                <li><%= link_to (humanize_proposal_state state), q: merge_query(state_null: 1) %></li>
+              <% else %>
+                <li><%= link_to (humanize_proposal_state state), q: merge_query(state_eq: state) %></li>
+              <% end %>
             <% end %>
           </ul>
         </li>
@@ -34,13 +38,13 @@
   <%= search_form_for query do |f| %>
     <% if params[:q] %>
       <% if params[:q][:is_emendation_true] %>
-        <%= hidden_field_tag "q[is_emendation_true]", params[:q][:is_emendation_true]  %>
+        <%= hidden_field_tag "q[is_emendation_true]", params[:q][:is_emendation_true] %>
       <% end %>
       <% if params[:q][:state_eq] %>
-        <%= hidden_field_tag "q[state_eq]", params[:q][:state_eq]  %>
+        <%= hidden_field_tag "q[state_eq]", params[:q][:state_eq] %>
       <% end %>
       <% if params[:q][:category_id_eq] %>
-        <%= hidden_field_tag "q[category_id_eq]", params[:q][:category_id_eq]  %>
+        <%= hidden_field_tag "q[category_id_eq]", params[:q][:category_id_eq] %>
       <% end %>
     <% end %>
     <div class="input-group">
@@ -63,6 +67,13 @@
           <%= icon "file", class: "type-icon" %> <%= t("proposals", scope: "decidim.proposals.application_helper.filter_type_values") %>
         <% end %>
         <%= icon_link_to "circle-x", url_for(q: drop_query(:is_emendation_true)), t("decidim.admin.actions.cancel"), class: "action-icon--remove" %>
+      </span>
+    <% end %>
+    <% if params[:q][:state_null] %>
+      <span class="label secondary">
+        <%= t("models.proposal.fields.state", scope: "decidim.proposals") %> :
+        <%= humanize_proposal_state "not_answered" %>
+        <%= icon_link_to "circle-x", url_for(q: drop_query(:state_null)), t("decidim.admin.actions.cancel"), class: "action-icon--remove" %>
       </span>
     <% end %>
     <% if params[:q][:state_eq] %>
