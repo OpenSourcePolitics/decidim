@@ -8,7 +8,9 @@ module Decidim
         include Decidim::ApplicationHelper
 
         helper Proposals::ApplicationHelper
-        helper_method :proposals, :query, :form_presenter
+        helper_method :proposals, :categories, :query, :form_presenter
+
+        delegate :categories, to: :current_component
 
         def new
           enforce_permission_to :create, :proposal

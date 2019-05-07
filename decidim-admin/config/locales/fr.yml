@@ -132,8 +132,11 @@ fr:
       actions:
         add: Ajouter
         browse: Parcourir
+        cancel: Annuler
         export: Exporter
-        manage: Modifier
+        filter: Filtrer
+        manage: Gérer
+        new: Nouveau %{name}
         permissions: Autorisations
         reject: Rejeter
         verify: Vérifier

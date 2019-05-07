@@ -430,18 +430,18 @@ fr:
       application_helper:
         filter_origin_values:
           all: Toutes
-          citizens: Utilisateurs
-          meetings: Elaborées en réunion publique
-          official: Administrateurs
+          citizens: Propositions citoyennes
+          meetings: Des réunions
+          official: Propositions officielles
           user_groups: Groupes d'utilisateurs
         filter_state_values:
-          accepted: Retenue
+          accepted: Acceptées
           all: Toutes
           evaluating: En cours d'évaluation
-          except_rejected: Toutes sauf non retenues
-          rejected: Non retenue
+          except_rejected: Toutes sauf les propositions non retenues
+          rejected: Rejetées
         filter_type_values:
-          all: Toutes
+          all: Tous
           amendments: Amendements
           proposals: Propositions
       collaborative_drafts:
@@ -643,6 +643,7 @@ fr:
           comments: Commentaires
         filters:
           activity: Activité
+          type: Type
           amendment_type: Type de proposition
           category: Catégorie
           category_prompt: Sélectionner une catégorie
