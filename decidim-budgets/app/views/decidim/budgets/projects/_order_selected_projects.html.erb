@@ -29,13 +29,6 @@
             <%= t(".remaining_projects", count: current_order.remaining_projects) %>
           </p>
         <% end %>
-        <% unless current_order_checked_out? %>
-          <% if current_order_can_be_checked_out? %>
-            <button class="button small button--sc" data-toggle="budget-confirm"><%= t(".vote") %></button>
-          <% else %>
-            <button class="button small button--sc" data-toggle="budget-confirm" disabled><%= t(".vote") %></button>
-          <% end %>
-        <% end %>
       </div>
     <% end %>
   </div>
