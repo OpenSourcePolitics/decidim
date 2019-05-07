@@ -5,13 +5,15 @@
         <%= t("decidim.admin.actions.filter") %>
       </a>
       <ul class="nested vertical menu">
-        <li class="is-dropdown-submenu-parent">
-          <a href="#"><%= t("proposals.filters.type", scope: "decidim.proposals") %></a>
-          <ul class="nested vertical menu">
-            <li><%= link_to t("proposals", scope: "decidim.proposals.application_helper.filter_type_values"), q: merge_query(is_emendation_true: "0") %></li>
-            <li><%= link_to t("amendments", scope: "decidim.proposals.application_helper.filter_type_values"), q: merge_query(is_emendation_true: "1") %></li>
-          </ul>
-        </li>
+        <% if component_settings.amendments_enabled %>
+          <li class="is-dropdown-submenu-parent">
+            <a href="#"><%= t("proposals.filters.type", scope: "decidim.proposals") %></a>
+            <ul class="nested vertical menu">
+              <li><%= link_to t("proposals", scope: "decidim.proposals.application_helper.filter_type_values"), q: merge_query(is_emendation_true: "0") %></li>
+              <li><%= link_to t("amendments", scope: "decidim.proposals.application_helper.filter_type_values"), q: merge_query(is_emendation_true: "1") %></li>
+            </ul>
+          </li>
+        <% end %>
         <li class="is-dropdown-submenu-parent">
           <a href="#"><%= t("models.proposal.fields.state", scope: "decidim.proposals") %></a>
           <ul class="nested vertical menu">
