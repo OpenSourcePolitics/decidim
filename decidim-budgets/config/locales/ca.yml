@@ -151,7 +151,6 @@ ca:
             one: projet
             other: projets
           view: Veure
-          vote: Voter
         project:
           add: Afegir
           count:

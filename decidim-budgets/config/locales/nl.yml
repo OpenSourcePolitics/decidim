@@ -153,7 +153,6 @@ nl:
             one: projet
             other: projets
           view: Bekijken
-          vote: Voter
         project:
           add: Toevoegen
           count:

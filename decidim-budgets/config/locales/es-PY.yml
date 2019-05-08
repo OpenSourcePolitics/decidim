@@ -150,7 +150,6 @@ es-PY:
             one: projet
             other: projets
           view: Ver
-          vote: Voter
         project:
           add: Añadir
           count:

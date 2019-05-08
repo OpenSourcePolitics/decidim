@@ -155,7 +155,6 @@ en:
             one: projet
             other: projets
           view: View
-          vote: Voter
         project:
           add: Add
           count:

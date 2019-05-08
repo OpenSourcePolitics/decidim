@@ -155,7 +155,6 @@ pl:
             one: projet
             other: projets
           view: Widok
-          vote: Voter
         project:
           add: Dodaj
           count:

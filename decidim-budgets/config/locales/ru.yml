@@ -156,7 +156,6 @@ ru:
             one: projet
             other: projets
           view: Посмотреть
-          vote: Voter
         project:
           add: Добавить
           count:

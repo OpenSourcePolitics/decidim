@@ -135,7 +135,6 @@ fi:
             one: projet
             other: projets
           view: Näytä
-          vote: Voter
         project:
           add: Lisää
           count:

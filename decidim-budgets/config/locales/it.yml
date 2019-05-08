@@ -151,7 +151,6 @@ it:
             one: projet
             other: projets
           view: Visualizza
-          vote: Voter
         project:
           add: Aggiungi
           count:
