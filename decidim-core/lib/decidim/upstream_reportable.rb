@@ -31,7 +31,7 @@ module Decidim
       end
 
       def upstream_moderation_activated?
-        component.settings&.upstream_moderation
+        try(:component).try(:settings).try(:upstream_moderation) || false
       end
 
       def upstream_not_hidden_for?(user)
