@@ -63,8 +63,7 @@
                                      hide_upstream_moderation_path(id: upstream_moderation),
                                      t("actions.hide", scope: "decidim.upstream_moderations"),
                                      class: "action-icon--check",
-                                     method: :put
-                    %>
+                                     method: :put %>
                   <% end %>
                 <% end %>
                 <% if allowed_to?(:accept, :moderation) %>

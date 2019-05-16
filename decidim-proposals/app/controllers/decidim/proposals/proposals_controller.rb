@@ -28,7 +28,6 @@ module Decidim
                        .where(component: current_component)
                        .published
                        .upstream_not_hidden
-                       .visible
                        .includes(:category, :scope)
                        .order(position: :asc)
           render "decidim/proposals/proposals/participatory_texts/participatory_text"
