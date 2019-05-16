@@ -36,7 +36,7 @@ module Decidim
 
         # Public: Whether the comments are moderated before publication or not.
         def comments_have_upstream_moderation?
-          self.try(:component).try(:settings).try(:upstream_moderation) || false
+          try(:component).try(:settings).try(:upstream_moderation) || false
         end
 
         # Public: Identifies the commentable type in the API.
