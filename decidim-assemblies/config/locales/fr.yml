@@ -265,6 +265,7 @@ fr:
         government: Gouvernement
         help: 'Afficher :'
         label: 'Afficher :'
+        help: "Montrer :"
         others: Autres
         participatory: Participatif
         placeholder: Filtrer par type
