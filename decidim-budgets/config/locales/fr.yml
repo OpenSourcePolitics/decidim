@@ -1,4 +1,3 @@
----
 fr:
   activemodel:
     attributes:
@@ -97,7 +96,7 @@ fr:
           title: Vous décidez du budget
         count:
           projects_count:
-            one: "%{count} projet"
+            one: 1 projet
             other: "%{count} projets"
         filters:
           category: Catégorie
@@ -125,7 +124,7 @@ fr:
             one: projet sélectionné sur un total de
             other: projets sélectionnés sur un total de
           remaining_projects:
-            one: "%{count} projet pour valider votre vote."
+            one: 1 projet pour valider votre vote.
             other: "%{count} projets pour valider votre vote."
           remove: Supprimer
           selected_projects:
@@ -139,7 +138,7 @@ fr:
         project:
           add: Ajouter
           count:
-            one: "%{count} soutien"
+            one: 1 soutien
             other: "%{count} soutiens"
           remove: Supprimer
           view: Voir
@@ -171,6 +170,13 @@ fr:
             comments_blocked: Bloquer la création de nouveaux commentaires
             show_votes: Afficher les votes
             votes_enabled: Votes activés
+    events:
+      budgets:
+        order_checkout:
+          email_intro: "Votre vote a été validé. Vous pouvez toujours l'éditer si vous voulez en cliquant ici : <a href='%{resource_url}'>%{participatory_space_title}"
+          email_outro: Merci de votre participation
+          email_subject: "Une enquête est terminée à %{participatory_space_title}"
+          notification_title: "Votre vote a été validé le <a href='%{resource_url}'>%{participatory_space_title}</a> Vous pouvez toujours l'éditer si vous le souhaitez."
     orders:
       checkout:
         error: Une erreur s'est produite lors du traitement de votre vote
