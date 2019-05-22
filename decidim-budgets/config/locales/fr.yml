@@ -1,3 +1,4 @@
+---
 fr:
   activemodel:
     attributes:
@@ -173,10 +174,10 @@ fr:
     events:
       budgets:
         order_checkout:
-          email_intro: "Votre vote a été validé. Vous pouvez toujours l'éditer si vous voulez en cliquant ici : <a href='%{resource_url}'>%{participatory_space_title}"
+          email_intro: 'Votre vote a été validé. Vous pouvez toujours l''éditer si vous voulez en cliquant ici : <a href=''%{resource_url}''>%{participatory_space_title}'
           email_outro: Merci de votre participation
-          email_subject: "Une enquête est terminée à %{participatory_space_title}"
-          notification_title: "Votre vote a été validé le <a href='%{resource_url}'>%{participatory_space_title}</a> Vous pouvez toujours l'éditer si vous le souhaitez."
+          email_subject: Une enquête est terminée à %{participatory_space_title}
+          notification_title: Votre vote a été validé le <a href='%{resource_url}'>%{participatory_space_title}</a> Vous pouvez toujours l'éditer si vous le souhaitez.
     orders:
       checkout:
         error: Une erreur s'est produite lors du traitement de votre vote

@@ -391,6 +391,7 @@ en:
           fields:
             created_at: Created at
             name: Name
+          name: OAuth uygulaması
         participatory_space_private_user:
           name: Participatory space private user
         scope:
@@ -415,6 +416,7 @@ en:
             roles:
               admin: Admin
               user_manager: User manager
+          name: kullanıcı
         user_group:
           fields:
             actions: Actions

@@ -16,6 +16,10 @@ uk:
         personal_url: Особиста веб-адреса
         remove_avatar: Видалити аватар
     models:
+      decidim/amendable/amendment_accepted_event: Amendmen accepted
+      decidim/amendable/amendment_created_event: Amendmen created
+      decidim/amendable/amendment_rejected_event: Amendmen rejected
+      decidim/amendable/emendation_promoted_event: Amendmen promoted
       decidim/attachment_created_event: Вкладений файл
       decidim/component_published_event: Діюча складова
       decidim/demoted_membership: No longer a group admin
@@ -985,6 +989,8 @@ uk:
         share_link: Поділитись посиланням
       version_author:
         deleted: Видалений учасник
+    translate: "Translate to %{target}"
+    translate_tooltip: Translate tooltip
     user_activity:
       index:
         no_activities_warning: This user hasn't had any activity yet.

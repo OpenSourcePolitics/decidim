@@ -1,4 +1,5 @@
-de:
+---
+de-DE:
   activemodel:
     attributes:
       area:
@@ -390,6 +391,7 @@ de:
           fields:
             created_at: Created at
             name: Name
+          name: OAuth uygulaması
         participatory_space_private_user:
           name: Participatory space private user
         scope:
@@ -414,6 +416,7 @@ de:
             roles:
               admin: Admin
               user_manager: User manager
+          name: kullanıcı
         user_group:
           fields:
             actions: Actions
