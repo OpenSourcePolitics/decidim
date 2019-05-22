@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe Decidim::Budgets::CheckoutOrderEvent do
+describe Decidim::Budgets::ReminderOrderEvent do
   let(:order) { create :order }
   let(:resource) { order.component }
   let(:component_url) { main_component_url(resource) }
