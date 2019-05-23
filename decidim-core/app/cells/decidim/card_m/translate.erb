@@ -1,7 +1,10 @@
 <% if translatable? %>
   <div class="card__translate">
-    <%= link_to "#", class: "translatable_btn btn btn-secondary" do %>
-      <div class="loading-spinner"></div>
+    <%= link_to "#", class: "translatable_btn btn btn-secondary", data: {
+      translatabletype: "proposal-card",
+      targetlang: current_locale.upcase
+    } do %>
+      <div class="loading-spinner loading-spinner--hidden"></div>
       <%= with_tooltip(t("decidim.translate_tooltip")) do %>
         <%= t("decidim.translate", target: current_locale_name) %>
         <%= icon "star", class: "action-icon action-icon--disabled" %>

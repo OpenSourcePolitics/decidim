@@ -91,6 +91,10 @@ $datetime-bg: var(--primary);
   }
 }
 
+.debug {
+  background-color: red;
+}
+
 .card__translate {
   display: flex;
   justify-content: flex-end;
@@ -103,6 +107,11 @@ $datetime-bg: var(--primary);
     .loading-spinner {
       margin: 5px !important;
       height: 5px;
+
+      &--hidden {
+        visibility: hidden;
+      }
+
       &::before {
         width: 15px;
         height: 15px;
