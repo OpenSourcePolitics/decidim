@@ -36,5 +36,9 @@ module Decidim
     end
 
     module_function :multi_translation, :empty_translatable
+
+    def deepl_target_locale(requested_locale)
+      "EN" unless %w(EN DE FR ES PT IT NL PL RU).include? requested_locale
+    end
   end
 end

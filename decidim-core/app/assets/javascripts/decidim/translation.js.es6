@@ -5,16 +5,18 @@ let translated_title = function (response) {
 let translated_body = function (response) {
 };
 
-let translate = function (original_text, target_lang, callback) {
+let translate = function (original_text, target_lang, callback, spinner) {
   $.ajax({
     url: "/api/translate",
     type: "GET",
     data: `target=${target_lang}&original=${original_text}`,
     dataType: "json",
     success: function (body, status) {
+      spinner.addClass("loading-spinner--hidden")
       callback([body.translations[0].detected_source_language, body.translations[0].text]);
     },
     error: function (body, status, error) {
+      spinner.addClass("loading-spinner--hidden")
       console.log(status + error);
     }
   });
@@ -45,13 +47,10 @@ $(() => {
     $body.addClass("debug");
 
     $spinner.removeClass("loading-spinner--hidden");
-    $.when(
-      translate($title.text(), targetLang, translated_title()),
-      translate($body.text(), targetLang, translated_body())
-    ).then(
-      $spinner.addClass("loading-spinner--hidden")
-    )
-    ;
+
+    translate($title.text(), targetLang, translated_title(), $spinner);
+    translate($body.text(), targetLang, translated_body(), $spinner);
+
     return null;
   })
 });

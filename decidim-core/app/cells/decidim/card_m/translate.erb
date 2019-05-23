@@ -2,7 +2,7 @@
   <div class="card__translate">
     <%= link_to "#", class: "translatable_btn btn btn-secondary", data: {
       translatabletype: "proposal-card",
-      targetlang: current_locale.upcase
+      targetlang: deepl_target_locale(current_locale.upcase)
     } do %>
       <div class="loading-spinner loading-spinner--hidden"></div>
       <%= with_tooltip(t("decidim.translate_tooltip")) do %>
