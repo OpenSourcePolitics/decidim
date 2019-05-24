@@ -20,7 +20,7 @@ module Decidim
     private
 
     def default_locale
-      current_component.organization.try(:deepl_default_language)
+      current_component.organization.default_locale
     end
 
     def current_locale

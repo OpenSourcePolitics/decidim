@@ -6,6 +6,7 @@ module Decidim
     # dashboard.
     #
     class OrganizationAppearanceForm < Form
+      DEEPL_LOCALES = %w(EN DE FR ES PT IT NL PL RU)
       include TranslatableAttributes
 
       mimic :organization
@@ -30,7 +31,6 @@ module Decidim
       attribute :omnipresent_banner_url, String
 
       attribute :deepl_api_key, String
-      attribute :deepl_default_language, String
 
       attribute :primary_color, String, default: "#ef604d"
       attribute :secondary_color, String, default: "#599aa6"
@@ -47,7 +47,7 @@ module Decidim
       translatable_attribute :omnipresent_banner_title, String
       translatable_attribute :omnipresent_banner_short_description, String
 
-      validates :deepl_default_language, inclusion: { in: %w(EN DE FR ES PT IT NL PL RU) }, if: ->(form) { form.deepl_api_key.present? }
+      validates :deepl_default_language, inclusion: { in: DEEPL_LOCALES }, if: ->(form) { form.deepl_api_key.present? }
 
       validates :cta_button_path, format: { with: %r{\A[a-zA-Z]+[a-zA-Z0-9\-\_/]+\z} }, allow_blank: true
       validates :official_img_header,
