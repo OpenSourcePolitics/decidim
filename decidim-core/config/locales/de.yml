@@ -990,7 +990,7 @@ de:
         share_link: Einen Link teilen
       version_author:
         deleted: Gelöschter Benutzer
-    translate: "Translate to %{target}"
+    translate: Translate to %{target}
     translate_tooltip: Translate tooltip
     user_activity:
       index:

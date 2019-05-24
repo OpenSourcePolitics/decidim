@@ -560,6 +560,7 @@ hu:
           homepage_highlighted_content_banner_title: Kiemelt banner
           layout_appearance_title: Elrendezés szerkesztése
           omnipresent_banner_appearance_title: Mindenhol megjelenő banner szerkesztése
+          translation_settings: Translation settings
       organization_homepage:
         edit:
           active_content_blocks: Aktív tartalomblokkok

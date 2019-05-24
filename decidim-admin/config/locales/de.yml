@@ -560,6 +560,7 @@ de:
           homepage_highlighted_content_banner_title: Highlighted Inhaltsbanner
           layout_appearance_title: Layout-Layout bearbeiten
           omnipresent_banner_appearance_title: Bearbeiten Sie das allgegenwärtige Banner
+          translation_settings: Translation settings
       organization_homepage:
         edit:
           active_content_blocks: Aktive Inhaltsblöcke

@@ -990,7 +990,7 @@ eu:
         share_link: Partekatu esteka
       version_author:
         deleted: Erabiltzailea ezabatua
-    translate: "Translate to %{target}"
+    translate: Translate to %{target}
     translate_tooltip: Translate tooltip
     user_activity:
       index:

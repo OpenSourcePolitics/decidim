@@ -989,7 +989,7 @@ id-ID:
         share_link: Share link
       version_author:
         deleted: Deleted user
-    translate: "Translate to %{target}"
+    translate: Translate to %{target}
     translate_tooltip: Translate tooltip
     user_activity:
       index:

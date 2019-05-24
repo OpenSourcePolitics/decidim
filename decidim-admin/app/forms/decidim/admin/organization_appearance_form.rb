@@ -29,6 +29,8 @@ module Decidim
       attribute :enable_omnipresent_banner, Boolean, default: false
       attribute :omnipresent_banner_url, String
 
+      attribute :deepl_api_key, String
+
       attribute :primary_color, String, default: "#ef604d"
       attribute :secondary_color, String, default: "#599aa6"
       attribute :success_color, String, default: "#57d685"

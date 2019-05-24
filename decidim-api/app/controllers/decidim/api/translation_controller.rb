@@ -5,7 +5,8 @@ module Decidim
     class TranslationController < Api::ApplicationController
       def translate
         if params[:original].present? && params[:target].present?
-          auth_key = ENV['DEEPL_API_KEY']
+          auth_key = current_organization.try(:deepl_api_key) || Rails.application.secrets.try(:deepl_api_key)
+
           target = params[:target]
           encode_text = CGI.escape(params[:original])
 
@@ -18,7 +19,6 @@ module Decidim
           render json: { status: :params_missing }
         end
       end
-
 
       private
 

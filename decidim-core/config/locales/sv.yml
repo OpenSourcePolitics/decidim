@@ -990,7 +990,7 @@ sv:
         share_link: Dela länk
       version_author:
         deleted: Raderad användare
-    translate: "Translate to %{target}"
+    translate: Translate to %{target}
     translate_tooltip: Translate tooltip
     user_activity:
       index:

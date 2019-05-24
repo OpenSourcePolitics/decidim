@@ -560,6 +560,7 @@ ca:
           homepage_highlighted_content_banner_title: Bàner de contingut ressaltat
           layout_appearance_title: Edita l'aparença del disseny global
           omnipresent_banner_appearance_title: Edita pancarta omnipresent
+          translation_settings: Translation settings
       organization_homepage:
         edit:
           active_content_blocks: Blocs de contingut actiu

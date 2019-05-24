@@ -562,6 +562,7 @@ nl:
           homepage_highlighted_content_banner_title: Uitgelichte inhoudsbanner
           layout_appearance_title: Weergave van de lay-out bewerken
           omnipresent_banner_appearance_title: Bewerk de alomtegenwoordige banner
+          translation_settings: Translation settings
       organization_homepage:
         edit:
           active_content_blocks: Actieve inhoudsblokken

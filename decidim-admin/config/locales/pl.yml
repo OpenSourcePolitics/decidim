@@ -560,6 +560,7 @@ pl:
           homepage_highlighted_content_banner_title: Baner treści o wysokim priorytecie
           layout_appearance_title: Edytuj wygląd układu
           omnipresent_banner_appearance_title: Edytuj wszechobecny baner
+          translation_settings: Translation settings
       organization_homepage:
         edit:
           active_content_blocks: Aktywne bloki treści

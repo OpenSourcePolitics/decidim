@@ -994,7 +994,7 @@ es-MX:
         share_link: Compartir enlace
       version_author:
         deleted: Usuario eliminado
-    translate: "Translate to %{target}"
+    translate: Translate to %{target}
     translate_tooltip: Translate tooltip
     user_activity:
       index:
