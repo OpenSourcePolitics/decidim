@@ -19,6 +19,10 @@ module Decidim
 
     private
 
+    def default_locale
+      current_component.organization.try(:deepl_default_language)
+    end
+
     def current_locale
       I18n.locale.to_s
     end

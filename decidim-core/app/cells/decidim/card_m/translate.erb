@@ -2,11 +2,11 @@
   <div class="card__translate">
     <%= link_to "#", class: "translatable_btn btn btn-secondary", data: {
       translatabletype: "proposal-card",
-      targetlang: deepl_target_locale(current_locale)
+      targetlang: deepl_target_locale(current_locale, default_locale)
     } do %>
       <div class="loading-spinner loading-spinner--hidden"></div>
       <%= with_tooltip(t("decidim.translate_tooltip")) do %>
-        <%= t("decidim.translate", target: deepl_current_locale_name(current_locale)) %>
+        <%= t("decidim.translate", target: deepl_current_locale_name(current_locale, default_locale)) %>
         <%= icon "star", class: "action-icon action-icon--disabled" %>
       <% end %>
     <% end %>
