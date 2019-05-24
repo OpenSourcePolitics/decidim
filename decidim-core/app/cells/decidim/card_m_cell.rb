@@ -19,10 +19,6 @@ module Decidim
 
     private
 
-    def current_locale_name
-      locale_name(current_locale)
-    end
-
     def current_locale
       I18n.locale.to_s
     end
