@@ -46,6 +46,8 @@ Upgrade note:
 - **decidim-assemblies**: Fix assemblies filter by type [\#4777](https://github.com/decidim/decidim/pull/4777)
 - **decidim-debates**: Restore Debates export form component manifest [\#633](https://github.com/OpenSourcePolitics/decidim/pull/633)
 - **decidim-proposals**: Fix JS callback on weighted votes [\#637](https://github.com/OpenSourcePolitics/decidim/issues/637)
+- **decidim-proposals**: Add documents folder in proposals manifest for precompile assets. [#5016](https://github.com/decidim/decidim/pull/5016)
+- **decidim-core**: Fix user-inputted content. [#5147](https://github.com/decidim/decidim/pull/5147)
 
 ## [0.16.1](https://github.com/decidim/decidim/tree/v0.16.1)
 

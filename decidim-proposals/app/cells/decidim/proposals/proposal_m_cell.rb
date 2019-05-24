@@ -19,7 +19,7 @@ module Decidim
       end
 
       def title
-        present(model).title
+        decidim_html_escape(present(model).title)
       end
 
       def body
@@ -45,7 +45,7 @@ module Decidim
       end
 
       def description
-        truncate(present(model).body, length: 100)
+        strip_tags(body).truncate(100, separator: /\s/)
       end
 
       def badge_classes
