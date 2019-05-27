@@ -990,6 +990,8 @@ ca:
         deleted: Usuari eliminat
     translate: Translate to %{target}
     translate_tooltip: Translate tooltip
+    translated: Translated
+    translated_tooltip: Translated tooltip
     user_activity:
       index:
         no_activities_warning: Aquest usuari encara no ha tingut cap activitat.

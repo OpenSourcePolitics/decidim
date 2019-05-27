@@ -987,6 +987,8 @@ fr:
         deleted: Utilisateur ayant supprimé son compte
     translate: Translate to %{target}
     translate_tooltip: Translate tooltip
+    translated: Translated
+    translated_tooltip: Translated tooltip
     user_activity:
       index:
         no_activities_warning: Cet utilisateur n'a pas encore eu d'activité.

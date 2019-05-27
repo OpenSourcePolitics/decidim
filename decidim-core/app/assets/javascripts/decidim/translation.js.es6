@@ -1,15 +1,13 @@
-let translate = function (original_text, target_lang, callback, spinner) {
+let translate = function (originalText, targetLang, callback) {
   $.ajax({
     url: "/api/translate",
     type: "GET",
-    data: `target=${target_lang}&original=${original_text}`,
+    data: `target=${targetLang}&original=${originalText}`,
     dataType: "json",
-    success: function (body, status) {
-      spinner.addClass("loading-spinner--hidden");
+    success: function (body) {
       callback([body.translations[0].detected_source_language, body.translations[0].text]);
     },
     error: function (body, status, error) {
-      spinner.addClass("loading-spinner--hidden")
       console.log(status + error);
     }
   });
@@ -22,10 +20,19 @@ $(() => {
 
     const $item = $(event.target).parent();
     const $spinner = $item.children(".loading-spinner");
-    const tranlatableType = $item.data("translatabletype");
-    const targetLang = $item.data("targetlang");
+    const $btn = $item.children("span");
+
     let $title = null;
     let $body = null;
+
+    const original = $item.data("original");
+    const translated = $item.data("translated");
+    const targetLang = $item.data("targetlang");
+    const tranlatableType = $item.data("translatabletype");
+
+    let translatable = $item.data("translatable");
+    let originalTitle = $item.data("title");
+    let originalBody = $item.data("body");
 
     switch (tranlatableType) {
     case "proposal-card":
@@ -36,16 +43,30 @@ $(() => {
       console.log("No translatable type")
     }
 
-    $spinner.removeClass("loading-spinner--hidden");
+    if (translatable) {
+      $spinner.removeClass("loading-spinner--hidden");
 
-    translate($title.text(), targetLang, (response) => {
-      $title.text(response[1])
-    }, $spinner);
-    translate($body.text(), targetLang, (response) => {
-      $body.text(response[1])
-    }, $spinner);
+      translate($title.text(), targetLang, (response) => {
+        $item.data("title", $title.text());
+        $title.text(response[1]);
+      });
 
-    return null;
+      translate($body.text(), targetLang, (response) => {
+        $item.data("body", $body.text());
+        $body.text(response[1]);
+
+        $btn.text(translated);
+
+        $spinner.addClass("loading-spinner--hidden");
+
+        $item.data("translatable", false);
+      });
+    } else {
+      $btn.text(original);
+      $title.text(originalTitle);
+      $body.text(originalBody);
+      $item.data("translatable", true);
+    }
   })
 });
 
