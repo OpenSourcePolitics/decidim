@@ -24,3 +24,7 @@
 
 <%= render partial: "layouts/decidim/head_extra" %>
 <%== current_organization.header_snippets if Decidim.enable_html_header_snippets %>
+
+<script type="text/javascript">
+  window._token = '<%= form_authenticity_token %>';
+</script>

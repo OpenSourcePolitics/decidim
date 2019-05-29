@@ -1,8 +1,13 @@
 let translate = function (originalText, targetLang, callback) {
   $.ajax({
     url: "/api/translate",
-    type: "GET",
-    data: `target=${targetLang}&original=${originalText}`,
+    type: "POST",
+    // data: `target=${targetLang}&original=${originalText}`,
+    data: {
+      target: targetLang,
+      original: originalText,
+      authenticity_token: window._token
+    },
     dataType: "json",
     success: function (body) {
       callback([body.translations[0].detected_source_language, body.translations[0].text]);
@@ -35,8 +40,8 @@ $(() => {
 
     switch (tranlatableType) {
     case "proposal-card":
-      $title = $item.parent().parent().find(".card__title");
-      $body = $item.parent().parent().find(".card__text--paragraph");
+      $title = $item.parentsUntil("[data-translatable-parent]").find("[data-translatable-title]");
+      $body = $item.parentsUntil("[data-translatable-parent]").find("[data-translatable-body]");
       break;
     default:
       throw new Error("No translatable type");
@@ -50,9 +55,9 @@ $(() => {
         $title.text(response[1]);
       });
 
-      translate($body.text(), targetLang, (response) => {
-        $item.data("body", $body.text());
-        $body.text(response[1]);
+      translate($body.html(), targetLang, (response) => {
+        $item.data("body", $body.html());
+        $body.html(response[1]);
 
         $btn.text(translated);
 
@@ -63,7 +68,7 @@ $(() => {
     } else {
       $btn.text(original);
       $title.text(originalTitle);
-      $body.text(originalBody);
+      $body.html(decodeURI(originalBody));
       $item.data("translatable", true);
     }
   })

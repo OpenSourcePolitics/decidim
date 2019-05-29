@@ -3,6 +3,8 @@
 module Decidim
   module Api
     class TranslationController < Api::ApplicationController
+      before_action :verify_authenticity_token
+
       def translate
         if params[:original].present? && params[:target].present?
           auth_key = current_organization.try(:deepl_api_key) || Rails.application.secrets.try(:deepl_api_key)
@@ -10,7 +12,7 @@ module Decidim
           target = params[:target]
           encode_text = CGI.escape(params[:original])
 
-          uri = URI.parse("https://api.deepl.com/v2/translate?target_lang=#{target}&text=#{encode_text}&auth_key=#{auth_key}")
+          uri = URI.parse("https://api.deepl.com/v2/translate?target_lang=#{target}&text=#{encode_text}&auth_key=#{auth_key}&tag_handling=xml")
 
           result = api_request(uri)
 

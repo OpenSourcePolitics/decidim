@@ -1,4 +1,4 @@
-<% if translatable? %>
+<% if translatable? && current_component.organization.available_locales.count > 1 %>
   <div class="card__translate">
     <%= link_to "#", class: "translatable_btn btn btn-secondary", data: {
       translatabletype: "proposal-card",
