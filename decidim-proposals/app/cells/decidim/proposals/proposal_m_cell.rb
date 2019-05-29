@@ -15,7 +15,7 @@ module Decidim
       private
 
       def translatable?
-        true
+        !current_component.organization.deepl_api_key.blank? && current_component.organization.available_locales.count > 1
       end
 
       def title

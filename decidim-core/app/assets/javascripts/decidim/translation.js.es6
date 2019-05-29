@@ -39,7 +39,7 @@ $(() => {
     let originalBody = $item.data("body");
 
     switch (tranlatableType) {
-    case "proposal-card":
+    case "card-m":
       $title = $item.parentsUntil("[data-translatable-parent]").find("[data-translatable-title]");
       $body = $item.parentsUntil("[data-translatable-parent]").find("[data-translatable-body]");
       break;

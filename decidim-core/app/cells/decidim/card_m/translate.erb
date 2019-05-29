@@ -1,7 +1,7 @@
-<% if translatable? && current_component.organization.available_locales.count > 1 %>
+<% if translatable? %>
   <div class="card__translate">
     <%= link_to "#", class: "translatable_btn btn btn-secondary", data: {
-      translatabletype: "proposal-card",
+      translatabletype: "card-m",
       targetlang: deepl_target_locale(current_locale, default_locale),
       translatable: true,
       translated: t("decidim.translated"),

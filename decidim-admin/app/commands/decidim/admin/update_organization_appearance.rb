@@ -50,16 +50,9 @@ module Decidim
           .merge(highlighted_content_banner_attributes)
           .merge(omnipresent_banner_attributes)
           .merge(colors_attributes)
-          .merge(translation_settings)
           .tap do |attributes|
           attributes[:header_snippets] = form.header_snippets if Decidim.enable_html_header_snippets
         end
-      end
-
-      def translation_settings
-        {
-          deepl_api_key: form.deepl_api_key
-        }
       end
 
       def appearance_attributes
