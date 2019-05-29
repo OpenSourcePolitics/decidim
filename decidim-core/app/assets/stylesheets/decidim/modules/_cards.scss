@@ -97,14 +97,21 @@ $datetime-bg: var(--primary);
 
 .card__translate {
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
+  margin-bottom: .7rem;
 
   .btn {
-    display: flex;
-    flex-direction: row;
-    align-items: baseline;
+    font-size: 80%;
+
+    .icon {
+      vertical-align: middle;
+      position: relative;
+      top: -1px;
+      margin-right: .1rem;
+    }
 
     .loading-spinner {
+      display: inline-block;
       margin: 5px !important;
       height: 5px;
 

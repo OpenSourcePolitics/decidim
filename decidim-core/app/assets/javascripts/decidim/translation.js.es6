@@ -17,8 +17,7 @@ let translate = function (originalText, targetLang, callback) {
 $(() => {
   $(".translatable_btn").on("click", (event) => {
     event.preventDefault();
-
-    const $item = $(event.target).parent();
+    const $item = $(event.delegateTarget);
     const $spinner = $item.children(".loading-spinner");
     const $btn = $item.children("span");
 
@@ -40,7 +39,7 @@ $(() => {
       $body = $item.parent().parent().find(".card__text--paragraph");
       break;
     default:
-      console.log("No translatable type")
+      throw new Error("No translatable type");
     }
 
     if (translatable) {
@@ -69,4 +68,3 @@ $(() => {
     }
   })
 });
-

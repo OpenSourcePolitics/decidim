@@ -58,8 +58,7 @@ module Decidim
 
       def translation_settings
         {
-          deepl_api_key: form.deepl_api_key,
-          deepl_default_language: form.deepl_default_language
+          deepl_api_key: form.deepl_api_key
         }
       end
 
