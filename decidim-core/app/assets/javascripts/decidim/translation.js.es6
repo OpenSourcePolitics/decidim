@@ -31,6 +31,7 @@ $(() => {
 
     const original = $item.data("original");
     const translated = $item.data("translated");
+    const translatableId = $item.data("translatable-id");
     const targetLang = $item.data("targetlang");
     const tranlatableType = $item.data("translatabletype");
 
@@ -42,6 +43,10 @@ $(() => {
     case "card-m":
       $title = $item.parentsUntil("[data-translatable-parent]").find("[data-translatable-title]");
       $body = $item.parentsUntil("[data-translatable-parent]").find("[data-translatable-body]");
+      break;
+    case "proposal-show":
+      $title = $(document).find(`[data-translatable-title=${translatableId}]`);
+      $body = $(document).find(`[data-translatable-body=${translatableId}]`);
       break;
     default:
       throw new Error("No translatable type");
