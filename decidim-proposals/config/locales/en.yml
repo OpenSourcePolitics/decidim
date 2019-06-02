@@ -611,7 +611,6 @@ en:
       proposals:
         compare:
           continue: Continue
-          mine_is_different: Моя пропозиція інша
           no_similars_found: Well done! No similar proposals found
           title: Similar Proposals
         complete:
