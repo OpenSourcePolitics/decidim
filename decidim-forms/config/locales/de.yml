@@ -1,80 +1,79 @@
----
 de:
   activemodel:
     attributes:
       answer:
-        body: Antworten
+        body: Answer
       question:
-        max_choices: Maximale Anzahl von Auswahlmöglichkeiten
-        question_type: Art
+        max_choices: Maximum number of choices
+        question_type: Type
       questionnaire_question:
-        mandatory: Verpflichtend
+        mandatory: Mandatory
     errors:
       models:
         answer:
           attributes:
             choices:
-              missing: sind nicht vollständig
-              too_many: sind zu viele
+              missing: are not complete
+              too_many: are too many
   decidim:
     forms:
       admin:
         models:
           components:
-            description: Beschreibung
-            tos: Nutzungsbedingungen
+            description: Description
+            tos: Terms of service
         questionnaires:
           answer_option:
-            answer_option: Antwortoption
-            free_text: Freier Text
-            remove: Löschen
-            statement: Aussage
+            answer_option: Answer option
+            free_text: Free text
+            remove: Remove
+            statement: Statement
           edit:
-            save: sparen
-            title: Titel
+            save: Save
+            title: Title
           form:
-            add_question: Frage hinzufügen
-            already_answered_warning: Der Fragebogen wird bereits von einigen Benutzern beantwortet, sodass Sie die Fragen nicht ändern können.
+            add_question: Add question
+            already_answered_warning: The questionnaire is already answered by some users so you cannot modify its questions.
           question:
-            add_answer_option: Antwortoption hinzufügen
-            any: Irgendein
-            description: Beschreibung
-            down: Nieder
-            question: Frage
-            remove: Löschen
-            statement: Aussage
-            up: Oben
+            add_answer_option: Add answer option
+            any: Any
+            description: Description
+            down: Down
+            question: Question
+            remove: Remove
+            statement: Statement
+            up: Up
           update:
-            invalid: Beim Speichern des Fragebogens sind Fehler aufgetreten.
-            success: Fragebögen wurden erfolgreich gespeichert.
+            invalid: There's been errors when saving the questionnaire.
+            success: Questionnaires saved successfully.
       errors:
         answer:
-          body: Körper kann nicht leer sein
+          body: Body can't be blank
       question_types:
-        long_answer: Lange Antwort
-        multiple_option: Mehrfachoption
-        short_answer: Kurze Antwort
-        single_option: Einzelne Option
-        sorting: Sortierung
+        long_answer: Long answer
+        multiple_option: Multiple option
+        short_answer: Short answer
+        single_option: Single option
+        sorting: Sorting
       questionnaires:
         answer:
-          invalid: Bei der Beantwortung des Fragebogens sind Fehler aufgetreten.
-          success: Fragebogen erfolgreich beantwortet.
+          invalid: There's been errors when answering the questionnaire.
+          success: Questionnaire answered successfully.
         question:
-          max_choices: 'Max Auswahlmöglichkeiten: %{n}'
+          max_choices: 'Max choices: %{n}'
         show:
           answer_questionnaire:
-            anonymous_user_message: <a href="%{sign_in_link}">Melden Sie sich mit Ihrem Konto an</a> oder <a href="%{sign_up_link}">Melden Sie sich an</a> , um den Fragebogen zu beantworten.
-            title: Beantworten Sie den Fragebogen
-          are_you_sure: Diese Aktion kann nicht rückgängig gemacht werden und Sie können Ihre Antworten nicht bearbeiten. Bist du sicher?
+            anonymous_user_message: <a href="%{sign_in_link}">Sign in with your account</a> or <a href="%{sign_up_link}">sign up</a> to answer the questionnaire.
+            title: Answer the questionnaire
+          are_you_sure: This action cannot be undone and you will not be able to edit your answers. Are you sure?
           questionnaire_answered:
-            body: Sie haben diesen Fragebogen bereits beantwortet.
-            title: Schon beantwortet
+            body: You have already answered this questionnaire.
+            title: Already answered
           questionnaire_closed:
-            body: Der Fragebogen ist geschlossen und kann nicht beantwortet werden.
-            title: Fragebogen geschlossen
+            body: The questionnaire is closed and cannot be answered.
+            title: Questionnaire closed
           questionnaire_for_private_users:
-            body: Der Fragebogen ist nur für Privatanwender verfügbar
-            title: Fragebogen geschlossen
-          submit: einreichen
-          tos_agreement: Mit der Teilnahme stimmen Sie den Nutzungsbedingungen zu
+            body: The questionnaire is available only for private users
+            title: Questionnaire closed
+          submit: Submit
+          tos_agreement: By participating you accept its Terms of Service
