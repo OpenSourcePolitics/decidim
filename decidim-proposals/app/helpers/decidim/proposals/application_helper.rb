@@ -157,10 +157,6 @@ module Decidim
           ["amendments", t("decidim.proposals.application_helper.filter_type_values.amendments")]
         ]
       end
-
-      def translatable?
-        current_organization.deepl_api_key.present? && current_organization.translatable_locales.count > 1
-      end
     end
   end
 end
