@@ -49,6 +49,10 @@ module Decidim
             );
           })
       end
+
+      def translatable?
+        !current_organization.deepl_api_key.blank? && current_organization.translatable_locales.count > 1
+      end
     end
   end
 end

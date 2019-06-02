@@ -6,7 +6,7 @@ let translate = function (originalText, targetLang, callback) {
     data: {
       target: targetLang,
       original: originalText,
-      authenticity_token: window._token
+      "authenticity_token": window.$('meta[name="csrf-token"]').attr("content")
     },
     dataType: "json",
     success: function (body) {
