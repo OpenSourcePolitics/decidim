@@ -613,6 +613,7 @@ uk:
       proposals:
         compare:
           continue: Continue
+          mine_is_different: Моя пропозиція інша
           no_similars_found: Гарна робота! Не знайдено схожий пропозицій
           title: Подібні пропозиції
         complete:

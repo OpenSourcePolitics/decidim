@@ -1178,6 +1178,17 @@ es:
       too_short: Es demasiado corto (menos de 15 caracteres)
   forms:
     required: Obligatorio
+  instructions:
+    decidim:
+      system:
+        organizations:
+          smtp_settings:
+            address: Address
+            from_email: From email
+            from_label: From label
+            password: Password
+            port: Port
+            user_name: User name
   invisible_captcha:
     sentence_for_humans: Si eres humano, ignora este campo
     timestamp_error_message: Lo siento, has sido demasiado rápido! Por favor, vuelva a enviar.

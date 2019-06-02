@@ -37,6 +37,7 @@ ca:
         organization_url: URL de l'organització
         redirect_uri: URL de redirecció
       organization:
+        address: SMTP hostname
         alert_color: Alert
         badges_enabled: Habilitar insígnies
         cta_button_path: URL del botó d'acció
@@ -46,6 +47,7 @@ ca:
         enable_omnipresent_banner: Mostrar banner omnipresent
         facebook_handler: Nom d'usuari de Facebook
         favicon: Icona
+        from: From email address
         github_handler: Nom d'usuari de GitHub
         header_snippets: Codi personalitzat a la capçalera
         highlighted_content_banner_action_subtitle: Subtítol del botó d'acció
@@ -64,6 +66,8 @@ ca:
         omnipresent_banner_short_description: Descripció breu
         omnipresent_banner_title: Títol
         omnipresent_banner_url: URL
+        password: Password
+        port: Port
         primary_color: Primary
         reference_prefix: Prefix de referència
         secondary_color: Secondary
@@ -560,7 +564,6 @@ ca:
           homepage_highlighted_content_banner_title: Bàner de contingut ressaltat
           layout_appearance_title: Edita l'aparença del disseny global
           omnipresent_banner_appearance_title: Edita pancarta omnipresent
-          translation_settings: Translation settings
       organization_homepage:
         edit:
           active_content_blocks: Blocs de contingut actiu

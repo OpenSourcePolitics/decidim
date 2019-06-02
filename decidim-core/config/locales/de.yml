@@ -1174,6 +1174,17 @@ de:
       too_short: ist zu kurz (unter 15 Zeichen)
   forms:
     required: Erforderlich
+  instructions:
+    decidim:
+      system:
+        organizations:
+          smtp_settings:
+            address: Address
+            from_email: From email
+            from_label: From label
+            password: Password
+            port: Port
+            user_name: User name
   invisible_captcha:
     sentence_for_humans: Wenn Sie ein Mensch sind, ignorieren Sie dieses Feld
     timestamp_error_message: Entschuldigung, das war zu schnell! Bitte erneut einreichen

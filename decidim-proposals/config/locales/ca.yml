@@ -611,6 +611,7 @@ ca:
       proposals:
         compare:
           continue: Continue
+          mine_is_different: La meva proposta és diferent
           no_similars_found: Ben fet! No s'han trobat propostes semblants
           title: Propostes similars
         complete:

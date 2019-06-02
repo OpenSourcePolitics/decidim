@@ -1173,6 +1173,17 @@ hu:
       too_short: túl rövid (15 karakterig)
   forms:
     required: Kötelező
+  instructions:
+    decidim:
+      system:
+        organizations:
+          smtp_settings:
+            address: Address
+            from_email: From email
+            from_label: From label
+            password: Password
+            port: Port
+            user_name: User name
   invisible_captcha:
     sentence_for_humans: Hagyd figyelmen kívül ezt a mezőt
     timestamp_error_message: Sajnos ez túl gyors volt! Kérlek, küldd el újra.

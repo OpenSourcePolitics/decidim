@@ -37,6 +37,7 @@ uk:
         organization_url: Адреса сайту організації
         redirect_uri: URI перенаправлення
       organization:
+        address: SMTP hostname
         alert_color: Alert
         badges_enabled: Enable badges
         cta_button_path: Шлях до кнопки "Закликати до дії"
@@ -46,6 +47,7 @@ uk:
         enable_omnipresent_banner: Показувати всюдисущий банер
         facebook_handler: Адреса Facebook
         favicon: Значок
+        from: From email address
         github_handler: Адреса GitHub
         header_snippets: Сніпети для гіпертекстових заголовків сторінок сайту
         highlighted_content_banner_action_subtitle: Підзаголовок кнопки дії
@@ -64,6 +66,8 @@ uk:
         omnipresent_banner_short_description: Стислий опис
         omnipresent_banner_title: Заголовок
         omnipresent_banner_url: Веб-адреса
+        password: Password
+        port: Port
         primary_color: Primary
         reference_prefix: Довідковий префікс
         secondary_color: Secondary
@@ -560,7 +564,6 @@ uk:
           homepage_highlighted_content_banner_title: Банер висвітленого вмісту
           layout_appearance_title: Редагувати зовнішній вигляд шаблону
           omnipresent_banner_appearance_title: Редагувати всюдисущий банер
-          translation_settings: Translation settings
       organization_homepage:
         edit:
           active_content_blocks: Блоки діючого вмісту

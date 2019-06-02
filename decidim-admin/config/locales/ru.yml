@@ -37,6 +37,7 @@ ru:
         organization_url: Веб-адрес организации
         redirect_uri: URI перенаправления
       organization:
+        address: SMTP hostname
         alert_color: Alert
         badges_enabled: Enable badges
         cta_button_path: Путь кнопки "Призвать к действию"
@@ -46,6 +47,7 @@ ru:
         enable_omnipresent_banner: Показывать вездесущий баннер
         facebook_handler: Обработчик Facebook
         favicon: Значок
+        from: From email address
         github_handler: Обработчик GitHub
         header_snippets: Сниппеты для гипертекстовых заголовков страниц сайта
         highlighted_content_banner_action_subtitle: Подзаголовок кнопки действия
@@ -64,6 +66,8 @@ ru:
         omnipresent_banner_short_description: Краткое описание
         omnipresent_banner_title: Заголовок
         omnipresent_banner_url: Веб-адрес
+        password: Password
+        port: Port
         primary_color: Primary
         reference_prefix: Справочный префикс
         secondary_color: Secondary
@@ -560,7 +564,6 @@ ru:
           homepage_highlighted_content_banner_title: Баннер рекомендуемого содержимого
           layout_appearance_title: Редактировать внешний вид макета
           omnipresent_banner_appearance_title: Редактировать вездесущий баннер
-          translation_settings: Translation settings
       organization_homepage:
         edit:
           active_content_blocks: Блоки действующего содержимого

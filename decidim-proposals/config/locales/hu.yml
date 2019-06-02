@@ -611,6 +611,7 @@ hu:
       proposals:
         compare:
           continue: Continue
+          mine_is_different: Javaslatom más jellegű
           no_similars_found: Szép munka! Nincsen hasonló javaslat
           title: Hasonló javaslatok
         complete:

@@ -1174,6 +1174,17 @@ fi:
       too_short: liian lyhyt (alle 15 merkkiä)
   forms:
     required: Vaadittu
+  instructions:
+    decidim:
+      system:
+        organizations:
+          smtp_settings:
+            address: Address
+            from_email: From email
+            from_label: From label
+            password: Password
+            port: Port
+            user_name: User name
   invisible_captcha:
     sentence_for_humans: Jos olet ihminen, jätä tämä kenttä huomiotta
     timestamp_error_message: Pahoittelut, olit liian nopea! Lähetä lomake uudestaan.
