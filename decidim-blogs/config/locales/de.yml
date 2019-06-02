@@ -1,80 +1,79 @@
----
 de:
   activemodel:
     models:
-      decidim/blogs/create_post_event: Neuer Blogeintrag
+      decidim/blogs/create_post_event: New blog post
   activerecord:
     models:
       decidim/blogs/post:
         one: Post
-        other: Beiträge
+        other: Posts
   decidim:
     blogs:
       actions:
-        confirm_destroy: Möchten Sie diesen Beitrag wirklich löschen?
-        destroy: Löschen
-        edit: Bearbeiten
-        new: Neuer Beitrag
-        title: Aktionen
+        confirm_destroy: Are you sure you want to delete this post?
+        destroy: Delete
+        edit: Edit
+        new: New post
+        title: Actions
       admin:
         models:
           components:
-            body: Karosserie
+            body: Body
           post:
             name: Post
         posts:
           create:
-            invalid: Beim Erstellen dieses Posts ist ein Problem aufgetreten
-            success: Post erfolgreich erstellt
+            invalid: There's been a problem creating this post
+            success: Post successfully created
           destroy:
-            success: Beitrag wurde erfolgreich gelöscht
+            success: Post successfully deleted
           edit:
-            save: Aktualisieren
+            save: Update
           index:
-            title: Beiträge
+            title: Posts
           new:
-            create: Erstellen
-            title: Post erstellen
+            create: Create
+            title: Create post
           update:
-            invalid: Beim Speichern des Posts sind Fehler aufgetreten.
-            success: Beitrag wurde erfolgreich gespeichert
+            invalid: There's been errors when saving the post.
+            success: Post saved successfully
       last_activity:
-        new_post_at_html: "<span>Neuer Beitrag bei %{link}</span>"
+        new_post_at_html: "<span>New post at %{link}</span>"
       models:
         post:
           fields:
-            author: Autor
-            body: Karosserie
-            created_at: Hergestellt in
-            title: Titel
+            author: Author
+            body: Body
+            created_at: Created at
+            title: title
       posts:
         show:
-          view: Aussicht
+          view: View
         sidebar_blog:
-          comments: Bemerkungen
-          most_commented_posts: Meist kommentierte Posts
-      read_more: Weiterlesen
+          comments: comments
+          most_commented_posts: Most commented posts
+      read_more: Read more
     components:
       blogs:
         name: Blog
         settings:
           global:
-            announcement: Ankündigung
-            comments_enabled: Kommentare aktiviert
+            announcement: Announcement
+            comments_enabled: Comments enabled
           step:
-            announcement: Ankündigung
-            comments_blocked: Kommentare blockiert
+            announcement: Announcement
+            comments_blocked: Comments blocked
     events:
       blogs:
         post_created:
-          email_intro: Der Beitrag "%{resource_title}" wurde in "%{participatory_space_title}" veröffentlicht, dem Sie folgen.
-          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie "%{participatory_space_title}" folgen. Sie können es aus dem vorherigen Link aufheben.
-          email_subject: Neuer Beitrag in %{participatory_space_title}
-          notification_title: Der Beitrag <a href="%{resource_path}">%{resource_title}</a> wurde in %{participatory_space_title}
+          email_intro: The post "%{resource_title}" has been published in "%{participatory_space_title}" that you are following.
+          email_outro: You have received this notification because you are following "%{participatory_space_title}". You can unfollow it from the previous link.
+          email_subject: New post published in %{participatory_space_title}
+          notification_title: The post <a href="%{resource_path}">%{resource_title}</a> has been published in %{participatory_space_title}
     pages:
       home:
         statistics:
-          posts_count: Beiträge
+          posts_count: Posts
     participatory_processes:
       statistics:
-        posts_count: Beiträge
+        posts_count: Posts
