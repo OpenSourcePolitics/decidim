@@ -119,10 +119,10 @@ class Comment extends React.Component<CommentProps, CommentState> {
             </div>
           </div>
         </div>
-        <div className="comment__content" data-translatable-parent>
+        <div className="comment__content" data-translatable-parent="true">
           <div>
             {this._renderAlignmentBadge()}
-            <div data-translatable-body dangerouslySetInnerHTML={{__html: commentBody}} />
+            <div data-translatable-body="true" dangerouslySetInnerHTML={{__html: commentBody}} />
           </div>
           {this._renderTranslateButton()}
         </div>
@@ -143,24 +143,24 @@ class Comment extends React.Component<CommentProps, CommentState> {
   }
 
   private toggleTranslation = () => {
-    if(this.state.translated) {
+    if (this.state.translated) {
       this.setState({
         commentBody: this.props.comment.formattedBody,
         translatableLabel: I18n.t("comments.translate", {target: window.Decidim.locale_name}),
         translated: false
-      })
+      });
     } else {
-      fetch("/api/translate",{
+      fetch("/api/translate", {
         method: "POST",
         body: JSON.stringify({
           target: I18n.locale,
           original: this.props.comment.formattedBody,
-          "authenticity_token": this._getAuthenticityToken()
+          authenticity_token: this._getAuthenticityToken()
         }),
-        headers:{
-          'Content-Type': 'application/json'
+        headers: {
+          "Content-Type": "application/json"
         },
-        credentials: 'same-origin'
+        credentials: "same-origin"
       })
       .then(res => res.json())
       .then(
@@ -176,20 +176,20 @@ class Comment extends React.Component<CommentProps, CommentState> {
           //   ]
           // }
 
-          if( result.translations && result.translations[0] ){
+          if ( result.translations && result.translations[0] ) {
             this.setState({
               commentBody: result.translations[0].text,
               translatableLabel: I18n.t("comments.translated"),
               translated: true
-            })
+            });
           } else {
-            throw new Error(`API returns empty result : ${JSON.stringify(result)}`)
+            throw new Error(`API returns empty result : ${JSON.stringify(result)}`);
           }
         },
         (error) => {
-          console.error(error)
+          throw error;
         }
-      )
+      );
     }
   }
 

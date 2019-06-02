@@ -13,7 +13,7 @@ let translate = function (originalText, targetLang, callback) {
       callback([body.translations[0].detected_source_language, body.translations[0].text]);
     },
     error: function (body, status, error) {
-      console.log(status + error);
+      throw error;
     }
   });
 };
