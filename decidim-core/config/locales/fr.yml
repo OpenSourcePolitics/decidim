@@ -9,7 +9,7 @@ fr:
         about: A propos de moi
         email: Votre email
         name: Votre nom
-        nickname: Surnom
+        nickname: Your nickname
         password: Mot de passe
         password_confirmation: Confirmez votre mot de passe
         personal_url: Site internet personnel
@@ -1135,6 +1135,7 @@ fr:
       minimum_password_length:
         one: "(%{count} caractère minimum)"
         other: "(%{count} caractères minimum)"
+      password_help: "At least 8 characters, a capital letter and a special character (eg: !)"
     unlocks:
       new:
         resend_unlock_instructions: Renvoyer les instructions de déverrouillage
