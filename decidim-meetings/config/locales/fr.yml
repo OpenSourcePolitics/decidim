@@ -95,15 +95,11 @@ fr:
             email_outro: Vous avez reçu cette notification parce que vous avez organisé la réunion "%{resource_title}".
             email_subject: La réunion "%{resource_title}" est close
             notification_title: La réunion <a href="%{resource_path}">%{resource_title}</a> a été close.
-          email_intro: 'La rencontre "%{resource_title}" est terminée. Vous pouvez en lire le compte rendu sur sa page :'
-          email_outro: Vous avez reçu cette notification, car vous suivez la rencontre "%{resource_title}". Vous pouvez arrêter de la suivre à partir du lien précédent.
-          email_subject: La rencontre "%{resource_title}" est terminée
           follower:
             email_intro: 'La rencontre "%{resource_title}" est close. Vous pouvez lire les conclusions sur sa page :'
             email_outro: Vous avez reçu cette notification parce que vous suivez la rencontre "%{resource_title}". Vous pouvez le déplier à partir du lien précédent.
             email_subject: La rencontre "%{resource_title}" est close
             notification_title: La rencontre <a href="%{resource_path}">%{resource_title}</a> a été close.
-          notification_title: La rencontre <a href="%{resource_path}">%{resource_title}</a> est terminée.
         meeting_created:
           email_intro: La rencontre "%{resource_title}" a été ajoutée à "%{participatory_space_title}" que vous suivez.
           email_outro: Vous avez reçu cette notification parce que vous suivez "%{participatory_space_title}". Vous pouvez arrêter le suivi à partir du lien précédent.
