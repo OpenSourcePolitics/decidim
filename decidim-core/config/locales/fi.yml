@@ -1142,6 +1142,7 @@ fi:
       minimum_password_length:
         one: "(vähintään %{count} merkki)"
         other: "(vähintään %{count} merkkiä)"
+      password_help: 'At least 8 characters, a capital letter and a special character (eg: !)'
     unlocks:
       new:
         resend_unlock_instructions: Lähetä uudelleen ohjeet tilin lukituksen poistoon
