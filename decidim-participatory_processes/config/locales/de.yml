@@ -1,403 +1,401 @@
----
 de:
   activemodel:
     attributes:
       participatory_process:
-        announcement: Ankündigung
-        banner_image: Bannerbild
-        copy_categories: Kategorien kopieren
-        copy_components: Kopieren Sie Komponenten
-        copy_steps: Schritte kopieren
-        description: Beschreibung
-        developer_group: Promoter-Gruppe
+        announcement: Announcement
+        banner_image: Banner image
+        copy_categories: Copy categories
+        copy_components: Copy components
+        copy_steps: Copy steps
+        description: Description
+        developer_group: Promoter group
         domain: Domain
-        end_date: Endtermin
+        end_date: End date
         hashtag: Hashtag
-        hero_image: Hauptbild
-        local_area: Organisationsbereich
-        meta_scope: Bereichs-Metadaten
-        participatory_process_group_id: Prozessgruppe
-        participatory_scope: Was ist entschieden?
-        participatory_structure: Wie ist es entschieden?
+        hero_image: Home image
+        local_area: Organization area
+        meta_scope: Scope metadata
+        participatory_process_group_id: Processes group
+        participatory_scope: What is decided
+        participatory_structure: How is it decided
         private_space: Concertation privée
-        promoted: Gefördert
-        published_at: Veröffentlicht unter
-        scope_id: Umfang
-        scopes_enabled: Bereiche aktiviert
-        short_description: Kurze Beschreibung
-        show_statistics: Zeige Statistiken
-        slug: URL-Block
-        start_date: Anfangsdatum
-        subtitle: Untertitel
-        target: Wer nimmt teil?
-        title: Titel
+        promoted: Promoted
+        published_at: Published at
+        scope_id: Scope
+        scopes_enabled: Scopes enabled
+        short_description: Short description
+        show_statistics: Show statistics
+        slug: URL slug
+        start_date: Start date
+        subtitle: Subtitle
+        target: Who participates
+        title: Title
       participatory_process_group:
-        description: Beschreibung
-        hero_image: Bild
+        description: Description
+        hero_image: Image
         name: Name
-        participatory_process_ids: Ähnliche Prozesse
+        participatory_process_ids: Related processes
       participatory_process_step:
-        cta_path: Aufruf zum Aktionspfad
-        cta_text: Call to Action-Text
-        description: Beschreibung
-        end_date: Endtermin
-        short_description: Kurze Beschreibung
-        start_date: Anfangsdatum
-        title: Titel
+        cta_path: Call to Action path
+        cta_text: Call to Action text
+        description: Description
+        end_date: End date
+        short_description: Short description
+        start_date: Start date
+        title: Title
       participatory_process_user_role:
         email: Email
         name: Name
-        role: Rolle
+        role: Role
     models:
-      decidim/participatory_process_step_activated_event: Schritt aktiviert
-      decidim/participatory_process_step_changed_event: Schritt geändert
+      decidim/participatory_process_step_activated_event: Step activated
+      decidim/participatory_process_step_changed_event: Step changed
   activerecord:
     models:
       decidim/participatory_process:
-        one: Partizipationsprozess
-        other: Partizipative Prozesse
+        one: Participatory process
+        other: Participatory processes
       decidim/participatory_process_group:
-        one: Partizipative Prozessgruppe
-        other: Partizipative Prozessgruppen
+        one: Participatory process group
+        other: Participatory process groups
       decidim/participatory_process_step:
-        one: Schritt
-        other: Schritte
+        one: Step
+        other: Steps
   decidim:
     admin:
       actions:
-        activate: aktivieren Sie
-        configure: Konfigurieren
-        confirm_destroy: Löschen bestätigen
-        destroy: Löschen
-        duplicate: Duplikat
-        edit: Bearbeiten
+        activate: Activate
+        configure: Configure
+        confirm_destroy: Confirm delete
+        destroy: Delete
+        duplicate: Duplicate
+        edit: Edit
         new: New
-        new_process: Yeni süreç
-        new_process_group: Neue Prozessgruppe
-        new_process_step: Neuer Schritt
-        new_process_user_role: Neuer Prozessbenutzer
+        new_process_group: New process group
+        new_process_step: New step
+        new_process_user_role: New process user
         participatory_process:
-          new: New
-        preview: Vorschau
-        publish: Veröffentlichen
-        resend_invitation: Einladung erneut versenden
-        unpublish: Veröffentlichung rückgängig machen
+          new: New process
+        preview: Preview
+        publish: Publish
+        resend_invitation: Resend invitation
+        unpublish: Unpublish
       menu:
-        participatory_process_groups: Prozessgruppen
-        participatory_processes: Prozesse
+        participatory_process_groups: Process groups
+        participatory_processes: Processes
         participatory_processes_submenu:
-          attachment_collections: Ordner
-          attachment_files: Dateien
-          attachments: Anlagen
-          categories: Kategorien
-          components: Komponenten
+          attachment_collections: Folders
+          attachment_files: Files
+          attachments: Attachments
+          categories: Categories
+          components: Components
           info: Info
-          moderations: Moderationen
-          private_users: Private Benutzer
-          process_admins: Benutzer verarbeiten
-          steps: Schritte
+          moderations: Moderations
+          private_users: Private Users
+          process_admins: Process users
+          steps: Steps
       models:
         participatory_process:
           fields:
-            created_at: Hergestellt in
-            private: Privatgelände
-            promoted: Hervorgehoben
-            published: Veröffentlicht
-            title: Titel
-          name: Partizipationsprozess
+            created_at: Created at
+            private: Private
+            promoted: Highlighted
+            published: Published
+            title: Title
+          name: Participatory process
         participatory_process_group:
           fields:
             name: Name
-          name: Prozessgruppe
+          name: Process group
         participatory_process_step:
           fields:
-            end_date: Endtermin
-            start_date: Anfangsdatum
-            title: Titel
-          name: Partizipativer Prozessschritt
+            end_date: End date
+            start_date: Start date
+            title: Title
+          name: Participatory process step
         participatory_process_user_role:
           fields:
             email: Email
             name: Name
-            role: Rolle
-          name: Partizipativer Prozessbenutzer
+            role: Role
+          name: Participatory process user
           roles:
             admin: Administrator
-            collaborator: Mitarbeiter
+            collaborator: Collaborator
             moderator: Moderator
         user:
           fields:
-            invitation_accepted_at: Einladung angenommen bei
-            invitation_sent_at: Einladung gesendet an
+            invitation_accepted_at: Invitation accepted at
+            invitation_sent_at: Invitation sent at
       participatory_process_copies:
         new:
-          copy: Kopieren
-          select: Wählen Sie die Daten aus, die Sie duplizieren möchten
-          title: Doppelter partizipativer Prozess
+          copy: Copy
+          select: Select which data you would like to duplicate
+          title: Duplicate participatory process
       participatory_process_groups:
         destroy:
-          success: Participatory Prozessgruppe erfolgreich gelöscht.
+          success: Participatory process group deleted successfully.
         edit:
-          title: Prozessgruppe bearbeiten
-          update: Aktualisieren
+          title: Edit process group
+          update: Update
         new:
-          create: Erstellen
-          title: Neue Prozessgruppe
+          create: Create
+          title: New process group
         update:
-          error: Beim Aktualisieren dieser partizipativen Prozessgruppe ist ein Fehler aufgetreten.
-          success: Partizipative Prozessgruppe wurde erfolgreich aktualisiert.
+          error: There was en error updating this participatory process group.
+          success: Participatory process group updated successfully.
       participatory_process_publications:
         create:
-          error: Bei der Veröffentlichung dieses partizipativen Prozesses ist ein Fehler aufgetreten.
-          success: Partizipativer Prozess erfolgreich veröffentlicht.
+          error: There was an error publishing this participatory process.
+          success: Participatory process published successfully.
         destroy:
-          error: Beim Aufheben der Veröffentlichung dieses partizipativen Prozesses ist ein Fehler aufgetreten.
-          success: Partizipativer Prozess wurde nicht veröffentlicht.
+          error: There was an error unpublishing this participatory process.
+          success: Participatory process unpublished successfully.
       participatory_process_step_activations:
         create:
-          error: Beim Aktivieren dieses partizipativen Prozessschritts ist ein Fehler aufgetreten.
-          success: Partizipativer Prozessschritt erfolgreich aktiviert
+          error: There was an error activating this participatory process step.
+          success: Participatory process step activated successfully.
       participatory_process_steps:
         create:
-          error: Beim Erstellen eines neuen partizipativen Prozessschritts ist ein Fehler aufgetreten.
-          success: Partizipativer Prozessschritt erfolgreich erstellt
-        default_title: Einführung
+          error: There was an error creating a new participatory process step.
+          success: Participatory process step created successfully.
+        default_title: Introduction
         destroy:
           error:
-            active_step: Der aktive Schritt kann nicht gelöscht werden.
-            last_step: Der letzte Schritt eines Prozesses kann nicht gelöscht werden.
-          success: Participatory-Prozessschritt erfolgreich gelöscht
+            active_step: Can't delete the active step.
+            last_step: Can't delete the last step of a process.
+          success: Participatory process step deleted successfully.
         edit:
-          title: Beteiligungsschritt bearbeiten
-          update: Aktualisieren
+          title: Edit participatory process step
+          update: Update
         index:
-          steps_title: Schritte
+          steps_title: Steps
         new:
-          create: Erstellen
-          title: Neuer partizipativer Prozessschritt
+          create: Create
+          title: New participatory process step
         ordering:
-          error: Beim Neuanordnen dieser partizipativen Prozessschritte ist ein Fehler aufgetreten.
+          error: There was an error when reordering this participatory process steps.
         update:
-          error: Beim Aktualisieren dieses partizipativen Prozessschritts ist ein Fehler aufgetreten.
-          success: Partizipativer Prozessschritt erfolgreich aktualisiert.
+          error: There was an error when updating this participatory process step.
+          success: Participatory process step updated successfully.
       participatory_process_user_roles:
         create:
-          error: Beim Hinzufügen eines Benutzers für diesen partizipativen Prozess ist ein Fehler aufgetreten.
-          success: Benutzer hat diesen partizipativen Prozess erfolgreich hinzugefügt.
+          error: There was an error adding a user for this participatory process.
+          success: User added successfully to this participatory process.
         destroy:
-          success: Der Benutzer wurde erfolgreich aus diesem partizipativen Prozess entfernt.
+          success: User removed successfully from this participatory process.
         edit:
-          title: Benutzer des partizipativen Prozesses aktualisieren
-          update: Aktualisieren
+          title: Update participatory process user.
+          update: Update
         index:
-          process_admins_title: Partizipative Prozessbenutzer
+          process_admins_title: Participatory process users
         new:
-          create: Erstellen
-          title: Neuer partizipativer Prozessbenutzer.
+          create: Create
+          title: New participatory process user.
         update:
-          error: Für diesen partizipativen Prozess wurde ein Fehler bei einem Benutzer aktualisiert.
-          success: Der Benutzer wurde für diesen partizipativen Prozess erfolgreich aktualisiert.
+          error: There was an error updated a user for this participatory process.
+          success: User updated successfully for this participatory process.
       participatory_processes:
         create:
-          error: Beim Erstellen eines neuen partizipativen Prozesses ist ein Fehler aufgetreten.
-          success: Partizipativer Prozess erfolgreich erstellt. Konfigurieren Sie jetzt seine Schritte.
+          error: There was an error creating a new participatory process.
+          success: Participatory process created successfully. Configure now its steps.
         edit:
-          update: Aktualisieren
+          update: Update
         form:
-          title: Allgemeine Information
+          title: General Information
         index:
-          not_published: Nicht veröffentlicht
-          private: Privatgelände
+          not_published: Not published
+          private: Private
           promoted:
             'false': 'False'
             'true': 'True'
-          public: Öffentlichkeit
-          published: Veröffentlicht
+          public: Public
+          published: Published
         new:
-          create: Erstellen
-          title: Neuer partizipativer Prozess
+          create: Create
+          title: New participatory process
         update:
-          error: Beim Aktualisieren dieses partizipativen Prozesses ist ein Fehler aufgetreten.
-          success: Participatory-Prozess erfolgreich aktualisiert.
+          error: There was an error when updating this participatory process.
+          success: Participatory process updated successfully.
       participatory_processes_copies:
         create:
-          error: Beim Duplizieren dieses partizipativen Prozesses ist ein Fehler aufgetreten.
-          success: Partizipativer Prozess erfolgreich dupliziert.
+          error: There was an error when duplicating this participatory process.
+          success: Participatory process duplicated successfully.
       participatory_processes_group:
         create:
-          error: Beim Erstellen einer neuen partizipativen Prozessgruppe ist ein Fehler aufgetreten.
-          success: Partizipative Prozessgruppe erfolgreich erstellt.
+          error: There was an error creating a new participatory process group.
+          success: Participatory process group created successfully.
       titles:
-        participatory_process_groups: Partizipative Prozessgruppen
-        participatory_processes: Partizipative Prozesse
+        participatory_process_groups: Participatory process groups
+        participatory_processes: Participatory processes
       users:
         resend_invitation:
-          error: Beim erneuten Senden der Einladung ist ein Fehler aufgetreten.
-          success: Einladung wird erfolgreich erneut gesendet.
+          error: There was an error resending the invitation.
+          success: Invitation resent successfully.
     admin_log:
       participatory_process:
-        create: "%{user_name} hat den %{resource_name} Partizipationsprozess erstellt"
-        publish: "%{user_name} veröffentlichte den %{resource_name} Partizipationsprozess"
-        unpublish: "%{user_name} unveröffentlicht den %{resource_name} Partizipationsprozess"
-        update: "%{user_name} hat den %{resource_name} Partizipationsprozess aktualisiert"
+        create: "%{user_name} created the %{resource_name} participatory process"
+        publish: "%{user_name} published the %{resource_name} participatory process"
+        unpublish: "%{user_name} unpublished the %{resource_name} participatory process"
+        update: "%{user_name} updated the %{resource_name} participatory process"
       participatory_process_step:
-        activate: "%{user_name} den %{resource_name} Schritt im %{space_name} Partizipationsprozess aktiviert"
-        create: "%{user_name} erstellt den %{resource_name} Schritt in dem %{space_name} Partizipationsprozess"
-        delete: "%{user_name} löschte den %{resource_name} Schritt in dem %{space_name} Partizipationsprozess"
-        update: "%{user_name} hat den %{resource_name} Schritt im %{space_name} Partizipationsprozess aktualisiert"
+        activate: "%{user_name} activated the %{resource_name} step in the %{space_name} participatory process"
+        create: "%{user_name} created the %{resource_name} step in the %{space_name} participatory process"
+        delete: "%{user_name} deleted the %{resource_name} step in the %{space_name} participatory process"
+        update: "%{user_name} updated the %{resource_name} step in the %{space_name} participatory process"
       participatory_process_user_role:
-        create: "%{user_name} lud den Benutzer %{resource_name} zu dem %{space_name} Partizipationsprozess ein"
-        delete: "%{user_name} entfernte den Benutzer %{resource_name} aus dem %{space_name} Partizipationsprozess"
-        update: "%{user_name} änderte die Rolle des Benutzers %{resource_name} im %{space_name} Partizipationsprozess"
+        create: "%{user_name} invited the user %{resource_name} to the %{space_name} participatory process"
+        delete: "%{user_name} removed the user %{resource_name} from the %{space_name} participatory process"
+        update: "%{user_name} changed the role of the user %{resource_name} in the %{space_name} participatory process"
     events:
       participatory_process:
         step_activated:
-          email_intro: 'Der %{resource_title} Schritt ist jetzt für %{participatory_space_title}. Sie können es von dieser Seite sehen:'
-          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{participatory_space_title}. Sie können nach dem vorherigen Link keine Benachrichtigungen mehr erhalten.
-          email_subject: Ein Update auf %{participatory_space_title}
-          notification_title: Der %{resource_title} Schritt ist jetzt aktiv für <a href="%{resource_path}">%{participatory_space_title}</a>
+          email_intro: 'The %{resource_title} step is now active for %{participatory_space_title}. You can see it from this page:'
+          email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
+          email_subject: An update to %{participatory_space_title}
+          notification_title: The %{resource_title} step is now active for <a href="%{resource_path}">%{participatory_space_title}</a>
         step_changed:
-          email_intro: 'Die Daten für den Schritt %{resource_title} bei %{participatory_space_title} wurden aktualisiert. Sie können es von dieser Seite sehen:'
-          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{participatory_space_title}. Sie können nach dem vorherigen Link keine Benachrichtigungen mehr erhalten.
-          email_subject: Ein Update auf %{participatory_space_title}
-          notification_title: Die Daten für den <a href="%{resource_path}">%{resource_title}</a> Schritt bei <a href="%{participatory_space_url}">%{participatory_space_title}</a> wurden aktualisiert.
+          email_intro: 'The dates for the %{resource_title} step at %{participatory_space_title} have been updated. You can see it from this page:'
+          email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
+          email_subject: An update to %{participatory_space_title}
+          notification_title: The dates for the <a href="%{resource_path}">%{resource_title}</a> step at <a href="%{participatory_space_url}">%{participatory_space_title}</a> have been updated.
     help:
       participatory_spaces:
         participatory_processes:
-          contextual: "<p>A <strong>Partizipationsprozess</strong> ist eine Folge von Partizipations Aktivitäten (zB zuerst eine Umfrage ausfüllen, dann Vorschläge machen, so dass sie diskutiert in face-to-face oder virtuellen Sitzungen, und sie schließlich die Priorisierung) mit dem Ziel , die Definition und Treffen eine Entscheidung zu einem bestimmten Thema.</p> <p>Beispiele für partizipatorische Prozesse sind: ein Verfahren zur Wahl von Ausschussmitgliedern (bei dem die Kandidaturen zuerst präsentiert, anschließend debattiert und schließlich eine Kandidatur ausgewählt wird), die Bürgerhaushalte (bei denen Vorschläge gemacht, wirtschaftlich bewertet und mit dem verfügbaren Geld abgestimmt werden). ein strategischer Planungsprozess, die gemeinschaftliche Ausarbeitung einer Vorschrift oder Norm, die Gestaltung eines städtischen Raums oder die Erstellung eines öffentlichen Planes.</p>\n"
-          page: "<p>A <strong>Partizipationsprozess</strong> ist eine Folge von Partizipations Aktivitäten (zB zuerst eine Umfrage ausfüllen, dann Vorschläge machen, so dass sie diskutiert in face-to-face oder virtuellen Sitzungen, und sie schließlich die Priorisierung) mit dem Ziel , die Definition und Treffen eine Entscheidung zu einem bestimmten Thema.</p> <p>Beispiele für partizipatorische Prozesse sind: ein Verfahren zur Wahl von Ausschussmitgliedern (bei dem die Kandidaturen zuerst präsentiert, anschließend debattiert und schließlich eine Kandidatur ausgewählt wird), die Bürgerhaushalte (bei denen Vorschläge gemacht, wirtschaftlich bewertet und mit dem verfügbaren Geld abgestimmt werden). ein strategischer Planungsprozess, die gemeinschaftliche Ausarbeitung einer Vorschrift oder Norm, die Gestaltung eines städtischen Raums oder die Erstellung eines öffentlichen Planes.</p>\n"
-          title: Was ist ein partizipativer Prozess?
+          contextual: "<p>A <strong>participatory process</strong> is a sequence of participatory activities (e.g. first filling out a survey, then making proposals, discussing them in face-to-face or virtual meetings, and finally prioritizing them) with the aim of defining and making a decision on a specific topic.</p> <p>Examples of participatory processes are: a process of electing committee members (where candidatures are first presented, then debated and finally a candidacy is chosen), participatory budgets (where proposals are made, valued economically and voted on with the money available), a strategic planning process, the collaborative drafting of a regulation or norm, the design of an urban space or the production of a public policy plan.</p>\n"
+          page: "<p>A <strong>participatory process</strong> is a sequence of participatory activities (e.g. first filling out a survey, then making proposals, discussing them in face-to-face or virtual meetings, and finally prioritizing them) with the aim of defining and making a decision on a specific topic.</p> <p>Examples of participatory processes are: a process of electing committee members (where candidatures are first presented, then debated and finally a candidacy is chosen), participatory budgets (where proposals are made, valued economically and voted on with the money available), a strategic planning process, the collaborative drafting of a regulation or norm, the design of an urban space or the production of a public policy plan.</p>\n"
+          title: What is a participatory process?
     menu:
-      processes: Prozesse
+      processes: Processes
     metrics:
       participatory_processes:
-        description: Anzahl der partizipativen Prozesse in dieser Organisation
-        object: partizipative Prozesse
-        title: Partizipative Prozesse
+        description: Number of participatory processes in this organization
+        object: participatory processes
+        title: Participatory processes
     pages:
       participatory_space:
         metrics:
-          headline: Headline
-          link: Link
+          headline: Participation in figures
+          link: Show all statistics
     participatory_process_groups:
       show:
         group_participatory_processes:
-          one: 1 Prozesse für %{group}
-          other: "%{count} Prozesse für %{group}"
-        title: Partizipative Prozessgruppen
+          one: 1 processes for %{group}
+          other: "%{count} processes for %{group}"
+        title: Participatory process groups
     participatory_process_steps:
       index:
-        process_steps: Prozessschritte
-        title: Partizipative Prozessschritte
+        process_steps: Process steps
+        title: Participatory process steps
     participatory_processes:
       admin:
         content_blocks:
           highlighted_processes:
-            max_results: Maximale Anzahl der Elemente, die angezeigt werden sollen
+            max_results: Maximum amount of elements to show
         participatory_process_copies:
           form:
-            slug_help: 'URL-Slugs werden zum Generieren der URLs verwendet, die auf diesen Prozess verweisen. Akzeptiert nur Buchstaben, Zahlen und Bindestriche und muss mit einem Buchstaben beginnen. Beispiel: %{url}'
+            slug_help: 'URL slugs are used to generate the URLs that point to this process. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
         participatory_process_steps:
           form:
-            cta_path_help: 'Verwenden Sie hier Teilpfade, nicht vollständige URLs. Akzeptiert Buchstaben, Zahlen, Bindestriche und Schrägstriche und muss mit einem Buchstaben beginnen. Wenn nicht eingestellt, wird die Schaltfläche nicht angezeigt. Beispiel: %{url}'
-            cta_text_help: Wenn nicht eingestellt, wird die Schaltfläche nicht angezeigt.
+            cta_path_help: 'Use partial paths, not full URLs here. Accepts letters, numbers, dashes and slashes, and must start with a letter. If not set, the button will not be shown. Example: %{url}'
+            cta_text_help: If not set, the button will not be shown.
         participatory_processes:
           form:
-            announcement_help: Der Text, den Sie hier eingeben, wird dem Benutzer direkt unter den Prozessinformationen angezeigt.
-            slug_help: 'URL-Slugs werden zum Generieren der URLs verwendet, die auf diesen Prozess verweisen. Akzeptiert nur Buchstaben, Zahlen und Bindestriche und muss mit einem Buchstaben beginnen. Beispiel: %{url}'
+            announcement_help: The text you enter here will be shown to the user right below the process information.
+            slug_help: 'URL slugs are used to generate the URLs that point to this process. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
       content_blocks:
         highlighted_processes:
-          name: Markierte Prozesse
+          name: Highlighted processes
       index:
-        title: Partizipative Prozesse
+        title: Participatory processes
       last_activity:
-        new_participatory_process: Neuer partizipativer Prozess
+        new_participatory_process: New participatory process
       pages:
         home:
           highlighted_processes:
-            active_processes: Aktive Prozesse
-            active_step: Aktiver Schritt
-            more_information: Mehr Informationen
-            participate: Sich beteiligen
-            see_all_processes: Alle Prozesse anzeigen
+            active_processes: Active processes
+            active_step: Active step
+            more_information: More information
+            participate: Participate
+            see_all_processes: See all processes
       participatory_process_groups:
-        none: Keiner
+        none: None
       participatory_processes:
         filters:
           counters:
             active:
-              one: 1 aktiver Prozess
-              other: "%{count} aktive Prozesse"
+              one: 1 active process
+              other: "%{count} active processes"
             all:
-              one: 1 Prozess
-              other: "%{count} Prozesse"
+              one: 1 process
+              other: "%{count} processes"
             past:
-              one: 1 vergangener Prozess
-              other: "%{count} vergangene Prozesse"
+              one: 1 past process
+              other: "%{count} past processes"
             upcoming:
-              one: 1 bevorstehender Prozess
-              other: "%{count} bevorstehende Prozesse"
+              one: 1 upcoming process
+              other: "%{count} upcoming processes"
           explanations:
-            no_active: Keine aktiven Prozesse
-            no_active_nor_upcoming: Keine aktiven oder anstehenden Prozesse
-            no_active_nor_upcoming_callout: Es gibt keine aktiven oder bevorstehenden Prozesse. Hier ist eine Liste der vergangenen.
+            no_active: No active processes
+            no_active_nor_upcoming: No active nor upcoming processes
+            no_active_nor_upcoming_callout: There are no active nor upcoming processes. Here is a list of the past ones.
           names:
-            active: Aktiv
-            all: Alle
-            past: Vergangenheit
-            upcoming: Bevorstehende
-          see: Sehen
+            active: Active
+            all: All
+            past: Past
+            upcoming: Upcoming
+          see: See
         index:
-          loading: Ergebnisse werden geladen ...
+          loading: Loading results...
       show:
-        developer_group: Promoter-Gruppe
-        end_date: Endtermin
-        local_area: Organisationsbereich
-        participatory_scope: Was ist entschieden?
-        participatory_structure: Wie ist es entschieden?
-        private_space: Dies ist ein privater Prozess
-        scope: Umfang
-        start_date: Anfangsdatum
-        target: Wer nimmt teil?
-        unspecified: Keine Angabe
+        developer_group: Promoter group
+        end_date: End date
+        local_area: Organization Area
+        participatory_scope: What is decided
+        participatory_structure: How is it decided
+        private_space: This is a private process
+        scope: Scope
+        start_date: Start date
+        target: Who participates
+        unspecified: Not specified
       statistics:
-        answers_count: Antworten
-        comments_count: Bemerkungen
-        debates_count: Debatten
-        endorsements_count: Empfehlungen
-        headline: Aktivität
+        answers_count: Answers
+        comments_count: Comments
+        debates_count: Debates
+        endorsements_count: Endorsements
+        headline: Activity
         meetings_count: Meetings
-        orders_count: Stimmen
-        pages_count: Seiten
-        processes_count: Prozesse
-        projects_count: Projekte
-        proposals_count: Vorschläge
-        results_count: Ergebnisse
-        surveys_count: Umfragen
-        users_count: Teilnehmer
-        votes_count: Stimmen
+        orders_count: Votes
+        pages_count: Pages
+        processes_count: Processes
+        projects_count: Projects
+        proposals_count: Proposals
+        results_count: Results
+        surveys_count: Surveys
+        users_count: Participants
+        votes_count: Votes
   layouts:
     decidim:
       participatory_process_groups:
         participatory_process_group:
-          browse: Durchsuche
-          processes_count: 'Prozesse:'
+          browse: Browse
+          processes_count: 'Processes:'
       participatory_process_widgets:
         show:
-          active_step: Aktiver Schritt
-          take_part: Teilnehmen
+          active_step: Active step
+          take_part: Take part
       participatory_processes:
         index:
-          promoted_processes: Markierte Prozesse
+          promoted_processes: Highlighted processes
         participatory_process:
-          active_step: 'Aktueller Schritt:'
-          take_part: Teilnehmen
+          active_step: 'Current step:'
+          take_part: Take part
         promoted_process:
-          active_step: 'Aktueller Schritt:'
-          more_info: Mehr Info
-          take_part: Teilnehmen
+          active_step: 'Current step:'
+          more_info: More info
+          take_part: Take part
       process_header_steps:
-        step: Schritt %{current} von %{total}
-        view_steps: Schritte anzeigen
+        step: Step %{current} of %{total}
+        view_steps: View steps
       process_navigation:
-        process_menu_item: Der Prozess
+        process_menu_item: The process
