@@ -347,7 +347,7 @@ fr:
           random: Aléatoire
           recent: Les plus récentes
         placeholder:
-          address: "[n°] [street] [postal] [city]"
+          address: "[n°] [voie] [code postal] [ville]"
         preview:
           address: 'Adresse : %{address}'
           modify: Modifier la proposition
