@@ -1137,7 +1137,7 @@ fr:
       minimum_password_length:
         one: "(%{count} caractère minimum)"
         other: "(%{count} caractères minimum)"
-      password_help: "Au moins 8 caractères, une lettre de capital et un caractère spécial (ex: !)"
+      password_help: 'Au moins 8 caractères, une lettre de capital et un caractère spécial (ex: !)'
     unlocks:
       new:
         resend_unlock_instructions: Renvoyer les instructions de déverrouillage
