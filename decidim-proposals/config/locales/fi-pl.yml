@@ -611,7 +611,6 @@ fi-pl:
       proposals:
         compare:
           continue: Continue
-          mine_is_different: Ehdotukseni on erilainen
           no_similars_found: Hyvin tehty! Vastaavia ehdotuksia ei löytynyt
           title: Vastaavat ehdotukset
         complete:

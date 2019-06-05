@@ -613,7 +613,6 @@ es:
       proposals:
         compare:
           continue: Continue
-          mine_is_different: Mi propuesta es diferente
           no_similars_found: "¡Bien hecho! No se encontraron propuestas similares"
           title: Propuestas similares
         complete:

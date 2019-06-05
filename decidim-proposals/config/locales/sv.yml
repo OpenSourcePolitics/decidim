@@ -611,7 +611,6 @@ sv:
       proposals:
         compare:
           continue: Continue
-          mine_is_different: Mitt förslag är annorlunda
           no_similars_found: Bra gjort! Inga liknande förslag hittades
           title: Liknande förslag
         complete:

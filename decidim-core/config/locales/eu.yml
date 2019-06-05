@@ -991,9 +991,7 @@ eu:
       version_author:
         deleted: Erabiltzailea ezabatua
     translate: Translate to %{target}
-    translate_tooltip: Translate tooltip
     translated: Translated
-    translated_tooltip: Translated tooltip
     user_activity:
       index:
         no_activities_warning: Erabiltzaile honek ez du oraindik jarduera izan.

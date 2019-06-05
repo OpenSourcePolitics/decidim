@@ -611,7 +611,6 @@ eu:
       proposals:
         compare:
           continue: Continue
-          mine_is_different: Nire proposamena desberdina da
           no_similars_found: Ongi egina! Ez da antzeko proposamenik aurkitu
           title: Proposamen antzekoak
         complete:

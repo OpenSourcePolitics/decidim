@@ -611,7 +611,6 @@ de:
       proposals:
         compare:
           continue: Continue
-          mine_is_different: Mein Vorschlag ist anders
           no_similars_found: Gut gemacht! Keine ähnlichen Vorschläge gefunden
           title: Ähnliche Vorschläge
         complete:

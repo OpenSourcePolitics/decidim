@@ -625,7 +625,6 @@ pl:
       proposals:
         compare:
           continue: Continue
-          mine_is_different: Moja propozycja jest inna
           no_similars_found: Dobra robota! Nie znaleziono podobnych propozycji
           title: Podobne propozycje
         complete:

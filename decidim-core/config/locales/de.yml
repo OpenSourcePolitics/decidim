@@ -991,9 +991,7 @@ de:
       version_author:
         deleted: Gelöschter Benutzer
     translate: Translate to %{target}
-    translate_tooltip: Translate tooltip
     translated: Translated
-    translated_tooltip: Translated tooltip
     user_activity:
       index:
         no_activities_warning: Dieser Benutzer hat noch keine Aktivität gehabt.
