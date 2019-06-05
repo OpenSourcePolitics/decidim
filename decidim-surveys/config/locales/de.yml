@@ -1,57 +1,56 @@
----
 de:
   activemodel:
     models:
-      decidim/surveys/closed_survey_event: Umfrage beendet
-      decidim/surveys/opened_survey_event: Umfrage gestartet
+      decidim/surveys/closed_survey_event: Survey ended
+      decidim/surveys/opened_survey_event: Survey started
   activerecord:
     models:
       decidim/surveys/survey:
-        one: Umfrage
-        other: Umfragen
+        one: Survey
+        other: Surveys
       decidim/surveys/survey_answer:
-        one: Antworten
-        other: Antworten
+        one: Answer
+        other: Answers
   decidim:
     components:
       surveys:
         actions:
-          answer: Antworten
-        name: Umfrage
+          answer: Answer
+        name: Survey
         settings:
           global:
-            announcement: Ankündigung
+            announcement: Announcement
           step:
-            allow_answers: Erlaube Antworten
-            announcement: Ankündigung
+            allow_answers: Allow answers
+            announcement: Announcement
     events:
       surveys:
         survey_closed:
-          email_intro: Die Umfrage %{resource_title} in %{participatory_space_title} wurde geschlossen.
-          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{participatory_space_title}. Sie können nach dem vorherigen Link keine Benachrichtigungen mehr erhalten.
-          email_subject: Eine Umfrage ist in %{participatory_space_title}
-          notification_title: Die Umfrage <a href="%{resource_path}">%{resource_title}</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a> ist beendet.
+          email_intro: The survey %{resource_title} in %{participatory_space_title} has been closed.
+          email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
+          email_subject: A survey has finished in %{participatory_space_title}
+          notification_title: The survey <a href="%{resource_path}">%{resource_title}</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a> has finished.
         survey_opened:
-          email_intro: 'Die Umfrage %{resource_title} in %{participatory_space_title} ist jetzt geöffnet. Sie können von dieser Seite aus teilnehmen:'
-          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{participatory_space_title}. Sie können nach dem vorherigen Link keine Benachrichtigungen mehr erhalten.
-          email_subject: Eine neue Umfrage in %{participatory_space_title}
-          notification_title: Die Umfrage <a href="%{resource_path}">%{resource_title}</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a> ist jetzt geöffnet.
+          email_intro: 'The survey %{resource_title} in %{participatory_space_title} is now open. You can participate in it from this page:'
+          email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
+          email_subject: A new survey in %{participatory_space_title}
+          notification_title: The survey <a href="%{resource_path}">%{resource_title}</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a> is now open.
     metrics:
       survey_answers:
-        description: Anzahl der Umfragen, die von den Benutzern beantwortet wurden
-        object: Antworten auf Umfragen
-        title: Antworten zu Umfragen
+        description: Number of surveys answered by users
+        object: answers to surveys
+        title: Answers to surveys
     surveys:
       admin:
         exports:
-          survey_user_answers: Umfrage Benutzer Antworten
+          survey_user_answers: Survey user answers
         surveys:
           update:
-            invalid: Beim Speichern der Umfrage sind Fehler aufgetreten.
-            success: Umfrage wurde erfolgreich gespeichert.
+            invalid: There's been errors when saving the survey.
+            success: Survey saved successfully.
       last_activity:
-        new_survey_at_html: "<span>Neue Umfrage bei %{link}</span>"
+        new_survey_at_html: "<span>New survey at %{link}</span>"
       surveys:
         answer:
-          invalid: Bei der Beantwortung der Umfrage sind Fehler aufgetreten.
-          success: Umfrage erfolgreich beantwortet.
+          invalid: There's been errors when answering the survey.
+          success: Survey answered successfully.
