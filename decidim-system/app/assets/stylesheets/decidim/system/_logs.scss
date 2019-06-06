@@ -4,3 +4,14 @@
   flex-direction: row;
   justify-content: space-around;
 }
+
+.logs {
+  overflow: auto;
+  height: 87vh;
+  display: flex;
+
+  pre {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+}
