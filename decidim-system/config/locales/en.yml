@@ -37,7 +37,7 @@ en:
       menu:
         admins: Admins
         dashboard: Dashboard
-        logs: logs
+        logs: Logs
         organizations: Organizations
       models:
         admin:

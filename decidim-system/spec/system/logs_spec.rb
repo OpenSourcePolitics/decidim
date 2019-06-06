@@ -13,7 +13,7 @@ describe "logs", type: :system do
 
     describe "visiting log path" do
       before do
-        click_link "logs"
+        click_link "Logs"
       end
 
       it "display logs page" do
@@ -22,7 +22,7 @@ describe "logs", type: :system do
         expect(page).to have_link("View 200 lines")
         expect(page).to have_link("View 300 lines")
         expect(page).to have_link("View 1000 lines")
-        expect(page).to have_link("Download log file")
+        expect(page).to have_link("Download log")
       end
     end
   end
