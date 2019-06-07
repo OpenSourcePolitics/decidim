@@ -194,7 +194,7 @@ en:
             votes_enabled: Voting enabled
     events:
       budgets:
-        order_reminder:
+        reminder_order:
           email_intro: "A vote is still pending! You can always continue by clicking here: <a href='%{resource_url}'>%{participatory_space_title}"
           email_outro: Thank you for your participation
           email_subject: "A vote is still pending on %{participatory_space_title}"

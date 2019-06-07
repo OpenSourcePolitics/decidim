@@ -173,12 +173,16 @@ fr:
             votes_enabled: Votes activés
     events:
       budgets:
+        reminder_order:
+          email_intro: "Votre vote est en attente de votre confirmation. Vous pouvez le confirmer en <a href='%{resource_url}'>[cliquant ici]</a>"
+          email_outro: Merci pour votre participation.
+          email_subject: "Votre vote est en attente de votre confirmation sur %{participatory_space_title}"
+          notification_title: "Votre vote est en attente de votre confirmation. Vous pouvez le confirmer en <a href='%{resource_url}'>[cliquant ici]</a>"
         order_checkout:
-          email_intro: 'Your vote has been validated. You can always edit it if you
-            like by clicking here:'
-          email_outro: Thank you for your participation
-          email_subject: Your vote has been validated
-          notification_title: Your vote has been validated
+          email_intro: Votre vote sur "%{participatory_space_title}" a été validé. Vous pouvez toujours le modifier en <a href='%{resource_url}'>[cliquant ici]</a>"
+          email_outro: Merci pour votre participation.
+          email_subject: Votre vote a été validé.
+          notification_title: Votre vote sur "%{participatory_space_title}" a été validé. Vus pouvez toujours le modifier en <a href='%{resource_url}'>[cliquant ici]</a>"
     orders:
       checkout:
         error: Une erreur s'est produite lors du traitement de votre vote
