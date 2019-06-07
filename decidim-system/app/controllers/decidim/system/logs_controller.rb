@@ -23,9 +23,9 @@ module Decidim
 
       def command
         if search.present?
-          `tail -n #{lines} log/#{Rails.env}.log | grep "#{search}"`
+          `tail -n #{lines} #{log_file} | grep "#{search}"`
         else
-          `tail -n #{lines} log/#{Rails.env}.log`
+          `tail -n #{lines} #{log_file}`
         end
       end
 
@@ -42,6 +42,10 @@ module Decidim
 
       def auto_refresh?
         params[:auto_refresh] == "true"
+      end
+
+      def log_file
+        "log/#{Rails.env}.log"
       end
     end
   end
