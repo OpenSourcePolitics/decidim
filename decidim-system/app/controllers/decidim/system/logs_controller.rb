@@ -5,6 +5,7 @@ module Decidim
     class LogsController < Decidim::System::ApplicationController
       helper_method :search_input
       helper_method :lines
+      helper_method :auto_refresh?
 
       def index
         @logs = command
@@ -37,6 +38,10 @@ module Decidim
 
       def search
         params[:search_input]
+      end
+
+      def auto_refresh?
+        params[:auto_refresh] == "true"
       end
     end
   end

@@ -32,7 +32,10 @@ fr:
           title: Titre par défaut pour %{page}
       logs:
         index:
+          auto_refresh: Auto refresh
           download_log: Download log
+          placeholder: Search in last %{lines} lines, key sensitive
+          reset: Reset
           search: Search
           searching: Searching...
           view_log: View %{line} lines
