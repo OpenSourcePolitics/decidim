@@ -15,7 +15,7 @@ module Decidim
 
       def lines
         lines = params[:lines].to_i
-        return 50 if lines.zero?
+        return 50 unless (1...1000).cover?(lines)
 
         lines
       end
