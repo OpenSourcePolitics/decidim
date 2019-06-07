@@ -564,6 +564,7 @@ gl:
           homepage_highlighted_content_banner_title: Banner de contido de alto nivel
           layout_appearance_title: Editar aspecto de deseño
           omnipresent_banner_appearance_title: Editar o banner omnipresente
+          translation_settings: Translation settings
       organization_homepage:
         edit:
           active_content_blocks: Bloques de contido activo

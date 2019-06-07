@@ -30,9 +30,16 @@ de:
         placeholders:
           content: Fügen Sie der statischen Seite %{page} im Admin-Dashboard sinnvollen Inhalt hinzu.
           title: Standardtitel für %{page}
+      logs:
+        index:
+          download_log: Download log
+          search: Search
+          searching: Searching...
+          view_log: View %{line} lines
       menu:
         admins: Admins
         dashboard: Instrumententafel
+        logs: Logs
         organizations: Organisationen
       models:
         admin:

@@ -30,9 +30,16 @@ fr:
         placeholders:
           content: Ajoutez un contenu pertinent à la page %{page} en allant sur l'interface d'administration.
           title: Titre par défaut pour %{page}
+      logs:
+        index:
+          download_log: Download log
+          search: Search
+          searching: Searching...
+          view_log: View %{line} lines
       menu:
         admins: Administrateurs
         dashboard: Journal d'administration
+        logs: Logs
         organizations: Organisations
       models:
         admin:

@@ -30,9 +30,16 @@ cs-CZ:
         placeholders:
           content: Please add meaningful content to the %{page} static page on the admin dashboard.
           title: Default title for %{page}
+      logs:
+        index:
+          download_log: Download log
+          search: Search
+          searching: Searching...
+          view_log: View %{line} lines
       menu:
         admins: Admins
         dashboard: Dashboard
+        logs: Logs
         organizations: Organizations
       models:
         admin:
@@ -48,6 +55,7 @@ cs-CZ:
           fields:
             created_at: Created at
             name: Name
+            smtp_settings: SMTP settings
           name: Organization
       organizations:
         create:

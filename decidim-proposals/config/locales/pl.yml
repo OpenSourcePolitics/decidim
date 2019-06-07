@@ -755,6 +755,8 @@ pl:
           need_more_votes: Potrzebujesz więcej głosów
         votes_weight:
           count: Count
+          most_popular_proposal: Proposition la plus populaire
+          need_more_votes: Besoin de plus de votes
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Każda propozycja może zebrać więcej niż %{limit} podpory

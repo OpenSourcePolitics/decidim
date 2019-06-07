@@ -30,9 +30,16 @@ fi-pl:
         placeholders:
           content: Lisää merkityksellistä sisältöä staattiselle sivulle %{page} hallintapaneelista.
           title: Oletusotsikko sivulle %{page}
+      logs:
+        index:
+          download_log: Download log
+          search: Search
+          searching: Searching...
+          view_log: View %{line} lines
       menu:
         admins: Hallinnoijat
         dashboard: Hallintapaneeli
+        logs: Logs
         organizations: Organisaatiot
       models:
         admin:

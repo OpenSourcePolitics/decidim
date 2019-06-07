@@ -565,6 +565,7 @@ fi-pl:
           homepage_highlighted_content_banner_title: Tärkeä sisältöbanneri
           layout_appearance_title: Muokkaa sivupohjan ulkoasua
           omnipresent_banner_appearance_title: Muokkaa kaikkialla näkyvää banneria
+          translation_settings: Translation settings
       organization_homepage:
         edit:
           active_content_blocks: Aktiiviset sisältöblokit

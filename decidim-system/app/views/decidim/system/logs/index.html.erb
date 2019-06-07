@@ -1,4 +1,18 @@
-<div class="logs">
+<div class="logs_search">
+  <%= form_tag(logs_path, method: :get, id: "logs_search__form") do %>
+    <div class="field <%= search_input.present? ? "active" : "" %>">
+      <%= hidden_field_tag :lines, lines %>
+      <%= text_field_tag :search_input, search_input, class: "form-control" %>
+    </div>
+    <div class="actions">
+      <%= submit_tag t(".search"), class: "button", data: { disable_with: t(".searching") } %>
+      <button id="logs_search__reset" class="button <%= search_input.present? ? "" : "hidden" %>">Reset</button>
+    </div>
+  <% end %>
+</div>
+
+
+<div class=" logs">
   <pre><%= @logs %></pre>
 </div>
 
@@ -10,3 +24,6 @@
   <%= link_to t(".view_log", line: 1000), logs_path(lines: 1000), class: "button" %>
   <%= link_to t(".download_log"), download_logs_path, class: "button" %>
 </div>
+
+
+<%= javascript_include_tag "decidim/system/logs" %>

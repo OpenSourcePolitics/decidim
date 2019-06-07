@@ -71,6 +71,7 @@ fi-pl:
         destroy: Poista
         duplicate: Kopioi
         edit: Muokkaa
+        new_process: Yeni süreç
         new_process_group: Uusi prosessiryhmä
         new_process_step: Uusi vaihe
         new_process_user_role: Uusi prosessikäyttäjä

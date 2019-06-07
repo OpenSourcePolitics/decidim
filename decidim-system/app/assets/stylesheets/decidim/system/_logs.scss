@@ -1,10 +1,3 @@
-.logs_button {
-  margin-top: 1rem;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-}
-
 .logs {
   overflow: auto;
   height: 80vh;
@@ -14,4 +7,50 @@
     display: flex;
     flex-direction: column-reverse;
   }
+
+  &_button {
+    margin-top: .5rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  &_search {
+    padding-bottom: 1em;
+
+    .actions {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    form {
+      display: flex;
+      flex-direction: row;
+
+      .field {
+        width: 100%;
+        margin-right: .5rem;
+
+        input {
+          height: 100%;
+        }
+
+        &.active {
+          input {
+            font-style: italic;
+          }
+        }
+      }
+    }
+  }
+}
+
+#logs_search__reset {
+  &.hidden {
+    display: none;
+  }
+
+  margin-left: .5rem;
+  background-color: $secondary;
 }

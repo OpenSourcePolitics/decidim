@@ -30,9 +30,16 @@ es-MX:
         placeholders:
           content: Agrega contenido significativo a la página estática de %{page} en el panel de admin.
           title: Título predeterminado para %{page}
+      logs:
+        index:
+          download_log: Download log
+          search: Search
+          searching: Searching...
+          view_log: View %{line} lines
       menu:
         admins: Administradores
         dashboard: Panel de control
+        logs: Logs
         organizations: Organizaciones
       models:
         admin:
@@ -48,6 +55,7 @@ es-MX:
           fields:
             created_at: Fecha de creación
             name: Nombre
+            smtp_settings: SMTP settings
           name: Organización
       organizations:
         create:
