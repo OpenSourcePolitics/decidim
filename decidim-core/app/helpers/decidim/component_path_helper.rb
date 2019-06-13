@@ -33,6 +33,16 @@ module Decidim
       EngineRouter.admin_proxy(component).root_path(locale: current_params[:locale])
     end
 
+    # Returns the defined admin root url for a given component.
+    #
+    # component - the Component we want to find the root url for.
+    #
+    # Returns a relative url.
+    def manage_component_url(component)
+      current_params = try(:params) || {}
+      EngineRouter.admin_proxy(component).root_url(locale: current_params[:locale])
+    end
+
     # Returns whether the component can be managed or not by checking if it has
     # an admin engine.
     #

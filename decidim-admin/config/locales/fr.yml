@@ -735,21 +735,30 @@ fr:
     events:
       admin:
         upstream_accepted:
-          email_intro: 'Votre contribution "%{resource_title}" a été acceptée.'
-          email_outro: Elle maintenant visible par les autres utilisateurs de l'espace participatif.
-          email_subject: Votre contribution a été acceptée.
-          notification_title: '"<a href="%{resource_path}">%{resource_title}</a>" a été acceptée.'
+          email_intro: Nous venons de procéder à la publication de votre contribution. Vous pouvez le consulter en vous rendant sur <a href="%{resource_url}">cette page</a>.
+          email_outro: Cordialement,
+          email_subject: Votre contribution est en ligne sur le site du débat "%{participatory_space_title}"
+          notification_title: Votre <a href="%{resource_url}">contribution</a> est en ligne sur le site du débat <a href="%{participatory_space_url}">"%{participatory_space_title}"</a>
         upstream_pending:
-          email_intro: 'Votre contribution "%{resource_title}" est en attente de modération.'
-          email_outro: Vous recevrez une nouvelle notification lorsqu'il aura été modéré.
-          email_subject: Votre contribution est en attente de modération.
-          moderator_subject: Une contribution est en attente de modération.
-          notification_title: '"<a href="%{resource_path}">%{resource_title}</a>" est en attente de modération.'
+          affected_user:
+            email_intro: >-
+              Nous avons bien reçu votre message et nous vous en remercions. Avant de procéder à sa publication,
+              nous souhaitons nous assurer dans un premier temps que son contenu respecte notre charte de modération.
+              Vous serez informé(e) par e-mail des suites données dans les plus brefs délais.
+              Nous vous remercions de votre participation au débat.
+            email_outro: Cordialement,
+            email_subject: Accusé réception de votre message sur le site du débat "%{participatory_space_title}"
+            notification_title: Accusé réception de votre message sur le site du débat <a href="%{participatory_space_url}">"%{participatory_space_title}"</a>
+          follower:
+            email_intro: Un nouveau message a été soumis par un internaute et requiert votre validation.
+            email_outro: <a href="%{manage_resource_url}">Gérér les modérations</a>
+            email_subject: "[%{participatory_space_slug}] Nouveau message sur %{resource_title} à valider et à publier"
+            notification_title: '"<a href="%{resource_path}">%{resource_title}</a>" est en attente de modération.'
         upstream_hidden:
-          email_intro: 'Votre contribution "%{resource_title}" a été rejetée.'
-          email_outro: Elle restera invisible aux autres utilisateurs de l'espace participatif.
-          email_subject: Votre contribution a été rejetée.
-          notification_title: '"<a href="%{resource_path}">%{resource_title}</a>" a été rejetée.'
+          email_intro: Nous n’avons pas pu procéder à la publication de votre contribution car son contenu ne respecte pas notre charte de modération.
+          email_outro: Cordialement,
+          email_subject: Rejet de votre contribution sur le site du débat "%{participatory_space_title}"
+          notification_title: Rejet de votre <a href="%{resource_url}">contribution</a> sur le site du débat <a href="%{participatory_space_url}">"%{participatory_space_title}"</a>
     forms:
       errors:
         impersonate_user:

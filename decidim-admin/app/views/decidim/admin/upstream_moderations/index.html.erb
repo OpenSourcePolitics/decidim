@@ -42,7 +42,7 @@
             </td>
             <td>
               <div class="reportable-content">
-                <%= (upstream_moderation.upstream_reportable.try(:title) || upstream_moderation.upstream_reportable.try(:body)) %>
+                <%= (upstream_moderation.upstream_reportable.try(:search_title) || upstream_moderation.upstream_reportable.try(:search_body)) %>
               </div>
             </td>
             <td>

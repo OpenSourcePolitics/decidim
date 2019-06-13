@@ -26,8 +26,7 @@ module Decidim
           participatory_space: participatory_space
         ).update!(hidden_at: Time.zone.now)
 
-        return unless send_notification_to_moderators
-        send_notification_to_author
+        send_upstream_notifications
       end
 
       def upstream_moderation_activated?
@@ -63,10 +62,14 @@ module Decidim
         raise NotImplementedError
       end
 
-      def send_notification_to_moderators
-        participatory_space_moderators.each do |moderator|
-          Decidim::Admin::UpstreamModerationMailer.notify_moderator(moderator, self).deliver_now
-        end
+      def send_upstream_notifications
+        Decidim::EventsManager.publish(
+          event: "decidim.events.admin.upstream_pending",
+          event_class: Decidim::UpstreamPendingEvent,
+          resource: event_resource,
+          affected_users: event_affected_users,
+          followers: participatory_space_moderators
+        )
       end
 
       def participatory_space_moderators
@@ -74,15 +77,6 @@ module Decidim
       end
 
       private
-
-      def send_notification_to_author
-        Decidim::EventsManager.publish(
-          event: "decidim.events.admin.upstream_pending",
-          event_class: Decidim::UpstreamPendingEvent,
-          resource: event_resource,
-          affected_users: event_affected_users
-        )
-      end
 
       def event_resource
         return root_commentable if is_a? Decidim::Comments::Comment
