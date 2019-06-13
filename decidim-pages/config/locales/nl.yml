@@ -29,3 +29,7 @@ nl:
           update:
             invalid: Er zijn fouten opgetreden bij het opslaan van de pagina.
             success: Pagina is succesvol opgeslagen.
+      terms_and_conditions:
+        form:
+          newsletter_notifications: Newsletter notifications
+          update_preference: Update preference

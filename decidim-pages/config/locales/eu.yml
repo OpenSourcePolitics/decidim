@@ -29,3 +29,7 @@ eu:
           update:
             invalid: Erroreak gertatu dira orria gordetzean.
             success: Orria zuzen gorde da.
+      terms_and_conditions:
+        form:
+          newsletter_notifications: Newsletter notifications
+          update_preference: Update preference
