@@ -19,6 +19,7 @@ fi:
         participatory_process_group_id: Prosessiryhmä
         participatory_scope: Mitä päätetään
         participatory_structure: Miten päätetään
+        private_space: Concertation privée
         promoted: Korostettu
         published_at: Julkaisuaika
         scope_id: Teema

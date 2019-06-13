@@ -6,6 +6,7 @@ require "decidim/core/version"
 # Decidim configuration.
 module Decidim
   autoload :TranslatableAttributes, "decidim/translatable_attributes"
+  autoload :JsonbAttributes, "decidim/jsonb_attributes"
   autoload :FormBuilder, "decidim/form_builder"
   autoload :AuthorizationFormBuilder, "decidim/authorization_form_builder"
   autoload :FilterFormBuilder, "decidim/filter_form_builder"
@@ -55,6 +56,7 @@ module Decidim
   autoload :MetricManifest, "decidim/metric_manifest"
   autoload :MetricOperation, "decidim/metric_operation"
   autoload :MetricOperationManifest, "decidim/metric_operation_manifest"
+  autoload :AttributeEncryptor, "decidim/attribute_encryptor"
   autoload :NewsletterEncryptor, "decidim/newsletter_encryptor"
   autoload :Searchable, "decidim/searchable"
   autoload :SearchResourceFieldsMapper, "decidim/search_resource_fields_mapper"
@@ -150,6 +152,11 @@ module Decidim
   # Exposes a configuration option: The application default locale.
   config_accessor :default_locale do
     :en
+  end
+
+  # Exposes a configuration option: The application translatable locale.
+  config_accessor :translatable_locales do
+    %w(en de fr es pt it nl pl ru)
   end
 
   # Exposes a configuration option: an object to configure geocoder

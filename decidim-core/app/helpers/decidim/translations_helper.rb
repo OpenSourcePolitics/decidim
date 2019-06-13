@@ -36,5 +36,11 @@ module Decidim
     end
 
     module_function :multi_translation, :empty_translatable
+
+    def deepl_target_locale(requested_locale, default_locale)
+      return default_locale.upcase unless %w(EN DE FR ES PT IT NL PL RU).include? requested_locale.upcase
+
+      requested_locale.upcase
+    end
   end
 end
