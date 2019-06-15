@@ -16,13 +16,13 @@ describe "UserTosAcceptance", type: :system do
   describe "When the Organization TOS version is updated" do
     context "when user comes from root path" do
       before do
-        organization.update!(tos_version: Faker::Date.forward(15))
+        organization.update!(tos_version: user.accepted_tos_version + 1.second)
         login_as user, scope: :user
         visit decidim.root_path
       end
 
       context "when a user starts a session, has to accept and review them" do
-        it "redirects to the root page" do
+        it "redirects to the TOS page" do
           expect(page).to have_current_path(decidim.page_path(tos_page))
           expect(page).to have_content translated(tos_page.title)
           expect(page).to have_content strip_tags(translated(tos_page.content))
@@ -42,6 +42,35 @@ describe "UserTosAcceptance", type: :system do
 
         it "shows a button to Refuse Terms" do
           expect(page).to have_button btn_refuse
+        end
+      end
+
+      context "when the user has not subscribed to newsletter notifications" do
+        it "display newsletter switch" do
+          expect(page).to have_selector(".newsletter_tos")
+        end
+
+        context "when user has subscribed to newsletter notifications" do
+          let!(:user) { create(:user, :confirmed, :newsletter_notifications, organization: organization) }
+
+          it "doesn't display newsletter switch" do
+            expect(page).not_to have_selector(".newsletter_tos")
+          end
+        end
+
+        context "when user switch on newsletter notifications" do
+          it "updates user preference" do
+            within ".switch.newsletter_notifications" do
+              page.find(".switch-paddle").click
+            end
+
+            visit current_path
+            # We are using a post request to update user preferences, in order to test if it's working, we need to let some time for the request to pass.
+            # we could have done "expect(user.newsletter_notifications_at).not_to be_nil" but the request would not have been executed.
+            # We do a little trick as we know this selector should not be present if user.newsletter_notifications_at is not nil.
+
+            expect(page).not_to have_selector(".newsletter_tos")
+          end
         end
       end
 
@@ -100,43 +129,14 @@ describe "UserTosAcceptance", type: :system do
       end
     end
 
-    context "when the user has not subscribed to newsletter notifications" do
-      it "display newsletter switch" do
-        expect(page).to have_selector(".newsletter_tos")
-      end
-
-      context "when user has subscribed to newsletter notifications" do
-        let!(:user) { create(:user, :confirmed, :newsletter_notifications, organization: organization) }
-
-        it "doesn't display newsletter switch" do
-          expect(page).not_to have_selector(".newsletter_tos")
-        end
-      end
-
-      context "when user switch on newsletter notifications" do
-        it "updates user preference" do
-          within ".switch.newsletter_notifications" do
-            page.find(".switch-paddle").click
-          end
-
-          visit current_path
-          # We are using a post request to update user preferences, in order to test if it's working, we need to let some time for the request to pass.
-          # we could have done "expect(user.newsletter_notifications_at).not_to be_nil" but the request would not have been executed.
-          # We do a little trick as we know this selector should not be present if user.newsletter_notifications_at is not nil.
-
-          expect(page).not_to have_selector(".newsletter_tos")
-        end
-      end
-    end
-    
     context "when user comes from another page" do
       before do
-        organization.update!(tos_version: Faker::Date.forward(15))
+        organization.update!(tos_version: user.accepted_tos_version + 1.second)
         login_as user, scope: :user
         visit decidim.account_path
       end
 
-      it "redirect to root path" do
+      it "redirect to this page" do
         click_button btn_accept
 
         expect(page).to have_current_path(decidim.account_path)

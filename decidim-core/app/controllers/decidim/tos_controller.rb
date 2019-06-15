@@ -7,6 +7,12 @@ module Decidim
     skip_before_action :store_current_location
     skip_before_action :tos_accepted_by_user, only: :newsletter_tos
 
+    # before_action :check_me
+    #
+    # def check_me
+    #   byebug
+    # end
+
     def newsletter_tos
       return current_user.update!(newsletter_notifications_at: Time.current) if params[:newsletter_notification] == "1"
 
@@ -27,9 +33,9 @@ module Decidim
     private
 
     def after_sign_in_path_for(user)
-      return signed_in_root_path(user) if stored_location_for(user) == tos_path
-
-      stored_location_for(user) || signed_in_root_path(user)
+      stored_location = stored_location_for(user)
+      return signed_in_root_path(user) if stored_location == tos_path
+      stored_location || signed_in_root_path(user)
     end
   end
 end
