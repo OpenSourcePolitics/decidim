@@ -1,10 +1,6 @@
 nl-BE:
   decidim:
     system:
-      logs:
-        index:
-          view_log: "View %{line} lines"
-          download_log: Download log
       actions:
         confirm_destroy: Are you sure you want to delete this?
         destroy: Delete
@@ -33,6 +29,10 @@ nl-BE:
         placeholders:
           content: Please add meaningful content to the %{page} static page on the admin dashboard.
           title: Default title for %{page}
+      logs:
+        index:
+          download_log: Download log
+          view_log: View %{line} lines
       menu:
         admins: Admins
         dashboard: Dashboard
