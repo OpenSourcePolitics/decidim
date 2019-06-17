@@ -7,12 +7,6 @@ module Decidim
     skip_before_action :store_current_location
     skip_before_action :tos_accepted_by_user, only: :newsletter_tos
 
-    # before_action :check_me
-    #
-    # def check_me
-    #   byebug
-    # end
-
     def newsletter_tos
       return current_user.update!(newsletter_notifications_at: Time.current) if params[:newsletter_notification] == "1"
 
