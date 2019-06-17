@@ -784,7 +784,7 @@ fr:
     notifications:
       no_notifications: Il n'y a pas encore de notifications.
     notifications_settings:
-        show:
+      show:
         email_on_notification: Je souhaite recevoir un email à chaque fois que je reçois une notification.
         everything_followed: Tout ce que je suis
         newsletter_notifications: Je souhaite recevoir la newsletter de la plateforme
