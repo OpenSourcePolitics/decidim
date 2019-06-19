@@ -46,14 +46,16 @@ module Decidim
       private
 
       def upstream_moderations
-        @upstream_moderations ||= begin
-          if params[:visible]
-            participatory_space_upstream_moderations.visible
-          elsif params[:not_visible]
-            participatory_space_upstream_moderations.not_visible
-          else
-            participatory_space_upstream_moderations.pending_moderation
-          end
+        @upstream_moderations ||= participatory_space_upstream_moderations_query.ordered_by_date
+      end
+
+      def participatory_space_upstream_moderations_query
+        if params[:visible]
+          participatory_space_upstream_moderations.visible
+        elsif params[:not_visible]
+          participatory_space_upstream_moderations.not_visible
+        else
+          participatory_space_upstream_moderations.pending_moderation
         end
       end
 
