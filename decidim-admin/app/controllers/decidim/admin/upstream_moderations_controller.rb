@@ -4,7 +4,7 @@ module Decidim
   module Admin
     # This controller allows admins to manage moderations in a participatory process.
     class UpstreamModerationsController < Decidim::Admin::ApplicationController
-      helper_method :upstream_moderations, :allowed_to?
+      helper_method :upstream_moderations, :allowed_to?, :query
       helper Decidim::Messaging::ConversationHelper
 
       def index
@@ -45,8 +45,12 @@ module Decidim
 
       private
 
+      def query
+        @query ||= participatory_space_upstream_moderations_query.default_order.ransack(params[:q])
+      end
+
       def upstream_moderations
-        @upstream_moderations ||= participatory_space_upstream_moderations_query.ordered_by_date
+        @upstream_moderations ||= query.result
       end
 
       def participatory_space_upstream_moderations_query

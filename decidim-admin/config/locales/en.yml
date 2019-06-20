@@ -776,6 +776,7 @@ en:
       models:
         moderation:
           fields:
+            reported_at: Reported at
             hidden_at: Hidden at
             report_count: Count
             reportable: Reportable
@@ -801,6 +802,7 @@ en:
       models:
         upstream_moderation:
           fields:
+            created_at: Created at
             reportable: Reportable
             reportable_title: Reportable title
             reported_content_url: Reported content url
