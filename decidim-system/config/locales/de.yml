@@ -1,10 +1,6 @@
 de:
   decidim:
     system:
-      logs:
-        index:
-          view_log: "View %{line} lines"
-          download_log: Download log
       actions:
         confirm_destroy: Möchtest du das wirklich löschen?
         destroy: Löschen
@@ -33,6 +29,10 @@ de:
         placeholders:
           content: Fügen Sie der statischen Seite %{page} im Admin-Dashboard sinnvollen Inhalt hinzu.
           title: Standardtitel für %{page}
+      logs:
+        index:
+          download_log: Download log
+          view_log: View %{line} lines
       menu:
         admins: Admins
         dashboard: Instrumententafel
