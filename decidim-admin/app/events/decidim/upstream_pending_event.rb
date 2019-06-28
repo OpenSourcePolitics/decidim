@@ -3,7 +3,7 @@
 module Decidim
   class UpstreamPendingEvent < Decidim::UpstreamEvent
     def event_has_roles?
-      false
+      true
     end
   end
 end
