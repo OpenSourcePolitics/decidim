@@ -1,4 +1,5 @@
-de:
+---
+de-DE:
   activemodel:
     models:
       decidim/comments/comment_by_followed_user_event: Comment
@@ -18,6 +19,8 @@ de:
       comments: Comments
       last_activity:
         new_comment_at_html: "<span>New comment at %{link}</span>"
+      translate: Translate
+      translated: Back to original version
       votes:
         create:
           error: There's been errors when voting the comment.

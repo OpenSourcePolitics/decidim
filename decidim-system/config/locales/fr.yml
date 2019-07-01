@@ -1,4 +1,3 @@
----
 fr:
   decidim:
     system:
@@ -30,9 +29,14 @@ fr:
         placeholders:
           content: Ajoutez un contenu pertinent à la page %{page} en allant sur l'interface d'administration.
           title: Titre par défaut pour %{page}
+      logs:
+        index:
+          download_log: Télécharger les logs
+          view_log: Voir %{line} lignes
       menu:
         admins: Administrateurs
         dashboard: Journal d'administration
+        logs: Logs
         organizations: Organisations
       models:
         admin:
@@ -48,6 +52,7 @@ fr:
           fields:
             created_at: Créé le
             name: Nom
+            smtp_settings: Paramètres SMTP
           name: Organisation
       organizations:
         create:

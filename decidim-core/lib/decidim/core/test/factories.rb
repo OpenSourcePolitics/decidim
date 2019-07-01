@@ -87,6 +87,15 @@ FactoryBot.define do
     badges_enabled { true }
     user_groups_enabled { true }
     send_welcome_notification { true }
+    smtp_settings do
+      {
+        "from" => "test@example.org",
+        "user_name" => "test",
+        "encrypted_password" => Decidim::AttributeEncryptor.encrypt("demo"),
+        "port" => "25",
+        "address" => "smtp.example.org"
+      }
+    end
 
     after(:create) do |organization|
       tos_page = Decidim::StaticPage.find_by(slug: "terms-and-conditions", organization: organization)
@@ -112,6 +121,10 @@ FactoryBot.define do
 
     trait :confirmed do
       confirmed_at { Time.current }
+    end
+
+    trait :newsletter_notifications do
+      newsletter_notifications_at { Time.current }
     end
 
     trait :deleted do

@@ -92,7 +92,7 @@ fr:
             description: Vous avez déjà voté. Si vous avez changé d'avis, vous pouvez %{cancel_link}.
             title: Vote du budget terminé
           description_per_budget: Sélectionnez les projets que vous souhaitez voir être réalisés puis confirmez votre choix. Les projets choisis doivent atteindre le montant minimum cumulé de %{minimum_budget}.
-          description_per_project: Sélectionnez les projets que vous souhaitez voir être réalisés puis confirmez votre choix. Vous devez choisir %{minimum_project} minimum.
+          description_per_project: A quels projets pensez-vous que nous devrions allouer un budget ? Choisissez %{minimum_project} projets et validez votre vote.
           title: Vous décidez du budget
         count:
           projects_count:
@@ -173,10 +173,10 @@ fr:
     events:
       budgets:
         order_checkout:
-          email_intro: "Votre vote a été validé. Vous pouvez toujours l'éditer si vous voulez en cliquant ici : <a href='%{resource_url}'>%{participatory_space_title}"
+          email_intro: 'Votre vote a été validé. Vous pouvez toujours l''éditer si vous voulez en cliquant ici : <a href=''%{resource_url}''>%{participatory_space_title}'
           email_outro: Merci de votre participation
-          email_subject: "Une enquête est terminée à %{participatory_space_title}"
-          notification_title: "Votre vote a été validé le <a href='%{resource_url}'>%{participatory_space_title}</a> Vous pouvez toujours l'éditer si vous le souhaitez."
+          email_subject: Une enquête est terminée à %{participatory_space_title}
+          notification_title: Votre vote a été validé le <a href='%{resource_url}'>%{participatory_space_title}</a> Vous pouvez toujours l'éditer si vous le souhaitez.
     orders:
       checkout:
         error: Une erreur s'est produite lors du traitement de votre vote

@@ -993,6 +993,8 @@ nl-BE:
         share_link: Share link
       version_author:
         deleted: Deleted user
+    translate: Translate
+    translated: Translated
     user_activity:
       index:
         no_activities_warning: This user hasn't had any activity yet.
@@ -1143,6 +1145,7 @@ nl-BE:
       minimum_password_length:
         one: "(%{count} character minimum)"
         other: "(%{count} characters minimum)"
+      password_help: 'At least 8 characters, a capital letter and a special character (eg: !)'
     unlocks:
       new:
         resend_unlock_instructions: Resend unlock instructions
@@ -1173,6 +1176,17 @@ nl-BE:
       too_short: is too short (under 15 characters)
   forms:
     required: Required
+  instructions:
+    decidim:
+      system:
+        organizations:
+          smtp_settings:
+            address: Address
+            from_email: From email
+            from_label: From label
+            password: Password
+            port: Port
+            user_name: User name
   invisible_captcha:
     sentence_for_humans: If you are human, ignore this field
     timestamp_error_message: Sorry, that was too quick! Please resubmit.

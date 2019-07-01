@@ -9,7 +9,7 @@ fr:
         about: A propos de moi
         email: Votre email
         name: Votre nom
-        nickname: Surnom
+        nickname: Votre surnom
         password: Mot de passe
         password_confirmation: Confirmez votre mot de passe
         personal_url: Site internet personnel
@@ -53,7 +53,7 @@ fr:
     'true': 'Oui'
   carrierwave:
     errors:
-      image_too_big: L'image est trop grande
+      image_too_big: "L'image est trop grande"
   date:
     formats:
       decidim_short: "%d/%m/%Y"
@@ -64,7 +64,7 @@ fr:
   decidim:
     account:
       data_portability_export:
-        file_no_exists: Le fichier n'existe pas
+        file_no_exists: "Le fichier n'existe pas"
         invalid_token: Le jeton fourni est invalide.
         no_token: Aucun jeton fourni
         notice: Votre export est actuellement en cours. Vous recevrez un email quand il sera complet.
@@ -869,7 +869,7 @@ fr:
           modal_close: Fermer la fenêtre
           modal_title: Refusez-vous vraiment les conditions d'utilisation mises à jour ?
         required_review:
-          alert: Nous avons mis à jour nos conditions d'utilisation, veuillez les consulter.
+          alert: Vous n'avez pas accepté les conditions d'utilisation actuelles, veuillez les consulter.
           body: Veuillez prendre un moment pour examiner nos conditions d'utilisation mises à jour. Sinon, vous ne pourrez pas utiliser la plate-forme.
           title: 'Obligatoire : consultez les conditions d''utilisation mises à jour'
     participatory_space_private_users:
@@ -985,6 +985,8 @@ fr:
         share_link: Lien de partage
       version_author:
         deleted: Utilisateur ayant supprimé son compte
+    translate: Traduire
+    translated: Retour à la version d'origine
     user_activity:
       index:
         no_activities_warning: Cet utilisateur n'a pas encore eu d'activité.
@@ -1118,11 +1120,11 @@ fr:
       update_needs_confirmation: Vous avez mis à jour votre compte avec succès, mais nous devons vérifier votre nouvelle adresse email. Veuillez confirmer adresse suivant le lien de confirmation que vous avez reçu.
       updated: Votre compte a été mis à jour avec succès.
     sessions:
-      already_signed_out: Signé avec succès.
+      already_signed_out: Vous vous êtes bien déconnecté(e).
       new:
         sign_in: S'identifier
-      signed_in: Signé avec succès.
-      signed_out: Signé avec succès.
+      signed_in: Connecté(e) avec succès.
+      signed_out: Déconnecté(e) avec succès.
     shared:
       links:
         back: Arrière
@@ -1135,6 +1137,7 @@ fr:
       minimum_password_length:
         one: "(%{count} caractère minimum)"
         other: "(%{count} caractères minimum)"
+      password_help: 'Au moins 8 caractères, une lettre de capital et un caractère spécial (ex: !)'
     unlocks:
       new:
         resend_unlock_instructions: Renvoyer les instructions de déverrouillage
@@ -1165,6 +1168,17 @@ fr:
       too_short: est trop court (moins de 15 caractères)
   forms:
     required: Champs obligatoires
+  instructions:
+    decidim:
+      system:
+        organizations:
+          smtp_settings:
+            address: Adresse
+            from_email: E-mail de l'expéditeur
+            from_label: Nom d'expediteur
+            password: Mot de passe
+            port: Port
+            user_name: Nom d’utilisateur
   invisible_captcha:
     sentence_for_humans: Si vous êtes humain, ignorez ce champ
     timestamp_error_message: Désolé, c'était trop rapide ! Veuillez le renvoyer.
