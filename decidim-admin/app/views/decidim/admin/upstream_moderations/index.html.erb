@@ -18,10 +18,11 @@
       <table class="table-list">
         <thead>
         <tr>
-          <th><%= t("models.upstream_moderation.fields.reportable", scope: "decidim.upstream_moderations") %></th>
-          <th><%= t("models.upstream_moderation.fields.user", scope: "decidim.upstream_moderations") %></th>
-          <th><%= t("models.upstream_moderation.fields.reportable_title", scope: "decidim.upstream_moderations") %></th>
-          <th><%= t("models.upstream_moderation.fields.reported_content_url", scope: "decidim.upstream_moderations") %></th>
+          <th><%= sort_link(query, :reportable, t("models.upstream_moderation.fields.reportable", scope: "decidim.upstream_moderations")) %></th>
+          <th><%= sort_link(query, :user, t("models.upstream_moderation.fields.user", scope: "decidim.upstream_moderations")) %></th>
+          <th><%= sort_link(query, :reportable_title, t("models.upstream_moderation.fields.reportable_title", scope: "decidim.upstream_moderations")) %></th>
+          <th><%= sort_link(query, :reported_content_url, t("models.upstream_moderation.fields.reported_content_url", scope: "decidim.upstream_moderations")) %></th>
+          <th><%= sort_link(query, :created_at, t("models.upstream_moderation.fields.created_at", scope: "decidim.upstream_moderations"), default_order: :desc) %></th>
           <% unless params[:visible] %>
             <th class="actions"><%= t("actions.change_visibility", scope: "decidim.upstream_moderations") %></th>
           <% end %>
@@ -49,6 +50,9 @@
               <%=
                 link_to t("models.upstream_moderation.fields.visit_url", scope: "decidim.upstream_moderations"), upstream_moderation.upstream_reportable.reported_content_url
               %>
+            </td>
+            <td>
+              <%= l(upstream_moderation.created_at, format: :decidim_short) %>
             </td>
             <% if params[:hidden] %>
               <td>

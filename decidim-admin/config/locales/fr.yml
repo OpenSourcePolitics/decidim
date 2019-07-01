@@ -1,3 +1,4 @@
+---
 fr:
   activemodel:
     attributes:
@@ -785,6 +786,7 @@ fr:
       models:
         moderation:
           fields:
+            reported_at: Reporté à
             hidden_at: Masqué le
             report_count: Compteur
             reportable: Contenu
@@ -810,6 +812,7 @@ fr:
       models:
         upstream_moderation:
           fields:
+            created_at: Crée à
             user: Utilisateur
             reportable: Signalements
             reportable_title: Titre

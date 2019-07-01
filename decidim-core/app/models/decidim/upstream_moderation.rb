@@ -12,6 +12,7 @@ module Decidim
     scope :pending_moderation, -> { where(pending: true) }
     scope :visible, -> { where(hidden_at: nil).where(pending: false) }
     scope :not_visible, -> { where.not(hidden_at: nil).where(pending: false) }
+    scope :default_order, -> { order(created_at: :asc) }
 
     delegate :component, :organization, to: :upstream_reportable
 
