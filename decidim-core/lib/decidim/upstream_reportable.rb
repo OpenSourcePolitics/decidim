@@ -79,8 +79,7 @@ module Decidim
       private
 
       def event_resource
-        return root_commentable if is_a? Decidim::Comments::Comment
-
+        # return root_commentable if is_a? Decidim::Comments::Comment
         self
       end
 
