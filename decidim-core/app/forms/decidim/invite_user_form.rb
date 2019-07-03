@@ -16,6 +16,7 @@ module Decidim
     validates :email, :name, :organization, :invitation_instructions, presence: true
     validates :role, inclusion: { in: Decidim::User::ROLES }
 
+    validates :name, format: { with: /\A(?!.*[<>?%&\^*#@\(\)\[\]\=\+\:\;\"\{\}\\\|])/ }
     validate :admin_uniqueness
 
     def email

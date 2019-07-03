@@ -176,6 +176,13 @@ use the following command in your rails console : `Decidim::User.find_each { |us
 - **decidim-comments**: Comments not displayed with IE [#432](https://github.com/OpenSourcePolitics/decidim/issues/432)
 
 **Backported**:
+- **decidim-core**: Filter forbidden characters in users invitations. [\#5245](https://github.com/decidim/decidim/pull/5245)
+- **decidim-assemblies**: Don't show private assemblies when becoming childs from another assembly. [#5235](https://github.com/decidim/decidim/pull/5235)
+- **decidim-conferences**: Fix: can't remove area, when conferences are enabled [#5234](https://github.com/decidim/decidim/pull/5234)
+- **decidim-admin**: Fix: Proposals component form introduced regression [#5179](https://github.com/decidim/decidim/pull/5179)
+- **decidim-core**: Fix seeds and typo in ActionAuthorizer [#5168](https://github.com/decidim/decidim/pull/5168)
+- **decidim-proposals**: Fix seeds [#5168](https://github.com/decidim/decidim/pull/5168)
+- **decidim-core**: Fix user names migration [#5209](https://github.com/decidim/decidim/pull/5209)
 
 **decidim-proposals**: Fix collaborative draft attachment when attachments are enabled after collaborative draft creation [\#503](https://github.com/OpenSourcePolitics/decidim/pull/503)
 - **decidim-core**: Don't send emails to deleted users [\#364](https://github.com/OpenSourcePolitics/decidim/pull/364)
