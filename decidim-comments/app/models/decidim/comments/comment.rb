@@ -93,6 +93,11 @@ module Decidim
         Decidim::Comments::CommentSerializer
       end
 
+      def search_body
+        renderer = Decidim::ContentRenderers::HashtagRenderer.new(body)
+        renderer.render(links: false).html_safe
+      end
+
       private
 
       # Private: Check if commentable can have comments and if not adds
