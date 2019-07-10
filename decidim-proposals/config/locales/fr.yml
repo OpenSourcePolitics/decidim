@@ -1,3 +1,4 @@
+---
 fr:
   activemodel:
     attributes:
@@ -77,6 +78,7 @@ fr:
     components:
       proposals:
         actions:
+          amend: Modifier
           create: Créer
           endorse: Soutenir
           vote: Voter
@@ -85,6 +87,8 @@ fr:
         settings:
           global:
             amendments_enabled: Modifications activées
+            amendments_enabled_help: S'il est actif, configurez les fonctions de modification pour chaque étape.
+            amendments_wizard_help_text: Texte d'aide de l'assistant de modification
             announcement: Annonce
             attachments_allowed: Autoriser les pièces jointes
             can_accumulate_supports_beyond_threshold: Peut accumuler des supports au-delà du seuil
@@ -95,6 +99,7 @@ fr:
             new_proposal_help_text: Texte d'aide à la création d'une nouvelle proposition
             official_proposals_enabled: Autoriser la création de propositions officielles
             participatory_texts_enabled: Textes participatifs activés
+            participatory_texts_enabled_help: Ne peut pas interagir avec ce paramètre s'il existe des propositions existantes. Veuillez créer un nouveau composant'Propositions' si vous voulez activer cette fonctionnalité ou supprimer toutes les propositions importées dans le menu'Textes participatifs' si vous voulez le désactiver.
             proposal_answering_enabled: Autoriser la réponse officielle aux propositions
             proposal_edit_before_minutes: Délai (en minutes) après lequel les auteurs ne peuvent plus modifier leurs propositions
             proposal_length: Nombre maximum de caractères du corps de la proposition
@@ -107,6 +112,14 @@ fr:
             threshold_per_proposal: Seuil par proposition
             vote_limit: Limite de votes par utilisateur
           step:
+            amendment_creation_enabled: Création de modifications possible
+            amendment_creation_enabled_help: Le participant peut modifier les propositions.
+            amendment_promotion_enabled: Promotion de la modification activée
+            amendment_promotion_enabled_help: Les auteurs de l'émandation pourront promouvoir l'émandation rejetée auprès de Proposal.
+            amendment_reaction_enabled: Réaction à l'amendement activée
+            amendment_reaction_enabled_help: Les auteurs de la proposition pourront accepter ou rejeter les corrections des participants.
+            amendments_visibility: Visibilité des modifications
+            amendments_visibility_help: Si l'option "Les modifications ne sont visibles que par leurs auteurs" est sélectionnée, le participant doit être connecté pour voir les modifications apportées.
             announcement: Annonce
             automatic_hashtags: Hashtags ajoutés à toutes les propositions
             comments_blocked: Bloquer la création de nouveaux commentaires
@@ -227,19 +240,19 @@ fr:
       badges:
         accepted_proposals:
           conditions:
-            - Choisissez l'espace de participation qui vous intéresse avec la soumission des propositions activée
-            - Essayez de faire des propositions qui peuvent être réalisées. De cette façon, ils sont plus susceptibles d'être acceptés.
+          - Choisissez l'espace de participation qui vous intéresse avec la soumission des propositions activée
+          - Essayez de faire des propositions qui peuvent être réalisées. De cette façon, ils sont plus susceptibles d'être acceptés.
           description: Ce badge est attribué lorsque vous participez activement à de nouvelles propositions et que celles-ci sont acceptées.
-          description_another: '%{score} des propositions de cet utilisateur ont été acceptées.'
-          description_own: '%{score} de vos propositions ont été acceptées.'
+          description_another: "%{score} des propositions de cet utilisateur ont été acceptées."
+          description_own: "%{score} de vos propositions ont été acceptées."
           name: Propositions acceptées
           next_level_in: Vous atteindrez le niveau suivant lorsque %{score} propositions supplémentaires seront acceptés !
           unearned_another: Aucune proposition de cet auteur n'a encore été acceptée.
           unearned_own: Aucune de vos propositions n'a encore été acceptée.
         proposal_votes:
           conditions:
-            - Parcourir et passer du temps à lire les propositions d'autres personnes
-            - Soutenez les propositions que vous aimez ou trouvez intéressantes
+          - Parcourir et passer du temps à lire les propositions d'autres personnes
+          - Soutenez les propositions que vous aimez ou trouvez intéressantes
           description: Ce badge est attribué lorsque vous soutenez les propositions d'autres personnes.
           description_another: Cet utilisateur a soutenu %{score} propositions.
           description_own: Vous avez soutenu %{score} propositions.
@@ -249,8 +262,8 @@ fr:
           unearned_own: Vous n'avez soutenu aucune proposition pour le moment.
         proposals:
           conditions:
-            - Choisissez l'espace de participation qui vous intéresse avec la soumission des propositions activée
-            - Créer une nouvelle proposition
+          - Choisissez l'espace de participation qui vous intéresse avec la soumission des propositions activée
+          - Créer une nouvelle proposition
           description: Ce badge est attribué lorsque vous participez activement à de nouvelles propositions.
           description_another: Cet utilisateur a créé %{score} propositions.
           description_own: Vous avez créé %{score} propositions.
@@ -677,6 +690,7 @@ fr:
           view_proposal: Voir la proposition
         show:
           back_to: Retour à
+          changes_at_title: Amendement à "%{title}"
           edit_proposal: Modifier la proposition
           endorsements_list: Liste des soutiens
           hidden_endorsers_count:
@@ -684,6 +698,10 @@ fr:
             other: et %{count} autres personnes
           link_to_collaborative_draft_help_text: Cette proposition est le résultat d'un projet collaboratif. Revoir l'histoire
           link_to_collaborative_draft_text: Voir le brouillon collaboratif
+          link_to_promoted_emendation_help_text: Cette proposition est un amendement promu
+          link_to_promoted_emendation_text: Voir l'amendement rejeté.
+          link_to_proposal_from_emendation_help_text: Ceci est un amendement rejeté
+          link_to_proposal_from_emendation_text: Voir la proposition
           proposal_accepted_reason: 'Cette proposition a été retenue parce que :'
           proposal_in_evaluation_reason: Cette proposition est en cours d'évaluation
           proposal_rejected_reason: 'Cette proposition n''a pas été retenue parce que :'

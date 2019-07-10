@@ -1,3 +1,4 @@
+---
 fr:
   activemodel:
     attributes:
@@ -87,6 +88,9 @@ fr:
         new:
           create: Créer
           title: Nouvelle votation
+        results:
+          not_visible: Les résultats seront disponibles à la clôture de la consultation
+          total_votes: 'Total : %{compter}> votes'
         update:
           error: Une erreur s'est produite lors de la mise à jour de cette votation.
           success: Votation mise à jour avec succès.
@@ -95,6 +99,7 @@ fr:
         consultations_submenu:
           info: Informations
           questions: Questions
+          results: Résultats
         questions_submenu:
           components: Fonctionnalités
           consultation: Votation
@@ -171,6 +176,7 @@ fr:
         consultations: Votations
         questions: Questions
         responses: Réponses
+        results: Résultats
     consultations:
       admin:
         content_blocks:
@@ -257,6 +263,8 @@ fr:
         statistics:
           consultations_count: Votations
     questions:
+      next_button: Question suivante
+      previous_button: Question précédente
       results:
         title: Résultats
       show:

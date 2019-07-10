@@ -1,3 +1,4 @@
+---
 fr:
   activemodel:
     attributes:
@@ -45,8 +46,8 @@ fr:
         one: Groupe d'utilisateurs
         other: Groupes d'utilisateurs
   booleans:
-    'false': 'Non'
-    'true': 'Oui'
+    'false': Non
+    'true': Oui
   carrierwave:
     errors:
       image_too_big: L'image est trop grande
@@ -142,6 +143,21 @@ fr:
         promote_confirm_text: Êtes-vous sûr de vouloir promouvoir cette modification?
         promote_help_text: Vous pouvez promouvoir cette modification et la publier en tant qu'indépendant. %{model_name}
         section_heading: Amendements (%{count})
+      compare_draft:
+        continue: Continuer
+        no_similars_found: Aucune modification similaire n'a été trouvée.
+        title: Émendations similaires
+      created:
+        error: Une erreur s'est produite lors de la création du projet de modification.
+        success: Le projet d'amendement a été élaboré avec succès.
+      destroy_draft:
+        error: Il y a eu un problème de suppression du projet d'amendement.
+        success: Le projet d'amendement a été supprimé avec succès.
+      edit_draft:
+        discard: Jeter ce brouillon
+        discard_confirmation: Êtes-vous sûr de vouloir rejeter ce projet d'amendement ?
+        send: Aperçu
+        title: Modifier l'ébauche de la modification
       emendation:
         actions:
           button_accept: Acceptez
@@ -154,15 +170,27 @@ fr:
           evaluating: |-
             Cet amendement pour le %{amendable_type} %{amendable_link}
             est en cours d’évaluation.
-          rejected: "Cette modification pour le %{amendable_type} %{amendable_link}\nété rejetée le <strong>%{announcement_date}</strong>."
+          promoted: Promu à %{type_amendable}.
+          rejected: |-
+            Cette modification pour le %{amendable_type} %{amendable_link}
+            été rejetée le <strong>%{announcement_date}</strong>.
           withdrawn: |-
             Cet amendement pour le %{amendable_type} %{amendable_link}
             a été retiré par l'auteur.
       new:
         amendment_author: Auteur de l'amendement
+        send: Créer
+        title: Créer une ébauche de modification
+      preview_draft:
+        modify: Modifier
+        publish: Publier
+        title: Publication de l'ébauche de la modification
       promoted:
         error: Il y a eu des erreurs lors de la promotion de l'amendation
         success: Amendation promue avec succès
+      publish_draft:
+        error: Il y a eu un problème de publication de l'amendement.
+        success: Modification publiée avec succès.
       rejected:
         error: Une erreur est survenue lors du rejet de cette modification. Veuillez réessayer ultérieurement.
         success: L'amendement a été rejeté avec succès
@@ -171,6 +199,15 @@ fr:
         heading: Revoir l'amendement
         help_text: Vous examinez un amendement au %{model_name}
         send: Accepter l'amendement
+      update_draft:
+        error: Il y a eu un problème de mise à jour du projet d'amendement.
+        success: Projet d'amendement mis à jour avec succès.
+      visibility_options:
+        all: Les modifications sont visibles par tous les membres de l
+        participants: Les modifications ne sont visibles que par leurs auteurs
+      withdraw:
+        error: Une erreur s'est produite lors du retrait de l'amendement
+        success: L'amendement a été retiré avec succès
       wizard_step_form:
         steps:
           '1': Créez votre amendement
@@ -298,6 +335,7 @@ fr:
         name: Bannière en dessous de l'image principale ("hero")
     core:
       actions:
+        login_before_access: Veuillez vous connecter avec votre compte avant l'accès
         unauthorized: Vous n'êtes pas autorisé à effectuer cette action
     data_portability:
       export:
@@ -324,6 +362,7 @@ fr:
           newsletter: Recevoir une newsletter sur l'actualité de la plateforme
           newsletter_title: Autorisation de contact
           nickname_help: Cet identifiant est public et unique sur la plateforme "%{organization}" ; il permet aux autres utilisateurs de vous suivre, de vous contacter ou de vous mentionner dans leurs commentaires. Il s’affichera précédé d’un « @ » ; il ne doit pas contenir d’espace ni de caractère spécial.
+          password_help: "%{minimun_characters} caractères minimum, ne doit pas être trop commun (ex. 123456) et doit être différent de votre pseudonyme et de votre email."
           sign_in: S'identifier
           sign_up: S'inscrire
           sign_up_as:
@@ -438,7 +477,7 @@ fr:
           notification_title: La fonctionnalité %{resource_title} est maintenant active pour <a href="%{resource_path}">%{participatory_space_title}</a>
       email_event:
         email_greeting: Bonjour %{user_name},
-        email_intro: '« %{resource_title} » a été mis à jour. Vous pouvez y accéder ici :'
+        email_intro: "« %{resource_title} » a été mis à jour. Vous pouvez y accéder ici :"
         email_outro: Vous recevez cet notification car vous suivez « %{resource_title} ». Vous pouvez cesser de le suivre en allant sur le lien précédent.
         email_subject: Mise à jour de %{resource_title}
       gamification:
@@ -543,7 +582,7 @@ fr:
       badges:
         continuity:
           conditions:
-            - Viens ici souvent
+          - Viens ici souvent
           description: Ce badge est attribué lorsque vous visitez la plate-forme de manière régulière. Nous aimons vous avoir ici!
           description_another: Cet utilisateur s'est connecté pendant %{score} jours consécutifs à un moment donné.
           description_own: Vous vous êtes connecté pendant %{score} jours consécutifs à un moment donné.
@@ -553,7 +592,7 @@ fr:
           unearned_own: Vous n'êtes pas connecté depuis plus d'un jour consécutif.
         followers:
           conditions:
-            - Être actif et suivre les autres incitera sûrement les autres à vous suivre.
+          - Être actif et suivre les autres incitera sûrement les autres à vous suivre.
           description: Ce badge est attribué lorsque vous atteignez un certain nombre d'adeptes. %{organization_name} est un réseau social et politique, tissez votre site Web pour communiquer avec les autres personnes de la plate-forme.
           description_another: Cet utilisateur a %{score} abonnés.
           description_own: "%{score} utilisateurs vous suivent."
@@ -568,9 +607,9 @@ fr:
           title: Insignes
         invitations:
           conditions:
-            - Utilisez le lien "inviter des amis" sur votre page utilisateur pour inviter vos amis.
-            - Personnalisez, si vous le souhaitez, le message que vous envoyez
-            - Vous augmenterez votre niveau en envoyant des invitations et en les faisant enregistrer.
+          - Utilisez le lien "inviter des amis" sur votre page utilisateur pour inviter vos amis.
+          - Personnalisez, si vous le souhaitez, le message que vous envoyez
+          - Vous augmenterez votre niveau en envoyant des invitations et en les faisant enregistrer.
           description: Ce badge est attribué lorsque vous avez invité des personnes qui ont passé un peu de temps à s’inscrire à %{organization_name} et devenir des participants. Merci de faire connaître %{organization_name} aux autres et d’aider à élargir la communauté!
           description_another: Cet utilisateur a invité %{score} utilisateurs.
           description_own: Vous avez invité %{score} utilisateurs.
@@ -1003,6 +1042,12 @@ fr:
     welcome_notification:
       default_body: <p>Bonjour {{name}}, merci d'avoir rejoins {{organization}} et bienvenue!</p><ul><li>Si vous souhaitez avoir une idée rapide de ce que vous pouvez faire ici, consultez la section <a href="{{help_url}}">Aide</a> .</li><li>Une fois que vous l'avez lu, vous recevrez votre premier badge. Voici une <a href="{{badges_url}}">liste de tous les badges</a> vous pouvez obtenir vous participez à {{organization}}</li><li>En somme, rejoignez d'autres personnes, partagez avec eux l'expérience d'être engagés et participer à {{organization}}. Faites des propositions, des commentaires, lancez des débats, réfléchissez à la manière de contribuer au bien commun, fournissez des arguments pour convaincre, écoutez et lisez pour être convaincu, exprimez vos idées de manière concrète et directe, répondez avec patience et décision, défendez vos idées un esprit ouvert pour collaborer et rejoindre les idées des autres.</li></ul>
       default_subject: Merci d'avoir rejoint {{organization}}!
+    wizard_step_form:
+      wizard_aside:
+        back: Retour
+      wizard_header:
+        see_steps: voir les marches
+        step_of: Etape %{current_step}de %{total_steps}>%{total_steps
   devise:
     confirmations:
       confirmed: Votre adresse e-mail a été confirmée avec succès.
@@ -1013,11 +1058,11 @@ fr:
     failure:
       already_authenticated: Vous êtes déjà connecté.
       inactive: Votre compte n'est pas encore activé.
-      invalid: '%{authentication_keys} ou mot de passe invalide.'
+      invalid: "%{authentication_keys} ou mot de passe invalide."
       invited: Vous avez une invitation en attente, acceptez-la pour terminer la création de votre compte.
       last_attempt: Vous avez encore une tentative avant que votre compte soit verrouillé.
       locked: Ton compte est bloqué.
-      not_found_in_database: '%{authentication_keys} ou mot de passe invalide.'
+      not_found_in_database: "%{authentication_keys} ou mot de passe invalide."
       timeout: Votre session a expiré. Veuillez vous connecter à nouveau pour continuer.
       unauthenticated: Vous devez vous connecter ou vous inscrire avant de continuer.
     invitations:
@@ -1093,6 +1138,7 @@ fr:
         change_your_password: changez votre mot de passe
         confirm_new_password: Confirmer le nouveau mot de passe
         new_password: Votre mot de passe
+        password_help: "%{minimun_characters} caractères minimum, ne doit pas être trop commun (ex. 123456) et doit être différent de votre pseudonyme et de votre email."
       new:
         forgot_your_password: Mot de passe oublié?
         send_me_reset_password_instructions: Envoyez-moi les instructions de réinitialisation du mot de passe
@@ -1256,6 +1302,14 @@ fr:
           invitation_instructions:
             accept_until_format: "%B %d, %Y %I:%M %p"
       time_of_day: "%H:%M"
+  versions:
+    directions:
+      left: Suppressions
+      right: Ajouts
+    dropdown:
+      choose_diff_view_mode: 'Comparer le mode d''affichage :'
+      option_split: Côte à côte
+      option_unified: Unifié
   views:
     pagination:
       first: "&laquo; Première"

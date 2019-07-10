@@ -1,3 +1,4 @@
+---
 fr:
   activemodel:
     attributes:
@@ -36,6 +37,7 @@ fr:
         organization_url: URL de l'organisation
         redirect_uri: Rediriger l'URI
       organization:
+        address: Nom d'hôte SMTP
         alert_color: Alerte
         badges_enabled: Activer les badges
         cta_button_path: Chemin du bouton d'action
@@ -45,6 +47,7 @@ fr:
         enable_omnipresent_banner: Montrer une bannière d'actualités
         facebook_handler: Gestionnaire Facebook
         favicon: Icône
+        from: De l'adresse e-mail
         github_handler: Gestionnaire GitHub
         header_snippets: Éléments à ajouter entre les balises HTML
         highlighted_content_banner_action_subtitle: Sous-titre du bouton d'action
@@ -63,6 +66,8 @@ fr:
         omnipresent_banner_short_description: Brève description
         omnipresent_banner_title: Titre
         omnipresent_banner_url: URL
+        password: Mot de passe
+        port: Port
         primary_color: Primaire
         reference_prefix: Préfixe de référence
         secondary_color: Secondaire
@@ -71,6 +76,7 @@ fr:
         tos_version: Version des conditions d'utilisation
         twitter_handler: Gestionnaire Twitter
         user_groups_enabled: Activer les groupes d'utilisateurs
+        user_name: Nom d'utilisateur
         warning_color: Attention
         youtube_handler: Gestionnaire YouTube
       scope:
@@ -156,6 +162,7 @@ fr:
           error: Une erreur s'est produite lors de la création d'une nouvelle zone d'application.
           success: Zone d'application créée avec succès.
         destroy:
+          has_spaces: La zone a des espaces dépendants, elle ne doit pas avoir de dépendances pour être supprimée.
           success: La zone d'application a bien été supprimée
         edit:
           title: Modifier la zone d'application
@@ -368,6 +375,7 @@ fr:
             created_at: Créée le
             progress: Avancement
             sent_at: Envoyé à
+            sent_to: Envoyé à
             subject: Objet
           name: Bulletin d'information (newsletter)
         oauth_application:
@@ -425,7 +433,7 @@ fr:
           error: Il y a eu une erreur lors de l'envoi de cette newsletter.
           success: Newsletter envoyée avec succès.
         destroy:
-          error_already_sent: 'Suppression impossible car la newsletter a déjà été envoyée.'
+          error_already_sent: Suppression impossible car la newsletter a déjà été envoyée.
           success: Newsletter supprimée avec succès.
         edit:
           save_and_preview: Enregistrer et prévisualiser
@@ -433,16 +441,42 @@ fr:
         form:
           interpolations_hint: 'Astuce : Vous pouvez utiliser "%{name}" (sans les guillemets) n''importe où dans le corps ou le sujet et il sera remplacé par le nom du destinataire.'
         index:
+          all: tous
+          all_users: Tous les utilisateurs
+          and: et
           confirm_delete: Êtes-vous sûr de vouloir supprimer cette newsletter ?
+          followers: partisans
+          has_been_sent_to: 'A été envoyé à '
+          no_scopes: Pas de portée
+          not_sent: Non envoyé
+          participants: participantes
+          segmented_to: 'Segmenté à %{sujet} '
           title: Newsletters
         new:
           save: Enregistrer
           title: Nouvelle newsletter
         select_recipients_to_deliver:
+          all_spaces: Tous
+          all_users_help: Envoie la newsletter à tous les utilisateurs confirmés.
           confirm_deliver: Êtes-vous sûr de vouloir envoyer cette newsletter ? Cette action ne peut pas être annulée.
           deliver: Envoyer la newsletter
+          followers_help: Envoie la newsletter à tous les utilisateurs confirmés qui suivent les espaces participatifs sélectionnés dans la liste.
+          none: Aucun
+          participants_help: Envoie un bulletin d'information à tous les utilisateurs confirmés qui ont participé à l'un des espaces participatifs sélectionnés dans la liste.
+          scopes_help: Envoie la newsletter aux utilisateurs dont l'un des champs d'application sélectionnés est activé dans les paramètres "Mes centres d'intérêt" de leur compte.
+          select_scopes: Filtre pour les utilisateurs ayant activé une portée sélectionnée dans les paramètres de leur compte Mes Intérêts.
+          select_spaces: Sélectionner les espaces pour segmenter la newsletter
+          select_users: Sélectionnez les utilisateurs que vous souhaitez envoyer la newsletter
+          send_to_all_users: Envoyer à tous les utilisateurs
+          send_to_followers: Envoyer aux adeptes
+          send_to_participants: Envoyer aux participants
+          title: Sélectionner les destinataires à livrer
+          warning: "<strong>Attention:</strong> Cette newsletter ne sera envoyée qu'aux utilisateurs qui ont activé <em>Je veux recevoir les newsletters</em> dans leurs paramètres de notification."
+        send:
+          no_recipients: Aucun destinataire pour cette sélection
         show:
           preview: Aperçu
+          select_recipients_to_deliver: Sélectionner les destinataires à livrer
           subject: Objet
         update:
           error: Erreur lors de la mise à jour de la newsletter.
@@ -605,6 +639,7 @@ fr:
           update: Mettre à jour
         form:
           none: Aucun
+          slug_help: 'Utilisez des chemins partiels, pas des URLs complètes ici. Accepte les lettres, les chiffres, les tirets et les barres obliques, et doit commencer par une lettre. Exemple : %{url}>%{url}N'
         index:
           last_notable_change: Dernier changement notable
         new:

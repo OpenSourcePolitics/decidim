@@ -1,3 +1,4 @@
+---
 fr:
   decidim:
     system:
@@ -47,6 +48,7 @@ fr:
           fields:
             created_at: Créé le
             name: Nom
+            smtp_settings: Paramètres SMTP
           name: Organisation
       organizations:
         create:

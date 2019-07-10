@@ -1,3 +1,4 @@
+---
 fr:
   activemodel:
     attributes:
@@ -61,7 +62,9 @@ fr:
         position: Statut
       assembly_user_role:
         email: E-mail
-        name: "Nom\n"
+        name: 'Nom
+
+          '
         role: Fonction
   activerecord:
     models:
@@ -359,6 +362,7 @@ fr:
           more_info: Plus d'informations
           take_part: Participer
         index:
+          children: 'Assemblées '
           organizational_chart: Organigramme
           promoted_assemblies: Assemblées mises en avant
           reset_chart: Réinitialiser
