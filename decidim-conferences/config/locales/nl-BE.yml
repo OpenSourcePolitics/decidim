@@ -9,25 +9,25 @@ nl-BE:
         copy_components: Kopieer componenten
         copy_features: Kopieerfuncties
         decidim_scope_id: Reikwijdte
-        description: Description
+        description: Beschrijving
         hashtag: Hashtag
-        hero_image: Home image
+        hero_image: Afbeelding van de startpagina
         participatory_processes_ids: Related Participatory processes
-        promoted: Promoted
-        published_at: Published at
-        scope_id: Scope
-        scopes_enabled: Scopes enabled
-        short_description: Short description
-        show_statistics: Show statistics
+        promoted: gepromoveerd
+        published_at: Gepubliceerd op
+        scope_id: Reikwijdte
+        scopes_enabled: Scopes ingeschakeld
+        short_description: Korte beschrijving
+        show_statistics: Toon statistieken
         slogan: Slogan
-        slug: URL slug
-        title: Title
+        slug: URL slak
+        title: Titel
       conference_speaker:
-        full_name: Full name
+        full_name: Volledige naam
       conference_user_role:
-        email: Email
-        name: Name
-        role: Role
+        email: E-mail
+        name: Naam
+        role: Rol
     errors:
       models:
         conference_registration_invite:
@@ -37,8 +37,8 @@ nl-BE:
   activerecord:
     models:
       decidim/conference:
-        one: Conference
-        other: Conferences
+        one: Conferentie
+        other: Conferentie
       decidim/conference_speaker:
         one: Conference speaker
         other: Conference speakers
@@ -48,13 +48,13 @@ nl-BE:
   decidim:
     admin:
       actions:
-        confirm: Confirm
+        confirm: Bevestigen
         new_conference: New Conference
         send_diplomas: Send certificates of attendance
       conference_copies:
         new:
-          copy: Copy
-          select: Select which data you would like to duplicate
+          copy: Kopiëren
+          select: Selecteer welke gegevens u wilt dupliceren
           title: Duplicate conference
       conference_publications:
         create:
@@ -75,11 +75,11 @@ nl-BE:
           success: Speaker deleted successfully for this conference.
         edit:
           title: Update conference speaker.
-          update: Update
+          update: Bijwerken
         index:
           conference_speakers_title: Conference speakers
         new:
-          create: Create
+          create: Creëren
           title: New conference speaker.
         update:
           error: There was an error updating the speaker for this conference.
@@ -92,11 +92,11 @@ nl-BE:
           success: User removed successfully from this conference.
         edit:
           title: Update conference user.
-          update: Update
+          update: Bijwerken
         index:
-          conference_admins_title: conference users
+          conference_admins_title: nieuwe conferentie gebruiker
         new:
-          create: Create
+          create: Creëren
           title: Nieuwe conferentie gebruiker.
         update:
           error: Er is een fout opgetreden die een gebruiker bijgewerkt heeft voor dit deelnemende proces.
@@ -175,38 +175,38 @@ nl-BE:
           name: Conference Speaker
         conference_user_role:
           fields:
-            email: Email
-            name: Name
-            role: Role
+            email: E-mail
+            name: Naam
+            role: Rol
           name: Conference User
           roles:
-            admin: Administrator
-            collaborator: Collaborator
-            moderator: Moderator
+            admin: Beheerder
+            collaborator: Medewerker
+            moderator: Moderaties
         media_link:
           fields:
-            date: Date
+            date: Datum
             link: Link
-            title: Title
-          name: Media Link
+            title: Titel
+          name: Media links
         partner:
           fields:
             link: Link
             logo: Logo
-            name: Name
+            name: Naam
             partner_type: Type
           name: Partner
           types:
-            collaborator: Collaborator
+            collaborator: Medewerker
             main_promotor: Main promotor
         registration_type:
           fields:
             conference_meetings: Conference meetings
             price: Price
             registrations_count: Registrations count
-            title: Title
-            weight: Weight
-          name: Registration type
+            title: Titel
+            weight: Gewicht
+          name: Type
       partners:
         create:
           error: There was an error adding a partner for this conference.
@@ -215,9 +215,9 @@ nl-BE:
           success: Partner removed successfully from this conference.
         edit:
           title: Update partner.
-          update: Update
+          update: Bijwerken
         new:
-          create: Create
+          create: Creëren
           title: New partner
         update:
           error: There was an error updated a partner for this conference.
@@ -237,15 +237,15 @@ nl-BE:
           success: Registration type removed successfully from this conference.
         edit:
           title: Update registration type.
-          update: Update
+          update: Bijwerken
         new:
-          create: Create
+          create: Creëren
           title: New registration type
         update:
           error: There was an error updated a registration type for this conference.
           success: Registration type updated successfully for this conference.
       titles:
-        conferences: Conferences
+        conferences: Conferentie
     admin_log:
       conference:
         create: "%{user_name} created the %{resource_name} conference"
@@ -330,11 +330,11 @@ nl-BE:
             registrations_count:
               one: Er zijn registraties geweest.
               other: Er zijn %{count} registraties geweest.
-            slug_help: 'URL slugs are used to generate the URLs that point to this conference. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
+            slug_help: 'URL-slugs worden gebruikt om de URL''s te genereren die naar deze vergadering verwijzen. Accepteer alleen letters, cijfers en streepjes, en moet beginnen met een letter. Voorbeeld: %{url}'
         diplomas:
           edit:
-            save: Save
-            title: Certificate of Attendance
+            save: Opslaan
+            title: Certificaat van aanwezigheid
         invite_join_conference_mailer:
           invite:
             decline: Decline invitation '%{conference_title}'
@@ -347,35 +347,35 @@ nl-BE:
           form:
             select_conference_meetings: Select conference meetings
           index:
-            title: Registration types
+            title: Type
         send_conference_diploma_mailer:
           diploma:
             diploma_html: You will be find the certificate of attendance for the conference <a href="%{url}">%{title}</a> in the attachments.
           diploma_user:
             attendance_verified_by: Attendance verified by
-            certificate_of_attendance: Certificate of Attendance
+            certificate_of_attendance: Certificaat van aanwezigheid
             certificate_of_attendance_description: This is to certify that <strong>%{user}</strong> has attended and taken part in the <strong>%{title}</strong> held at the <strong>%{location}</strong> on <strong>%{start} - %{end}</strong>
         send_diploma:
           error: There's been a problem while sending the conference certificates of attendance.
           success: Conference certificates of attendance sent correctly
       conference:
         registration_confirm:
-          cancel: Cancel
-          confirm: Confirm
+          cancel: Annuleer
+          confirm: Bevestigen
         show:
           free: Free
-          going: Going
-          no_slots_available: No slots available
+          going: gaand
+          no_slots_available: Geen slots beschikbaar
           registration: Registration
       conference_program:
         program_meeting:
-          content: Content
-          location: Location
-          speakers: Speakers
+          content: Inhoud
+          location: Plaats
+          speakers: Luidsprekers
           streaming: Streaming
         show:
           day: Day
-          program: Program
+          program: Programma
       conference_registration_mailer:
         confirmation:
           confirmed_html: Your registration for the conference <a href="%{url}">%{title}</a> has been confirmed.
@@ -397,10 +397,10 @@ nl-BE:
           success: You have left the conference successfully.
       conference_speaker:
         go_to_twitter: Go to Twitter
-        more_info: more info
+        more_info: meer informatie
         personal_website: Personal website
         show:
-          more_info: more info
+          more_info: meer informatie
       conference_speaker_cell:
         personal_url:
           personal_website: Personal website
@@ -408,13 +408,13 @@ nl-BE:
           go_to_twitter: Go to Twitter
       conference_speakers:
         index:
-          speakers: Speakers
+          speakers: Luidsprekers
       conferences:
         partners:
           collaborators: Partners
           main_promotors: Organizers
         show:
-          login_as: You are logged in as %{name} <%{email}>
+          login_as: U bent ingelogd als %{name} <%{email}>
           make_conference_registration: 'Make your registration in the conference:'
           register: Registreer
       content_blocks:
@@ -497,12 +497,12 @@ nl-BE:
         orders_count: Stemmen
         pages_count: Pagina's
         posts_count: Posten
-        projects_count: Projects
-        proposals_count: Proposals
-        results_count: Results
-        surveys_count: Surveys
-        users_count: Participants
-        votes_count: Votes
+        projects_count: Projecten
+        proposals_count: Voorstellen
+        results_count: Resultaten
+        surveys_count: onderzoeken
+        users_count: Deelnemers
+        votes_count: stemmen
     events:
       conferences:
         conference_registration_confirmed:
@@ -538,21 +538,21 @@ nl-BE:
         description: Links about this conference
         title: Media and Links
     menu:
-      conferences: Conferences
+      conferences: Conferentie
   devise:
     mailer:
       join_conference:
-        subject: Invitation to join a conference
+        subject: Uitnodiging om deel te nemen aan een conferentie
   layouts:
     decidim:
       conference_hero:
-        register: Register
+        register: Registreer
       conference_widgets:
         show:
-          take_part: Take part
+          take_part: Deelnemen
       conferences:
         conference:
-          take_part: Take part
+          take_part: Deelnemen
         index:
           promoted_conferences: Promoted conferences
         order_by_conferences:
@@ -560,11 +560,11 @@ nl-BE:
             one: "%{count} conference"
             other: "%{count} conferences"
         promoted_conference:
-          more_info: More info
-          take_part: Take part
+          more_info: Meer informatie
+          take_part: Deelnemen
       conferences_nav:
         conference_menu_item: Information
         conference_partners_menu_item: Partners
-        conference_speaker_menu_item: Speakers
+        conference_speaker_menu_item: Luidsprekers
         media: Media
         venues: Venues
