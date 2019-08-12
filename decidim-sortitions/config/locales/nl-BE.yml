@@ -2,24 +2,24 @@ nl-BE:
   activemodel:
     attributes:
       sortition:
-        additional_info: Sortition information
-        decidim_category_id: Categories of the set of proposals in which you want to apply the draw
-        decidim_proposals_component_id: Proposals set
-        dice: Result of die roll. Roll a 6-sided die, or look for another random way to generate a number from 1 to 6, and enter here the resulting number in front of some witnesses. This contributes to the quality and guarantees of the randomness of the result
-        target_items: Number of proposals to be selected (indicates the number of proposals you want to be selected by drawing lots of the group of proposals you have previously chosen)
+        additional_info: Sorteerinformatie
+        decidim_category_id: Categorieën van de reeks voorstellen waarin u de tekeningen wilt toepassen
+        decidim_proposals_component_id: Voorstellen ingesteld
+        dice: Resultaat van de hoofdelijke dood. Rol een 6-eenzijdige dood, of zoek een andere willekeurige manier om een getal te genereren van 1 tot 6, en voer hier het resulterende aantal voor sommige getuigen in. Dit draagt bij aan de kwaliteit en garanties van de randomheid van het resultaat
+        target_items: Aantal te selecteren voorstellen (geeft het aantal voorstellen aan dat u wilt selecteren door veel van de groep voorstellen te tekenen die u eerder hebt gekozen)
         title: Titel
-        witnesses: Witnesses
+        witnesses: Witgetuigen
     models:
-      decidim/sortitions/create_sortition_event: Sortition
+      decidim/sortitions/create_sortition_event: Sortaties
   activerecord:
     models:
       decidim/sortitions/sortition:
-        one: Sortition
-        other: Sortitions
+        one: Sortaties
+        other: Sortaties
   decidim:
     components:
       sortitions:
-        name: Sortitions
+        name: Sortaties
         settings:
           global:
             comments_enabled: Reacties ingeschakeld
@@ -71,37 +71,37 @@ nl-BE:
             error: Annuleer de sortering.
             success: Vergadering met succes gemaakt
           edit:
-            title: Update the information about the sortition
+            title: Update de informatie over de sortering
             update: Bijwerken
           form:
-            all_categories: All categories
-            select_proposal_component: Select the proposals set
-            title: New sortition for proposals
+            all_categories: Alle categorieën
+            select_proposal_component: Selecteer de voorstellen
+            title: Nieuwe sortering voor voorstellen
           index:
-            title: Sortitions
+            title: Sortaties
           new:
-            confirm: By pressing the next button Decidim will record the date and time (with precision of seconds) and together with the dice roll, this information will be used to generate a random selection. The action will be irreversible, once the button is clicked the result of this draw will be published, together with the data entered in this form and can not be modified, please check the content carefully
+            confirm: Door op de volgende knop te drukken zal de datum en tijd (met precisie van seconden) worden vastgelegd en samen met de dice roll, zal deze informatie worden gebruikt om een willekeurige selectie te genereren. De actie zal onomkeerbaar zijn, zodra de knop op het resultaat van deze tekening wordt geklikt, zal worden gepubliceerd, samen met de gegevens die in dit formulier zijn ingevoerd en niet kunnen worden gewijzigd, controleer de inhoud zorgvuldig
             create: Creëren
-            title: New sortition
+            title: Nieuwe sortering
           show:
-            selected_proposals: Proposals selected for draw
+            selected_proposals: Geselecteerde voorstellen voor tekenen
           update:
-            error: There was an error updating the sortition.
-            success: Sortition successfully updated
+            error: Er is een fout opgetreden bij het bijwerken van deze organisatie.
+            success: Vergadering met succes gemaakt
       admin_log:
         sortition:
-          create: "%{user_name} created the %{resource_name} sortition in %{space_name}"
-          delete: "%{user_name} cancelled the %{resource_name} sortition in %{space_name}"
-          update: "%{user_name} updated the %{resource_name} sortition in %{space_name}"
+          create: "%{user_name} heeft resultaat %{resource_name} aangemaakt in %{space_name}"
+          delete: "%{user_name} heeft resultaat %{resource_name} aangemaakt in %{space_name}"
+          update: "%{user_name} heeft resultaat %{resource_name} aangemaakt in %{space_name}"
       sortitions:
         count:
           proposals_count:
-            one: 1 proposal
+            one: voorstellen
             other: "%{count} voorstellen"
         filters:
           active: Actief
           all: Alle
-          cancelled: Cancelled
+          cancelled: Geannuleerd
           category: Categorie
           category_prompt: Kies een categorie
           search: Zoeken
@@ -112,34 +112,34 @@ nl-BE:
           filter_by: Filteren op
           unfold: Ontvouwen
         linked_sortitions:
-          selected_proposals: Selected proposals
+          selected_proposals: Verwante voorstellen
         orders:
-          label: 'Order sortitions by:'
+          label: 'Bestellingsortities door:'
           random: Willekeurig
           recent: Recentelijk
         results_count:
           count:
-            one: selected proposal
-            other: selected proposals
+            one: verwante voorstellen
+            other: verwante voorstellen
         show:
-          algorithm: Sortition's Algorithm code
-          any_category: from all categories
-          cancelled: Cancelled sortition
-          candidate_proposal_ids: Sortition proposals order and IDs
-          candidate_proposals_info: 'The sortition was carried out among the following proposals (%{category_label}), with the following IDs (in bold the selected proposals)  '
-          category: from the %{category} category
-          dice_result: "(1) Dice result"
-          introduction: 'This page contains the results of the sortition %{reference}. By means of this sortition, %{target_items} number of results have been selected randomly and with an equal probability distribution from the set of proposals displayed bellow. Together with the results, the information displayed on this page provides all the information required to maximize guarantees and to reproduce the results. The key to the quality of this sortition is the double randomness provided by a the rolling of a dice(verified by witnesses) and the precise time of the sortition that provides input for an algorithm that generates a random selection. The time-seed for the sortition is so accurate (seconds) that it is impossible to control by humans thus providing a double "uncontrollable" input to guarantee a fair result.  '
-          mathematical_result: Result (1) x (2)
-          proposals_selected_by_sortition: Proposals selected by sortition
-          sortition_reproducibility_details: Sortition reproducibility details
-          time_seed: "(2) Time seed"
-          witnesses: Witnesses
+          algorithm: Algoritme code van sortering
+          any_category: alle categorieën
+          cancelled: Annuleer de sortering
+          candidate_proposal_ids: Sortitie voorstellen volgorde en IDs
+          candidate_proposals_info: 'De sortitie is uitgevoerd onder de volgende voorstellen (%{category_label}), met de volgende IDs (in vet de geselecteerde voorstellen)  '
+          category: van de categorie %{category}
+          dice_result: "(1) Dice resultaat"
+          introduction: 'Deze pagina bevat de resultaten van de sortering %{reference}. Door deze sortering zijn %{target_items} aantal resultaten willekeurig geselecteerd en met een gelijke waarschijnlijkheid verdeling van de reeks voorstellen weergegeven bellow. Samen met de resultaten biedt de informatie die op deze pagina wordt weergegeven alle informatie die nodig is om garanties te maximaliseren en de resultaten te reproduceren. De sleutel tot de kwaliteit van deze sortering is de dubbele randomness die wordt geboden door het rollen van een dice (geverifieerd door getuigen) en de exacte tijd van de sortitie die input biedt voor een algoritme dat een willekeurige selectie genereert. De tijd voor de sortering is zo nauwkeurig (seconden) dat het onmogelijk is om door mensen te controleren en zo een dubbele "oncontroleerbare" input te leveren om een eerlijk resultaat te garanderen.  '
+          mathematical_result: Resultaat (1) x (2)
+          proposals_selected_by_sortition: Voorstellen geselecteerd door sortering
+          sortition_reproducibility_details: Sortering reproducibiliteit details
+          time_seed: "(2) Tijdseed"
+          witnesses: Witgetuigen
         sortition:
-          random_seed: Random seed
+          random_seed: Willekeurig zaad
           selected_proposals:
-            one: proposal selected
-            other: proposals selected
+            one: voorstel geaccepteerd
+            other: voorstel geaccepteerd
           view: Uitzicht
         sortition_author:
           deleted: Verwijderde gebruiker
@@ -147,5 +147,5 @@ nl-BE:
           deleted: Verwijderde gebruiker
         sortitions_count:
           count:
-            one: 1 sortition
-            other: "%{count} sortitions"
+            one: sortaties
+            other: "%{count} raadplegingen"
