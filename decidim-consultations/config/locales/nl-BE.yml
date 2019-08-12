@@ -11,39 +11,39 @@ nl-BE:
         questions: Questions
         slug: URL slug
         start_voting_date: Voting begins
-        subtitle: Subtitle
-        title: Title
+        subtitle: Subtitel
+        title: Titel
       question:
-        banner_image: Banner image
-        decidim_scope_id: Municipal area
+        banner_image: Banner afbeelding
+        decidim_scope_id: München gebied
         hashtag: Hashtag
-        hero_image: Home image
-        i_frame_url: External voting system URL
-        origin_scope: Scope
-        origin_title: Origin
-        origin_url: Origin URL
-        participatory_scope: Participatory scope
-        promoter_group: Promoter group
+        hero_image: Afbeelding van de startpagina
+        i_frame_url: Externe stemsysteem URL
+        origin_scope: Reikwijdte
+        origin_title: Oorsprong
+        origin_url: Originele URL
+        participatory_scope: Participatieve scope
+        promoter_group: Ontwikkelaarsgroep
         question_context: Context
-        reference: Reference
-        scope: Municipal area
-        slug: URL slug
-        subtitle: Subtitle
-        title: Title
-        vote: External voting system
-        what_is_decided: What is decided
+        reference: Referentie
+        scope: München gebied
+        slug: URL slak
+        subtitle: Subtitel
+        title: Titel
+        vote: Externe stemsysteem Url
+        what_is_decided: Participatief toepassingsgebied
     errors:
       vote:
         decidim_consultations_response_id:
-          not_found: Response not found.
+          not_found: Antwoord niet gevonden.
   activerecord:
     models:
       decidim/consultation:
-        one: Consultation
-        other: Consultations
+        one: Raadpleging
+        other: Raadpleging
       decidim/consultations/question:
-        one: Question
-        other: Questions
+        one: Vraag
+        other: Vragen
       decidim/consultations/response:
         one: Response
         other: Responses
