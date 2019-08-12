@@ -5,38 +5,38 @@ nl-BE:
         body: Lichaam
         category_id: Categorie
         decidim_scope_id: Reikwijdte
-        has_address: Has address
+        has_address: Heeft adres
         state: Staat
         title: Titel
-        user_group_id: Create collaborative draft as
+        user_group_id: Voltooi uw gezamenlijke ontwerp
       proposal:
         address: Adres
         answer: Antwoord
-        answered_at: Answered at
-        automatic_hashtags: Hashtags automatically added
+        answered_at: Antwoord op
+        automatic_hashtags: Hashtags automatisch toegevoegd
         body: Lichaam
         category_id: Categorie
-        has_address: Has address
+        has_address: Heeft adres
         scope_id: Reikwijdte
         state: Staat
-        suggested_hashtags: Suggested hashtags
+        suggested_hashtags: Voorgestelde hashtags
         title: Titel
         user_group_id: Maak een voorstel als
       proposal_answer:
         answer: Antwoord
       proposals_copy:
-        copy_proposals: I understand that this will import all proposals from the selected component to the current one and that this action can't be reversed.
-        origin_component_id: Component to copy the proposals from
+        copy_proposals: Ik begrijp dat dit alle voorstellen van het geselecteerde onderdeel naar het huidige zal importeren en dat deze actie niet kan worden teruggedraaid.
+        origin_component_id: Component om de voorstellen van te kopiëren
     errors:
       models:
         proposal:
           attributes:
             attachment:
-              needs_to_be_reattached: Needs to be reattached
+              needs_to_be_reattached: Moet worden gemaakt
     models:
-      decidim/proposals/accepted_proposal_event: Proposal accepted
-      decidim/proposals/admin/update_proposal_category_event: Proposal category changed
-      decidim/proposals/creation_enabled_event: Proposal creation enabled
+      decidim/proposals/accepted_proposal_event: Voorstel geaccepteerd
+      decidim/proposals/admin/update_proposal_category_event: Voorstel categorie gewijzigd
+      decidim/proposals/creation_enabled_event: Voorstel aanmaken ingeschakeld
       decidim/proposals/endorsing_enabled_event: Proposal endorsing enabled
       decidim/proposals/evaluating_proposal_event: Proposal is being evaluated
       decidim/proposals/proposal_endorsed_event: Proposal endorsed
@@ -418,25 +418,25 @@ nl-BE:
           create: "%{user_name} created the %{resource_name} proposal on the %{space_name} space as an official proposal"
           update: "%{user_name} updated the %{resource_name} official proposal on the %{space_name} space"
         proposal_note:
-          create: "%{user_name} left a private note on the %{resource_name} proposal on the %{space_name} space"
+          create: "%{user_name} heeft het %{resource_name} lid aangemaakt in de %{space_name} -vergadering"
       answers:
         accepted: Aanvaard
         evaluating: Evalueren
         not_answered: Niet geantwoord
         rejected: Verworpen
-        withdrawn: Withdrawn
+        withdrawn: Opname
       application_helper:
         filter_origin_values:
           all: Alle
-          citizens: Citizens
+          citizens: Burgers
           meetings: Vergaderingen
-          official: Official
+          official: Officieel
           user_groups: Gebruikersgroepen
         filter_state_values:
           accepted: Aanvaard
           all: Alle
           evaluating: Evalueren
-          except_rejected: All except rejected
+          except_rejected: Alle behalve afgewezen
           rejected: Verworpen
         filter_type_values:
           all: Alle
@@ -445,53 +445,53 @@ nl-BE:
       collaborative_drafts:
         collaborative_draft:
           publish:
-            error: There's been errors when publishing the collaborative draft.
+            error: Er zijn fouten opgetreden bij het publiceren van het gezamenlijke ontwerp.
             irreversible_action_modal:
-              body: After publishing the draft as a proposal, the draft won't be editable anymore. The proposal won't accept new authors or contributions.
+              body: Na het publiceren van het ontwerp als voorstel zal het ontwerp niet meer bewerkt kunnen worden. Het voorstel zal geen nieuwe auteurs of bijdragen accepteren.
               cancel: Annuleer
-              ok: Publish as a Proposal
-              title: The following action is irreversible
-            success: Collaborative draft published successfully as a proposal.
-          view_collaborative_draft: View Collaborative Draft
+              ok: Publiceer als voorstel
+              title: De volgende actie is onomkeerbaar
+            success: Samenwerkingsontwerp is succesvol gepubliceerd als voorstel.
+          view_collaborative_draft: Bekijk Collaborative draft
           withdraw:
-            error: There's been errors closing the collaborative draft.
+            error: Er zijn fouten opgetreden bij het publiceren van het gezamenlijke ontwerp.
             irreversible_action_modal:
-              body: After closing the draft, the draft won't be editable anymore. The draft won't accept new authors or contributions.
+              body: Na het publiceren van het ontwerp als voorstel zal het ontwerp niet meer bewerkt kunnen worden. Het voorstel zal geen nieuwe auteurs of bijdragen accepteren.
               cancel: Annuleer
-              ok: Withdraw the collaborative draft
-              title: The following action is irreversible
-            success: Collaborative draft withdrawn successfully.
+              ok: Het gezamenlijke ontwerp terugnemen
+              title: De volgende actie is onomkeerbaar
+            success: Collaborative draft succesvol ingetrokken.
         compare:
-          mine_is_different: My collaborative draft is different
-          no_similars_found: Well done! No similar collaborative drafts found
-          title: Similar collaborative drafts
+          mine_is_different: Mijn gezamenlijke ontwerp is verschillend
+          no_similars_found: Goed gedaan! Geen soortgelijke gezamenlijke concepten gevonden
+          title: Vergelijkbare gezamenlijke concepten
         complete:
           send: sturen
-          title: Complete your collaborative draft
+          title: Voltooi uw gezamenlijke ontwerp
         count:
           drafts_count:
-            one: "%{count} collaborative draft"
-            other: "%{count} collaborative draft"
+            one: "%{count} gezamenlijk ontwerp"
+            other: "%{count} gezamenlijk ontwerp"
         create:
-          error: There's been a problem creating this collaborative drafts
-          success: Collaborative draft successfully created.
+          error: Er zijn fouten opgetreden bij het publiceren van het gezamenlijke ontwerp
+          success: Collaborative concept succesvol aangemaakt.
         edit:
           attachment_legend: "(Optioneel) Een bijlage toevoegen"
-          back: Back
-          select_a_category: Please select a category
+          back: Terug
+          select_a_category: Selecteer een categorie
           send: sturen
-          title: Edit collaborative draft
+          title: Gezamenlijk ontwerp
         filters:
           all: Alle
           amendment: Amendementen
           category: Categorie
-          category_prompt: Category Prompt
+          category_prompt: Categorie Prompt
           open: Open
           published: Gepubliceerd
           related_to: Gerelateerd aan
           search: Zoeken
           state: Staat
-          withdrawn: Withdrawn
+          withdrawn: Opname
         filters_small_view:
           close_modal: Dicht modaal
           filter: Filter
@@ -499,7 +499,7 @@ nl-BE:
           unfold: Ontvouwen
         new:
           send: Verstuur
-          title: Create Your collaborative draft
+          title: Voltooi uw gezamenlijke ontwerp
         new_collaborative_draft_button:
           new_collaborative_draft: New collaborative draft
         orders:
