@@ -64,52 +64,52 @@ nl-BE:
           unconfirmed: You need to confirm your email in order to authorize yourself.
         first_login:
           actions:
-            another_dummy_authorization_handler: Verify against another example of authorization handler
-            dummy_authorization_handler: Verify against the example authorization handler
-            dummy_authorization_workflow: Verify against the example authorization workflow
-            id_documents: Get verified by uploading your identity document
-            postal_letter: Get verified by receiving a verification code through postal mail
-          title: Verify your identity
-          verify_with_these_options: 'These are the available options to verify your identity:'
+            another_dummy_authorization_handler: Verifieer een ander voorbeeld van autorisatie handler
+            dummy_authorization_handler: Verifieer tegen de voorbeeld autorisatiehandler
+            dummy_authorization_workflow: Verifieer tegen de voorbeeld autorisatieworkflow
+            id_documents: Verifieer je identiteit door het uploaden van je identiteitsdocument
+            postal_letter: Verifieer je door een verificatiecode te ontvangen via de postmail
+          title: '-'
+          verify_with_these_options: 'Dit zijn de beschikbare opties om uw identiteit te verifiëren:'
         new:
           authorize: sturen
-          authorize_with: Verify with %{authorizer}
-        skip_verification: You can skip this for now and %{link}
-        start_exploring: start exploring
+          authorize_with: Verifieer met %{authorizer}
+        skip_verification: U kunt dit nu overslaan en %{link}
+        start_exploring: start Verkennen
       dummy_authorization:
         extra_explanation:
-          one: Participation is restricted to users with the postal code %{postal_codes}.
-          other: 'Participation is restricted to users with any of the following postal codes: %{postal_codes}.'
+          one: Deelname is beperkt tot gebruikers met de postcode %{postal_codes}.
+          other: 'Deelname is beperkt tot gebruikers met een van de volgende postcodes: %{postal_codes}.'
       id_documents:
         admin:
           config:
             edit:
-              title: Identity documents configuration
+              title: Identiteitsdocumenten configuratie
               update: Bijwerken
             update:
-              error: There was an error updating the configuration.
-              success: Configuration successfully updated
+              error: Er is een fout opgetreden bij het bijwerken van deze organisatie.
+              success: Resultaat met succes gemaakt
           confirmations:
             create:
-              error: Verification doesn't match. Try again or reject the verification so the user can amend it
-              success: User successfully verified
+              error: Verificatie komt niet overeen. Probeer het opnieuw of verwerp de verificatie zodat de gebruiker het kan wijzigen
+              success: Verifiëren gelukt
             new:
-              introduce_user_data: Introduce the data in the picture
+              introduce_user_data: Introduceer de gegevens in de afbeelding
               reject: Afwijzen
               verify: Verifiëren
           offline_confirmations:
             create:
-              error: Verification doesn't match. Try again or tell the user to amend it
-              success: User successfully verified
+              error: Verificatie komt niet overeen. Probeer het opnieuw of vertel de gebruiker om het te wijzigen
+              success: Verifiëren gelukt
             new:
               cancel: Annuleer
-              introduce_user_data: Introduce the user email and the document data
+              introduce_user_data: Introduceer de e-mail van de gebruiker en de documentgegevens
               verify: Verifiëren
           pending_authorizations:
             index:
-              config: Config
-              offline_verification: Offline verification
-              title: Pending online verifications
+              config: Configuratie
+              offline_verification: Lopende verificaties
+              title: In afwachting van online verificaties
               verification_number: 'Verification #%{n}'
           rejections:
             create:
