@@ -12,7 +12,7 @@ nl-BE:
       attachment:
         attachment_collection_id: Folder
         description: Beschrijving
-        file: het dossier
+        file: Het dossier
         title: Titel
       attachment_collection:
         description: Description
@@ -137,7 +137,7 @@ nl-BE:
         export: Exporteren
         manage: Beheer
         permissions: Toelatingen
-        reject: afwijzen
+        reject: Afwijzen
         verify: Verifiëren
       area_types:
         create:
