@@ -118,19 +118,19 @@ nl-BE:
         url: 'url de commentaire : %{resource_url}'
       proposals:
         collaborative_draft_access_accepted:
-          email_intro: '%{requester_name} has been accepted to access as a contributor of the <a href="%{resource_path}">%{resource_title}</a> collaborative draft.'
-          email_outro: You have received this notification because you are a collaborator of <a href="%{resource_path}">%{resource_title}</a>.
-          email_subject: "%{requester_name} has been accepted to access as a contributor of the %{resource_title}."
-          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> has been <strong>accepted to access as a contributor</strong> of the <a href="%{resource_path}">%{resource_title}</a> collaborative draft.
+          email_intro: '%{requester_name} is geaccepteerd om toegang te krijgen tot het project <a href="%{resource_path}">%{resource_title}</a> gezamenlijke versie.'
+          email_outro: U heeft deze melding ontvangen omdat u een medewerker bent van <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: "%{requester_name} is geaccepteerd om toegang te krijgen tot het project %{resource_title} gezamenlijke versie."
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> <strong>is geaccepteerd om toegang te krijgen tot de bijdrager</strong> van het <a href="%{resource_path}">%{resource_title}</a> gezamenlijk ontwerp.
         collaborative_draft_access_rejected:
-          email_intro: '%{requester_name} has been rejected to access as a contributor of the <a href="%{resource_path}">%{resource_title}</a> collaborative draft.'
-          email_outro: You have received this notification because you are a collaborator of <a href="%{resource_path}">%{resource_title}</a>.
-          email_subject: "%{requester_name} has been rejected to access as a contributor of the %{resource_title} collaborative draft."
-          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> has been <strong>rejected to access as a contributor</strong> of the <a href="%{resource_path}">%{resource_title}</a> collaborative draft.
+          email_intro: '%{requester_name} is geaccepteerd om toegang te krijgen tot het project <a href="%{resource_path}">%{resource_title}</a> gezamenlijke versie.'
+          email_outro: U heeft deze melding ontvangen omdat u een medewerker bent van <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: "%{requester_name} is geaccepteerd om toegang te krijgen tot het project %{resource_title} gezamenlijke versie."
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> <strong>is geaccepteerd om toegang te krijgen tot de bijdrager</strong> van het <a href="%{resource_path}">%{resource_title}</a> gezamenlijk ontwerp.
         collaborative_draft_access_requested:
-          email_intro: '%{requester_name} requested access as a contributor. You can <strong>accept or reject the request</strong> from the <a href="%{resource_path}">%{resource_title}</a> collaborative draft page.'
-          email_outro: You have received this notification because you are a collaborator of <a href="%{resource_path}">%{resource_title}</a>.
-          email_subject: "%{requester_name} requested access to contribute to %{resource_title}."
+          email_intro: '%{requester_name} heeft toegang aangevraagd als contributor. Je kunt <strong>het verzoek accepteren of verwerpen van de</strong> van de <a href="%{resource_path}">%{resource_title}</a> gezamenlijke conceptpagina.'
+          email_outro: U heeft deze melding ontvangen omdat u een medewerker bent van <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: "%{requester_name} is geaccepteerd om toegang te krijgen tot het project %{resource_title} gezamenlijke versie."
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> requested access to contribute to the <a href="%{resource_path}">%{resource_title}</a> collaborative draft. Please <strong>accept or reject the request</strong>.
         collaborative_draft_access_requester_accepted:
           email_intro: You have been accepted to access as a contributor of the <a href="%{resource_path}">%{resource_title}</a> collaborative draft.
@@ -689,11 +689,11 @@ nl-BE:
           title: Publiceer als voorstel
           update_pos: De positie bijwerken
         proposal:
-          creation_date: 'Creation: %{date}'
+          creation_date: 'Aanmaken: %{date}'
           view_proposal: Bekijk voorstel
         show:
-          back_to: Back to
-          edit_proposal: Edit proposal
+          back_to: Terug naar
+          edit_proposal: Bewerk voorstel
           endorsements_list: List of Endorsements
           hidden_endorsers_count:
             one: and %{count} more person
