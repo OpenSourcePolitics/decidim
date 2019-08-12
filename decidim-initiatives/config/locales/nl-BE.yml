@@ -126,44 +126,44 @@ nl-BE:
             error: Er is een fout opgetreden
             success: Er is een nieuwe ruimte gecreëerd voor het opgegeven initiatieftype
           destroy:
-            success: The scope has been successfully removed
+            success: Het onderdeel is succesvol gepubliceerd
           edit:
-            back: Back
-            confirm_destroy: Are you sure?
-            destroy: Destroy
-            title: Edit initiative type scope
-            update: Update
+            back: Terug
+            confirm_destroy: Weet u het zeker?
+            destroy: Vernietig
+            title: Bewerk initiatieftype scope
+            update: Bijwerken
           new:
-            back: Back
-            create: Create
-            title: Create initiative type scope
+            back: Terug
+            create: Creëren
+            title: Maak initiatieftype scope
           update:
-            error: An error has occurred
-            success: The scope has been successfully updated
+            error: Er is een fout opgetreden
+            success: Het onderdeel is succesvol gepubliceerd
         initiatives_types:
           create:
-            error: An error has occurred
-            success: A new initiative type has been successfully created
+            error: Er is een fout opgetreden
+            success: Een nieuw initiatieftype is succesvol aangemaakt
           destroy:
-            success: The initiative type has been successfully removed
+            success: Het onderdeel is succesvol gepubliceerd
           edit:
-            confirm_destroy: Are you sure?
-            destroy: Destroy
-            update: Update
+            confirm_destroy: Weet u het zeker?
+            destroy: Vernietig
+            update: Bijwerken
           form:
-            title: General information
+            title: Algemene informatie
           initiative_type_scopes:
-            title: Scopes for the initiative type
+            title: Scopes voor het initiatieftype
           new:
-            create: Create
-            title: New initiative type
+            create: Creëren
+            title: Nieuw initiatieftype
           update:
-            error: An error has occurred
-            success: The given initiative has been successfully updated
+            error: Er is een fout opgetreden
+            success: Het burgerinitiatief is succesvol bijgewerkt
       admin_log:
         initiative:
-          publish: "%{user_name} published the %{resource_name} initiative"
-          send_to_technical_validation: "%{user_name} sent the %{resource_name} initiative to technical validation"
+          publish: "%{user_name} heeft de %{resource_name} -vergadering gepubliceerd"
+          send_to_technical_validation: "%{user_name} heeft het initiatief van %{resource_name} naar technische validatie gestuurd"
           unpublish: "%{user_name} discarded the %{resource_name} initiative"
           update: "%{user_name} updated the %{resource_name} initiative"
       admin_states:
@@ -284,65 +284,65 @@ nl-BE:
           one: " signature"
           other: " signatures"
         statistics:
-          assistants_count_title: Assistants
-          comments_count_title: Comments
-          meetings_count_title: Meetings
-          supports_count_title: Signatures
+          assistants_count_title: Assistenten
+          comments_count_title: Beschrijving
+          meetings_count_title: Vergaderingen
+          supports_count_title: Handtekening
         supports:
-          title: Listing of signatures
+          title: Lijst van handtekeningen
         vote_cabin:
-          already_voted: Already signed
-          supports_required: "%{total_supports} signatures required"
-          vote: Sign
-          votes_blocked: Signing disabled
+          already_voted: Al gestemd
+          supports_required: "%{total_supports} handtekeningen vereist"
+          vote: Bord
+          votes_blocked: Stemmen uitgeschakeld
         votes_count:
           count:
             one: SIGNATURE
             other: SIGNATURES
       initiatives_mailer:
-        creation_subject: Your citizen initiative '%{title}' has been created
+        creation_subject: Uw burgerinitiatief '%{title}' is aangemaakt
         initiative_link:
-          check_initiative_details: You can see the initiative details
-          here: here
-        more_information: Here you have more information about the initiative creation process.
-        progress_report_body_for: The initiative %{title} has reached the %{percentage}% of required supports.
-        progress_report_for: 'Resume about the initiative: %{title}'
-        promotal_committee_help: Remember that you must invite at least %{member_count} people to promotal committee. Forward the following link to invite people to the promotal committee
-        status_change_body_for: 'The initiative %{title} has changed its state to: %{state}'
-        status_change_for: The initiative %{title} has changed its state
-        technical_validation_body_for: The initiative %{title} has requested its technical validation.
-        technical_validation_for: The initiative %{title} has requested its technical validation.
+          check_initiative_details: U kunt de initiatiefdetails zien
+          here: hier
+        more_information: Hier hebt u meer informatie over het initiatiefproces.
+        progress_report_body_for: Het initiatief %{title} heeft de %{percentage}% van de vereiste ondersteuning bereikt.
+        progress_report_for: 'Hervat over het initiatief: %{title}'
+        promotal_committee_help: Vergeet niet dat je minstens %{member_count} mensen moet uitnodigen voor promotor commissie. Stuur de volgende link om mensen uit te nodigen naar de promotal commissie
+        status_change_body_for: 'Het initiatief %{title} heeft zijn status veranderd naar: %{state}'
+        status_change_for: Het initiatief %{title} heeft zijn status gewijzigd
+        technical_validation_body_for: Het initiatief %{title} heeft zijn technische validatie aangevraagd.
+        technical_validation_for: Het initiatief %{title} heeft zijn technische validatie aangevraagd.
       pages:
         home:
           highlighted_initiatives:
-            active_initiatives: Active initiatives
-            see_all_initiatives: See all initiatives
+            active_initiatives: Actieve initiatieven
+            see_all_initiatives: Alle initiatieven bekijken
       states:
-        accepted: Accepted
-        expired: Expired
+        accepted: Aanvaard
+        expired: Verlopen op
     menu:
-      initiatives: Initiatives
+      initiatives: Initiatieven
   layouts:
     decidim:
       admin:
         initiative:
-          attachments: Attachments
-          committee_members: Committee members
-          components: Components
-          information: Information
+          attachments: Toebehoren
+          committee_members: Comité leden
+          components: Componenten
+          information: Informatie
       initiative_creation_header:
-        fill_data: Create
-        finish: Finish
-        previous_form: Start
-        promotal_committee: Promotal committee
-        select_initiative_type: Choose
-        show_similar_initiatives: Compare
+        fill_data: Creëren
+        finish: Afgerond
+        previous_form: Beginnen
+        promotal_committee: Promotaal commissie
+        select_initiative_type: Kiezen
+        show_similar_initiatives: Vergelijk
       initiative_header:
-        initiative_menu_item: Initiative
-        unfold: Unfold
+        initiative_menu_item: Initiatieven
+        unfold: Ontvouwen
       initiatives:
         initiative:
-          check: Check it out
-          check_and_support: Check it out and sign
+          check: Bekijk het
+          check_and_support: Bekijk het en meld het
         no_initiatives_yet:
-          no_initiatives_yet: No initiatives yet!
+          no_initiatives_yet: Nog geen initiatieven!
