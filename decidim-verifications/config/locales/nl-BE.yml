@@ -12,7 +12,7 @@ nl-BE:
       id_document_upload:
         document_number: Document number (with letter)
         document_type: Type of your document
-        user: User
+        user: Gebruiker
         verification_attachment: Scanned copy of your document
       offline_confirmation:
         email: User email
@@ -47,12 +47,12 @@ nl-BE:
             - You mark the letter as sent.
             - Once you mark the letter as sent, the user will be able to introduce the code and get verified.
       direct: Direct
-      help: Help
+      help: Meer informatie
       id_documents:
         explanation: Upload your identity documents so we can check your identity
         name: Identity documents
       multistep: Multi-Step
-      name: Name
+      name: Naam
       postal_letter:
         explanation: We'll send you a postal letter with a code that you'll have to enter so we can verify your address
         name: Code by postal letter
@@ -72,7 +72,7 @@ nl-BE:
           title: Verify your identity
           verify_with_these_options: 'These are the available options to verify your identity:'
         new:
-          authorize: Send
+          authorize: sturen
           authorize_with: Verify with %{authorizer}
         skip_verification: You can skip this for now and %{link}
         start_exploring: start exploring
@@ -85,7 +85,7 @@ nl-BE:
           config:
             edit:
               title: Identity documents configuration
-              update: Update
+              update: Bijwerken
             update:
               error: There was an error updating the configuration.
               success: Configuration successfully updated
@@ -95,16 +95,16 @@ nl-BE:
               success: User successfully verified
             new:
               introduce_user_data: Introduce the data in the picture
-              reject: Reject
-              verify: Verify
+              reject: Afwijzen
+              verify: Verifiëren
           offline_confirmations:
             create:
               error: Verification doesn't match. Try again or tell the user to amend it
               success: User successfully verified
             new:
-              cancel: Cancel
+              cancel: Annuleer
               introduce_user_data: Introduce the user email and the document data
-              verify: Verify
+              verify: Verifiëren
           pending_authorizations:
             index:
               config: Config
@@ -144,12 +144,12 @@ nl-BE:
         admin:
           pending_authorizations:
             index:
-              address: Address
+              address: Adres
               letter_sent_at: Letter sent at
               mark_as_sent: Mark as sent
               not_yet_sent: Not yet sent
               title: Ongoing verifications
-              username: Username
+              username: Gebruikersnaam
               verification_code: Verification code
           postages:
             create:
@@ -160,7 +160,7 @@ nl-BE:
             error: There was a problem with your request
             success: Thanks! We'll send a verification code to your address
           edit:
-            send: Confirm
+            send: Bevestigen
             title: Introduce the verification code you received
             waiting_for_letter: We'll be sending a letter to your address with your verification code soon
           new:
@@ -175,7 +175,7 @@ nl-BE:
             error: There was a problem with your request
             success: Thanks! We've sent an SMS to your phone.
           edit:
-            send: Confirm
+            send: Bevestigen
             title: Introduce the verification code you received
           new:
             send: Send me an SMS
