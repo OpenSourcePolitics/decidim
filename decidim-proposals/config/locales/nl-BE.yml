@@ -2,23 +2,23 @@ nl-BE:
   activemodel:
     attributes:
       collaborative_draft:
-        body: Body
-        category_id: Category
-        decidim_scope_id: Scope
+        body: Lichaam
+        category_id: Categorie
+        decidim_scope_id: Reikwijdte
         has_address: Has address
-        state: State
-        title: Title
+        state: Staat
+        title: Titel
         user_group_id: Create collaborative draft as
       proposal:
-        address: Address
-        answer: Answer
+        address: Adres
+        answer: Antwoord
         answered_at: Answered at
         automatic_hashtags: Hashtags automatically added
         body: Lichaam
         category_id: Categorie
         has_address: Has address
         scope_id: Reikwijdte
-        state: State
+        state: Staat
         suggested_hashtags: Suggested hashtags
         title: Titel
         user_group_id: Maak een voorstel als
@@ -50,34 +50,34 @@ nl-BE:
         one: Collaborative draft
         other: Collaborative drafts
       decidim/proposals/proposal:
-        one: Proposal
-        other: Proposals
+        one: Voorstel
+        other: Voorstellen
       decidim/proposals/proposal_endorsement:
         one: Endorsement
-        other: Endorsements
+        other: Eindverklaringen
       decidim/proposals/proposal_note:
         one: Note
         other: Notes
       decidim/proposals/proposal_vote:
-        one: Vote
-        other: Votes
+        one: Stemmen
+        other: stemmen
   decidim:
     components:
       proposals:
         actions:
-          create: Create
+          create: Creëren
           endorse: Endorse
-          vote: Vote
+          vote: Stemmen
           withdraw: Withdraw
-        name: Proposals
+        name: Voorstellen
         settings:
           global:
             amendments_enabled: Amendments enabled
-            announcement: Announcement
+            announcement: Bericht
             attachments_allowed: Allow attachments
             can_accumulate_supports_beyond_threshold: Can accumulate supports beyond threshold
             collaborative_drafts_enabled: Collaborative drafts enabled
-            comments_enabled: Comments enabled
+            comments_enabled: Reacties ingeschakeld
             geocoding_enabled: Geocoding enabled
             minimum_votes_per_user: Minimum votes per user
             new_proposal_help_text: New proposal help text
@@ -95,16 +95,16 @@ nl-BE:
             threshold_per_proposal: Threshold per proposal
             vote_limit: Vote limit per user
           step:
-            announcement: Announcement
+            announcement: Bericht
             automatic_hashtags: Hashtags added to all proposals
-            comments_blocked: Comments blocked
+            comments_blocked: Reacties geblokkeerd
             creation_enabled: Proposal creation enabled
             endorsements_blocked: Endorsements blocked
             endorsements_enabled: Endorsements enabled
             proposal_answering_enabled: Proposal answering enabled
             suggested_hashtags: Hashtags suggested to users for new proposals
             votes_blocked: Voting blocked
-            votes_enabled: Voting enabled
+            votes_enabled: Stemmen uitgeschakeld
             votes_hidden: Votes hidden (if votes are enabled, checking this will hide the number of votes)
             votes_weight_enabled: Up / Down / Neutral votes enabled
     events:
@@ -168,7 +168,7 @@ nl-BE:
           email_subject: Пропозиція, за якою ви стежите, була прийнята
           follower:
             email_intro: 'The proposal "%{resource_title}" has been accepted. You can read the answer in this page:'
-            email_outro: You have received this notification because you are following "%{resource_title}". You can unfollow it from the previous link.
+            email_outro: U ontvangt dit bericht omdat u "%{resource_title}" volgen. Je kunt het unfollow uit de vorige koppeling.
             email_subject: A proposal you're following has been accepted
             notification_title: The <a href="%{resource_path}">%{resource_title}</a> proposal has been accepted.
           notification_title: Пропозицію <a href="%{resource_path}">%{resource_title}</a> було прийнято.
@@ -188,7 +188,7 @@ nl-BE:
           email_subject: Пропозиція, за якою ви стежите, зараз розглядається
           follower:
             email_intro: 'The proposal "%{resource_title}" is currently being evaluated. You can check for an answer in this page:'
-            email_outro: You have received this notification because you are following "%{resource_title}". You can unfollow it from the previous link.
+            email_outro: U ontvangt dit bericht omdat u "%{resource_title}" volgen. Je kunt het unfollow uit de vorige koppeling.
             email_subject: A proposal you're following is being evaluated
             notification_title: The <a href="%{resource_path}">%{resource_title}</a> proposal is being evaluated.
           notification_title: Пропозиція <a href="%{resource_path}">%{resource_title}</a> розглядається.
@@ -204,7 +204,7 @@ nl-BE:
           notification_title: The <a href="%{resource_path}">%{resource_title}</a> proposal was published by <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         proposal_published_for_space:
           email_intro: The proposal "%{resource_title}" has been added to "%{participatory_space_title}" that you are following.
-          email_outro: You have received this notification because you are following "%{participatory_space_title}". You can unfollow it from the previous link.
+          email_outro: U ontvangt dit bericht omdat u "%{participatory_space_title}" volgen. Je kunt het unfollow uit de vorige koppeling.
           email_subject: New proposal "%{resource_title}" added to %{participatory_space_title}
           notification_title: The proposal <a href="%{resource_path}">%{resource_title}</a> has been added to %{participatory_space_title}
         proposal_rejected:
@@ -218,7 +218,7 @@ nl-BE:
           email_subject: Пропозиція, за якою ви стежите, була відхилена
           follower:
             email_intro: 'The proposal "%{resource_title}" has been rejected. You can read the answer in this page:'
-            email_outro: You have received this notification because you are following "%{resource_title}". You can unfollow it from the previous link.
+            email_outro: U ontvangt dit bericht omdat u "%{resource_title}" volgen. Je kunt het unfollow uit de vorige koppeling.
             email_subject: A proposal you're following has been rejected
             notification_title: The <a href="%{resource_path}">%{resource_title}</a> proposal has been rejected.
           notification_title: Пропозицію <a href="%{resource_path}">%{resource_title}</a> було відхилено.
@@ -263,34 +263,34 @@ nl-BE:
           description: This badge is granted when you actively participate with new proposals.
           description_another: This user has created %{score} proposals.
           description_own: You have created %{score} proposals.
-          name: Proposals
+          name: Voorstellen
           next_level_in: Create %{score} more proposals to reach the next level!
           unearned_another: This user hasn't created any proposals yet.
           unearned_own: You have created no proposals yet.
     metrics:
       accepted_proposals:
         description: Number of proposals accepted by users
-        object: proposals
+        object: voorstellen
         title: Accepted Proposals
       endorsements:
         description: Number of endorsements generated in proposals
-        object: endorsements
-        title: Endorsements
+        object: eindverklaringen
+        title: Eindverklaringen
       proposals:
         description: Number of proposals generated
-        object: proposals
-        title: Proposals
+        object: voorstellen
+        title: Voorstellen
       votes:
         description: Number of votes generated in proposals by users
-        object: votes
-        title: Votes
+        object: <span class="card--list__data__number">%{count}</span>votes
+        title: stemmen
     participatory_processes:
       participatory_process_groups:
         highlighted_proposals:
-          proposals: Proposals
+          proposals: Voorstellen
     participatory_spaces:
       highlighted_proposals:
-        see_all: See all (%{count})
+        see_all: Zie alles (%{count})
     proposals:
       actions:
         answer: Antwoord
@@ -304,7 +304,7 @@ nl-BE:
         actions:
           preview: Voorbeeld
         exports:
-          comments: Comments
+          comments: Reacties
           proposals: Voorstellen
         models:
           proposal:
@@ -363,15 +363,15 @@ nl-BE:
             success: Voorstel met succes gecreëerd
           edit:
             title: Update proposal
-            update: Update
+            update: Bijwerken
           form:
             attachment_legend: "(Optioneel) Een bijlage toevoegen"
             created_in_meeting: This proposal comes from a meeting
             select_a_category: Kies een categorie
             select_a_meeting: Select a meeting
           index:
-            actions: Actions
-            cancel: Cancel
+            actions: Acties
+            cancel: Annuleer
             change_category: Change category
             merge: Merge into a new one
             merge_button: Merge
@@ -380,7 +380,7 @@ nl-BE:
             split: Split proposals
             split_button: Split
             title: Voorstellen
-            update: Update
+            update: Bijwerken
           new:
             create: Creëren
             title: Maak een voorstel
@@ -408,10 +408,10 @@ nl-BE:
             success: Successfully splitted the proposals into new ones.
         shared:
           info_proposal:
-            body: Body
-            created_at: Creation date
-            proposal_votes_count: Votes count
-            proposals: Proposals
+            body: Lichaam
+            created_at: Aanmaakdatum
+            proposal_votes_count: Bestellingen tellen
+            proposals: Voorstellen
       admin_log:
         proposal:
           answer: "%{user_name} answered the %{resource_name} proposal on the %{space_name} space"
@@ -427,28 +427,28 @@ nl-BE:
         withdrawn: Withdrawn
       application_helper:
         filter_origin_values:
-          all: All
+          all: Alle
           citizens: Citizens
-          meetings: Meetings
+          meetings: Vergaderingen
           official: Official
-          user_groups: User groups
+          user_groups: Gebruikersgroepen
         filter_state_values:
-          accepted: Accepted
-          all: All
-          evaluating: Evaluating
+          accepted: Aanvaard
+          all: Alle
+          evaluating: Evalueren
           except_rejected: All except rejected
-          rejected: Rejected
+          rejected: Verworpen
         filter_type_values:
-          all: All
-          amendments: Amendments
-          proposals: Proposals
+          all: Alle
+          amendments: Amendementen
+          proposals: Voorstellen
       collaborative_drafts:
         collaborative_draft:
           publish:
             error: There's been errors when publishing the collaborative draft.
             irreversible_action_modal:
               body: After publishing the draft as a proposal, the draft won't be editable anymore. The proposal won't accept new authors or contributions.
-              cancel: Cancel
+              cancel: Annuleer
               ok: Publish as a Proposal
               title: The following action is irreversible
             success: Collaborative draft published successfully as a proposal.
@@ -457,7 +457,7 @@ nl-BE:
             error: There's been errors closing the collaborative draft.
             irreversible_action_modal:
               body: After closing the draft, the draft won't be editable anymore. The draft won't accept new authors or contributions.
-              cancel: Cancel
+              cancel: Annuleer
               ok: Withdraw the collaborative draft
               title: The following action is irreversible
             success: Collaborative draft withdrawn successfully.
@@ -466,7 +466,7 @@ nl-BE:
           no_similars_found: Well done! No similar collaborative drafts found
           title: Similar collaborative drafts
         complete:
-          send: Send
+          send: sturen
           title: Complete your collaborative draft
         count:
           drafts_count:
@@ -476,37 +476,37 @@ nl-BE:
           error: There's been a problem creating this collaborative drafts
           success: Collaborative draft successfully created.
         edit:
-          attachment_legend: "(Optional) Add an attachment"
+          attachment_legend: "(Optioneel) Een bijlage toevoegen"
           back: Back
           select_a_category: Please select a category
-          send: Send
+          send: sturen
           title: Edit collaborative draft
         filters:
-          all: All
-          amendment: Amendments
-          category: Category
+          all: Alle
+          amendment: Amendementen
+          category: Categorie
           category_prompt: Category Prompt
           open: Open
-          published: Published
-          related_to: Related to
-          search: Search
-          state: State
+          published: Gepubliceerd
+          related_to: Gerelateerd aan
+          search: Zoeken
+          state: Staat
           withdrawn: Withdrawn
         filters_small_view:
-          close_modal: Close modal
+          close_modal: Dicht modaal
           filter: Filter
-          filter_by: Filter by
-          unfold: Unfold
+          filter_by: Filteren op
+          unfold: Ontvouwen
         new:
-          send: Continue
+          send: Verstuur
           title: Create Your collaborative draft
         new_collaborative_draft_button:
           new_collaborative_draft: New collaborative draft
         orders:
           label: 'Order drafts by:'
           most_contributed: Most contributed
-          random: Random
-          recent: Recent
+          random: Willekeurig
+          recent: Recentelijk
         requests:
           accepted_request:
             error: Could not be accepted as a collaborator, try again later.
@@ -515,8 +515,8 @@ nl-BE:
             error: Your request could not be completed, try again later.
             success: Your request to collaborate has been sent successfully
           collaboration_requests:
-            accept_request: Accept
-            reject_request: Reject
+            accept_request: Aanvaarden
+            reject_request: Afwijzen
             title: Collaboration requests
           rejected_request:
             error: Could not be rejected as a collaborator, try again later.
@@ -531,18 +531,18 @@ nl-BE:
             other: and %{count} more people
           info-message: This is a <strong>collaborative draft</strong> for a proposal. This means that you can help their authors to shape the proposal using the comment section below or improve it directly by requesting access to edit it. Once the authors grant you access, youl'll be able to make changes to this draft.
           of_versions: "(of %{number})"
-          publish: Publish
+          publish: Publiceren
           publish_info: Publish this version of the draft or
           published_proposal: published proposal
           request_access: Request access
           requested_access: Access requested
           see_other_versions: see other versions
-          version: Version %{number}
+          version: Versie %{number}
           version_history: see version history for this proposal
           withdraw: withdraw the draft
         states:
           open: Open
-          published: Published
+          published: Gepubliceerd
           withdrawn: Withdrawn
         update:
           error: There's been errors when saving the collaborative draft.
@@ -555,7 +555,7 @@ nl-BE:
           step_1: Create your collaborative draft
           step_2: Compare with collaborative drafts
           step_3: Complete your collaborative draft
-          step_of: Step %{current_step_num} of %{total_steps}
+          step_of: Stap %{current_step_num} van %{total_steps}
       create:
         error: Er zijn fouten geweest bij het opslaan van het voorstel.
         success: Voorstel is succesvol gemaakt.
@@ -568,29 +568,29 @@ nl-BE:
         collaborative_draft:
           fields:
             authors: Authors
-            comments: Comments
+            comments: Reacties
             contributions: Contributions
         proposal:
           fields:
             category: Categorie
-            comments: Comments
-            endorsements: Endorsements
+            comments: Reacties
+            endorsements: Eindverklaringen
             id: ID kaart
             notes: Notes
             official_proposal: Officieel voorstel
-            published_at: Published at
+            published_at: Gepubliceerd op
             scope: Reikwijdte
             state: Staat
             title: Titel
-            votes: Votes
+            votes: stemmen
       new:
         limit_reached: You can't create new proposals since you've exceeded the limit.
       participatory_text_proposal:
         alternative_title: There are no participatory texts at the moment
         buttons:
           amend: Amend
-          comment: Comment
-          comments: Comments
+          comment: Commentaar
+          comments: Reacties
           endorse: Endorse
       proposal_endorsements:
         create:
@@ -609,11 +609,11 @@ nl-BE:
           error: Er zijn fouten geweest bij het stemmen van het voorstel.
       proposals:
         compare:
-          continue: Continue
+          continue: Verstuur
           no_similars_found: Well done! No similar proposals found
           title: Similar Proposals
         complete:
-          send: Send
+          send: sturen
           title: Complete your proposal
         count:
           proposals_count:
@@ -624,21 +624,21 @@ nl-BE:
           secondary: Don't forget to click on the "Update Position" button before publishing your proposal.
         edit:
           address: Address (don't forget to specify the city)
-          attachment_legend: "(Optional) Add an attachment"
+          attachment_legend: "(Optioneel) Een bijlage toevoegen"
           back: Back
           not_geocoded: Not geocoded
           select_a_category: Please select a category
-          send: Send
+          send: sturen
           title: Edit proposal
         edit_draft:
           discard: Discard this draft
           discard_confirmation: Are you sure you want to discard this proposal draft?
-          send: Preview
+          send: Voorbeeld
           title: Edit Proposal Draft
         endorsement_identities_cabin:
           endorse: Endorse
         endorsements_card_row:
-          comments: Comments
+          comments: Reacties
         filters:
           activity: Activiteit
           amendment_type: Type
@@ -685,7 +685,7 @@ nl-BE:
           proposal_edit_before_minutes:
             one: You will be able to edit this proposal during the first minute after the proposal is published. Once this time window passes, you will not be able to edit the proposal.
             other: You will be able to edit this proposal during the first %{count} minutes after the proposal is published. Once this time window passes, you will not be able to edit the proposal.
-          publish: Publish
+          publish: Publiceren
           title: Publish your proposal
           update_pos: Update the position
         proposal:
@@ -719,7 +719,7 @@ nl-BE:
           votes_blocked: Stemmen uitgeschakeld
         vote_weight:
           maximum_votes_reached: Maximum votes reached
-          no_votes_remaining: No votes remaining
+          no_votes_remaining: Geen stemmen over
           votes_blocked: Votes blocked
         votes_count:
           count:
@@ -728,7 +728,7 @@ nl-BE:
           most_popular_proposal: Most popular proposal
           need_more_votes: Need more votes
         votes_weight:
-          count: Count
+          count: tellen
           most_popular_proposal: Proposition la plus populaire
           need_more_votes: Besoin de plus de votes
         voting_rules:
@@ -746,7 +746,7 @@ nl-BE:
           vote_limit:
             description: You can vote up to %{limit} proposals.
             left: Remaining
-            votes: Votes
+            votes: stemmen
         wizard_aside:
           back: Back
           info: You are creating a <strong>proposal</strong>.
@@ -756,34 +756,34 @@ nl-BE:
           step_2: Compare
           step_3: Complete
           step_4: Publish your proposal
-          step_of: Step %{current_step_num} of %{total_steps}
+          step_of: Stap %{current_step_num} van %{total_steps}
       publish:
         error: There's been errors when publishing the proposal.
         success: Proposal published successfully.
       update:
-        error: There's been errors when saving the proposal.
+        error: Er zijn fouten geweest bij het opslaan van het voorstel.
         success: Proposal updated successfully.
       update_draft:
         error: There's been errors when saving the proposal draft.
         success: Proposal draft updated successfully.
       versions:
-        changes_at_title: Changes at "%{title}"
+        changes_at_title: Veranderingen bij "%{title}"
         index:
-          title: Versions
+          title: Versies
         stats:
           back_to_collaborative_draft: Go back to collaborative draft
           back_to_proposal: Go back to proposal
-          number_of_versions: Versions
+          number_of_versions: Versies
           show_all_versions: Show all versions
           version_author: Version author
           version_created_at: Version created at
           version_number: Version number
           version_number_out_of_total: "%{current_version} out of %{total_count}"
         version:
-          version_index: Version %{index}
+          version_index: Versie %{index}
     resource_links:
       copied_from_component:
-        proposal_proposal: Related proposals
+        proposal_proposal: Verwante voorstellen
       included_projects:
         project_result: 'Results appearing in this project:'
       included_proposals:
