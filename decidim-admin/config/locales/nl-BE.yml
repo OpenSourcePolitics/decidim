@@ -38,26 +38,26 @@ nl-BE:
       organization:
         address: SMTP hostnaam
         alert_color: Waarschuwing
-        badges_enabled: Enable badges
-        cta_button_path: Call To Action button path
-        cta_button_text: Call To Action button text
+        badges_enabled: Badges inschakelen
+        cta_button_path: Oproep naar actie knop pad
+        cta_button_text: Oproep naar actie knop pad
         default_locale: Standaard locale
         description: Beschrijving
-        enable_omnipresent_banner: Show omnipresent banner
+        enable_omnipresent_banner: Toon omnipresent banner
         facebook_handler: Facebook handler
         favicon: Icoon
-        from: From email address
+        from: Van e-mailadres
         github_handler: GitHub handler
         header_snippets: Koptekstjes
-        highlighted_content_banner_action_subtitle: Action button subtitle
-        highlighted_content_banner_action_title: Action button title
-        highlighted_content_banner_action_url: Action button URL
-        highlighted_content_banner_enabled: Show the highlighted content banner
+        highlighted_content_banner_action_subtitle: Ondertitels van de actieknop
+        highlighted_content_banner_action_title: Ondertitels van de actieknop
+        highlighted_content_banner_action_url: Ondertitels van de actieknop
+        highlighted_content_banner_enabled: Toon de gemarkeerde inhoudsbanner
         highlighted_content_banner_image: Beeld
         highlighted_content_banner_short_description: Korte beschrijving
         highlighted_content_banner_title: Titel
         instagram_handler: Instagram handler
-        logo: Logo
+        logo: '-'
         name: Naam
         official_img_footer: Officiële logo footer
         official_img_header: Officiële logo header
@@ -66,12 +66,12 @@ nl-BE:
         omnipresent_banner_title: Titel
         omnipresent_banner_url: URL
         password: Wachtwoord
-        port: Port
-        primary_color: Primary
+        port: Poort
+        primary_color: Primaire
         reference_prefix: Referentievoorvoegsel
-        secondary_color: Secondary
+        secondary_color: Secundaire
         show_statistics: Toon statistieken
-        success_color: Success
+        success_color: Succes
         tos_version: Terms of service version
         twitter_handler: Twitter handler
         user_groups_enabled: Enable user groups
@@ -525,17 +525,17 @@ nl-BE:
           filter_by: Filteren op
           name: Naam
           nickname: Nickname
-          not_officialized: Not officialized
-          officialize: Officialize
-          officialized: Officialized
-          reofficialize: Reofficialize
+          not_officialized: Niet officized
+          officialize: Officieel
+          officialized: Officieel
+          reofficialize: Herzettelijk
           search: Zoeken
           status: Status
-          unofficialize: Unofficialize
+          unofficialize: Onvofficialiseren
         new:
-          badge: Officialization badge
-          officialize: Officialize
-          title: Officialize user "%{name}"
+          badge: Officialisaties
+          officialize: Officieel
+          title: Officieer gebruiker "%{name}"
       organization:
         edit:
           title: Organisatie bewerken
@@ -547,7 +547,7 @@ nl-BE:
           social_handlers: Sociaal
           twitter: Twitter
           url: Url
-          youtube: YouTube
+          youtube: Youtube
         update:
           error: Er is een fout opgetreden bij het bijwerken van deze organisatie.
           success: Organisatie is succesvol bijgewerkt.
@@ -555,33 +555,33 @@ nl-BE:
         edit:
           update: Bijwerken
         form:
-          colors_title: Organization colors
-          cta_button_path_help: 'You can overwrite where the Call To Action button in the homepage links to. Use partial paths, not full URLs here. Accepts letters, numbers, dashes and slashes, and must start with a letter. The Call To Action button is shown in the homepage between the welcome text and the description. Example: %{url}'
-          cta_button_text_help: You can overwrite the Call To Action button text in the homepage for each available language in your organization. If not set, the default value will be used. The Call To Action button is shown in the homepage between the welcome text and the description.
-          header_snippets_help: Use this field to add things to the HTML head. The most common use is to integrate third-party services that require some extra JavaScript or CSS. Also, you can use it to add extra meta tags to the HTML. Note that this will only be rendered in public pages, not in the admin section.
-          homepage_appearance_title: Edit homepage appearance
-          homepage_highlighted_content_banner_title: Highligted content banner
-          layout_appearance_title: Edit layout appearance
-          omnipresent_banner_appearance_title: Edit omnipresent banner
+          colors_title: Organisatietelefoonnummers
+          cta_button_path_help: 'U kunt de verwijzing van de knop "Call to Action" overschrijven. Gebruik hier gedeeltelijke paden, niet volledige URL''s. Aanvaardt letters, cijfers, streepjes en streepjes en moet beginnen met een brief. De knop "Call to Action" wordt weergegeven op de homepage tussen de welkomsttekst en de omschrijving. Voorbeeld: %{url}'
+          cta_button_text_help: U kunt de tekst voor "Call To Action" overschrijven op de homepage voor elke beschikbare taal in uw organisatie. Indien niet ingesteld, wordt de standaardwaarde gebruikt. De knop Call to Action wordt weergegeven op de homepage tussen de welkomsttekst en de omschrijving.
+          header_snippets_help: Gebruik dit veld om dingen toe te voegen aan de HTML-kop. Het meest voorkomende gebruik is het integreren van diensten van derden die extra JavaScript of CSS nodig hebben. U kunt het ook gebruiken om extra metatags toe te voegen aan de HTML. Houd er rekening mee dat dit alleen op openbare pagina's wordt weergegeven, niet in de beheerdersafdeling.
+          homepage_appearance_title: Bewerk de startpagina-weergave
+          homepage_highlighted_content_banner_title: Uitgelichte inhoudsbanner
+          layout_appearance_title: Weergave van de lay-out bewerken
+          omnipresent_banner_appearance_title: Toon omnipresent banner
       organization_homepage:
         edit:
-          active_content_blocks: Active content blocks
-          inactive_content_blocks: Inactive content blocks
+          active_content_blocks: Actieve inhoudsblokken
+          inactive_content_blocks: Actieve inhoudsblokken
       organization_homepage_content_blocks:
         edit:
           update: Bijwerken
       participatory_space_private_users:
         create:
-          error: There was an error adding a private user for this participatory space.
-          success: Participatory space private user access created successfully.
+          error: Er is een fout opgetreden bij het toevoegen van een privégebruiker aan deze burgerinspraak.
+          success: De toegang van de privégebruiker voor de burgerinspraak is succesvol aangemaakt.
         destroy:
-          error: There was an error deleting a private user for this participatory space.
-          success: Participatory space private user access destroyed successfully.
+          error: Er is een fout opgetreden bij het toevoegen van een privégebruiker aan deze burgerinspraak.
+          success: De toegang van de privégebruiker voor burgerinspraak is met succes verwijderd.
         index:
           title: Gebruiker van de burgerinspraak
         new:
           create: Creëren
-          title: New Participatory Space private user.
+          title: Nieuwe privégebruiker van de burgerinspraak.
       scope_types:
         create:
           error: Er is een fout opgetreden bij het maken van een nieuw bereik type.
@@ -615,15 +615,15 @@ nl-BE:
           success: Scope is succesvol bijgewerkt
       static_page_topics:
         create:
-          error: There was an error creating a new topic.
-          success: Topic created successfully.
+          error: Er is een fout opgetreden bij het maken van een nieuwe reikwijdte.
+          success: Admin succesvol bijgewerkt.
         destroy:
-          success: Topic successfully destroyed
+          success: Scope succesvol vernietigd
         edit:
           title: Onderwerp bewerken
           update: Update topic
         new:
-          create: Create topic
+          create: Maak topic
           title: Nieuw topic
         update:
           error: Er is een fout opgetreden bij het bijwerken van deze admin.
