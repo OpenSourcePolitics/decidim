@@ -26,50 +26,50 @@ nl-BE:
     events:
       sortitions:
         sortition_created:
-          email_intro: The sortition "%{resource_title}" has been added to "%{participatory_space_title}" that you are following.
+          email_intro: Het bericht "%{resource_title}" is gepubliceerd in "%{participatory_space_title}" dat u volgt.
           email_outro: U ontvangt dit bericht omdat u "%{participatory_space_title}" volgen. Je kunt het unfollow uit de vorige koppeling.
-          email_subject: New sortition added to %{participatory_space_title}
-          notification_title: The sortition <a href="%{resource_path}">%{resource_title}</a> has been added to %{participatory_space_title}
+          email_subject: Nieuwe post op %{participatory_space_title}
+          notification_title: Het bericht <a href="%{resource_path}">%{resource_title}</a> is gepubliceerd in %{participatory_space_title}
     pages:
       home:
         statistics:
-          sortitions_count: Sortitions
+          sortitions_count: Sortaties
     participatory_processes:
       statistics:
-        sortitions_count: Sortitions
+        sortitions_count: Sortaties
     sortitions:
       admin:
         actions:
-          destroy: Cancel the sortition
+          destroy: Annuleer de sortering
           edit: Bewerk
-          new: New sortition
-          show: Sortition details
+          new: Nieuwe sortering
+          show: Sorteerdetails
         models:
           sortition:
             fields:
               category: Categorie
               created_at: Aanmaakdatum
-              decidim_proposals_component: Proposals component
+              decidim_proposals_component: Voorstellen component
               dice: Dice
               reference: Referentie
-              request_timestamp: Draw time
-              seed: Seed
-              target_items: Items to select
+              request_timestamp: Teken tijd
+              seed: Zaad
+              target_items: Items om te selecteren
               title: Titel
             name:
-              one: Sortition
-              other: Sortitions
+              one: Sortaties
+              other: Sortaties
         sortitions:
           confirm_destroy:
-            confirm_destroy: Are you sure you want to cancel this sortition?
-            destroy: Cancel sortition
-            title: Cancellation of the sortition
+            confirm_destroy: Weet u zeker dat u deze bestelling wilt annuleren?
+            destroy: Annuleer de sortering
+            title: Annulering van de sortering
           create:
-            error: There was an error creating a new sortition.
-            success: Sortition successfully created
+            error: Er is een fout opgetreden bij het maken van een nieuw bereik type.
+            success: Vergadering met succes gemaakt
           destroy:
-            error: Can not cancel the sortition.
-            success: Sortition successfully cancelled
+            error: Annuleer de sortering.
+            success: Vergadering met succes gemaakt
           edit:
             title: Update the information about the sortition
             update: Bijwerken
