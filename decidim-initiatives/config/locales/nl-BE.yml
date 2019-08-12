@@ -93,38 +93,38 @@ nl-BE:
         initiatives:
           edit:
             accept: Accept initiative
-            confirm: Are you sure?
-            discard: Discard the initiative
-            export_votes: Export supports
-            reject: Reject initiative
-            send_to_technical_validation: Send to technical validation
-            success: The initiative has been sent to technical validation
-            update: Update
+            confirm: Weet u het zeker?
+            discard: Verwijder het initiatief
+            export_votes: Exporteer ondersteuning
+            reject: Initiatief afwijzen
+            send_to_technical_validation: Stuur naar technische validatie
+            success: Het initiatief is verzonden naar technische validatie
+            update: Bijwerken
           form:
-            title: General information
+            title: Algemene informatie
           index:
-            actions_title: Action
+            actions_title: Acties
             filter:
-              accepted: Accepted
-              all: All
-              created: Created
-              discarded: Discarded
-              published: Published
-              rejected: Rejected
-              validating: Technical validation
-            filter_by: Filter by
-            preview: Preview
-            print: Print
+              accepted: Aanvaard
+              all: Alle
+              created: Aangemaakt
+              discarded: Verwijderd
+              published: Gepubliceerd
+              rejected: Verworpen
+              validating: Technische validatie
+            filter_by: Filteren op
+            preview: Voorbeeld
+            print: Printen
             search: Busca
           show:
-            print: Print
+            print: Printen
           update:
-            error: An error has occurred
-            success: The citizen initiative has been successfully updated
+            error: Er is een fout opgetreden
+            success: Het burgerinitiatief is succesvol bijgewerkt
         initiatives_type_scopes:
           create:
-            error: An error has occurred
-            success: A new scope for the given initiative type has been created
+            error: Er is een fout opgetreden
+            success: Er is een nieuwe ruimte gecreëerd voor het opgegeven initiatieftype
           destroy:
             success: The scope has been successfully removed
           edit:
