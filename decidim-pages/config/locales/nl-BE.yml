@@ -7,10 +7,10 @@ nl-BE:
   decidim:
     admin_log:
       page:
-        update: "%{user_name} updated the %{resource_name} page in %{space_name}"
+        update: "%{user_name} heeft resultaat %{resource_name} aangemaakt in %{space_name}"
     components:
       pages:
-        name: Page
+        name: Pagina's
         settings:
           global:
             announcement: Bericht
