@@ -4,53 +4,53 @@ nl-BE:
       answer:
         body: Antwoord
       question:
-        max_choices: Maximum number of choices
+        max_choices: Maximale aantal karakters
         question_type: Type
       questionnaire_question:
-        mandatory: Mandatory
+        mandatory: Verplicht
     errors:
       models:
         answer:
           attributes:
             choices:
-              missing: are not complete
-              too_many: are too many
+              missing: zijn niet voltooid
+              too_many: zijn te veel
   decidim:
     forms:
       admin:
         models:
           components:
             description: Beschrijving
-            tos: Terms of service
+            tos: Algemene voorwaarden
         questionnaires:
           answer_option:
-            answer_option: Answer option
-            free_text: Free text
+            answer_option: Antwoord optie
+            free_text: Vrije tekst
             remove: Verwijderen
-            statement: Statement
+            statement: Verklaring
           edit:
             save: Opslaan
             title: Titel
           form:
-            add_question: Add question
-            already_answered_warning: The questionnaire is already answered by some users so you cannot modify its questions.
+            add_question: Vraag toevoegen
+            already_answered_warning: De vragenlijst wordt al beantwoord door sommige gebruikers, dus u kunt de vragen niet wijzigen.
           question:
-            add_answer_option: Add answer option
-            any: Any
+            add_answer_option: Antwoord optie
+            any: Maakt niet uit
             description: Beschrijving
-            down: Down
+            down: Onder
             question: Vraag
             remove: Verwijderen
-            statement: Statement
-            up: Up
+            statement: Verklaring
+            up: Op
           update:
-            invalid: There's been errors when saving the questionnaire.
-            success: Questionnaires saved successfully.
+            invalid: Er zijn fouten geweest bij het beantwoorden van de enquête.
+            success: Questionnair succesvol beantwoord.
       errors:
         answer:
-          body: Body can't be blank
+          body: Lichaam kan niet leeg zijn
       question_types:
-        long_answer: Long answer
+        long_answer: Lang antwoord
         multiple_option: Meerdere opties
         short_answer: Korte antwoord
         single_option: Enkele optie
