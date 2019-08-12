@@ -66,7 +66,7 @@ nl-BE:
     events:
       blogs:
         post_created:
-          email_intro: The post "%{resource_title}" has been published in "%{participatory_space_title}" that you are following.
+          email_intro: Het bericht "%{resource_title}" is gepubliceerd in "%{participatory_space_title}" dat u volgt.
           email_outro: U ontvangt dit bericht omdat u "%{participatory_space_title}" volgen. Je kunt het unfollow uit de vorige koppeling.
           email_subject: Nieuw bericht gepubliceerd in %{participatory_space_title}
           notification_title: Het bericht <a href="%{resource_path}">%{resource_title}</a> is gepubliceerd in %{participatory_space_title}
