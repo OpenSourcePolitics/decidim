@@ -1,17 +1,17 @@
 nl-BE:
   activemodel:
     models:
-      decidim/comments/comment_by_followed_user_event: Comment
-      decidim/comments/comment_created_event: Comment
-      decidim/comments/reply_created_event: Comment reply
-      decidim/comments/user_mentioned_event: Mention
+      decidim/comments/comment_by_followed_user_event: Commentaar
+      decidim/comments/comment_created_event: Commentaar
+      decidim/comments/reply_created_event: Reactie
+      decidim/comments/user_mentioned_event: Genoemd
   activerecord:
     models:
       decidim/comments/comment:
-        one: Comment
-        other: Comments
+        one: Commentaar
+        other: Reacties
       decidim/comments/comment_vote:
-        one: Vote
+        one: Stemmen
         other: Votes
   decidim:
     comments:
