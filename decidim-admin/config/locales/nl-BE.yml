@@ -123,7 +123,7 @@ nl-BE:
         end_date: Participatieve processen
         start_date: Einddatum
       decidim/static_page:
-        content: Begindatum
+        content: Inhoud
         slug: URL slak
         title: Titel
       doorkeeper/application:
