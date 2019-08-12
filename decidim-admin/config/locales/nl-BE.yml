@@ -555,82 +555,82 @@ nl-BE:
           update: Update
         form:
           cta_button_path_help: 'You can overwrite where the Call To Action button in the homepage links to. Use partial paths, not full URLs here. Accepts letters, numbers, dashes and slashes, and must start with a letter. The Call To Action button is shown in the homepage between the welcome text and the description. Example: %{url}'
-          cta_button_text_help: You can overwrite the Call To Action button text in the homepage for each available language in your organization. If not set, the default value will be used. The Call To Action button is shown in the homepage between the welcome text and the description.
-          header_snippets_help: Use this field to add things to the HTML head. The most common use is to integrate third-party services that require some extra JavaScript or CSS. Also, you can use it to add extra meta tags to the HTML. Note that this will only be rendered in public pages, not in the admin section.
-          homepage_appearance_title: Edit homepage appearance
-          homepage_highlighted_content_banner_title: Highligted content banner
-          layout_appearance_title: Edit layout appearance
-          omnipresent_banner_appearance_title: Edit omnipresent
+          cta_button_text_help: U kunt de tekst voor "Call To Action" overschrijven op de homepage voor elke beschikbare taal in uw organisatie. Indien niet ingesteld, wordt de standaardwaarde gebruikt. De knop Call to Action wordt weergegeven op de homepage tussen de welkomsttekst en de omschrijving.
+          header_snippets_help: Gebruik dit veld om dingen toe te voegen aan de HTML-kop. Het meest voorkomende gebruik is het integreren van diensten van derden die extra JavaScript of CSS nodig hebben. U kunt het ook gebruiken om extra metatags toe te voegen aan de HTML. Houd er rekening mee dat dit alleen op openbare pagina's wordt weergegeven, niet in de beheerdersafdeling.
+          homepage_appearance_title: Bewerk de startpagina-weergave
+          homepage_highlighted_content_banner_title: Uitgelichte inhoudsbanner
+          layout_appearance_title: Weergave van de lay-out bewerken
+          omnipresent_banner_appearance_title: Header bewerken
       participatory_space_private_users:
         create:
-          error: There was an error adding a private user for this participatory space.
-          success: Participatory space private user access created successfully.
+          error: Er is een fout opgetreden bij het toevoegen van een privégebruiker aan deze burgerinspraak.
+          success: De toegang van de privégebruiker voor de burgerinspraak is succesvol aangemaakt.
         destroy:
-          success: Participatory space private user access destroyed successfully.
+          success: De toegang van de privégebruiker voor burgerinspraak is met succes verwijderd.
         index:
-          title: Participatory space private user
+          title: Gebruiker van de burgerinspraak
         new:
-          create: Create
-          title: New Participatory Space private user.
+          create: Creëren
+          title: Nieuwe privégebruiker van de burgerinspraak.
       scope_types:
         create:
-          error: There was an error creating a new scope type.
-          success: Scope type created successfully.
+          error: Er is een fout opgetreden bij het maken van een nieuw bereik type.
+          success: Scope type is succesvol gemaakt.
         destroy:
-          success: Scope type successfully destroyed
+          success: Omvangstype is succesvol vernietigd
         edit:
-          title: Edit scope type
-          update: Update
+          title: Bewerk type type
+          update: Bijwerken
         new:
-          create: Create scope type
-          title: New scope
+          create: Maak een draagstype aan
+          title: Nieuw bereik
         update:
-          error: There was an error when updating this scope type.
-          success: Scope type updated successfully
+          error: Er is een fout opgetreden bij het bijwerken van dit scope type.
+          success: Scope type is succesvol bijgewerkt
       scopes:
         create:
-          error: There was an error creating a new scope.
-          success: Scope created successfully.
+          error: Er is een fout opgetreden bij het maken van een nieuwe reikwijdte.
+          success: Scope is succesvol gemaakt.
         destroy:
-          success: Scope successfully destroyed
+          success: Scope succesvol vernietigd
         edit:
-          title: Edit scope
-          update: Update
+          title: Bewerk de scope
+          update: Bijwerken
         new:
-          create: Create scope
-          title: New scope
-        no_scopes: No scopes at this level.
+          create: Maak ruimte
+          title: Nieuw bereik
+        no_scopes: Geen scopes op dit niveau.
         update:
-          error: There was an error when updating this scope.
-          success: Scope updated successfully
+          error: Er is een fout opgetreden bij het bijwerken van dit bereik.
+          success: Scope is succesvol bijgewerkt
       static_pages:
         actions:
-          view: View public page
+          view: Bekijk de openbare pagina
         create:
-          error: There was an error creating a new page.
-          success: Page created successfully.
+          error: Er is een fout opgetreden bij het maken van een nieuwe pagina.
+          success: Pagina is succesvol gemaakt.
         destroy:
-          success: Page successfully destroyed
+          success: Pagina succesvol vernietigd
         edit:
-          changed_notably_help: If checked, users will be notified to accept the new terms and conditions.
-          title: Edit page
-          update: Update
+          changed_notably_help: Indien aangevinkt, zullen gebruikers worden ingelicht om de nieuwe voorwaarden en voorwaarden te accepteren.
+          title: Pagina bewerken
+          update: Bijwerken
         index:
-          last_notable_change: Last notable change
+          last_notable_change: Laatste opmerkelijke wijziging
         new:
-          create: Create
-          title: New page
+          create: Creëren
+          title: Nieuwe pagina
         update:
-          error: There was an error when updating this page.
-          success: Page updated successfully
+          error: Er is een fout opgetreden bij het bijwerken van deze pagina.
+          success: Pagina is succesvol bijgewerkt
       titles:
         admin_log: Admin log
-        area_types: Area types
-        areas: Areas
-        authorization_workflows: Verification methods
+        area_types: Onderwerp
+        areas: Gebied
+        authorization_workflows: Verificatiemethoden
         dashboard: Dashboard
-        impersonatable_users: Impersonatable users
-        impersonations: Impersonations
+        impersonatable_users: Zich voordoen als
+        impersonations: Verpersoonlijken
         managed_users: Managed users
         navbar_links: Navbar links
         officializations: Officializations
@@ -714,7 +714,7 @@ nl-BE:
         settings:
           title: Settings
         users:
-          title: Users
+          title: Gebruikers
   time:
     formats:
       datepicker: "%m/%d/%Y"
