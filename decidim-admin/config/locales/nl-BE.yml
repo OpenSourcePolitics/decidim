@@ -293,76 +293,76 @@ nl-BE:
           name: Naam
           needs_authorization_warning: U heeft minstens één geactiveerde autorisatie nodig voor deze organisatie.
           not_managed: Niet beheerd
-          promote: Promote
-          search: Search
+          promote: Promoten
+          search: Zoeken
           status: Status
-          view_logs: View logs
+          view_logs: Bekijk logboeken
       impersonations:
         close_session:
-          error: There has been an error closing the current impersonation session.
-          success: The current impersonation session has been successfully ended.
+          error: Er is een fout opgetreden bij het sluiten van de impersonatie-sessie.
+          success: De huidige impersonatie-sessie is succesvol beëindigd.
         create:
-          error: There has been an error impersonating the user.
-          success: The managed user has been successfully created.
+          error: Er is een fout opgetreden bij het nabootsen van de gebruiker.
+          success: De beheerde gebruiker is succesvol aangemaakt.
         form:
-          authorization_method: Authorization method
-          name: Name
-          reason: Reason
+          authorization_method: Autorisatie fout
+          name: Naam
+          reason: Reden
         new:
-          impersonate: Impersonate
-          impersonate_existing_managed_user: Impersonate managed user "%{name}"
-          impersonate_existing_user: Impersonate user "%{name}"
-          impersonate_new_managed_user: Impersonate new managed user
+          impersonate: Verpersoonlijken
+          impersonate_existing_managed_user: Zich voordoen als "%{name}"
+          impersonate_existing_user: Zich voordoen als "%{name}"
+          impersonate_new_managed_user: Impersoneer nieuwe beheerde gebruiker
       logs:
         logs_list:
-          no_logs_yet: There are no logs yet
+          no_logs_yet: Er zijn nog geen opmerkingen
       managed_users:
         index:
-          impersonate: Impersonate
-          needs_authoriation_warning: Needs authoriation warning
-          promote: Promote
-          view_logs: View logs
+          impersonate: Verpersoonlijken
+          needs_authoriation_warning: U heeft minstens één autorisatie nodig voor deze organisatie
+          promote: Promoten
+          view_logs: Bekijk logboeken
         promotion:
-          error: There has been an error promoting the managed user.
-          success: The managed user has been successfully promoted.
+          error: Er is een fout opgetreden bij het promoten van de beheerde gebruiker.
+          success: De beheerde gebruiker is succesvol gepromoveerd.
         promotions:
           new:
-            explanation: Managed users can be promoted to standard users. It means they will be invited to the application and you will not be able to impersonate them again. The invited user will receive an email to accept your invitation.
-            new_managed_user_promotion: New managed user promotion
-            promote: Promote
+            explanation: Beheerde gebruikers kunnen worden bevorderd tot standaardgebruikers. Het betekent dat ze worden uitgenodigd voor de aanvraag en u kunt ze niet opnieuw voorstellen. De uitgenodigde gebruiker ontvangt een email om uw uitnodiging te accepteren.
+            new_managed_user_promotion: Nieuwe beheerde gebruikersbevordering
+            promote: Promoten
       menu:
-        admin_log: Admin activity log
-        admins: Admins
-        appearance: Appearance
-        area_types: Area types
-        areas: Areas
-        configuration: Configuration
+        admin_log: Admin activiteit log
+        admins: Beheerder
+        appearance: Uiterlijk
+        area_types: Onderwerp
+        areas: Gebied
+        configuration: Configuratie
         dashboard: Dashboard
-        impersonations: Impersonations
+        impersonations: Verpersoonlijken
         navbar_links: Navbar links
-        newsletters: Newsletters
-        oauth_applications: OAuth applications
-        officializations: Officializations
-        scope_types: Scope types
-        scopes: Scopes
-        settings: Settings
-        static_pages: Pages
-        user_groups: User groups
-        users: Users
+        newsletters: Nieuwsbrieven
+        oauth_applications: Bewerk applicatie
+        officializations: Officialisaties
+        scope_types: Scope type
+        scopes: Beschrijving
+        settings: Instellingen
+        static_pages: Pagina's
+        user_groups: Gebruikersgroepen
+        users: Gebruikers
       models:
         area:
           fields:
-            area_type: Area type
-            name: Name
+            area_type: Onderwerp
+            name: Beheerde gebruiker
         area_type:
           fields:
-            name: Name
-            plural: Plural
+            name: Naam
+            plural: Meervoud
         attachment:
           fields:
-            collection: Collection
+            collection: Collectie
             content_type: Type
-            file_size: Size
+            file_size: Grootte
             title: Titel
           name: Bijlage
         attachment_collection:
@@ -631,88 +631,88 @@ nl-BE:
         dashboard: Dashboard
         impersonatable_users: Zich voordoen als
         impersonations: Verpersoonlijken
-        managed_users: Managed users
+        managed_users: Beheerde gebruikers
         navbar_links: Navbar links
-        officializations: Officializations
-        scope_types: Scope types
-        scopes: Scopes
-        static_pages: Pages
-        user_groups: User groups
-        users: Users
+        officializations: Officialisaties
+        scope_types: Scope type
+        scopes: Scope
+        static_pages: Pagina's
+        user_groups: Gebruikersgroepen
+        users: Gebruikers
       user:
-        new: New user
+        new: Nieuwe gebruiker
       user_group:
         reject:
-          invalid: There was an error when rejecting this user group.
-          success: User group rejected successfully
+          invalid: Er is een fout opgetreden bij het afwijzen van deze gebruikersgroep.
+          success: Gebruikersgroep is succesvol afgewezen
         verify:
-          invalid: There was an error when verifying this user group.
-          success: User group verified successfully
+          invalid: Er is een fout opgetreden bij het verifiëren van deze gebruikersgroep.
+          success: Gebruikersgroep is succesvol geverifieerd
       user_groups:
         index:
           filter:
-            all: All
-            pending: Pending
-            rejected: Rejected
-            verified: Verified
-          filter_by: Filter by
-          search: Search
+            all: Alle
+            pending: In afwachting
+            rejected: Verworpen
+            verified: Geverifieerd
+          filter_by: Filteren op
+          search: Zoeken
           state:
-            pending: Pending
-            rejected: Rejected
-            verified: Verified
+            pending: In afwachting
+            rejected: Verworpen
+            verified: Geverifieerd
       users:
         create:
-          error: There was an error when inviting this user.
-          success: User invited successfully.
+          error: Er is een fout opgetreden bij het uitnodigen van deze gebruiker.
+          success: Gebruiker heeft succesvol uitgenodigd.
         destroy:
-          error: There was an error when trying to delete this user.
-          success: User is no longer an administrator.
+          error: Er is een fout opgetreden bij het proberen om deze gebruiker te verwijderen.
+          success: Gebruiker is niet meer een beheerder.
         form:
-          email: Email
-          name: Name
-          role: Role
+          email: E-mail
+          name: Naam
+          role: Rol
         new:
-          create: Invite
-          title: Invite user as administrator
+          create: Nodig uit
+          title: Inviteer gebruiker als beheerder
     forms:
       errors:
         impersonate_user:
-          reason: You need to provide a reason when impersonating a non managed user
+          reason: Je moet een reden geven bij het aanvragen van een niet-beheerde gebruiker
     moderations:
       actions:
-        hidden: Hidden
-        hide: Hide
-        not_hidden: Not hidden
-        title: Actions
-        unreport: Unreport
+        hidden: Verborgen
+        hide: Verbergen
+        not_hidden: Niet verborgen
+        title: Acties
+        unreport: Onreporteren
       admin:
         reportable:
           hide:
-            invalid: There's been a problem hiding the resource.
-            success: Resource successfully hidden.
+            invalid: Er is een probleem geweest om de bron te verbergen.
+            success: Resource succesvol verborgen.
           unreport:
-            invalid: There's been a problem unreporting the resource.
-            success: Resource successfully unreported.
+            invalid: Er is een probleem geweest om de bron niet te rapporteren.
+            success: Resource succesvol ongemeld.
       models:
         moderation:
           fields:
-            hidden_at: Hidden at
-            report_count: Count
-            reportable: Reportable
-            reported_content_url: Reported content URL
-            reports: Reports
-            visit_url: Visit URL
+            hidden_at: Verborgen bij
+            report_count: Tellen
+            reportable: Rapporterbaar
+            reported_content_url: Gerapporteerde inhouds-URL
+            reports: Rapporten
+            visit_url: Bezoek URL
   errors:
     messages:
-      invalid_json: Invalid JSON
+      invalid_json: Ongeldige JSON
   layouts:
     decidim:
       admin:
         newsletters:
-          title: Newsletters
+          title: Nieuwsbrieven
         settings:
-          title: Settings
+          title: Instellingen
         users:
           title: Gebruikers
   time:
