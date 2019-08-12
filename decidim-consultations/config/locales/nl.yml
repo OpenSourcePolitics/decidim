@@ -1,270 +1,269 @@
----
 nl:
   activemodel:
     attributes:
       consultation:
-        banner_image: Banner afbeelding
-        decidim_highlighted_scope_id: Opvallend bereik
-        description: Omschrijving
-        end_voting_date: Einddatum
-        introductory_image: Introductie afbeelding
-        introductory_video_url: Introductievideo-URL
-        questions: vragen
-        slug: URL pad
-        start_voting_date: Startdatum
-        subtitle: Ondertitel
-        title: Titel
+        banner_image: Banner image
+        decidim_highlighted_scope_id: Highlighted scope
+        description: Description
+        end_voting_date: End date
+        introductory_image: Introductory image
+        introductory_video_url: Introductory video URL
+        questions: Questions
+        slug: URL slug
+        start_voting_date: Start date
+        subtitle: Subtitle
+        title: Title
       question:
-        banner_image: Banner afbeelding
-        decidim_scope_id: Gemeentelijk thema
+        banner_image: Banner image
+        decidim_scope_id: Municipal area
         hashtag: Hashtag
-        hero_image: Home afbeelding
-        i_frame_url: URL van het externe stemsysteem
-        origin_scope: Bereik
-        origin_title: Oorsprong
+        hero_image: Home image
+        i_frame_url: External voting system URL
+        origin_scope: Scope
+        origin_title: Origin
         origin_url: Origin URL
-        participatory_scope: Doelstelling
-        promoter_group: Promotergroep
+        participatory_scope: Participatory scope
+        promoter_group: Promoter group
         question_context: Context
-        reference: Referentie
-        scope: Gemeentelijk thema
-        slug: URL pad
-        subtitle: Ondertitel
-        title: Titel
-        vote: Extern stemsysteem
-        what_is_decided: Wat besloten werd
+        reference: Reference
+        scope: Municipal area
+        slug: URL slug
+        subtitle: Subtitle
+        title: Title
+        vote: External voting system
+        what_is_decided: What is decided
     errors:
       vote:
         decidim_consultations_response_id:
-          not_found: Reactie niet gevonden.
+          not_found: Response not found.
   activerecord:
     models:
       decidim/consultations:
-        one: Overleg
-        other: overleg
+        one: Consultation
+        other: Consultations
       decidim/consultations/question:
-        one: Vraag
-        other: vragen
+        one: Question
+        other: Questions
       decidim/consultations/response:
-        one: antwoord
-        other: Antwoorden
+        one: Response
+        other: Responses
       decidim/consultations/vote:
-        one: Stemmen
-        other: stemmen
+        one: Vote
+        other: Votes
   decidim:
     admin:
       actions:
         consultation:
           new: New consultation
-        publish_results: Publiceer resultaten
-        unpublish_results: Publicatie van resultaten ongedaan maken
+        publish_results: Publish results
+        unpublish_results: Unpublish results
       consultation_publications:
         create:
-          error: Er is een fout opgetreden bij het publiceren van dit overleg.
-          success: Overleg succesvol gepubliceerd.
+          error: There was an error publishing this consultation.
+          success: Consultation published successfully.
         destroy:
-          error: Er is een fout opgetreden bij het ongedaan maken van de publicatie van dit overleg.
-          success: Publicatie van overleg succesvol ongedaan gemaakt.
+          error: There was an error unpublishing this consultation.
+          success: Consultation unpublished successfully.
       consultation_results_publications:
         create:
-          error: Er is een fout opgetreden bij het publiceren van de resultaten voor dit overleg.
-          success: Overlegresultaten met succes gepubliceerd.
+          error: There was an error publishing the results for this consultation.
+          success: Consultation results published successfully.
         destroy:
-          error: Er is een fout opgetreden bij het ongedaan maken van publicatie van de resultaten voor dit overleg.
-          success: Overlegresultaten niet gepubliceerd.
+          error: There was an error unpublishing the results for this consultation.
+          success: Consultation results unpublished successfully.
       consultations:
         create:
-          error: Er is een fout opgetreden bij het maken van een nieuw overleg.
-          success: Overleg succesvol aangemaakt.
+          error: There was an error creating a new consultation.
+          success: Consultation successfully created.
         destroy:
-          success: Overleg met succes vernietigd.
+          success: Consultation successfully destroyed.
         edit:
-          update: Bijwerken
+          update: Update
         form:
-          slug_help: 'URL-slugs worden gebruikt om de URL''s te genereren die naar dit overleg verwijzen. Accepteert alleen letters, cijfers en streepjes en moet beginnen met een letter. Voorbeeld: %{url}'
-          title: Algemene informatie
+          slug_help: 'URL slugs are used to generate the URLs that point to this consultation. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
+          title: General information
         index:
-          not_published: Niet gepubliceerd
-          published: Gepubliceerd
+          not_published: Not published
+          published: Published
         new:
-          create: Aanmaken
-          title: Nieuwe burgerinspraak
+          create: Create
+          title: New consultation
         update:
-          error: Er is een fout opgetreden bij het bijwerken van dit overleg.
-          success: Overleg succesvol bijgewerkt.
+          error: There was an error when updating this consultation.
+          success: Consultation updated successfully.
       menu:
-        consultations: burgerinspraak
+        consultations: Consultations
         consultations_submenu:
-          info: Informatie
-          questions: vragen
+          info: Information
+          questions: Questions
         questions_submenu:
-          components: Onderdelen
-          consultation: Raadpleging
-          info: Informatie
-          responses: Antwoorden
+          components: Components
+          consultation: Consultation
+          info: Information
+          responses: Responses
       models:
         consultation:
           fields:
-            created_at: Aangemaakt op
-            published: Gepubliceerd
-            title: Titel
+            created_at: Created at
+            published: Published
+            title: Title
         question:
           fields:
-            created_at: Aangemaakt op
-            published: Gepubliceerd
-            title: Titel
+            created_at: Created at
+            published: Published
+            title: Title
           name:
-            one: Vraag
-            other: vragen
+            one: Question
+            other: Questions
         response:
           fields:
-            created_at: Aangemaakt op
-            title: Titel
+            created_at: Created at
+            title: Title
           name:
-            one: antwoord
-            other: antwoorden
+            one: Response
+            other: Responses
       question_publications:
         create:
-          error: Er is een fout opgetreden bij het publiceren van deze vraag.
-          success: Vraag met succes gepubliceerd.
+          error: There was an error publishing this question.
+          success: Question published successfully.
         destroy:
-          error: Er is een fout opgetreden bij het ongedaan maken van de publicatie van deze vraag.
-          success: Publicatie van de vraag succesvol ongedaan gemaakt.
+          error: There was an error unpublishing this question.
+          success: Question unpublished successfully.
       questions:
         create:
-          error: Er is een fout opgetreden bij het maken van een nieuwe vraag.
-          success: Vraag met succes gemaakt.
+          error: There was an error creating a new question.
+          success: Question successfully created.
         destroy:
-          success: Vraag met succes vernietigd.
+          success: Question successfully destroyed.
         edit:
-          update: Bijwerken
+          update: Update
         form:
-          title: Algemene informatie
+          title: General information
         index:
-          not_published: Niet gepubliceerd
-          published: Gepubliceerd
+          not_published: Not published
+          published: Published
         new:
-          create: Aanmaken
-          title: Nieuwe vraag
+          create: Create
+          title: New question
         update:
-          error: Er is een fout opgetreden bij het bijwerken van deze vraag.
-          success: Vraag is succesvol bijgewerkt.
+          error: There was an error when updating this question.
+          success: Question updated successfully.
       responses:
         create:
-          error: Er is een fout opgetreden bij het maken van een nieuw antwoord.
-          success: Reactie succesvol aangemaakt.
+          error: There was an error creating a new response.
+          success: Response successfully created.
         destroy:
-          error: Er is een fout opgetreden bij het verwijderen van het antwoord.
-          success: Reactie succesvol vernietigd.
+          error: There was an error when removing the response.
+          success: Response successfully destroyed.
         edit:
-          update: Bijwerken
+          update: Update
         form:
-          title: Algemene informatie
+          title: General information
         new:
-          create: Aanmaken
-          title: Nieuwe reactie
+          create: Create
+          title: New response
         update:
-          error: Er is een fout opgetreden bij het bijwerken van dit antwoord.
-          success: Reactie is bijgewerkt.
+          error: There was an error when updating this response.
+          success: Response updated successfully.
       titles:
-        consultations: Burgerinspraak
-        questions: vragen
-        responses: Antwoorden
+        consultations: Consultations
+        questions: Questions
+        responses: Responses
     consultations:
       consultation:
-        start_voting_date: Stemmen vanaf
-        view_results: Bekijk resultaten
+        start_voting_date: Voting from
+        view_results: View results
       consultation_card:
-        view_results: Bekijk resultaten
+        view_results: View results
       consultations:
         orders:
-          label: 'Sorteer door:'
-          random: Willekeurig
-          recent: Meest recent
+          label: 'Sort consultations by:'
+          random: Random
+          recent: Most recent
       count:
         title:
-          one: "%{count} overleg"
-          other: "%{count} overleg"
+          one: "%{count} consultation"
+          other: "%{count} consultations"
       filters:
-        active: Actief
-        all: Alle
-        finished: Voltooid
-        search: Zoeken
-        state: Staat
-        upcoming: Toekomstige
+        active: Active
+        all: All
+        finished: Finished
+        search: Search
+        state: State
+        upcoming: Upcoming
       filters_small_view:
-        close_modal: Sluit venster
-        filter: Sorteer
-        filter_by: Sorteren op
-        unfold: Uitklappen
+        close_modal: Close window
+        filter: Filter
+        filter_by: Filter by
+        unfold: Unfold
       highlighted_questions:
-        title: Vragen vanaf %{scope_name}
+        title: Questions from %{scope_name}
       index:
-        title: Burgerinspraak
+        title: Consultations
       question:
-        take_part: Neem deel
-        view_results: Bekijk resultaten
+        take_part: Take part
+        view_results: View results
         votes_out_of:
-          one: Stemmen over
-          other: Stemmen over
+          one: vote out of
+          other: votes out of
       question_votes:
         create:
-          error: Er zijn fouten opgetreden bij het stemmen op de vraag
+          error: There have been errors when voting the question
       regular_questions:
-        title: Vragen voor dit consult
+        title: Questions for this consultation
       show:
         badge_name:
-          finished: Afgewerkt
+          finished: Finished
           open: Open
-          open_votes: Open stemmen
-          published_results: Resultaten gepubliceerd
+          open_votes: Open votes
+          published_results: Results published
         footer_button_text:
-          debate: Debat
-          view: Uitzicht
-          view_results: Bekijk resultaten
-          vote: Stemmen
-        unspecified: Niet gespecificeerd
+          debate: Debate
+          view: View
+          view_results: View results
+          vote: Vote
+        unspecified: Not specified
     menu:
-      consultations: Burgerinspraak
+      consultations: Consultations
     pages:
       home:
         statistics:
-          consultations_count: overleg
+          consultations_count: Consultations
     questions:
       results:
-        title: Resultaten
+        title: Results
       show:
-        read_more: Lees verder
+        read_more: Read more
       statistics:
-        assistants_count_title: assistenten
-        comments_count_title: Reacties
-        meetings_count_title: Events
-        supports_count_title: verklevingen
+        assistants_count_title: Assistants
+        comments_count_title: Comments
+        meetings_count_title: Meetings
+        supports_count_title: Adhesions
       technical_info:
-        technical_data: Technische data
+        technical_data: Technical data
       vote_button:
-        already_voted: Reeds gestemd
-        already_voted_hover: Steun intrekken
-        starting_from: Te beginnen op %{date}
-        vote: Stem
+        already_voted: Already voted
+        already_voted_hover: Revoke support
+        starting_from: Starting from %{date}
+        vote: Vote
       vote_modal:
-        contextual_help: Maak een keuze a.u.b.
-        title: 'Overleg: vraagondersteuning'
+        contextual_help: Please, select an option.
+        title: 'Consultation: question support'
       vote_modal_confirm:
-        change: Wijzigen
-        confirm: Bevestig
-        contextual_help: Bevestig de geselecteerde optie.
-        title: 'Raadpleging: steun bevestigen'
+        change: Change
+        confirm: Confirm
+        contextual_help: Please confirm the selected option.
+        title: 'Consultation: confirm support'
   layouts:
     decidim:
       admin:
         question:
-          attachments: Bijlagen
-          categories: Categorieën
+          attachments: Attachments
+          categories: Categories
       consultation_voting_data:
-        start_voting_date: Stemmen vanaf
+        start_voting_date: Voting from
       question_components:
-        question_menu_item: De vraag
-        unfold: Uitklappen
+        question_menu_item: The question
+        unfold: Unfold
       question_header:
-        back_to_consultation: Bekijk alle burgerinspraken
+        back_to_consultation: See all consultations
