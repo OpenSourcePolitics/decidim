@@ -18,7 +18,7 @@ nl-BE:
         participatory_process_group_id: Processen groep
         participatory_scope: Participatief toepassingsgebied
         participatory_structure: Participatieve structuur
-        private_space: Concertation privée
+        private_space: Concertatie privée
         promoted: gepromoveerd
         published_at: Gepubliceerd op
         scope_id: Reikwijdte
@@ -36,8 +36,8 @@ nl-BE:
         name: Naam
         participatory_process_ids: Gerelateerde processen
       participatory_process_step:
-        cta_path: Call to Action path
-        cta_text: Call to Action text
+        cta_path: Oproep naar Actiepad
+        cta_text: Oproep naar Actietekst
         description: Beschrijving
         end_date: Einddatum
         short_description: Korte beschrijving
@@ -48,15 +48,15 @@ nl-BE:
         name: Naam
         role: Rol
     models:
-      decidim/participatory_process_step_activated_event: Step activated
-      decidim/participatory_process_step_changed_event: Step changed
+      decidim/participatory_process_step_activated_event: Stap geactiveerd
+      decidim/participatory_process_step_changed_event: Stap gewijzigd
   activerecord:
     models:
       decidim/participatory_process:
         one: Deelnemend proces
         other: Participatieve processen
       decidim/participatory_process_group:
-        one: Participatory process group
+        one: Deelnemende procesgroepen
         other: Deelnemende procesgroepen
       decidim/participatory_process_step:
         one: Step
@@ -72,10 +72,10 @@ nl-BE:
         edit: Bewerken
         new: Nieuw
         new_process_group: Nieuwe procesgroep
-        new_process_step: New step
-        new_process_user_role: New process user
+        new_process_step: Bekijk stappen
+        new_process_user_role: Nieuwe procesgroep
         participatory_process:
-          new: New process
+          new: 1 proces
         preview: Voorbeeld
         publish: Publiceren
         resend_invitation: Uitnodiging verzenden
@@ -91,7 +91,7 @@ nl-BE:
           components: Componenten
           info: info
           moderations: matigingen
-          private_users: Private Users
+          private_users: Privé gebruikers
           process_admins: Gebruikers verwerken
           steps: Stappen
       models:
@@ -207,9 +207,9 @@ nl-BE:
           not_published: Niet gepubliceerd
           private: Privé
           promoted:
-            'false': 'False'
-            'true': 'True'
-          public: Public
+            'false': 'Fout'
+            'true': 'Juist'
+          public: Publiek
           published: Gepubliceerd
         new:
           create: creëren
@@ -234,14 +234,14 @@ nl-BE:
           success: Uitnodiging opnieuw met succes verzonden.
     admin_log:
       participatory_process:
-        create: "%{user_name} created the %{resource_name} participatory process"
-        publish: "%{user_name} published the %{resource_name} participatory process"
-        unpublish: "%{user_name} unpublished the %{resource_name} participatory process"
-        update: "%{user_name} updated the %{resource_name} participatory process"
+        create: "%{user_name} heeft de %{resource_name} -vergadering aangemaakt"
+        publish: "%{user_name} heeft de %{resource_name} -vergadering gepubliceerd"
+        unpublish: "%{user_name} heeft de %{resource_name} -vergadering aangemaakt"
+        update: "%{user_name} heeft de %{resource_name} -vergadering aangemaakt"
       participatory_process_step:
-        activate: "%{user_name} activated the %{resource_name} step in the %{space_name} participatory process"
-        create: "%{user_name} created the %{resource_name} step in the %{space_name} participatory process"
-        delete: "%{user_name} deleted the %{resource_name} step in the %{space_name} participatory process"
+        activate: "%{user_name} heeft het %{resource_name} lid aangemaakt in de %{space_name} -vergadering"
+        create: "%{user_name} heeft het %{resource_name} lid aangemaakt in de %{space_name} -vergadering"
+        delete: "%{user_name} heeft het %{resource_name} lid aangemaakt in de %{space_name} -vergadering"
         update: "%{user_name} heeft het %{resource_name} lid aangemaakt in de %{space_name} -vergadering"
       participatory_process_user_role:
         create: "%{user_name} heeft het %{resource_name} lid aangemaakt in de %{space_name} -vergadering"
