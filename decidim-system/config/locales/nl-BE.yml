@@ -18,7 +18,7 @@ nl-BE:
           title: Beheer admin
           update: Bijwerken
         index:
-          title: Admins
+          title: Beheerder
         new:
           create: Creëren
           title: Nieuwe admin
@@ -31,12 +31,12 @@ nl-BE:
           title: Standaard titel voor %{page}
       logs:
         index:
-          download_log: Download log
-          view_log: View %{line} lines
+          download_log: Logboek downloaden
+          view_log: '%{line} regels bekijken'
       menu:
-        admins: Admins
+        admins: Beheerder
         dashboard: Dashboard
-        logs: Logs
+        logs: Houtblokken
         organizations: Organisaties
       models:
         admin:
@@ -52,7 +52,7 @@ nl-BE:
           fields:
             created_at: Gemaakt bij
             name: Naam
-            smtp_settings: SMTP settings
+            smtp_settings: Instellingen van de stappen
           name: Organisatie
       organizations:
         create:
@@ -70,9 +70,9 @@ nl-BE:
           error: Er is een fout opgetreden bij het bijwerken van deze organisatie.
           success: Organisatie is succesvol bijgewerkt.
         users_registration_mode:
-          disabled: Access only can be done with external accounts
-          enabled: Allow users to register and login
-          existing: Don't allow users to register, but allow existing users to login
+          disabled: Toegang alleen kan worden gedaan met externe accounts
+          enabled: Gebruikers toestaan om te registreren en in te loggen
+          existing: Niet toestaan dat gebruikers zich registreren, maar toestaan dat bestaande gebruikers inloggen
       shared:
         notices:
           no_organization_warning_html: U moet een organisatie aanmaken om te beginnen. Zorg ervoor dat u %{guide} leest voordat u verder gaat.
