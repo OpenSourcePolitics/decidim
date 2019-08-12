@@ -5,16 +5,16 @@ nl-BE:
         category_id: Categorie
         decidim_category_id: Categorie
         description: Beschrijving
-        end_time: Ends at
-        information_updates: Information updates
-        instructions: Instructions to participate
-        start_time: Starts at
+        end_time: Eindigde op
+        information_updates: Informatie updates
+        instructions: Instructies om deel te nemen
+        start_time: Gestart op
         title: Titel
-        user_group_id: Create debate as
+        user_group_id: Maak debat als
     models:
       decidim/debates/create_debate_event: Debatten
-      decidim/debates/creation_disabled_event: Debates disabled
-      decidim/debates/creation_enabled_event: Debates enabled
+      decidim/debates/creation_disabled_event: Debatten uitgeschakeld
+      decidim/debates/creation_enabled_event: Stemmen uitgeschakeld
   activerecord:
     models:
       decidim/debates/debate:
@@ -33,10 +33,10 @@ nl-BE:
           step:
             announcement: Bericht
             comments_blocked: Reacties geblokkeerd
-            creation_enabled: Debate creation by users enabled
+            creation_enabled: Debat aanmaken door gebruikers ingeschakeld
     debates:
       actions:
-        confirm_destroy: Are you sure?
+        confirm_destroy: Weet u het zeker?
         destroy: Vernietigen
         edit: Bewerk
         new: Nieuw %{name}
@@ -44,21 +44,21 @@ nl-BE:
       admin:
         debates:
           create:
-            invalid: There has been a problem while creating the debate.
-            success: Debate created successfully.
+            invalid: Er is een probleem geweest tijdens het creëren van het debat.
+            success: Pagina is succesvol gemaakt.
           destroy:
-            success: Debate deleted successfully.
+            success: Categorie is succesvol verwijderd.
           edit:
-            title: Edit debate
-            update: Update debate
+            title: Bewerk debat
+            update: Update debat
           index:
             title: Debatten
           new:
-            create: Create debate
-            title: New debate
+            create: Maak debat als
+            title: Nieuw debat
           update:
-            invalid: There has been a problem while updating this debate.
-            success: Debate updated successfully.
+            invalid: Er is een probleem geweest tijdens het creëren van het debat.
+            success: Pagina is succesvol gemaakt.
         exports:
           comments: reacties
           debates: debatten
@@ -67,8 +67,8 @@ nl-BE:
             name: Debatten
       admin_log:
         debate:
-          create: "%{user_name} created the %{resource_name} debate on the %{space_name} space"
-          update: "%{user_name} updated the %{resource_name} debate on the %{space_name} space"
+          create: "%{user_name} heeft het %{resource_name} lid aangemaakt in de %{space_name} -vergadering"
+          update: "%{user_name} heeft het %{resource_name} lid aangemaakt in de %{space_name} -vergadering"
       debates:
         count:
           debates_count:
