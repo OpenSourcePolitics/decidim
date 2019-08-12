@@ -296,46 +296,46 @@ nl-BE:
         endorsements_count: Eindverklaringen
         headline: Activiteit
         meetings_count: Vergaderingen
-        orders_count: Votes
-        pages_count: Pages
-        projects_count: Projects
-        proposals_count: Proposals
-        results_count: Results
-        surveys_count: Surveys
-        users_count: Participants
-        votes_count: Votes
+        orders_count: Stemmen
+        pages_count: Pagina's
+        projects_count: Projecten
+        proposals_count: Voorstellen
+        results_count: Resultaten
+        surveys_count: Overleven
+        users_count: Deelnemers
+        votes_count: Stemmen
     assembly_members:
       assembly_member:
-        designated_on: Designated on
+        designated_on: Ontworpen op
       index:
-        title: Members
+        title: Leden
     log:
       value_types:
         assembly_presenter:
-          not_found: 'The assembly was not found on the database (ID: %{id})'
+          not_found: 'De Buurderij is niet gevonden op de database (ID: %{id})'
     menu:
-      assemblies: Assemblies
+      assemblies: Gemeentes
   errors:
     messages:
-      cannot_be_blank: can not be blank
+      cannot_be_blank: mag niet leeg zijn
   layouts:
     decidim:
       assemblies:
         assembly:
-          take_part: Take part
+          take_part: Deelnemen
         index:
-          promoted_assemblies: Highlighted assemblies
+          promoted_assemblies: Uitgelichte samenstellingen
         order_by_assemblies:
           assemblies:
-            one: "%{count} assembly"
-            other: "%{count} assemblies"
+            one: "%{count} gemeentes"
+            other: "%{count} gemeentes"
         promoted_assembly:
-          more_info: More info
-          take_part: Take part
+          more_info: Meer informatie
+          take_part: Deelnemen
       assembly_header:
-        assembly_member_menu_item: Members
-        assembly_menu_item: The assembly
-        unfold: Unfold
+        assembly_member_menu_item: Leden
+        assembly_menu_item: Nieuwe montage
+        unfold: Ontvouwen
       assembly_widgets:
         show:
-          take_part: Take part
+          take_part: Deelnemen
