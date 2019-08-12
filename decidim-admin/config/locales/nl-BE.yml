@@ -60,62 +60,62 @@ nl-BE:
         official_img_footer: Officiële logo footer
         official_img_header: Officiële logo header
         official_url: Officiële organisatie url
-        omnipresent_banner_short_description: Short description
-        omnipresent_banner_title: Title
+        omnipresent_banner_short_description: Korte beschrijving
+        omnipresent_banner_title: Titel
         omnipresent_banner_url: URL
-        reference_prefix: Reference prefix
-        show_statistics: Show statistics
-        tos_version: Terms of service version
+        reference_prefix: Referentievoorvoegsel
+        show_statistics: Toon statistieken
+        tos_version: Algemene versie
         twitter_handler: Twitter handler
-        welcome_text: Welcome text
-        youtube_handler: YouTube handler
+        welcome_text: Welkomsttekst
+        youtube_handler: YouTube-handler
       scope:
         code: Code
-        name: Name
-        organization: Organization
-        parent_id: Parent
+        name: Naam
+        organization: Organisatie
+        parent_id: Ouder
         scope_type: Scope type
         scope_type_id: Scope type
       scope_type:
-        name: Name
-        organization: Organization
-        plural: Plural
+        name: Naam
+        organization: Organisatie
+        plural: Meervoud
       static_page:
-        changed_notably: There have been noticeable changes.
-        content: Content
-        organization: Organization
-        slug: URL slug
-        title: Title
+        changed_notably: Er zijn merkbare veranderingen geweest.
+        content: Inhoud
+        organization: Organisatie
+        slug: URL slak
+        title: Titel
     errors:
       models:
         oauth_application:
           attributes:
             redirect_uri:
-              must_be_ssl: The redirect URI must be a SSL URI
+              must_be_ssl: De omleiding URI moet een SSL URI zijn
   activerecord:
     attributes:
       decidim/participatory_process:
-        banner_image: Banner image
-        description: Description
-        developer_group: Developer group
-        domain: Domain
-        end_date: End date
+        banner_image: Banner afbeelding
+        description: Beschrijving
+        developer_group: Ontwikkelaarsgroep
+        domain: Domein
+        end_date: Einddatum
         hashtag: Hashtag
-        hero_image: Home image
-        local_area: Local area
-        meta_scope: Scope metadata
-        participatory_scope: Participatory scope
-        participatory_structure: Participatory structure
-        promoted: Promoted
-        scope: Scope
-        short_description: Short description
-        slug: URL slug
-        start_date: Start date
-        subtitle: Subtitle
-        target: Target
-        title: Title
+        hero_image: Afbeelding van de startpagina
+        local_area: Lokale buurt
+        meta_scope: Omvang metadata
+        participatory_scope: Participatieve scope
+        participatory_structure: Participatieve structuur
+        promoted: Gepromoveerd
+        scope: Reikwijdte
+        short_description: Korte beschrijving
+        slug: URL slak
+        start_date: Begin datum
+        subtitle: Subtitel
+        target: Doelstelling
+        title: Titel
       decidim/participatory_process_group:
-        description: Description
+        description: Beschrijving
         hero_image: Afbeelding van de startpagina
         name: Afbeelding van de startpagina
         participatory_processes: Beheerde gebruiker
@@ -192,16 +192,16 @@ nl-BE:
           attachment_collections_title: Bijlagenpakkingen
         new:
           create: Creëren
-          title: New collection
+          title: Bewerk groep
         update:
-          error: There was an error when updating this collection.
-          success: Collection updated successfully.
+          error: Er is een fout opgetreden bij het bijwerken van deze organisatie.
+          success: Organisatie is succesvol gemaakt.
       attachments:
         create:
-          error: There was an error creating a new attachment.
-          success: Attachment created successfully.
+          error: Er is een fout opgetreden bij het maken van een nieuwe bijlage.
+          success: Bijlage is succesvol gemaakt.
         destroy:
-          success: Attachment destroyed successfully.
+          success: Bijlage is succesvol vernietigd.
         edit:
           title: Bewerk bijlage
           update: Bijwerken
@@ -371,118 +371,118 @@ nl-BE:
           name: Categorie
         impersonation_log:
           fields:
-            admin: Admin
-            ended_at: Ended at
-            expired_at: Expired at
-            reason: Reason
-            started_at: Started at
-            user: User
+            admin: Beheerder
+            ended_at: Eindigde op
+            expired_at: Verlopen op
+            reason: Reden
+            started_at: Gestart op
+            user: Gebruiker
         managed_user:
-          name: Name
+          name: Naam
         navbar_link:
           fields:
             link: Link
-            title: Title
-            weight: Weight
+            title: Titel
+            weight: Gewicht
         newsletter:
           fields:
-            created_at: Created at
-            progress: Progress
-            sent_at: Sent at
-            subject: Subject
-          name: Newsletter
+            created_at: Gemaakt bij
+            progress: Vooruitgang
+            sent_at: Verzonden bij
+            subject: Onderwerpen
+          name: Nieuwsbrief
         oauth_application:
           fields:
-            created_at: Created at
-            name: Name
+            created_at: Gemaakt bij
+            name: Naam
         participatory_space_private_user:
-          name: Participatory space private user
+          name: Gebruiker van de burgerinspraak
         scope:
           fields:
-            name: Name
+            name: Naam
             scope_type: Scope type
         scope_type:
           fields:
-            name: Name
-            plural: Plural
+            name: Naam
+            plural: Meervoud
         static_page:
           fields:
-            created_at: Created at
-            title: Title
+            created_at: Gemaakt bij
+            title: Titel
         user:
           fields:
-            created_at: Creation date
-            email: Email
-            last_sign_in_at: Last sign in date
-            name: Name
-            role: Role
+            created_at: Aanmaakdatum
+            email: E-mail
+            last_sign_in_at: Laatste inloggen datum
+            name: Naam
+            role: Rol
             roles:
-              admin: Admin
-              user_manager: User manager
+              admin: Beheerder
+              user_manager: Gebruikersbeheerder
         user_group:
           fields:
-            actions: Actions
-            created_at: Created at
-            document_number: Document number
-            name: Name
-            phone: Phone
-            state: State
-            users_count: Users count
+            actions: Acties
+            created_at: Gemaakt bij
+            document_number: Documentnummer
+            name: Naam
+            phone: Telefoon
+            state: Staat
+            users_count: Aantal gebruikers
       moderations:
         index:
-          title: Moderations
+          title: Moderaties
         report:
           reasons:
-            does_not_belong: Does not belong
-            offensive: Offensive
+            does_not_belong: Hoort niet
+            offensive: Aanvallend
             spam: Spam
       navbar_links:
         create:
-          error: There was an error when creating this link.
-          success: Link created successfully
+          error: Er is een fout opgetreden bij het bijwerken van deze admin.
+          success: Admin is succesvol gemaakt
         destroy:
-          success: Link successfully destroyed
+          success: Admin succesvol vernietigd
         edit:
-          title: Edit navbar link
-          update: Update
+          title: Bewerk navigatiebalk link
+          update: Bijwerken
         form:
           link: Link
-          new_tab: Open in a new tab
-          same_tab: Open in the same tab
-          title: Title
-          weight: Weight
+          new_tab: Open in een nieuw tabblad
+          same_tab: Open in hetzelfde tabblad
+          title: Titel
+          weight: Gewicht
         new:
-          create: Create
-          title: New navbar link
-        no_links: No links created
+          create: Creëren
+          title: Bewerk navigatiebalk link
+        no_links: Geen links aangemaakt
         update:
-          error: There was an error when updating this link.
-          success: Link updated successfully
+          error: Er is een fout opgetreden bij het bijwerken van deze admin.
+          success: Admin is succesvol gemaakt
       newsletters:
         create:
-          error: There's been an error creating this newsletter.
-          success: Newsletter created successfully. Please, review it before sending.
+          error: Er is een fout opgetreden bij het maken van deze nieuwsbrief.
+          success: Nieuwsbrief is succesvol gemaakt. Controleer het alstublieft voordat u verzendt.
         deliver:
-          error: There's been an error delivering this newsletter.
-          success: Newsletter delivered successfully.
+          error: Er is een fout opgetreden bij het leveren van deze nieuwsbrief.
+          success: Nieuwsbrief is succesvol geleverd.
         destroy:
-          error_already_sent: 'Can''t destroy newsletter: It has already been sent.'
-          success: Newsletter destroyed successfully.
+          error_already_sent: 'Kan de nieuwsbrief niet vernietigen: het is al verstuurd.'
+          success: Nieuwsbrief is succesvol vernietigd.
         edit:
-          save_and_preview: Save and preview
-          title: Edit newsletter
+          save_and_preview: Opslaan en previewen
+          title: Bewerk nieuwsbrief
         form:
-          interpolations_hint: 'Hint: You can use "%{name}" anywhere in the body or subject and it will be replaced by the recipient''s name.'
+          interpolations_hint: 'Hint: U kunt "%{name}" overal in het lichaam of onderwerp gebruiken en het wordt vervangen door de naam van de ontvanger.'
         index:
-          confirm_delete: Are you sure you want to delete this newsletter?
-          title: Newsletters
+          confirm_delete: Weet u zeker dat u deze nieuwsbrief wilt verwijderen?
+          title: Nieuwsbrieven
         new:
-          save: Save
-          title: New newsletter
+          save: Opslaan
+          title: Nieuwe nieuwsbrief
         show:
-          confirm_deliver: Are you sure you want to deliver this newsletter? This action cannot be undone.
-          deliver: Deliver newsletter
-          preview: Preview
+          confirm_deliver: Weet u zeker dat u deze nieuwsbrief wilt bezorgen? Deze actie kan niet ongedaan gemaakt worden.
+          deliver: Stuur nieuwsbrief
+          preview: Voorbeeld
           subject: Subject
         update:
           error: There's been an error updating this newsletter.
