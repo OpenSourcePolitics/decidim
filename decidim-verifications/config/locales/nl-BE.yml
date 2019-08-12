@@ -165,24 +165,24 @@ nl-BE:
             waiting_for_letter: We sturen binnenkort een brief naar uw adres met uw verificatiecode
           new:
             send: Stuur me een brief
-            title: Request your verification code
+            title: Voer een geldige vervaldatum in
           update:
-            error: Your verification code doesn't match ours. Please double-check the letter we sent to you
-            success: Congratulations. You've been successfully verified
+            error: Uw verificatiecode komt niet overeen met onze. Controleer de brief die we u hebben gestuurd
+            success: Gefeliciteerd. Je bent met succes geverifieerd
       sms:
         authorizations:
           create:
-            error: There was a problem with your request
-            success: Thanks! We've sent an SMS to your phone.
+            error: Er was een probleem met de server
+            success: Bedankt! We hebben een SMS naar je telefoon gestuurd.
           edit:
             send: Bevestigen
-            title: Introduce the verification code you received
+            title: Voer de verificatiecode in die u hebt ontvangen
           new:
-            send: Send me an SMS
-            title: Request your verification code
+            send: Stuur mij een SMS
+            title: Voer een geldige vervaldatum in
           update:
-            error: Your verification code doesn't match ours. Please double-check the SMS we sent you.
-            success: Congratulations. You've been successfully verified.
+            error: Uw verificatiecode komt niet overeen met onze. Controleer de brief die we u hebben gestuurd.
+            success: Gefeliciteerd. Je bent met succes geverifieerd.
   errors:
     messages:
-      uppercase_only_letters_numbers: must be all uppercase and contain only letters and/or numbers
+      uppercase_only_letters_numbers: moet alle hoofdletters en/of cijfers bevatten
