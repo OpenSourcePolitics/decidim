@@ -212,74 +212,74 @@ nl-BE:
       admin:
         assemblies:
           form:
-            duration_help: If the duration of this assembly is limited, select the end date. Otherwise, it will appear as indefinite.
-            included_at_help: Select the date when this assembly was added to Decidim. It does not necessarily have to be the same as the creation date.
-            select_a_created_by: Select a created by
-            select_an_area: Select an Area
-            select_an_assembly_type: Select an assembly type
-            slug_help: 'URL slugs are used to generate the URLs that point to this assembly. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
-            social_handlers: Social
+            duration_help: Als de duur van deze vergadering beperkt is, selecteer de einddatum. Anders zal deze voor onbepaalde tijd verschijnen.
+            included_at_help: Selecteer de datum waarop deze vergadering is toegevoegd aan de Beslissingsdatum. Het hoeft niet noodzakelijkerwijs hetzelfde te zijn als de aanmaakdatum.
+            select_a_created_by: Kies een categorie
+            select_an_area: Selecteer een gebied
+            select_an_assembly_type: Selecteer een assemblage type
+            slug_help: 'URL-slugs worden gebruikt om de URL''s te genereren die naar deze vergadering verwijzen. Accepteer alleen letters, cijfers en streepjes, en moet beginnen met een letter. Voorbeeld: %{url}'
+            social_handlers: Sociaal
         assembly_copies:
           form:
-            slug_help: 'URL slugs are used to generate the URLs that point to this assembly. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
+            slug_help: 'URL-slugs worden gebruikt om de URL''s te genereren die naar deze vergadering verwijzen. Accepteer alleen letters, cijfers en streepjes, en moet beginnen met een letter. Voorbeeld: %{url}'
         assembly_members:
           form:
-            existing_user: Existing user
-            non_user: Non user
-            select_a_position: Select a position
-            select_user: Select an user
-            user_type: User type
+            existing_user: Bestaande gebruiker
+            non_user: Nieuwe gebruiker
+            select_a_position: Selecteer een positie
+            select_user: Selecteer een gebied
+            user_type: Gebruikerstype
           index:
             filter:
-              all: All
-              ceased: Ceased
-              not_ceased: Not ceased
-            filter_by: Filter by
-            search: Search
+              all: Alle
+              ceased: GeCeosticeerd
+              not_ceased: Niet gestopt
+            filter_by: Filteren op
+            search: Zoeken
       assembly_members:
         index:
-          members: Members
+          members: Leden
       assembly_types:
-        commission: Comission
-        consultative_advisory: Consultative/Advisory
-        executive: Executive
-        government: Government
-        others: Others
-        participatory: Participatory
-        working_group: Working group
+        commission: Kompas
+        consultative_advisory: Raadgevend/Raadgevend
+        executive: Uitvoerend
+        government: Overheid
+        others: Leden
+        participatory: Participatief
+        working_group: Werkgroep
       created_by:
-        city_council: City Council
-        others: Others
-        public: Public
+        city_council: Stadsraad
+        others: Leden
+        public: Publiek
       index:
-        title: Assemblies
+        title: Gemeentes
       pages:
         home:
           highlighted_assemblies:
-            active_assemblies: Active assemblies
-            see_all_assemblies: See all assemblies
+            active_assemblies: Actieve bijeenkomsten
+            see_all_assemblies: Bekijk alle vergaderingen
         user_profile:
           member_of:
-            member_of: Member of
+            member_of: Lid van
       show:
-        area: Area
-        assembly_type: Assembly type
-        children: Assemblies
-        closing_date: Closing date
-        composition: Composition
-        created_by: Created by
-        creation_date: Date created
-        developer_group: Developer group
-        duration: Duration
-        included_at: Included at
-        indefinite_duration: Indefinite
-        internal_organisation: Internal organisation
+        area: Gebied
+        assembly_type: Buurderij type
+        children: Gemeentes
+        closing_date: Sluitingsdatum
+        composition: Compositie
+        created_by: Gemaakt door
+        creation_date: Datum aangemaakt
+        developer_group: Ontwikkelaarsgroep
+        duration: Duur
+        included_at: '-'
+        indefinite_duration: Onbepaald
+        internal_organisation: Interne organisatie
         is_transparent:
-          'false': opaque
-          'true': transparent
-        local_area: Local area
-        participatory_scope: Participatory scope
-        participatory_structure: Participatory structure
+          'false': ondoorzichtig
+          'true': is transparant
+        local_area: Lokale buurt
+        participatory_scope: Participatieve scope
+        participatory_structure: Participatieve structuur
         private_space: Dit is een privé-vergadering
         purpose_of_action: Doelstelling
         read_less: Lees minder
