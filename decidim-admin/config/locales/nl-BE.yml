@@ -2,58 +2,58 @@ nl-BE:
   activemodel:
     attributes:
       area:
-        area_type: Area type
-        name: Name
-        organization: Organization
+        area_type: Onderwerp
+        name: Beheerde gebruiker
+        organization: Organisatie
       area_type:
-        name: Name
-        organization: Organization
-        plural: Plural
+        name: Beheerde gebruiker
+        organization: Organisatie
+        plural: Meervoud
       attachment:
-        attachment_collection_id: Collection
-        description: Description
-        file: File
-        title: Title
+        attachment_collection_id: Collectie
+        description: Beschrijving
+        file: Het dossier
+        title: Titel
         weight: Rang d'affichage
       attachment_collection:
-        description: Description
-        name: Name
+        description: Beschrijving
+        name: Beheerde gebruiker
       category:
-        description: Description
-        name: Name
-        parent_id: Parent
+        description: Beschrijving
+        name: Beheerde gebruiker
+        parent_id: Ouder
       component:
-        name: Name
-        published_at: Published at
-        weight: Weight
-      id: ID
+        name: Beheerde gebruiker
+        published_at: Gepubliceerd op
+        weight: Gewicht
+      id: ID kaart
       newsletter:
-        body: Body
-        subject: Subject
+        body: Lichaam
+        subject: Onderwerpen
       oauth_application:
-        name: Name
-        organization_logo: Organization logo (square)
-        organization_name: Organization name
-        organization_url: Organization URL
-        redirect_uri: Redirect URI
+        name: Beheerde gebruiker
+        organization_logo: Logo organisatie (vierkant)
+        organization_name: Organisatienaam
+        organization_url: URL van de organisatie
+        redirect_uri: Redirect-URI
       organization:
-        cta_button_path: Call To Action button path
-        cta_button_text: Call To Action button text
-        default_locale: Default locale
-        description: Description
-        enable_omnipresent_banner: Show omnipresent banner
+        cta_button_path: Oproep naar actie knop pad
+        cta_button_text: Oproep naar actie knop pad
+        default_locale: Standaard locale
+        description: Beschrijving
+        enable_omnipresent_banner: Toon omnipresent banner
         facebook_handler: Facebook handler
-        favicon: Icon
+        favicon: Icoon
         github_handler: GitHub handler
-        header_snippets: Header snippets
-        highlighted_content_banner_action_subtitle: Action button subtitle
-        highlighted_content_banner_action_title: Action button title
-        highlighted_content_banner_action_url: Action button URL
-        highlighted_content_banner_enabled: Show the highlighted content banner
-        highlighted_content_banner_image: Image
-        highlighted_content_banner_short_description: Short description
-        highlighted_content_banner_title: Title
-        homepage_image: Homepage image
+        header_snippets: Koptekstjes
+        highlighted_content_banner_action_subtitle: Ondertitels van de actieknop
+        highlighted_content_banner_action_title: Ondertitels van de actieknop
+        highlighted_content_banner_action_url: Ondertitels van de actieknop
+        highlighted_content_banner_enabled: Toon de gemarkeerde inhoudsbanner
+        highlighted_content_banner_image: Beeld
+        highlighted_content_banner_short_description: Korte beschrijving
+        highlighted_content_banner_title: Titel
+        homepage_image: Afbeelding van de startpagina
         instagram_handler: Instagram handler
         logo: Logo
         name: Name
@@ -116,82 +116,82 @@ nl-BE:
         title: Title
       decidim/participatory_process_group:
         description: Description
-        hero_image: Home image
-        name: Name
-        participatory_processes: Participatory processes
+        hero_image: Afbeelding van de startpagina
+        name: Afbeelding van de startpagina
+        participatory_processes: Beheerde gebruiker
       decidim/participatory_process_step:
-        end_date: End date
-        start_date: Start date
+        end_date: Participatieve processen
+        start_date: Einddatum
       decidim/static_page:
-        content: Content
-        slug: URL slug
-        title: Title
+        content: Begindatum
+        slug: URL slak
+        title: Titel
       doorkeeper/application:
-        authorize_url: Authorize URL
-        client_id: Client ID
-        client_secret: Client Secret
-        organization_name: Organization name
-        organization_url: Organization URL
-        redirect_uri: Redirect URI
-        site: Site
+        authorize_url: Autorisatie URL
+        client_id: Client-ID
+        client_secret: Klant geheim
+        organization_name: Organisatienaam
+        organization_url: URL van de organisatie
+        redirect_uri: Redirect-URI
+        site: Site portaal
   date:
     formats:
       datepicker: "%m/%d/%Y"
   decidim:
     admin:
       actions:
-        add: Add
-        browse: Browse
-        export: Export
-        manage: Manage
-        permissions: Permissions
-        reject: Reject
-        verify: Verify
+        add: Toevoegen
+        browse: Browsen
+        export: Exporteren
+        manage: Beheer
+        permissions: Toelatingen
+        reject: Afwijzen
+        verify: Verifiëren
       area_types:
         create:
-          error: There was an error creating a new area type.
-          success: Area type created successfully.
+          error: Er is een fout opgetreden bij het maken van een nieuwe pagina.
+          success: Pagina met succes gemaakt.
         destroy:
-          success: Area type successfully destroyed
+          success: Pagina met succes verwijderd
         edit:
-          title: Edit area type
-          update: Update
+          title: Onderwerp bewerken
+          update: Bijwerken
         new:
-          create: Create area type
-          title: New area type
+          create: Maak een pagina
+          title: Onderwerp bewerken
         update:
-          error: There was an error when updating this area type.
-          success: Area type updated successfully
+          error: Er is een fout opgetreden bij het bijwerken van dit scope type.
+          success: Pagina met succes gemaakt
       areas:
         create:
-          error: There was an error creating a new area.
-          success: Area created successfully.
+          error: Er is een fout opgetreden bij het maken van een nieuwe pagina.
+          success: Admin is succesvol gemaakt.
         destroy:
-          success: Area successfully destroyed
+          success: Pagina succesvol vernietigd
         edit:
-          title: Edit area
-          update: Update
+          title: Bewerk gebied
+          update: Bijwerken
         new:
-          create: Create area
-          title: New area
-        no_areas: No Areas
+          create: Nieuwe
+          title: Nieuw gebied
+        no_areas: Geen gebieden
         update:
-          error: There was an error when updating this area.
-          success: Area updated successfully
+          error: Er is een fout opgetreden bij het bijwerken van deze pagina.
+          success: Admin is succesvol gemaakt
       attachment_collections:
         create:
-          error: There was an error creating a new collection.
-          success: Collection created successfully.
+          error: Er is een fout opgetreden bij het maken van een nieuw bereik type.
+          success: Organisatie is succesvol gemaakt.
         destroy:
-          success: Collection destroyed successfully.
+          success: Organisatie is succesvol gemaakt.
         edit:
-          title: Edit collection
-          update: Update
+          title: Bewerk groep
+          update: Bijwerken
         index:
-          attachment_collection_used: This collection cannot be removed because it is in use.
-          attachment_collections_title: Attachment collections
+          attachment_collection_used: Deze categorie kan niet worden verwijderd omdat het in gebruik is.
+          attachment_collections_title: Bijlagenpakkingen
         new:
-          create: Create
+          create: Creëren
           title: New collection
         update:
           error: There was an error when updating this collection.
@@ -272,21 +272,21 @@ nl-BE:
           success: The component has been successfully unpublished.
         update:
           error: There has been an error updating this component.
-          success: The component was updated successfully.
+          success: Component succesvol verwijderd.
       dashboard:
         show:
-          view_more_logs: View more logs
-          welcome: Welcome to the Decidim Admin Panel.
+          view_more_logs: Bekijk meer logs
+          welcome: Welkom bij de nieuwe Decidim Panel Admin.
       exports:
-        export_as: "%{name} as %{export_format}"
-        notice: Your export is currently in progress. You'll receive an email when it's complete.
+        export_as: "%{name} als %{export_format}"
+        notice: Uw export is momenteel aan de gang. U ontvangt een email wanneer het klaar is.
       impersonatable_users:
         index:
           filter:
-            all: All
-            managed: Managed
-            not_managed: Not managed
-          filter_by: Filter by
+            all: Alle
+            managed: Beheer
+            not_managed: Niet beheerd
+          filter_by: Filteren op
           impersonate: Impersonate
           impersonate_new_managed_user: Impersonate new managed user
           managed: Managed
