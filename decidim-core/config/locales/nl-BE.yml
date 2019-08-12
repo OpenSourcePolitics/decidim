@@ -40,13 +40,13 @@ nl-BE:
         remember_me: Blijf ingelogd
     models:
       decidim/amendment:
-        one: Amendment
+        one: Amendementen
         other: Amendementen
       decidim/user:
-        one: No users
+        one: Nieuwe gebruiker
         other: Gebruikers
       decidim/user_group:
-        one: User group
+        one: Gebruikersgroepen
         other: Gebruikersgroepen
   booleans:
     'false': 'Nee'
