@@ -38,11 +38,11 @@ nl-BE:
       decidim/proposals/admin/update_proposal_category_event: Voorstel categorie gewijzigd
       decidim/proposals/creation_enabled_event: Voorstel aanmaken ingeschakeld
       decidim/proposals/endorsing_enabled_event: Voorstel ondersteuning ingeschakeld
-      decidim/proposals/evaluating_proposal_event: Proposal is being evaluated
-      decidim/proposals/proposal_endorsed_event: Proposal endorsed
-      decidim/proposals/proposal_mentioned_event: Proposal mentioned
-      decidim/proposals/publish_proposal_event: Proposal published
-      decidim/proposals/rejected_proposal_event: Proposal rejected
+      decidim/proposals/evaluating_proposal_event: Voorstel wordt geëvalueerd
+      decidim/proposals/proposal_endorsed_event: Voorstel goedgekeurd
+      decidim/proposals/proposal_mentioned_event: Voorstel genoemd
+      decidim/proposals/publish_proposal_event: Voorstel gepubliceerd
+      decidim/proposals/rejected_proposal_event: Voorstel geaccepteerd
       decidim/proposals/voting_enabled_event: Proposal voting enabled
   activerecord:
     models:
@@ -266,22 +266,22 @@ nl-BE:
           name: Voorstellen
           next_level_in: Neem deel aan %{score} meer debatten om het volgende niveau te bereiken!
           unearned_another: Deze gebruiker heeft deelgenomen aan debatten.
-          unearned_own: You have created no proposals yet.
+          unearned_own: U heeft tests aangemaakt.
     metrics:
       accepted_proposals:
-        description: Number of proposals accepted by users
+        description: Aantal voorstellen geaccepteerd door gebruikers
         object: voorstellen
-        title: Accepted Proposals
+        title: Geaccepteerde voorstellen
       endorsements:
-        description: Number of endorsements generated in proposals
+        description: Aantal in voorstellen gegenereerde endorsementen
         object: eindverklaringen
         title: Eindverklaringen
       proposals:
-        description: Number of proposals generated
+        description: Aantal gegenereerde resultaten
         object: voorstellen
         title: Voorstellen
       votes:
-        description: Number of votes generated in proposals by users
+        description: Aantal stemmen gegenereerd in voorstellen van gebruikers
         object: <span class="card--list__data__number">%{count}</span>votes
         title: stemmen
     participatory_processes:
@@ -294,11 +294,11 @@ nl-BE:
     proposals:
       actions:
         answer: Antwoord
-        edit_proposal: Edit proposal
-        import: Import from another component
+        edit_proposal: Bewerk voorstel
+        import: Importeren uit een ander component
         new: nieuwe
-        participatory_texts: Participatory texts
-        private_notes: Private notes
+        participatory_texts: Participatieve scope
+        private_notes: Privé notities
         title: Acties
       admin:
         actions:
@@ -311,31 +311,31 @@ nl-BE:
             name: Voorstel
         participatory_texts:
           bulk-actions:
-            are_you_sure: Are you sure to discard the whole participatory text draft?
-            discard_all: Discard all
-            import_doc: Import document
+            are_you_sure: Weet u zeker dat u de hele participatieve tekst tekst wilt verwijderen?
+            discard_all: Alles verwijderen
+            import_doc: Importeer document
           discard:
-            success: All Participatory text drafts have been discarded.
+            success: Alle deeltjestekstconcepten zijn verwijderd.
           import:
-            invalid: The form is invalid!
-            success: Congratulations, the following sections have been parsed from the imported document, they have been converted to proposals. Now you can review and adjust whatever you need before publishing.
+            invalid: Het formulier is ongeldig!
+            success: Gefeliciteerd, de volgende secties zijn verwerkt uit het geïmporteerde document, ze zijn omgezet in voorstellen. Nu kunt u bekijken en aanpassen wat u nodig hebt voordat u publiceert.
           index:
-            info_1: The following sections have been parsed from the imported document, they have been converted to proposals. Now you can review and adjust whatever you need before publishing.
-            publish_document: Publish document
-            save_draft: Save draft
-            title: PREVIEW PARTICIPATORY TEXT
+            info_1: Gefeliciteerd, de volgende secties zijn verwerkt uit het geïmporteerde document, ze zijn omgezet in voorstellen. Nu kunt u bekijken en aanpassen wat u nodig hebt voordat u publiceert.
+            publish_document: Document publiceren
+            save_draft: Voorstel opslaan
+            title: VOORDERKT PARTICITICITORY TEKT
           new_import:
-            bottom_hint: "(You will be able to preview and sort document sections)"
-            document_legend: 'Add a document lesser than 2MB, each section until 3 levels deep will be parsed into Proposals. Suported formats are: Markdown'
-            title: ADD DOCUMENT
-            upload_document: Upload document
+            bottom_hint: "(U kunt de documentsecties bekijken en sorteren)"
+            document_legend: 'Voeg een document toe dat kleiner is dan 2MB, elke sectie tot 3 niveaus diep zal worden verwerkt in voorstellen. Onderdrukte formaten zijn: Markdown'
+            title: DOCUMENT ADD
+            upload_document: Document uploaden
           publish:
-            invalid: Could not publish proposals
-            success: All proposals have been published
+            invalid: Kon voorstellen niet publiceren
+            success: Alle voorstellen zijn gepubliceerd
           sections:
-            article: "<em>Article</em>"
-            section: "<em>Section:</em> <strong>%{title}</strong>"
-            sub-section: "<em>Subsection:</em> %{title}"
+            article: "<em>artikel</em>"
+            section: "<em>sectie:</em> <strong>%{title}</strong>"
+            sub-section: "<em>sectie:</em> %{title}"
           update:
             success: Deelnemend proces is succesvol bijgewerkt.
         proposal_answers:
@@ -414,9 +414,9 @@ nl-BE:
             proposals: Voorstellen
       admin_log:
         proposal:
-          answer: "%{user_name} answered the %{resource_name} proposal on the %{space_name} space"
-          create: "%{user_name} created the %{resource_name} proposal on the %{space_name} space as an official proposal"
-          update: "%{user_name} updated the %{resource_name} official proposal on the %{space_name} space"
+          answer: "%{user_name} heeft het %{resource_name} lid aangemaakt in de %{space_name} -vergadering"
+          create: "%{user_name} heeft het %{resource_name} lid aangemaakt in de %{space_name} -vergadering"
+          update: "%{user_name} heeft het %{resource_name} lid aangemaakt in de %{space_name} -vergadering"
         proposal_note:
           create: "%{user_name} heeft het %{resource_name} lid aangemaakt in de %{space_name} -vergadering"
       answers:
@@ -548,35 +548,35 @@ nl-BE:
           error: There's been errors when saving the collaborative draft.
           success: Collaborative draft updated successfully.
         wizard_aside:
-          back: Back
-          info: You are creating a <strong>collaborative draft</strong>.
+          back: Terug
+          info: U maakt een gezamenlijk ontwerp <strong></strong> aan.
         wizard_steps:
-          see_steps: see steps
-          step_1: Create your collaborative draft
-          step_2: Compare with collaborative drafts
-          step_3: Complete your collaborative draft
+          see_steps: bekijk stappen
+          step_1: Voltooi uw gezamenlijke ontwerp
+          step_2: Voltooi uw gezamenlijke ontwerp
+          step_3: Voltooi uw gezamenlijke ontwerp
           step_of: Stap %{current_step_num} van %{total_steps}
       create:
         error: Er zijn fouten geweest bij het opslaan van het voorstel.
         success: Voorstel is succesvol gemaakt.
       destroy_draft:
-        error: There's been errors deleting the proposal draft.
-        success: Proposal draft was successfully deleted.
+        error: Er zijn fouten geweest bij het stemmen van het voorstel.
+        success: Voorstel ontwerp is succesvol verwijderd.
       last_activity:
-        new_proposal_at_html: "<span>New proposal at %{link}</span>"
+        new_proposal_at_html: "<span>Nieuwe post op %{link}</span>"
       models:
         collaborative_draft:
           fields:
-            authors: Authors
+            authors: Auteur
             comments: Reacties
-            contributions: Contributions
+            contributions: Bijdragen
         proposal:
           fields:
             category: Categorie
             comments: Reacties
             endorsements: Eindverklaringen
             id: ID kaart
-            notes: Notes
+            notes: Notitie
             official_proposal: Officieel voorstel
             published_at: Gepubliceerd op
             scope: Reikwijdte
@@ -584,59 +584,59 @@ nl-BE:
             title: Titel
             votes: stemmen
       new:
-        limit_reached: You can't create new proposals since you've exceeded the limit.
+        limit_reached: U kunt geen nieuwe voorstellen maken omdat u de limiet hebt overschreden.
       participatory_text_proposal:
-        alternative_title: There are no participatory texts at the moment
+        alternative_title: Er zijn momenteel geen participatieve teksten
         buttons:
-          amend: Amend
+          amend: Wijzigend
           comment: Commentaar
           comments: Reacties
-          endorse: Endorse
+          endorse: Eindstation
       proposal_endorsements:
         create:
-          error: There's been errors when endorsing the proposal.
+          error: Er zijn fouten geweest bij het stemmen van het voorstel.
         identities:
-          done: Done
-          select_identity: Select identity
+          done: Klaar
+          select_identity: Selecteer identiteit
       proposal_endorsements_helper:
         endorsement_button:
-          already_endorsed: Endorsed
-          endorse: Endorse
+          already_endorsed: Eindigd
+          endorse: Eindstation
         render_endorsements_button_card_part:
-          endorse: Endorse
+          endorse: Eindstation
       proposal_votes:
         create:
           error: Er zijn fouten geweest bij het stemmen van het voorstel.
       proposals:
         compare:
           continue: Verstuur
-          no_similars_found: Well done! No similar proposals found
-          title: Similar Proposals
+          no_similars_found: Goed gedaan! Geen vergelijkbare voorstellen gevonden
+          title: Vergelijkbare voorstellen
         complete:
           send: sturen
-          title: Complete your proposal
+          title: Vul uw voorstel in
         count:
           proposals_count:
             one: "1 voorstel"
             other: "%{count} voorstellen"
         dynamic_map_instructions:
-          primary: You can move the point on the map.
-          secondary: Don't forget to click on the "Update Position" button before publishing your proposal.
+          primary: U kunt het punt verplaatsen op de kaart.
+          secondary: Vergeet niet om op de "Update Positie" knop te klikken voordat u uw voorstel publiceert.
         edit:
-          address: Address (don't forget to specify the city)
+          address: Adres (vergeet niet de stad te specificeren)
           attachment_legend: "(Optioneel) Een bijlage toevoegen"
-          back: Back
-          not_geocoded: Not geocoded
-          select_a_category: Please select a category
+          back: Terug
+          not_geocoded: Niet geocoded
+          select_a_category: Selecteer een categorie
           send: sturen
-          title: Edit proposal
+          title: Bewerk voorstel
         edit_draft:
-          discard: Discard this draft
-          discard_confirmation: Are you sure you want to discard this proposal draft?
+          discard: Dit concept negeren
+          discard_confirmation: Weet je zeker dat je dit ontwerp wil verwijderen?
           send: Voorbeeld
-          title: Edit Proposal Draft
+          title: Bewerk ontwerpconcept
         endorsement_identities_cabin:
-          endorse: Endorse
+          endorse: Eindstation
         endorsements_card_row:
           comments: Reacties
         filters:
@@ -655,9 +655,9 @@ nl-BE:
           filter_by: Filteren op
           unfold: Ontvouwen
         index:
-          collaborative_drafts_list: Access collaborative drafts
+          collaborative_drafts_list: Gezamenlijk ontwerp
           new_proposal: Nieuw voorstel
-          see_all_withdrawn: See all withdrawn proposals
+          see_all_withdrawn: Zie alle ingetrokken voorstellen
           view_proposal: Bekijk voorstel
         linked_proposals:
           proposal_votes:
@@ -675,19 +675,19 @@ nl-BE:
           index:
             document_index: Document index
           view_index:
-            see_index: See index
+            see_index: Bekijk index
         placeholder:
           address: "[n°] [street] [postal] [city]"
         preview:
-          address: 'Address: %{address}'
-          modify: Modify the proposal
-          not_geocoded: Your address has not been geocoded, the preview is not available.
+          address: 'Adres: %{address}'
+          modify: Wijzig het voorstel
+          not_geocoded: Uw adres is niet geocoded, de preview is niet beschikbaar.
           proposal_edit_before_minutes:
-            one: You will be able to edit this proposal during the first minute after the proposal is published. Once this time window passes, you will not be able to edit the proposal.
-            other: You will be able to edit this proposal during the first %{count} minutes after the proposal is published. Once this time window passes, you will not be able to edit the proposal.
+            one: U kunt dit voorstel bewerken tijdens de eerste minuut nadat het voorstel is gepubliceerd. Zodra dit tijdvenster voorbij is, kunt u het voorstel niet bewerken.
+            other: U kunt dit voorstel bewerken tijdens de eerste %{count} minuten nadat het voorstel is gepubliceerd. Zodra dit tijdvenster voorbij is, kunt u het voorstel niet bewerken.
           publish: Publiceren
-          title: Publish your proposal
-          update_pos: Update the position
+          title: Publiceer als voorstel
+          update_pos: De positie bijwerken
         proposal:
           creation_date: 'Creation: %{date}'
           view_proposal: Bekijk voorstel
