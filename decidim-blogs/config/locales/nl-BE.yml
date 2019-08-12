@@ -58,22 +58,22 @@ nl-BE:
         name: Blog
         settings:
           global:
-            announcement: Announcement
-            comments_enabled: Comments enabled
+            announcement: Bericht
+            comments_enabled: Reacties ingeschakeld
           step:
-            announcement: Announcement
-            comments_blocked: Comments blocked
+            announcement: Bericht
+            comments_blocked: Reacties geblokkeerd
     events:
       blogs:
         post_created:
           email_intro: The post "%{resource_title}" has been published in "%{participatory_space_title}" that you are following.
-          email_outro: You have received this notification because you are following "%{participatory_space_title}". You can unfollow it from the previous link.
+          email_outro: U ontvangt dit bericht omdat u "%{participatory_space_title}" volgen. Je kunt het unfollow uit de vorige koppeling.
           email_subject: New post published in %{participatory_space_title}
           notification_title: The post <a href="%{resource_path}">%{resource_title}</a> has been published in %{participatory_space_title}
     pages:
       home:
         statistics:
-          posts_count: Posts
+          posts_count: Posten
     participatory_processes:
       statistics:
-        posts_count: Posts
+        posts_count: Posten
