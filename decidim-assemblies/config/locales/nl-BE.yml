@@ -2,29 +2,29 @@ nl-BE:
   activemodel:
     attributes:
       assembly:
-        area_id: Area
-        assembly_type: Assembly type
-        assembly_type_other: Assembly type other
+        area_id: Gebied
+        assembly_type: Buurderij type
+        assembly_type_other: Buurderij type anders
         banner_image: Banner afbeelding
-        closing_date: Closing date
-        closing_date_reason: Closing date reason
-        composition: Composition
+        closing_date: Sluitingsdatum
+        closing_date_reason: Reden sluitingsdatum
+        composition: Compositie
         copy_categories: Kopieercategorieën
-        copy_components: Copy components
+        copy_components: Kopieer componenten
         copy_features: Kopieerfuncties
-        created_by: Created by
-        created_by_other: Created by other
-        creation_date: Date created
-        decidim_area_id: Area
-        decidim_scope_id: Scope
+        created_by: Gemaakt door
+        created_by_other: Gemaakt door andere
+        creation_date: Datum aangemaakt
+        decidim_area_id: Gebied
+        decidim_scope_id: Reikwijdte
         description: Beschrijving
         developer_group: Ontwikkelaarsgroep
         domain: Domein
-        duration: Duration
+        duration: Duur
         facebook: Facebook
         github: GitHub
         hashtag: Hashtag
-        hero_image: Home image
+        hero_image: Afbeelding van de startpagina
         included_at: Included at
         instagram: Instagram
         internal_organisation: Internal organisation
@@ -148,90 +148,90 @@ nl-BE:
           error: There was an error updated a user for this assembly.
           success: User updated successfully for this assembly.
       menu:
-        assemblies: Assemblies
+        assemblies: Gemeentes
         assemblies_submenu:
-          assembly_admins: Assembly users
-          assembly_members: Members
-          attachment_collections: Folders
-          attachment_files: Files
+          assembly_admins: Buurderij gebruikers
+          assembly_members: Leden
+          attachment_collections: Map
+          attachment_files: Bestanden
           attachments: toebehoren
           categories: Categorieën
-          components: Components
+          components: Componenten
           info: info
           moderations: matigingen
-          private_users: Private users
+          private_users: Privé gebruikers
       models:
         assembly:
           fields:
             created_at: Gemaakt bij
-            private: Private
+            private: Privé
             promoted: Opvallende
             published: Gepubliceerd
             title: Titel
           name: bijeenkomst
         assembly_member:
           fields:
-            ceased_date: Ceased date
-            designation_date: Designation date
-            full_name: Name
-            position: Position
-          name: Member
+            ceased_date: Datum van de datum
+            designation_date: Ontwerpdatum
+            full_name: Beheerde gebruiker
+            position: Positie
+          name: Leden
           positions:
-            other: Other
-            president: President
-            secretary: Secretary
-            vice_president: Vice president
+            other: Overig
+            president: De Voorzitter
+            secretary: Minister
+            vice_president: Ondervoorzitter
         assembly_user_role:
           fields:
-            email: Email
-            name: Name
-            role: Role
-          name: Assembly User
+            email: E-mail
+            name: Beheerde gebruiker
+            role: Rol
+          name: Buurderij gebruikers
           roles:
-            admin: Administrator
-            collaborator: Collaborator
-            moderator: Moderator
+            admin: Beheerder
+            collaborator: Medewerker
+            moderator: Moderaties
       titles:
-        assemblies: Assemblies
+        assemblies: Gemeentes
     admin_log:
       assembly:
-        create: "%{user_name} created the %{resource_name} assembly"
-        publish: "%{user_name} published the %{resource_name} assembly"
-        unpublish: "%{user_name} unpublished the %{resource_name} assembly"
-        update: "%{user_name} updated the %{resource_name} assembly"
+        create: "%{user_name} heeft de %{resource_name} -vergadering aangemaakt"
+        publish: "%{user_name} heeft de %{resource_name} -vergadering aangemaakt"
+        unpublish: "%{user_name} heeft de %{resource_name} -vergadering aangemaakt"
+        update: "%{user_name} heeft de %{resource_name} -vergadering aangemaakt"
       assembly_member:
-        create: "%{user_name} created the %{resource_name} member in the %{space_name} assembly"
-        delete: "%{user_name} removed the %{resource_name} member from the %{space_name} assembly"
-        update: "%{user_name} updated the %{resource_name} member in the %{space_name} assembly"
+        create: "%{user_name} heeft het %{resource_name} lid aangemaakt in de %{space_name} -vergadering"
+        delete: "%{user_name} heeft het %{resource_name} lid aangemaakt in de %{space_name} -vergadering"
+        update: "%{user_name} heeft het %{resource_name} lid aangemaakt in de %{space_name} -vergadering"
       assembly_user_role:
-        create: "%{user_name} invited %{resource_name} to the %{space_name} assembly"
-        delete: "%{user_name} removed the user %{resource_name} from the %{space_name} assembly"
-        update: "%{user_name} changed the role of %{resource_name} in the %{space_name} assembly"
+        create: "%{user_name} heeft het %{resource_name} lid aangemaakt in de %{space_name} -vergadering"
+        delete: "%{user_name} heeft het %{resource_name} lid aangemaakt in de %{space_name} -vergadering"
+        update: "%{user_name} heeft het %{resource_name} lid aangemaakt in de %{space_name} -vergadering"
     assemblies:
       admin:
         assemblies:
           form:
-            duration_help: If the duration of this assembly is limited, select the end date. Otherwise, it will appear as indefinite.
-            included_at_help: Select the date when this assembly was added to Decidim. It does not necessarily have to be the same as the creation date.
-            select_a_created_by: Select a created by
-            select_an_area: Select an Area
-            select_an_assembly_type: Select an assembly type
-            select_parent_assembly: Select parent assembly
-            slug_help: 'URL slugs are used to generate the URLs that point to this assembly. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
-            social_handlers: Social
+            duration_help: Als de duur van deze vergadering beperkt is, selecteer de einddatum. Anders zal deze voor onbepaalde tijd verschijnen.
+            included_at_help: Selecteer de datum waarop deze vergadering is toegevoegd aan de Beslissingsdatum. Het hoeft niet noodzakelijkerwijs hetzelfde te zijn als de aanmaakdatum.
+            select_a_created_by: Kies een categorie
+            select_an_area: Selecteer een gebied
+            select_an_assembly_type: Selecteer een assemblage type
+            select_parent_assembly: Selecteer bovenliggende vergadering
+            slug_help: 'URL-slugs worden gebruikt om de URL''s te genereren die naar deze vergadering verwijzen. Accepteer alleen letters, cijfers en streepjes, en moet beginnen met een letter. Voorbeeld: %{url}'
+            social_handlers: Sociaal
         assembly_copies:
           form:
-            slug_help: 'URL slugs are used to generate the URLs that point to this assembly. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
+            slug_help: 'URL-slugs worden gebruikt om de URL''s te genereren die naar deze vergadering verwijzen. Accepteer alleen letters, cijfers en streepjes, en moet beginnen met een letter. Voorbeeld: %{url}'
         assembly_members:
           form:
-            existing_user: Existing user
-            non_user: Non user
-            select_a_position: Select a position
-            select_user: Select an user
-            user_type: User type
+            existing_user: Bestaande gebruiker
+            non_user: Nieuwe gebruiker
+            select_a_position: Selecteer een positie
+            select_user: Selecteer een gebied
+            user_type: Gebruikerstype
           index:
             filter:
-              all: All
+              all: Alle
               ceased: Ceased
               not_ceased: Not ceased
             filter_by: Filter by
