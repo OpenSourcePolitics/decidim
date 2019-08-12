@@ -363,24 +363,24 @@ nl-BE:
             over nieuwe participatieve kansen binnen het platform.<br>
             Als u nog steeds geen nieuwsbrieven wilt ontvangen, begrijpen wij uw beslissing perfect.</p>
             <p>Bedankt voor het lezen!</p>
-          title: Newsletter notifications
+          title: Nieuwsbrief meldingen
         omniauth_buttons:
           or: Of
     doorkeeper:
       authorizations:
         new:
-          authorize: Authorize application
-          by_organization_link_html: <small class="heading-small">by %{link}</small>
+          authorize: Autoriseer applicatie
+          by_organization_link_html: <small class="heading-small">van %{link}</small>
           cancel: Annuleer
-          connect_your_account_html: Connect your account by signing in to <strong>%{organization}</strong>
-          publish_content: Publish content for you
-          see_email: See your email
-          see_name: See your name
-          see_username: See your username
-          this_application_will_be_able_to: 'This application will be able to:'
-          this_application_will_not_be_able_to: 'This application will not be able to:'
-          update_profile: Update your profile
-          wants_to_use_your_account_html: "<strong>%{application_name}</strong> wants to use your account"
+          connect_your_account_html: Verbind je account door in te loggen op <strong>%{organization}</strong>
+          publish_content: Publiceer inhoud voor u
+          see_email: Zie je naam
+          see_name: Zie je naam
+          see_username: Bekijk je gebruikersnaam
+          this_application_will_be_able_to: 'Deze applicatie krijgt toegang tot:'
+          this_application_will_not_be_able_to: 'Deze applicatie krijgt toegang tot:'
+          update_profile: Uw profiel bijwerken
+          wants_to_use_your_account_html: "<strong>%{application_name}</strong> wil uw account gebruiken"
     errors:
       internal_server_error:
         title: Er was een probleem met de server
@@ -393,60 +393,60 @@ nl-BE:
       amendments:
         amendment_accepted:
           affected_user:
-            email_intro: 'An emendation has been accepted for %{amendable_title}. You can see it from this page:'
-            email_outro: You have received this notification because you are an author of %{amendable_title}.
-            email_subject: An amendment accepted for %{amendable_title} from %{emendation_author_nickname}
-            notification_title: The <a href="%{emendation_path}">emendation</a> created by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> has been accepted for <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+            email_intro: 'Er is een update aan "%{amendable_title}". Je ziet het vanaf deze pagina:'
+            email_outro: U heeft deze melding ontvangen omdat u bent genoemd in %{amendable_title}.
+            email_subject: Een amendement geaccepteerd voor %{amendable_title} van %{emendation_author_nickname}
+            notification_title: De <a href="%{emendation_path}">emendatie</a> gemaakt door <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> is geaccepteerd voor <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
           follower:
-            email_intro: 'An emendation has been accepted for %{amendable_title}. You can see it from this page:'
-            email_outro: You have received this notification because you are following %{amendable_title}. You can stop receiving notifications following the previous link.
-            email_subject: An amendment accepted for %{amendable_title} from %{emendation_author_nickname}
-            notification_title: The <a href="%{emendation_path}">emendation</a> created by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> has been accepted for <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+            email_intro: 'Er is een update aan "%{amendable_title}". Je ziet het vanaf deze pagina:'
+            email_outro: Je hebt deze melding ontvangen omdat je "%{amendable_title}" volgt. Je kan de meldingen deactiveren door te klikken op de vorige link.
+            email_subject: Een amendement geaccepteerd voor %{amendable_title} van %{emendation_author_nickname}
+            notification_title: De <a href="%{emendation_path}">emendatie</a> gemaakt door <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> is geaccepteerd voor <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
         amendment_created:
           affected_user:
-            email_intro: 'A new emendation has been created for %{amendable_title}. You can see it from this page:'
-            email_outro: You have received this notification because you are an author of %{amendable_title}.
-            email_subject: A new amendment for %{amendable_title} from %{emendation_author_nickname}
-            notification_title: A <a href="%{emendation_path}">new emendation</a> has been created by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> for <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+            email_intro: 'Er is een update aan "%{amendable_title}". Je ziet het vanaf deze pagina:'
+            email_outro: U heeft deze melding ontvangen omdat u bent genoemd in %{amendable_title}.
+            email_subject: Een amendement geaccepteerd voor %{amendable_title} van %{emendation_author_nickname}
+            notification_title: De <a href="%{emendation_path}">emendatie</a> gemaakt door <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> is geaccepteerd voor <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
           follower:
-            email_intro: 'A new emendation has been created for %{amendable_title}. You can see it from this page:'
-            email_outro: You have received this notification because you are following %{amendable_title}. You can stop receiving notifications following the previous link.
-            email_subject: A new amendment for %{amendable_title} from %{emendation_author_nickname}
-            notification_title: A <a href="%{emendation_path}">new emendation</a> has been created by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> for <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+            email_intro: 'Er is een update aan "%{amendable_title}". Je ziet het vanaf deze pagina:'
+            email_outro: Je hebt deze melding ontvangen omdat je "%{amendable_title}" volgt. Je kan de meldingen deactiveren door te klikken op de vorige link.
+            email_subject: Een amendement geaccepteerd voor %{amendable_title} van %{emendation_author_nickname}
+            notification_title: De <a href="%{emendation_path}">emendatie</a> gemaakt door <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> is geaccepteerd voor <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
         amendment_promoted:
           affected_user:
-            email_intro: 'An emendation rejected for %{amendable_title} has been promoted to an independent %{amendable_type}. You can see it from this page:'
-            email_outro: You have received this notification because you are an author of %{amendable_title}.
-            email_subject: An emendation from %{emendation_author_nickname} has been promoted
-            notification_title: A <a href="%{emendation_path}">rejected emendation</a> for <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type} has been promoted by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
+            email_intro: 'Een verwijsde emendatie voor %{amendable_title} is gepromoveerd naar een onafhankelijke %{amendable_type}. U kunt het zien vanaf deze pagina:'
+            email_outro: U heeft deze melding ontvangen omdat u bent genoemd in %{amendable_title}.
+            email_subject: Een emendatie van %{emendation_author_nickname} is gepromoot
+            notification_title: Een <a href="%{emendation_path}">afgewezen emendatie</a> voor <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type} is gepromoot door <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
           follower:
-            email_intro: 'An emendation rejected for %{amendable_title} has been promoted to an independent %{amendable_type}. You can see it from this page:'
-            email_outro: You have received this notification because you are following %{amendable_title}. You can stop receiving notifications following the previous link.
-            email_subject: An emendation from %{emendation_author_nickname} has been promoted
-            notification_title: A <a href="%{emendation_path}">rejected emendation</a> for <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type} has been promoted by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
+            email_intro: 'Een verwijsde emendatie voor %{amendable_title} is gepromoveerd naar een onafhankelijke %{amendable_type}. U kunt het zien vanaf deze pagina:'
+            email_outro: Je hebt deze melding ontvangen omdat je "%{amendable_title}" volgt. Je kan de meldingen deactiveren door te klikken op de vorige link.
+            email_subject: Een emendatie van %{emendation_author_nickname} is gepromoot
+            notification_title: Een <a href="%{emendation_path}">afgewezen emendatie</a> voor <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type} is gepromoot door <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
         amendment_rejected:
           affected_user:
-            email_intro: 'An emendation has been rejected for %{amendable_title}. You can see it from this page:'
-            email_outro: You have received this notification because you are an author of %{amendable_title}.
-            email_subject: An amendment rejected for %{amendable_title} from %{emendation_author_nickname}
-            notification_title: The <a href="%{emendation_path}">emendation</a> created by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> has been rejected for <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+            email_intro: 'Er is een update aan "%{amendable_title}". Je ziet het vanaf deze pagina:'
+            email_outro: U heeft deze melding ontvangen omdat u bent genoemd in %{amendable_title}.
+            email_subject: Een amendement geaccepteerd voor %{amendable_title} van %{emendation_author_nickname}
+            notification_title: De <a href="%{emendation_path}">emendatie</a> gemaakt door <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> is geaccepteerd voor <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
           follower:
-            email_intro: 'An emendation has been rejected for %{amendable_title}. You can see it from this page:'
-            email_outro: You have received this notification because you are following %{amendable_title}. You can stop receiving notifications following the previous link.
-            email_subject: An amendment rejected for %{amendable_title} from %{emendation_author_nickname}
-            notification_title: The <a href="%{emendation_path}">emendation</a> created by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> has been rejected for <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
+            email_intro: 'Er is een update aan "%{amendable_title}". Je ziet het vanaf deze pagina:'
+            email_outro: Je hebt deze melding ontvangen omdat je "%{amendable_title}" volgt. Je kan de meldingen deactiveren door te klikken op de vorige link.
+            email_subject: Een amendement geaccepteerd voor %{amendable_title} van %{emendation_author_nickname}
+            notification_title: De <a href="%{emendation_path}">emendatie</a> gemaakt door <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> is geaccepteerd voor <a href="%{amendable_path}">%{amendable_title}</a> %{amendable_type}.
       attachments:
         attachment_created:
-          email_intro: 'A new document has been added to %{resource_title}. You can see it from this page:'
-          email_outro: You have received this notification because you are following %{resource_title}. You can stop receiving notifications following the previous link.
+          email_intro: 'Er is een update aan "%{resource_title}". Je ziet het vanaf deze pagina:'
+          email_outro: Je hebt deze melding ontvangen omdat je "%{resource_title}" volgt. Je kan de meldingen deactiveren door te klikken op de vorige link.
           email_subject: Een update aan %{resource_title}
-          notification_title: A <a href="%{resource_path}">new document</a> has been added to <a href="%{attached_to_url}">%{resource_title}</a>
+          notification_title: Een <a href="%{resource_path}">nieuw document</a> is toegevoegd aan <a href="%{attached_to_url}">%{resource_title}</a>
       components:
         component_published:
-          email_intro: 'The %{resource_title} component is now active for %{participatory_space_title}. You can see it from this page:'
-          email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
+          email_intro: 'Het %{resource_title} component is nu actief voor %{participatory_space_title}. U kunt het zien vanaf deze pagina:'
+          email_outro: Je hebt deze melding ontvangen omdat je "%{participatory_space_title}" volgt. Je kan de meldingen deactiveren door te klikken op de vorige link.
           email_subject: Een update aan %{participatory_space_title}
-          notification_title: The %{resource_title} component is now active for <a href="%{resource_path}">%{participatory_space_title}</a>
+          notification_title: Het %{resource_title} component is nu actief voor <a href="%{resource_path}">%{participatory_space_title}</a>
       email_event:
         email_greeting: Hallo %{user_name},
         email_intro: 'Er is een update aan "%{resource_title}". Je ziet het vanaf deze pagina:'
@@ -812,42 +812,42 @@ nl-BE:
         verified: Geverifieerd
     pad_iframe:
       disclaimer: De inhoud van dit pad wordt geschreven door geregistreerde gebruikers en geeft hun mening weer. %{organization} kan niet verantwoordelijk worden gehouden voor de inhoud ervan.
-      explanation: Use this pad to collaboratively take notes during the meeting so it's easier to write down the minute afterwards.
+      explanation: Gebruik dit pad om gezamenlijk notities te nemen tijdens de vergadering, zodat het makkelijker is om de minuut later af te schrijven.
       pad: Pad
     pages:
       home:
         extended:
           debates: Debatten
-          debates_explanation: Debate and discuss, share your views and enrich the relevant topics.
-          how_to_participate: How do I take part in a process?
+          debates_explanation: Debat en bespreek, deel uw mening en verrijkt de relevante onderwerpen.
+          how_to_participate: Hoe neem ik deel aan een proces?
           meetings: Vergaderingen
-          meetings_explanation: Find out where and when you can participate in public meetings.
+          meetings_explanation: Ontdek waar en wanneer u kunt deelnemen aan openbare vergaderingen.
           more_info: Meer informatie
           proposals: Voorstellen
-          proposals_explanation: Make proposals, support existing ones and promote the changes you want to see.
+          proposals_explanation: Maak voorstellen, steun bestaande voorstellen en bevordert de veranderingen die u wilt zien.
         footer_sub_hero:
-          footer_sub_hero_body: Let's build a more open, transparent and collaborative society.<br /> Join, participate and decide.
-          footer_sub_hero_headline: Welcome to %{organization} participatory platform.
+          footer_sub_hero_body: Laten we een meer open, transparante en coöperatieve samenleving bouwen.<br /> Neem deel, neem deel en besluit.
+          footer_sub_hero_headline: Welkom bij %{organization} participatief platform.
           register: Registreer
         hero:
-          participate: Participate
-          welcome: Welcome to %{organization}!
+          participate: Deelnemers
+          welcome: Welkom bij %{organization}!
         metrics:
-          headline: Participation in figures
+          headline: Deelname aan cijfers
         statistics:
-          answers_count: Completed Surveys
+          answers_count: Voltooide Surveys
           assemblies_count: Gemeentes
           comments_count: Reacties
           conferences_count: Conferentie
           debates_count: Debatten
           endorsements_count: Eindverklaringen
-          headline: Current state of %{organization}
+          headline: Huidige status van %{organization}
           meetings_count: Vergaderingen
           orders_count: stemmen
           pages_count: Pagina's
           processes_count: Processen
           projects_count: Projecten
-          proposals_accepted: Accepted Proposals
+          proposals_accepted: Geaccepteerde voorstellen
           proposals_count: Voorstellen
           results_count: Resultaten
           surveys_count: onderzoeken
@@ -858,61 +858,61 @@ nl-BE:
       index:
         read_more: Lees verder
         standalone_pages: Pagina's
-        subheading: Navigate through the help pages of %{name}
+        subheading: Navigeer door de help pagina's van %{name}
         title: Meer informatie
-        topics: Topics
+        topics: Onderwerp
       terms_and_conditions:
         accept:
-          error: There's been an error while accepting the terms and conditions.
-          success: Great! You have accepted the terms and conditions.
+          error: Er is een fout opgetreden tijdens het accepteren van de voorwaarden en voorwaarden.
+          success: Geweldig! U heeft de voorwaarden en voorwaarden geaccepteerd.
         form:
-          agreement: I agree this terms
-          legend: Agree to the terms and conditions of use
+          agreement: Ik ga akkoord met deze voorwaarden
+          legend: De bepalingen en voorwaarden van gebruik
         refuse:
-          modal_body: If you refuse, you won't be able to use the platform, you can <a href="%{data_portability_path}">download your data</a> and/or <a href="%{delete_path}">delete your account</a>.
-          modal_btn_continue: Accept terms and continue
-          modal_btn_exit: I'll review it later
-          modal_button: Refuse the terms
+          modal_body: Als je weigert, kun je het platform niet gebruiken, dan kun je <a href="%{data_portability_path}">je gegevens downloaden</a> en/of <a href="%{delete_path}">je account</a> verwijderen.
+          modal_btn_continue: Accepteer voorwaarden en ga door
+          modal_btn_exit: Ik zal het later bekijken
+          modal_button: Verfijn de voorwaarden
           modal_close: Dicht modaal
-          modal_title: Do you really refuse the updated Terms and Conditions?
+          modal_title: Weiger je echt de bijgewerkte voorwaarden?
         required_review:
-          alert: We've updated our Terms of Service, please review them.
-          body: Please take a moment to review updates to our Terms of Services. Otherwise you won't be able to use the platform.
-          title: 'Required: Review updates to our terms of service'
+          alert: We hebben onze gebruiksvoorwaarden bijgewerkt, bekijk ze alstublieft.
+          body: Neem een moment om updates te bekijken naar onze Algemene Voorwaarden. Anders kunt u het platform niet gebruiken.
+          title: 'Vereist: Controleer updates naar onze service voorwaarden'
     participatory_space_private_users:
-      not_allowed: You are not allowed to view this content
+      not_allowed: U bent niet bevoegd om dit te doen
     profile:
       deleted: Verwijderde gebruiker
       view: Uitzicht
     profiles:
-      default_officialization_text: Justification
-      default_officialization_text_for_user_groups: This user group is publicly verified, its name has been verified to correspond with its real name
-      default_officialization_text_for_users: This participant is publicly verified, his/her name or role has been verified to correspond with his/her real name and role
+      default_officialization_text: Justificatie
+      default_officialization_text_for_user_groups: Deze gebruikersgroep is openbaar geverifieerd, de naam is geverifieerd om te voldoen aan de werkelijke naam
+      default_officialization_text_for_users: Deze deelnemer is publiekelijk geverifieerd, zijn/haar naam of rol is geverifieerd om te voldoen aan zijn/haar echte naam en rol
       show:
         activity: Activiteit
-        badges: Badges
-        followers: Followers
-        following: Follows
+        badges: Symbool
+        followers: Volgers
+        following: Ga als volgt te
         groups: Organisaties
         members: Leden
-        timeline: Timeline
-        view_full_profile: View full profile
+        timeline: Tijdslijn
+        view_full_profile: Bezoek profiel
       sidebar:
         badges:
-          info: Badges are earned by performing specific activity in the platform.
-          title: Badges
+          info: Badges worden verdiend door specifieke activiteit uit te voeren in het platform.
+          title: Symbool
       user:
-        confirmation_instructions_sent: Email confirmation instructions sent
-        create_user_group: Create group
-        edit_profile: Edit profile
-        edit_user_group: Edit group profile
-        fill_in_email_to_confirm_it: Please, fill in your group's email to confirm it
+        confirmation_instructions_sent: E-mail bevestigings instructies verzonden
+        create_user_group: Groep bijwerken
+        edit_profile: Profielen bewerken
+        edit_user_group: Bewerk groepsprofiel
+        fill_in_email_to_confirm_it: Vul alstublieft de e-mail van uw groep in om het te bevestigen
         invite_user: Gebruiker uitnodigen
-        join_user_group: Request to join group
-        leave_user_group: Leave group
-        manage_user_group_admins: Manage admins
-        manage_user_group_users: Manage members
-        resend_email_confirmation_instructions: Resend email confirmation instructions
+        join_user_group: Verzoek om deelname groep
+        leave_user_group: Groep bijwerken
+        manage_user_group_admins: Beheren van admins
+        manage_user_group_users: Beheer leden
+        resend_email_confirmation_instructions: Bevestigingsbewijzen aanvragen
     reported_mailer:
       hide:
         hello: Hallo %{name},
@@ -929,7 +929,7 @@ nl-BE:
         error: Er is een fout opgetreden tijdens het maken van het rapport. Probeer het alstublieft opnieuw.
         success: Het rapport is gemaakt en het zal worden beoordeeld door een beheerder.
     scopes:
-      global: Global scope
+      global: Globale scope
       picker:
         cancel: Annuleer
         choose: Selecteer
