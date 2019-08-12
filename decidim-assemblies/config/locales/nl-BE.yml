@@ -57,87 +57,87 @@ nl-BE:
         designation_mode: Ontwerpdatum
         full_name: Volledige naam
         gender: Geslacht
-        position: Position
+        position: Positie
       assembly_user_role:
-        email: Email
-        name: Name
-        role: Role
+        email: E-mail
+        name: Naam
+        role: Rol
   activerecord:
     models:
       decidim/assembly:
-        one: Assembly
-        other: Assemblies
+        one: Gemeentes
+        other: Gemeentes
       decidim/assembly_member:
-        one: Assembly member
-        other: Assembly members
+        one: Buurderij gebruikers
+        other: Bijwerken
       decidim/assembly_user_role:
-        one: Assembly user role
-        other: Assembly user roles
+        one: Bijwerken
+        other: Bijwerken
   decidim:
     admin:
       actions:
         assembly:
-          new: New assembly
+          new: Nieuwe montage
       assemblies:
         create:
-          error: There was an error creating a new assembly.
-          success: Assembly created successfully.
+          error: Er is een fout opgetreden bij het maken van een nieuwe assemblage.
+          success: Assemblage is succesvol gecreëerd.
         destroy:
-          success: Assembly destroyed successfully.
+          success: Assemblage is succesvol gecreëerd.
         edit:
-          update: Update
+          update: Bijwerken
         form:
-          title: General Information
+          title: Algemene informatie
         index:
-          not_published: Not published
-          private: Private
-          public: Public
-          published: Published
+          not_published: Niet gepubliceerd
+          private: Privé
+          public: Publiek
+          published: Gepubliceerd
         new:
-          create: Create
-          title: New assembly
+          create: Creëren
+          title: Nieuwe montage
         update:
-          error: There was an error when updating this assembly.
-          success: Assembly updated successfully.
+          error: Er is een fout opgetreden bij het bijwerken van deze assemblage.
+          success: Assemblage is succesvol bijgewerkt.
       assemblies_copies:
         create:
-          error: There was an error when duplicating this assembly.
-          success: Assembly duplicated successfully.
+          error: Er was een fout bij het dupliceren van deze assemblage.
+          success: Assemblage is succesvol gedupliceerd.
       assembly_copies:
         new:
-          copy: Copy
-          select: Select which data you would like to duplicate
-          title: Duplicate assembly
+          copy: Kopiëren
+          select: Selecteer welke gegevens u wilt dupliceren
+          title: Dupliceerde montage
       assembly_members:
         create:
-          error: There was an error adding a member for this assembly.
-          success: Member created successfully for this assembly.
+          error: Er is een fout opgetreden die een gebruiker bijgewerkt heeft voor dit deelnemende proces.
+          success: Gebruiker is succesvol bijgewerkt voor dit deelnemende proces.
         destroy:
-          success: Member destroyed successfully for this assembly.
+          success: Gebruiker is succesvol bijgewerkt voor dit deelnemende proces.
         edit:
-          title: Update assembly member.
-          update: Update
+          title: Update assemblee gebruiker.
+          update: Bijwerken
         index:
-          assembly_members_title: Assembly members
+          assembly_members_title: Bijwerken
         new:
-          create: Create
-          title: New assembly member.
+          create: Creëren
+          title: Nieuwe montage.
         update:
-          error: There was an error updating the member for this assembly.
-          success: Member updated successfully for this assembly.
+          error: Er is een fout opgetreden die een gebruiker bijgewerkt heeft voor dit deelnemende proces.
+          success: Gebruiker is succesvol bijgewerkt voor dit deelnemende proces.
       assembly_publications:
         create:
-          error: There was an error publishing this assembly.
-          success: Assembly published successfully.
+          error: Er is een fout opgetreden bij het publiceren van deze assemblage.
+          success: Assemblage is succesvol gepubliceerd.
         destroy:
-          error: There was an error unpublishing this assembly.
-          success: Assembly unpublished successfully.
+          error: Er is een fout opgetreden bij het publiceren van deze assemblage.
+          success: Assemblage ongepubliceerd succesvol.
       assembly_user_roles:
         create:
-          error: There was an error adding a user for this assembly.
-          success: User created successfully for this assembly.
+          error: Er is een fout opgetreden die een gebruiker bijgewerkt heeft voor dit deelnemende proces.
+          success: Gebruiker is succesvol bijgewerkt voor dit deelnemende proces.
         destroy:
-          success: User destroyed successfully for this assembly.
+          success: Gebruiker is succesvol bijgewerkt voor dit deelnemende proces.
         edit:
           title: Update assemblee gebruiker.
           update: Bijwerken
