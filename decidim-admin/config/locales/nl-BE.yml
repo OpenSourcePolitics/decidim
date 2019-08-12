@@ -483,78 +483,78 @@ nl-BE:
           confirm_deliver: Weet u zeker dat u deze nieuwsbrief wilt bezorgen? Deze actie kan niet ongedaan gemaakt worden.
           deliver: Stuur nieuwsbrief
           preview: Voorbeeld
-          subject: Subject
+          subject: Onderwerpen
         update:
-          error: There's been an error updating this newsletter.
-          success: Newsletter updated successfully. Please review it before sending.
+          error: Er is een fout opgetreden bij het bijwerken van deze nieuwsbrief.
+          success: Nieuwsbrief is succesvol bijgewerkt. Controleer het voordat u verzendt.
       oauth_application:
-        new: New Oauth application
+        new: Nieuwe Oauth applicatie
       oauth_applications:
         create:
-          error: There's been an error creating this application.
-          success: Application created successfully.
+          error: Er is een fout opgetreden bij het maken van deze nieuwsbrief.
+          success: Organisatie is succesvol gemaakt.
         destroy:
-          error: There's been an error destroying this application.
-          success: Application destroyed successfully.
+          error: Er is een fout opgetreden bij het maken van deze categorie.
+          success: Organisatie is succesvol gemaakt.
         edit:
-          save: Save
-          title: Edit application
+          save: Opslaan
+          title: Bewerk applicatie
         index:
-          confirm_delete: Are you sure you want to delete this application?
-          title: OAuth applications
+          confirm_delete: Weet u zeker dat u dit project wilt verwijderen?
+          title: Bewerk applicatie
         new:
-          save: Save
-          title: New application
+          save: Opslaan
+          title: Bewerk applicatie
         update:
-          error: There's been an error updating this application.
-          success: Application updated successfully.
+          error: Er is een fout opgetreden bij het maken van deze nieuwsbrief.
+          success: Organisatie is succesvol gemaakt.
       officializations:
         create:
-          success: User officialized successfully
+          success: Gebruiker heeft succesvol uitgenodigd
         destroy:
-          success: User unofficialized successfully
+          success: Gebruiker heeft succesvol uitgenodigd
         index:
-          actions: Actions
-          badge: Badge
-          created_at: Created At
+          actions: Acties
+          badge: Symbool
+          created_at: Aangemaakt Op
           filter:
-            all: All
-            not_officialized: Not officialized
-            officialized: Officialized
-          filter_by: Filter by
-          name: Name
-          nickname: Nickname
-          not_officialized: Not officialized
-          officialize: Officialize
-          officialized: Officialized
-          reofficialize: Reofficialize
-          search: Search
+            all: Alle
+            not_officialized: Niet officized
+            officialized: Officieel
+          filter_by: Filteren op
+          name: Naam
+          nickname: Gebruikesnaam
+          not_officialized: Niet officized
+          officialize: Officieel
+          officialized: Officieel
+          reofficialize: Herzettelijk
+          search: Zoeken
           status: Status
-          unofficialize: Unofficialize
+          unofficialize: Onvofficialiseren
         new:
-          badge: Officialization badge
-          officialize: Officialize
-          title: Officialize user "%{name}"
+          badge: Officialisaties
+          officialize: Officieel
+          title: Officieer gebruiker "%{name}"
       organization:
         edit:
-          title: Edit organization
-          update: Update
+          title: Organisatie bewerken
+          update: Bijwerken
         form:
           facebook: Facebook
           github: GitHub
           instagram: Instagram
-          social_handlers: Social
+          social_handlers: Sociaal
           twitter: Twitter
           url: Url
-          youtube: YouTube
+          youtube: Youtube
         update:
-          error: There was an error when updating this organization.
-          success: Organization updated successfully.
+          error: Er is een fout opgetreden bij het bijwerken van deze organisatie.
+          success: Organisatie is succesvol bijgewerkt.
       organization_appearance:
         edit:
-          update: Update
+          update: Bijwerken
         form:
-          cta_button_path_help: 'You can overwrite where the Call To Action button in the homepage links to. Use partial paths, not full URLs here. Accepts letters, numbers, dashes and slashes, and must start with a letter. The Call To Action button is shown in the homepage between the welcome text and the description. Example: %{url}'
+          cta_button_path_help: 'U kunt de verwijzing van de knop "Call to Action" overschrijven. Gebruik hier gedeeltelijke paden, niet volledige URL''s. Aanvaardt letters, cijfers, streepjes en streepjes en moet beginnen met een brief. De knop "Call to Action" wordt weergegeven op de homepage tussen de welkomsttekst en de omschrijving. Voorbeeld: %{url}'
           cta_button_text_help: U kunt de tekst voor "Call To Action" overschrijven op de homepage voor elke beschikbare taal in uw organisatie. Indien niet ingesteld, wordt de standaardwaarde gebruikt. De knop Call to Action wordt weergegeven op de homepage tussen de welkomsttekst en de omschrijving.
           header_snippets_help: Gebruik dit veld om dingen toe te voegen aan de HTML-kop. Het meest voorkomende gebruik is het integreren van diensten van derden die extra JavaScript of CSS nodig hebben. U kunt het ook gebruiken om extra metatags toe te voegen aan de HTML. Houd er rekening mee dat dit alleen op openbare pagina's wordt weergegeven, niet in de beheerdersafdeling.
           homepage_appearance_title: Bewerk de startpagina-weergave
