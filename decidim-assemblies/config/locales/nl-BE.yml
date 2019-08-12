@@ -304,20 +304,20 @@ nl-BE:
         purpose_of_action: Purpose of action
         read_less: Read less
         read_more: Read more
-        related_participatory_processes: Related participatory processes
+        related_participatory_processes: Update deelnemende proces gebruiker
         scope: Reikwijdte
-        social_networks: Social Networks
+        social_networks: Social media
         target: Doel
       statistics:
         answers_count: antwoorden
-        assemblies_count: Assemblies
-        comments_count: Comments
-        debates_count: Debates
-        endorsements_count: Endorsements
+        assemblies_count: Gemeentes
+        comments_count: Reacties
+        debates_count: Debatten
+        endorsements_count: Eindverklaringen
         headline: Activiteit
         meetings_count: Vergaderingen
         orders_count: bestellingen
-        pages_count: Pages
+        pages_count: Pagina's
         projects_count: Projecten
         proposals_count: Voorstellen
         results_count: Resultaten
@@ -326,36 +326,36 @@ nl-BE:
         votes_count: stemmen
     assembly_members:
       assembly_member:
-        designated_on: Designated on
+        designated_on: Ontworpen op
       index:
-        title: Members
+        title: Leden
     help:
       participatory_spaces:
         assemblies:
-          contextual: "<p>An assembly is a group of members of an organization who meet periodically to make decisions about a specific area or scope of the organization.</p> <p>Assemblies hold meetings, some are private and some are open. If they are open, it is possible to participate in them (for example: attending if the capacity allows it, adding points to the agenda, or commenting on the proposals and decisions taken by this organ).</p> <p>Examples: A general assembly (which meets once a year to define the organisation's main lines of action as well as its executive bodies by vote), an equality advisory council (which meets every two months to make proposals on how to improve gender relations in the organisation), an evaluation commission (which meets every month to monitor a process) or a guarantee body (which collects incidents, abuses or proposals to improve decision-making procedures) are all examples of assemblies.</p>\n"
-          page: "<p>An assembly is a group of members of an organization who meet periodically to make decisions about a specific area or scope of the organization.</p> <p>Assemblies hold meetings, some are private and some are open. If they are open, it is possible to participate in them (for example: attending if the capacity allows it, adding points to the agenda, or commenting on the proposals and decisions taken by this organ).</p> <p>Examples: A general assembly (which meets once a year to define the organisation's main lines of action as well as its executive bodies by vote), an equality advisory council (which meets every two months to make proposals on how to improve gender relations in the organisation), an evaluation commission (which meets every month to monitor a process) or a guarantee body (which collects incidents, abuses or proposals to improve decision-making procedures) are all examples of assemblies.</p>\n"
-          title: What are assemblies?
+          contextual: "<p>Een vergadering is een groep leden van een organisatie die regelmatig bijeenkomen om besluiten te nemen over een specifiek gebied of bereik van de organisatie.</p> <p>Buurderijen houden vergaderingen, sommige zijn privé en sommige zijn open. Als ze open zijn, kan het mogelijk zijn om eraan deel te nemen (bijvoorbeeld: aanwezig zijn als de capaciteit dit toelaat, punten aan de agenda toevoegen, of commentaar leveren op de voorstellen en besluiten die door dit orgaan worden genomen).</p> <p>Voorbeelden: een algemene vergadering (die één keer per jaar bijeenkomt om de belangrijkste actielijnen van de organisatie en haar uitvoerende organen te definiëren door middel van stemming), een adviesraad voor gelijkheid (die elke twee maanden bijeenkomt om voorstellen te doen over hoe de genderbetrekkingen in de organisatie kunnen worden verbeterd), een evaluatiecommissie (die elke maand bijeenkomt om een proces te volgen) of een garantieorgaan (dat incidenten, misbruik of voorstellen verzamelt om de besluitvormingsprocedures te verbeteren) zijn allemaal voorbeelden van vergaderingen.</p>\n"
+          page: "<p>Een vergadering is een groep leden van een organisatie die regelmatig bijeenkomen om besluiten te nemen over een specifiek gebied of bereik van de organisatie.</p> <p>Buurderijen houden vergaderingen, sommige zijn privé en sommige zijn open. Als ze open zijn, kan het mogelijk zijn om eraan deel te nemen (bijvoorbeeld: aanwezig zijn als de capaciteit dit toelaat, punten aan de agenda toevoegen, of commentaar leveren op de voorstellen en besluiten die door dit orgaan worden genomen).</p> <p>Voorbeelden: een algemene vergadering (die één keer per jaar bijeenkomt om de belangrijkste actielijnen van de organisatie en haar uitvoerende organen te definiëren door middel van stemming), een adviesraad voor gelijkheid (die elke twee maanden bijeenkomt om voorstellen te doen over hoe de genderbetrekkingen in de organisatie kunnen worden verbeterd), een evaluatiecommissie (die elke maand bijeenkomt om een proces te volgen) of een garantieorgaan (dat incidenten, misbruik of voorstellen verzamelt om de besluitvormingsprocedures te verbeteren) zijn allemaal voorbeelden van vergaderingen.</p>\n"
+          title: Wat zijn assemblages?
     log:
       value_types:
         assembly_presenter:
-          not_found: 'The assembly was not found on the database (ID: %{id})'
+          not_found: 'De Buurderij is niet gevonden op de database (ID: %{id})'
     menu:
-      assemblies: Assemblies
+      assemblies: Gemeentes
     metrics:
       assemblies:
-        description: Number of assemblies created
-        object: assemblies
-        title: Assemblies
+        description: Aantal aangemaakte vergaderingen
+        object: gemeentes
+        title: Gemeentes
   errors:
     messages:
-      cannot_be_blank: can not be blank
+      cannot_be_blank: mag niet leeg zijn
   layouts:
     decidim:
       assemblies:
         assembly:
           take_part: Deelnemen
         index:
-          organizational_chart: Organizational chart
+          organizational_chart: Organisatorische driver
           promoted_assemblies: Uitgelichte samenstellingen
           reset_chart: Reset
         order_by_assemblies:
@@ -366,8 +366,8 @@ nl-BE:
           more_info: Meer informatie
           take_part: Deelnemen
       assembly_navigation:
-        assembly_member_menu_item: Members
-        assembly_menu_item: The assembly
+        assembly_member_menu_item: Leden
+        assembly_menu_item: Nieuwe montage
       assembly_widgets:
         show:
           take_part: Deelnemen
