@@ -20,7 +20,7 @@ nl-BE:
         id_document: DNI/NIE
         name: Naam en achternaam
         phone_number: Telefoonnummer
-        post_code: '-'
+        post_code: Postcode
         province: Provincie
       initiatives_committee_member:
         user: Comité leden
