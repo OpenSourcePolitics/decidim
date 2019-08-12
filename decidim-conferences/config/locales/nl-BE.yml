@@ -382,7 +382,7 @@ nl-BE:
           details_1: 'You are registered to the conference with %{registration_type} type. It has a cost of %{price} and you can attend to the following events:'
           details_2: In de bijlage vindt u de details van de vergadering.
         pending_validation:
-          confirmation_pending: '-'
+          confirmation_pending: U ontvangt de bevestiging binnenkort
           details: 'U heeft zich geregistreerd op %{registration_type} type met een kosten van %{price} en u kunt aanwezig zijn bij de volgende gebeurtenissen:'
           pending_html: Uw registratie voor de <a href="%{url}">%{title}</a> van de vergadering heeft bevestigd.
       conference_registrations:
