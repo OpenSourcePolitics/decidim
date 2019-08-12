@@ -43,14 +43,14 @@ nl-BE:
     surveys:
       admin:
         exports:
-          survey_user_answers: Survey user answers
+          survey_user_answers: Survey gebruikers antwoorden
         surveys:
           update:
-            invalid: There's been errors when saving the survey.
-            success: Survey saved successfully.
+            invalid: Er zijn fouten geweest bij het opslaan van de enquête.
+            success: Survey is succesvol opgeslagen.
       last_activity:
         new_survey_at_html: "<span>New survey at %{link}</span>"
       surveys:
         answer:
-          invalid: There's been errors when answering the survey.
-          success: Survey answered successfully.
+          invalid: Er zijn fouten geweest bij het beantwoorden van de enquête.
+          success: Survey beantwoord met succes.
