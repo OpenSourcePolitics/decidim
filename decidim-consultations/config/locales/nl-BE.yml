@@ -2,11 +2,11 @@ nl-BE:
   activemodel:
     attributes:
       consultation:
-        banner_image: Banner image
-        decidim_highlighted_scope_id: Highlighted scope
-        description: Description
-        end_voting_date: End date
-        introductory_image: Introductory image
+        banner_image: Banner afbeelding
+        decidim_highlighted_scope_id: Gemarkeerde scope
+        description: Beschrijving
+        end_voting_date: Einddatum
+        introductory_image: Introductieve afbeelding
         introductory_video_url: Introductieve video URL
         questions: Vragen
         slug: URL slak
@@ -259,11 +259,11 @@ nl-BE:
       admin:
         question:
           attachments: Toebehoren
-          categories: Categories
+          categories: Categorieën
       consultation_voting_data:
-        start_voting_date: Voting from
+        start_voting_date: Stemmingen van
       question_components:
-        question_menu_item: The question
-        unfold: Unfold
+        question_menu_item: Creëren
+        unfold: Ontvouwen
       question_header:
-        back_to_consultation: See all consultations
+        back_to_consultation: Alle raadplegingen bekijken
