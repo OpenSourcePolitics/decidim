@@ -89,92 +89,92 @@ nl-BE:
           create: Creëren
           title: Nieuwe raadpleging
         update:
-          error: There was an error when updating this consultation.
-          success: Consultation updated successfully.
+          error: Er is een fout opgetreden bij het bijwerken van deze organisatie.
+          success: Consultatie met succes gepubliceerd.
       menu:
-        consultations: Consultations
+        consultations: Raadpleging
         consultations_submenu:
-          info: Information
-          questions: Questions
+          info: Informatie
+          questions: Vragen
         questions_submenu:
-          components: Components
-          consultation: Consultation
-          info: Information
-          responses: Responses
+          components: Componenten
+          consultation: Raadpleging
+          info: Informatie
+          responses: Reactie
       models:
         consultation:
           fields:
-            created_at: Created at
-            published: Published
-            title: Title
+            created_at: Gemaakt bij
+            published: Gepubliceerd
+            title: Titel
         question:
           fields:
-            created_at: Created at
-            published: Published
-            title: Title
+            created_at: Gemaakt bij
+            published: Gepubliceerd
+            title: Titel
           name:
-            one: Question
-            other: Questions
+            one: Vraag
+            other: Vragen
         response:
           fields:
-            created_at: Created at
-            title: Title
+            created_at: Gemaakt bij
+            title: Titel
           name:
-            one: Response
-            other: Responses
+            one: Reactie
+            other: Reactie
       question_publications:
         create:
-          error: There was an error publishing this question.
-          success: Question published successfully.
+          error: Er is een fout opgetreden bij het publiceren van deze assemblage.
+          success: Er is een fout opgetreden bij het publiceren van deze assemblage.
         destroy:
-          error: There was an error unpublishing this question.
-          success: Question unpublished successfully.
+          error: Er is een fout opgetreden bij het publiceren van deze assemblage.
+          success: Er is een fout opgetreden bij het publiceren van deze assemblage.
       questions:
         create:
-          error: There was an error creating a new question.
-          success: Question successfully created.
+          error: Er is een fout opgetreden bij het maken van een nieuw bereik type.
+          success: Vergadering met succes gemaakt.
         destroy:
-          success: Question successfully destroyed.
+          success: Resultaat met succes gemaakt.
         edit:
-          update: Update
+          update: Bijwerken
         form:
-          title: General information
+          title: Algemene informatie
         index:
-          not_published: Not published
-          published: Published
+          not_published: Niet gepubliceerd
+          published: Niet gepubliceerd
         new:
-          create: Create
-          title: New question
+          create: Gepubliceerd
+          title: Creëren
         update:
-          error: There was an error when updating this question.
-          success: Question updated successfully.
+          error: Er is een fout opgetreden bij het bijwerken van deze organisatie.
+          success: Organisatie is succesvol gemaakt.
       responses:
         create:
-          error: There was an error creating a new response.
-          success: Response successfully created.
+          error: Er is een fout opgetreden bij het maken van een nieuwe reikwijdte.
+          success: Resultaat met succes gemaakt.
         destroy:
-          error: There was an error when removing the response.
-          success: Response successfully destroyed.
+          error: Er is een fout opgetreden bij het maken van een nieuwe reikwijdte.
+          success: Resultaat met succes gemaakt.
         edit:
-          update: Update
+          update: Bijwerken
         form:
-          title: General information
+          title: Algemene informatie
         new:
-          create: Create
-          title: New response
+          create: Creëren
+          title: Nieuwe reactie
         update:
-          error: There was an error when updating this response.
-          success: Response updated successfully.
+          error: Er is een fout opgetreden bij het bijwerken van dit bereik.
+          success: Organisatie is succesvol gemaakt.
       titles:
-        consultations: Consultations
-        questions: Questions
-        responses: Responses
+        consultations: Raadpleging
+        questions: Vragen
+        responses: Reactie
     consultations:
       consultation:
-        start_voting_date: Voting from
-        view_results: View results
+        start_voting_date: Stemmingen van
+        view_results: Resultaten tonen
       consultation_card:
-        view_results: View results
+        view_results: Resultaten tonen
       consultations:
         orders:
           label: 'Sorteer raadplegingen op:'
