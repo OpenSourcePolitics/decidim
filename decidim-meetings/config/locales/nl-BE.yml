@@ -97,57 +97,57 @@ nl-BE:
             notification_title: De vergadering van <a href="%{resource_path}">%{resource_title}</a> is gesloten.
           email_intro: 'La rencions "%{resource_title}" est terminée. Vous pouvez en lire le compte rendu sur sa pagina:'
           email_outro: Vous avez reçu cette melding, auto vous suivez la rencontre "%{resource_title}". Vous pouvez arrêter de la suivre à partir du lien précédent.
-          email_subject: La rencontre "%{resource_title}" est terminée
+          email_subject: La rencions "%{resource_title}" est terminée
           follower:
-            email_intro: 'The "%{resource_title}" meeting was closed. You can read the conclusions from its page:'
-            email_outro: You have received this notification because you are following the "%{resource_title}" meeting. You can unfollow it from the previous link.
-            email_subject: The "%{resource_title}" meeting was closed
-            notification_title: The <a href="%{resource_path}">%{resource_title}</a> meeting was closed.
-          notification_title: La rencontre <a href="%{resource_path}">%{resource_title}</a> est terminée.
+            email_intro: 'De "%{resource_title}" vergadering is gesloten. U kunt de conclusies van de pagina lezen:'
+            email_outro: U ontvangt dit bericht omdat u "%{resource_title}" volgen. Je kunt het unfollow uit de vorige koppeling.
+            email_subject: De "%{resource_title}" vergadering is gesloten
+            notification_title: De vergadering van <a href="%{resource_path}">%{resource_title}</a> is gesloten.
+          notification_title: La rencisi <a href="%{resource_path}">%{resource_title}</a> est terminée.
         meeting_created:
-          email_intro: The meeting "%{resource_title}" has been added to "%{participatory_space_title}" that you are following.
+          email_intro: Het bericht "%{resource_title}" is gepubliceerd in "%{participatory_space_title}" dat u volgt.
           email_outro: U ontvangt dit bericht omdat u "%{participatory_space_title}" volgen. Je kunt het unfollow uit de vorige koppeling.
-          email_subject: New meeting added to %{participatory_space_title}
-          notification_title: The meeting <a href="%{resource_path}">%{resource_title}</a> has been added to %{participatory_space_title}
+          email_subject: Nieuwe post op %{participatory_space_title}
+          notification_title: Het bericht <a href="%{resource_path}">%{resource_title}</a> is gepubliceerd in %{participatory_space_title}
         meeting_registration_confirmed:
-          notification_title: Your registration for the meeting <a href="%{resource_url}">%{resource_title}</a> has been confirmed. Your registration code is %{registration_code}.
+          notification_title: Uw registratie voor de vergadering <a href="%{resource_url}">%{resource_title}</a> is bevestigd. Uw registratiecode is %{registration_code}.
         meeting_registrations_over_percentage:
-          email_intro: The "%{resource_title}" meeting occupied slots are over %{percentage}%.
-          email_outro: You have received this notification because you are an admin of the meeting's participatory space.
-          email_subject: The "%{resource_title}" meeting occupied slots are over %{percentage}%
-          notification_title: The <a href="%{resource_path}">%{resource_title}</a> meeting occupied slots are over %{percentage}%.
+          email_intro: De "%{resource_title}" vergadering bezette slots zijn meer dan %{percentage}%.
+          email_outro: U heeft deze melding ontvangen omdat u een beheerder bent van de participatieve ruimte van de vergadering.
+          email_subject: De "%{resource_title}" vergadering bezette slots zijn meer dan %{percentage}%
+          notification_title: De <a href="%{resource_path}">%{resource_title}</a> vergadering bezette slots zijn meer dan %{percentage}%.
         meeting_updated:
-          email_intro: 'The "%{resource_title}" meeting was updated. You can read the new version from its page:'
-          email_outro: You have received this notification because you are following the "%{resource_title}" meeting. You can unfollow it from the previous link.
-          email_subject: The "%{resource_title}" meeting was updated
-          notification_title: The <a href="%{resource_path}">%{resource_title}</a> meeting was updated.
+          email_intro: 'De "%{resource_title}" vergadering is gesloten. U kunt de conclusies van de pagina lezen:'
+          email_outro: U ontvangt dit bericht omdat u "%{resource_title}" volgen. Je kunt het unfollow uit de vorige koppeling.
+          email_subject: De "%{resource_title}" vergadering is gesloten
+          notification_title: De vergadering van <a href="%{resource_path}">%{resource_title}</a> is gesloten.
         registration_code_validated:
-          email_intro: Your registration code "%{registration_code}" for the "%{resource_title}" meeting has been validated.
-          email_outro: You have received this notification because your registration code for the "%{resource_title}" meeting has been validated.
-          email_subject: Your registration code "%{registration_code}" for the "%{resource_title}" meeting has been validated
-          notification_title: Your registration code "%{registration_code}" for the <a href="%{resource_path}">%{resource_title}</a> meeting has been validated.
+          email_intro: Uw registratiecode "%{registration_code}" voor de "%{resource_title}" vergadering is gevalideerd.
+          email_outro: U heeft deze melding ontvangen omdat uw registratiecode voor de "%{resource_title}" vergadering is gevalideerd.
+          email_subject: Uw registratiecode "%{registration_code}" voor de "%{resource_title}" vergadering is gevalideerd
+          notification_title: Uw registratiecode "%{registration_code}" voor de <a href="%{resource_path}">%{resource_title}</a> vergadering is gevalideerd.
         registrations_enabled:
-          email_intro: 'The "%{resource_title}" meeting has enabled registrations. You can register yourself on its page:'
-          email_outro: You have received this notification because you are following the "%{resource_title}" meeting. You can unfollow it from the previous link.
-          email_subject: The "%{resource_title}" meeting has enabled registrations.
-          notification_title: The <a href="%{resource_path}">%{resource_title}</a> meeting has enabled registrations.
+          email_intro: 'De "%{resource_title}" conferentie heeft registraties ingeschakeld. U kunt zich registreren op de pagina:'
+          email_outro: U ontvangt dit bericht omdat u "%{resource_title}" volgen. Je kunt het unfollow uit de vorige koppeling.
+          email_subject: De "%{resource_title}" conferentie heeft registraties ingeschakeld.
+          notification_title: De <a href="%{resource_path}">%{resource_title}</a> -conferentie heeft registraties ingeschakeld.
         upcoming_meeting:
-          email_intro: The "%{resource_title}" meeting will start in less than 48h.
-          email_outro: You have received this notification because you are following the "%{resource_title}" meeting. You can unfollow it from the previous link.
-          email_subject: The "%{resource_title}" meeting will start in less than 48h.
-          notification_title: The <a href="%{resource_path}">%{resource_title}</a> meeting will start in less than 48h.
+          email_intro: De "%{resource_title}" vergadering zal beginnen in minder dan 48h.
+          email_outro: U ontvangt dit bericht omdat u "%{resource_title}" volgen. Je kunt het unfollow uit de vorige koppeling.
+          email_subject: De "%{resource_title}" vergadering zal beginnen in minder dan 48h.
+          notification_title: De <a href="%{resource_path}">%{resource_title}</a> -conferentie heeft registraties ingeschakeld.
     gamification:
       badges:
         attended_meetings:
           conditions:
-            - Register in the meetings you want to attend
-          description: This badge is granted when you attend several face-to-face meetings.
-          description_another: This user has attended %{score} meetings.
-          description_own: You have attended %{score} meetings.
-          name: Attended meetings
-          next_level_in: Attend %{score} more meetings to reach the next level!
-          unearned_another: This user hasn't attended any meeting yet.
-          unearned_own: You haven't attended any meeting yet.
+            - Registreer in de vergaderingen die u wilt bijwonen
+          description: Deze badge wordt toegekend wanneer u meerdere vergaderingen bijwoont.
+          description_another: Deze gebruiker heeft deelgenomen aan %{score} debatten.
+          description_own: Deze gebruiker heeft deelgenomen aan %{score} debatten.
+          name: Bijgewerkte vergaderingen
+          next_level_in: Neem deel aan %{score} meer debatten om het volgende niveau te bereiken!
+          unearned_another: Deze gebruiker heeft deelgenomen aan debatten.
+          unearned_own: Deze gebruiker heeft deelgenomen aan debatten.
     meetings:
       actions:
         agenda: Agenda
@@ -157,7 +157,7 @@ nl-BE:
         confirm_destroy: Weet u zeker dat u deze vergadering wilt verwijderen?
         destroy: Verwijderen
         edit: Bewerk
-        minutes: Minutes
+        minutes: Minuten
         new: nieuwe
         preview: Voorbeeld
         registrations: registraties
@@ -165,7 +165,7 @@ nl-BE:
       admin:
         agenda:
           agenda_item:
-            add_agenda_item_child: Add agenda item child
+            add_agenda_item_child: Voeg agenda item kind toe
             agenda_item: Agenda Item
             agenda_item_children: Agenda Item Childs
             down: Down
