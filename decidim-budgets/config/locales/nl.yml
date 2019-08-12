@@ -2,130 +2,131 @@ nl:
   activemodel:
     attributes:
       project:
-        budget: Begroting
-        decidim_category_id: Categorie
-        decidim_scope_id: Reikwijdte
-        description: Beschrijving
-        proposal_ids: Verwante voorstellen
-        title: Titel
+        budget: Budget
+        decidim_category_id: Category
+        decidim_scope_id: Scope
+        description: Description
+        proposal_ids: Related proposals
+        title: Title
   decidim:
     budgets:
       actions:
-        attachment_collections: collecties
-        attachments: Bijlagen
-        confirm_destroy: Weet u zeker dat u dit project wilt verwijderen?
-        destroy: Verwijderen
-        edit: Bewerk
-        new: nieuwe
-        preview: Voorbeeld
-        title: Acties
+        attachment_collections: Collections
+        attachments: Attachments
+        confirm_destroy: Are you sure you want to delete this project?
+        destroy: Delete
+        edit: Edit
+        new: New
+        preview: Preview
+        title: Actions
       admin:
         models:
           project:
             name: Project
         projects:
           create:
-            invalid: Er is een probleem opgetreden met het creëren van dit project
-            success: Voorstel succesvol aangemaakt
+            invalid: There's been a problem creating this project
+            success: Project successfully created
           destroy:
-            success: Project succesvol vernietigd
+            success: Project successfully destroyed
           edit:
-            title: Bewerk project
-            update: Bijwerken
+            title: Edit project
+            update: Update
           index:
-            finished_orders: Voltooide stemmen
-            pending_orders: Afwachtende stemmen
-            title: Projecten
+            finished_orders: Finished votes
+            pending_orders: Pending votes
+            title: Projects
           new:
-            create: Creëren
-            title: Nieuw resultaat
+            create: Create
+            title: New result
           update:
-            invalid: Er is een probleem opgetreden bij het bijwerken van dit project
-            success: Project succesvol bijgewerkt
+            invalid: There's been a problem updating this project
+            success: Project successfully updated
       models:
         project:
           fields:
-            title: Titel
+            title: Title
       projects:
         budget_confirm:
-          are_you_sure: Bent u het eens? Zodra u uw stem hebt bevestigd, kunt u deze niet meer wijzigen.
-          cancel: Annuleer
-          confirm: Bevestigen
-          description: Dit zijn de projecten die u hebt gekozen om deel uit te maken van de begroting.
-          title: Bevestig de stem
+          are_you_sure: Do you agree? Once you have confirmed your vote, you can not change it.
+          cancel: Cancel
+          confirm: Confirm
+          description: These are the projects you have chosen to be part of the budget.
+          title: Confirm vote
         budget_excess:
-          close: Sluit
-          description: Dit project overschrijdt het maximale budget en kan niet worden toegevoegd. Als u wilt, kunt u een project verwijderen dat u al hebt geselecteerd om toe te voegen of uw stem te maken met uw voorkeuren.
+          close: Close
+          description: This project exceeds the maximum budget and can not be added. If you want, you can delete a project you have already selected to add, or make your vote with your preferences.
           ok: OK
-          title: Maximum budget overschreden
+          title: Maximum budget exceeded
         budget_summary:
-          are_you_sure: Weet u zeker dat u uw stem wilt annuleren?
-          assigned: 'Toegewezen:'
-          cancel_order: Verwijder uw stem en begin opnieuw
+          are_you_sure: Are you sure you want to cancel your vote?
+          assigned: 'Assigned:'
+          cancel_order: delete your vote and start over
           checked_out:
-            description: Je hebt al voor de begroting gestemd. Als u van mening bent, kunt u %{cancel_link}.
-            title: Begrotingsstemming voltooid
-          description: Voor welke projecten vindt u dat we een budget moeten vrijmaken? Geef ten minste %{minimum_budget} toe aan de projecten die u wilt en stem met uw voorkeuren om het budget te definiëren.
-          title: U bepaalt het budget
+            description: You've already voted for the budget. If you've changed your mind, you can %{cancel_link}.
+            title: Budget vote completed
+          description: What projects do you think we should allocate budget for? Assign at least %{minimum_budget} to the projects you want and vote with your preferences to define the budget.
+          title: You decide the budget
         count:
           projects_count:
             one: 1 project
-            other: "%{count} projecten"
+            other: "%{count} projects"
         filters:
-          category: Categorie
-          category_prompt: Kies een categorie
-          search: Zoeken
+          category: Category
+          category_prompt: Select a category
+          search: Search
         filters_small_view:
-          close_modal: Dialoogvenster sluiten
+          close_modal: Close modal
           filter: Filter
-          filter_by: Filteren op
-          unfold: Uitvouwen
+          filter_by: Filter by
+          unfold: Unfold
         order_progress:
-          vote: Stem
+          vote: Vote
         order_selected_projects:
-          remove: Verwijderen
+          remove: Remove
           selected_projects:
-            one: Geselecteerd project
-            other: Geselecteerde projecten
-          view: Bekijken
+            one: project selected
+            other: projects selected
+          view: View
         project:
-          add: Toevoegen
+          add: Add
           count:
-            one: 1 ondersteuning
-            other: "%{count} ondersteuning"
-          remove: Verwijderen
+            one: 1 support
+            other: "%{count} supports"
+          remove: Remove
         project_budget_button:
-          add: Toevoegen
-          added: Toegevoegd
+          add: Add
+          added: Added
         show:
-          budget: Begroting
-          view_all_projects: Bekijk alle projecten
+          budget: Budget
+          view_all_projects: View all projects
     features:
       budgets:
         actions:
-          vote: Stem
-        name: Budgetten
+          vote: Vote
+        name: Budgets
         settings:
           global:
-            announcement: Aankondiging
-            comments_enabled: Reacties ingeschakeld
-            total_budget: Totale begroting
-            vote_threshold_percent: Percentage van het budget dat bereikt moet worden om te kunnen stemmen
+            announcement: Announcement
+            comments_enabled: Comments enabled
+            total_budget: Total budget
+            vote_threshold_percent: Vote threshold percent
+            comments_upstream_moderation_enabled: Upstream moderation for comments enabled
           step:
-            announcement: Aankondiging
-            comments_blocked: Reacties geblokkeerd
-            show_votes: Toon stemmen
-            votes_enabled: Stemmen ingeschakeld
+            announcement: Announcement
+            comments_blocked: Comments blocked
+            show_votes: Show votes
+            votes_enabled: Votes enabled
     orders:
       checkout:
-        error: Er is een fout opgetreden tijdens het verwerken van uw stem
-        success: Uw stem is succesvol geaccepteerd
+        error: An error ocurred while processing your vote
+        success: Your vote has been accepted successfully
       destroy:
-        error: Er is een fout opgetreden tijdens het annuleren van uw stem
-        success: Uw stem is succesvol geannuleerd
+        error: An error ocurred while canceling your vote
+        success: Your vote has been canceled successfully
     resource_links:
       included_proposals:
-        project_proposals: 'Voorstellen opgenomen in dit project:'
+        project_proposals: 'Proposals included in this project:'
   index:
-    confirmed_orders_count: Aantal stemmen
-  total_budget: Totale begroting
+    confirmed_orders_count: Votes count
+  total_budget: Total budget
