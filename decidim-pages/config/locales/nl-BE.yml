@@ -3,7 +3,7 @@ nl-BE:
     models:
       decidim/pages/page:
         one: Page
-        other: Pages
+        other: Pagina's
   decidim:
     admin_log:
       page:
@@ -13,9 +13,9 @@ nl-BE:
         name: Page
         settings:
           global:
-            announcement: Announcement
+            announcement: Bericht
           step:
-            announcement: Announcement
+            announcement: Bericht
     pages:
       admin:
         models:
