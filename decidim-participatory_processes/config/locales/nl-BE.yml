@@ -59,7 +59,7 @@ nl-BE:
         one: Deelnemende procesgroepen
         other: Deelnemende procesgroepen
       decidim/participatory_process_step:
-        one: Step
+        one: Stappen
         other: Stappen
   decidim:
     admin:
