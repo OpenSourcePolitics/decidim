@@ -3,14 +3,14 @@ nl-BE:
     attributes:
       consultation:
         banner_image: Banner afbeelding
-        decidim_highlighted_scope_id: Highlighted scope
+        decidim_highlighted_scope_id: Gemarkeerde scope
         description: Beschrijving
-        end_voting_date: Voting ends
-        introductory_image: Introductory image
-        introductory_video_url: Introductory video URL
+        end_voting_date: Stemmen eindigt
+        introductory_image: Introductieve afbeelding
+        introductory_video_url: Introductieve video URL
         questions: Vragen
         slug: URL slak
-        start_voting_date: Voting begins
+        start_voting_date: Stemmen begint
         subtitle: Subtitel
         title: Titel
       question:
@@ -93,12 +93,12 @@ nl-BE:
       menu:
         consultations: Raadpleging
         consultations_submenu:
-          info: Information
+          info: Informatie
           questions: Vragen
         questions_submenu:
           components: Componenten
           consultation: Raadpleging
-          info: Information
+          info: Informatie
           responses: Reactie
       models:
         consultation:
@@ -126,7 +126,7 @@ nl-BE:
             other: Reactie
       question_publications:
         create:
-          error: There was an error publishing this question.
+          error: Er is een fout opgetreden bij het publiceren van deze assemblage.
           success: Question published successfully.
         destroy:
           error: There was an error unpublishing this question.
