@@ -44,9 +44,9 @@ nl-BE:
             fields:
               address: Adres
           index:
-            finished_orders: Finished votes
-            pending_orders: Pending votes
-            title: Projects
+            finished_orders: Afgewerkte bestellingen
+            pending_orders: Openstaande bestellingen
+            title: Projecten
           new:
             create: Creëren
             title: Nieuw resultaat
