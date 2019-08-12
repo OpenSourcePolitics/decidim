@@ -122,31 +122,31 @@ nl-BE:
       models:
         result:
           fields:
-            end_date: End date
-            progress: Progress
-            start_date: Start date
+            end_date: Einddatum
+            progress: Vooruitgang
+            start_date: Begindatum
             status: Status
-            title: Title
+            title: Titel
         status:
           fields:
-            description: Description
+            description: Beschrijving
             key: Key
-            name: Name
-            progress: Progress
+            name: Naam
+            progress: Vooruitgang
         timeline_entry:
           fields:
-            description: Description
-            entry_date: Date
+            description: Beschrijving
+            entry_date: Datum
       results:
         count:
           results_count:
             one: 1 result
             other: "%{count} results"
         filters:
-          all: All
-          scopes: Scopes
+          all: Alle
+          scopes: Scope
         home:
-          categories_label: Categories
+          categories_label: Categorieën
           subcategories_label: Subcategories
         home_header:
           global_status: Global execution status
@@ -158,13 +158,13 @@ nl-BE:
           stats:
             attendees: Attendees
             back_to_result: Go back to result
-            comments: Comments
+            comments: Reacties
             contributions: Contributions
             last_edited_by: Last edited by
             last_updated_at: Last updated at
-            meetings: Meetings
-            number_of_versions: Versions
-            proposals: Proposals
+            meetings: Vergaderingen
+            number_of_versions: Versies
+            proposals: Voorstellen
             show_all_versions: Show all versions
             version_author: Version author
             version_created_at: Version created at
