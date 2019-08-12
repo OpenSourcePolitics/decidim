@@ -2,53 +2,53 @@ nl-BE:
   activemodel:
     attributes:
       assembly:
-        area_id: Area
-        assembly_type: Assembly type
-        assembly_type_other: Assembly type other
-        banner_image: Banner image
-        closing_date: Closing date
-        closing_date_reason: Closing date reason
-        composition: Composition
-        copy_categories: Copy categories
-        copy_components: Copy components
-        copy_features: Copy features
-        created_by: Created by
-        created_by_other: Created by other
-        creation_date: Date created
-        decidim_area_id: Area
-        decidim_scope_id: Scope
-        description: Description
-        developer_group: Developer group
-        domain: Domain
-        duration: Duration
+        area_id: Gebied
+        assembly_type: Buurderij type
+        assembly_type_other: Buurderij type anders
+        banner_image: Banner afbeelding
+        closing_date: Sluitingsdatum
+        closing_date_reason: Reden sluitingsdatum
+        composition: Compositie
+        copy_categories: Kopieercategorieën
+        copy_components: Kopieer componenten
+        copy_features: Kopieerfuncties
+        created_by: Gemaakt door
+        created_by_other: Gemaakt door andere
+        creation_date: Datum aangemaakt
+        decidim_area_id: Gebied
+        decidim_scope_id: Reikwijdte
+        description: Beschrijving
+        developer_group: Ontwikkelaarsgroep
+        domain: Domein
+        duration: Duur
         facebook: Facebook
         github: GitHub
         hashtag: Hashtag
-        hero_image: Home image
-        included_at: Included at
+        hero_image: Afbeelding van de startpagina
+        included_at: '-'
         instagram: Instagram
-        internal_organisation: Internal organisation
-        is_transparent: Is transparent
-        local_area: Local area
-        meta_scope: Scope metadata
-        participatory_processes_ids: Related Participatory processes
-        participatory_scope: Participatory scope
-        participatory_structure: Participatory structure
-        private_space: Private space
-        promoted: Promoted
-        published_at: Published at
-        purpose_of_action: Purpose of action
-        scope_id: Scope
-        scopes_enabled: Scopes enabled
-        short_description: Short description
-        show_statistics: Show statistics
-        slug: URL slug
-        special_features: Special features
-        subtitle: Subtitle
-        target: Target
-        title: Title
+        internal_organisation: Interne organisatie
+        is_transparent: Is transparant
+        local_area: Lokale buurt
+        meta_scope: Omvang metadata
+        participatory_processes_ids: Update deelnemende proces gebruiker
+        participatory_scope: Participatieve scope
+        participatory_structure: Participatieve structuur
+        private_space: Privé ruimte
+        promoted: Gepromoveerd
+        published_at: Gepubliceerd op
+        purpose_of_action: Doelstelling
+        scope_id: Reikwijdte
+        scopes_enabled: Scopes ingeschakeld
+        short_description: Korte beschrijving
+        show_statistics: Toon statistieken
+        slug: URL slak
+        special_features: Speciale functies
+        subtitle: Subtitel
+        target: Doelstelling
+        title: Titel
         twitter: Twitter
-        youtube: YouTube
+        youtube: Youtube
       assembly_member:
         birthday: Birthday
         birthplace: Birthplace
@@ -139,26 +139,26 @@ nl-BE:
         destroy:
           success: User destroyed successfully for this assembly.
         edit:
-          title: Update assembly user.
-          update: Update
+          title: Update assemblee gebruiker.
+          update: Bijwerken
         index:
-          assembly_admins_title: Assembly users
+          assembly_admins_title: Bijwerken
         new:
-          create: Create
-          title: New assembly user.
+          create: Buurderij gebruikers
+          title: Nieuwe montage.
         update:
-          error: There was an error updated a user for this assembly.
-          success: User updated successfully for this assembly.
+          error: Er is een fout opgetreden die een gebruiker bijgewerkt heeft voor dit deelnemende proces.
+          success: Gebruiker is succesvol bijgewerkt voor dit deelnemende proces.
       menu:
-        assemblies: Assemblies
+        assemblies: Gemeentes
         assemblies_submenu:
-          assembly_admins: Assembly users
-          assembly_members: Members
-          attachment_collections: Collections
-          attachment_files: Files
-          attachments: Attachments
-          categories: Categories
-          components: Components
+          assembly_admins: Gemeentes
+          assembly_members: Leden
+          attachment_collections: Collectie
+          attachment_files: Bestanden
+          attachments: Toebehoren
+          categories: Categorieën
+          components: Componenten
           info: Info
           moderations: Moderations
           private_users: Private Users
