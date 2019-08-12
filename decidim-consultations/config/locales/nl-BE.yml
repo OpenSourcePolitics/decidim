@@ -76,18 +76,18 @@ nl-BE:
           error: Er is een fout opgetreden bij het maken van een nieuw bereik type.
           success: Resultaat met succes gemaakt.
         destroy:
-          success: Consultation successfully destroyed.
+          success: Resultaat met succes gemaakt.
         edit:
-          update: Update
+          update: Bijwerken
         form:
-          slug_help: 'URL slugs are used to generate the URLs that point to this consultation. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
-          title: General information
+          slug_help: 'URL-slugs worden gebruikt om de URL''s te genereren die naar deze vergadering verwijzen. Accepteer alleen letters, cijfers en streepjes, en moet beginnen met een letter. Voorbeeld: %{url}'
+          title: Algemene informatie
         index:
-          not_published: Not published
-          published: Published
+          not_published: Niet gepubliceerd
+          published: Gepubliceerd
         new:
-          create: Create
-          title: New consultation
+          create: Creëren
+          title: Nieuwe raadpleging
         update:
           error: There was an error when updating this consultation.
           success: Consultation updated successfully.
@@ -177,88 +177,88 @@ nl-BE:
         view_results: View results
       consultations:
         orders:
-          label: 'Sort consultations by:'
-          random: Random
-          recent: Most recent
+          label: 'Sorteer raadplegingen op:'
+          random: Willekeurig
+          recent: Meest recent
       count:
         title:
-          one: "%{count} consultation"
-          other: "%{count} consultations"
+          one: "%{count} raadpleging"
+          other: "%{count} raadplegingen"
       filters:
-        active: Active
-        all: All
-        finished: Finished
-        search: Search
-        state: State
-        upcoming: Upcoming
+        active: Actief
+        all: Alle
+        finished: Afgerond
+        search: Zoeken
+        state: Staat
+        upcoming: Aankomend
       filters_small_view:
-        close_modal: Close window
+        close_modal: Sluit dit scherm
         filter: Filter
-        filter_by: Filter by
-        unfold: Unfold
+        filter_by: Filteren op
+        unfold: Ontvouwen
       highlighted_questions:
-        title: Questions from %{scope_name}
+        title: Vragen van %{scope_name}
       index:
-        title: Consultations
+        title: Raadpleging
       question:
-        take_part: Take part
-        view_results: View results
+        take_part: Deelnemen
+        view_results: Resultaten tonen
         votes_out_of:
-          one: vote out of
-          other: votes out of
+          one: stem uit
+          other: stemmen uit
       question_votes:
         create:
-          error: There have been errors when voting the question
+          error: Er zijn fouten geweest bij het stemmen van de reactie
       regular_questions:
-        title: Questions for this consultation
+        title: Vragen voor deze raadpleging
       show:
         badge_name:
-          finished: Finished
+          finished: Afgerond
           open: Open
-          open_votes: Open votes
-          published_results: Results published
+          open_votes: Open stemmen
+          published_results: Resultaten gepubliceerd
         footer_button_text:
-          debate: Debate
-          view: View
-          view_results: View results
-          vote: Vote
-        unspecified: Not specified
+          debate: Debatten
+          view: Uitzicht
+          view_results: Resultaten tonen
+          vote: Stemmen
+        unspecified: Niet Gespecificeerd
     menu:
-      consultations: Consultations
+      consultations: Raadpleging
     pages:
       home:
         statistics:
-          consultations_count: Consultations
+          consultations_count: Raadpleging
     questions:
       results:
-        title: Results
+        title: Resultaten
       show:
-        read_more: Read more
+        read_more: Lees verder
       statistics:
-        assistants_count_title: Assistants
-        comments_count_title: Comments
-        meetings_count_title: Meetings
-        supports_count_title: Adhesions
+        assistants_count_title: Assistenten
+        comments_count_title: Reacties
+        meetings_count_title: Vergaderingen
+        supports_count_title: Advertenties
       technical_info:
-        technical_data: Technical data
+        technical_data: Technische hulp
       vote_button:
-        already_voted: Already voted
-        already_voted_hover: Revoke support
-        starting_from: Starting from %{date}
-        vote: Vote
+        already_voted: Al gestemd
+        already_voted_hover: Ondersteuning intrekken
+        starting_from: Begint vanaf %{date}
+        vote: Stemmen
       vote_modal:
-        contextual_help: Please, select an option.
-        title: 'Consultation: question support'
+        contextual_help: Kies een optie.
+        title: 'Raadpleging: vraagondersteuning'
       vote_modal_confirm:
-        change: Change
-        confirm: Confirm
-        contextual_help: Please confirm the selected option.
-        title: 'Consultation: confirm support'
+        change: Wijzig
+        confirm: Bevestigen
+        contextual_help: Bevestig de geselecteerde optie.
+        title: 'Raadpleging: bevestig ondersteuning'
   layouts:
     decidim:
       admin:
         question:
-          attachments: Attachments
+          attachments: Toebehoren
           categories: Categories
       consultation_voting_data:
         start_voting_date: Voting from
