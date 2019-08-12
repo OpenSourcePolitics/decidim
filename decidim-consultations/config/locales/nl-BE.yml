@@ -7,74 +7,74 @@ nl-BE:
         description: Description
         end_voting_date: End date
         introductory_image: Introductory image
-        introductory_video_url: Introductory video URL
-        questions: Questions
-        slug: URL slug
-        start_voting_date: Start date
-        subtitle: Subtitle
-        title: Title
+        introductory_video_url: Introductieve video URL
+        questions: Vragen
+        slug: URL slak
+        start_voting_date: Begindatum
+        subtitle: Subtitel
+        title: Titel
       question:
-        banner_image: Banner image
-        decidim_scope_id: Municipal area
+        banner_image: Banner afbeelding
+        decidim_scope_id: München gebied
         hashtag: Hashtag
-        hero_image: Home image
-        i_frame_url: External voting system URL
-        origin_scope: Scope
-        origin_title: Origin
-        origin_url: Origin URL
-        participatory_scope: Participatory scope
-        promoter_group: Promoter group
+        hero_image: Afbeelding van de startpagina
+        i_frame_url: Externe stemsysteem URL
+        origin_scope: Reikwijdte
+        origin_title: Oorsprong
+        origin_url: Originele URL
+        participatory_scope: Participatieve scope
+        promoter_group: Ontwikkelaarsgroep
         question_context: Context
-        reference: Reference
-        scope: Municipal area
-        slug: URL slug
-        subtitle: Subtitle
-        title: Title
-        vote: External voting system
-        what_is_decided: What is decided
+        reference: Referentie
+        scope: München gebied
+        slug: URL slak
+        subtitle: Subtitel
+        title: Titel
+        vote: Externe stemsysteem Url
+        what_is_decided: Participatief toepassingsgebied
     errors:
       vote:
         decidim_consultations_response_id:
-          not_found: Response not found.
+          not_found: Antwoord niet gevonden.
   activerecord:
     models:
       decidim/consultations:
-        one: Consultation
-        other: Consultations
+        one: Raadpleging
+        other: Raadpleging
       decidim/consultations/question:
-        one: Question
-        other: Questions
+        one: Vraag
+        other: Vragen
       decidim/consultations/response:
-        one: Response
-        other: Responses
+        one: Reactie
+        other: Reactie
       decidim/consultations/vote:
-        one: Vote
-        other: Votes
+        one: Stemmen
+        other: Stemmen
   decidim:
     admin:
       actions:
         consultation:
-          new: New consultation
-        publish_results: Publish results
-        unpublish_results: Unpublish results
+          new: Nieuwe raadpleging
+        publish_results: Publiceer resultaten
+        unpublish_results: Publiceer resultaten
       consultation_publications:
         create:
-          error: There was an error publishing this consultation.
-          success: Consultation published successfully.
+          error: Er is een fout opgetreden bij het publiceren van deze assemblage.
+          success: Consultatie met succes gepubliceerd.
         destroy:
-          error: There was an error unpublishing this consultation.
-          success: Consultation unpublished successfully.
+          error: Er is een fout opgetreden bij het publiceren van deze assemblage.
+          success: Consultatie met succes gepubliceerd.
       consultation_results_publications:
         create:
-          error: There was an error publishing the results for this consultation.
-          success: Consultation results published successfully.
+          error: Er is een fout opgetreden bij het publiceren van deze assemblage.
+          success: Consultatie met succes gepubliceerd.
         destroy:
-          error: There was an error unpublishing the results for this consultation.
-          success: Consultation results unpublished successfully.
+          error: Er is een fout opgetreden bij het publiceren van deze assemblage.
+          success: Consultatie met succes gepubliceerd.
       consultations:
         create:
-          error: There was an error creating a new consultation.
-          success: Consultation successfully created.
+          error: Er is een fout opgetreden bij het maken van een nieuw bereik type.
+          success: Resultaat met succes gemaakt.
         destroy:
           success: Consultation successfully destroyed.
         edit:
