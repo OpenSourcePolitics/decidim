@@ -2,45 +2,45 @@ nl-BE:
   activemodel:
     attributes:
       debate:
-        category_id: Category
-        decidim_category_id: Category
-        description: Description
+        category_id: Categorie
+        decidim_category_id: Categorie
+        description: Beschrijving
         end_time: Ends at
         information_updates: Information updates
         instructions: Instructions to participate
         start_time: Starts at
-        title: Title
+        title: Titel
         user_group_id: Create debate as
     models:
-      decidim/debates/create_debate_event: Debate
+      decidim/debates/create_debate_event: Debatten
       decidim/debates/creation_disabled_event: Debates disabled
       decidim/debates/creation_enabled_event: Debates enabled
   activerecord:
     models:
       decidim/debates/debate:
-        one: Debate
-        other: Debates
+        one: Debatten
+        other: Debatten
   decidim:
     components:
       debates:
         actions:
-          create: Create
-        name: Debates
+          create: Creëren
+        name: Debatten
         settings:
           global:
-            announcement: Announcement
-            comments_enabled: Comments enabled
+            announcement: Bericht
+            comments_enabled: Reacties ingeschakeld
           step:
-            announcement: Announcement
-            comments_blocked: Comments blocked
+            announcement: Bericht
+            comments_blocked: Reacties geblokkeerd
             creation_enabled: Debate creation by users enabled
     debates:
       actions:
         confirm_destroy: Are you sure?
-        destroy: Delete
-        edit: Edit
-        new: New %{name}
-        title: Actions
+        destroy: Vernietigen
+        edit: Bewerk
+        new: Nieuw %{name}
+        title: Acties
       admin:
         debates:
           create:
@@ -52,7 +52,7 @@ nl-BE:
             title: Edit debate
             update: Update debate
           index:
-            title: Debates
+            title: Debatten
           new:
             create: Create debate
             title: New debate
@@ -60,11 +60,11 @@ nl-BE:
             invalid: There has been a problem while updating this debate.
             success: Debate updated successfully.
         exports:
-          comments: comments
-          debates: debates
+          comments: reacties
+          debates: debatten
         models:
           debate:
-            name: Debate
+            name: Debatten
       admin_log:
         debate:
           create: "%{user_name} created the %{resource_name} debate on the %{space_name} space"
@@ -80,38 +80,38 @@ nl-BE:
         debate:
           participate: Participate
         filters:
-          all: All
-          category: Category
-          category_prompt: Select a category
+          all: Alle
+          category: Categorie
+          category_prompt: Kies een categorie
           citizens: Citizens
           official: Official
-          origin: Origin
-          search: Search
+          origin: Oorsprong
+          search: Zoeken
         filters_small_view:
-          close_modal: Close modal
+          close_modal: Dicht modaal
           filter: Filter
-          filter_by: Filter by
-          unfold: Unfold
+          filter_by: Filteren op
+          unfold: Ontvouwen
         index:
           new_debate: New debate
         new:
           back: Back
-          create: Create
+          create: Creëren
           select_a_category: Please select a category
           title: New debate
         share:
-          close_window: Close window
-          share: Share
-          share_link: Share link
+          close_window: Sluit dit scherm
+          share: Deel
+          share_link: Link delen
       last_activity:
         new_debate_at_html: "<span>New debate at %{link}</span>"
       models:
         debate:
           fields:
-            end_time: End date
+            end_time: Einddatum
             official_debate: Official debate
-            start_time: Start date
-            title: Title
+            start_time: Begindatum
+            title: Titel
     events:
       debates:
         create_debate_event:
@@ -147,12 +147,12 @@ nl-BE:
           description: This badge is granted when you actively participate in the different debates by leaving your comments.
           description_another: This user has participated in %{score} debates.
           description_own: You have participated in %{score} debates.
-          name: Debates
+          name: Debatten
           next_level_in: Participate in %{score} more debates to reach the next level!
           unearned_another: This user hasn't participated in any debate yet.
           unearned_own: You haven't participated in any debates yet.
     metrics:
       debates:
         description: Number of debates created
-        object: debates
-        title: Debates
+        object: debatten
+        title: Debatten
