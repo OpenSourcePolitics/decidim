@@ -2,7 +2,7 @@ nl-BE:
   activerecord:
     models:
       decidim/pages/page:
-        one: Page
+        one: Pagina's
         other: Pagina's
   decidim:
     admin_log:
