@@ -12,7 +12,7 @@ nl-BE:
         description: Beschrijving
         hashtag: Hashtag
         hero_image: Afbeelding van de startpagina
-        participatory_processes_ids: Related Participatory processes
+        participatory_processes_ids: Update deelnemende proces gebruiker
         promoted: gepromoveerd
         published_at: Gepubliceerd op
         scope_id: Reikwijdte
@@ -33,51 +33,51 @@ nl-BE:
         conference_registration_invite:
           attributes:
             email:
-              already_invited: This email has already been invited
+              already_invited: Deze e-mail is al uitgenodigd
   activerecord:
     models:
       decidim/conference:
         one: Conferentie
         other: Conferentie
       decidim/conference_speaker:
-        one: Conference speaker
-        other: Conference speakers
+        one: Nieuwe conferentie gebruiker
+        other: Nieuwe conferentie gebruiker
       decidim/conference_user_role:
-        one: Conference user role
-        other: Conference user roles
+        one: Nieuwe conferentie gebruiker
+        other: Nieuwe conferentie gebruiker
   decidim:
     admin:
       actions:
         confirm: Bevestigen
-        new_conference: New Conference
-        send_diplomas: Send certificates of attendance
+        new_conference: Conferentie
+        send_diplomas: Certificaat van aanwezigheid
       conference_copies:
         new:
           copy: Kopiëren
           select: Selecteer welke gegevens u wilt dupliceren
-          title: Duplicate conference
+          title: Conferentie dupliceren
       conference_publications:
         create:
-          error: There was an error publishing this conference.
-          success: Conference published successfully.
+          error: Er is een fout opgetreden bij het publiceren van deze assemblage.
+          success: Bijlage is succesvol gemaakt.
         destroy:
-          error: There was an error unpublishing this conference.
-          success: Conference unpublished successfully.
+          error: Er is een fout opgetreden bij het bijwerken van dit bereik.
+          success: Bijlage is succesvol gemaakt.
       conference_registration:
         confirm:
-          error: There was an error when confirm this conference registration.
-          success: Conference registration confirmed successfully.
+          error: Er is een fout opgetreden bij het bevestigen van deze conferentie-registratie.
+          success: Conferentie registratie is succesvol bevestigd.
       conference_speakers:
         create:
-          error: There was an error adding a speaker for this conference.
-          success: Speaker created successfully for this conference.
+          error: Er is een fout opgetreden die een gebruiker bijgewerkt heeft voor dit deelnemende proces.
+          success: Gebruiker is succesvol bijgewerkt voor dit deelnemende proces.
         destroy:
-          success: Speaker deleted successfully for this conference.
+          success: Gebruiker is succesvol bijgewerkt voor dit deelnemende proces.
         edit:
-          title: Update conference speaker.
+          title: Update de spreker van de conferentie.
           update: Bijwerken
         index:
-          conference_speakers_title: Conference speakers
+          conference_speakers_title: Nieuwe conferentie gebruiker
         new:
           create: Creëren
           title: New conference speaker.
@@ -380,42 +380,42 @@ nl-BE:
         confirmation:
           confirmed_html: Your registration for the conference <a href="%{url}">%{title}</a> has been confirmed.
           details_1: 'You are registered to the conference with %{registration_type} type. It has a cost of %{price} and you can attend to the following events:'
-          details_2: You will find the conference's details in the attachment.
+          details_2: In de bijlage vindt u de details van de vergadering.
         pending_validation:
-          confirmation_pending: You will receive the confirmation shortly
-          details: 'You have registered to %{registration_type} type with a cost of %{price} and you can attend to the following events:'
-          pending_html: Your registration for the conference <a href="%{url}">%{title}</a> is pending to be confirmed.
+          confirmation_pending: '-'
+          details: 'U heeft zich geregistreerd op %{registration_type} type met een kosten van %{price} en u kunt aanwezig zijn bij de volgende gebeurtenissen:'
+          pending_html: Uw registratie voor de <a href="%{url}">%{title}</a> van de vergadering heeft bevestigd.
       conference_registrations:
         create:
-          invalid: There's been a problem joining this conference.
-          success: You have joined the conference successfully.
+          invalid: Er is een probleem bij deze ontmoeting geweest.
+          success: U heeft de vergadering succesvol aangesloten.
         decline_invitation:
-          invalid: There's been a problem declining the invitation.
-          success: You have declined the invitation successfully.
+          invalid: Er is een probleem bij deze ontmoeting geweest.
+          success: U heeft de vergadering succesvol aangesloten.
         destroy:
-          invalid: There's been a problem leaving this conference.
-          success: You have left the conference successfully.
+          invalid: Er is een probleem bij deze ontmoeting geweest.
+          success: U heeft de vergadering succesvol verlaten.
       conference_speaker:
-        go_to_twitter: Go to Twitter
+        go_to_twitter: Ga naar Twitter
         more_info: meer informatie
-        personal_website: Personal website
+        personal_website: Persoonlijke website
         show:
           more_info: meer informatie
       conference_speaker_cell:
         personal_url:
-          personal_website: Personal website
+          personal_website: Persoonlijke website
         twitter_handle:
-          go_to_twitter: Go to Twitter
+          go_to_twitter: Ga naar Twitter
       conference_speakers:
         index:
           speakers: Luidsprekers
       conferences:
         partners:
           collaborators: Partners
-          main_promotors: Organizers
+          main_promotors: Organisator
         show:
           login_as: U bent ingelogd als %{name} <%{email}>
-          make_conference_registration: 'Make your registration in the conference:'
+          make_conference_registration: 'Maak uw registratie op de conferentie:'
           register: Registreer
       content_blocks:
         highlighted_conferences:
@@ -506,37 +506,37 @@ nl-BE:
     events:
       conferences:
         conference_registration_confirmed:
-          notification_title: Your registration for the conference <a href="%{resource_url}">%{resource_title}</a> has been confirmed.
+          notification_title: Uw registratie voor de <a href="%{resource_url}">%{resource_title}</a> van de vergadering heeft bevestigd.
         conference_registration_validation_pending:
-          notification_title: Your registration for the conference <a href="%{resource_url}">%{resource_title}</a> is pending to be confirmed.
+          notification_title: Uw registratie voor de <a href="%{resource_url}">%{resource_title}</a> van de vergadering heeft bevestigd.
         conference_registrations_over_percentage:
-          email_intro: The "%{resource_title}" conference occupied slots are over %{percentage}%.
-          email_outro: You have received this notification because you are an admin of the conference's participatory space.
-          email_subject: The "%{resource_title}" conference occupied slots are over %{percentage}%
-          notification_title: The <a href="%{resource_path}">%{resource_title}</a> conference occupied slots are over %{percentage}%.
+          email_intro: De "%{resource_title}" vergadering bezette slots zijn meer dan %{percentage}%.
+          email_outro: U heeft deze melding ontvangen omdat u een beheerder bent van de participatieve ruimte van de vergadering.
+          email_subject: De "%{resource_title}" vergadering bezette slots zijn meer dan %{percentage}%
+          notification_title: De <a href="%{resource_path}">%{resource_title}</a> vergadering bezette slots zijn meer dan %{percentage}%.
         conference_updated:
-          email_intro: 'The "%{resource_title}" conference was updated. You can read the new version from its page:'
-          email_outro: You have received this notification because you are following the "%{resource_title}" conference. You can unfollow it from the previous link.
-          email_subject: The "%{resource_title}" conference was updated
-          notification_title: The <a href="%{resource_path}">%{resource_title}</a> conference was updated.
+          email_intro: 'De "%{resource_title}" vergadering is gesloten. U kunt de conclusies van de pagina lezen:'
+          email_outro: U ontvangt dit bericht omdat u "%{resource_title}" volgen. Je kunt het unfollow uit de vorige koppeling.
+          email_subject: De "%{resource_title}" vergadering is gesloten
+          notification_title: De vergadering van <a href="%{resource_path}">%{resource_title}</a> is gesloten.
         registrations_enabled:
-          email_intro: 'The "%{resource_title}" conference has enabled registrations. You can register yourself on its page:'
-          email_outro: You have received this notification because you are following the "%{resource_title}" conference. You can unfollow it from the previous link.
-          email_subject: The "%{resource_title}" conference has enabled registrations.
-          notification_title: The <a href="%{resource_path}">%{resource_title}</a> conference has enabled registrations.
+          email_intro: 'De "%{resource_title}" conferentie heeft registraties ingeschakeld. U kunt zich registreren op de pagina:'
+          email_outro: U ontvangt dit bericht omdat u "%{resource_title}" volgen. Je kunt het unfollow uit de vorige koppeling.
+          email_subject: De "%{resource_title}" conferentie heeft registraties ingeschakeld.
+          notification_title: De <a href="%{resource_path}">%{resource_title}</a> -conferentie heeft registraties ingeschakeld.
         upcoming_conference:
-          email_intro: 'The "%{resource_title}" conference is taking place in 2 days. You can read the description from its page:'
-          email_outro: You have received this notification because you are following the "%{resource_title}" conference. You can unfollow it from the previous link.
-          email_subject: The "%{resource_title}" conference is coming!
-          notification_title: The <a href="%{resource_path}">%{resource_title}</a> conference is coming in 2 days.
+          email_intro: 'De "%{resource_title}" vergadering is gesloten. U kunt de conclusies van de pagina lezen:'
+          email_outro: U ontvangt dit bericht omdat u "%{resource_title}" volgen. Je kunt het unfollow uit de vorige koppeling.
+          email_subject: De "%{resource_title}" vergadering is gesloten!
+          notification_title: De vergadering van <a href="%{resource_path}">%{resource_title}</a> is gesloten.
     log:
       value_types:
         conference_presenter:
-          not_found: 'The conference was not found on the database (ID: %{id})'
+          not_found: 'De Buurderij is niet gevonden op de database (ID: %{id})'
     media:
       index:
-        description: Links about this conference
-        title: Media and Links
+        description: Links over deze conferentie
+        title: Media links
     menu:
       conferences: Conferentie
   devise:
@@ -554,17 +554,17 @@ nl-BE:
         conference:
           take_part: Deelnemen
         index:
-          promoted_conferences: Promoted conferences
+          promoted_conferences: Geplande conferenties
         order_by_conferences:
           conferences:
-            one: "%{count} conference"
-            other: "%{count} conferences"
+            one: "%{count} conferentie"
+            other: "%{count} reacties"
         promoted_conference:
           more_info: Meer informatie
           take_part: Deelnemen
       conferences_nav:
-        conference_menu_item: Information
+        conference_menu_item: Informatie
         conference_partners_menu_item: Partners
         conference_speaker_menu_item: Luidsprekers
         media: Media
-        venues: Venues
+        venues: Locaties
