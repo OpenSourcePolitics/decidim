@@ -2,13 +2,13 @@ nl-BE:
   activemodel:
     attributes:
       conference:
-        assemblies_ids: Related Assemblies
-        banner_image: Banner image
-        consultations_ids: Related Consultations
-        copy_categories: Copy categories
-        copy_components: Copy components
-        copy_features: Copy features
-        decidim_scope_id: Scope
+        assemblies_ids: Gerelateerde Buurderijen
+        banner_image: Banner afbeelding
+        consultations_ids: Verwante raadplegingen
+        copy_categories: Kopieercategorieën
+        copy_components: Kopieer componenten
+        copy_features: Kopieerfuncties
+        decidim_scope_id: Reikwijdte
         description: Description
         hashtag: Hashtag
         hero_image: Home image
@@ -97,16 +97,16 @@ nl-BE:
           conference_admins_title: conference users
         new:
           create: Create
-          title: New conference user.
+          title: Nieuwe conferentie gebruiker.
         update:
-          error: There was an error updated a user for this conference.
-          success: User updated successfully for this conference.
+          error: Er is een fout opgetreden die een gebruiker bijgewerkt heeft voor dit deelnemende proces.
+          success: Gebruiker is succesvol bijgewerkt voor dit deelnemende proces.
       conferences:
         create:
-          error: There was an error creating a new conference.
-          success: Conference created successfully.
+          error: Er is een fout opgetreden bij het maken van een nieuw bereik type.
+          success: Bijlage is succesvol gemaakt.
         edit:
-          update: Update
+          update: Bijwerken
         exports:
           registrations: Registrations
         form:
