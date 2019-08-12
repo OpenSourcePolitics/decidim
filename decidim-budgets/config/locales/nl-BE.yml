@@ -162,21 +162,21 @@ nl-BE:
             resources_permissions_enabled: Actions permissions can be set for each meeting
             total_budget: Total budget
             total_projects: Total projects
-            vote_per_budget: budget sum enabled (default)
-            vote_per_project: project number enabled
-            vote_threshold_percent: Vote threshold percent
+            vote_per_budget: budget bedrag ingeschakeld (standaard)
+            vote_per_project: projectnummer ingeschakeld
+            vote_threshold_percent: Stemdrempel percentage
           step:
-            announcement: Announcement
-            comments_blocked: Comments blocked
-            show_votes: Show votes
-            votes_enabled: Voting enabled
+            announcement: Bericht
+            comments_blocked: Reacties geblokkeerd
+            show_votes: Toon stemmen
+            votes_enabled: Stemmen uitgeschakeld
     events:
       budgets:
         order_checkout:
-          email_intro: 'Your vote has been validated. You can always edit it if you like by clicking here: <a href=''%{resource_url}''>%{participatory_space_title}'
-          email_outro: Thank you for your participation
-          email_subject: Your vote has been validated on %{participatory_space_title}
-          notification_title: Your vote has been validated on <a href='%{resource_url}'>%{participatory_space_title}</a> You can always edit it if you like.
+          email_intro: 'Uw stem is gevalideerd. U kunt het altijd bewerken als u wilt door hier te klikken: <a href=''%{resource_url}''>%{participatory_space_title}'
+          email_outro: Bedankt voor je bijdrage
+          email_subject: Uw stem is gevalideerd op %{participatory_space_title}
+          notification_title: Uw stem is gevalideerd op <a href='%{resource_url}'>%{participatory_space_title}</a> U kunt het altijd bewerken als u wilt.
     orders:
       checkout:
         error: Er is een fout opgetreden tijdens het verwerken van uw stem
@@ -186,7 +186,7 @@ nl-BE:
         success: Uw stem is succesvol geannuleerd
     resource_links:
       included_proposals:
-        project_proposal: 'Proposals included in this project:'
+        project_proposal: 'Voorstellen opgenomen in dit resultaat:'
   index:
     confirmed_orders_count: Bestellingen tellen
   total_budget: Totale budget
