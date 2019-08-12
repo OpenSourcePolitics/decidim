@@ -2,11 +2,11 @@ nl-BE:
   activemodel:
     attributes:
       dummy_resource:
-        created_at: Created at
+        created_at: Gemaakt bij
         field: My field
-        start_date: Start date
-        title: Title
-        updated_at: Updated at
+        start_date: Begindatum
+        title: Titel
+        updated_at: Gewijzigd op
   decidim:
     dummy:
       admin:
