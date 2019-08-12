@@ -2,13 +2,13 @@ nl-BE:
   activemodel:
     attributes:
       participatory_process:
-        announcement: Announcement
-        banner_image: Banner image
-        copy_categories: Copy categories
-        copy_components: Copy components
-        copy_steps: Copy steps
-        description: Description
-        developer_group: Developer group
+        announcement: Bericht
+        banner_image: Banner afbeelding
+        copy_categories: Kopieercategorieën
+        copy_components: Kopieer componenten
+        copy_steps: Kopieer stappen
+        description: Beschrijving
+        developer_group: Ontwikkelaarsgroep
         domain: Domain
         end_date: End date
         hashtag: Hashtag
