@@ -49,7 +49,7 @@ nl-BE:
         new_initiative_type: New initiative type
       menu:
         initiatives: Initiatives
-        initiatives_types: Initiative types
+        initiatives_types: Nieuw initiatieftype
       models:
         initiatives:
           fields:
@@ -384,7 +384,7 @@ nl-BE:
         initiative_menu_item: Initiatieven
       initiatives:
         initiative:
-          check: Check it out
-          check_and_support: Check it out and sign
+          check: Bekijk het
+          check_and_support: Bekijk het en meld het
         no_initiatives_yet:
-          no_initiatives_yet: No initiatives yet!
+          no_initiatives_yet: Nog geen initiatieven!
