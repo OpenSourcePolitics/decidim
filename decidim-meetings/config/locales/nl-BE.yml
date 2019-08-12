@@ -60,7 +60,7 @@ nl-BE:
         one: Minuten
         other: Minuten
       decidim/meetings/registration:
-        one: Registration
+        one: Registratie
         other: Registraties
   decidim:
     admin:
