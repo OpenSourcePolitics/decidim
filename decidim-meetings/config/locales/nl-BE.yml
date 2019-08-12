@@ -66,16 +66,16 @@ nl-BE:
     admin:
       meeting_copies:
         create:
-          error: There was en error duplicating this meeting.
-          success: Duplicated meeting successfully.
+          error: Er is een fout opgetreden bij het publiceren van deze assemblage.
+          success: Succesvol dubbele vergadering.
         new:
           copy: Kopiëren
           select: Selecteer welke gegevens u wilt dupliceren
-          title: Duplicate meeting
+          title: Maak een afspraak
     components:
       meetings:
         actions:
-          join: Join
+          join: Aanmelden
         name: Vergaderingen
         settings:
           global:
