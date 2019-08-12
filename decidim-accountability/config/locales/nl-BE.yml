@@ -128,52 +128,52 @@ nl-BE:
           fields:
             description: Beschrijving
             key: Beschrijving
-            name: Beschrijving
-            progress: Beschrijving
+            name: Afbeelding van de startpagina
+            progress: Vooruitgang
         timeline_entry:
           fields:
             description: Beschrijving
-            entry_date: Beschrijving
+            entry_date: Datum
       results:
         count:
           results_count:
             one: 1 resultaat
             other: "%{count} resultaten"
         filters:
-          all: All
-          scopes: Scopes
+          all: Alle
+          scopes: Scope
         home:
-          categories_label: Categories
-          subcategories_label: Subcategories
+          categories_label: Categorieën
+          subcategories_label: Subcategorieën
         home_header:
-          global_status: Global execution status
+          global_status: Globale uitvoeringsstatus
         nav_breadcrumb:
-          global: Global execution
+          global: Globale uitvoering
         search:
-          search: Search for actions
+          search: Zoek naar acties
         show:
           stats:
-            attendees: Attendees
-            back_to_result: Go back to result
-            comments: Comments
-            contributions: Contributions
-            last_edited_by: Last edited by
-            last_updated_at: Last updated at
-            meetings: Meetings
-            number_of_versions: Versions
-            proposals: Proposals
-            show_all_versions: Show all versions
-            version_author: Version author
-            version_created_at: Version created at
-            version_number: Version number
-            version_number_out_of_total: "%{current_version} out of %{total_count}"
-            votes: Supports
+            attendees: Deelnemers
+            back_to_result: Terug naar resultaat
+            comments: Reacties
+            contributions: Bijdragen
+            last_edited_by: Laatste wijzigingsdatum
+            last_updated_at: Laatst bijgewerkt op
+            meetings: Vergaderingen
+            number_of_versions: Versies
+            proposals: Voorstellen
+            show_all_versions: Alle versies weergeven
+            version_author: Beschrijving
+            version_created_at: Versie gemaakt op
+            version_number: Versienummer
+            version_number_out_of_total: "%{current_version} van %{total_count}"
+            votes: Ondersteunt
         timeline:
-          title: Project evolution
+          title: Project evolutie
       versions:
         index:
-          changes_at_title: Changes at "%{title}"
-          title: Versions
+          changes_at_title: Veranderingen bij "%{title}"
+          title: Beschrijving
         show:
           changes_at_title: Changes at "%{title}"
         version:
