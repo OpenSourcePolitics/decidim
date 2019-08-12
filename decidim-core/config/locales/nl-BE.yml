@@ -530,11 +530,11 @@ nl-BE:
       replicate_help: Deze vingerafdruk wordt berekend met een SHA256 hashing algoritme. Om het zelf te kopiëren, kunt u een %{online_calculator_link} gebruiken en de brongegevens kopiëren.
       source: Bron
       title: Kies Vrienden
-      value: Value
+      value: Waarde
     followers:
-      no_followers: No followers yet.
+      no_followers: Nog geen volgers.
     following:
-      no_followings: Doesn't follow anyone or anything yet.
+      no_followings: Volg nog niemand of iets.
     follows:
       create:
         button: Ga als volgt te
@@ -550,23 +550,23 @@ nl-BE:
         error: Er is een fout in dit veld.
       remove_this_file: Verwijder dit bestand
     gamification:
-      all_badges_link: See all available badges.
+      all_badges_link: Zie alle beschikbare badges.
       badges:
         continuity:
           conditions:
-            - Come here often
-          description: This badge is granted when you visit the platform in a regular way. We like having you around here!
-          description_another: This user has connected for %{score} consecutive days at some point.
-          description_own: You have connected for %{score} consecutive days at some point.
-          name: Continuity
-          next_level_in: Connect for %{score} consecutive days to get to the next level!
-          unearned_another: This user hasn't signed in for more than one consecutive day.
-          unearned_own: You haven't connected for more than one consecutive day.
+            - Kom hier vaak
+          description: Deze badge wordt toegekend wanneer je regelmatig het platform bezoekt. We houden van het hier rondlopen!
+          description_another: Deze gebruiker heeft op een gegeven moment al %{score} opeenvolgende dagen verbonden.
+          description_own: Je hebt %{score} opeenvolgende dagen op een gegeven moment verbonden.
+          name: Verstuur
+          next_level_in: Verbind %{score} opeenvolgende dagen om naar het volgende niveau te komen!
+          unearned_another: Deze gebruiker is niet meer dan één opeenvolgende dag ingelogd.
+          unearned_own: Je hebt niet meer dan één opeenvolgende dag verbonden.
         followers:
           conditions:
-            - Being active and following other people will surely make other people follow you.
-          description: This badge is granted when you reach a certain number of followers. %{organization_name} is a social and political network, weave your web to communicate with other people in the platform.
-          description_another: This user has %{score} followers.
+            - Als je actief bent en anderen volgt, zal dat zeker voor anderen zorgen.
+          description: Deze badge wordt toegekend wanneer je een bepaald aantal volgers bereikt. %{organization_name} is een sociaal en politiek netwerk, draag je web om met andere mensen te communiceren in het platform.
+          description_another: Deze gebruiker heeft %{score} volgers.
           description_own: "%{score} users are following you."
           name: Followers
           next_level_in: Get %{score} more users to follow you to reach the next level!
