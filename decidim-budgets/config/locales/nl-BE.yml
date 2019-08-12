@@ -11,7 +11,7 @@ nl-BE:
   activerecord:
     errors:
       messages:
-        equal_to: must be equal to %{count}
+        equal_to: moet gelijk zijn aan %{count}
     models:
       decidim/budgets/project:
         one: Project
@@ -24,14 +24,14 @@ nl-BE:
         confirm_destroy: Weet u zeker dat u dit project wilt verwijderen?
         destroy: Verwijderen
         edit: Bewerk
-        import: Import proposals to projects
+        import: Importeer voorstellen naar projecten
         new: nieuwe
         preview: Voorbeeld
         title: Acties
       admin:
         models:
           project:
-            name: Project
+            name: Projecten
         projects:
           create:
             invalid: Er is een probleem opgetreden met het creëren van dit project
@@ -56,17 +56,17 @@ nl-BE:
             success: Project succesvol bijgewerkt
         proposals_imports:
           create:
-            invalid: There's been a problem importing the proposals into projects
-            success: "%{number} proposals successfully imported into projects"
+            invalid: Er is een probleem opgetreden met het maken van dit voorstel
+            success: "%{number} voorstellen succesvol geïmporteerd"
           new:
-            create: Import proposals to projects
-            no_components: There are no other proposal components in this participatory space to import the proposals into projects.
-            select_component: Please select a component
+            create: Importeer voorstellen naar projecten
+            no_components: Er zijn geen andere onderdelen van dit deeltjesgebied om de voorstellen uit te voeren.
+            select_component: Selecteer een voorstel
       admin_log:
         project:
-          create: "%{user_name} created the %{resource_name} project in the %{space_name} space"
-          delete: "%{user_name} deleted the %{resource_name} project in the %{space_name} space"
-          update: "%{user_name} updated the %{resource_name} project in the %{space_name} space"
+          create: "%{user_name} heeft het %{resource_name} lid aangemaakt in de %{space_name} -vergadering"
+          delete: "%{user_name} heeft het %{resource_name} lid aangemaakt in de %{space_name} -vergadering"
+          update: "%{user_name} heeft het %{resource_name} lid aangemaakt in de %{space_name} -vergadering"
       models:
         project:
           fields:
@@ -91,8 +91,8 @@ nl-BE:
           checked_out:
             description: Je hebt al voor de begroting gestemd. Als u van mening bent, kunt u %{cancel_link}.
             title: Begrotingsstemming voltooid
-          description_per_budget: What projects do you think we should allocate budget for? Assign at least %{minimum_budget} to the projects you want and vote with your preferences to define the budget.
-          description_per_project: To which projects do you think we should allocate a budget? Choose %{minimum_project} projects and validate your vote. Attention, all votes are irrevocable.
+          description_per_budget: Welke projecten vinden u dat we budget moeten toewijzen? Wijs tenminste %{minimum_budget} toe aan de projecten die u wilt en stem met uw voorkeuren om het budget te definiëren.
+          description_per_project: Naar welke projecten denkt u een budget te moeten toewijzen? Kies %{minimum_project} projecten en gevalideerd uw stem. Let op, alle stemmen zijn onherroepelijk.
           title: U bepaalt het budget
         count:
           projects_count:
@@ -108,24 +108,24 @@ nl-BE:
           filter_by: Filteren op
           unfold: Ontvouwen
         index:
-          view_project: View project
+          view_project: Nieuw resultaat
         limit_excess:
           close: Dichtbij
-          description_per_budget: This project exceeds the maximum budget and can not be added. If you want, you can delete a project you have already selected to add, or make your vote with your preferences.
-          description_per_project: You have reached the maximum number of projects allowed for this budget. If you wish, you can delete a project that you have already selected.
+          description_per_budget: Dit project overschrijdt het maximum budget en kan niet worden toegevoegd. Als u wilt, kunt u een project verwijderen dat u al hebt geselecteerd om toe te voegen, of uw stem uitbrengen met uw voorkeuren.
+          description_per_project: U heeft het maximum aantal projecten bereikt dat voor deze begroting is toegestaan. Als u wilt, kunt u een project verwijderen dat u al hebt geselecteerd.
           ok: OK
-          title_per_budget: Maximum budget exceeded
-          title_per_project: Maximum number of projects reached
+          title_per_budget: Maximale budget overschreden
+          title_per_project: Maximum aantal projecten bereikt
         order_progress:
           vote: Stemmen
         order_selected_projects:
-          choose: Choisissez encore
+          choose: Keuze-mail encore
           per_project:
-            one: project selected out of a total of
-            other: projects selected out of a total of
+            one: project geselecteerd van een totaal van
+            other: projecten geselecteerd van een totaal van
           remaining_projects:
-            one: 1 project to validate your vote.
-            other: "%{count} projects to validate your vote."
+            one: 1 project om uw stem te valideren.
+            other: "%{count} projecten om uw stem te valideren."
           remove: Verwijderen
           selected_projects:
             one: Geselecteerd project
@@ -134,7 +134,7 @@ nl-BE:
             one: projet
             other: projets
           view: Uitzicht
-          vote: Voter
+          vote: Stemer
         project:
           add: Toevoegen
           count:
@@ -152,16 +152,16 @@ nl-BE:
       budgets:
         actions:
           vote: Stemmen
-        name: Budgets
+        name: Begroting
         settings:
           global:
             announcement: Bericht
             comments_enabled: Reacties ingeschakeld
-            geocoding_enabled: Geocoding enabled
-            projects_per_page: Projects per page
-            resources_permissions_enabled: Actions permissions can be set for each meeting
+            geocoding_enabled: Stemmen uitgeschakeld
+            projects_per_page: Projecten per pagina
+            resources_permissions_enabled: Actierechten kunnen worden ingesteld voor elke vergadering
             total_budget: Totale budget
-            total_projects: Total projects
+            total_projects: Totaal projecten
             vote_per_budget: budget bedrag ingeschakeld (standaard)
             vote_per_project: projectnummer ingeschakeld
             vote_threshold_percent: Stemdrempel percentage
