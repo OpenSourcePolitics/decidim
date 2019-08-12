@@ -19,7 +19,7 @@ nl-BE:
       decidim/amendable/amendment_created_event: Amendmen created
       decidim/amendable/amendment_rejected_event: Amendmen rejected
       decidim/amendable/emendation_promoted_event: Amendmen promoted
-      decidim/attachment_created_event: Attachment
+      decidim/attachment_created_event: Bijlage
       decidim/component_published_event: Active component
       decidim/demoted_membership: No longer a group admin
       decidim/gamification/badge_earned_event: Badge earned
@@ -41,13 +41,13 @@ nl-BE:
     models:
       decidim/amendment:
         one: Amendment
-        other: Amendments
+        other: Amendementen
       decidim/user:
         one: No users
-        other: Users
+        other: Gebruikers
       decidim/user_group:
         one: User group
-        other: User groups
+        other: Gebruikersgroepen
   booleans:
     'false': 'Nee'
     'true': 'Ja'
@@ -98,67 +98,67 @@ nl-BE:
         unpublish: "%{user_name} unpublished the %{resource_name} component from the %{space_name} space"
       moderation:
         hide: "%{user_name} hid a resource of type %{resource_type} in the %{space_name} space"
-        unreport: "%{user_name} unreported a resource of type %{resource_type} in the %{space_name} space"
+        unreport: "%{user_name} heeft een bron van type %{resource_type} niet gemeld in de %{space_name} ruimte"
       newsletter:
-        create: "%{user_name} created the %{resource_name} newsletter"
-        delete: "%{user_name} deleted the %{resource_name} newsletter"
-        deliver: "%{user_name} delivered the %{resource_name} newsletter"
-        update: "%{user_name} updated the %{resource_name} newsletter"
+        create: "%{user_name} heeft de %{resource_name} -vergadering aangemaakt"
+        delete: "%{user_name} heeft de %{resource_name} -vergadering aangemaakt"
+        deliver: "%{user_name} heeft de %{resource_name} -vergadering aangemaakt"
+        update: "%{user_name} heeft de %{resource_name} -vergadering aangemaakt"
       oauth_application:
-        create: "%{user_name} created the %{resource_name} OAuth application"
-        delete: "%{user_name} deleted the %{resource_name} OAuth application"
-        update: "%{user_name} updated the %{resource_name} OAuth application"
+        create: "%{user_name} heeft de %{resource_name} -vergadering aangemaakt"
+        delete: "%{user_name} heeft de %{resource_name} -vergadering aangemaakt"
+        update: "%{user_name} heeft de %{resource_name} -vergadering aangemaakt"
       organization:
-        update: "%{user_name} updated the organization settings"
+        update: "%{user_name} heeft de organisatie instellingen bijgewerkt"
       participatory_space_private_user:
-        create: "%{user_name} invited %{resource_name} to be a private user"
-        delete: "%{user_name} removed the user %{resource_name} as a private user"
+        create: "%{user_name} heeft het %{resource_name} lid aangemaakt in de -vergadering"
+        delete: "%{user_name} heeft het %{resource_name} lid aangemaakt in de -vergadering"
       scope:
-        create: "%{user_name} created the %{resource_name} scope"
-        create_with_parent: "%{user_name} created the %{resource_name} scope inside the %{parent_scope} scope"
-        delete: "%{user_name} deleted the %{resource_name} scope"
-        delete_with_parent: "%{user_name} deleted the %{resource_name} scope inside the %{parent_scope} scope"
-        update: "%{user_name} updated the %{resource_name} scope"
-        update_with_parent: "%{user_name} updated the %{resource_name} scope inside the %{parent_scope} scope"
+        create: "%{user_name} heeft de %{resource_name} -vergadering aangemaakt"
+        create_with_parent: "%{user_name} heeft het %{resource_name} lid aangemaakt in de %{parent_scope} -vergadering"
+        delete: "%{user_name} heeft de %{resource_name} -vergadering aangemaakt"
+        delete_with_parent: "%{user_name} heeft het %{resource_name} lid aangemaakt in de %{parent_scope} -vergadering"
+        update: "%{user_name} heeft de %{resource_name} -vergadering aangemaakt"
+        update_with_parent: "%{user_name} heeft het %{resource_name} lid aangemaakt in de %{parent_scope} -vergadering"
       static_page:
-        create: "%{user_name} created the %{resource_name} static page"
-        delete: "%{user_name} deleted the %{resource_name} static page"
-        update: "%{user_name} updated the %{resource_name} static page"
+        create: "%{user_name} heeft de %{resource_name} -vergadering aangemaakt"
+        delete: "%{user_name} heeft de %{resource_name} -vergadering aangemaakt"
+        update: "%{user_name} heeft de %{resource_name} -vergadering aangemaakt"
       user:
-        invite: "%{user_name} invited the user %{resource_name} with role: %{role}"
-        officialize: "%{user_name} officialized the user %{resource_name}"
-        remove_from_admin: "%{user_name} removed the user %{resource_name} with role: %{role}"
-        unofficialize: "%{user_name} unofficialized the user %{resource_name}"
+        invite: "%{user_name} heeft de gebruiker %{resource_name} uitgenodigd met rol: %{role}"
+        officialize: "%{user_name} heeft de gebruiker %{resource_name} niet gecompliceerder"
+        remove_from_admin: "%{user_name} heeft de gebruiker %{resource_name} uitgenodigd met rol: %{role}"
+        unofficialize: "%{user_name} heeft de gebruiker %{resource_name} niet gecompliceerder"
       user_group:
-        reject: "%{user_name} rejected the %{resource_name} user group verification"
-        verify: "%{user_name} verified the %{resource_name} user group"
-        verify_via_csv: "%{user_name} verified the %{resource_name} user group via a CSV file"
+        reject: "%{user_name} heeft de %{resource_name} -vergadering aangemaakt"
+        verify: "%{user_name} heeft de %{resource_name} -vergadering aangemaakt"
+        verify_via_csv: "%{user_name} heeft de %{resource_name} -vergadering aangemaakt"
     amendments:
       accepted:
-        error: An error ocurred accepting the emendation, please try again later.
-        success: This emendation has been accepted successfully.
+        error: Er is een fout opgetreden bij het accepteren van de emendatie, probeer het later opnieuw.
+        success: Uw stem is succesvol geaccepteerd.
       amendable:
-        amended_by: Amended by
-        button: Amend %{model_name}
-        error: There has been an error amending this resource.
-        help_text: Improve this %{model_name} by modifying its %{amendable_fields}
-        no_amenders: There are no amenders
-        no_amendments: There are no amendments
-        promote_button: Promote to %{model_name}
-        promote_help_text: You can promote this emendation and publish it as an independent %{model_name}
-        section_heading: Amendments (%{count})
+        amended_by: Gewijzigd door
+        button: '%{model_name} wijzigend'
+        error: Er is een fout opgetreden na deze bron.
+        help_text: Verbeter dit %{model_name} door het wijzigen van de %{amendable_fields}
+        no_amenders: Er zijn geen orders
+        no_amendments: Er zijn geen orders
+        promote_button: Befördere tot %{model_name}
+        promote_help_text: U kunt deze emendatie promoten en publiceren als onafhankelijke %{model_name}
+        section_heading: Amendementen (%{count})
       created:
-        error: An error ocurred creating this amendment, try again later
-        success: The amendment has been created successfully
+        error: Er is een fout opgetreden bij het accepteren van de emendatie, probeer het later opnieuw
+        success: Uw stem is succesvol geaccepteerd
       emendation:
         actions:
-          button_accept: Accept
-          button_reject: Reject
-          help_text: Review the changes and accept or reject this amendment. A notification will be sent to its author(s).
+          button_accept: Aanvaarden
+          button_reject: Afwijzen
+          help_text: Beoordeel de wijzigingen en accepteer of verwerp dit amendement. Een melding wordt verzonden naar de auteur(en).
         announcement:
           accepted: |-
-            This amendment for the %{amendable_type} %{amendable_link} has been
-            accepted on <strong>%{announcement_date}</strong>.
+            Dit amendement voor de %{amendable_type} %{amendable_link} is
+            geaccepteerd op <strong>%{announcement_date}</strong>.
           evaluating: |-
             This amendment for the %{amendable_type} %{amendable_link}
             is being evaluated.
@@ -197,8 +197,8 @@ nl-BE:
         related_photos: Gerelateerde foto 's
     author:
       comments:
-        one: comment
-        other: comments
+        one: commentaar
+        other: reacties
     authorization_handlers:
       another_dummy_authorization_handler:
         explanation: Get verified by introducing a passport number starting with "A"
@@ -208,7 +208,7 @@ nl-BE:
       dummy_authorization_handler:
         explanation: Get verified by introducing a document number ending with "X"
         fields:
-          document_number: Document number
+          document_number: Documentnummer
           postal_code: Postal code
         name: Example authorization
       dummy_authorization_workflow:
@@ -234,7 +234,7 @@ nl-BE:
           explanation: Your authorization has expired. In order to perform this action, you need to be reauthorized with "%{authorization}".
           title: Authorization has expired
         incomplete:
-          cancel: Cancel
+          cancel: Annuleer
           explanation: 'Even though you''re currently authorized with "%{authorization}", we need you to reauthorize because we lack the following data:'
           invalid_field: "%{field}"
           reauthorize: Reauthorize
@@ -262,7 +262,7 @@ nl-BE:
         one: and %{count} more
         other: and %{count} more
       see_less: "(see less)"
-      see_more: "(see more)"
+      see_more: "(b)"
     components:
       dummy:
         actions:
@@ -272,13 +272,13 @@ nl-BE:
         settings:
           global:
             amendments_enabled: Amendments enabled
-            comments_enabled: Comments enabled
+            comments_enabled: Reacties ingeschakeld
             dummy_global_attribute_1: Dummy Attribute 1
             dummy_global_attribute_2: Dummy Attribute 2
             enable_pads_creation: Enable pads creation
             resources_permissions_enabled: Resources permissions enabled
           step:
-            comments_blocked: Comments blocked
+            comments_blocked: Reacties geblokkeerd
             dummy_step_attribute_1: Dummy Step Attribute 1
             dummy_step_attribute_2: Dummy Step Attribute 2
     contact: Contact
@@ -351,7 +351,7 @@ nl-BE:
         newsletter_modal:
           buttons:
             check: Check and continue
-            close_modal: Close modal
+            close_modal: Dicht modaal
             uncheck: Keep uncheck
           notice: |-
             <p>Hey, are you sure you don't want to receive a newsletter?<br>
@@ -372,7 +372,7 @@ nl-BE:
         new:
           authorize: Authorize application
           by_organization_link_html: <small class="heading-small">by %{link}</small>
-          cancel: Cancel
+          cancel: Annuleer
           connect_your_account_html: Connect your account by signing in to <strong>%{organization}</strong>
           publish_content: Publish content for you
           see_email: See your email
@@ -440,13 +440,13 @@ nl-BE:
         attachment_created:
           email_intro: 'A new document has been added to %{resource_title}. You can see it from this page:'
           email_outro: You have received this notification because you are following %{resource_title}. You can stop receiving notifications following the previous link.
-          email_subject: An update to %{resource_title}
+          email_subject: Een update aan %{resource_title}
           notification_title: A <a href="%{resource_path}">new document</a> has been added to <a href="%{attached_to_url}">%{resource_title}</a>
       components:
         component_published:
           email_intro: 'The %{resource_title} component is now active for %{participatory_space_title}. You can see it from this page:'
           email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
-          email_subject: An update to %{participatory_space_title}
+          email_subject: Een update aan %{participatory_space_title}
           notification_title: The %{resource_title} component is now active for <a href="%{resource_path}">%{participatory_space_title}</a>
       email_event:
         email_greeting: Hallo %{user_name},
@@ -607,18 +607,18 @@ nl-BE:
       accept:
         error: There was an error accepting this invitation
         success: Invitation accepted successfully
-      accept_invitation: Accept
+      accept_invitation: Aanvaarden
       accept_or_reject_group_invitations: 'The following groups have invited you to join them. Accept or reject their requests:'
       index:
-        invite: Invite
+        invite: Nodig uit
         invite_user: Invite a user
       invite:
         error: There was an error inviting this user
-        success: User invited successfully
+        success: Gebruiker heeft succesvol uitgenodigd
       reject:
         error: There was an error rejecting this invitation
         success: Invitation rejected successfully
-      reject_invitation: Reject
+      reject_invitation: Afwijzen
     group_members:
       accept:
         error: There was an error accepting this join request
@@ -663,17 +663,17 @@ nl-BE:
         success: Group left successfully.
       members:
         accept_or_reject_join_requests: 'The following users have applied to join this group. Accept or reject their requests:'
-        accept_request: Accept
-        reject_request: Reject
+        accept_request: Aanvaarden
+        reject_request: Afwijzen
       new:
         create_user_group: Create group
         new_user_group: New group
         subtitle: Create a group and invite other users to join to participate in a collective level.
       no_user_groups: Doesn't belong to any group yet.
       roles:
-        admin: Administrator
+        admin: Beheerder
         creator: Creator
-        member: Member
+        member: Leden
       update:
         error: There has been a problem updating the group
         success: Group updated successfully
@@ -715,7 +715,7 @@ nl-BE:
     members:
       no_members: This user groups doesn't have any member yet.
     menu:
-      help: Help
+      help: Meer informatie
       home: Home
     messaging:
       conversation_mailer:
@@ -736,12 +736,12 @@ nl-BE:
           no_conversations: You have no conversations yet
           title: Conversations
         reply:
-          send: Send
-          title: Reply
+          send: sturen
+          title: Antwoord
         show:
-          title: Conversation with %{usernames}
+          title: Gesprek met %{usernames}
         start:
-          send: Send
+          send: sturen
           title: Start a conversation
         update:
           error: Message not sent. Try again later
@@ -754,12 +754,12 @@ nl-BE:
         title: Followers
       participants:
         description: Number of active user in organization
-        object: participants
-        title: Participants
+        object: deelnemers
+        title: Deelnemers
       users:
         description: Number of user in organization
-        object: users
-        title: Users
+        object: gebruikers
+        title: Gebruikers
     newsletter_mailer:
       newsletter:
         note: U ontvangt deze e-mail omdat u bent geabonneerd op nieuwsbrieven van %{organization_name}. U kunt uw instellingen op uw <a href="%{link}">notificatiepagina</a> veranderen.
@@ -784,7 +784,7 @@ nl-BE:
         body_3: With this consent you will be able to continue receiving information about the services of the platform. If, on the contrary, we do not receive a positive confirmation on your part we will stop sending you our messages. If you confirm that you want to keep being informed, you will always have the option to cancel at any time.
         button: Yes, I want to continue receiving relevant information
         greetings: Greetings,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
-        hello: Hello,
+        hello: Hallo,
         subject: Do you want to keep receiving relevant information about %{organization_name}?
     notification_mailer:
       shared:
@@ -796,7 +796,7 @@ nl-BE:
         email_on_notification: Ik wil ontvangen een e-mail telkens als ik een melding ontvangt.
         everything_followed: Everything I follow
         newsletter_notifications: Ik wil informatie ontvangen over relevante activiteiten
-        newsletters: Newsletters
+        newsletters: Nieuwsbrieven
         own_activity: My own activity, like when someone comments in my proposal or mentions me
         receive_notifications_about: I want to get notifications about
         send_notifications_by_email: Send notifications by email
@@ -818,18 +818,18 @@ nl-BE:
     pages:
       home:
         extended:
-          debates: Debates
+          debates: Debatten
           debates_explanation: Debate and discuss, share your views and enrich the relevant topics.
           how_to_participate: How do I take part in a process?
-          meetings: Meetings
+          meetings: Vergaderingen
           meetings_explanation: Find out where and when you can participate in public meetings.
-          more_info: More info
-          proposals: Proposals
+          more_info: Meer informatie
+          proposals: Voorstellen
           proposals_explanation: Make proposals, support existing ones and promote the changes you want to see.
         footer_sub_hero:
           footer_sub_hero_body: Let's build a more open, transparent and collaborative society.<br /> Join, participate and decide.
           footer_sub_hero_headline: Welcome to %{organization} participatory platform.
-          register: Register
+          register: Registreer
         hero:
           participate: Participate
           welcome: Welcome to %{organization}!
@@ -837,28 +837,28 @@ nl-BE:
           headline: Participation in figures
         statistics:
           answers_count: Completed Surveys
-          assemblies_count: Assemblies
-          comments_count: Comments
-          conferences_count: Conferences
-          debates_count: Debates
-          endorsements_count: Endorsements
+          assemblies_count: Gemeentes
+          comments_count: Reacties
+          conferences_count: Conferentie
+          debates_count: Debatten
+          endorsements_count: Eindverklaringen
           headline: Current state of %{organization}
-          meetings_count: Meetings
-          orders_count: Votes
-          pages_count: Pages
-          processes_count: Processes
-          projects_count: Projects
+          meetings_count: Vergaderingen
+          orders_count: stemmen
+          pages_count: Pagina's
+          processes_count: Processen
+          projects_count: Projecten
           proposals_accepted: Accepted Proposals
-          proposals_count: Proposals
-          results_count: Results
-          surveys_count: Surveys
-          users_count: Participants
-          votes_count: Votes
+          proposals_count: Voorstellen
+          results_count: Resultaten
+          surveys_count: onderzoeken
+          users_count: Deelnemers
+          votes_count: stemmen
         sub_hero:
-          register: Register
+          register: Registreer
       index:
-        read_more: Read more
-        standalone_pages: Pages
+        read_more: Lees verder
+        standalone_pages: Pagina's
         subheading: Navigate through the help pages of %{name}
         title: Meer informatie
         topics: Topics
@@ -874,7 +874,7 @@ nl-BE:
           modal_btn_continue: Accept terms and continue
           modal_btn_exit: I'll review it later
           modal_button: Refuse the terms
-          modal_close: Close modal
+          modal_close: Dicht modaal
           modal_title: Do you really refuse the updated Terms and Conditions?
         required_review:
           alert: We've updated our Terms of Service, please review them.
@@ -883,19 +883,19 @@ nl-BE:
     participatory_space_private_users:
       not_allowed: You are not allowed to view this content
     profile:
-      deleted: Deleted user
-      view: View
+      deleted: Verwijderde gebruiker
+      view: Uitzicht
     profiles:
       default_officialization_text: Justification
       default_officialization_text_for_user_groups: This user group is publicly verified, its name has been verified to correspond with its real name
       default_officialization_text_for_users: This participant is publicly verified, his/her name or role has been verified to correspond with his/her real name and role
       show:
-        activity: Activity
+        activity: Activiteit
         badges: Badges
         followers: Followers
         following: Follows
-        groups: Groups
-        members: Members
+        groups: Organisaties
+        members: Leden
         timeline: Timeline
         view_full_profile: View full profile
       sidebar:
@@ -908,7 +908,7 @@ nl-BE:
         edit_profile: Edit profile
         edit_user_group: Edit group profile
         fill_in_email_to_confirm_it: Please, fill in your group's email to confirm it
-        invite_user: Invite user
+        invite_user: Gebruiker uitnodigen
         join_user_group: Request to join group
         leave_user_group: Leave group
         manage_user_group_admins: Manage admins
@@ -932,28 +932,28 @@ nl-BE:
     scopes:
       global: Global scope
       picker:
-        cancel: Cancel
-        choose: Select
+        cancel: Annuleer
+        choose: Selecteer
         title: Select %{field}
       prompt: Select a scope
-      scopes: Scopes
+      scopes: Scope
     search:
       results_found_for_term: '%{count} Results for the search: "%{term}"'
-      term_input_placeholder: Search
+      term_input_placeholder: Zoeken
     searches:
       filters:
         back: Back to results
         jump_to: 'Jump to:'
         state:
-          active: Active
-          all: All
+          active: Actief
+          all: Alle
           future: Future
-          past: Past
+          past: Verleden
       filters_small_view:
-        close_modal: Close modal
+        close_modal: Dicht modaal
         filter: Filter
-        filter_by: Filter by
-        unfold: Unfold
+        filter_by: Filteren op
+        unfold: Ontvouwen
       results:
         results:
           one: "%{count} result"
@@ -966,7 +966,7 @@ nl-BE:
         embed_link: insluiten
       extended_navigation_bar:
         more: More
-        unfold: Unfold
+        unfold: Ontvouwen
       flag_modal:
         already_reported: Deze inhoud is al gemeld en zal worden beoordeeld door een beheerder.
         close: Sluit
@@ -977,7 +977,7 @@ nl-BE:
         spam: Bevat clickbait, reclame, oplichting of script bots.
         title: Meld een probleem
       floating_help:
-        help: Help
+        help: Meer informatie
       follow_button:
         sign_in_before_follow: Please sign in before performing this action
       login_modal:
@@ -992,8 +992,8 @@ nl-BE:
         share: Deel
         share_link: Link delen
       version_author:
-        deleted: Deleted user
-    translate: Translate
+        deleted: Verwijderde gebruiker
+    translate: Translators
     translated: Translated
     user_activity:
       index:
@@ -1049,7 +1049,7 @@ nl-BE:
         instruction: 'You can confirm your account email through the link below:'
         subject: Confirmation instructions
       email_changed:
-        greeting: Hello %{recipient}!
+        greeting: Hallo %{recipient}!
         message: We're contacting you to notify you that your email is being changed to %{email}.
         subject: Email Changed
       invitation_instructions:
@@ -1079,14 +1079,14 @@ nl-BE:
         subject: Wachtwoord is veranderd
       reset_password_instructions:
         action: Change my password
-        greeting: Hello %{recipient}!
+        greeting: Hallo %{recipient}!
         instruction: Someone has requested a link to change your password, and you can do this through the link below.
         instruction_2: If you didn't request this, please ignore this email.
         instruction_3: Your password won't change until you access the link above and create a new one.
         subject: Reset password instructions
       unlock_instructions:
         action: Unlock my account
-        greeting: Hello %{recipient}!
+        greeting: Hallo %{recipient}!
         instruction: 'Click the link below to unlock your account:'
         message: Your account has been locked due to an excessive amount of unsuccessful sign in attempts.
         subject: Unlock instructions
@@ -1116,10 +1116,10 @@ nl-BE:
         leave_blank_if_you_don_t_want_to_change_it: leave blank if you don't want to change it
         title: Edit %{resource}
         unhappy: Unhappy?
-        update: Update
+        update: Bijwerken
         we_need_your_current_password_to_confirm_your_changes: we need your current password to confirm your changes
       new:
-        sign_up: Sign up
+        sign_up: Registratie
       signed_up: Welcome! You have signed up successfully.
       signed_up_but_inactive: You have signed up successfully. However, we could not sign you in because your account is not yet activated.
       signed_up_but_locked: You have signed up successfully. However, we could not sign you in because your account is locked.
@@ -1129,7 +1129,7 @@ nl-BE:
     sessions:
       already_signed_out: Signed out successfully.
       new:
-        sign_in: Log in
+        sign_in: Aanmelden
       signed_in: Signed in successfully.
       signed_out: Signed out successfully.
     shared:
@@ -1138,9 +1138,9 @@ nl-BE:
         didn_t_receive_confirmation_instructions: Didn't receive confirmation instructions?
         didn_t_receive_unlock_instructions: Didn't receive unlock instructions?
         forgot_your_password: Forgot your password?
-        sign_in: Log in
+        sign_in: Aanmelden
         sign_in_with_provider: Sign in with %{provider}
-        sign_up: Sign up
+        sign_up: Registratie
       minimum_password_length:
         one: "(%{count} character minimum)"
         other: "(%{count} characters minimum)"
@@ -1180,10 +1180,10 @@ nl-BE:
       system:
         organizations:
           smtp_settings:
-            address: Address
+            address: Adres
             from_email: From email
             from_label: From label
-            password: Password
+            password: Wachtwoord
             port: Port
             user_name: User name
   invisible_captcha:
@@ -1196,7 +1196,7 @@ nl-BE:
         link_label: hier
         ok: Ik ga akkoord
       edit_link:
-        edit: Edit
+        edit: Bewerk
       footer:
         download_open_data: Download Open Data files
         made_with_open_source: W
