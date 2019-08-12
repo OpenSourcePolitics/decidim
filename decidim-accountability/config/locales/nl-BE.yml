@@ -90,35 +90,35 @@ nl-BE:
             create: Status bijwerken
             title: Nieuwe status
           update:
-            invalid: There's been a problem updating this status
-            success: Status successfully updated
+            invalid: Er is een probleem opgetreden bij het maken van deze status
+            success: Status succesvol gemaakt
         timeline_entries:
           create:
-            invalid: There's been a problem creating this entry
-            success: Entry successfully created
+            invalid: Er is een probleem opgetreden met het maken van deze vergadering
+            success: Status succesvol gemaakt
           destroy:
-            success: Entry successfully deleted
+            success: Status succesvol verwijderd
           edit:
-            title: Edit entry
-            update: Update entry
+            title: Invoer bewerken
+            update: Invoer bijwerken
           index:
-            title: Project timeline entries
+            title: Project tijdlijn items
           new:
-            create: Create entry
-            title: New entry
+            create: Invoer bijwerken
+            title: Nieuwe invoer
           update:
-            invalid: There's been a problem updating this entry
-            success: Entry successfully updated
+            invalid: Er is een probleem opgetreden met het maken van deze vergadering
+            success: Status succesvol gemaakt
       admin_log:
         result:
-          create: "%{user_name} created result %{resource_name} in %{space_name}"
-          delete: "%{user_name} deleted the %{resource_name} result in %{space_name}"
-          update: "%{user_name} updated result %{resource_name} in %{space_name}"
+          create: "%{user_name} heeft resultaat %{resource_name} aangemaakt in %{space_name}"
+          delete: "%{user_name} heeft resultaat %{resource_name} aangemaakt in %{space_name}"
+          update: "%{user_name} heeft resultaat %{resource_name} aangemaakt in %{space_name}"
         value_types:
           parent_presenter:
-            not_found: 'The parent was not found on the database (ID: %{id})'
+            not_found: 'De Buurderij is niet gevonden op de database (ID: %{id})'
       last_activity:
-        new_result_at_html: "<span>New result at %{link}</span>"
+        new_result_at_html: "<span>Nieuwe post op %{link}</span>"
       models:
         result:
           fields:
@@ -140,36 +140,36 @@ nl-BE:
       results:
         count:
           results_count:
-            one: 1 result
-            other: "%{count} results"
+            one: 1 resultaat
+            other: "%{count} resultaten"
         filters:
           all: Alle
           scopes: Scope
         home:
           categories_label: Categorieën
-          subcategories_label: Subcategories
+          subcategories_label: Subcategorieën
         home_header:
-          global_status: Global execution status
+          global_status: Globale uitvoeringsstatus
         nav_breadcrumb:
-          global: Global execution
+          global: Globale uitvoering
         search:
-          search: Search for actions
+          search: Zoek naar acties
         show:
           stats:
-            attendees: Attendees
-            back_to_result: Go back to result
+            attendees: Deelnemers
+            back_to_result: Terug naar resultaat
             comments: Reacties
-            contributions: Contributions
-            last_edited_by: Last edited by
-            last_updated_at: Last updated at
+            contributions: Bijdragen
+            last_edited_by: Laatste wijzigingsdatum
+            last_updated_at: Laatst bijgewerkt op
             meetings: Vergaderingen
             number_of_versions: Versies
             proposals: Voorstellen
-            show_all_versions: Show all versions
-            version_author: Version author
-            version_created_at: Version created at
-            version_number: Version number
-            version_number_out_of_total: "%{current_version} out of %{total_count}"
+            show_all_versions: Alle versies weergeven
+            version_author: Beschrijving
+            version_created_at: Versie gemaakt op
+            version_number: Versienummer
+            version_number_out_of_total: "%{current_version} van %{total_count}"
             votes: Ondersteunt
         timeline:
           title: Project evolutie
