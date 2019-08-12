@@ -2,14 +2,14 @@ nl-BE:
   activemodel:
     attributes:
       consultation:
-        banner_image: Banner image
+        banner_image: Banner afbeelding
         decidim_highlighted_scope_id: Highlighted scope
-        description: Description
+        description: Beschrijving
         end_voting_date: Voting ends
         introductory_image: Introductory image
         introductory_video_url: Introductory video URL
-        questions: Questions
-        slug: URL slug
+        questions: Vragen
+        slug: URL slak
         start_voting_date: Voting begins
         subtitle: Subtitel
         title: Titel
@@ -45,85 +45,85 @@ nl-BE:
         one: Vraag
         other: Vragen
       decidim/consultations/response:
-        one: Response
-        other: Responses
+        one: Reactie
+        other: Reactie
       decidim/consultations/vote:
-        one: No votes
-        other: Votes
+        one: Toon stemmen
+        other: Stemmen
   decidim:
     admin:
       actions:
-        new_consultation: New consultation
-        new_question: New question
-        new_response: New response
-        publish_results: Publish results
-        unpublish_results: Unpublish results
+        new_consultation: Nieuwe raadpleging
+        new_question: Nieuwe vraag
+        new_response: Nieuwe reactie
+        publish_results: Publiceer resultaten
+        unpublish_results: Publiceer resultaten
       consultation_publications:
         create:
-          error: There was an error publishing this consultation.
-          success: Consultation published successfully.
+          error: Er is een fout opgetreden bij het publiceren van deze assemblage.
+          success: Consultatie met succes gepubliceerd.
         destroy:
-          error: There was an error unpublishing this consultation.
-          success: Consultation unpublished successfully.
+          error: Er is een fout opgetreden bij het publiceren van deze assemblage.
+          success: Consultatie met succes gepubliceerd.
       consultation_results_publications:
         create:
-          error: There was an error publishing the results for this consultation.
-          success: Consultation results published successfully.
+          error: Er is een fout opgetreden bij het publiceren van deze assemblage.
+          success: Consultatie met succes gepubliceerd.
         destroy:
-          error: There was an error unpublishing the results for this consultation.
-          success: Consultation results unpublished successfully.
+          error: Er is een fout opgetreden bij het publiceren van deze assemblage.
+          success: Consultatie met succes gepubliceerd.
       consultations:
         create:
-          error: There was an error creating a new consultation.
-          success: Consultation successfully created.
+          error: Er is een fout opgetreden bij het maken van een nieuw bereik type.
+          success: Resultaat met succes gemaakt.
         edit:
-          update: Update
+          update: Bijwerken
         form:
-          slug_help: 'URL slugs are used to generate the URLs that point to this consultation. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
-          title: General information
+          slug_help: 'URL-slugs worden gebruikt om de URL''s te genereren die naar deze vergadering verwijzen. Accepteer alleen letters, cijfers en streepjes, en moet beginnen met een letter. Voorbeeld: %{url}'
+          title: Algemene informatie
         index:
-          not_published: Not published
-          published: Published
+          not_published: Niet gepubliceerd
+          published: Gepubliceerd
         new:
-          create: Create
-          title: New consultation
+          create: Creëren
+          title: Nieuwe raadpleging
         update:
-          error: There was an error when updating this consultation.
-          success: Consultation updated successfully.
+          error: Er is een fout opgetreden bij het bijwerken van deze organisatie.
+          success: Consultatie met succes gepubliceerd.
       menu:
-        consultations: Consultations
+        consultations: Raadpleging
         consultations_submenu:
           info: Information
-          questions: Questions
+          questions: Vragen
         questions_submenu:
-          components: Components
-          consultation: Consultation
+          components: Componenten
+          consultation: Raadpleging
           info: Information
-          responses: Responses
+          responses: Reactie
       models:
         consultation:
           fields:
-            created_at: Created at
-            published: Published
-            title: Title
+            created_at: Gemaakt bij
+            published: Gepubliceerd
+            title: Titel
           name:
-            one: Consultation
-            other: Consultations
+            one: Raadpleging
+            other: Raadpleging
         question:
           fields:
-            created_at: Created at
-            published: Published
-            title: Title
+            created_at: Gemaakt bij
+            published: Gepubliceerd
+            title: Titel
           name:
-            one: Question
-            other: Questions
+            one: Vraag
+            other: Vragen
         response:
           fields:
-            created_at: Created at
-            title: Title
+            created_at: Gemaakt bij
+            title: Titel
           name:
-            one: Response
-            other: Responses
+            one: Reactie
+            other: Reactie
       question_publications:
         create:
           error: There was an error publishing this question.
@@ -138,15 +138,15 @@ nl-BE:
         destroy:
           success: Question successfully deleted.
         edit:
-          update: Update
+          update: Bijwerken
         form:
-          title: General information
+          title: Algemene informatie
         index:
-          not_published: Not published
-          published: Published
+          not_published: Niet gepubliceerd
+          published: Gepubliceerd
         new:
-          create: Create
-          title: New question
+          create: Creëren
+          title: Nieuwe vraag
         update:
           error: There was an error when updating this question.
           success: Question updated successfully.
@@ -158,19 +158,19 @@ nl-BE:
           error: There was an error when removing the response.
           success: Response successfully deleted.
         edit:
-          update: Update
+          update: Bijwerken
         form:
-          title: General information
+          title: Algemene informatie
         new:
-          create: Create
-          title: New response
+          create: Creëren
+          title: Nieuwe reactie
         update:
           error: There was an error when updating this response.
           success: Response updated successfully.
       titles:
-        consultations: Consultations
-        questions: Questions
-        responses: Responses
+        consultations: Raadpleging
+        questions: Vragen
+        responses: Reactie
     consultations:
       admin:
         content_blocks:
@@ -178,119 +178,119 @@ nl-BE:
             max_results: Maximum amount of elements to show
       consultation:
         start_voting_date: Voting begins
-        view_results: View results
+        view_results: Resultaten tonen
       consultation_card:
-        view_results: View results
+        view_results: Resultaten tonen
       consultations:
         orders:
           label: 'Sort consultations by:'
-          random: Random
-          recent: Most recent
+          random: Willekeurig
+          recent: Meest recent
       content_blocks:
         highlighted_consultations:
-          name: Highlighted consultations
+          name: Gemarkeerde raadplegingen
       count:
         title:
-          one: "%{count} consultation"
-          other: "%{count} consultations"
+          one: "%{count} raadpleging"
+          other: "%{count} raadplegingen"
       filters:
-        active: Active
-        all: All
-        finished: Finished
-        search: Search
-        state: State
-        upcoming: Upcoming
+        active: Actief
+        all: Alle
+        finished: Afgerond
+        search: Zoeken
+        state: Staat
+        upcoming: Aankomend
       filters_small_view:
-        close_modal: Close window
+        close_modal: Sluit dit scherm
         filter: Filter
-        filter_by: Filter by
-        unfold: Unfold
+        filter_by: Filteren op
+        unfold: Ontvouwen
       highlighted_questions:
-        title: Questions from %{scope_name}
+        title: Vragen van %{scope_name}
       index:
-        title: Consultations
+        title: Raadpleging
       last_activity:
-        new_consultation: New consultation
-        new_question_at_html: "<span>New question at %{link}</span>"
+        new_consultation: Nieuwe raadpleging
+        new_question_at_html: "<span>Nieuwe post op %{link}</span>"
       pages:
         home:
           highlighted_consultations:
-            active_consultations: Active consultations
-            see_all_consultations: See all consultations
+            active_consultations: Actieve raadplegingen
+            see_all_consultations: Alle raadplegingen bekijken
             voting_ends_in:
-              one: Voting ends <strong>tomorrow</strong>
-              other: Voting ends in <strong>%{count} days</strong>
-            voting_ends_today: Voting ends <strong>today</strong>
+              one: Stemmen eindigt <strong>morgen</strong>
+              other: Stemmen eindigt over <strong>%{count} dagen</strong>
+            voting_ends_today: Stemmen eindigt <strong>morgen</strong>
       question:
-        take_part: Take part
-        view_results: View results
+        take_part: Deelnemen
+        view_results: Resultaten tonen
         votes_out_of:
-          one: vote out of
-          other: votes out of
+          one: stem uit
+          other: stemmen uit
       question_votes:
         create:
-          error: There have been errors when voting the question
+          error: Er zijn fouten geweest bij het stemmen van de reactie
       regular_questions:
-        title: Questions for this consultation
+        title: Vragen voor deze raadpleging
       show:
         badge_name:
-          finished: Finished
+          finished: Afgerond
           open: Open
-          open_votes: Open votes
-          published_results: Results published
+          open_votes: Open stemmen
+          published_results: Resultaten gepubliceerd
         footer_button_text:
-          debate: Debate
-          view: View
-          view_results: View results
-          vote: Vote
-        unspecified: Not specified
+          debate: Debatten
+          view: Uitzicht
+          view_results: Resultaten tonen
+          vote: Stemmen
+        unspecified: Niet Gespecificeerd
     help:
       participatory_spaces:
         consultations:
-          contextual: "<p>Consultations are a space that allows you to ask a clear question to all the people who form an organization, make a call to participate in the consultation, spark and order the debate for or against a response. When the consultation date arrives, you can vote and publish the results of the votes.</p> <p>Examples: The consultations can be about almost any aspect that affects an organization: some examples are changing the name or logo of the organization offering several alternatives, deciding Yes or No to become part of a larger organization, validating or rejecting a new strategic plan or the result of a working group, or defining whether the positions should remain a maximum of 1, 2 or 3 mandates.</p>\n"
-          page: "<p>Consultations are a space that allows you to ask a clear question to all the people who form an organization, make a call to participate in the consultation, spark and order the debate for or against a response. When the consultation date arrives, you can vote and publish the results of the votes.</p> <p>Examples: The consultations can be about almost any aspect that affects an organization: some examples are changing the name or logo of the organization offering several alternatives, deciding Yes or No to become part of a larger organization, validating or rejecting a new strategic plan or the result of a working group, or defining whether the positions should remain a maximum of 1, 2 or 3 mandates in the organization.</p>\n"
-          title: What are consultations?
+          contextual: "<p>raadplegingen zijn een ruimte die u in staat stelt een duidelijke vraag te stellen aan alle mensen die een organisatie vormen, een oproep te doen om deel te nemen aan de raadpleging, te vouwen en het debat voor of tegen een reactie te bestellen. Wanneer de raadplegingsdatum er is, kunt u stemmen en de uitslag van de stemmingen publiceren.</p> <p>Voorbeelden: het overleg kan over bijna elk aspect gaan dat een organisatie beïnvloedt: sommige voorbeelden veranderen de naam of het logo van de organisatie die verschillende alternatieven biedt, besluiten ja of nee om deel te nemen aan een grotere organisatie, valideren of verwerpen van een nieuw strategisch plan of het resultaat van een werkgroep, of bepalen of de posities maximaal 1, 2 of 3 mandaten moeten blijven.</p>\n"
+          page: "<p>raadplegingen zijn een ruimte die u in staat stelt een duidelijke vraag te stellen aan alle mensen die een organisatie vormen, een oproep te doen om deel te nemen aan de raadpleging, te vouwen en het debat voor of tegen een reactie te bestellen. Wanneer de raadplegingsdatum er is, kunt u stemmen en de uitslag van de stemmingen publiceren.</p> <p>Voorbeelden: het overleg kan over bijna elk aspect gaan dat een organisatie beïnvloedt: sommige voorbeelden veranderen de naam of het logo van de organisatie die verschillende alternatieven biedt, besluiten ja of nee om deel te nemen aan een grotere organisatie, valideren of verwerpen van een nieuw strategisch plan of het resultaat van een werkgroep, of bepalen of de posities maximaal 1, 2 of 3 mandaten moeten blijven.</p>\n"
+          title: Actieve raadplegingen?
     menu:
-      consultations: Consultations
+      consultations: Raadpleging
     pages:
       home:
         statistics:
-          consultations_count: Consultations
+          consultations_count: Raadpleging
     questions:
       results:
-        title: Results
+        title: Resultaten
       show:
-        read_more: Read more
+        read_more: Lees verder
       statistics:
-        assistants_count_title: Assistants
-        comments_count_title: Comments
-        meetings_count_title: Meetings
-        supports_count_title: Supports
+        assistants_count_title: Assistenten
+        comments_count_title: Reacties
+        meetings_count_title: Vergaderingen
+        supports_count_title: Ondersteunt
       technical_info:
-        technical_data: Technical data
+        technical_data: Technische hulp
       vote_button:
-        already_voted: Already voted
-        already_voted_hover: Revoke support
+        already_voted: Al gestemd
+        already_voted_hover: Ondersteuning intrekken
         starting_from: Starting from %{date}
-        vote: Vote
+        vote: Stemmen
       vote_modal:
         contextual_help: Please, select an option.
         title: 'Consultation: question support'
       vote_modal_confirm:
         change: Change
-        confirm: Confirm
+        confirm: Bevestigen
         contextual_help: Please confirm the selected option.
         title: 'Consultation: confirm support'
   layouts:
     decidim:
       admin:
         question:
-          attachments: Attachments
-          categories: Categories
+          attachments: toebehoren
+          categories: Categorieën
       consultation_voting_data:
         start_voting_date: Voting begins
       question_components:
         question_menu_item: The question
-        unfold: Unfold
+        unfold: Ontvouwen
       question_header:
-        back_to_consultation: See all consultations
+        back_to_consultation: Alle raadplegingen bekijken
