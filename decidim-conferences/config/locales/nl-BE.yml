@@ -80,18 +80,18 @@ nl-BE:
           conference_speakers_title: Nieuwe conferentie gebruiker
         new:
           create: Creëren
-          title: New conference speaker.
+          title: Nieuwe conferentie gebruiker.
         update:
-          error: There was an error updating the speaker for this conference.
-          success: Speaker updated successfully for this conference.
+          error: Er is een fout opgetreden die een gebruiker bijgewerkt heeft voor dit deelnemende proces.
+          success: Gebruiker is succesvol bijgewerkt voor dit deelnemende proces.
       conference_user_roles:
         create:
-          error: There was an error adding a user for this conference.
-          success: User added successfully to this conference.
+          error: Er is een fout opgetreden die een gebruiker bijgewerkt heeft voor dit deelnemende proces.
+          success: Gebruiker is succesvol bijgewerkt voor dit deelnemende proces.
         destroy:
-          success: User removed successfully from this conference.
+          success: Gebruiker is succesvol bijgewerkt voor dit deelnemende proces.
         edit:
-          title: Update conference user.
+          title: Update de spreker van de conferentie.
           update: Bijwerken
         index:
           conference_admins_title: nieuwe conferentie gebruiker
@@ -172,13 +172,13 @@ nl-BE:
             affiliation: Affiliatie
             full_name: Volledige naam
             position: Positie
-          name: Conference Speaker
+          name: Nieuwe conferentie gebruiker
         conference_user_role:
           fields:
             email: E-mail
             name: Naam
             role: Rol
-          name: Conference User
+          name: Nieuwe conferentie gebruiker
           roles:
             admin: Beheerder
             collaborator: Medewerker
@@ -192,64 +192,64 @@ nl-BE:
         partner:
           fields:
             link: Link
-            logo: Logo
+            logo: '-'
             name: Naam
             partner_type: Type
-          name: Partner
+          name: Administrator
           types:
             collaborator: Medewerker
-            main_promotor: Main promotor
+            main_promotor: Hoofdpromotor
         registration_type:
           fields:
-            conference_meetings: Conference meetings
-            price: Price
-            registrations_count: Registrations count
+            conference_meetings: Conferentie vergaderingen
+            price: Prijs
+            registrations_count: Type
             title: Titel
             weight: Gewicht
           name: Type
       partners:
         create:
-          error: There was an error adding a partner for this conference.
-          success: Partner added successfully to this conference.
+          error: Er is een fout opgetreden die een gebruiker bijgewerkt heeft voor dit deelnemende proces.
+          success: Gebruiker is succesvol bijgewerkt voor dit deelnemende proces.
         destroy:
-          success: Partner removed successfully from this conference.
+          success: Gebruiker is succesvol bijgewerkt voor dit deelnemende proces.
         edit:
           title: Update partner.
           update: Bijwerken
         new:
           create: Creëren
-          title: New partner
+          title: Nieuwe partner
         update:
-          error: There was an error updated a partner for this conference.
-          success: Partner updated successfully for this conference.
+          error: Er is een fout opgetreden die een gebruiker bijgewerkt heeft voor dit deelnemende proces.
+          success: Gebruiker is succesvol bijgewerkt voor dit deelnemende proces.
       registration_type_publications:
         create:
-          error: There was an error publishing this registration type.
-          success: Registration type published successfully.
+          error: Er is een fout opgetreden bij het publiceren van deze assemblage.
+          success: Consultatie met succes gepubliceerd.
         destroy:
-          error: There was an error unpublishing this registration type.
-          success: Registration type unpublished successfully.
+          error: Er is een fout opgetreden bij het publiceren van deze assemblage.
+          success: Consultatie met succes gepubliceerd.
       registration_types:
         create:
-          error: There was an error adding a registration type for this conference.
-          success: Registration type added successfully to this conference.
+          error: Er is een fout opgetreden die een gebruiker bijgewerkt heeft voor dit deelnemende proces.
+          success: Gebruiker is succesvol bijgewerkt voor dit deelnemende proces.
         destroy:
-          success: Registration type removed successfully from this conference.
+          success: Gebruiker is succesvol bijgewerkt voor dit deelnemende proces.
         edit:
-          title: Update registration type.
+          title: Registratiecode valideren.
           update: Bijwerken
         new:
           create: Creëren
-          title: New registration type
+          title: Type
         update:
-          error: There was an error updated a registration type for this conference.
-          success: Registration type updated successfully for this conference.
+          error: Er is een fout opgetreden die een gebruiker bijgewerkt heeft voor dit deelnemende proces.
+          success: Gebruiker is succesvol bijgewerkt voor dit deelnemende proces.
       titles:
         conferences: Conferentie
     admin_log:
       conference:
-        create: "%{user_name} created the %{resource_name} conference"
-        publish: "%{user_name} published the %{resource_name} conference"
+        create: "%{user_name} heeft de %{resource_name} -vergadering aangemaakt"
+        publish: "%{user_name} heeft de %{resource_name} -vergadering aangemaakt"
         send_conference_diplomas: "%{user_name} heeft presentielijsten verstuurd naar de %{resource_name} conferentie atendees"
         unpublish: "%{user_name} heeft de %{resource_name} -vergadering aangemaakt"
         update: "%{user_name} heeft de %{resource_name} -vergadering aangemaakt"
@@ -337,36 +337,36 @@ nl-BE:
             title: Certificaat van aanwezigheid
         invite_join_conference_mailer:
           invite:
-            decline: Decline invitation '%{conference_title}'
-            invited_you_to_join_a_conference: "%{invited_by} has invited you to join a conference at %{application}. You can decline or accept it through the links below."
-            registration: Registration for '%{conference_title}'
+            decline: Uitnodiging weigeren '%{conference_title}'
+            invited_you_to_join_a_conference: "%{invited_by} heeft u uitgenodigd als beheerder van %{application}, u kunt deze uitnodiging accepteren via onderstaande link."
+            registration: Registratie voor '%{conference_title}'
         partners:
           index:
             title: Partners
         registration_types:
           form:
-            select_conference_meetings: Select conference meetings
+            select_conference_meetings: Selecteer conferentie vergaderingen
           index:
             title: Type
         send_conference_diploma_mailer:
           diploma:
-            diploma_html: You will be find the certificate of attendance for the conference <a href="%{url}">%{title}</a> in the attachments.
+            diploma_html: U vindt het certificaat van de presentie voor de conferentie <a href="%{url}">%{title}</a> in de bijlagen.
           diploma_user:
-            attendance_verified_by: Attendance verified by
+            attendance_verified_by: Aanwezigheid geverifieerd door
             certificate_of_attendance: Certificaat van aanwezigheid
-            certificate_of_attendance_description: This is to certify that <strong>%{user}</strong> has attended and taken part in the <strong>%{title}</strong> held at the <strong>%{location}</strong> on <strong>%{start} - %{end}</strong>
+            certificate_of_attendance_description: Dit is om te certificeren dat <strong>%{user}</strong> heeft bijgewoond en deelgenomen aan de <strong>%{title}</strong> op de <strong>%{location}</strong> op <strong>%{start} %{end}</strong>
         send_diploma:
-          error: There's been a problem while sending the conference certificates of attendance.
-          success: Conference certificates of attendance sent correctly
+          error: Er is een probleem geweest bij het versturen van de presentielijsten.
+          success: Conferentie-certificaten van aanwezigheid correct verzonden
       conference:
         registration_confirm:
           cancel: Annuleer
           confirm: Bevestigen
         show:
-          free: Free
+          free: Vrij
           going: gaand
           no_slots_available: Geen slots beschikbaar
-          registration: Registration
+          registration: Registratie
       conference_program:
         program_meeting:
           content: Inhoud
@@ -374,12 +374,12 @@ nl-BE:
           speakers: Luidsprekers
           streaming: Streaming
         show:
-          day: Day
+          day: Dag
           program: Programma
       conference_registration_mailer:
         confirmation:
-          confirmed_html: Your registration for the conference <a href="%{url}">%{title}</a> has been confirmed.
-          details_1: 'You are registered to the conference with %{registration_type} type. It has a cost of %{price} and you can attend to the following events:'
+          confirmed_html: Uw registratie voor de <a href="%{url}">%{title}</a> van de vergadering heeft bevestigd.
+          details_1: 'U heeft zich geregistreerd op %{registration_type} type met een kosten van %{price} en u kunt aanwezig zijn bij de volgende gebeurtenissen:'
           details_2: In de bijlage vindt u de details van de vergadering.
         pending_validation:
           confirmation_pending: U ontvangt de bevestiging binnenkort
