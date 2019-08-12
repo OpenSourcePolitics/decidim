@@ -81,9 +81,9 @@ nl-BE:
           global:
             announcement: Bericht
             comments_enabled: Reacties ingeschakeld
-            default_registration_terms: Default registration terms
-            enable_pads_creation: Enable pads creation
-            resources_permissions_enabled: Actions permissions can be set for each meeting
+            default_registration_terms: Standaard registratievoorwaarden
+            enable_pads_creation: Schakel paden aanmaken in
+            resources_permissions_enabled: Actierechten kunnen worden ingesteld voor elke vergadering
           step:
             announcement: Bericht
             comments_blocked: Reacties geblokkeerd
@@ -91,12 +91,12 @@ nl-BE:
       meetings:
         meeting_closed:
           affected_user:
-            email_intro: 'Your meeting "%{resource_title}" was closed. You can read the conclusions from its page:'
-            email_outro: You have received this notification because you organized the "%{resource_title}" meeting.
-            email_subject: The "%{resource_title}" meeting was closed
-            notification_title: The <a href="%{resource_path}">%{resource_title}</a> meeting was closed.
-          email_intro: 'La rencontre "%{resource_title}" est terminée. Vous pouvez en lire le compte rendu sur sa page :'
-          email_outro: Vous avez reçu cette notification, car vous suivez la rencontre "%{resource_title}". Vous pouvez arrêter de la suivre à partir du lien précédent.
+            email_intro: 'De "%{resource_title}" vergadering is gesloten. U kunt de conclusies van de pagina lezen:'
+            email_outro: U heeft deze melding ontvangen omdat u bent genoemd in %{resource_title}.
+            email_subject: De "%{resource_title}" vergadering is gesloten
+            notification_title: De vergadering van <a href="%{resource_path}">%{resource_title}</a> is gesloten.
+          email_intro: 'La rencions "%{resource_title}" est terminée. Vous pouvez en lire le compte rendu sur sa pagina:'
+          email_outro: Vous avez reçu cette melding, auto vous suivez la rencontre "%{resource_title}". Vous pouvez arrêter de la suivre à partir du lien précédent.
           email_subject: La rencontre "%{resource_title}" est terminée
           follower:
             email_intro: 'The "%{resource_title}" meeting was closed. You can read the conclusions from its page:'
@@ -183,33 +183,33 @@ nl-BE:
             title: Edit agenda
             update: Bijwerken
           form:
-            add_agenda_item: Add agenda item
-            agenda_items: Agenda items
+            add_agenda_item: Voeg agenda item kind toe
+            agenda_items: Agenda item
             end_date: Einddatum
             start_date: Begindatum
           new:
             create: Creëren
-            title: New agenda
+            title: Nieuw gebied
           update:
-            invalid: There's been a problem updating this agenda
-            success: Agenda successfully updated
+            invalid: Er is een probleem opgetreden met het maken van deze vergadering
+            success: Vergadering met succes gemaakt
         exports:
           meetings: Vergaderingen
           registrations: registraties
         invite_join_meeting_mailer:
           invite:
-            decline: Decline invitation
-            invited_you_to_join_a_meeting: "%{invited_by} has invited you to join a meeting at %{application}. You can decline or accept it through the links below."
-            join: Join meeting '%{meeting_title}'
+            decline: Uitnodiging verzenden
+            invited_you_to_join_a_meeting: "%{invited_by} heeft u uitgenodigd als beheerder van %{application}, u kunt deze uitnodiging accepteren via onderstaande link."
+            join: Deelnemen aan vergadering '%{meeting_title}'
         invites:
           create:
-            error: There's been a problem while inviting the user to join the meeting.
-            success: User successfully invited to join the meeting.
+            error: Er is een probleem geweest tijdens het uitnodigen van de gebruiker om toe te treden tot de conferentie.
+            success: Gebruiker succesvol uitgenodigd om deel te nemen aan de conferentie.
           form:
             attendee_type: Deelname type
             existing_user: Bestaande gebruiker
             invite: Nodig uit
-            invite_explanation: The user will be invited to join the meeting and to the organization as well.
+            invite_explanation: De gebruiker zal worden uitgenodigd om deel te nemen aan de conferentie en ook aan de organisatie.
             non_user: Bestaande gebruiker
             select_user: Gebruiker selecteren
           index:
@@ -219,9 +219,9 @@ nl-BE:
               rejected: Verworpen
               sent: Verzonden
             filter_by: Filteren op
-            invite_attendee: Invite attendee
+            invite_attendee: Nodig deelname uit
             invites: Nodig uit
-            registrations_disabled: You can't invite an attendee because the registrations are disabled.
+            registrations_disabled: U kunt geen deelnemer uitnodigen omdat de registraties zijn uitgeschakeld.
             search: Zoeken
         meeting_closes:
           edit:
@@ -229,7 +229,7 @@ nl-BE:
             title: Dichte ontmoeting
         meeting_copies:
           form:
-            select_organizer: Select the organizer
+            select_organizer: Selecteer de organisator
         meetings:
           close:
             invalid: Er is een probleem opgetreden bij het sluiten van deze vergadering
@@ -242,7 +242,7 @@ nl-BE:
           edit:
             update: Bijwerken
           form:
-            select_organizer: Select the organizer
+            select_organizer: Selecteer de organisator
           index:
             title: Vergaderingen
           new:
@@ -429,23 +429,23 @@ nl-BE:
     participatory_processes:
       participatory_process_groups:
         highlighted_meetings:
-          past_meetings: Past meetings
-          upcoming_meetings: Upcoming meetings
+          past_meetings: Eerdere vergaderingen
+          upcoming_meetings: Aankomende vergadering
     participatory_spaces:
       highlighted_meetings:
-        past_meetings: Past meetings
+        past_meetings: Eerdere vergaderingen
         see_all: Zie alles (%{count})
-        upcoming_meetings: Upcoming meetings
+        upcoming_meetings: Aankomende vergadering
       upcoming_meeting_for_card:
-        upcoming_meeting: Upcoming meeting
+        upcoming_meeting: Aankomende vergadering
     resource_links:
       meetings_through_proposals:
-        meeting_result: 'Related results:'
-        result_meeting: 'Related meetings:'
+        meeting_result: 'Gerelateerde resultaten:'
+        result_meeting: 'Maak een afspraak:'
       proposals_from_meeting:
         meeting_proposal: 'Verwante voorstellen:'
-        proposal_meeting: 'Related meetings:'
+        proposal_meeting: 'Maak een afspraak:'
   devise:
     mailer:
       join_meeting:
-        subject: Invitation to join a meeting
+        subject: Uitnodiging om deel te nemen aan een conferentie
