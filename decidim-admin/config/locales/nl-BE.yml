@@ -53,19 +53,19 @@ nl-BE:
         highlighted_content_banner_action_title: Action button title
         highlighted_content_banner_action_url: Action button URL
         highlighted_content_banner_enabled: Show the highlighted content banner
-        highlighted_content_banner_image: Image
-        highlighted_content_banner_short_description: Short description
-        highlighted_content_banner_title: Title
+        highlighted_content_banner_image: Beeld
+        highlighted_content_banner_short_description: Korte beschrijving
+        highlighted_content_banner_title: Titel
         instagram_handler: Instagram handler
         logo: Logo
         name: Naam
         official_img_footer: Officiële logo footer
         official_img_header: Officiële logo header
         official_url: Officiële organisatie url
-        omnipresent_banner_short_description: Short description
-        omnipresent_banner_title: Title
+        omnipresent_banner_short_description: Korte beschrijving
+        omnipresent_banner_title: Titel
         omnipresent_banner_url: URL
-        password: Password
+        password: Wachtwoord
         port: Port
         primary_color: Primary
         reference_prefix: Referentievoorvoegsel
@@ -81,7 +81,7 @@ nl-BE:
         code: Code
         name: Naam
         organization: Organisatie
-        parent_id: Parent
+        parent_id: Ouder
         scope_type: Scope type
         scope_type_id: Scope type
       scope_type:
@@ -95,14 +95,14 @@ nl-BE:
         show_in_footer: Show in the footer
         slug: URL slak
         title: Titel
-        weight: Weight
+        weight: Gewicht
       static_page_topic:
-        description: Description
+        description: Beschrijving
         show_in_footer: Show in the footer
-        title: Title
-        weight: Weight
+        title: Titel
+        weight: Gewicht
       user_group_csv_verification:
-        file: File
+        file: Het dossier
     errors:
       models:
         oauth_application:
@@ -125,9 +125,9 @@ nl-BE:
         authorize_url: Authorize URL
         client_id: Client ID
         client_secret: Client Secret
-        organization_name: Organization name
-        organization_url: Organization URL
-        redirect_uri: Redirect URI
+        organization_name: Organisatienaam
+        organization_url: URL van de organisatie
+        redirect_uri: Redirect-URI
         site: Website
   decidim:
     admin:
@@ -255,11 +255,11 @@ nl-BE:
             name: Naam onderdeel
             type: Onderdeel type
         new:
-          add: Add component
+          add: Voeg onderdeel toe
           title: 'Add component: %{name}'
         publish:
           success: The component has been successfully published.
-        title: Components
+        title: Componenten
         unpublish:
           success: The component has been successfully unpublished.
         update:
@@ -275,25 +275,25 @@ nl-BE:
       help_sections:
         error: There's been an error updating the help sections
         form:
-          save: Save
+          save: Opslaan
         success: Help sections updated successfully
       impersonatable_users:
         index:
           filter:
-            all: All
+            all: Alle
             managed: Managed
             not_managed: Not managed
-          filter_by: Filter by
-          impersonate: Impersonate
+          filter_by: Filteren op
+          impersonate: verpersoonlijken
           impersonate_new_managed_user: Impersonate new managed user
           managed: Managed
-          name: Name
+          name: Naam
           needs_authorization_warning: You need at least one authorization enabled for this organization.
           not_managed: Not managed
-          promote: Promote
-          search: Search
+          promote: Promoten
+          search: Zoeken
           status: Status
-          view_logs: View logs
+          view_logs: Bekijk logboeken
       impersonations:
         close_session:
           error: There has been an error closing the current impersonation session.
@@ -303,10 +303,10 @@ nl-BE:
           success: The managed user has been successfully created.
         form:
           authorization_method: Authorization method
-          name: Name
-          reason: Reason
+          name: Naam
+          reason: Reden
         new:
-          impersonate: Impersonate
+          impersonate: verpersoonlijken
           impersonate_existing_managed_user: Impersonate managed user "%{name}"
           impersonate_existing_user: Impersonate user "%{name}"
           impersonate_new_managed_user: Impersonate new managed user
@@ -331,8 +331,8 @@ nl-BE:
         admin_log: Admin activity log
         admins: Admins
         appearance: Appearance
-        area_types: Area types
-        areas: Areas
+        area_types: Onderwerp
+        areas: Gebied
         configuration: Configuration
         dashboard: Dashboard
         help_sections: Help sections
@@ -340,8 +340,8 @@ nl-BE:
         impersonations: Impersonations
         navbar_links: Navbar links
         newsletters: Nieuwsbrieven
-        oauth_applications: OAuth applications
-        participants: Participants
+        oauth_applications: Bewerk applicatie
+        participants: Deelnemers
         scope_types: Scope type
         scopes: Scope
         settings: Instellingen
@@ -515,21 +515,21 @@ nl-BE:
         destroy:
           success: Gebruiker heeft succesvol uitgenodigd
         index:
-          actions: Actions
+          actions: Acties
           badge: Badge
           created_at: Created At
           filter:
-            all: All
+            all: Alle
             not_officialized: Not officialized
             officialized: Officialized
-          filter_by: Filter by
-          name: Name
+          filter_by: Filteren op
+          name: Naam
           nickname: Nickname
           not_officialized: Not officialized
           officialize: Officialize
           officialized: Officialized
           reofficialize: Reofficialize
-          search: Search
+          search: Zoeken
           status: Status
           unofficialize: Unofficialize
         new:
@@ -553,7 +553,7 @@ nl-BE:
           success: Organisatie is succesvol bijgewerkt.
       organization_appearance:
         edit:
-          update: Update
+          update: Bijwerken
         form:
           colors_title: Organization colors
           cta_button_path_help: 'You can overwrite where the Call To Action button in the homepage links to. Use partial paths, not full URLs here. Accepts letters, numbers, dashes and slashes, and must start with a letter. The Call To Action button is shown in the homepage between the welcome text and the description. Example: %{url}'
@@ -569,7 +569,7 @@ nl-BE:
           inactive_content_blocks: Inactive content blocks
       organization_homepage_content_blocks:
         edit:
-          update: Update
+          update: Bijwerken
       participatory_space_private_users:
         create:
           error: There was an error adding a private user for this participatory space.
@@ -578,9 +578,9 @@ nl-BE:
           error: There was an error deleting a private user for this participatory space.
           success: Participatory space private user access destroyed successfully.
         index:
-          title: Participatory space private user
+          title: Gebruiker van de burgerinspraak
         new:
-          create: Create
+          create: Creëren
           title: New Participatory Space private user.
       scope_types:
         create:
@@ -620,7 +620,7 @@ nl-BE:
         destroy:
           success: Topic successfully destroyed
         edit:
-          title: Edit topic
+          title: Onderwerp bewerken
           update: Update topic
         new:
           create: Create topic
