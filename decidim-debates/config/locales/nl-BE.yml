@@ -2,78 +2,78 @@ nl-BE:
   activemodel:
     attributes:
       debate:
-        category_id: Category
-        decidim_category_id: Category
-        description: Description
-        end_time: Ends at
-        information_updates: Information updates
-        instructions: Instructions to participate
-        start_time: Starts at
-        title: Title
-        user_group_id: Create debate as
+        category_id: Categorie
+        decidim_category_id: Categorie
+        description: Beschrijving
+        end_time: Eindigde op
+        information_updates: Informatie updates
+        instructions: Instructies om deel te nemen
+        start_time: Gestart op
+        title: Titel
+        user_group_id: Maak debat als
     models:
-      decidim/debates/create_debate_event: Debate
-      decidim/debates/creation_disabled_event: Debates disabled
-      decidim/debates/creation_enabled_event: Debates enabled
+      decidim/debates/create_debate_event: Debatten
+      decidim/debates/creation_disabled_event: Debatten uitgeschakeld
+      decidim/debates/creation_enabled_event: Stemmen uitgeschakeld
   activerecord:
     models:
       decidim/debates/debate:
-        one: Debate
-        other: Debates
+        one: Debatten
+        other: Debatten
   decidim:
     components:
       debates:
         actions:
-          create: Create
-        name: Debates
+          create: Creëren
+        name: Debatten
         settings:
           global:
-            announcement: Announcement
-            comments_enabled: Comments enabled
+            announcement: Bericht
+            comments_enabled: Reacties ingeschakeld
           step:
-            announcement: Announcement
-            comments_blocked: Comments blocked
-            creation_enabled: Debate creation by users enabled
+            announcement: Bericht
+            comments_blocked: Reacties geblokkeerd
+            creation_enabled: Debat aanmaken door gebruikers ingeschakeld
     debates:
       actions:
-        confirm_destroy: Are you sure?
-        destroy: Delete
-        edit: Edit
-        new: New %{name}
-        title: Actions
+        confirm_destroy: Weet u het zeker?
+        destroy: Vernietigen
+        edit: Bewerk
+        new: Nieuw %{name}
+        title: Acties
       admin:
         debates:
           create:
-            invalid: There has been a problem while creating the debate.
-            success: Debate created successfully.
+            invalid: Er is een probleem geweest tijdens het creëren van het debat.
+            success: Pagina is succesvol gemaakt.
           destroy:
-            success: Debate deleted successfully.
+            success: Categorie is succesvol verwijderd.
           edit:
-            title: Edit debate
-            update: Update debate
+            title: Bewerk debat
+            update: Update debat
           index:
-            title: Debates
+            title: Debatten
           new:
-            create: Create debate
-            title: New debate
+            create: Maak debat als
+            title: Nieuw debat
           update:
-            invalid: There has been a problem while updating this debate.
-            success: Debate updated successfully.
+            invalid: Er is een probleem geweest tijdens het creëren van het debat.
+            success: Pagina is succesvol gemaakt.
         exports:
-          comments: comments
-          debates: debates
+          comments: reacties
+          debates: debatten
         models:
           debate:
-            name: Debate
+            name: Debatten
       admin_log:
         debate:
-          create: "%{user_name} created the %{resource_name} debate on the %{space_name} space"
-          update: "%{user_name} updated the %{resource_name} debate on the %{space_name} space"
+          create: "%{user_name} heeft het %{resource_name} lid aangemaakt in de %{space_name} -vergadering"
+          update: "%{user_name} heeft het %{resource_name} lid aangemaakt in de %{space_name} -vergadering"
       debates:
         count:
           debates_count:
-            one: "%{count} debate"
-            other: "%{count} debates"
+            one: "%{count} debat"
+            other: "%{count} debatten"
         create:
           invalid: There has been a problem while creating the debate.
           success: Debate created successfully.
