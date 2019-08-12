@@ -72,82 +72,82 @@ nl-BE:
         success_with_email_confirmation: Your account was updated successfully. You'll receive an email to confirm your new email address.
     admin_log:
       area:
-        create: "%{user_name} created the %{resource_name} area"
-        delete: "%{user_name} deleted the %{resource_name} area"
-        update: "%{user_name} updated the %{resource_name} area"
+        create: "%{user_name} heeft de %{resource_name} -vergadering aangemaakt"
+        delete: "%{user_name} heeft de %{resource_name} -vergadering aangemaakt"
+        update: "%{user_name} heeft de %{resource_name} -vergadering aangemaakt"
       component:
-        create: "%{user_name} added the %{resource_name} component to the %{space_name} space"
-        delete: "%{user_name} removed the %{resource_name} component from the %{space_name} space"
-        publish: "%{user_name} published the %{resource_name} component in the %{space_name} space"
-        unpublish: "%{user_name} unpublished the %{resource_name} component from the %{space_name} space"
+        create: "%{user_name} heeft het %{resource_name} lid aangemaakt in de %{space_name} -vergadering"
+        delete: "%{user_name} heeft het %{resource_name} lid aangemaakt in de %{space_name} -vergadering"
+        publish: "%{user_name} heeft het %{resource_name} lid aangemaakt in de %{space_name} -vergadering"
+        unpublish: "%{user_name} heeft het %{resource_name} lid aangemaakt in de %{space_name} -vergadering"
       moderation:
-        hide: "%{user_name} hid a resource of type %{resource_type} in the %{space_name} space"
-        unreport: "%{user_name} unreported a resource of type %{resource_type} in the %{space_name} space"
+        hide: "%{user_name} heeft een bron van type %{resource_type} niet gemeld in de %{space_name} ruimte"
+        unreport: "%{user_name} heeft een bron van type %{resource_type} niet gemeld in de %{space_name} ruimte"
       newsletter:
-        create: "%{user_name} created the %{resource_name} newsletter"
-        delete: "%{user_name} deleted the %{resource_name} newsletter"
-        deliver: "%{user_name} delivered the %{resource_name} newsletter"
-        update: "%{user_name} updated the %{resource_name} newsletter"
+        create: "%{user_name} heeft de %{resource_name} -vergadering aangemaakt"
+        delete: "%{user_name} heeft de %{resource_name} -vergadering aangemaakt"
+        deliver: "%{user_name} heeft de %{resource_name} -vergadering aangemaakt"
+        update: "%{user_name} heeft de %{resource_name} -vergadering aangemaakt"
       oauth_application:
-        create: "%{user_name} created the %{resource_name} OAuth application"
-        delete: "%{user_name} deleted the %{resource_name} OAuth application"
-        update: "%{user_name} updated the %{resource_name} OAuth application"
+        create: "%{user_name} heeft de %{resource_name} -vergadering aangemaakt"
+        delete: "%{user_name} heeft de %{resource_name} -vergadering aangemaakt"
+        update: "%{user_name} heeft de %{resource_name} -vergadering aangemaakt"
       organization:
-        update: "%{user_name} updated the organization settings"
+        update: "%{user_name} heeft de organisatie instellingen bijgewerkt"
       scope:
-        create: "%{user_name} created the %{resource_name} scope"
-        create_with_parent: "%{user_name} created the %{resource_name} scope inside the %{parent_scope} scope"
-        delete: "%{user_name} deleted the %{resource_name} scope"
-        delete_with_parent: "%{user_name} deleted the %{resource_name} scope inside the %{parent_scope} scope"
-        update: "%{user_name} updated the %{resource_name} scope"
-        update_with_parent: "%{user_name} updated the %{resource_name} scope inside the %{parent_scope} scope"
+        create: "%{user_name} heeft de %{resource_name} -vergadering aangemaakt"
+        create_with_parent: "%{user_name} heeft het %{resource_name} lid aangemaakt in de %{parent_scope} -vergadering"
+        delete: "%{user_name} heeft de %{resource_name} -vergadering aangemaakt"
+        delete_with_parent: "%{user_name} heeft het %{resource_name} lid aangemaakt in de %{parent_scope} -vergadering"
+        update: "%{user_name} heeft de %{resource_name} -vergadering aangemaakt"
+        update_with_parent: "%{user_name} heeft het %{resource_name} lid aangemaakt in de %{parent_scope} -vergadering"
       static_page:
-        create: "%{user_name} created the %{resource_name} static page"
-        delete: "%{user_name} deleted the %{resource_name} static page"
-        update: "%{user_name} updated the %{resource_name} static page"
+        create: "%{user_name} heeft de %{resource_name} -vergadering aangemaakt"
+        delete: "%{user_name} heeft de %{resource_name} -vergadering aangemaakt"
+        update: "%{user_name} heeft de %{resource_name} -vergadering aangemaakt"
       user:
-        invite: "%{user_name} invited the user %{resource_name} with role: %{role}"
-        officialize: "%{user_name} officialized the user %{resource_name}"
-        remove_from_admin: "%{user_name} removed the user %{resource_name} with role: %{role}"
-        unofficialize: "%{user_name} unofficialized the user %{resource_name}"
+        invite: "%{user_name} heeft de gebruiker %{resource_name} uitgenodigd met rol: %{role}"
+        officialize: "%{user_name} heeft de gebruiker %{resource_name} niet gecompliceerder"
+        remove_from_admin: "%{user_name} heeft de gebruiker %{resource_name} uitgenodigd met rol: %{role}"
+        unofficialize: "%{user_name} heeft de gebruiker %{resource_name} niet gecompliceerder"
       user_group:
-        reject: "%{user_name} rejected the %{resource_name} user group verification"
-        verify: "%{user_name} verified the %{resource_name} user group"
-    anonymous_user: Anonymous
+        reject: "%{user_name} heeft de %{resource_name} -vergadering aangemaakt"
+        verify: "%{user_name} heeft de %{resource_name} -vergadering aangemaakt"
+    anonymous_user: Anoniem
     application:
       collection:
         documents:
           one: Document
-          other: Documents
+          other: Documenten
       documents:
-        related_documents: Related documents
+        related_documents: Gerelateerde documenten
       photos:
-        related_photos: Related photos
+        related_photos: Gerelateerde foto 's
     author:
       comments:
-        one: comment
-        other: comments
+        one: commentaar
+        other: reacties
     authorization_handlers:
       another_dummy_authorization_handler:
-        explanation: Get verified by introducing a passport number starting with "A"
+        explanation: Verifieer door een paspoortnummer in te voeren dat begint met "A"
         fields:
-          passport_number: Passport number
-        name: Another example authorization
+          passport_number: Paspoortnummer
+        name: Een andere voorbeeld autorisatie
       dummy_authorization_handler:
-        explanation: Get verified by introducing a document number ending with "X"
+        explanation: Verifieer door een documentnummer in te voeren dat eindigt met "X"
         fields:
-          document_number: Document number
-          postal_code: Postal code
-        name: Example authorization
+          document_number: Documentnummer
+          postal_code: Postcode
+        name: Voorbeeld autorisatie
       dummy_authorization_workflow:
-        name: Dummy authorization workflow
+        name: Dummy autorisatie workflow
       errors:
-        duplicate_authorization: A user is already authorized with the same data.
-      expired_at: Expired at %{timestamp}
-      expires_at: Expires at %{timestamp}
+        duplicate_authorization: Een gebruiker is al gemachtigd met dezelfde gegevens.
+      expired_at: Verlopen om %{timestamp}
+      expires_at: Verloopt op %{timestamp}
       foo_authorization:
         fields:
-          bar: Bar
+          bar: Balk
           foo: Foo
         name: Foo authorization
       granted_at: Granted at %{timestamp}
@@ -226,68 +226,68 @@ nl-BE:
           connect_your_account_html: Connect your account by signing in to <strong>%{organization}</strong>
           publish_content: Publish content for you
           see_email: See your email
-          see_name: See your name
-          see_username: See your username
-          this_application_will_be_able_to: 'This application will be able to:'
-          this_application_will_not_be_able_to: 'This application will not be able to:'
-          update_profile: Update your profile
-          wants_to_use_your_account_html: "<strong>%{application_name}</strong> wants to use your account"
+          see_name: Zie je naam
+          see_username: Bekijk je gebruikersnaam
+          this_application_will_be_able_to: 'Deze applicatie krijgt toegang tot:'
+          this_application_will_not_be_able_to: 'Deze applicatie krijgt toegang tot:'
+          update_profile: Uw profiel bijwerken
+          wants_to_use_your_account_html: "<strong>%{application_name}</strong> wil uw account gebruiken"
     errors:
       internal_server_error:
-        title: There was a problem with our server
-        try_later: Please try again later.
+        title: Er was een probleem met de server
+        try_later: Probeer het later opnieuw.
       not_found:
-        back_home: Back home
-        content_doesnt_exist: This address is incorrect or has been removed.
-        title: The page you're looking for can't be found
+        back_home: Terug naar huis
+        content_doesnt_exist: Dit adres is onjuist of is verwijderd.
+        title: De pagina die u zoekt is niet gevonden
     events:
       attachments:
         attachment_created:
-          email_intro: 'A new document has been added to %{resource_title}. You can see it from this page:'
-          email_outro: You have received this notification because you are following %{resource_title}. You can stop receiving notifications following the previous link.
-          email_subject: An update to %{resource_title}
-          notification_title: A <a href="%{resource_path}">new document</a> has been added to <a href="%{attached_to_url}">%{resource_title}</a>
+          email_intro: 'Er is een update aan "%{resource_title}". Je ziet het vanaf deze pagina:'
+          email_outro: Je hebt deze melding ontvangen omdat je "%{resource_title}" volgt. Je kan de meldingen deactiveren door te klikken op de vorige link.
+          email_subject: Een update aan %{resource_title}
+          notification_title: Een <a href="%{resource_path}">nieuw document</a> is toegevoegd aan <a href="%{attached_to_url}">%{resource_title}</a>
       components:
         component_published:
-          email_intro: 'The %{resource_title} component is now active for %{participatory_space_title}. You can see it from this page:'
-          email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
-          email_subject: An update to %{participatory_space_title}
-          notification_title: The %{resource_title} component is now active for <a href="%{resource_path}">%{participatory_space_title}</a>
+          email_intro: 'Het %{resource_title} component is nu actief voor %{participatory_space_title}. U kunt het zien vanaf deze pagina:'
+          email_outro: Je hebt deze melding ontvangen omdat je "%{participatory_space_title}" volgt. Je kan de meldingen deactiveren door te klikken op de vorige link.
+          email_subject: Een update aan %{participatory_space_title}
+          notification_title: Het %{resource_title} component is nu actief voor <a href="%{resource_path}">%{participatory_space_title}</a>
       email_event:
-        email_greeting: Hello %{user_name},
-        email_intro: 'There has been an update to "%{resource_title}". You can see it from this page:'
-        email_outro: You have received this notification because you are following "%{resource_title}". You can unfollow it from the previous link.
-        email_subject: An update to %{resource_title}
+        email_greeting: Hallo %{user_name},
+        email_intro: 'Er is een update aan "%{resource_title}". Je ziet het vanaf deze pagina:'
+        email_outro: U ontvangt dit bericht omdat u "%{resource_title}" volgen. Je kunt het unfollow uit de vorige koppeling.
+        email_subject: Een update aan %{resource_title}
       feature_published_event:
-        email_intro: 'The %{resource_title} component is now active for %{participatory_space_title}. You can see it from this page:'
-        email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
-        email_subject: An update to %{participatory_space_title}
-        notification_title: The %{resource_title} component is now active for <a href="%{resource_path}">%{participatory_space_title}</a>
+        email_intro: 'Het %{resource_title} component is nu actief voor %{participatory_space_title}. U kunt het zien vanaf deze pagina:'
+        email_outro: Je hebt deze melding ontvangen omdat je "%{participatory_space_title}" volgt. Je kan de meldingen deactiveren door te klikken op de vorige link.
+        email_subject: Een update aan %{participatory_space_title}
+        notification_title: Het %{resource_title} component is nu actief voor <a href="%{resource_path}">%{participatory_space_title}</a>
       features:
         feature_published:
-          email_intro: 'The %{resource_title} component is now active for %{participatory_space_title}. You can see it from this page:'
-          email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
-          email_subject: An update to %{participatory_space_title}
-          notification_title: The %{resource_title} component is now active for <a href="%{resource_path}">%{participatory_space_title}</a>
+          email_intro: 'Het %{resource_title} component is nu actief voor %{participatory_space_title}. U kunt het zien vanaf deze pagina:'
+          email_outro: Je hebt deze melding ontvangen omdat je "%{participatory_space_title}" volgt. Je kan de meldingen deactiveren door te klikken op de vorige link.
+          email_subject: Een update aan %{participatory_space_title}
+          notification_title: Het %{resource_title} component is nu actief voor <a href="%{resource_path}">%{participatory_space_title}</a>
       notification_event:
-        notification_title: An event occured to <a href="%{resource_path}">%{resource_title}</a>.
+        notification_title: Een gebeurtenis heeft plaatsgevonden om te <a href="%{resource_path}">%{resource_title}</a>.
       users:
         profile_updated:
-          email_intro: The <a href="%{resource_url}">profile page</a> of %{name} (%{nickname}), who you are following, has been updated.
-          email_outro: You have received this notification because you are following %{nickname}. You can stop receiving notifications following the previous link.
-          email_subject: "%{nickname} updated their profile"
-          notification_title: The <a href="%{resource_path}">profile page</a> of %{name} (%{nickname}), who you are following, has been updated.
+          email_intro: De <a href="%{resource_url}">profielpagina</a> van %{name} (%{nickname}), die u volgt, is bijgewerkt.
+          email_outro: Je hebt deze melding ontvangen omdat je "%{nickname}" volgt. Je kan de meldingen deactiveren door te klikken op de vorige link.
+          email_subject: "%{nickname} heeft hun profiel bijgewerkt"
+          notification_title: De <a href="%{resource_path}">profielpagina</a> van %{name} (%{nickname}), die u volgt, is bijgewerkt.
     export_mailer:
       export:
-        ready: Please find attached a zipped version of your export.
-      subject: Your export "%{name}" is ready
+        ready: Hierbij vindt u een bijgevoegde versie van uw export.
+      subject: Uw export "%{name}" is klaar
     filters:
       linked_classes:
-        all: All
-        dummyresource: Dummy resources
-        meeting: Meetings
-        project: Projects
-        proposal: Proposals
+        all: Alle
+        dummyresource: Dummy bronnen
+        meeting: Vergaderingen
+        project: Projecten
+        proposal: Voorstellen
         result: Results
     fingerprint:
       check: Check fingerprint
