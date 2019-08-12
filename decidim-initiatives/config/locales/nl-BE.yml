@@ -2,10 +2,10 @@ nl-BE:
   activemodel:
     attributes:
       initiative:
-        decidim_user_group_id: Author
-        description: Description
+        decidim_user_group_id: Auteur
+        description: Beschrijving
         offline_votes: Face-to-face supports
-        scope_id: Scope
+        scope_id: Reikwijdte
         signature_end_date: End of signature collection period
         signature_start_date: Start of signature collection period
         signature_type: Signature collection type
@@ -13,9 +13,9 @@ nl-BE:
           any: Mixed
           offline: Face to face
           online: OnLine
-        title: Title
+        title: Titel
       initiative_author:
-        address: Address
+        address: Adres
         city: City
         id_document: DNI/NIE
         name: Name and Surname
@@ -25,11 +25,11 @@ nl-BE:
       initiatives_committee_member:
         user: Committee member
       initiatives_type:
-        banner_image: Banner image
-        description: Description
-        title: Title
+        banner_image: Banner afbeelding
+        description: Beschrijving
+        title: Titel
       organization_data:
-        address: Address
+        address: Adres
         id_document: ID document
         name: Complete name
   activerecord:
@@ -53,19 +53,19 @@ nl-BE:
       models:
         initiatives:
           fields:
-            created_at: Created at
-            id: ID
-            state: State
-            supports_count: Supports
+            created_at: Gemaakt bij
+            id: ID kaart
+            state: Staat
+            supports_count: Ondersteunt
             title: Initiatives
         initiatives_type_scope:
           fields:
-            scope: Scope
+            scope: Reikwijdte
             supports_required: Supports required
           name: Initiative type scope
         initiatives_types:
           fields:
-            created_at: Created at
+            created_at: Gemaakt bij
             title: Initiative types
           name: Initiative type
       titles:
@@ -134,23 +134,23 @@ nl-BE:
             reject: Reject initiative
             send_to_technical_validation: Send to technical validation
             success: The initiative has been sent to technical validation
-            update: Update
+            update: Bijwerken
           form:
-            title: General information
+            title: Algemene informatie
           index:
             actions_title: Action
             filter:
-              accepted: Accepted
-              all: All
+              accepted: Aanvaard
+              all: Alle
               created: Created
               discarded: Discarded
-              published: Published
-              rejected: Rejected
+              published: Gepubliceerd
+              rejected: Verworpen
               validating: Technical validation
-            filter_by: Filter by
-            preview: Preview
+            filter_by: Filteren op
+            preview: Voorbeeld
             print: Print
-            search: Search
+            search: Zoeken
           show:
             print: Print
           update:
@@ -165,12 +165,12 @@ nl-BE:
           edit:
             back: Back
             confirm_destroy: Are you sure?
-            destroy: Delete
+            destroy: Vernietigen
             title: Edit initiative type scope
-            update: Update
+            update: Bijwerken
           new:
             back: Back
-            create: Create
+            create: Creëren
             title: Create initiative type scope
           update:
             error: An error has occurred
@@ -183,14 +183,14 @@ nl-BE:
             success: The initiative type has been successfully removed
           edit:
             confirm_destroy: Are you sure?
-            destroy: Delete
-            update: Update
+            destroy: Vernietigen
+            update: Bijwerken
           form:
-            title: General information
+            title: Algemene informatie
           initiative_type_scopes:
             title: Scopes for the initiative type
           new:
-            create: Create
+            create: Creëren
             title: New initiative type
           update:
             error: An error has occurred
@@ -202,15 +202,15 @@ nl-BE:
           unpublish: "%{user_name} discarded the %{resource_name} initiative"
           update: "%{user_name} updated the %{resource_name} initiative"
       admin_states:
-        accepted: Accepted
+        accepted: Aanvaard
         created: Created
         discarded: Discarded
-        published: Published
-        rejected: Rejected
+        published: Gepubliceerd
+        rejected: Verworpen
         validating: Technical validation
       committee_requests:
         new:
-          continue: Continue
+          continue: Verstuur
           help_text: You are about to request becoming a member of the promoter committee of this initiative
         spawn:
           success: Your request has been sent to the initiative author.
@@ -220,7 +220,7 @@ nl-BE:
       create_initiative:
         fill_data:
           back: Back
-          continue: Continue
+          continue: Verstuur
           fill_data_help: "<ul> <li>Revise the content of your initiative. Is your title easy to understand? Is the objective of your initiative clear?</li> <li>You have to choose the type of signature. In-person, online or a combination of both</li> <li>Which is the geographic scope of the initiative? City, district?</li> </ul>"
           initiative_type: Initiative type
           more_information: "(More information)"
@@ -240,7 +240,7 @@ nl-BE:
           page: page
         previous_form:
           back: Back
-          continue: Continue
+          continue: Verstuur
           help: What does the initiative consist of? Write down the title and description. We recommend a short and concise title and a description focused on the proposed solution.
           more_information: "(More information)"
         promotal_committee:
@@ -253,7 +253,7 @@ nl-BE:
           select: Choose
           select_initiative_type_help: Citizen initiatives are a means by which the citizenship can intervene so that the City Council can undertake actions in defence of the general interest that are within fields of municipal jurisdiction. Which initiative do you want to launch?
         share_committee_link:
-          continue: Continue
+          continue: Verstuur
           invite_to_committee_help: Link to invite people that will be part of the promoter committee
         show_similar_initiatives:
           back: Back
@@ -289,27 +289,27 @@ nl-BE:
             other: "%{count} initiatives"
         filters:
           any: Any
-          author: Author
-          closed: Closed
+          author: Auteur
+          closed: Gesloten
           myself: My initiatives
           open: Open
-          search: Search
-          state: State
+          search: Zoeken
+          state: Staat
           type: Type
           type_prompt: Select a type
         filters_small_view:
-          close_modal: Close window
+          close_modal: Sluit dit scherm
           filter: Filter
-          filter_by: Filter by
-          unfold: Unfold
+          filter_by: Filteren op
+          unfold: Ontvouwen
         index_header:
           new_initiative: New initiative
         orders:
           label: 'Sort initiatives by:'
           most_commented: Most commented
           most_voted: Most signed
-          random: Random
-          recent: Most recent
+          random: Willekeurig
+          recent: Meest recent
         result:
           initiative_accepted_reason: This initiative has been accepted because
           initiative_rejected_reason: This initiative has been rejected due to its lack of supports.
@@ -322,9 +322,9 @@ nl-BE:
           one: " signature"
           other: " signatures"
         statistics:
-          assistants_count_title: Assistants
-          comments_count_title: Comments
-          meetings_count_title: Meetings
+          assistants_count_title: Assistenten
+          comments_count_title: Reacties
+          meetings_count_title: Vergaderingen
           supports_count_title: Signatures
         supports:
           title: Listing of signatures
@@ -341,7 +341,7 @@ nl-BE:
         creation_subject: Your citizen initiative '%{title}' has been created
         initiative_link:
           check_initiative_details: You can see the initiative details
-          here: here
+          here: hier
         more_information: Here you have more information about the initiative creation process.
         progress_report_body_for: The initiative %{title} has reached the %{percentage}% of required supports.
         progress_report_for: 'Resume about the initiative: %{title}'
@@ -358,7 +358,7 @@ nl-BE:
             active_initiatives: Active initiatives
             see_all_initiatives: See all initiatives
       states:
-        accepted: Accepted
+        accepted: Aanvaard
         expired: Expired
       unavailable_scope: Unavailable scope
     menu:
@@ -367,18 +367,18 @@ nl-BE:
     decidim:
       admin:
         initiative:
-          attachments: Attachments
+          attachments: toebehoren
           committee_members: Committee members
-          components: Components
+          components: Componenten
           information: Information
       initiative_creation_header:
-        fill_data: Create
+        fill_data: Creëren
         finish: Finish
         previous_form: Start
         promotal_committee: Promoter committee
         select_initiative_type: Choose
         show_similar_initiatives: Compare
-        step: Step %{current} of %{total}
+        step: Stap %{current} van %{total}
         title: Create new initiative
       initiative_header:
         initiative_menu_item: Initiative
