@@ -2,37 +2,37 @@ nl:
   activemodel:
     attributes:
       area:
-        area_type: Area type
-        name: Name
-        organization: Organization
+        area_type: Onderwerp
+        name: Naam
+        organization: Organisatie
       area_type:
-        name: Name
-        organization: Organization
-        plural: Plural
+        name: Naam
+        organization: Organisatie
+        plural: Meervoud
       attachment:
-        attachment_collection_id: Collection
-        description: Description
-        file: File
-        title: Title
+        attachment_collection_id: Collectie
+        description: Beschrijving
+        file: Bestand
+        title: Titel
         weight: Rang d'affichage
       attachment_collection:
-        description: Description
-        name: Name
+        description: Beschrijving
+        name: Naam
       category:
-        description: Description
-        name: Name
-        parent_id: Parent
+        description: Beschrijving
+        name: Naam
+        parent_id: Ouder
       component:
-        name: Name
-        published_at: Published at
-        weight: Weight
-      id: ID
+        name: Naam
+        published_at: Gepubliceerd op
+        weight: Gewicht
+      id: ID kaart
       newsletter:
-        body: Body
-        subject: Subject
+        body: Lichaam
+        subject: Onderwerpen
       oauth_application:
-        name: Name
-        organization_logo: Organization logo (square)
+        name: Naam
+        organization_logo: Logo organisatie (vierkant)
         organization_name: Organization name
         organization_url: Organization URL
         redirect_uri: Redirect URI
@@ -95,70 +95,70 @@ nl:
   activerecord:
     attributes:
       decidim/participatory_process:
-        banner_image: Banner image
-        description: Description
-        developer_group: Developer group
-        domain: Domain
-        end_date: End date
+        banner_image: Banner afbeelding
+        description: Beschrijving
+        developer_group: Ontwikkelaarsgroep
+        domain: Domein
+        end_date: Einddatum
         hashtag: Hashtag
-        hero_image: Home image
-        local_area: Local area
-        meta_scope: Scope metadata
-        participatory_scope: Participatory scope
-        participatory_structure: Participatory structure
-        promoted: Promoted
-        scope: Scope
-        short_description: Short description
-        slug: URL slug
-        start_date: Start date
-        subtitle: Subtitle
-        target: Target
-        title: Title
+        hero_image: Afbeelding van de startpagina
+        local_area: Lokale buurt
+        meta_scope: Omvang metadata
+        participatory_scope: Participatieve scope
+        participatory_structure: Participatieve structuur
+        promoted: Gepromoveerd
+        scope: Reikwijdte
+        short_description: Korte beschrijving
+        slug: URL slak
+        start_date: Begin datum
+        subtitle: Subtitel
+        target: Doelstelling
+        title: Titel
       decidim/participatory_process_group:
-        description: Description
-        hero_image: Home image
-        name: Name
-        participatory_processes: Participatory processes
+        description: Beschrijving
+        hero_image: Afbeelding van de startpagina
+        name: Naam
+        participatory_processes: Participatieve processen
       decidim/participatory_process_step:
-        end_date: End date
-        start_date: Start date
+        end_date: Einddatum
+        start_date: Begin datum
       decidim/static_page:
-        content: Content
-        slug: URL slug
-        title: Title
+        content: Inhoud
+        slug: URL slak
+        title: Titel
       doorkeeper/application:
-        authorize_url: Authorize URL
-        client_id: Client ID
-        client_secret: Client Secret
-        organization_name: Organization name
-        organization_url: Organization URL
-        redirect_uri: Redirect URI
-        site: Site
+        authorize_url: Autorisatie URL
+        client_id: Client-ID
+        client_secret: Klant geheim
+        organization_name: Organisatienaam
+        organization_url: URL van de organisatie
+        redirect_uri: Redirect-URI
+        site: Site portaal
   date:
     formats:
       datepicker: "%m/%d/%Y"
   decidim:
     admin:
       actions:
-        add: Add
-        browse: Browse
-        export: Export
-        manage: Manage
-        permissions: Permissions
-        reject: Reject
-        verify: Verify
+        add: Toevoegen
+        browse: Browsen
+        export: Exporteren
+        manage: Beheer
+        permissions: Toelatingen
+        reject: Afwijzen
+        verify: Verifiëren
       area_types:
         create:
-          error: There was an error creating a new area type.
-          success: Area type created successfully.
+          error: Er is een fout opgetreden bij het maken van een nieuwe pagina.
+          success: Pagina met succes gemaakt.
         destroy:
-          success: Area type successfully destroyed
+          success: Pagina met succes verwijderd
         edit:
-          title: Edit area type
-          update: Update
+          title: Onderwerp bewerken
+          update: Bijwerken
         new:
-          create: Create area type
-          title: New area type
+          create: Maak een pagina
+          title: Onderwerp bewerken
         update:
           error: There was an error when updating this area type.
           success: Area type updated successfully
@@ -241,78 +241,78 @@ nl:
           submit: Save permissions
           title: Edit permissions
         update:
-          success: Permissions updated successfully.
+          success: Admin succesvol bijgewerkt.
       components:
         create:
-          error: There was an error creating this component.
-          success: Component created successfully.
+          error: Er is een fout opgetreden bij het maken van deze categorie.
+          success: Bijlage is succesvol gemaakt.
         destroy:
-          error: There has been an error destroying this component.
-          success: Component deleted successfully.
+          error: Er is een fout opgetreden bij het maken van deze categorie.
+          success: Er is een fout opgetreden bij het maken van deze categorie.
         edit:
-          title: Edit component
-          update: Update
+          title: Component bewerken
+          update: Bijwerken
         form:
-          default_step_settings: Default step settings
-          global_settings: Global settings
-          step_settings: Step settings
+          default_step_settings: Standaard instellingen stappen
+          global_settings: Algemene instellingen
+          step_settings: Instellingen van de stappen
         index:
-          add: Add component
+          add: Voeg onderdeel toe
           headers:
-            actions: Actions
-            name: Component name
-            type: Component type
+            actions: Acties
+            name: Naam onderdeel
+            type: Onderdeel type
         new:
-          add: Add component
-          title: 'Add component: %{name}'
+          add: Voeg onderdeel toe
+          title: 'Voeg onderdeel toe: %{name}'
         publish:
-          success: The component has been successfully published.
-        title: Components
+          success: Het onderdeel is succesvol gepubliceerd.
+        title: Componenten
         unpublish:
-          success: The component has been successfully unpublished.
+          success: Het onderdeel is met succes verwijderd.
         update:
-          error: There has been an error updating this component.
-          success: The component was updated successfully.
+          error: Er is een fout opgetreden bij het maken van deze categorie.
+          success: Component succesvol verwijderd.
       dashboard:
         show:
-          view_more_logs: View more logs
-          welcome: Welcome to the Decidim Admin Panel.
+          view_more_logs: Bekijk meer logs
+          welcome: Welkom bij de nieuwe Decidim Panel Admin.
       exports:
-        export_as: "%{name} as %{export_format}"
-        notice: Your export is currently in progress. You'll receive an email when it's complete.
+        export_as: "%{name} als %{export_format}"
+        notice: Uw export is momenteel aan de gang. U ontvangt een email wanneer het klaar is.
       impersonatable_users:
         index:
           filter:
-            all: All
-            managed: Managed
-            not_managed: Not managed
-          filter_by: Filter by
-          impersonate: Impersonate
-          impersonate_new_managed_user: Impersonate new managed user
-          managed: Managed
-          name: Name
-          needs_authorization_warning: You need at least one authorization enabled for this organization.
-          not_managed: Not managed
-          promote: Promote
-          search: Search
+            all: Alle
+            managed: Beheer
+            not_managed: Niet beheerd
+          filter_by: Filteren op
+          impersonate: Verpersoonlijken
+          impersonate_new_managed_user: Impersoneer nieuwe beheerde gebruiker
+          managed: Beheer
+          name: Naam
+          needs_authorization_warning: U heeft minstens één geactiveerde autorisatie nodig voor deze organisatie.
+          not_managed: Niet beheerd
+          promote: Promoten
+          search: Zoeken
           status: Status
-          view_logs: View logs
+          view_logs: Bekijk logboeken
       impersonations:
         close_session:
-          error: There has been an error closing the current impersonation session.
-          success: The current impersonation session has been successfully ended.
+          error: Er is een fout opgetreden bij het sluiten van de impersonatie-sessie.
+          success: De huidige impersonatie-sessie is succesvol beëindigd.
         create:
-          error: There has been an error impersonating the user.
-          success: The managed user has been successfully created.
+          error: Er is een fout opgetreden bij het nabootsen van de gebruiker.
+          success: De beheerde gebruiker is succesvol aangemaakt.
         form:
-          authorization_method: Authorization method
-          name: Name
-          reason: Reason
+          authorization_method: Autorisatie fout
+          name: Naam
+          reason: Reden
         new:
-          impersonate: Impersonate
-          impersonate_existing_managed_user: Impersonate managed user "%{name}"
-          impersonate_existing_user: Impersonate user "%{name}"
-          impersonate_new_managed_user: Impersonate new managed user
+          impersonate: Verpersoonlijken
+          impersonate_existing_managed_user: Zich voordoen als "%{name}"
+          impersonate_existing_user: Zich voordoen als "%{name}"
+          impersonate_new_managed_user: Impersoneer nieuwe beheerde gebruiker
       logs:
         logs_list:
           no_logs_yet: There are no logs yet
@@ -387,64 +387,64 @@ nl:
         newsletter:
           fields:
             created_at: Created at
-            progress: Progress
-            sent_at: Sent at
-            subject: Subject
-          name: Newsletter
+            progress: Vooruitgang
+            sent_at: Verzonden bij
+            subject: Onderwerpen
+          name: Nieuwsbrief
         oauth_application:
           fields:
-            created_at: Created at
-            name: Name
+            created_at: Gemaakt bij
+            name: Naam
         participatory_space_private_user:
-          name: Participatory space private user
+          name: Gebruiker van de burgerinspraak
         scope:
           fields:
-            name: Name
+            name: Naam
             scope_type: Scope type
         scope_type:
           fields:
-            name: Name
-            plural: Plural
+            name: Naam
+            plural: Meervoud
         static_page:
           fields:
-            created_at: Created at
-            title: Title
+            created_at: Gemaakt bij
+            title: Titel
         user:
           fields:
-            created_at: Creation date
-            email: Email
-            last_sign_in_at: Last sign in date
-            name: Name
-            role: Role
+            created_at: Aanmaakdatum
+            email: E-mail
+            last_sign_in_at: Laatste inloggen datum
+            name: Naam
+            role: Rol
             roles:
-              admin: Admin
-              user_manager: User manager
+              admin: Beheerder
+              user_manager: Gebruikersbeheerder
         user_group:
           fields:
-            actions: Actions
-            created_at: Created at
-            document_number: Document number
-            name: Name
-            phone: Phone
-            state: State
-            users_count: Users count
+            actions: Acties
+            created_at: Gemaakt bij
+            document_number: Documentnummer
+            name: Naam
+            phone: Telefoon
+            state: Staat
+            users_count: Aantal gebruikers
       moderations:
         index:
-          title: Moderations
+          title: Moderaties
         report:
           reasons:
-            does_not_belong: Does not belong
-            offensive: Offensive
+            does_not_belong: Hoort niet
+            offensive: Aanvallend
             spam: Spam
       navbar_links:
         create:
-          error: There was an error when creating this link.
-          success: Link created successfully
+          error: Er is een fout opgetreden bij het bijwerken van deze admin.
+          success: Admin is succesvol gemaakt
         destroy:
-          success: Link successfully destroyed
+          success: Admin succesvol vernietigd
         edit:
-          title: Edit navbar link
-          update: Update
+          title: Bewerk navigatiebalk link
+          update: Bijwerken
         form:
           link: Link
           new_tab: Open in a new tab
