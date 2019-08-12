@@ -68,8 +68,8 @@ nl-BE:
         post_created:
           email_intro: The post "%{resource_title}" has been published in "%{participatory_space_title}" that you are following.
           email_outro: U ontvangt dit bericht omdat u "%{participatory_space_title}" volgen. Je kunt het unfollow uit de vorige koppeling.
-          email_subject: New post published in %{participatory_space_title}
-          notification_title: The post <a href="%{resource_path}">%{resource_title}</a> has been published in %{participatory_space_title}
+          email_subject: Nieuw bericht gepubliceerd in %{participatory_space_title}
+          notification_title: Het bericht <a href="%{resource_path}">%{resource_title}</a> is gepubliceerd in %{participatory_space_title}
     pages:
       home:
         statistics:
