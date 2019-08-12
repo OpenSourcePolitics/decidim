@@ -37,12 +37,12 @@ nl-BE:
         participatory_structure: Participatieve structuur
         private_space: Private space
         promoted: gepromoveerd
-        published_at: Published at
+        published_at: Gepubliceerd op
         purpose_of_action: Purpose of action
         scope_id: Reikwijdte
         scopes_enabled: Scopes ingeschakeld
         short_description: Korte beschrijving
-        show_statistics: Show statistics
+        show_statistics: Toon statistieken
         slug: URL slak
         special_features: Special features
         subtitle: subtitel
@@ -53,21 +53,21 @@ nl-BE:
       assembly_member:
         birthday: Birthday
         birthplace: Birthplace
-        ceased_date: Ceased date
-        designation_date: Designation date
+        ceased_date: Datum van de datum
+        designation_date: Ontwerpdatum
         designation_mode: Designation mode
-        full_name: Full name
+        full_name: Volledige naam
         gender: Gender
-        position: Position
+        position: Positie
       assembly_user_role:
-        email: Email
-        name: Name
-        role: Role
+        email: E-mail
+        name: Naam
+        role: Rol
   activerecord:
     models:
       decidim/assembly:
-        one: Assembly
-        other: Assemblies
+        one: bijeenkomst
+        other: Gemeentes
       decidim/assembly_member:
         one: Assembly member
         other: Assembly members
@@ -77,7 +77,7 @@ nl-BE:
   decidim:
     admin:
       actions:
-        new_assembly: New assembly
+        new_assembly: Nieuwe montage
       assemblies:
         create:
           error: Er is een fout opgetreden bij het maken van een nieuwe assemblage.
@@ -88,7 +88,7 @@ nl-BE:
           title: Algemene informatie
         index:
           not_published: Niet gepubliceerd
-          private: Private
+          private: Privé
           public: Public
           published: Gepubliceerd
         new:
@@ -114,11 +114,11 @@ nl-BE:
           success: Member deleted successfully for this assembly.
         edit:
           title: Update assembly member.
-          update: Update
+          update: Bijwerken
         index:
           assembly_members_title: Assembly members
         new:
-          create: Create
+          create: Creëren
           title: New assembly member.
         update:
           error: There was an error updating the member for this assembly.
@@ -138,11 +138,11 @@ nl-BE:
           success: User removed successfully from this assembly.
         edit:
           title: Update assembly user.
-          update: Update
+          update: Bijwerken
         index:
-          assembly_admins_title: Assembly users
+          assembly_admins_title: Buurderij gebruikers
         new:
-          create: Create
+          create: Creëren
           title: New assembly user.
         update:
           error: There was an error updated a user for this assembly.
@@ -234,14 +234,14 @@ nl-BE:
               all: Alle
               ceased: Ceased
               not_ceased: Not ceased
-            filter_by: Filter by
-            search: Search
+            filter_by: Filteren op
+            search: Zoeken
         content_blocks:
           highlighted_assemblies:
             max_results: Maximum amount of elements to show
       assembly_members:
         index:
-          members: Members
+          members: Leden
       assembly_types:
         commission: Comission
         consultative_advisory: Consultative/Advisory
@@ -252,13 +252,13 @@ nl-BE:
         working_group: Working group
       content_blocks:
         highlighted_assemblies:
-          name: Highlighted assemblies
+          name: Uitgelichte samenstellingen
       created_by:
         city_council: City Council
         others: Others
         public: Public
       filter:
-        all: All
+        all: Alle
         commission: Commission
         consultative_advisory: Consultative/Advisory
         executive: Executive
@@ -270,9 +270,9 @@ nl-BE:
         placeholder: Filter by type
         working_group: Working group
       index:
-        title: Assemblies
+        title: Gemeentes
       last_activity:
-        new_assembly: New assembly
+        new_assembly: Nieuwe montage
       pages:
         home:
           highlighted_assemblies:
@@ -282,15 +282,15 @@ nl-BE:
           member_of:
             member_of: Member of
       show:
-        area: Area
-        assembly_type: Assembly type
-        children: Assemblies
-        closing_date: Closing date
-        composition: Composition
-        created_by: Created by
-        creation_date: Date created
+        area: Gebied
+        assembly_type: Buurderij type
+        children: Gemeentes
+        closing_date: Sluitingsdatum
+        composition: Compositie
+        created_by: Gemaakt door
+        creation_date: Datum aangemaakt
         developer_group: Ontwikkelaarsgroep
-        duration: Duration
+        duration: Duur
         included_at: Included at
         indefinite_duration: Indefinite
         internal_organisation: Internal organisation
@@ -303,7 +303,7 @@ nl-BE:
         private_space: This is a private assembly
         purpose_of_action: Purpose of action
         read_less: Read less
-        read_more: Read more
+        read_more: Lees verder
         related_participatory_processes: Update deelnemende proces gebruiker
         scope: Reikwijdte
         social_networks: Social media
