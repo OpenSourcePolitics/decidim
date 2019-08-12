@@ -50,13 +50,13 @@ nl-BE:
         twitter: Twitter
         youtube: Youtube
       assembly_member:
-        birthday: Birthday
-        birthplace: Birthplace
-        ceased_date: Ceased date
-        designation_date: Designation date
-        designation_mode: Designation mode
-        full_name: Full name
-        gender: Gender
+        birthday: Verjaardag
+        birthplace: Geboortplaats
+        ceased_date: Datum van de datum
+        designation_date: Ontwerpdatum
+        designation_mode: Ontwerpdatum
+        full_name: Volledige naam
+        gender: Geslacht
         position: Position
       assembly_user_role:
         email: Email
