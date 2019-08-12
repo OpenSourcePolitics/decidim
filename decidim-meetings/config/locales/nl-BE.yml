@@ -18,91 +18,91 @@ nl-BE:
         decidim_scope_id: Scope
         description: Description
         end_time: End Time
-        location: Location
-        location_hints: Location hints
-        private_meeting: Private meeting
-        registration_terms: Registration terms
-        registrations_enabled: Registrations enabled
-        reserved_slots: Places réservées
-        start_time: Start Time
-        title: Title
-        transparent: Transparent
+        location: Plaats
+        location_hints: Locatie hints
+        private_meeting: Maak een afspraak
+        registration_terms: Type
+        registrations_enabled: Registratieformulier ingeschakeld
+        reserved_slots: Plaatst réservées
+        start_time: Starttijd
+        title: Titel
+        transparent: Is transparant
       minutes:
         audio_url: Audio url
-        description: Description
+        description: Beschrijving
         video_url: Video url
-        visible: Is visible
+        visible: Is zichtbaar
     errors:
       models:
         meeting_agenda:
           attributes:
             base:
-              too_many_minutes: The duration of the items exceed the meeting duration by %{count} minutes
-              too_many_minutes_child: The duration of the item childs exceed the agenda item "%{parent_title}" parent duration by %{count} minutes
+              too_many_minutes: De duur van de items overschrijdt de vergaderduur met %{count} minuten
+              too_many_minutes_child: De duur van de item kinders overschrijdt de agenda item "%{parent_title}" bovenliggende duur met %{count} minuten
         meeting_registration_invite:
           attributes:
             email:
-              already_invited: This email has already been invited
+              already_invited: Deze e-mail is al uitgenodigd
     models:
-      decidim/meetings/close_meeting_event: Meeting closed
-      decidim/meetings/create_meeting_event: Meeting
-      decidim/meetings/meeting_registrations_enabled_event: Registrations enabled
-      decidim/meetings/meeting_registrations_over_percentage_event: Registrations over limit
-      decidim/meetings/upcoming_meeting_event: Upcoming meeting
-      decidim/meetings/update_meeting_event: Meeting updated
+      decidim/meetings/close_meeting_event: Vergadering gesloten
+      decidim/meetings/create_meeting_event: Vergadering
+      decidim/meetings/meeting_registrations_enabled_event: Registratieformulier ingeschakeld
+      decidim/meetings/meeting_registrations_over_percentage_event: Registraties over limiet
+      decidim/meetings/upcoming_meeting_event: Aankomende vergadering
+      decidim/meetings/update_meeting_event: Vergadering bijgewerkt
   activerecord:
     models:
       decidim/meetings/meeting:
-        one: Meeting
-        other: Meetings
+        one: Vergadering
+        other: Vergaderingen
       decidim/meetings/minutes:
-        one: Minutes
-        other: Minutes
+        one: Minuten
+        other: Minuten
       decidim/meetings/registration:
-        one: Registration
-        other: Registrations
+        one: Registratie
+        other: Registraties
   decidim:
     admin:
       meeting_copies:
         create:
-          error: There was en error duplicating this meeting.
-          success: Duplicated meeting successfully.
+          error: Er is een fout opgetreden bij het publiceren van deze assemblage.
+          success: Succesvol dubbele vergadering.
         new:
-          copy: Copy
-          select: Select which data you would like to duplicate
-          title: Duplicate meeting
+          copy: Kopiëren
+          select: Selecteer welke gegevens u wilt dupliceren
+          title: Maak een afspraak
     components:
       meetings:
         actions:
-          join: Join
-        name: Meetings
+          join: Aanmelden
+        name: Vergaderingen
         settings:
           global:
-            announcement: Announcement
-            comments_enabled: Comments enabled
-            default_registration_terms: Default registration terms
+            announcement: Bericht
+            comments_enabled: Reacties ingeschakeld
+            default_registration_terms: Standaard registratievoorwaarden
           step:
-            announcement: Announcement
-            comments_blocked: Comments blocked
+            announcement: Bericht
+            comments_blocked: Reacties geblokkeerd
     events:
       meetings:
         meeting_closed:
-          email_intro: 'The "%{resource_title}" meeting was closed. You can read the conclusions from its page:'
-          email_outro: You have received this notification because you are following the "%{resource_title}" meeting. You can unfollow it from the previous link.
-          email_subject: The "%{resource_title}" meeting was closed
-          notification_title: The <a href="%{resource_path}">%{resource_title}</a> meeting was closed.
+          email_intro: 'De "%{resource_title}" vergadering is gesloten. U kunt de conclusies van de pagina lezen:'
+          email_outro: U ontvangt dit bericht omdat u "%{resource_title}" volgen. Je kunt het unfollow uit de vorige koppeling.
+          email_subject: De "%{resource_title}" vergadering is gesloten
+          notification_title: De vergadering van <a href="%{resource_path}">%{resource_title}</a> is gesloten.
         meeting_created:
-          email_intro: The meeting "%{resource_title}" has been added to "%{participatory_space_title}" that you are following.
-          email_outro: You have received this notification because you are following "%{participatory_space_title}". You can unfollow it from the previous link.
-          email_subject: New meeting added to %{participatory_space_title}
-          notification_title: The meeting <a href="%{resource_path}">%{resource_title}</a> has been added to %{participatory_space_title}
+          email_intro: Het bericht "%{resource_title}" is gepubliceerd in "%{participatory_space_title}" dat u volgt.
+          email_outro: U ontvangt dit bericht omdat u "%{participatory_space_title}" volgen. Je kunt het unfollow uit de vorige koppeling.
+          email_subject: Nieuwe post op %{participatory_space_title}
+          notification_title: Het bericht <a href="%{resource_path}">%{resource_title}</a> is gepubliceerd in %{participatory_space_title}
         meeting_registrations_over_percentage:
-          email_intro: The "%{resource_title}" meeting occupied slots are over %{percentage}%.
-          email_outro: You have received this notification because you are an admin of the meeting's participatory space.
-          email_subject: The "%{resource_title}" meeting occupied slots are over %{percentage}%
-          notification_title: The <a href="%{resource_path}">%{resource_title}</a> meeting occupied slots are over %{percentage}%.
+          email_intro: De "%{resource_title}" vergadering bezette slots zijn meer dan %{percentage}%.
+          email_outro: U heeft deze melding ontvangen omdat u een beheerder bent van de participatieve ruimte van de vergadering.
+          email_subject: De "%{resource_title}" vergadering bezette slots zijn meer dan %{percentage}%
+          notification_title: De <a href="%{resource_path}">%{resource_title}</a> vergadering bezette slots zijn meer dan %{percentage}%.
         meeting_updated:
-          email_intro: 'The "%{resource_title}" meeting was updated. You can read the new version from its page:'
+          email_intro: 'De "%{resource_title}" vergadering is gesloten. U kunt de conclusies van de pagina lezen:'
           email_outro: You have received this notification because you are following the "%{resource_title}" meeting. You can unfollow it from the previous link.
           email_subject: The "%{resource_title}" meeting was updated
           notification_title: The <a href="%{resource_path}">%{resource_title}</a> meeting was updated.
@@ -255,51 +255,51 @@ nl-BE:
           update: "%{user_name} updated the %{resource_name} meeting on the %{space_name} space"
           value_types:
             organizer_presenter:
-              not_found: 'The organizer was not found on the database (ID: %{id})'
+              not_found: 'De Buurderij is niet gevonden op de database (ID: %{id})'
         minutes:
-          create: "%{user_name} created the minutes of the meeting %{resource_name} on the %{space_name} space"
-          update: "%{user_name} updated the minutes of the meeting %{resource_name} on the %{space_name} space"
+          create: "%{user_name} heeft de notulen van de vergadering %{resource_name} aangemaakt op de %{space_name} ruimte"
+          update: "%{user_name} heeft de notulen van de vergadering %{resource_name} aangemaakt op de %{space_name} ruimte"
       mailer:
         invite_join_meeting_mailer:
           invite:
-            subject: Invitation to join a meeting
+            subject: Uitnodiging om deel te nemen aan een conferentie
         registration_mailer:
           confirmation:
-            subject: Your meeting's registration has been confirmed
+            subject: Registratie van uw vergadering is bevestigd
       meeting:
-        not_allowed: You are not allowed to view this meeting
+        not_allowed: U bent niet bevoegd om dit te doen
       meetings:
         filters:
-          category: Category
-          category_prompt: Select a category
-          date: Date
-          past: Past
-          search: Search
-          upcoming: Upcoming
+          category: Categorie
+          category_prompt: Kies een categorie
+          date: Datum
+          past: Verleden
+          search: Zoeken
+          upcoming: Aankomend
         filters_small_view:
-          close_modal: Close modal
+          close_modal: Dicht modaal
           filter: Filter
-          filter_by: Filter by
-          unfold: Unfold
+          filter_by: Filteren op
+          unfold: Ontvouwen
         index:
-          view_meeting: View meeting
+          view_meeting: Nieuwe
         meeting_minutes:
-          meeting_minutes: Meeting Minutes
-          related_information: Related Information
+          meeting_minutes: Vergadernotulen
+          related_information: Gerelateerde informatie
         meetings:
-          no_meetings_warning: No meetings match your search criteria or there isn't any meeting scheduled.
-          upcoming_meetings_warning: Currently, there are no scheduled meetings, but here you can find all the past meetings listed.
+          no_meetings_warning: Geen afspraken komen overeen met uw zoekcriteria of er is geen vergadering gepland.
+          upcoming_meetings_warning: Momenteel zijn er geen geplande vergaderingen, maar hier vindt u alle eerder genoemde vergaderingen.
         registration_confirm:
-          cancel: Cancel
-          confirm: Confirm
+          cancel: Annuleer
+          confirm: Bevestigen
         show:
-          attendees: Attendees count
-          contributions: Contributions count
-          going: Going
-          join: Join meeting
-          meeting_report: Meeting report
-          no_slots_available: No slots available
-          organizations: Attending organizations
+          attendees: Aantal deelnemers
+          contributions: Aantal bijdragen
+          going: Gaand
+          join: Word lid van de vergadering
+          meeting_report: Notulen
+          no_slots_available: Geen slots beschikbaar
+          organizations: Bijwonen van organisaties
           remaining_slots:
             one: 1 slot remaining
             other: "%{count} slots remaining"
