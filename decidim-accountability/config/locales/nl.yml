@@ -3,15 +3,15 @@ nl:
     attributes:
       result:
         decidim_accountability_status_id: Status
-        decidim_category_id: Category
-        decidim_scope_id: Scope
-        description: Description
+        decidim_category_id: Categorie
+        decidim_scope_id: Reikwijdte
+        description: Beschrijving
         end_date: End date
         progress: Progress
         project_ids: Included projects
         proposals: Included proposals
         start_date: Start date
-        title: Title
+        title: Titel
         updated_at: Updated at
       status:
         description: Description
