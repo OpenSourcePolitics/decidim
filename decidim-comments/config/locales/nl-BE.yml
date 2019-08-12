@@ -22,53 +22,53 @@ nl-BE:
       translated: Back to original version
       votes:
         create:
-          error: There's been errors when voting the comment.
+          error: Er zijn fouten geweest bij het stemmen van de reactie.
     components:
       add_comment_form:
-        account_message: <a href="%{sign_in_url}">Sign in with your account</a> or <a href="%{sign_up_url}">sign up</a> to add your comment.
+        account_message: <a href="%{sign_in_url}">Meld u aan bij uw account</a> of <a href="%{sign_up_url}">sign up</a> om uw reactie toe te voegen.
         form:
           body:
-            label: Comment
-            placeholder: What do you think about this?
-          form_error: The text is required and it can't be longer than %{length} characters.
-          submit: Send
+            label: Commentaar
+            placeholder: Wat vind je hierover?
+          form_error: De tekst is verplicht en het kan niet langer zijn dan %{length} tekens.
+          submit: sturen
           user_group_id:
-            label: Comment as
+            label: Commentaar als
         opinion:
-          neutral: Neutral
-        remaining_characters: "%{count} characters left"
-        remaining_characters_1: "%{count} character left"
-        title: Add your comment
+          neutral: Neutrale
+        remaining_characters: "%{count} tekens over"
+        remaining_characters_1: "%{count} tekens over"
+        title: Voeg uw reactie toe
       comment:
         alignment:
-          against: Against
-          in_favor: In favor
-        deleted_user: Deleted user
-        reply: Reply
+          against: Tegen
+          in_favor: Ten gunste van
+        deleted_user: Verwijderde gebruiker
+        reply: Antwoord
         report:
-          action: Report
-          already_reported: This content is already reported and it will be reviewed by an admin.
-          close: Close
-          description: Is this content inappropriate?
-          details: Additional comments
+          action: Rapport
+          already_reported: Deze inhoud is al gemeld en het zal worden beoordeeld door een admin.
+          close: Dichtbij
+          description: Is deze inhoud ongepast?
+          details: aanvullende opmerkingen
           reasons:
-            does_not_belong: Contains illegal activity, suicide threats, personal information, or something else you think doesn't belong on %{organization_name}.
-            offensive: Contains racism, sexism, slurs, personal attacks, death threats, suicide requests or any form of hate speech.
-            spam: Contains clickbait, advertising, scams or script bots.
-          title: Report a problem
+            does_not_belong: Bevat illegale activiteit, zelfmoord bedreigingen, persoonlijke gegevens, of iets anders dat je denkt dat hoort niet op %{organization_name}.
+            offensive: Bevat racisme, seksisme, laster, persoonlijke aanvallen, bedreigingen met de dood, zelfmoord verzoeken of enige vorm van haatzaaien.
+            spam: Bevat clickbait, reclame, oplichting of script bots.
+          title: Meld een probleem
       comment_order_selector:
         order:
-          best_rated: Best rated
-          most_discussed: Most discussed
-          older: Older
-          recent: Recent
-        title: 'Order by:'
+          best_rated: Best beoordeeld
+          most_discussed: Meest besproken
+          older: Ouder
+          recent: Recentelijk
+        title: 'Bestellen door:'
       comment_thread:
-        title: Conversation with %{authorName}
+        title: Gesprek met %{authorName}
       comments:
-        blocked_comments_warning: Comments are disabled at this time, but you can read the previous ones.
-        loading: Loading comments ...
-        title: "%{count} comments"
+        blocked_comments_warning: Reacties zijn uitgeschakeld in de huidige stap, maar u kunt de opmerkingen van vorige stappen lezen.
+        loading: Bezig met laden van opmerkingen ...
+        title: "%{count} reacties"
         title_0: There are no comments yet
         title_1: "%{count} comment"
     events:
@@ -100,4 +100,4 @@ nl-BE:
         title: Comments
   errors:
     messages:
-      cannot_have_comments: can't have comments
+      cannot_have_comments: Kan geen reacties hebben
