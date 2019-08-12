@@ -2,17 +2,17 @@ nl-BE:
   activemodel:
     attributes:
       participatory_process:
-        announcement: Announcement
+        announcement: Bericht
         banner_image: Banner afbeelding
         copy_categories: Kopieercategorieën
-        copy_components: Copy components
+        copy_components: Kopieer componenten
         copy_steps: Kopieer stappen
         description: Beschrijving
         developer_group: Ontwikkelaarsgroep
         domain: Domein
         end_date: Einddatum
         hashtag: Hashtag
-        hero_image: Home image
+        hero_image: Afbeelding van de startpagina
         local_area: Lokale buurt
         meta_scope: Omvang metadata
         participatory_process_group_id: Processen groep
@@ -20,11 +20,11 @@ nl-BE:
         participatory_structure: Participatieve structuur
         private_space: Concertation privée
         promoted: gepromoveerd
-        published_at: Published at
+        published_at: Gepubliceerd op
         scope_id: Reikwijdte
         scopes_enabled: Scopes ingeschakeld
         short_description: Korte beschrijving
-        show_statistics: Show statistics
+        show_statistics: Toon statistieken
         slug: URL slak
         start_date: Begindatum
         subtitle: subtitel
@@ -53,14 +53,14 @@ nl-BE:
   activerecord:
     models:
       decidim/participatory_process:
-        one: Participatory process
-        other: Participatory processes
+        one: Deelnemend proces
+        other: Participatieve processen
       decidim/participatory_process_group:
         one: Participatory process group
-        other: Participatory process groups
+        other: Deelnemende procesgroepen
       decidim/participatory_process_step:
         one: Step
-        other: Steps
+        other: Stappen
   decidim:
     admin:
       actions:
@@ -71,7 +71,7 @@ nl-BE:
         duplicate: Dupliceren
         edit: Bewerken
         new: Nieuw
-        new_process_group: New process group
+        new_process_group: Nieuwe procesgroep
         new_process_step: New step
         new_process_user_role: New process user
         participatory_process:
@@ -84,11 +84,11 @@ nl-BE:
         participatory_process_groups: Procesgroepen
         participatory_processes: Processen
         participatory_processes_submenu:
-          attachment_collections: Folders
-          attachment_files: Files
+          attachment_collections: Map
+          attachment_files: Bestanden
           attachments: toebehoren
           categories: Categorieën
-          components: Components
+          components: Componenten
           info: info
           moderations: matigingen
           private_users: Private Users
@@ -98,7 +98,7 @@ nl-BE:
         participatory_process:
           fields:
             created_at: Gemaakt bij
-            private: Private
+            private: Privé
             promoted: Opvallende
             published: Gepubliceerd
             title: Titel
@@ -122,7 +122,7 @@ nl-BE:
           roles:
             admin: Beheerder
             collaborator: Medewerker
-            moderator: Moderator
+            moderator: Moderaties
         user:
           fields:
             invitation_accepted_at: Uitnodiging geaccepteerd op
@@ -205,7 +205,7 @@ nl-BE:
           title: Algemene informatie
         index:
           not_published: Niet gepubliceerd
-          private: Private
+          private: Privé
           promoted:
             'false': 'False'
             'true': 'True'
@@ -252,12 +252,12 @@ nl-BE:
         step_activated:
           email_intro: 'The %{resource_title} step is now active for %{participatory_space_title}. You can see it from this page:'
           email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
-          email_subject: An update to %{participatory_space_title}
+          email_subject: Een update aan %{participatory_space_title}
           notification_title: The %{resource_title} step is now active for <a href="%{resource_path}">%{participatory_space_title}</a>
         step_changed:
           email_intro: 'The dates for the %{resource_title} step at %{participatory_space_title} have been updated. You can see it from this page:'
           email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
-          email_subject: An update to %{participatory_space_title}
+          email_subject: Een update aan %{participatory_space_title}
           notification_title: The dates for the <a href="%{resource_path}">%{resource_title}</a> step at <a href="%{participatory_space_url}">%{participatory_space_title}</a> have been updated.
     help:
       participatory_spaces:
@@ -270,8 +270,8 @@ nl-BE:
     metrics:
       participatory_processes:
         description: Number of participatory processes in this organization
-        object: participatory processes
-        title: Participatory processes
+        object: participatieve processen
+        title: Participatieve processen
     pages:
       participatory_space:
         metrics:
@@ -305,16 +305,16 @@ nl-BE:
             slug_help: 'URL slugs are used to generate the URLs that point to this process. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
       content_blocks:
         highlighted_processes:
-          name: Highlighted processes
+          name: Gemarkeerde processen
       index:
         title: Participatieve processen
       last_activity:
-        new_participatory_process: New participatory process
+        new_participatory_process: Nieuw deelnemend proces
       pages:
         home:
           highlighted_processes:
             active_processes: Active processes
-            active_step: Active step
+            active_step: Actieve stap
             more_information: More information
             participate: Participate
             see_all_processes: See all processes
@@ -340,10 +340,10 @@ nl-BE:
             no_active_nor_upcoming: No active nor upcoming processes
             no_active_nor_upcoming_callout: There are no active nor upcoming processes. Here is a list of the past ones.
           names:
-            active: Active
-            all: All
-            past: Past
-            upcoming: Upcoming
+            active: Actief
+            all: Alle
+            past: Verleden
+            upcoming: Aankomend
           see: See
         index:
           loading: Laden van resultaten...
@@ -357,16 +357,16 @@ nl-BE:
         scope: Reikwijdte
         start_date: Begindatum
         target: Doel
-        unspecified: Not specified
+        unspecified: Niet Gespecificeerd
       statistics:
         answers_count: antwoorden
-        comments_count: Comments
-        debates_count: Debates
-        endorsements_count: Endorsements
+        comments_count: Reacties
+        debates_count: Debatten
+        endorsements_count: Eindverklaringen
         headline: Activiteit
         meetings_count: Vergaderingen
         orders_count: bestellingen
-        pages_count: Pages
+        pages_count: Pagina's
         processes_count: Processen
         projects_count: Projecten
         proposals_count: Voorstellen
@@ -379,7 +379,7 @@ nl-BE:
       participatory_process_groups:
         participatory_process_group:
           browse: Browsen
-          processes_count: 'Processes:'
+          processes_count: 'Processen:'
       participatory_process_widgets:
         show:
           active_step: Actieve stap
