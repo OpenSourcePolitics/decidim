@@ -108,21 +108,21 @@ nl-BE:
           title: Dupliceerde montage
       assembly_members:
         create:
-          error: There was an error adding a member for this assembly.
-          success: Member created successfully for this assembly.
+          error: Er is een fout opgetreden die een gebruiker bijgewerkt heeft voor dit deelnemende proces.
+          success: Gebruiker is succesvol bijgewerkt voor dit deelnemende proces.
         destroy:
-          success: Member deleted successfully for this assembly.
+          success: Gebruiker is succesvol bijgewerkt voor dit deelnemende proces.
         edit:
-          title: Update assembly member.
+          title: Update assemblee gebruiker.
           update: Bijwerken
         index:
-          assembly_members_title: Assembly members
+          assembly_members_title: Bijwerken
         new:
           create: Creëren
-          title: New assembly member.
+          title: Nieuwe montage.
         update:
-          error: There was an error updating the member for this assembly.
-          success: Member updated successfully for this assembly.
+          error: Er is een fout opgetreden die een gebruiker bijgewerkt heeft voor dit deelnemende proces.
+          success: Gebruiker is succesvol bijgewerkt voor dit deelnemende proces.
       assembly_publications:
         create:
           error: Er is een fout opgetreden bij het publiceren van deze assemblage.
@@ -132,21 +132,21 @@ nl-BE:
           success: Assemblage ongepubliceerd succesvol.
       assembly_user_roles:
         create:
-          error: There was an error adding a user for this assembly.
-          success: User added successfully to this assembly.
+          error: Er is een fout opgetreden die een gebruiker bijgewerkt heeft voor dit deelnemende proces.
+          success: Gebruiker is succesvol bijgewerkt voor dit deelnemende proces.
         destroy:
-          success: User removed successfully from this assembly.
+          success: Gebruiker is succesvol bijgewerkt voor dit deelnemende proces.
         edit:
-          title: Update assembly user.
+          title: Update assemblee gebruiker.
           update: Bijwerken
         index:
           assembly_admins_title: Buurderij gebruikers
         new:
           create: Creëren
-          title: New assembly user.
+          title: Nieuwe montage.
         update:
-          error: There was an error updated a user for this assembly.
-          success: User updated successfully for this assembly.
+          error: Er is een fout opgetreden die een gebruiker bijgewerkt heeft voor dit deelnemende proces.
+          success: Gebruiker is succesvol bijgewerkt voor dit deelnemende proces.
       menu:
         assemblies: Gemeentes
         assemblies_submenu:
@@ -232,43 +232,43 @@ nl-BE:
           index:
             filter:
               all: Alle
-              ceased: Ceased
-              not_ceased: Not ceased
+              ceased: GeCeosticeerd
+              not_ceased: Niet gestopt
             filter_by: Filteren op
             search: Zoeken
         content_blocks:
           highlighted_assemblies:
-            max_results: Maximum amount of elements to show
+            max_results: Maximaal aantal te tonen elementen
       assembly_members:
         index:
           members: Leden
       assembly_types:
-        commission: Comission
-        consultative_advisory: Consultative/Advisory
-        executive: Executive
-        government: Government
-        others: Others
-        participatory: Participatory
-        working_group: Working group
+        commission: Kompas
+        consultative_advisory: Raadgevend/Raadgevend
+        executive: Uitvoerend
+        government: Overheid
+        others: Leden
+        participatory: Participatief
+        working_group: Werkgroep
       content_blocks:
         highlighted_assemblies:
           name: Uitgelichte samenstellingen
       created_by:
-        city_council: City Council
-        others: Others
-        public: Public
+        city_council: Stadsraad
+        others: Leden
+        public: Publiek
       filter:
         all: Alle
-        commission: Commission
-        consultative_advisory: Consultative/Advisory
-        executive: Executive
-        government: Government
-        help: 'Show:'
-        label: 'Show:'
-        others: Others
-        participatory: Participatory
-        placeholder: Filter by type
-        working_group: Working group
+        commission: Commissie
+        consultative_advisory: Raadgevend/Raadgevend
+        executive: Uitvoerend
+        government: Overheid
+        help: 'Toon:'
+        label: 'Toon:'
+        others: Leden
+        participatory: Participatief
+        placeholder: Filter op type
+        working_group: Werkgroep
       index:
         title: Gemeentes
       last_activity:
@@ -276,11 +276,11 @@ nl-BE:
       pages:
         home:
           highlighted_assemblies:
-            active_assemblies: Active assemblies
-            see_all_assemblies: See all assemblies
+            active_assemblies: Actieve bijeenkomsten
+            see_all_assemblies: Bekijk alle vergaderingen
         user_profile:
           member_of:
-            member_of: Member of
+            member_of: Lid van
       show:
         area: Gebied
         assembly_type: Buurderij type
@@ -291,18 +291,18 @@ nl-BE:
         creation_date: Datum aangemaakt
         developer_group: Ontwikkelaarsgroep
         duration: Duur
-        included_at: Included at
-        indefinite_duration: Indefinite
-        internal_organisation: Internal organisation
+        included_at: '-'
+        indefinite_duration: Onbepaald
+        internal_organisation: Interne organisatie
         is_transparent:
-          'false': opaque
-          'true': transparent
+          'false': ondoorzichtig
+          'true': is transparant
         local_area: Lokale buurt
         participatory_scope: Participatief toepassingsgebied
         participatory_structure: Participatieve structuur
-        private_space: This is a private assembly
-        purpose_of_action: Purpose of action
-        read_less: Read less
+        private_space: Dit is een privé-vergadering
+        purpose_of_action: Doelstelling
+        read_less: Lees minder
         read_more: Lees verder
         related_participatory_processes: Update deelnemende proces gebruiker
         scope: Reikwijdte
