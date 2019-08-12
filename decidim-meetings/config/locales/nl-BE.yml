@@ -6,27 +6,27 @@ nl-BE:
         duration: Duration
         title: Title
       close_meeting:
-        attendees_count: Number of attendees
-        attending_organizations: List of organizations that attended
-        closing_report: Report
-        contributions_count: Number of contributions
-        proposal_ids: Proposals created in the meeting
+        attendees_count: Aantal deelnemers
+        attending_organizations: Lijst van organisaties die bijwonen
+        closing_report: Rapporteren
+        contributions_count: Aantal bijdragen
+        proposal_ids: Voorstellen die in de vergadering zijn gemaakt
       meeting:
-        address: Address
+        address: Adres
         available_slots: Available slots for this meeting
-        decidim_category_id: Category
-        decidim_scope_id: Scope
-        description: Description
-        end_time: End Time
-        location: Location
-        location_hints: Location hints
+        decidim_category_id: Categorie
+        decidim_scope_id: Reikwijdte
+        description: Beschrijving
+        end_time: Eindtijd
+        location: Plaats
+        location_hints: Locatie hints
         organizer_id: Organizer
         private_meeting: Private meeting
         registration_form_enabled: Registration form enabled
         registration_terms: Registration terms
         registrations_enabled: Registrations enabled
-        start_time: Start Time
-        title: Title
+        start_time: Starttijd
+        title: Titel
         transparent: Transparent
       minutes:
         audio_url: Audio url
@@ -152,16 +152,16 @@ nl-BE:
       actions:
         agenda: Agenda
         attachment_collections: Folders
-        attachments: Attachments
-        close: Close
-        confirm_destroy: Are you sure you want to delete this meeting?
-        destroy: Delete
-        edit: Edit
+        attachments: Bijlagen
+        close: Sluit
+        confirm_destroy: Weet u zeker dat u deze vergadering wilt verwijderen?
+        destroy: Verwijderen
+        edit: Bewerk
         minutes: Minutes
-        new: New meeting
-        preview: Preview
-        registrations: Registrations
-        title: Actions
+        new: nieuwe
+        preview: Voorbeeld
+        registrations: registraties
+        title: Acties
       admin:
         agenda:
           agenda_item:
@@ -195,7 +195,7 @@ nl-BE:
             success: Agenda successfully updated
         exports:
           meetings: Meetings
-          registrations: Registrations
+          registrations: registraties
         invite_join_meeting_mailer:
           invite:
             decline: Decline invitation
@@ -225,29 +225,29 @@ nl-BE:
             search: Search
         meeting_closes:
           edit:
-            close: Close
-            title: Close meeting
+            close: Sluit
+            title: Dichte ontmoeting
         meeting_copies:
           form:
             select_organizer: Select the organizer
         meetings:
           close:
-            invalid: There's been a problem closing this meeting
-            success: Meeting successfully closed
+            invalid: Er is een probleem opgetreden bij het sluiten van deze vergadering
+            success: Vergadering met succes gesloten
           create:
-            invalid: There's been a problem creating this meeting
-            success: Meeting successfully created
+            invalid: Er is een probleem opgetreden met het maken van deze vergadering
+            success: Vergadering met succes gemaakt
           destroy:
-            success: Meeting successfully deleted
+            success: Meeting met succes verwijderd
           edit:
-            update: Update
+            update: Bijwerken
           form:
             select_organizer: Select the organizer
           index:
-            title: Meetings
+            title: Vergaderingen
           new:
-            create: Create
-            title: Create meeting
+            create: Creëren
+            title: Maak een afspraak
           service:
             description: Description
             down: Down
@@ -259,8 +259,8 @@ nl-BE:
             add_service: Add service
             services: Services
           update:
-            invalid: There's been a problem updating this meeting
-            success: Meeting successfully updated
+            invalid: Er is een probleem opgetreden bij het bijwerken van deze vergadering
+            success: Vergadering met succes bijgewerkt
         minutes:
           create:
             invalid: There's been a problem creating this minutes
@@ -275,24 +275,24 @@ nl-BE:
             success: Minutes successfully updated
         models:
           meeting:
-            name: Meeting
+            name: Vergadering
         registrations:
           edit:
-            save: Save
+            save: Opslaan
             validate: Validate
             validate_registration_code: Validate registration code
           form:
-            available_slots_help: Leave it to 0 if you have unlimited slots available.
+            available_slots_help: Laat het naar 0 als u onbeperkt beschikbare slots hebt.
             invites: Invites
             registration_form: Registration form
             registrations_count:
-              one: There has been %{count} registration.
-              other: There has been %{count} registrations.
+              one: Er is 1 registratie geweest.
+              other: Er zijn %{count} registraties geweest.
             reserved_slots_help: Leave it to 0 if you don't have reserved slots
             reserved_slots_less_than: Must be less than or equal to %{count}
           update:
-            invalid: There's been a problem saving the registration settings.
-            success: Meeting registrations settings successfully saved.
+            invalid: Er is een probleem opgetreden bij het opslaan van de registratie-instellingen.
+            success: Vergaderen van instellingen voor instellingen die succesvol zijn opgeslagen.
           validate_registration_code:
             invalid: This registration code is invalid.
             success: Registration code successfully validated.
@@ -341,46 +341,46 @@ nl-BE:
             subject: Invitation to join a meeting
         registration_mailer:
           confirmation:
-            subject: Your meeting's registration has been confirmed
+            subject: Registratie van uw vergadering is bevestigd
       meeting:
         not_allowed: You are not allowed to view this meeting
       meetings:
         filters:
-          category: Category
-          category_prompt: Select a category
-          date: Date
-          past: Past
-          search: Search
-          upcoming: Upcoming
+          category: Categorie
+          category_prompt: Kies een categorie
+          date: Datum
+          past: Verleden
+          search: Zoeken
+          upcoming: Aankomend
         filters_small_view:
-          close_modal: Close modal
+          close_modal: Dicht modaal
           filter: Filter
-          filter_by: Filter by
-          unfold: Unfold
+          filter_by: Filteren op
+          unfold: Ontvouwen
         meeting_minutes:
           meeting_minutes: Meeting Minutes
           related_information: Related Information
         meetings:
-          no_meetings_warning: No meetings match your search criteria or there isn't any meeting scheduled.
-          upcoming_meetings_warning: Currently, there are no scheduled meetings, but here you can find all the past meetings listed.
+          no_meetings_warning: Geen afspraken komen overeen met uw zoekcriteria of er is geen vergadering gepland.
+          upcoming_meetings_warning: Momenteel zijn er geen geplande vergaderingen, maar hier vindt u alle eerder genoemde vergaderingen.
         registration_confirm:
-          cancel: Cancel
-          confirm: Confirm
+          cancel: Annuleer
+          confirm: Bevestigen
         show:
-          attendees: Attendees count
-          contributions: Contributions count
-          going: Going
-          join: Join meeting
-          meeting_report: Meeting report
-          no_slots_available: No slots available
-          organizations: Attending organizations
+          attendees: Aantal deelnemers
+          contributions: Aantal bijdragen
+          going: gaand
+          join: Word lid van de vergadering
+          meeting_report: Notulen
+          no_slots_available: Geen slots beschikbaar
+          organizations: Bijwonen van organisaties
           registration_code_help_text: Your registration code
           registration_state:
             validated: VALIDATED
             validation_pending: VALIDATION PENDING
           remaining_slots:
-            one: "%{count} slot remaining"
-            other: "%{count} slots remaining"
+            one: "1 slot overblijft"
+            other: "%{count} resterende slots"
           view: View
       meetings_map:
         view_meeting: View meeting
@@ -397,27 +397,27 @@ nl-BE:
             sent: Sent
         meeting:
           fields:
-            closed: Closed
-            end_time: End date
-            map: Map
-            start_time: Start date
-            title: Title
-      read_more: "(read more)"
+            closed: Gesloten
+            end_time: Einddatum
+            map: Kaart
+            start_time: Begin datum
+            title: Titel
+      read_more: "(Lees verder)"
       registration_mailer:
         confirmation:
-          confirmed_html: Your registration for the meeting <a href="%{url}">%{title}</a> has been confirmed.
-          details: You will find the meeting's details in the attachment.
+          confirmed_html: Uw registratie voor de <a href="%{url}">%{title}</a> van de vergadering heeft bevestigd.
+          details: In de bijlage vindt u de details van de vergadering.
           registration_code: Your registration code is %{code}.
       registrations:
         create:
-          invalid: There's been a problem joining this meeting.
-          success: You have joined the meeting successfully.
+          invalid: Er is een probleem bij deze ontmoeting geweest.
+          success: U heeft de vergadering succesvol aangesloten.
         decline_invitation:
           invalid: There's been a problem declining the invitation.
           success: You have declined the invitation successfully.
         destroy:
-          invalid: There's been a problem leaving this meeting.
-          success: You have left the meeting successfully.
+          invalid: Er is een probleem geweest met het verlaten van deze vergadering.
+          success: U heeft de vergadering succesvol verlaten.
       types:
         private_meeting: Private meeting
         transparent: Transparent
