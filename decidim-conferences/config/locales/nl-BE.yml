@@ -108,70 +108,70 @@ nl-BE:
         edit:
           update: Bijwerken
         exports:
-          registrations: Registrations
+          registrations: Registraties
         form:
-          title: General Information
+          title: Algemene informatie
         index:
-          not_published: Not published
-          published: Published
+          not_published: Niet gepubliceerd
+          published: Gepubliceerd
         new:
-          create: Create
-          title: Conference
+          create: Creëren
+          title: Conferentie
         update:
-          error: There was an error when updating this conference.
-          success: Conference updated successfully.
+          error: Er is een fout opgetreden bij het bijwerken van dit bereik.
+          success: Bijlage is succesvol gemaakt.
       conferences_copies:
         create:
-          error: There was an error when duplicating this conference.
-          success: Conference duplicated successfully.
+          error: Er is een fout opgetreden bij het bijwerken van dit bereik.
+          success: Bijlage is succesvol gemaakt.
       media_links:
         create:
-          error: There was an error creating a new media link.
-          success: Media Link created successfully.
+          error: Er is een fout opgetreden bij het maken van een nieuwe pagina.
+          success: Admin is succesvol gemaakt.
         destroy:
-          success: Media Link deleted successfully.
+          success: Admin is succesvol gemaakt.
         edit:
-          title: Update media link.
-          update: Update
+          title: Mediaconfink bijwerken.
+          update: Bijwerken
         index:
-          media_links_title: Media Links
+          media_links_title: Media links
         new:
-          create: Create
-          title: Media Link
+          create: Creëren
+          title: Media links
         update:
-          error: There was an error when updating this media link.
-          success: Media Link updated successfully.
+          error: Er is een fout opgetreden bij het bijwerken van deze admin.
+          success: Admin is succesvol gemaakt.
       menu:
-        conferences: Conferences
+        conferences: Conferentie
         conferences_submenu:
-          attachment_collections: Folders
-          attachment_files: Files
-          attachments: Attachments
-          categories: Categories
-          components: Components
-          conference_admins: Conference users
-          conference_invites: Invites
-          conference_speakers: Speakers
-          diploma: Certificate of Attendance
+          attachment_collections: Map
+          attachment_files: Bestanden
+          attachments: Toebehoren
+          categories: Categorieën
+          components: Componenten
+          conference_admins: Nieuwe conferentie gebruiker
+          conference_invites: Nodig uit
+          conference_speakers: Luidsprekers
+          diploma: Certificaat van aanwezigheid
           info: Info
-          media_links: Media Links
-          moderations: Moderations
+          media_links: Media links
+          moderations: Moderaties
           partners: Partners
-          registration_types: Registration Types
-          registrations: Registrations
-          user_registrations: User Registrations
+          registration_types: Type
+          registrations: Registraties
+          user_registrations: Registraties
       models:
         conference:
           fields:
-            created_at: Created at
-            promoted: Promoted
-            published: Published
-            title: Title
+            created_at: Gemaakt bij
+            promoted: Gepromoveerd
+            published: Gepubliceerd
+            title: Titel
         conference_speaker:
           fields:
-            affiliation: Affiliation
-            full_name: Full name
-            position: Position
+            affiliation: Affiliatie
+            full_name: Volledige naam
+            position: Positie
           name: Conference Speaker
         conference_user_role:
           fields:
@@ -250,86 +250,86 @@ nl-BE:
       conference:
         create: "%{user_name} created the %{resource_name} conference"
         publish: "%{user_name} published the %{resource_name} conference"
-        send_conference_diplomas: "%{user_name} sent certificates of attendance to the %{resource_name} conference atendees"
-        unpublish: "%{user_name} unpublished the %{resource_name} conference"
-        update: "%{user_name} updated the %{resource_name} conference"
-        update_diploma: "%{user_name} updated the certificates of attendance configuration for %{resource_name} conference"
+        send_conference_diplomas: "%{user_name} heeft presentielijsten verstuurd naar de %{resource_name} conferentie atendees"
+        unpublish: "%{user_name} heeft de %{resource_name} -vergadering aangemaakt"
+        update: "%{user_name} heeft de %{resource_name} -vergadering aangemaakt"
+        update_diploma: "%{user_name} heeft de certificaten van de presentatiemethode voor %{resource_name} conferentie bijgewerkt"
       conference_speaker:
-        create: "%{user_name} created the %{resource_name} speaker in the %{space_name} conference"
-        delete: "%{user_name} removed the %{resource_name} speaker from the %{space_name} conference"
-        update: "%{user_name} updated the %{resource_name} speaker in the %{space_name} conference"
+        create: "%{user_name} heeft het %{resource_name} lid aangemaakt in de %{space_name} -vergadering"
+        delete: "%{user_name} heeft het %{resource_name} lid aangemaakt in de %{space_name} -vergadering"
+        update: "%{user_name} heeft het %{resource_name} lid aangemaakt in de %{space_name} -vergadering"
       conference_user_role:
-        create: "%{user_name} invited %{resource_name} to the %{space_name} conference"
-        delete: "%{user_name} removed the user %{resource_name} from the %{space_name} conference"
-        update: "%{user_name} changed the role of %{resource_name} in the %{space_name} conference"
+        create: "%{user_name} heeft het %{resource_name} lid aangemaakt in de %{space_name} -vergadering"
+        delete: "%{user_name} heeft het %{resource_name} lid aangemaakt in de %{space_name} -vergadering"
+        update: "%{user_name} heeft het %{resource_name} lid aangemaakt in de %{space_name} -vergadering"
       conferences:
         conference_registration:
-          confirm: "%{user_name} confirmed a conference registration in %{resource_name} conference"
+          confirm: "%{user_name} heeft een conferentie registratie bevestigd in %{resource_name}"
         partner:
-          create: "%{user_name} created %{resource_name} to the %{space_name} conference"
-          delete: "%{user_name} removed the user %{resource_name} from the %{space_name} conference"
-          update: "%{user_name} updated %{resource_name} in the %{space_name} conference"
+          create: "%{user_name} heeft het %{resource_name} lid aangemaakt in de %{space_name} -vergadering"
+          delete: "%{user_name} heeft het %{resource_name} lid aangemaakt in de %{space_name} -vergadering"
+          update: "%{user_name} heeft het %{resource_name} lid aangemaakt in de %{space_name} -vergadering"
         registration_type:
-          create: "%{user_name} created the %{resource_name} registration type in the %{space_name} conference"
-          publish: "%{user_name} published the %{resource_name} registration type in the %{space_name} conference"
-          unpublish: "%{user_name} unpublished the %{resource_name} registration type in the %{space_name} conference"
-          update: "%{user_name} updated the %{resource_name} registration type in the %{space_name} conference"
+          create: "%{user_name} heeft het %{resource_name} lid aangemaakt in de %{space_name} -vergadering"
+          publish: "%{user_name} heeft het %{resource_name} lid aangemaakt in de %{space_name} -vergadering"
+          unpublish: "%{user_name} heeft het %{resource_name} lid aangemaakt in de %{space_name} -vergadering"
+          update: "%{user_name} heeft het %{resource_name} lid aangemaakt in de %{space_name} -vergadering"
       media_link:
-        create: "%{user_name} created the %{resource_name} media link in the %{space_name} conference"
-        delete: "%{user_name} removed the %{resource_name} media link from the %{space_name} conference"
-        update: "%{user_name} updated the %{resource_name} media link in the %{space_name} conference"
+        create: "%{user_name} heeft het %{resource_name} lid aangemaakt in de %{space_name} -vergadering"
+        delete: "%{user_name} heeft het %{resource_name} lid aangemaakt in de %{space_name} -vergadering"
+        update: "%{user_name} heeft het %{resource_name} lid aangemaakt in de %{space_name} -vergadering"
     conference_program:
       index:
-        title: Program
+        title: Programma
     conference_speakers:
       index:
-        title: Speakers
+        title: Luidsprekers
     conferences:
       admin:
         conference_copies:
           form:
-            slug_help: 'URL slugs are used to generate the URLs that point to this conference. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
+            slug_help: 'URL-slugs worden gebruikt om de URL''s te genereren die naar deze vergadering verwijzen. Accepteer alleen letters, cijfers en streepjes, en moet beginnen met een letter. Voorbeeld: %{url}'
         conference_invites:
           create:
-            error: There's been a problem while inviting the user to join the conference.
-            success: User successfully invited to join the conference.
+            error: Er is een probleem geweest tijdens het uitnodigen van de gebruiker om toe te treden tot de conferentie.
+            success: Gebruiker succesvol uitgenodigd om deel te nemen aan de conferentie.
           form:
-            attendee_type: Attendee type
-            existing_user: Existing user
-            invite_explanation: The user will be invited to join the conference and to the organization as well.
-            non_user: Non existing user
-            select_user: Select user
+            attendee_type: Deelname type
+            existing_user: Bestaande gebruiker
+            invite_explanation: De gebruiker zal worden uitgenodigd om deel te nemen aan de conferentie en ook aan de organisatie.
+            non_user: Bestaande gebruiker
+            select_user: Gebruiker selecteren
           index:
             filter:
-              accepted: Accepted
-              all: All
-              rejected: Rejected
-              sent: Sent
-            filter_by: Filter by
-            invite_attendee: Invite Attendee
-            invites: Invites
-            search: Search
+              accepted: Aanvaard
+              all: Alle
+              rejected: Verworpen
+              sent: Verzonden
+            filter_by: Filteren op
+            invite_attendee: Nodig deelname uit
+            invites: Nodig uit
+            search: Zoeken
           new:
-            explanation: The user will be invited to join a conference. If the email is not registered they will be invited to the organization as well.
-            invite: Invite
-            new_invite: Invite user
+            explanation: De gebruiker wordt uitgenodigd om deel te nemen aan een conferentie. Als de e-mail niet geregistreerd is, worden ze ook uitgenodigd voor de organisatie.
+            invite: Nodig uit
+            new_invite: Gebruiker uitnodigen
         conference_registrations:
           index:
-            registrations: Registrations
+            registrations: Registraties
         conference_speakers:
           form:
-            existing_user: Existing user
-            non_user: Non user
-            select_user: Select user
-            user_type: User type
+            existing_user: Bestaande gebruiker
+            non_user: Nieuwe gebruiker
+            select_user: Gebruiker selecteren
+            user_type: Gebruikerstype
           index:
-            search: Search
+            search: Zoeken
         conferences:
           form:
-            available_slots_help: Leave it to 0 if you have unlimited slots available.
+            available_slots_help: Laat het naar 0 als u onbeperkt beschikbare slots hebt.
             registrations_count:
-              one: There has been 1 registration.
-              other: There has been %{count} registrations.
+              one: Er zijn registraties geweest.
+              other: Er zijn %{count} registraties geweest.
             slug_help: 'URL slugs are used to generate the URLs that point to this conference. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
         diplomas:
           edit:
@@ -416,87 +416,87 @@ nl-BE:
         show:
           login_as: You are logged in as %{name} <%{email}>
           make_conference_registration: 'Make your registration in the conference:'
-          register: Register
+          register: Registreer
       content_blocks:
         highlighted_conferences:
-          name: Highlighted conferences
+          name: Gemarkeerde conferenties
       index:
-        title: Conferences
+        title: Conferentie
       mailer:
         conference_registration_mailer:
           confirmation:
-            subject: Your conference's registration has been confirmed
+            subject: Registratie van uw vergadering is bevestigd
           pending_validation:
-            subject: Your conference's registration is pending to be confirmed
+            subject: Registratie van uw vergadering is bevestigd
         invite_join_conference_mailer:
           invite:
-            subject: Invitation to join a conference
+            subject: Uitnodiging om deel te nemen aan een conferentie
         send_conference_diploma_mailer:
           diploma:
-            subject: Your conference certificate of attendance has been sent
+            subject: Uw conferentiecertificaat van de presentie is verzonden
       models:
         conference_invite:
           fields:
-            email: Email
-            name: Name
-            registration_type: Registration type
-            sent_at: Sent at
+            email: E-mail
+            name: Beheerde gebruiker
+            registration_type: Type
+            sent_at: Verzonden bij
             status: Status
           status:
-            accepted: Accepted (%{at})
-            rejected: Rejected (%{at})
-            sent: Sent
+            accepted: Geaccepteerd (%{at})
+            rejected: Geaccepteerd (%{at})
+            sent: Verzonden
         conference_registration:
           fields:
-            email: Email
-            name: Name
-            registration_type: Registration type
-            state: State
+            email: E-mail
+            name: Beheerde gebruiker
+            registration_type: Type
+            state: Staat
             states:
-              confirmed: Confirmed
-              pending: Pending
+              confirmed: Bevestigen
+              pending: In afwachting
       pages:
         home:
           highlighted_conferences:
-            active_conferences: Active conferences
-            see_all_conferences: See all conferences
+            active_conferences: Actieve conferenties
+            see_all_conferences: Bekijk alle conferenties
       photo:
         show:
-          close_modal: Close modal
-          photo: Photo
+          close_modal: Dicht modaal
+          photo: Foto
       photos_list:
         show:
-          related_photos: Photos
+          related_photos: Foto's
       registration_types:
         index:
-          choose_an_option: 'Choose your registration option:'
-          login_as: You are logged in as %{name} <%{email}>
-          register: Register
-          title: Registration types
+          choose_an_option: 'Kies uw registratieoptie:'
+          login_as: U bent ingelogd als %{name} <%{email}>
+          register: Registreer
+          title: Type
       shared:
         conference_user_login:
-          already_account: Do you already have an account in decidim?
-          new_user: New user?
-          sign_in: Login to register for the conference
-          sign_up: Create an account in decidim to register for the conference
+          already_account: Heb je al een account in decidim?
+          new_user: Nieuwe gebruiker?
+          sign_in: Log in om te registreren voor de conferentie
+          sign_up: Maak een account in decidim om te registreren voor de conferentie
       show:
         details: Details
-        introduction: Introduction
-        objectives: Objectives
-        related_assemblies: Related Assemblies
-        related_consultations: Related Consultations
-        related_participatory_processes: Related Participatory Processes
+        introduction: Invoering
+        objectives: Doelstellingen
+        related_assemblies: Gerelateerde Buurderijen
+        related_consultations: Verwante raadplegingen
+        related_participatory_processes: Update deelnemende proces gebruiker
       statistics:
-        answers_count: Answers
-        comments_count: Comments
-        conference_count: Conferences
-        debates_count: Debates
-        endorsements_count: Endorsements
-        headline: Activity
-        meetings_count: Meetings
-        orders_count: Votes
-        pages_count: Pages
-        posts_count: Posts
+        answers_count: Antwoorden
+        comments_count: Reacties
+        conference_count: Conferentie
+        debates_count: Debatten
+        endorsements_count: Eindverklaringen
+        headline: Activiteit
+        meetings_count: Vergaderingen
+        orders_count: Stemmen
+        pages_count: Pagina's
+        posts_count: Posten
         projects_count: Projects
         proposals_count: Proposals
         results_count: Results
