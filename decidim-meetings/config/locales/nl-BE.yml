@@ -13,52 +13,52 @@ nl-BE:
         proposal_ids: Voorstellen die in de vergadering zijn gemaakt
       meeting:
         address: Adres
-        available_slots: Available slots for this meeting
+        available_slots: Beschikbare slots voor deze vergadering
         decidim_category_id: Categorie
         decidim_scope_id: Reikwijdte
         description: Beschrijving
         end_time: Eindtijd
         location: Plaats
         location_hints: Locatie hints
-        organizer_id: Organizer
-        private_meeting: Private meeting
-        registration_form_enabled: Registration form enabled
-        registration_terms: Registration terms
-        registrations_enabled: Registrations enabled
+        organizer_id: Organisator
+        private_meeting: Maak een afspraak
+        registration_form_enabled: Registratieformulier ingeschakeld
+        registration_terms: Type
+        registrations_enabled: Registratieformulier ingeschakeld
         start_time: Starttijd
         title: Titel
-        transparent: Transparent
+        transparent: Is transparant
       minutes:
         audio_url: Audio url
         description: Beschrijving
         video_url: Video url
-        visible: Is visible
+        visible: Is zichtbaar
     errors:
       models:
         meeting_agenda:
           attributes:
             base:
-              too_many_minutes: The duration of the items exceed the meeting duration by %{count} minutes
-              too_many_minutes_child: The duration of the item childs exceed the agenda item "%{parent_title}" parent duration by %{count} minutes
+              too_many_minutes: De duur van de items overschrijdt de vergaderduur met %{count} minuten
+              too_many_minutes_child: De duur van de item kinders overschrijdt de agenda item "%{parent_title}" bovenliggende duur met %{count} minuten
         meeting_registration_invite:
           attributes:
             email:
-              already_invited: This email has already been invited
+              already_invited: Deze e-mail is al uitgenodigd
     models:
-      decidim/meetings/close_meeting_event: Meeting closed
+      decidim/meetings/close_meeting_event: Vergadering gesloten
       decidim/meetings/create_meeting_event: Vergadering
-      decidim/meetings/meeting_registrations_enabled_event: Registrations enabled
-      decidim/meetings/meeting_registrations_over_percentage_event: Registrations over limit
-      decidim/meetings/upcoming_meeting_event: Upcoming meeting
-      decidim/meetings/update_meeting_event: Meeting updated
+      decidim/meetings/meeting_registrations_enabled_event: Registratieformulier ingeschakeld
+      decidim/meetings/meeting_registrations_over_percentage_event: Registraties over limiet
+      decidim/meetings/upcoming_meeting_event: Aankomende vergadering
+      decidim/meetings/update_meeting_event: Vergaderdatum (Automatic Translation)
   activerecord:
     models:
       decidim/meetings/meeting:
         one: Vergadering
         other: Vergaderingen
       decidim/meetings/minutes:
-        one: Minutes
-        other: Minutes
+        one: Minuten
+        other: Minuten
       decidim/meetings/registration:
         one: Registration
         other: Registraties
@@ -250,79 +250,79 @@ nl-BE:
             title: Maak een afspraak
           service:
             description: Beschrijving
-            down: Down
+            down: Onder
             remove: Verwijderen
             service: Service
             title: Titel
-            up: Up
+            up: Op
           services:
-            add_service: Add service
-            services: Services
+            add_service: Service toevoegen
+            services: Service
           update:
             invalid: Er is een probleem opgetreden bij het bijwerken van deze vergadering
             success: Vergadering met succes bijgewerkt
         minutes:
           create:
-            invalid: There's been a problem creating this minutes
-            success: Minutes successfully created
+            invalid: Er is een probleem opgetreden bij het maken van deze status
+            success: Status succesvol gemaakt
           edit:
             update: Bijwerken
           new:
             create: Creëren
-            title: Create minutes
+            title: Minuten maken
           update:
-            invalid: There's been a problem updating this minutes
-            success: Minutes successfully updated
+            invalid: Er is een probleem opgetreden bij het maken van deze status
+            success: Status succesvol gemaakt
         models:
           meeting:
             name: Vergadering
         registrations:
           edit:
             save: Opslaan
-            validate: Validate
-            validate_registration_code: Validate registration code
+            validate: Valideren
+            validate_registration_code: Registratiecode valideren
           form:
             available_slots_help: Laat het naar 0 als u onbeperkt beschikbare slots hebt.
             invites: Nodig uit
-            registration_form: Registration form
+            registration_form: Type
             registrations_count:
               one: Er is 1 registratie geweest.
               other: Er zijn %{count} registraties geweest.
-            reserved_slots_help: Leave it to 0 if you don't have reserved slots
-            reserved_slots_less_than: Must be less than or equal to %{count}
+            reserved_slots_help: Laat het aan 0 als je geen gereserveerde slots hebt
+            reserved_slots_less_than: Bestandsgrootte moet kleiner zijn dan %{count}
           update:
             invalid: Er is een probleem opgetreden bij het opslaan van de registratie-instellingen.
             success: Vergaderen van instellingen voor instellingen die succesvol zijn opgeslagen.
           validate_registration_code:
-            invalid: This registration code is invalid.
-            success: Registration code successfully validated.
+            invalid: Deze registratiecode is ongeldig.
+            success: Registratiecode is met succes gevalideerd.
       admin_log:
         invite:
-          create: "%{user_name} invited %{attendee_name} to join %{resource_name} meeting on the %{space_name} space"
-          deleted: "%{user_name} uninvited %{attendee_name} from joining %{resource_name} meeting on the %{space_name} space"
-          update: "%{user_name} invited %{attendee_name} to join %{resource_name} meeting on the %{space_name} space"
+          create: "%{user_name} heeft %{attendee_name} uitgenodigd om deel te nemen aan de vergadering van %{resource_name} op de %{space_name} ruimte"
+          deleted: "%{user_name} heeft %{attendee_name} niet-actief deelgenomen aan de vergadering van %{resource_name} op de %{space_name} ruimte"
+          update: "%{user_name} heeft %{attendee_name} uitgenodigd om deel te nemen aan de vergadering van %{resource_name} op de %{space_name} ruimte"
         meeting:
-          close: "%{user_name} closed the %{resource_name} meeting on the %{space_name} space"
-          create: "%{user_name} created the %{resource_name} meeting on the %{space_name} space"
-          delete: "%{user_name} deleted the %{resource_name} meeting on the %{space_name} space"
-          export_registrations: "%{user_name} exported the registrations of the %{resource_name} meeting on the %{space_name} space"
-          update: "%{user_name} updated the %{resource_name} meeting on the %{space_name} space"
+          close: "%{user_name} heeft het %{resource_name} lid aangemaakt in de %{space_name} -vergadering"
+          create: "%{user_name} heeft het %{resource_name} lid aangemaakt in de %{space_name} -vergadering"
+          delete: "%{user_name} heeft het %{resource_name} lid aangemaakt in de %{space_name} -vergadering"
+          export_registrations: "%{user_name} heeft het %{resource_name} lid aangemaakt in de %{space_name} -vergadering"
+          update: "%{user_name} heeft het %{resource_name} lid aangemaakt in de %{space_name} -vergadering"
           value_types:
             organizer_presenter:
-              not_found: 'The organizer was not found on the database (ID: %{id})'
+              not_found: 'De Buurderij is niet gevonden op de database (ID: %{id})'
         minutes:
-          create: "%{user_name} created the minutes of the meeting %{resource_name} on the %{space_name} space"
-          update: "%{user_name} updated the minutes of the meeting %{resource_name} on the %{space_name} space"
+          create: "%{user_name} heeft de notulen van de vergadering %{resource_name} aangemaakt op de %{space_name} ruimte"
+          update: "%{user_name} heeft de notulen van de vergadering %{resource_name} aangemaakt op de %{space_name} ruimte"
       calendar_modal:
-        calendar_url: Calendar URL
+        calendar_url: Kalender URL
         close_window: Sluit dit scherm
-        export_calendar: Export calendar
-      conference_venues: Conference Venues
+        export_calendar: Exporteer kalender
+      conference_venues: Nieuwe conferentie gebruiker
       content_blocks:
         upcoming_events:
-          name: Upcoming events
-          upcoming_events: Upcoming meetings
-          view_all_events: View all
+          name: Aankomende afspraken
+          upcoming_events: Aankomende vergadering
+          view_all_events: Alles tonen
       directory:
         meetings:
           index:
@@ -331,19 +331,19 @@ nl-BE:
             meetings: Vergaderingen
             past: Verleden
             search: Zoeken
-            space_type: Participatory space
+            space_type: Participatieve scope
             upcoming: Aankomend
       last_activity:
-        new_meeting_at_html: "<span>New meeting at %{link}</span>"
+        new_meeting_at_html: "<span>Nieuwe post op %{link}</span>"
       mailer:
         invite_join_meeting_mailer:
           invite:
-            subject: Invitation to join a meeting
+            subject: Uitnodiging om deel te nemen aan een conferentie
         registration_mailer:
           confirmation:
             subject: Registratie van uw vergadering is bevestigd
       meeting:
-        not_allowed: You are not allowed to view this meeting
+        not_allowed: U bent niet bevoegd om dit te doen
       meetings:
         filters:
           category: Categorie
@@ -358,8 +358,8 @@ nl-BE:
           filter_by: Filteren op
           unfold: Ontvouwen
         meeting_minutes:
-          meeting_minutes: Meeting Minutes
-          related_information: Related Information
+          meeting_minutes: Vergadernotulen
+          related_information: Gerelateerde informatie
         meetings:
           no_meetings_warning: Geen afspraken komen overeen met uw zoekcriteria of er is geen vergadering gepland.
           upcoming_meetings_warning: Momenteel zijn er geen geplande vergaderingen, maar hier vindt u alle eerder genoemde vergaderingen.
@@ -374,16 +374,16 @@ nl-BE:
           meeting_report: Notulen
           no_slots_available: Geen slots beschikbaar
           organizations: Bijwonen van organisaties
-          registration_code_help_text: Your registration code
+          registration_code_help_text: Uw registratiecode
           registration_state:
-            validated: VALIDATED
-            validation_pending: VALIDATION PENDING
+            validated: GEVALIDATEERD
+            validation_pending: VALIDATIE PENDING
           remaining_slots:
             one: "1 slot overblijft"
             other: "%{count} resterende slots"
           view: Uitzicht
       meetings_map:
-        view_meeting: View meeting
+        view_meeting: Nieuwe
       models:
         invite:
           fields:
@@ -407,23 +407,23 @@ nl-BE:
         confirmation:
           confirmed_html: Uw registratie voor de <a href="%{url}">%{title}</a> van de vergadering heeft bevestigd.
           details: In de bijlage vindt u de details van de vergadering.
-          registration_code: Your registration code is %{code}.
+          registration_code: Uw registratiecode is %{code}.
       registrations:
         create:
           invalid: Er is een probleem bij deze ontmoeting geweest.
           success: U heeft de vergadering succesvol aangesloten.
         decline_invitation:
-          invalid: There's been a problem declining the invitation.
-          success: You have declined the invitation successfully.
+          invalid: Er is een probleem bij deze ontmoeting geweest.
+          success: U heeft de vergadering succesvol aangesloten.
         destroy:
           invalid: Er is een probleem geweest met het verlaten van deze vergadering.
           success: U heeft de vergadering succesvol verlaten.
       types:
-        private_meeting: Private meeting
-        transparent: Transparent
+        private_meeting: Maak een afspraak
+        transparent: Is transparant
     metrics:
       meetings:
-        description: Number of meetings created
+        description: Aantal aangemaakte vergaderingen
         object: vergaderingen
         title: Vergaderingen
     participatory_processes:
