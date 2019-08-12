@@ -25,39 +25,39 @@ nl-BE:
         github: GitHub
         hashtag: Hashtag
         hero_image: Afbeelding van de startpagina
-        included_at: Included at
+        included_at: '-'
         instagram: Instagram
-        internal_organisation: Internal organisation
-        is_transparent: Is transparent
+        internal_organisation: Interne organisatie
+        is_transparent: Is transparant
         local_area: Lokale buurt
         meta_scope: Omvang metadata
-        parent_id: Parent assembly
-        participatory_processes_ids: Related Participatory processes
+        parent_id: Ouder vergadering
+        participatory_processes_ids: Update deelnemende proces gebruiker
         participatory_scope: Participatief toepassingsgebied
         participatory_structure: Participatieve structuur
-        private_space: Private space
+        private_space: Privé ruimte
         promoted: gepromoveerd
         published_at: Gepubliceerd op
-        purpose_of_action: Purpose of action
+        purpose_of_action: Doelstelling
         scope_id: Reikwijdte
         scopes_enabled: Scopes ingeschakeld
         short_description: Korte beschrijving
         show_statistics: Toon statistieken
         slug: URL slak
-        special_features: Special features
+        special_features: Speciale functies
         subtitle: subtitel
         target: Doel
         title: Titel
         twitter: Twitter
-        youtube: YouTube
+        youtube: Youtube
       assembly_member:
-        birthday: Birthday
-        birthplace: Birthplace
+        birthday: Verjaardag
+        birthplace: Geboortplaats
         ceased_date: Datum van de datum
         designation_date: Ontwerpdatum
-        designation_mode: Designation mode
+        designation_mode: Ontwerpdatum
         full_name: Volledige naam
-        gender: Gender
+        gender: Geslacht
         position: Positie
       assembly_user_role:
         email: E-mail
@@ -69,11 +69,11 @@ nl-BE:
         one: bijeenkomst
         other: Gemeentes
       decidim/assembly_member:
-        one: Assembly member
-        other: Assembly members
+        one: Buurderij gebruikers
+        other: Bijwerken
       decidim/assembly_user_role:
-        one: Assembly user role
-        other: Assembly user roles
+        one: Bijwerken
+        other: Bijwerken
   decidim:
     admin:
       actions:
@@ -89,7 +89,7 @@ nl-BE:
         index:
           not_published: Niet gepubliceerd
           private: Privé
-          public: Public
+          public: Publiek
           published: Gepubliceerd
         new:
           create: creëren
