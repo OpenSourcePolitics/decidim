@@ -288,14 +288,14 @@ nl-BE:
         meeting: Vergaderingen
         project: Projecten
         proposal: Voorstellen
-        result: Results
+        result: Resultaten
     fingerprint:
-      check: Check fingerprint
-      explanation: The piece of text below is a shortened, hashed representation of this content. It's useful to ensure the content hasn't been tampered with, as a single modification would result in a totally different value.
-      online_calculator_name: MD5 calculator online
-      replicate_help: This fingerprint is calculated using a SHA256 hashing algorithm. In order to replicate it yourself, you can use an %{online_calculator_link} and copy-paste the source data.
-      source: Source
-      title: Fingerprint
+      check: Vingerafdruk controleren
+      explanation: Het tekstgedeelte hieronder is een verkorte, gehamerde vertegenwoordiging van deze inhoud. Het is handig om ervoor te zorgen dat de inhoud niet getemd is, omdat een enkele wijziging zou leiden tot een totaal andere waarde.
+      online_calculator_name: MD5 rekenmachine online
+      replicate_help: Deze vingerafdruk wordt berekend met een SHA256 hashing algoritme. Om het zelf te kopiëren, kunt u een %{online_calculator_link} gebruiken en de brongegevens kopiëren.
+      source: Bron
+      title: Kies Vrienden
       value: Value
     followers:
       no_followers: No followers yet.
@@ -383,73 +383,73 @@ nl-BE:
       shared:
         note: You received this message because you're subscribed to notification by email on %{organization_name}. You can change your settings on your <a href="%{link}">notifications page</a>.
     notifications:
-      no_notifications: No notifications yet.
+      no_notifications: Geen melding.
     notifications_settings:
       show:
-        email_on_notification: I want to receive an email every time I receive a notification.
-        newsletter_notifications: I want to receive newsletters
-        update_notifications_settings: Save changes
+        email_on_notification: Ik wil ontvangen een e-mail telkens als ik een melding ontvangt.
+        newsletter_notifications: Ik wil informatie ontvangen over relevante activiteiten
+        update_notifications_settings: Wijzigingen opslaan
       update:
-        error: There's been an error updating your notifications settings.
-        success: Your notifications settings were updated successfully.
+        error: Er is een fout opgetreden bij het bijwerken van uw notificatie instellingen.
+        success: Uw notificatie instellingen zijn bijgewerkt.
     own_user_groups:
       index:
-        pending: Pending
-        rejected: Rejected
-        verified: Verified
+        pending: In afwachting
+        rejected: Verworpen
+        verified: Geverifieerd
     pages:
       home:
         extended:
-          debates: Debates
-          debates_explanation: Debate and discuss, share your views and enrich the relevant topics.
-          how_to_participate: How do I take part in a process?
-          meetings: Meetings
-          meetings_explanation: Find out where and when you can participate in public meetings.
-          more_info: More info
-          proposals: Proposals
-          proposals_explanation: Make proposals, support existing ones and promote the changes you want to see.
+          debates: Debatten
+          debates_explanation: Debat en bespreek, deel uw mening en verrijkt de relevante onderwerpen.
+          how_to_participate: Hoe neem ik deel aan een proces?
+          meetings: Vergaderingen
+          meetings_explanation: Ontdek waar en wanneer u kunt deelnemen aan openbare vergaderingen.
+          more_info: Meer informatie
+          proposals: Voorstellen
+          proposals_explanation: Maak voorstellen, steun bestaande voorstellen en bevordert de veranderingen die u wilt zien.
         footer_sub_hero:
-          footer_sub_hero_body: Let's build a more open, transparent and collaborative society.<br /> Join, participate and decide.
-          footer_sub_hero_headline: Welcome to %{organization} participatory platform.
-          register: Register
+          footer_sub_hero_body: Laten we een meer open, transparante en coöperatieve samenleving bouwen.<br /> Neem deel, neem deel en besluit.
+          footer_sub_hero_headline: Welkom bij %{organization} participatief platform.
+          register: Registreer
         hero:
-          participate: Participate
-          welcome: Welcome to %{organization}!
+          participate: Deelnemers
+          welcome: Welkom bij %{organization}!
         statistics:
-          answers_count: Completed Surveys
-          assemblies_count: Assemblies
-          comments_count: Comments
-          debates_count: Debates
-          endorsements_count: Endorsements
-          headline: Current state of %{organization}
-          meetings_count: Meetings
-          orders_count: Votes
-          pages_count: Pages
-          processes_count: Processes
-          projects_count: Projects
-          proposals_accepted: Accepted Proposals
-          proposals_count: Proposals
-          results_count: Results
-          surveys_count: Surveys
-          users_count: Participants
-          votes_count: Votes
+          answers_count: Voltooide Surveys
+          assemblies_count: Gemeentes
+          comments_count: Beschrijving
+          debates_count: Debatten
+          endorsements_count: Eindverklaringen
+          headline: Huidige status van %{organization}
+          meetings_count: Vergaderingen
+          orders_count: Stemmen
+          pages_count: Pagina's
+          processes_count: Processen
+          projects_count: Projecten
+          proposals_accepted: Geaccepteerde voorstellen
+          proposals_count: Voorstellen
+          results_count: Resultaten
+          surveys_count: Overleven
+          users_count: Deelnemers
+          votes_count: Stemmen
         sub_hero:
-          register: Register
+          register: Registreer
       index:
-        title: More information
+        title: Meer informatie
       terms_and_conditions:
         accept:
-          error: There's been an error while accepting the terms and conditions.
-          success: Great! You have accepted the terms and conditions.
+          error: Er is een fout opgetreden tijdens het accepteren van de voorwaarden en voorwaarden.
+          success: Geweldig! U heeft de voorwaarden en voorwaarden geaccepteerd.
         form:
-          agreement: I agree this terms
-          legend: Agree to the terms and conditions of use
+          agreement: Ik ga akkoord met deze voorwaarden
+          legend: De bepalingen en voorwaarden van gebruik
         refuse:
-          modal_body: If you refuse, you won't be able to use the platform, you can <a href="%{data_portability_path}">download your data</a> and/or <a href="%{delete_path}">delete your account</a>.
-          modal_btn_continue: Accept terms and continue
-          modal_btn_exit: I'll review it later
-          modal_button: Refuse the terms
-          modal_title: Do you really refuse the updated Terms and Conditions?
+          modal_body: Als je weigert, kun je het platform niet gebruiken, dan kun je <a href="%{data_portability_path}">je gegevens downloaden</a> en/of <a href="%{delete_path}">je account</a> verwijderen.
+          modal_btn_continue: Accepteer voorwaarden en ga door
+          modal_btn_exit: Ik zal het later bekijken
+          modal_button: Verfijn de voorwaarden
+          modal_title: Weiger je echt de bijgewerkte voorwaarden?
         required_review:
           alert: We've updated our Terms of Service, please review them.
           body: Please take a moment to review updates to our Terms of Services. Otherwise you won't be able to use the platform.
@@ -567,78 +567,77 @@ nl-BE:
       invitation_instructions:
         accept: Accept invitation
         accept_until: This invitation will be due in %{due_date}.
-        hello: Hello %{email},
+        hello: Hallo %{email},
         ignore: |-
-          If you don't want to accept the invitation, please ignore this email.<br />
-          Your account won't be created until you access the link above and set your nickname and password.
-        invited_you_as_admin: "%{invited_by} has invited you as an admin of %{application}. You can accept it through the link below."
-        invited_you_as_private_user: "%{invited_by} has invited you as a private user of %{application}. You can accept it through the link below."
-        someone_invited_you: Someone has invited you to %{application}. You can accept it through the link below.
-        someone_invited_you_as_admin: Someone has invited you as an admin of %{application}, you can accept it through the link below.
-        someone_invited_you_as_private_user: Someone has invited you as private_user of %{application}, you can accept it through the link below.
+          Negeer deze email als u de uitnodiging niet wilt accepteren.<br /> Uw account wordt niet aangemaakt totdat u via de link hierboven uw wachtwoord instelt.
+        invited_you_as_admin: "%{invited_by} heeft u uitgenodigd als beheerder van %{application}, u kunt deze uitnodiging accepteren via onderstaande link."
+        invited_you_as_private_user: "%{invited_by} heeft u uitgenodigd als beheerder van %{application}, u kunt deze uitnodiging accepteren via onderstaande link."
+        someone_invited_you: Iemand heeft u uitgenodigd bij %{application}, u kunt deze uitnodiging accepteren via onderstaande link.
+        someone_invited_you_as_admin: Iemand heeft u uitgenodigd bij %{application}, u kunt deze uitnodiging accepteren via onderstaande link.
+        someone_invited_you_as_private_user: Iemand heeft u uitgenodigd bij %{application}, u kunt deze uitnodiging accepteren via onderstaande link.
       invite_admin:
-        subject: You've been invited to manage %{organization}
+        subject: U bent uitgenodigd om %{organization} te beheren
       invite_collaborator:
-        subject: You've been invited to collaborate on %{organization}
+        subject: U bent uitgenodigd om samen te werken bij %{organization}
       invite_private_user:
-        subject: You've been invited to a private participatory process on %{organization}
+        subject: Je bent uitgenodigd voor een privé participatief proces op %{organization}
       organization_admin_invitation_instructions:
-        subject: You've been invited to manage %{organization}
+        subject: U bent uitgenodigd om %{organization} te beheren
       password_change:
-        greeting: Hello %{recipient}!
-        message: We're contacting you to notify you that your password has been changed.
-        subject: Password changed
+        greeting: Hallo %{recipient}!
+        message: Wij informeren u dat uw wachtwoord is gewijzigd.
+        subject: Wachtwoord is veranderd
   doorkeeper:
     scopes:
-      public: Your public information.
+      public: Uw publieke informatie.
   errors:
     messages:
-      content_type_whitelist_error: the file type is not valid
-      cycle_detected: a scope's parent can't be one of its descendants
-      file_size_is_less_than_or_equal_to: file size must be less than or equal to %{count}
-      long_words: contains words that are too long
-      must_start_with_caps: must start with caps
-      nesting_too_deep: can't be inside of a subcategory
-      too_many_marks: is using too many marks
-      too_much_caps: is using too much caps
-      too_short: is too short
+      content_type_whitelist_error: het bestandstype is niet geldig
+      cycle_detected: de ouder van een scope kan niet een van zijn afstammelingen zijn
+      file_size_is_less_than_or_equal_to: bestandsgrootte moet kleiner zijn dan %{count}
+      long_words: bevat woorden die te lang zijn
+      must_start_with_caps: moet beginnen met caps
+      nesting_too_deep: kan niet binnen een subcategorie zijn
+      too_many_marks: gebruikt te veel markeringen
+      too_much_caps: gebruikt te veel caps
+      too_short: te kort
   forms:
-    required: Required
+    required: Nodig
   invisible_captcha:
-    sentence_for_humans: If you are human, ignore this field
-    timestamp_error_message: Sorry, that was too quick! Please resubmit.
+    sentence_for_humans: Als u een mens bent negeert u dit veld
+    timestamp_error_message: Sorry, dat was te snel! Gelieve opnieuw in te dienen.
   layouts:
     decidim:
       cookie_warning:
-        description_html: This site uses cookies. By continuing to browse the site, you agree to our use of cookies. Find out more about it %{link}.
-        link_label: here
-        ok: I agree
+        description_html: Deze website maakt gebruik van cookies. Door gebruik te blijven maken van de site gaat u hiermee akkoord. Meer informatie via %{link}.
+        link_label: hier
+        ok: Ik ga akkoord
       footer:
-        made_with_open_source: Website made with <a target="_blank" href="https://github.com/decidim/decidim">free software</a>.
+        made_with_open_source: Website gemaakt met <a target="_blank" href="https://github.com/decidim/decidim">gratis software</a>.
       header:
-        close_menu: Close menu
-        navigation: Navigation
-        sign_in: Sign In
-        sign_up: Sign Up
+        close_menu: Menu sluiten
+        navigation: Navigatie
+        sign_in: Aanmelden
+        sign_up: Registreren
       impersonation_warning:
-        close_session: Close session
-        description_html: You are impersonating the user <b>%{user_name}</b>.
-        expire_time_html: Your session will expire in <b><span class="minutes">%{minutes}</span> minutes</b>.
+        close_session: Sluit sessie
+        description_html: U veronderstelt de gebruiker <b>%{user_name}</b>.
+        expire_time_html: Uw sessie vervalt in <b><span class="minutes">%{minutes}</span> minuten</b>.
       notifications_dashboard:
-        mark_all_as_read: Mark all as read
+        mark_all_as_read: Alles als gelezen markeren
       user_menu:
-        admin_dashboard: Admin dashboard
-        conversations: Conversations
-        notifications: Notifications
-        profile: My account
-        public_profile: My public profile
-        sign_out: Sign out
+        admin_dashboard: Beheer dashboard
+        conversations: Gesprekken
+        notifications: Meldingen
+        profile: Mijn account
+        public_profile: Mijn openbare profiel
+        sign_out: Afmelden
       user_profile:
         account: Account
-        authorizations: Authorizations
-        delete_my_account: Delete my account
-        notifications_settings: Notifications settings
-        title: User settings
+        authorizations: Bevoegdheden
+        delete_my_account: Verwijder mijn account
+        notifications_settings: Notificatie instellingen
+        title: Gebruikersinstellingen
         user_groups: Organizations
       widget:
         see_more: See more
