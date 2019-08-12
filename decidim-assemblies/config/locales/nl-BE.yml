@@ -5,21 +5,21 @@ nl-BE:
         area_id: Area
         assembly_type: Assembly type
         assembly_type_other: Assembly type other
-        banner_image: Banner image
+        banner_image: Banner afbeelding
         closing_date: Closing date
         closing_date_reason: Closing date reason
         composition: Composition
-        copy_categories: Copy categories
+        copy_categories: Kopieercategorieën
         copy_components: Copy components
-        copy_features: Copy features
+        copy_features: Kopieerfuncties
         created_by: Created by
         created_by_other: Created by other
         creation_date: Date created
         decidim_area_id: Area
         decidim_scope_id: Scope
-        description: Description
-        developer_group: Promoter group
-        domain: Domain
+        description: Beschrijving
+        developer_group: Ontwikkelaarsgroep
+        domain: Domein
         duration: Duration
         facebook: Facebook
         github: GitHub
@@ -29,25 +29,25 @@ nl-BE:
         instagram: Instagram
         internal_organisation: Internal organisation
         is_transparent: Is transparent
-        local_area: Organization area
-        meta_scope: Scope metadata
+        local_area: Lokale buurt
+        meta_scope: Omvang metadata
         parent_id: Parent assembly
         participatory_processes_ids: Related Participatory processes
-        participatory_scope: What is decided
-        participatory_structure: How is it decided
+        participatory_scope: Participatief toepassingsgebied
+        participatory_structure: Participatieve structuur
         private_space: Private space
-        promoted: Promoted
+        promoted: gepromoveerd
         published_at: Published at
         purpose_of_action: Purpose of action
-        scope_id: Scope
-        scopes_enabled: Scopes enabled
-        short_description: Short description
+        scope_id: Reikwijdte
+        scopes_enabled: Scopes ingeschakeld
+        short_description: Korte beschrijving
         show_statistics: Show statistics
-        slug: URL slug
+        slug: URL slak
         special_features: Special features
-        subtitle: Subtitle
-        target: Who participates
-        title: Title
+        subtitle: subtitel
+        target: Doel
+        title: Titel
         twitter: Twitter
         youtube: YouTube
       assembly_member:
@@ -80,32 +80,32 @@ nl-BE:
         new_assembly: New assembly
       assemblies:
         create:
-          error: There was an error creating a new assembly.
-          success: Assembly created successfully.
+          error: Er is een fout opgetreden bij het maken van een nieuwe assemblage.
+          success: Assemblage is succesvol gecreëerd.
         edit:
-          update: Update
+          update: Bijwerken
         form:
-          title: General Information
+          title: Algemene informatie
         index:
-          not_published: Not published
+          not_published: Niet gepubliceerd
           private: Private
           public: Public
-          published: Published
+          published: Gepubliceerd
         new:
-          create: Create
-          title: New assembly
+          create: creëren
+          title: Nieuwe montage
         update:
-          error: There was an error when updating this assembly.
-          success: Assembly updated successfully.
+          error: Er is een fout opgetreden bij het bijwerken van deze assemblage.
+          success: Assemblage is succesvol bijgewerkt.
       assemblies_copies:
         create:
-          error: There was an error when duplicating this assembly.
-          success: Assembly duplicated successfully.
+          error: Er was een fout bij het dupliceren van deze assemblage.
+          success: Assemblage is succesvol gedupliceerd.
       assembly_copies:
         new:
-          copy: Copy
-          select: Select which data you would like to duplicate
-          title: Duplicate assembly
+          copy: Kopiëren
+          select: Selecteer welke gegevens u wilt dupliceren
+          title: Dupliceerde montage
       assembly_members:
         create:
           error: There was an error adding a member for this assembly.
@@ -125,11 +125,11 @@ nl-BE:
           success: Member updated successfully for this assembly.
       assembly_publications:
         create:
-          error: There was an error publishing this assembly.
-          success: Assembly published successfully.
+          error: Er is een fout opgetreden bij het publiceren van deze assemblage.
+          success: Assemblage is succesvol gepubliceerd.
         destroy:
-          error: There was an error unpublishing this assembly.
-          success: Assembly unpublished successfully.
+          error: Er is een fout opgetreden bij het publiceren van deze assemblage.
+          success: Assemblage ongepubliceerd succesvol.
       assembly_user_roles:
         create:
           error: There was an error adding a user for this assembly.
@@ -154,21 +154,21 @@ nl-BE:
           assembly_members: Members
           attachment_collections: Folders
           attachment_files: Files
-          attachments: Attachments
-          categories: Categories
+          attachments: toebehoren
+          categories: Categorieën
           components: Components
-          info: Info
-          moderations: Moderations
+          info: info
+          moderations: matigingen
           private_users: Private users
       models:
         assembly:
           fields:
-            created_at: Created at
+            created_at: Gemaakt bij
             private: Private
-            promoted: Highlighted
-            published: Published
-            title: Title
-          name: Assembly
+            promoted: Opvallende
+            published: Gepubliceerd
+            title: Titel
+          name: bijeenkomst
         assembly_member:
           fields:
             ceased_date: Ceased date
@@ -289,7 +289,7 @@ nl-BE:
         composition: Composition
         created_by: Created by
         creation_date: Date created
-        developer_group: Promoter group
+        developer_group: Ontwikkelaarsgroep
         duration: Duration
         included_at: Included at
         indefinite_duration: Indefinite
@@ -297,33 +297,33 @@ nl-BE:
         is_transparent:
           'false': opaque
           'true': transparent
-        local_area: Organization area
-        participatory_scope: What is decided
-        participatory_structure: How is it decided
+        local_area: Lokale buurt
+        participatory_scope: Participatief toepassingsgebied
+        participatory_structure: Participatieve structuur
         private_space: This is a private assembly
         purpose_of_action: Purpose of action
         read_less: Read less
         read_more: Read more
         related_participatory_processes: Related participatory processes
-        scope: Scope
+        scope: Reikwijdte
         social_networks: Social Networks
-        target: Who participates
+        target: Doel
       statistics:
-        answers_count: Answers
+        answers_count: antwoorden
         assemblies_count: Assemblies
         comments_count: Comments
         debates_count: Debates
         endorsements_count: Endorsements
-        headline: Activity
-        meetings_count: Meetings
-        orders_count: Votes
+        headline: Activiteit
+        meetings_count: Vergaderingen
+        orders_count: bestellingen
         pages_count: Pages
-        projects_count: Projects
-        proposals_count: Proposals
-        results_count: Results
-        surveys_count: Surveys
-        users_count: Participants
-        votes_count: Votes
+        projects_count: Projecten
+        proposals_count: Voorstellen
+        results_count: Resultaten
+        surveys_count: onderzoeken
+        users_count: Deelnemers
+        votes_count: stemmen
     assembly_members:
       assembly_member:
         designated_on: Designated on
@@ -353,21 +353,21 @@ nl-BE:
     decidim:
       assemblies:
         assembly:
-          take_part: Take part
+          take_part: Deelnemen
         index:
           organizational_chart: Organizational chart
-          promoted_assemblies: Highlighted assemblies
+          promoted_assemblies: Uitgelichte samenstellingen
           reset_chart: Reset
         order_by_assemblies:
           assemblies:
-            one: "%{count} assemblies"
-            other: "%{count} assemblies"
+            one: "%{count} assemblage"
+            other: "%{count} gemeentes"
         promoted_assembly:
-          more_info: More info
-          take_part: Take part
+          more_info: Meer informatie
+          take_part: Deelnemen
       assembly_navigation:
         assembly_member_menu_item: Members
         assembly_menu_item: The assembly
       assembly_widgets:
         show:
-          take_part: Take part
+          take_part: Deelnemen
