@@ -133,26 +133,26 @@ nl-BE:
           email_intro: 'Debate creation is no longer active in %{participatory_space_title}. You can still participate in opened debates from this page:'
           email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
           email_subject: Debate creation disabled in %{participatory_space_title}
-          notification_title: Debate creation is now disabled in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+          notification_title: Debat creatie is nu uitgeschakeld in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         creation_enabled:
-          email_intro: 'You can now start new debates in %{participatory_space_title}! Start participating in this page:'
-          email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
-          email_subject: Debates now available in %{participatory_space_title}
-          notification_title: You can now start <a href="%{resource_path}">new debates</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+          email_intro: 'U kunt nu nieuwe debatten starten in %{participatory_space_title}! Begin mee te doen aan deze pagina:'
+          email_outro: Je hebt deze melding ontvangen omdat je "%{participatory_space_title}" volgt. Je kan de meldingen deactiveren door te klikken op de vorige link.
+          email_subject: Debatten beschikbaar in %{participatory_space_title}
+          notification_title: Je kunt nu <a href="%{resource_path}">nieuwe debatten starten</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
     gamification:
       badges:
         commented_debates:
           conditions:
-            - Choose an open debate to take part in
-          description: This badge is granted when you actively participate in the different debates by leaving your comments.
-          description_another: This user has participated in %{score} debates.
-          description_own: You have participated in %{score} debates.
+            - Kies een open debat om deel te nemen
+          description: Deze badge wordt toegekend wanneer u actief deelneemt aan de verschillende debatten door uw opmerkingen te verlaten.
+          description_another: Deze gebruiker heeft deelgenomen aan %{score} debatten.
+          description_own: Deze gebruiker heeft deelgenomen aan %{score} debatten.
           name: Debatten
-          next_level_in: Participate in %{score} more debates to reach the next level!
-          unearned_another: This user hasn't participated in any debate yet.
-          unearned_own: You haven't participated in any debates yet.
+          next_level_in: Neem deel aan %{score} meer debatten om het volgende niveau te bereiken!
+          unearned_another: Deze gebruiker heeft deelgenomen aan debatten.
+          unearned_own: Deze gebruiker heeft deelgenomen aan debatten.
     metrics:
       debates:
-        description: Number of debates created
+        description: Aantal aangemaakte vergaderingen
         object: debatten
         title: Debatten
