@@ -2,11 +2,11 @@ nl:
   activemodel:
     attributes:
       dummy_resource:
-        created_at: Aangemaakt op
-        field: Mijn veld
-        start_date: Begindatum
-        title: Titel
-        updated_at: Bijgewerkt op
+        created_at: Created at
+        field: My field
+        start_date: Start date
+        title: Title
+        updated_at: Updated at
   decidim:
     dummy:
       admin:
@@ -14,15 +14,15 @@ nl:
           dummies: Dummies
     participatory_processes:
       statistics:
-        dummies_count_high: Dummies hoog
+        dummies_count_high: Dummies high
         dummies_count_medium: Dummies medium
     resource_links:
       test_link:
-        dummy_resource_dummy: Gerelateerde dummy
+        dummy_resource_dummy: Related dummy
   pages:
     home:
       statistics:
         bar: Bar
-        dummies_count_high: Dummies hoog
+        dummies_count_high: Dummies high
         dummies_count_medium: Dummies medium
         foo: Foo
