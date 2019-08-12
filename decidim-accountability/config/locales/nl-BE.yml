@@ -3,30 +3,30 @@ nl-BE:
     attributes:
       result:
         decidim_accountability_status_id: Status
-        decidim_category_id: Category
-        decidim_scope_id: Scope
-        description: Description
-        end_date: End date
-        progress: Progress
-        project_ids: Included projects
-        proposals: Included proposals
-        start_date: Start date
-        title: Title
-        updated_at: Updated at
+        decidim_category_id: Categorie
+        decidim_scope_id: Reikwijdte
+        description: Beschrijving
+        end_date: Einddatum
+        progress: Vooruitgang
+        project_ids: Inclusief projecten
+        proposals: Opgenomen voorstellen
+        start_date: Begindatum
+        title: Titel
+        updated_at: Gewijzigd op
       status:
-        description: Description
+        description: Beschrijving
         key: Key
-        name: Name
-        progress: Progress
+        name: Beheerde gebruiker
+        progress: Vooruitgang
       timeline_entry:
-        description: Description
-        entry_date: Date
+        description: Beschrijving
+        entry_date: Datum
     models:
-      decidim/accountability/proposal_linked_event: Proposal included in a result
+      decidim/accountability/proposal_linked_event: Voorstellen opgenomen in dit resultaat
   activerecord:
     models:
       decidim/accountability/result:
-        one: Result
+        one: Uitslag
         other: Results
   decidim:
     accountability:
