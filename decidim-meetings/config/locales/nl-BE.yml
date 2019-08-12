@@ -166,21 +166,21 @@ nl-BE:
         agenda:
           agenda_item:
             add_agenda_item_child: Voeg agenda item kind toe
-            agenda_item: Agenda Item
-            agenda_item_children: Agenda Item Childs
-            down: Down
+            agenda_item: Agenda item
+            agenda_item_children: Agenda item Childs
+            down: Onder
             remove: Verwijderen
-            up: Up
+            up: Op
           agenda_item_child:
-            agenda_item_child: Agenda Item Child
-            down: Down
+            agenda_item_child: Agenda item Childs
+            down: Onder
             remove: Verwijderen
-            up: Up
+            up: Op
           create:
-            invalid: There's been a problem creating this agenda
-            success: Agenda successfully created
+            invalid: Er is een probleem opgetreden met het maken van deze vergadering
+            success: Vergadering met succes gemaakt
           edit:
-            title: Edit agenda
+            title: Bewerk gebied
             update: Bijwerken
           form:
             add_agenda_item: Voeg agenda item kind toe
