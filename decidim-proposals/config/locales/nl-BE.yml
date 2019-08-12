@@ -337,7 +337,7 @@ nl-BE:
             section: "<em>Section:</em> <strong>%{title}</strong>"
             sub-section: "<em>Subsection:</em> %{title}"
           update:
-            success: Participatory text updated successfully.
+            success: Deelnemend proces is succesvol bijgewerkt.
         proposal_answers:
           edit:
             accepted: Aanvaard
@@ -347,13 +347,13 @@ nl-BE:
             title: Antwoord voor voorstel %{title}
         proposal_notes:
           create:
-            error: There's been a problem creating this proposal note
-            success: Proposal note successfully created
+            error: Er is een probleem opgetreden met het maken van dit voorstel
+            success: Voorstel met succes gecreëerd
           form:
-            note: Note
-            submit: Submit
-          leave_your_note: Leave your note
-          title: Private notes
+            note: Notitie
+            submit: Verzenden
+          leave_your_note: Laat je notitie achter
+          title: Privé notities
         proposals:
           answer:
             invalid: Er is een probleem geweest met het beantwoorden van dit voorstel
@@ -362,50 +362,50 @@ nl-BE:
             invalid: Er is een probleem opgetreden met het maken van dit voorstel
             success: Voorstel met succes gecreëerd
           edit:
-            title: Update proposal
+            title: Maak een voorstel
             update: Bijwerken
           form:
             attachment_legend: "(Optioneel) Een bijlage toevoegen"
-            created_in_meeting: This proposal comes from a meeting
+            created_in_meeting: Dit voorstel komt van een vergadering
             select_a_category: Kies een categorie
-            select_a_meeting: Select a meeting
+            select_a_meeting: Selecteer een vergadering
           index:
             actions: Acties
             cancel: Annuleer
-            change_category: Change category
-            merge: Merge into a new one
-            merge_button: Merge
-            select_component: Select a component
-            selected: selected
-            split: Split proposals
-            split_button: Split
+            change_category: Categorie creëren
+            merge: Samenvoegen in een nieuwe
+            merge_button: Samenvoegen
+            select_component: Selecteer een component
+            selected: selecteer
+            split: Verwante voorstellen
+            split_button: Deel
             title: Voorstellen
             update: Bijwerken
           new:
             create: Creëren
             title: Maak een voorstel
           update_category:
-            invalid: 'These proposals already had the %{category} category: %{proposals}.'
-            select_a_category: Please select a category
-            select_a_proposal: Please select a proposal
-            success: 'Proposals successfully updated to the %{category} category: %{proposals}.'
+            invalid: 'Deze voorstellen hadden al de categorie %{category}: %{proposals}.'
+            select_a_category: Selecteer een categorie
+            select_a_proposal: Selecteer een voorstel
+            success: 'Voorstellen succesvol bijgewerkt naar de categorie %{category}: %{proposals}.'
         proposals_imports:
           create:
-            invalid: There's been a problem importing the proposals
-            success: "%{number} proposals successfully imported"
+            invalid: Er is een probleem opgetreden met het maken van dit voorstel
+            success: "%{number} voorstellen succesvol geïmporteerd"
           new:
-            create: Import proposals
-            no_components: There are no other proposal components in this participatory space to import the proposals from.
-            select_component: Please select a component
-            select_states: Check the states of the proposals to import
+            create: Verwante voorstellen
+            no_components: Er zijn geen andere onderdelen van dit deeltjesgebied om de voorstellen uit te voeren.
+            select_component: Selecteer een voorstel
+            select_states: Controleer de staten van de te importeren voorstellen
         proposals_merges:
           create:
-            invalid: There was an error merging the selected proposals.
-            success: Successfully merged the proposals into a new one.
+            invalid: Er is een fout opgetreden bij het samenvoegen van de geselecteerde voorstellen.
+            success: De voorstellen zijn met succes samengevoegd tot een nieuwe.
         proposals_splits:
           create:
-            invalid: There was an error spliting the selected proposals.
-            success: Successfully splitted the proposals into new ones.
+            invalid: Er is een fout opgetreden bij het samenvoegen van de geselecteerde voorstellen.
+            success: De voorstellen zijn met succes samengevoegd tot een nieuwe.
         shared:
           info_proposal:
             body: Lichaam
