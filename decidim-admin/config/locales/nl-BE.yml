@@ -55,11 +55,11 @@ nl-BE:
         highlighted_content_banner_title: Titel
         homepage_image: Afbeelding van de startpagina
         instagram_handler: Instagram handler
-        logo: Logo
-        name: Name
-        official_img_footer: Official logo footer
-        official_img_header: Official logo header
-        official_url: Official organization URL
+        logo: '-'
+        name: Afbeelding van de startpagina
+        official_img_footer: Officiële logo footer
+        official_img_header: Officiële logo header
+        official_url: Officiële organisatie url
         omnipresent_banner_short_description: Short description
         omnipresent_banner_title: Title
         omnipresent_banner_url: URL
@@ -203,75 +203,75 @@ nl-BE:
         destroy:
           success: Attachment destroyed successfully.
         edit:
-          title: Edit attachment
-          update: Update
+          title: Bewerk bijlage
+          update: Bijwerken
         index:
-          attachments_title: Attachments
+          attachments_title: Toebehoren
         new:
-          create: Create attachment
-          title: New attachment
+          create: Maak bijlage
+          title: Nieuwe bijlage
         update:
-          error: There was an error when updating this attachment.
-          success: Attachment updated successfully.
+          error: Er is een fout opgetreden bij het bijwerken van deze bijlage.
+          success: Bijlage is succesvol bijgewerkt.
       autocomplete:
-        no_results: No results found
-        search_prompt: Type at least three characters to search
+        no_results: Geen resultaten gevonden
+        search_prompt: Typ ten minste drie tekens om te zoeken
       categories:
         create:
-          error: There was an error creating this category.
-          success: Category created successfully.
+          error: Er is een fout opgetreden bij het maken van deze categorie.
+          success: Categorie succesvol gemaakt.
         destroy:
-          error: There was an error deleting this category. Please delete any subcategory first, make sure no other entity belongs to this category and try again.
-          success: Category deleted successfully.
+          error: Er is een fout opgetreden bij het verwijderen van deze categorie. Verwijder eerst een subcategorie, zorg ervoor dat er geen andere entiteit in deze categorie hoort en probeer het opnieuw.
+          success: Categorie is succesvol verwijderd.
         edit:
-          title: Edit category
-          update: Update
+          title: Categorie bewerken
+          update: Bijwerken
         index:
-          categories_title: Categories
-          category_used: This category cannot be removed because it is in use.
+          categories_title: Categorieën
+          category_used: Deze categorie kan niet worden verwijderd omdat het in gebruik is.
         new:
-          create: Create category
-          title: New category
+          create: Categorie creëren
+          title: Nieuwe categorie
         update:
-          error: There was an error updating this category.
-          success: Category updated successfully.
+          error: Er is een fout opgetreden bij het bijwerken van deze categorie.
+          success: Categorie is succesvol bijgewerkt.
       component_permissions:
         edit:
-          everyone: Everyone
-          submit: Save permissions
-          title: Edit permissions
+          everyone: Iedereen
+          submit: Permissies opslaan
+          title: Bewerken van machtigingen
         update:
-          success: Permissions updated successfully.
+          success: Admin succesvol bijgewerkt.
       components:
         create:
-          error: There was an error creating this component.
-          success: Component created successfully.
+          error: Er is een fout opgetreden bij het maken van deze categorie.
+          success: Bijlage is succesvol gemaakt.
         destroy:
-          error: There has been an error destroying this component.
-          success: Component deleted successfully.
+          error: Er is een fout opgetreden bij het maken van deze categorie.
+          success: Er is een fout opgetreden bij het maken van deze categorie.
         edit:
-          title: Edit component
-          update: Update
+          title: Component bewerken
+          update: Bijwerken
         form:
-          default_step_settings: Default step settings
-          global_settings: Global settings
-          step_settings: Step settings
+          default_step_settings: Standaard instellingen stappen
+          global_settings: Algemene instellingen
+          step_settings: Instellingen van de stappen
         index:
-          add: Add component
+          add: Voeg onderdeel toe
           headers:
-            actions: Actions
-            name: Component name
-            type: Component type
+            actions: Acties
+            name: Naam onderdeel
+            type: Onderdeel type
         new:
-          add: Add component
-          title: 'Add component: %{name}'
+          add: Voeg onderdeel toe
+          title: 'Voeg onderdeel toe: %{name}'
         publish:
-          success: The component has been successfully published.
-        title: Components
+          success: Het onderdeel is succesvol gepubliceerd.
+        title: Componenten
         unpublish:
-          success: The component has been successfully unpublished.
+          success: Het onderdeel is met succes verwijderd.
         update:
-          error: There has been an error updating this component.
+          error: Er is een fout opgetreden bij het maken van deze categorie.
           success: Component succesvol verwijderd.
       dashboard:
         show:
@@ -287,12 +287,12 @@ nl-BE:
             managed: Beheer
             not_managed: Niet beheerd
           filter_by: Filteren op
-          impersonate: Impersonate
-          impersonate_new_managed_user: Impersonate new managed user
-          managed: Managed
-          name: Name
-          needs_authorization_warning: You need at least one authorization enabled for this organization.
-          not_managed: Not managed
+          impersonate: Verpersoonlijken
+          impersonate_new_managed_user: Impersoneer nieuwe beheerde gebruiker
+          managed: Beheer
+          name: Naam
+          needs_authorization_warning: U heeft minstens één geactiveerde autorisatie nodig voor deze organisatie.
+          not_managed: Niet beheerd
           promote: Promote
           search: Search
           status: Status
@@ -363,12 +363,12 @@ nl-BE:
             collection: Collection
             content_type: Type
             file_size: Size
-            title: Title
-          name: Attachment
+            title: Titel
+          name: Bijlage
         attachment_collection:
-          name: Collection
+          name: Collectie
         category:
-          name: Category
+          name: Categorie
         impersonation_log:
           fields:
             admin: Admin
