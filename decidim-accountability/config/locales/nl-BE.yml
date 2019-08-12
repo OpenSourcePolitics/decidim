@@ -120,25 +120,25 @@ nl-BE:
         result:
           fields:
             end_date: Einddatum
-            progress: Progress
-            start_date: Start date
+            progress: Vooruitgang
+            start_date: Begindatum
             status: Status
-            title: Title
+            title: Titel
         status:
           fields:
-            description: Description
-            key: Key
-            name: Name
-            progress: Progress
+            description: Beschrijving
+            key: Beschrijving
+            name: Beschrijving
+            progress: Beschrijving
         timeline_entry:
           fields:
-            description: Description
-            entry_date: Date
+            description: Beschrijving
+            entry_date: Beschrijving
       results:
         count:
           results_count:
-            one: 1 result
-            other: "%{count} results"
+            one: 1 resultaat
+            other: "%{count} resultaten"
         filters:
           all: All
           scopes: Scopes
