@@ -14,7 +14,7 @@ nl-BE:
         equal_to: moet gelijk zijn aan %{count}
     models:
       decidim/budgets/project:
-        one: Project
+        one: Projecten
         other: Projecten
   decidim:
     budgets:
@@ -96,7 +96,7 @@ nl-BE:
           title: U bepaalt het budget
         count:
           projects_count:
-            one: 1 project
+            one: project
             other: "%{count} projecten"
         filters:
           category: Categorie
