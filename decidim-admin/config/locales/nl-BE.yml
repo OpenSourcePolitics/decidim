@@ -72,11 +72,11 @@ nl-BE:
         secondary_color: Secundaire
         show_statistics: Toon statistieken
         success_color: Succes
-        tos_version: Terms of service version
+        tos_version: Algemene versie
         twitter_handler: Twitter handler
-        user_groups_enabled: Enable user groups
-        warning_color: Warning
-        youtube_handler: YouTube handler
+        user_groups_enabled: Gebruikersgroepen inschakelen
+        warning_color: Waarschuwing
+        youtube_handler: YouTube-handler
       scope:
         code: Code
         name: Naam
@@ -89,16 +89,16 @@ nl-BE:
         organization: Organisatie
         plural: Meervoud
       static_page:
-        changed_notably: There have been noticeable changes.
+        changed_notably: Er zijn merkbare veranderingen geweest.
         content: Inhoud
         organization: Organisatie
-        show_in_footer: Show in the footer
+        show_in_footer: Toon in de voettekst
         slug: URL slak
         title: Titel
         weight: Gewicht
       static_page_topic:
         description: Beschrijving
-        show_in_footer: Show in the footer
+        show_in_footer: Toon in de voettekst
         title: Titel
         weight: Gewicht
       user_group_csv_verification:
@@ -108,13 +108,13 @@ nl-BE:
         oauth_application:
           attributes:
             redirect_uri:
-              must_be_ssl: The redirect URI must be a SSL URI
+              must_be_ssl: De omleiding URI moet een SSL URI zijn
         organization:
           attributes:
             official_img_footer:
-              allowed_file_content_types: Invalid image file
+              allowed_file_content_types: Ongeldige afbeeldingsbestand
             official_img_header:
-              allowed_file_content_types: Invalid image file
+              allowed_file_content_types: Ongeldige afbeeldingsbestand
   activerecord:
     attributes:
       decidim/static_page:
@@ -122,9 +122,9 @@ nl-BE:
         slug: URL slak
         title: Titel
       doorkeeper/application:
-        authorize_url: Authorize URL
-        client_id: Client ID
-        client_secret: Client Secret
+        authorize_url: Autorisatie URL
+        client_id: Client-ID
+        client_secret: Klant geheim
         organization_name: Organisatienaam
         organization_url: URL van de organisatie
         redirect_uri: Redirect-URI
@@ -256,63 +256,63 @@ nl-BE:
             type: Onderdeel type
         new:
           add: Voeg onderdeel toe
-          title: 'Add component: %{name}'
+          title: 'Voeg onderdeel toe: %{name}'
         publish:
-          success: The component has been successfully published.
+          success: Het onderdeel is succesvol gepubliceerd.
         title: Componenten
         unpublish:
-          success: The component has been successfully unpublished.
+          success: Het onderdeel is met succes verwijderd.
         update:
-          error: There has been an error updating this component.
-          success: The component was updated successfully.
+          error: Er is een fout opgetreden bij het maken van deze categorie.
+          success: Component succesvol verwijderd.
       dashboard:
         show:
-          view_more_logs: View more logs
+          view_more_logs: Bekijk meer logs
           welcome: Welkom bij de nieuwe Decidim Panel Admin.
       exports:
         export_as: "%{name} als %{export_format}"
         notice: Uw export is momenteel aan de gang. U ontvangt een email wanneer het klaar is.
       help_sections:
-        error: There's been an error updating the help sections
+        error: Er is een fout opgetreden bij het maken van deze nieuwsbrief
         form:
           save: Opslaan
-        success: Help sections updated successfully
+        success: Organisatie is succesvol gemaakt
       impersonatable_users:
         index:
           filter:
             all: Alle
-            managed: Managed
-            not_managed: Not managed
+            managed: Beheer
+            not_managed: Niet beheerd
           filter_by: Filteren op
           impersonate: verpersoonlijken
-          impersonate_new_managed_user: Impersonate new managed user
-          managed: Managed
+          impersonate_new_managed_user: Impersoneer nieuwe beheerde gebruiker
+          managed: Beheer
           name: Naam
-          needs_authorization_warning: You need at least one authorization enabled for this organization.
-          not_managed: Not managed
+          needs_authorization_warning: U heeft minstens één geactiveerde autorisatie nodig voor deze organisatie.
+          not_managed: Niet beheerd
           promote: Promoten
           search: Zoeken
           status: Status
           view_logs: Bekijk logboeken
       impersonations:
         close_session:
-          error: There has been an error closing the current impersonation session.
-          success: The current impersonation session has been successfully ended.
+          error: Er is een fout opgetreden bij het sluiten van de impersonatie-sessie.
+          success: De huidige impersonatie-sessie is succesvol beëindigd.
         create:
-          error: There has been an error impersonating the user.
-          success: The managed user has been successfully created.
+          error: Er is een fout opgetreden bij het nabootsen van de gebruiker.
+          success: De beheerde gebruiker is succesvol aangemaakt.
         form:
-          authorization_method: Authorization method
+          authorization_method: Autorisatie fout
           name: Naam
           reason: Reden
         new:
           impersonate: verpersoonlijken
-          impersonate_existing_managed_user: Impersonate managed user "%{name}"
-          impersonate_existing_user: Impersonate user "%{name}"
-          impersonate_new_managed_user: Impersonate new managed user
+          impersonate_existing_managed_user: Zich voordoen als "%{name}"
+          impersonate_existing_user: Zich voordoen als "%{name}"
+          impersonate_new_managed_user: Impersoneer nieuwe beheerde gebruiker
       logs:
         logs_list:
-          no_logs_yet: There are no logs yet
+          no_logs_yet: Er zijn nog geen opmerkingen
       managed_users:
         index:
           impersonate: verpersoonlijken
@@ -328,16 +328,16 @@ nl-BE:
             new_managed_user_promotion: Nieuwe beheerde gebruikersbevordering
             promote: Promoten
       menu:
-        admin_log: Admin activity log
-        admins: Admins
-        appearance: Appearance
+        admin_log: Admin activiteit log
+        admins: Beheerder
+        appearance: Uiterlijk
         area_types: Onderwerp
         areas: Gebied
-        configuration: Configuration
+        configuration: Configuratie
         dashboard: Dashboard
-        help_sections: Help sections
-        homepage: Homepage
-        impersonations: Impersonations
+        help_sections: Help secties
+        homepage: Startpagina
+        impersonations: Verpersoonlijken
         navbar_links: Navbar links
         newsletters: Nieuwsbrieven
         oauth_applications: Bewerk applicatie
@@ -516,15 +516,15 @@ nl-BE:
           success: Gebruiker heeft succesvol uitgenodigd
         index:
           actions: Acties
-          badge: Badge
-          created_at: Created At
+          badge: Symbool
+          created_at: Aangemaakt Op
           filter:
             all: Alle
-            not_officialized: Not officialized
-            officialized: Officialized
+            not_officialized: Niet officized
+            officialized: Officieel
           filter_by: Filteren op
           name: Naam
-          nickname: Nickname
+          nickname: Gebruikesnaam
           not_officialized: Niet officized
           officialize: Officieel
           officialized: Officieel
