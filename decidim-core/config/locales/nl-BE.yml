@@ -6,29 +6,29 @@ nl-BE:
       report:
         details: Aanvullende opmerkingen
       user:
-        about: About
+        about: Over
         email: Uw e-mailadres
         name: Uw naam
         nickname: Nickname
         password: Nieuw wachtwoord
         password_confirmation: Bevestig uw nieuwe wachtwoord
-        personal_url: Personal URL
+        personal_url: Persoonlijke URL
         remove_avatar: Verwijder avatar
     models:
-      decidim/amendable/amendment_accepted_event: Amendmen accepted
-      decidim/amendable/amendment_created_event: Amendmen created
-      decidim/amendable/amendment_rejected_event: Amendmen rejected
-      decidim/amendable/emendation_promoted_event: Amendmen promoted
+      decidim/amendable/amendment_accepted_event: Amenden geaccepteerd
+      decidim/amendable/amendment_created_event: Amenden geaccepteerd
+      decidim/amendable/amendment_rejected_event: Amenden geaccepteerd
+      decidim/amendable/emendation_promoted_event: Amenden geaccepteerd
       decidim/attachment_created_event: Bijlage
-      decidim/component_published_event: Active component
-      decidim/demoted_membership: No longer a group admin
-      decidim/gamification/badge_earned_event: Badge earned
-      decidim/gamification/level_up_event: You've leveled up
-      decidim/join_request_accepted_event: Join request accepted
-      decidim/join_request_rejected_event: Join request rejected
-      decidim/profile_updated_event: Profile updated
-      decidim/promote_to_admin: Promoted to group admin
-      decidim/removed_from_group: Removed from group
+      decidim/component_published_event: Actief component
+      decidim/demoted_membership: Geen groepsbeheerder meer
+      decidim/gamification/badge_earned_event: Badge verdiend
+      decidim/gamification/level_up_event: Je hebt omhoog geschoten
+      decidim/join_request_accepted_event: Deelnameverzoek geaccepteerd
+      decidim/join_request_rejected_event: Deelnameverzoek geaccepteerd
+      decidim/profile_updated_event: Profiel bijgewerkt
+      decidim/promote_to_admin: Befördere naar groepsbeheerder
+      decidim/removed_from_group: Verwijderd van groep
   activerecord:
     attributes:
       decidim/user:
@@ -57,17 +57,17 @@ nl-BE:
   date:
     formats:
       decidim_short: "%d/%m/%Y"
-      decidim_short_with_month_name_short: "%d %b %Y"
-      decidim_with_day_and_month_name: "%A %d %b %Y"
-      decidim_with_month_name: "%d %B %Y"
-      decidim_with_month_name_short: "%d %b"
+      decidim_short_with_month_name_short: "%d/%b/%Y"
+      decidim_with_day_and_month_name: "%A %d, %b:%Y"
+      decidim_with_month_name: "%d/%B/%Y"
+      decidim_with_month_name_short: "%d/%b/"
   decidim:
     account:
       data_portability_export:
-        file_no_exists: File does not exist
-        invalid_token: The provided token is invalid.
-        no_token: No token provided
-        notice: Your data is currently in progress. You'll receive an email when it's complete.
+        file_no_exists: Bestand bestaat niet
+        invalid_token: De opgegeven token is ongeldig.
+        no_token: Geen token opgegeven
+        notice: Uw export is momenteel aan de gang. U ontvangt een email wanneer het klaar is.
       delete:
         alert: Deze actie kan niet ongedaan gemaakt worden. Als u uw account verwijdert, kunt u zich niet aanmelden.
         confirm:
@@ -88,7 +88,7 @@ nl-BE:
         success_with_email_confirmation: Uw account is bijgewerkt. U ontvangt een e-mail ter bevestiging van uw nieuwe e-mailadres.
     admin_log:
       area:
-        create: "%{user_name} created the %{resource_name} area"
+        create: "%{user_name} heeft de %{resource_name} -vergadering aangemaakt"
         delete: "%{user_name} heeft de %{resource_name} -vergadering aangemaakt"
         update: "%{user_name} heeft de %{resource_name} -vergadering aangemaakt"
       component:
@@ -567,56 +567,56 @@ nl-BE:
             - Als je actief bent en anderen volgt, zal dat zeker voor anderen zorgen.
           description: Deze badge wordt toegekend wanneer je een bepaald aantal volgers bereikt. %{organization_name} is een sociaal en politiek netwerk, draag je web om met andere mensen te communiceren in het platform.
           description_another: Deze gebruiker heeft %{score} volgers.
-          description_own: "%{score} users are following you."
-          name: Followers
-          next_level_in: Get %{score} more users to follow you to reach the next level!
-          unearned_another: This user doesn't have any followers yet.
-          unearned_own: You've got no followers yet.
+          description_own: "%{score} gebruikers volgen je."
+          name: Volgers
+          next_level_in: Krijg %{score} meer initiatieven gepubliceerd om het volgende niveau te bereiken!
+          unearned_another: Deze gebruiker heeft nog geen volgers.
+          unearned_own: Je hebt nog geen volgers.
         index:
           badge_title: "%{name} badge"
-          how: How can you earn it
-          page_description: Badges are recognitions to participant actions and progress in the platform. As you start discovering, participating and interacting in the platform, you will earn different badges. Here is the list of badges and some ways you can earn them.
-          title: Badges
+          how: Hoe kan je het verdienen
+          page_description: Badges zijn herkenning voor participerende acties en vooruitgang in het platform. Als u begint met ontdekken, deelnemen en interactie in het platform, zult u verschillende badges verdienen. Hier is de lijst van badges en een aantal manieren waarop u ze kunt verdienen.
+          title: Symbool
         invitations:
           conditions:
-            - Use the “invite friends” link on your user page to invite your friends
-            - Customize, if you want, the message you are sending
-            - You’ll level up by sending invitations and getting them registered.
-          description: This badge is granted when you’ve invited some people and they have spend a little time to register in %{organization_name} and become participants. Thank you for making %{organization_name} known to others and helping to expand the community!
-          description_another: This user has invited %{score} users.
-          description_own: You have invited %{score} users.
-          name: Invitations
-          next_level_in: Invite %{score} more users to reach the next level!
-          unearned_another: This user hasn't invited any user yet.
-          unearned_own: You have invited no users yet.
-      description: Badges are recognitions to participant actions and progress in the platform. As you start discovering, participating and interacting in the platform, you will earn different badges.
-      level: Level %{level}
-      reached_top: You've reached the top level for this badge.
+            - Gebruik de link "vrienden uitnodigen" op uw gebruikerspagina om uw vrienden uit te nodigen
+            - Pas het bericht aan, als u wilt, dat u verzendt
+            - Je zal omhoog gaan door uitnodigingen te verzenden en ze te registreren.
+          description: Deze badge wordt toegekend wanneer je sommige mensen hebt uitgenodigd en ze hebben een beetje tijd besteed om zich in %{organization_name} te registreren en deelnemers te worden. Bedankt voor het feit dat je %{organization_name} voor anderen bekend maakt en de gemeenschap helpt te vergroten!
+          description_another: Deze gebruiker heeft deelgenomen aan %{score} debatten.
+          description_own: U heeft %{score} tests aangemaakt.
+          name: Uitnodigingen
+          next_level_in: Neem deel aan %{score} meer debatten om het volgende niveau te bereiken!
+          unearned_another: Deze gebruiker heeft deelgenomen aan debatten.
+          unearned_own: U heeft tests aangemaakt.
+      description: Badges zijn herkenning voor participerende acties en vooruitgang in het platform. Als u begint met ontdekken, deelnemen en interactie in het platform, zult u verschillende badges verdienen. Hier is de lijst van badges en een aantal manieren waarop u ze kunt verdienen.
+      level: Niveau %{level}
+      reached_top: Je hebt level op de badge bereikt.`.
     group_admins:
       actions:
-        are_you_sure: Are you sure? This won't remove the user from the group.
-        demote_admin: Remove admin
+        are_you_sure: Weet u het zeker? Dit verwijdert de gebruiker niet van de groep.
+        demote_admin: Verwijder admin
       demote:
-        error: There was an error removing this user from the admins list
-        success: User removed from admin successfully
+        error: Er is een fout opgetreden bij het verwijderen van deze gebruiker uit de groep
+        success: Gebruiker succesvol verwijderd uit de groep
       index:
-        current_admins: 'Current admins:'
-        manage_admins: Manage admins
+        current_admins: 'Huidige beheerder functies:'
+        manage_admins: Beheren van admins
     group_invites:
       accept:
-        error: There was an error accepting this invitation
-        success: Invitation accepted successfully
+        error: Er is een fout opgetreden opnieuw verzenden van de uitnodiging
+        success: Uitnodiging opnieuw met succes verzonden
       accept_invitation: Aanvaarden
-      accept_or_reject_group_invitations: 'The following groups have invited you to join them. Accept or reject their requests:'
+      accept_or_reject_group_invitations: 'De volgende gebruikers hebben zich aangemeld bij deze groep. Accepteer of verwerp hun verzoeken:'
       index:
         invite: Nodig uit
         invite_user: Invite a user
       invite:
-        error: There was an error inviting this user
+        error: Er is een fout opgetreden bij het uitnodigen van deze gebruiker
         success: Gebruiker heeft succesvol uitgenodigd
       reject:
-        error: There was an error rejecting this invitation
-        success: Invitation rejected successfully
+        error: Er is een fout opgetreden opnieuw verzenden van de uitnodiging
+        success: Uitnodiging opnieuw met succes verzonden
       reject_invitation: Afwijzen
     group_members:
       accept:
@@ -1061,15 +1061,15 @@ nl-BE:
         invited_you_as_admin: "%{invited_by} heeft u uitgenodigd als beheerder van %{application}, u kunt deze uitnodiging accepteren via onderstaande link."
         invited_you_as_private_user: "%{invited_by} heeft u uitgenodigd als beheerder van %{application}, u kunt deze uitnodiging accepteren via onderstaande link."
         someone_invited_you: Iemand heeft u uitgenodigd bij %{application}, u kunt deze uitnodiging accepteren via onderstaande link.
-        someone_invited_you_as_admin: Someone has invited you as an admin of %{application}, you can accept it through the link below.
-        someone_invited_you_as_private_user: Someone has invited you as private_user of %{application}, you can accept it through the link below.
-        subject: Invitation instructions
+        someone_invited_you_as_admin: Iemand heeft u uitgenodigd bij %{application}, u kunt deze uitnodiging accepteren via onderstaande link.
+        someone_invited_you_as_private_user: Iemand heeft u uitgenodigd bij %{application}, u kunt deze uitnodiging accepteren via onderstaande link.
+        subject: Bevestigingsbewijzen aanvragen
       invite_admin:
         subject: U bent uitgenodigd om %{organization} te beheren
       invite_collaborator:
         subject: U bent uitgenodigd om samen te werken bij %{organization}
       invite_private_user:
-        subject: You've been invited to a private participatory process on %{organization}
+        subject: Je bent uitgenodigd voor een privé participatief proces op %{organization}
       organization_admin_invitation_instructions:
         subject: U bent uitgenodigd om %{organization} te beheren
       password_change:
@@ -1077,11 +1077,11 @@ nl-BE:
         message: Wij informeren u dat uw wachtwoord is gewijzigd.
         subject: Wachtwoord is veranderd
       reset_password_instructions:
-        action: Change my password
+        action: Mein Passwort ändern
         greeting: Hallo %{recipient}!
-        instruction: Someone has requested a link to change your password, and you can do this through the link below.
-        instruction_2: If you didn't request this, please ignore this email.
-        instruction_3: Your password won't change until you access the link above and create a new one.
+        instruction: Iemand heeft een link aangevraagd om uw wachtwoord te wijzigen, en u kunt dit doen via de onderstaande link.
+        instruction_2: Als u dit niet heeft aangevraagd, negeer dan deze e-mail.
+        instruction_3: Uw wachtwoord zal niet veranderen totdat u toegang hebt tot de bovenstaande link en een nieuwe maakt.
         subject: Reset wachtwoord instructies
       unlock_instructions:
         action: Verwijder mijn account
@@ -1164,11 +1164,11 @@ nl-BE:
       long_words: Bevat woorden die te lang zijn
       must_start_with_caps: Moet beginnen met hoofdletters
       nesting_too_deep: kan niet binnen een subcategorie zijn
-      not_found: not found
-      not_locked: was not locked
+      not_found: niet gevonden
+      not_locked: is niet vergrendeld
       not_saved:
-        one: '1 error prohibited this %{resource} from being saved:'
-        other: "%{count} errors prohibited this %{resource} from being saved:"
+        one: '1 fout heeft het voorkomen dat dit %{resource} wordt opgeslagen:'
+        other: "%{count} fouten hebben het voorkomen dat dit %{resource} wordt opgeslagen:"
       too_many_marks: Gebruikt te veel markeringen
       too_much_caps: Gebruikt te veel hoofdletters
       too_short: Is te kort
@@ -1180,11 +1180,11 @@ nl-BE:
         organizations:
           smtp_settings:
             address: Adres
-            from_email: From email
-            from_label: From label
+            from_email: Van e-mail
+            from_label: Van label
             password: Wachtwoord
-            port: Port
-            user_name: User name
+            port: Poort
+            user_name: Gebruikersnaam
   invisible_captcha:
     sentence_for_humans: Als u een mens bent negeert u dit veld
     timestamp_error_message: Sorry, dat was te snel! Gelieve opnieuw in te dienen.
@@ -1197,7 +1197,7 @@ nl-BE:
       edit_link:
         edit: Bewerk
       footer:
-        download_open_data: Download Open Data files
+        download_open_data: Open Data bestanden downloaden
         made_with_open_source: W
       header:
         close_menu: Menu sluiten
@@ -1212,17 +1212,17 @@ nl-BE:
         mark_all_as_read: Alles als gelezen markeren
       user_menu:
         admin_dashboard: Beheer dashboard
-        conversations: Conversations
+        conversations: Gesprekken
         notifications: Meldingen
         profile: Mijn account
-        public_profile: My public profile
+        public_profile: Mijn openbare profiel
         sign_out: Afmelden
       user_profile:
         account: Account
         authorizations: Bevoegdheden
         delete_my_account: Verwijder mijn account
-        my_data: My data
-        my_interests: My interests
+        my_data: Mijn gegevens
+        my_interests: Mijn belangen
         notifications_settings: Notificatie instellingen
         title: Gebruikersinstellingen
         user_groups: Organisaties
