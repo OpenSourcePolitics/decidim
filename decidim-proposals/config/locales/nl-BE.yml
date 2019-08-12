@@ -37,7 +37,7 @@ nl-BE:
       decidim/proposals/accepted_proposal_event: Voorstel geaccepteerd
       decidim/proposals/admin/update_proposal_category_event: Voorstel categorie gewijzigd
       decidim/proposals/creation_enabled_event: Voorstel aanmaken ingeschakeld
-      decidim/proposals/endorsing_enabled_event: Proposal endorsing enabled
+      decidim/proposals/endorsing_enabled_event: Voorstel ondersteuning ingeschakeld
       decidim/proposals/evaluating_proposal_event: Proposal is being evaluated
       decidim/proposals/proposal_endorsed_event: Proposal endorsed
       decidim/proposals/proposal_mentioned_event: Proposal mentioned
@@ -250,22 +250,22 @@ nl-BE:
             - Browse and spend some time reading other people's proposals
             - Give support to the proposals you like or find interesting
           description: This badge is granted when you support other people's proposals.
-          description_another: This user has given support to %{score} proposals.
-          description_own: You have given support to %{score} proposals.
-          name: Proposal supports
-          next_level_in: Give support to %{score} more proposals to reach the next level!
-          unearned_another: This user hasn't given support to any proposals yet.
-          unearned_own: You have given support to no proposals yet.
+          description_another: Deze gebruiker heeft ondersteuning gegeven aan %{score} voorstellen.
+          description_own: Deze gebruiker heeft ondersteuning gegeven aan %{score} voorstellen.
+          name: Voorstellen
+          next_level_in: Geef ondersteuning aan %{score} meer voorstellen om het volgende niveau te bereiken!
+          unearned_another: Deze gebruiker heeft ondersteuning gegeven aan voorstellen.
+          unearned_own: Deze gebruiker heeft ondersteuning gegeven aan voorstellen.
         proposals:
           conditions:
-            - Choose the participation space of your interest with submission for proposals enabled
-            - Create a new proposal
-          description: This badge is granted when you actively participate with new proposals.
-          description_another: This user has created %{score} proposals.
-          description_own: You have created %{score} proposals.
+            - Kies de deelnameruimte van uw interesse met indiening voor voorstellen ingeschakeld
+            - Maak een voorstel
+          description: Deze badge wordt toegekend wanneer u actief deelneemt aan nieuwe voorstellen.
+          description_another: Deze gebruiker heeft deelgenomen aan %{score} debatten.
+          description_own: U heeft %{score} tests aangemaakt.
           name: Voorstellen
-          next_level_in: Create %{score} more proposals to reach the next level!
-          unearned_another: This user hasn't created any proposals yet.
+          next_level_in: Neem deel aan %{score} meer debatten om het volgende niveau te bereiken!
+          unearned_another: Deze gebruiker heeft deelgenomen aan debatten.
           unearned_own: You have created no proposals yet.
     metrics:
       accepted_proposals:
@@ -501,41 +501,41 @@ nl-BE:
           send: Verstuur
           title: Voltooi uw gezamenlijke ontwerp
         new_collaborative_draft_button:
-          new_collaborative_draft: New collaborative draft
+          new_collaborative_draft: Gezamenlijk ontwerp
         orders:
-          label: 'Order drafts by:'
-          most_contributed: Most contributed
+          label: 'Bestel ontwerpen door:'
+          most_contributed: Meest bijgedragen
           random: Willekeurig
           recent: Recentelijk
         requests:
           accepted_request:
-            error: Could not be accepted as a collaborator, try again later.
-            success: "@%{user} has been accepted as a collaborator successfully"
+            error: Als medewerker kan men niet aanvaarden, probeer het later opnieuw.
+            success: "@%{user} is met succes geaccepteerd als medewerker"
           access_requested:
-            error: Your request could not be completed, try again later.
-            success: Your request to collaborate has been sent successfully
+            error: Uw verzoek kon niet worden voltooid, probeer het later opnieuw.
+            success: Uw verzoek om mee te werken is succesvol verzonden
           collaboration_requests:
             accept_request: Aanvaarden
             reject_request: Afwijzen
-            title: Collaboration requests
+            title: Samenwerkingsverzoeken
           rejected_request:
-            error: Could not be rejected as a collaborator, try again later.
-            success: "@%{user} has been rejected as a collaborator successfully"
+            error: Als medewerker kan het niet worden afgewezen, probeer het later opnieuw.
+            success: "@%{user} is met succes afgewezen als medewerker"
         show:
-          back: Back
-          edit: Edit collaborative draft
-          final_proposal: final proposal
-          final_proposal_help_text: This draft is finished. You can see the final finished proposal
+          back: Terug
+          edit: Gezamenlijk ontwerp
+          final_proposal: officieel voorstel
+          final_proposal_help_text: Dit ontwerp is klaar. U kunt het laatste voorstel zien
           hidden_authors_count:
-            one: and %{count} more person
-            other: and %{count} more people
-          info-message: This is a <strong>collaborative draft</strong> for a proposal. This means that you can help their authors to shape the proposal using the comment section below or improve it directly by requesting access to edit it. Once the authors grant you access, youl'll be able to make changes to this draft.
-          of_versions: "(of %{number})"
+            one: en %{count} meer
+            other: en %{count} meer
+          info-message: Dit is een <strong>gezamenlijk ontwerp</strong> voor een voorstel. Dit betekent dat u hun auteurs kunt helpen het voorstel te vormen met behulp van de onderstaande opmerking of het direct te verbeteren door de toegang te vragen om het te bewerken. Zodra de auteurs u toegang geven, kan u dit ontwerp wijzigen.
+          of_versions: "(van %{number})"
           publish: Publiceren
-          publish_info: Publish this version of the draft or
-          published_proposal: published proposal
-          request_access: Request access
-          requested_access: Access requested
+          publish_info: Publiceer deze versie van het concept of
+          published_proposal: publiceer als voorstel
+          request_access: Toegang aanvragen
+          requested_access: Toegang aangevraagd
           see_other_versions: see other versions
           version: Versie %{number}
           version_history: see version history for this proposal
