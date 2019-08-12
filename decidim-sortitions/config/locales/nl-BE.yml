@@ -7,7 +7,7 @@ nl-BE:
         decidim_proposals_component_id: Proposals set
         dice: Result of die roll. Roll a 6-sided die, or look for another random way to generate a number from 1 to 6, and enter here the resulting number in front of some witnesses. This contributes to the quality and guarantees of the randomness of the result
         target_items: Number of proposals to be selected (indicates the number of proposals you want to be selected by drawing lots of the group of proposals you have previously chosen)
-        title: Title
+        title: Titel
         witnesses: Witnesses
     models:
       decidim/sortitions/create_sortition_event: Sortition
@@ -22,12 +22,12 @@ nl-BE:
         name: Sortitions
         settings:
           global:
-            comments_enabled: Comments enabled
+            comments_enabled: Reacties ingeschakeld
     events:
       sortitions:
         sortition_created:
           email_intro: The sortition "%{resource_title}" has been added to "%{participatory_space_title}" that you are following.
-          email_outro: You have received this notification because you are following "%{participatory_space_title}". You can unfollow it from the previous link.
+          email_outro: U ontvangt dit bericht omdat u "%{participatory_space_title}" volgen. Je kunt het unfollow uit de vorige koppeling.
           email_subject: New sortition added to %{participatory_space_title}
           notification_title: The sortition <a href="%{resource_path}">%{resource_title}</a> has been added to %{participatory_space_title}
     pages:
@@ -41,21 +41,21 @@ nl-BE:
       admin:
         actions:
           destroy: Cancel the sortition
-          edit: Edit
+          edit: Bewerk
           new: New sortition
           show: Sortition details
         models:
           sortition:
             fields:
-              category: Category
-              created_at: Creation date
+              category: Categorie
+              created_at: Aanmaakdatum
               decidim_proposals_component: Proposals component
               dice: Dice
-              reference: Reference
+              reference: Referentie
               request_timestamp: Draw time
               seed: Seed
               target_items: Items to select
-              title: Title
+              title: Titel
             name:
               one: Sortition
               other: Sortitions
@@ -72,7 +72,7 @@ nl-BE:
             success: Sortition successfully cancelled
           edit:
             title: Update the information about the sortition
-            update: Update
+            update: Bijwerken
           form:
             all_categories: All categories
             select_proposal_component: Select the proposals set
@@ -81,7 +81,7 @@ nl-BE:
             title: Sortitions
           new:
             confirm: By pressing the next button Decidim will record the date and time (with precision of seconds) and together with the dice roll, this information will be used to generate a random selection. The action will be irreversible, once the button is clicked the result of this draw will be published, together with the data entered in this form and can not be modified, please check the content carefully
-            create: Create
+            create: Creëren
             title: New sortition
           show:
             selected_proposals: Proposals selected for draw
@@ -97,26 +97,26 @@ nl-BE:
         count:
           proposals_count:
             one: 1 proposal
-            other: "%{count} proposals"
+            other: "%{count} voorstellen"
         filters:
-          active: Active
-          all: All
+          active: Actief
+          all: Alle
           cancelled: Cancelled
-          category: Category
-          category_prompt: Select a category
-          search: Search
-          state: State
+          category: Categorie
+          category_prompt: Kies een categorie
+          search: Zoeken
+          state: Staat
         filters_small_view:
-          close_modal: Close modal
+          close_modal: Dicht modaal
           filter: Filter
-          filter_by: Filter by
-          unfold: Unfold
+          filter_by: Filteren op
+          unfold: Ontvouwen
         linked_sortitions:
           selected_proposals: Selected proposals
         orders:
           label: 'Order sortitions by:'
-          random: Random
-          recent: Recent
+          random: Willekeurig
+          recent: Recentelijk
         results_count:
           count:
             one: selected proposal
@@ -140,11 +140,11 @@ nl-BE:
           selected_proposals:
             one: proposal selected
             other: proposals selected
-          view: View
+          view: Uitzicht
         sortition_author:
-          deleted: Deleted user
+          deleted: Verwijderde gebruiker
         sortition_cancel_author:
-          deleted: Deleted user
+          deleted: Verwijderde gebruiker
         sortitions_count:
           count:
             one: 1 sortition
