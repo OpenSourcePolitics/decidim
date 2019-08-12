@@ -3,7 +3,7 @@ nl-BE:
     attributes:
       dummy_resource:
         created_at: Gemaakt bij
-        field: My field
+        field: Mijn veld
         start_date: Begindatum
         title: Titel
         updated_at: Gewijzigd op
@@ -16,24 +16,24 @@ nl-BE:
       badges:
         test:
           conditions:
-            - Use a test environment for decidim.
-          description: Users get this badge by creating tests.
-          description_another: This user has created %{score} tests.
-          description_own: You have created %{score} tests.
-          name: Tests
-          next_level_in: Create %{score} more tests to reach the next level!
-          unearned_another: This user hasn't created any tests yet.
-          unearned_own: You have created no tests yet.
+            - Gebruik een testomgeving voor decidim.
+          description: Gebruikers krijgen deze badge door het maken van tests.
+          description_another: Deze gebruiker heeft deelgenomen aan %{score} debatten.
+          description_own: U heeft %{score} tests aangemaakt.
+          name: Testen
+          next_level_in: Neem deel aan %{score} meer debatten om het volgende niveau te bereiken!
+          unearned_another: Deze gebruiker heeft deelgenomen aan debatten.
+          unearned_own: U heeft tests aangemaakt.
     pages:
       home:
         statistics:
-          bar: Bar
-          dummies_count_high: Dummies high
+          bar: Balk
+          dummies_count_high: Dummies hoog
           dummies_count_medium: Dummies medium
           foo: Foo
     participatory_processes:
       statistics:
-        dummies_count_high: Dummies high
+        dummies_count_high: Dummies hoog
         dummies_count_medium: Dummies medium
     resource_links:
       test_link:
