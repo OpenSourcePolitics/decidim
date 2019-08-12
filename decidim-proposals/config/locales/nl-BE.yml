@@ -133,55 +133,55 @@ nl-BE:
           email_subject: "%{requester_name} is geaccepteerd om toegang te krijgen tot het project %{resource_title} gezamenlijke versie."
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> requested access to contribute to the <a href="%{resource_path}">%{resource_title}</a> collaborative draft. Please <strong>accept or reject the request</strong>.
         collaborative_draft_access_requester_accepted:
-          email_intro: You have been accepted to access as a contributor of the <a href="%{resource_path}">%{resource_title}</a> collaborative draft.
-          email_outro: You have received this notification because you requested to become a collaborator of <a href="%{resource_path}">%{resource_title}</a>.
-          email_subject: You have been accepted as a contributor of %{resource_title}.
-          notification_title: You have been <strong>accepted to access as a contributor</strong> of the <a href="%{resource_path}">%{resource_title}</a> collaborative draft.
+          email_intro: U bent geaccepteerd om toegang te krijgen als medewerker van het <a href="%{resource_path}">%{resource_title}</a> gezamenlijk ontwerp.
+          email_outro: U heeft deze melding ontvangen omdat u een medewerker bent van <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: Je bent geaccepteerd als bijdrager van %{resource_title}.
+          notification_title: Je bent <strong>geaccepteerd om toegang te krijgen tot het project van</strong> van de <a href="%{resource_path}">%{resource_title}</a> gezamenlijk ontwerp.
         collaborative_draft_access_requester_rejected:
-          email_intro: You have been rejected to access as a contributor of the <a href="%{resource_path}">%{resource_title}</a> collaborative draft.
-          email_outro: You have received this notification because you requested to become a collaborator of <a href="%{resource_path}">%{resource_title}</a>.
-          email_subject: You have been rejected as a contributor of %{resource_title}.
-          notification_title: You have been <strong>rejected to access as a contributor</strong> of the <a href="%{resource_path}">%{resource_title}</a> collaborative draft.
+          email_intro: U bent geaccepteerd om toegang te krijgen als medewerker van het <a href="%{resource_path}">%{resource_title}</a> gezamenlijk ontwerp.
+          email_outro: U heeft deze melding ontvangen omdat u een medewerker bent van <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: Je bent geaccepteerd als bijdrager van %{resource_title}.
+          notification_title: Je bent <strong>geaccepteerd om toegang te krijgen tot het project van</strong> van de <a href="%{resource_path}">%{resource_title}</a> gezamenlijk ontwerp.
         collaborative_draft_withdrawn:
-          email_intro: <a href="%{author_path}">%{author_name} %{author_nickname}</a> withdrawn the <a href="%{resource_path}">%{resource_title}</a> collaborative draft.
-          email_outro: You have received this notification because you are a collaborator of <a href="%{resource_path}">%{resource_title}</a>.
-          email_subject: "%{author_name} %{author_nickname} withdrawn the %{resource_title} collaborative draft."
-          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <strong>withdrawn</strong> the <a href="%{resource_path}">%{resource_title}</a> collaborative draft.
+          email_intro: <a href="%{author_path}">%{author_name} %{author_nickname}</a> heeft het <a href="%{resource_path}">%{resource_title}</a> gezamenlijk ontwerp ingetrokken.
+          email_outro: U heeft deze melding ontvangen omdat u een medewerker bent van <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: "%{author_name} %{author_nickname} heeft het %{resource_title} gezamenlijk ontwerp ingetrokken."
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <strong>heeft het</strong> <a href="%{resource_path}">%{resource_title}</a> gezamenlijk ontwerp ingetrokken.
         creation_enabled:
-          email_intro: 'You can now create new proposals in %{participatory_space_title}! Start participating in this page:'
-          email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
-          email_subject: Proposals now available in %{participatory_space_title}
-          notification_title: You can now put forward <a href="%{resource_path}">new proposals</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+          email_intro: 'U kunt nu nieuwe debatten starten in %{participatory_space_title}! Begin mee te doen aan deze pagina:'
+          email_outro: Je hebt deze melding ontvangen omdat je "%{participatory_space_title}" volgt. Je kan de meldingen deactiveren door te klikken op de vorige link.
+          email_subject: Debatten beschikbaar in %{participatory_space_title}
+          notification_title: Je kunt nu <a href="%{resource_path}">nieuwe debatten starten</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         endorsing_enabled:
-          email_intro: 'You can endorse proposals in %{participatory_space_title}! Start participating in this page:'
-          email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
-          email_subject: Proposals endorsing has started for %{participatory_space_title}
-          notification_title: You can now start <a href="%{resource_path}">endorsing proposals</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+          email_intro: 'U kunt nu nieuwe debatten starten in %{participatory_space_title}! Begin mee te doen aan deze pagina:'
+          email_outro: Je hebt deze melding ontvangen omdat je "%{participatory_space_title}" volgt. Je kan de meldingen deactiveren door te klikken op de vorige link.
+          email_subject: Debatten beschikbaar in %{participatory_space_title}
+          notification_title: Je kunt nu <a href="%{resource_path}">nieuwe debatten starten</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         proposal_accepted:
           affected_user:
-            email_intro: 'Your proposal "%{resource_title}" has been accepted. You can read the answer in this page:'
-            email_outro: You have received this notification because you are an author of "%{resource_title}".
-            email_subject: Your proposal has been accepted
-            notification_title: Your proposal <a href="%{resource_path}">%{resource_title}</a> has been accepted.
-          email_intro: 'Пропозиція "%{resource_title}" була прийнята. Ви можете прочитати відповідь на сторінці:'
-          email_outro: Ви отримали це сповіщення, тому що ви стежите за "%{resource_title}". Ви можете припинити стежити за ним, перейшовши за наведеним вище посиланням.
-          email_subject: Пропозиція, за якою ви стежите, була прийнята
+            email_intro: '%{resource_title} is becommentarieerd. U kunt de reactie lezen op deze pagina:'
+            email_outro: U heeft deze melding ontvangen omdat u bent genoemd in %{resource_title}".
+            email_subject: '-'
+            notification_title: Uw voorstel <a href="%{resource_path}">%{resource_title}</a> is geaccepteerd.
+          email_intro: 'Пропозизицих "%{resource_title}" була прийнята. Ви можете прочитати вппов дов дов дь нирнит:'
+          email_outro: Ви отримали за сповання, тому ви стежите за "%{resource_title}". Вимете припринити стежим, зим ния, пререййшивиза наведенименимеденимизизизя.
+          email_subject: Пропозизизих, за яколи ви стежите, була прийнята
           follower:
-            email_intro: 'The proposal "%{resource_title}" has been accepted. You can read the answer in this page:'
+            email_intro: '%{resource_title} is becommentarieerd. U kunt de reactie lezen op deze pagina:'
             email_outro: U ontvangt dit bericht omdat u "%{resource_title}" volgen. Je kunt het unfollow uit de vorige koppeling.
-            email_subject: A proposal you're following has been accepted
-            notification_title: The <a href="%{resource_path}">%{resource_title}</a> proposal has been accepted.
-          notification_title: Пропозицію <a href="%{resource_path}">%{resource_title}</a> було прийнято.
+            email_subject: Een voorstel dat u volgt is geaccepteerd
+            notification_title: De vergadering van <a href="%{resource_path}">%{resource_title}</a> is gesloten.
+          notification_title: Пропозицель <a href="%{resource_path}">%{resource_title}</a> було прийнято.
         proposal_endorsed:
-          email_intro: '%{endorser_name} %{endorser_nickname}, who you are following, has just endorsed the "%{resource_title}" proposal and we think it may be interesting to you. Check it out and contribute:'
-          email_outro: You have received this notification because you are following %{endorser_nickname}. You can stop receiving notifications following the previous link.
-          email_subject: "%{endorser_nickname} has endorsed a new proposal"
-          notification_title: The <a href="%{resource_path}">%{resource_title}</a> proposal has been endorsed by <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>.
+          email_intro: '%{endorser_name} %{endorser_nickname}, wie je volgt, heeft zojuist het "%{resource_title}" voorstel goedgekeurd en we denken dat het interessant voor je kan zijn. Bekijk het en voeg bij:'
+          email_outro: Je hebt deze melding ontvangen omdat je "%{endorser_nickname}" volgt. Je kan de meldingen deactiveren door te klikken op de vorige link.
+          email_subject: "%{endorser_nickname} heeft een nieuw voorstel goedgekeurd"
+          notification_title: Het <a href="%{resource_path}">%{resource_title}</a> debat is aangemaakt door <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>.
         proposal_evaluating:
           affected_user:
-            email_intro: 'Your proposal "%{resource_title}" is currently being evaluated. You can check for an answer in this page:'
-            email_outro: You have received this notification because you are an author of "%{resource_title}".
-            email_subject: Your proposal is being evaluated
+            email_intro: '%{resource_title} is becommentarieerd. U kunt de reactie lezen op deze pagina:'
+            email_outro: U heeft deze melding ontvangen omdat u bent genoemd in %{resource_title}".
+            email_subject: Voorstel wordt geëvalueerd
             notification_title: Your proposal <a href="%{resource_path}">%{resource_title}</a> is being evaluated.
           email_intro: 'Пропозиція "%{resource_title}" зараз розглядається. Ви можете перевірити наявність відповіді на сторінці:'
           email_outro: Ви отримали це сповіщення, тому що ви стежите за "%{resource_title}". Ви можете припинити стежити за ним, перейшовши за наведеним вище посиланням.
