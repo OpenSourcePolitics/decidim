@@ -1,22 +1,21 @@
----
 nl:
   activerecord:
     models:
       decidim/pages/page:
-        one: Pagina
+        one: Page
         other: Pages
   decidim:
     admin_log:
       page:
-        update: "%{user_name} heeft de %{resource_name} pagina in %{space_name} bijgewerkt"
+        update: "%{user_name} updated the %{resource_name} page in %{space_name}"
     components:
       pages:
-        name: Pagina
+        name: Page
         settings:
           global:
-            announcement: Aankondiging
+            announcement: Announcement
           step:
-            announcement: Aankondiging
+            announcement: Announcement
     pages:
       admin:
         models:
@@ -24,11 +23,8 @@ nl:
             body: Body
         pages:
           edit:
-            save: Bijwerken
-            title: Pagina bewerken
+            save: Update
+            title: Edit page
           update:
-            invalid: Er zijn fouten opgetreden bij het opslaan van de pagina.
-            success: Pagina is succesvol opgeslagen.
-      terms_and_conditions:
-        form:
-          newsletter_notifications: Newsletter notifications
+            invalid: There's been errors when saving the page.
+            success: Page saved successfully.
