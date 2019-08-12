@@ -7,22 +7,22 @@ nl-BE:
     models:
       decidim/surveys/survey:
         one: Survey
-        other: Surveys
+        other: onderzoeken
       decidim/surveys/survey_answer:
-        one: Answer
-        other: Answers
+        one: Antwoord
+        other: antwoorden
   decidim:
     components:
       surveys:
         actions:
-          answer: Answer
+          answer: Antwoord
         name: Survey
         settings:
           global:
-            announcement: Announcement
+            announcement: Bericht
           step:
             allow_answers: Allow answers
-            announcement: Announcement
+            announcement: Bericht
     events:
       surveys:
         survey_closed:
