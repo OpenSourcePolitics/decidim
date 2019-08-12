@@ -48,43 +48,43 @@ nl-BE:
             pending_orders: Pending votes
             title: Projects
           new:
-            create: Create
-            title: New result
+            create: Creëren
+            title: Nieuw resultaat
           update:
-            invalid: There's been a problem updating this project
-            success: Project successfully updated
+            invalid: Er is een probleem opgetreden bij het bijwerken van dit project
+            success: Project succesvol bijgewerkt
       admin_log:
         project:
-          create: "%{user_name} created the %{resource_name} project in the %{space_name} space"
-          delete: "%{user_name} deleted the %{resource_name} project in the %{space_name} space"
-          update: "%{user_name} updated the %{resource_name} project in the %{space_name} space"
+          create: "%{user_name} heeft het %{resource_name} lid aangemaakt in de %{space_name} -vergadering"
+          delete: "%{user_name} heeft het %{resource_name} lid aangemaakt in de %{space_name} -vergadering"
+          update: "%{user_name} heeft het %{resource_name} lid aangemaakt in de %{space_name} -vergadering"
       models:
         project:
           fields:
-            map: Map
-            title: Title
+            map: Kaart
+            title: Titel
       projects:
         budget_confirm:
-          are_you_sure: Do you agree? Once you have confirmed your vote, you can not change it.
-          cancel: Cancel
-          confirm: Confirm
-          description: These are the projects you have chosen to be part of the budget.
-          title: Confirm vote
+          are_you_sure: Bent u het eens? Zodra u uw stem heeft bevestigd, kunt u het niet wijzigen.
+          cancel: Annuleer
+          confirm: Bevestigen
+          description: Dit zijn de projecten die u hebt gekozen om deel uit te maken van de begroting.
+          title: Bevestig de stem
         budget_excess:
-          close: Закрити
-          description: Додавання цього проекту перевищить максимальний бюджет, і тому його не можна зараз додати. За бажанням ви можете видалити якийсь з тих проектів, що ви раніше вибрали для додавання, або проголосувати згідно ваших уподобань.
-          ok: Гаразд
-          title: Перевищено граничний бюджет
+          close: Sluit
+          description: Dit project overschrijdt het maximale budget en kan niet worden toegevoegd. Als u wilt, kunt u een project verwijderen dat u al hebt geselecteerd om toe te voegen of uw stem te maken met uw voorkeuren.
+          ok: Ok
+          title: Maximum budget overschreden
         budget_summary:
-          are_you_sure: Are you sure you want to cancel your vote?
-          assigned: 'Assigned:'
-          cancel_order: delete your vote and start over
+          are_you_sure: Weet u zeker dat u uw stem wilt annuleren?
+          assigned: 'Toegewezen:'
+          cancel_order: Verwijder uw stem en begin opnieuw
           checked_out:
-            description: You've already voted for the budget. If you've changed your mind, you can %{cancel_link}.
-            title: Budget vote completed
-          description_per_budget: What projects do you think we should allocate budget for? Assign at least %{minimum_budget} to the projects you want and vote with your preferences to define the budget.
-          description_per_project: To which projects do you think we should allocate a budget? Choose %{minimum_project} projects and validate your vote. Attention, all votes are irrevocable.
-          title: You decide the budget
+            description: Je hebt al voor de begroting gestemd. Als u van mening bent, kunt u %{cancel_link}.
+            title: Begrotingsstemming voltooid
+          description_per_budget: Welke projecten vinden u dat we budget moeten toewijzen? Wijs tenminste %{minimum_budget} toe aan de projecten die u wilt en stem met uw voorkeuren om het budget te definiëren.
+          description_per_project: Naar welke projecten denkt u een budget te moeten toewijzen? Kies %{minimum_project} projecten en gevalideerd uw stem. Let op, alle stemmen zijn onherroepelijk.
+          title: U bepaalt het budget
         count:
           projects_count:
             one: 1 project
