@@ -43,21 +43,21 @@ nl-BE:
       decidim/proposals/proposal_mentioned_event: Voorstel genoemd
       decidim/proposals/publish_proposal_event: Voorstel gepubliceerd
       decidim/proposals/rejected_proposal_event: Voorstel geaccepteerd
-      decidim/proposals/voting_enabled_event: Proposal voting enabled
+      decidim/proposals/voting_enabled_event: Voorstel ondersteuning ingeschakeld
   activerecord:
     models:
       decidim/proposals/collaborative_draft:
-        one: Collaborative draft
-        other: Collaborative drafts
+        one: Gezamenlijk ontwerp
+        other: Gezamenlijk ontwerp
       decidim/proposals/proposal:
         one: Voorstel
         other: Voorstellen
       decidim/proposals/proposal_endorsement:
-        one: Endorsement
+        one: Eindverklaringen
         other: Eindverklaringen
       decidim/proposals/proposal_note:
-        one: Note
-        other: Notes
+        one: Notitie
+        other: Notitie
       decidim/proposals/proposal_vote:
         one: Stemmen
         other: stemmen
@@ -66,55 +66,55 @@ nl-BE:
       proposals:
         actions:
           create: Creëren
-          endorse: Endorse
+          endorse: Eindstation
           vote: Stemmen
-          withdraw: Withdraw
+          withdraw: Uitgave
         name: Voorstellen
         settings:
           global:
-            amendments_enabled: Amendments enabled
+            amendments_enabled: Reacties ingeschakeld
             announcement: Bericht
-            attachments_allowed: Allow attachments
-            can_accumulate_supports_beyond_threshold: Can accumulate supports beyond threshold
-            collaborative_drafts_enabled: Collaborative drafts enabled
+            attachments_allowed: Nieuwe bijlage
+            can_accumulate_supports_beyond_threshold: Kan ondersteuning verzamelen buiten de drempel
+            collaborative_drafts_enabled: Gezamenlijk ontwerp
             comments_enabled: Reacties ingeschakeld
-            geocoding_enabled: Geocoding enabled
-            minimum_votes_per_user: Minimum votes per user
-            new_proposal_help_text: New proposal help text
-            official_proposals_enabled: Official proposals enabled
-            participatory_texts_enabled: Participatory texts enabled
-            proposal_answering_enabled: Proposal answering enabled
-            proposal_edit_before_minutes: Proposals can be edited by authors before this many minutes passes
-            proposal_length: Maximum proposal body length
-            proposal_limit: Proposal limit per user
-            proposal_wizard_step_1_help_text: Proposal wizard "Create" step help text
-            proposal_wizard_step_2_help_text: Proposal wizard "Compare" step help text
-            proposal_wizard_step_3_help_text: Proposal wizard "Complete" step help text
-            proposal_wizard_step_4_help_text: Proposal wizard "Publish" step help text
-            resources_permissions_enabled: Actions permissions can be set for each proposal
-            threshold_per_proposal: Threshold per proposal
-            vote_limit: Vote limit per user
+            geocoding_enabled: Stemmen uitgeschakeld
+            minimum_votes_per_user: Minimale stemmen per gebruiker
+            new_proposal_help_text: Nieuwe voorstel help tekst
+            official_proposals_enabled: Officiële voorstellen ingeschakeld
+            participatory_texts_enabled: Participatieve scope
+            proposal_answering_enabled: Voorstel ondersteuning ingeschakeld
+            proposal_edit_before_minutes: Voorstellen kunnen door auteurs worden bewerkt voordat deze vele minuten voorbij gaan
+            proposal_length: Maximale lengte van de inhoud van het voorstel
+            proposal_limit: Voorstel limiet per gebruiker
+            proposal_wizard_step_1_help_text: Voorstel wizard "Maak" stap help tekst
+            proposal_wizard_step_2_help_text: Voorstel wizard "Vergelijk" stap help tekst
+            proposal_wizard_step_3_help_text: Voorstel wizard "Voltooi" stap help tekst
+            proposal_wizard_step_4_help_text: Voorstel wizard "Publiceer" stap help tekst
+            resources_permissions_enabled: Actierechten kunnen worden ingesteld voor elke vergadering
+            threshold_per_proposal: Drempel per voorstel
+            vote_limit: Stemlimiet per gebruiker
           step:
             announcement: Bericht
-            automatic_hashtags: Hashtags added to all proposals
+            automatic_hashtags: Hashtags toegevoegd aan alle voorstellen
             comments_blocked: Reacties geblokkeerd
-            creation_enabled: Proposal creation enabled
-            endorsements_blocked: Endorsements blocked
-            endorsements_enabled: Endorsements enabled
-            proposal_answering_enabled: Proposal answering enabled
-            suggested_hashtags: Hashtags suggested to users for new proposals
-            votes_blocked: Voting blocked
+            creation_enabled: Voorstel aanmaken ingeschakeld
+            endorsements_blocked: Reacties geblokkeerd
+            endorsements_enabled: Reacties ingeschakeld
+            proposal_answering_enabled: Voorstel ondersteuning ingeschakeld
+            suggested_hashtags: Hashtags voorgesteld aan gebruikers voor nieuwe voorstellen
+            votes_blocked: Stemmen geblokkeerd
             votes_enabled: Stemmen uitgeschakeld
-            votes_hidden: Votes hidden (if votes are enabled, checking this will hide the number of votes)
-            votes_weight_enabled: Up / Down / Neutral votes enabled
+            votes_hidden: Stemmen verborgen (als stemmen zijn ingeschakeld, controleer dit het aantal stemmen)
+            votes_weight_enabled: Up / Down / Neutral stemmen ingeschakeld
     events:
       proposal_created:
-        email_subject: Nouvelle proposition de %{author_name}.
+        email_subject: Nouvelle voorstel de %{author_name}.
         moderation:
-          email_intro: Email intro
-          email_subject: Email subject
-          moderation_url: Moderation url
-        notification_title: Il y a une nouvelle proposition de %{author_name} dans <a href="%{resource_path}">%{resource_title}</a>a>a
+          email_intro: E-mail intro
+          email_subject: E-mailonderwerp
+          moderation_url: Moderaties
+        notification_title: Verlicht een ongewoon mooie suggestie de %{author_name} dans <a href="%{resource_path}">%{resource_title}</a>a>a
         url: 'url de commentaire : %{resource_url}'
       proposals:
         collaborative_draft_access_accepted:
@@ -131,7 +131,7 @@ nl-BE:
           email_intro: '%{requester_name} heeft toegang aangevraagd als contributor. Je kunt <strong>het verzoek accepteren of verwerpen van de</strong> van de <a href="%{resource_path}">%{resource_title}</a> gezamenlijke conceptpagina.'
           email_outro: U heeft deze melding ontvangen omdat u een medewerker bent van <a href="%{resource_path}">%{resource_title}</a>.
           email_subject: "%{requester_name} is geaccepteerd om toegang te krijgen tot het project %{resource_title} gezamenlijke versie."
-          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> requested access to contribute to the <a href="%{resource_path}">%{resource_title}</a> collaborative draft. Please <strong>accept or reject the request</strong>.
+          notification_title: <a href="%{requester_path}">%{requester_name}">%{requester_nickname}</a> verzocht om toegang om bij te dragen aan de <a href="%{resource_path}">%{resource_title}</a> samenwerkingsverband. Gelieve <strong> het verzoek te aanvaarden of te verwerpen</strong>.
         collaborative_draft_access_requester_accepted:
           email_intro: U bent geaccepteerd om toegang te krijgen als medewerker van het <a href="%{resource_path}">%{resource_title}</a> gezamenlijk ontwerp.
           email_outro: U heeft deze melding ontvangen omdat u een medewerker bent van <a href="%{resource_path}">%{resource_title}</a>.
@@ -182,74 +182,74 @@ nl-BE:
             email_intro: '%{resource_title} is becommentarieerd. U kunt de reactie lezen op deze pagina:'
             email_outro: U heeft deze melding ontvangen omdat u bent genoemd in %{resource_title}".
             email_subject: Voorstel wordt geëvalueerd
-            notification_title: Your proposal <a href="%{resource_path}">%{resource_title}</a> is being evaluated.
-          email_intro: 'Пропозиція "%{resource_title}" зараз розглядається. Ви можете перевірити наявність відповіді на сторінці:'
-          email_outro: Ви отримали це сповіщення, тому що ви стежите за "%{resource_title}". Ви можете припинити стежити за ним, перейшовши за наведеним вище посиланням.
-          email_subject: Пропозиція, за якою ви стежите, зараз розглядається
+            notification_title: Uw voorstel <a href="%{resource_path}">%{resource_title}</a> is geaccepteerd.
+          email_intro: 'Пропозизизиць "%{resource_title}" зазазглялядаться. Ви можете перевретити наянссть вдпоровди:'
+          email_outro: Ви отримали за сповання, тому ви стежите за "%{resource_title}". Вимете припринити стежим, зим ния, пререййшивиза наведенименимеденимизизизя.
+          email_subject: Пропозизизих, за яколи ви стежите, зараз розглялядатьсть
           follower:
-            email_intro: 'The proposal "%{resource_title}" is currently being evaluated. You can check for an answer in this page:'
+            email_intro: '%{resource_title} is becommentarieerd. U kunt de reactie lezen op deze pagina:'
             email_outro: U ontvangt dit bericht omdat u "%{resource_title}" volgen. Je kunt het unfollow uit de vorige koppeling.
-            email_subject: A proposal you're following is being evaluated
-            notification_title: The <a href="%{resource_path}">%{resource_title}</a> proposal is being evaluated.
-          notification_title: Пропозиція <a href="%{resource_path}">%{resource_title}</a> розглядається.
+            email_subject: Een voorstel dat u volgt is geaccepteerd
+            notification_title: De vergadering van <a href="%{resource_path}">%{resource_title}</a> is gesloten.
+          notification_title: Пропозицель <a href="%{resource_path}">%{resource_title}</a> було прийнято.
         proposal_mentioned:
-          email_intro: Your proposal "%{mentioned_proposal_title}" has been mentioned <a href="%{resource_path}">in this space</a> in the comments.
-          email_outro: You have received this notification because you are an author of "%{resource_title}".
-          email_subject: Your proposal "%{mentioned_proposal_title}" has been mentioned
-          notification_title: Your proposal "%{mentioned_proposal_title}" has been mentioned <a href="%{resource_path}">in this space</a> in the comments.
+          email_intro: Uw voorstel "%{mentioned_proposal_title}" is genoemd <a href="%{resource_path}">in deze ruimte</a> in de commentaren.
+          email_outro: U heeft deze melding ontvangen omdat u bent genoemd in %{resource_title}".
+          email_subject: Uw voorstel %{mentioned_proposal_title} is geaccepteerd
+          notification_title: Uw voorstel "%{mentioned_proposal_title}" is genoemd <a href="%{resource_path}">in deze ruimte</a> in de commentaren.
         proposal_published:
-          email_intro: '%{author_name} %{author_nickname}, who you are following, has published a new proposal called "%{resource_title}". Check it out and contribute:'
-          email_outro: You have received this notification because you are following %{author_nickname}. You can stop receiving notifications following the previous link.
-          email_subject: New proposal "%{resource_title}" by %{author_nickname}
-          notification_title: The <a href="%{resource_path}">%{resource_title}</a> proposal was published by <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+          email_intro: '%{author_name} %{author_nickname}, wie je volgt, heeft een nieuw voorstel gepubliceerd met de naam "%{resource_title}". Bekijk het en draag het bij:'
+          email_outro: Je hebt deze melding ontvangen omdat je "%{author_nickname}" volgt. Je kan de meldingen deactiveren door te klikken op de vorige link.
+          email_subject: Nieuw voorstel "%{resource_title}" van %{author_nickname}
+          notification_title: Het <a href="%{resource_path}">%{resource_title}</a> debat is aangemaakt door <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         proposal_published_for_space:
-          email_intro: The proposal "%{resource_title}" has been added to "%{participatory_space_title}" that you are following.
+          email_intro: Het bericht "%{resource_title}" is gepubliceerd in "%{participatory_space_title}" dat u volgt.
           email_outro: U ontvangt dit bericht omdat u "%{participatory_space_title}" volgen. Je kunt het unfollow uit de vorige koppeling.
-          email_subject: New proposal "%{resource_title}" added to %{participatory_space_title}
-          notification_title: The proposal <a href="%{resource_path}">%{resource_title}</a> has been added to %{participatory_space_title}
+          email_subject: Nieuw voorstel "%{resource_title}" toegevoegd aan %{participatory_space_title}
+          notification_title: Het bericht <a href="%{resource_path}">%{resource_title}</a> is gepubliceerd in %{participatory_space_title}
         proposal_rejected:
           affected_user:
-            email_intro: 'Your proposal "%{resource_title}" has been rejected. You can read the answer in this page:'
-            email_outro: You have received this notification because you are an author of "%{resource_title}".
-            email_subject: Your proposal been rejected
-            notification_title: Your proposal <a href="%{resource_path}">%{resource_title}</a> has been rejected.
-          email_intro: 'Пропозиція "%{resource_title}" була відхилена. Ви можете прочитати відповідь на сторінці:'
-          email_outro: Ви отримали це сповіщення, тому що ви стежите за "%{resource_title}". Ви можете припинити стежити за ним, перейшовши за наведеним вище посиланням.
-          email_subject: Пропозиція, за якою ви стежите, була відхилена
+            email_intro: '%{resource_title} is becommentarieerd. U kunt de reactie lezen op deze pagina:'
+            email_outro: U heeft deze melding ontvangen omdat u bent genoemd in %{resource_title}".
+            email_subject: '-'
+            notification_title: Uw voorstel <a href="%{resource_path}">%{resource_title}</a> is geaccepteerd.
+          email_intro: 'Пропозизицих "%{resource_title}" була прийнята. Ви можете прочитати вппов дов дов дь нирнит:'
+          email_outro: Ви отримали за сповання, тому ви стежите за "%{resource_title}". Вимете припринити стежим, зим ния, пререййшивиза наведенименимеденимизизизя.
+          email_subject: Пропозизизих, за яколи ви стежите, була прийнята
           follower:
-            email_intro: 'The proposal "%{resource_title}" has been rejected. You can read the answer in this page:'
+            email_intro: '%{resource_title} is becommentarieerd. U kunt de reactie lezen op deze pagina:'
             email_outro: U ontvangt dit bericht omdat u "%{resource_title}" volgen. Je kunt het unfollow uit de vorige koppeling.
-            email_subject: A proposal you're following has been rejected
-            notification_title: The <a href="%{resource_path}">%{resource_title}</a> proposal has been rejected.
-          notification_title: Пропозицію <a href="%{resource_path}">%{resource_title}</a> було відхилено.
+            email_subject: Een voorstel dat u volgt is geaccepteerd
+            notification_title: De vergadering van <a href="%{resource_path}">%{resource_title}</a> is gesloten.
+          notification_title: Пропозицель <a href="%{resource_path}">%{resource_title}</a> було прийнято.
         proposal_update_category:
-          email_intro: 'An admin has updated the category of your proposal "%{resource_title}", check it out:'
-          email_outro: You have received this notification because you are the author of the proposal.
-          email_subject: The %{resource_title} proposal category has been updated
-          notification_title: The <a href="%{resource_path}">%{resource_title}</a> proposal category has been updated by an admin.
+          email_intro: 'Een admin heeft de categorie van uw voorstel "%{resource_title}", bekijk het uit:'
+          email_outro: U heeft deze melding ontvangen omdat u bent genoemd in.
+          email_subject: De categorie van %{resource_title} voorstel is bijgewerkt
+          notification_title: De vergadering van <a href="%{resource_path}">%{resource_title}</a> is gesloten.
         voting_enabled:
-          email_intro: 'You can vote proposals in %{participatory_space_title}! Start participating in this page:'
-          email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
-          email_subject: Proposals voting has started for %{participatory_space_title}
-          notification_title: You can now start <a href="%{resource_path}">voting proposals</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+          email_intro: 'U kunt nu nieuwe debatten starten in %{participatory_space_title}! Begin mee te doen aan deze pagina:'
+          email_outro: Je hebt deze melding ontvangen omdat je "%{participatory_space_title}" volgt. Je kan de meldingen deactiveren door te klikken op de vorige link.
+          email_subject: Debatten beschikbaar in %{participatory_space_title}
+          notification_title: Je kunt nu <a href="%{resource_path}">nieuwe debatten starten</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
     gamification:
       badges:
         accepted_proposals:
           conditions:
-            - Choose the participation space of your interest with submission for proposals enabled
-            - Try to make proposals that can be carried out. This way they are more likely to be accepted.
-          description: This badge is granted when you actively participate with new proposals and these are accepted.
-          description_another: This user has gotten %{score} proposals accepted.
-          description_own: You got %{score} proposals accepted.
-          name: Accepted proposals
-          next_level_in: Get %{score} more proposals accepted to reach the next level!
-          unearned_another: This user hasn't gotten any proposals accepted yet.
-          unearned_own: You got no proposals accepted yet.
+            - Kies de deelnameruimte van uw interesse met indiening voor voorstellen ingeschakeld
+            - Probeer voorstellen te doen die kunnen worden gedaan, en op die manier zullen ze waarschijnlijk meer worden aanvaard.
+          description: Deze badge wordt toegekend wanneer u actief deelneemt aan nieuwe voorstellen.
+          description_another: Deze gebruiker heeft deelgenomen aan %{score} debatten.
+          description_own: Je hebt %{score} voorstellen geaccepteerd.
+          name: Geaccepteerde voorstellen
+          next_level_in: Neem deel aan %{score} meer debatten om het volgende niveau te bereiken!
+          unearned_another: Deze gebruiker heeft deelgenomen aan debatten.
+          unearned_own: Je hebt voorstellen geaccepteerd.
         proposal_votes:
           conditions:
-            - Browse and spend some time reading other people's proposals
-            - Give support to the proposals you like or find interesting
-          description: This badge is granted when you support other people's proposals.
+            - Blader en lees wat tijd in om de voorstellen van anderen te lezen
+            - Geef steun aan de voorstellen die u wilt of vind je interessante
+          description: Deze badge wordt toegekend wanneer u de voorstellen van anderen steunt.
           description_another: Deze gebruiker heeft ondersteuning gegeven aan %{score} voorstellen.
           description_own: Deze gebruiker heeft ondersteuning gegeven aan %{score} voorstellen.
           name: Voorstellen
@@ -536,17 +536,17 @@ nl-BE:
           published_proposal: publiceer als voorstel
           request_access: Toegang aanvragen
           requested_access: Toegang aangevraagd
-          see_other_versions: see other versions
+          see_other_versions: zie andere versies
           version: Versie %{number}
-          version_history: see version history for this proposal
-          withdraw: withdraw the draft
+          version_history: zie versie geschiedenis voor dit voorstel
+          withdraw: trek het concept in
         states:
           open: Open
           published: Gepubliceerd
-          withdrawn: Withdrawn
+          withdrawn: Opname
         update:
-          error: There's been errors when saving the collaborative draft.
-          success: Collaborative draft updated successfully.
+          error: Er zijn fouten opgetreden bij het publiceren van het gezamenlijke ontwerp.
+          success: Collaborative draft succesvol ingetrokken.
         wizard_aside:
           back: Terug
           info: U maakt een gezamenlijk ontwerp <strong></strong> aan.
@@ -694,98 +694,98 @@ nl-BE:
         show:
           back_to: Terug naar
           edit_proposal: Bewerk voorstel
-          endorsements_list: List of Endorsements
+          endorsements_list: Lijst van Eindigingen
           hidden_endorsers_count:
-            one: and %{count} more person
-            other: and %{count} more people
-          link_to_collaborative_draft_help_text: This proposal is the result of a collaborative draft. Review the history
-          link_to_collaborative_draft_text: See the collaborative draft
+            one: en %{count} meer
+            other: en %{count} meer
+          link_to_collaborative_draft_help_text: Dit voorstel is het resultaat van een gezamenlijk ontwerp. Bekijk de geschiedenis
+          link_to_collaborative_draft_text: Gezamenlijk ontwerp
           proposal_accepted_reason: 'Dit voorstel is geaccepteerd omdat:'
-          proposal_in_evaluation_reason: This proposal is being evaluated
+          proposal_in_evaluation_reason: Voorstel wordt geëvalueerd
           proposal_rejected_reason: 'Dit voorstel is afgewezen omdat:'
           report: Rapporteren
-          withdraw_btn_hint: You can withdraw your proposal if you change your mind, as long as you have not received any support. The proposal is not deleted, it will appear in the list of withdrawn proposals.
-          withdraw_confirmation: Are you sure to withdraw this proposal?
-          withdraw_proposal: Withdraw proposal
+          withdraw_btn_hint: U kunt uw voorstel intrekken als u van gedachten verandert, zolang u geen steun hebt ontvangen. Het voorstel wordt niet verwijderd, het zal worden opgenomen in de lijst van ingetrokken voorstellen.
+          withdraw_confirmation: Weet je zeker dat je dit voorstel wil weigeren?
+          withdraw_proposal: Terugtrekken voorstel
         tags:
-          changed_from: "(changed from <u>%{previous_category}</u> by an administrator)"
-          filed_as: Filed as
+          changed_from: "(gewijzigd van <u>%{previous_category}</u> door een beheerder)"
+          filed_as: Opgenomen als
         vote_button:
           already_voted: Al gestemd
-          already_voted_hover: Unvote
-          maximum_votes_reached: Vote limit reached
+          already_voted_hover: Uitstemmen
+          maximum_votes_reached: Stemlimiet bereikt
           no_votes_remaining: Geen stemmen over
           vote: Stemmen
           votes_blocked: Stemmen uitgeschakeld
         vote_weight:
-          maximum_votes_reached: Maximum votes reached
+          maximum_votes_reached: Maximum aantal stemmen bereikt
           no_votes_remaining: Geen stemmen over
-          votes_blocked: Votes blocked
+          votes_blocked: Stemmen geblokkeerd
         votes_count:
           count:
             one: STEMMEN
             other: STEMMINGEN
-          most_popular_proposal: Most popular proposal
-          need_more_votes: Need more votes
+          most_popular_proposal: Meest populaire voorstel
+          need_more_votes: Meer qouta nodig
         votes_weight:
           count: tellen
-          most_popular_proposal: Proposition la plus populaire
-          need_more_votes: Besoin de plus de votes
+          most_popular_proposal: Voorstel la plus populaire
+          need_more_votes: Besoin de plus de stemmen
         voting_rules:
           can_accumulate_supports_beyond_threshold:
-            description: Each proposal can accumulate more than %{limit} supports
+            description: Elk voorstel kan meer dan %{limit} ondersteuning verzamelen
           minimum_votes_per_user:
-            description: You must distribute a minimum of %{votes} votes among different proposals.
-            given_enough_votes: You've given enough supports.
-            supports_remaining: You have to vote %{remaining_votes} more proposals for your votes to be taken into account.
+            description: U moet een minimum van %{votes} stemmen verdelen over verschillende voorstellen.
+            given_enough_votes: Je hebt genoeg ondersteuning gegeven.
+            supports_remaining: U moet nog %{remaining_votes} voorstellen stemmen om rekening te houden met uw stemmen.
           proposal_limit:
-            description: You can create up to %{limit} proposals.
+            description: U heeft %{limit} tests aangemaakt.
           threshold_per_proposal:
-            description: In order to be validated proposals need to reach %{limit} supports
-          title: 'Voting is subject to the following rules:'
+            description: Om gevalideerde voorstellen te kunnen ontvangen, moeten %{limit} ondersteuning bereikt worden
+          title: 'De stemming is onderworpen aan de volgende regels:'
           vote_limit:
-            description: You can vote up to %{limit} proposals.
-            left: Remaining
+            description: U kunt tot %{limit} voorstellen stemmen.
+            left: Resterend
             votes: stemmen
         wizard_aside:
-          back: Back
-          info: You are creating a <strong>proposal</strong>.
+          back: Terug
+          info: U maakt een <strong>voorstel</strong>.
         wizard_steps:
-          see_steps: see steps
-          step_1: Create your proposal
-          step_2: Compare
-          step_3: Complete
-          step_4: Publish your proposal
+          see_steps: bekijk stappen
+          step_1: Nieuw voorstel
+          step_2: Vergelijk
+          step_3: Voltooid
+          step_4: Publiceer als voorstel
           step_of: Stap %{current_step_num} van %{total_steps}
       publish:
-        error: There's been errors when publishing the proposal.
-        success: Proposal published successfully.
+        error: Er zijn fouten geweest bij het stemmen van het voorstel.
+        success: Er is een fout opgetreden bij het publiceren van deze assemblage.
       update:
         error: Er zijn fouten geweest bij het opslaan van het voorstel.
-        success: Proposal updated successfully.
+        success: Organisatie is succesvol gemaakt.
       update_draft:
-        error: There's been errors when saving the proposal draft.
-        success: Proposal draft updated successfully.
+        error: Er zijn fouten geweest bij het opslaan van het voorstel.
+        success: Collaborative draft succesvol ingetrokken.
       versions:
         changes_at_title: Veranderingen bij "%{title}"
         index:
           title: Versies
         stats:
-          back_to_collaborative_draft: Go back to collaborative draft
-          back_to_proposal: Go back to proposal
+          back_to_collaborative_draft: Voltooi uw gezamenlijke ontwerp
+          back_to_proposal: Terug naar voorstel
           number_of_versions: Versies
-          show_all_versions: Show all versions
-          version_author: Version author
-          version_created_at: Version created at
-          version_number: Version number
-          version_number_out_of_total: "%{current_version} out of %{total_count}"
+          show_all_versions: Alle versies weergeven
+          version_author: Beschrijving
+          version_created_at: Versie gemaakt op
+          version_number: Versienummer
+          version_number_out_of_total: "%{current_version} van %{total_count}"
         version:
           version_index: Versie %{index}
     resource_links:
       copied_from_component:
         proposal_proposal: Verwante voorstellen
       included_projects:
-        project_result: 'Results appearing in this project:'
+        project_result: 'Resultaten in dit project:'
       included_proposals:
-        proposal_project: 'Proposal appearing in these projects:'
-        proposal_result: 'Proposal appearing in these results:'
+        proposal_project: 'Voorstel dat in deze projecten wordt weergegeven:'
+        proposal_result: 'Voorstel dat in deze resultaten verschijnt:'
