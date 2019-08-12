@@ -4,24 +4,24 @@ nl-BE:
       initiative:
         decidim_user_group_id: Auteur
         description: Beschrijving
-        offline_votes: Face-to-face supports
+        offline_votes: Face-to-face ondersteuning
         scope_id: Reikwijdte
-        signature_end_date: End of signature collection period
-        signature_start_date: Start of signature collection period
-        signature_type: Signature collection type
+        signature_end_date: Einde van de ondertekening collectie periode
+        signature_start_date: Einde van de ondertekening collectie periode
+        signature_type: Handtekening collectie type
         signature_type_values:
-          any: Mixed
-          offline: Face to face
-          online: OnLine
+          any: Gemengd
+          offline: Gezicht om te zien
+          online: Online
         title: Titel
       initiative_author:
         address: Adres
-        city: City
+        city: Stad
         id_document: DNI/NIE
-        name: Name and Surname
-        phone_number: Phone number
-        post_code: Post code
-        province: Province
+        name: Naam en achternaam
+        phone_number: Telefoonnummer
+        post_code: '-'
+        province: Provincie
       initiatives_committee_member:
         user: Committee member
       initiatives_type:
