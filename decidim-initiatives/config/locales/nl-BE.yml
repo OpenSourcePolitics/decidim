@@ -31,24 +31,24 @@ nl-BE:
       organization_data:
         address: Adres
         id_document: Document
-        name: Complete name
+        name: Naam onderdeel
   activerecord:
     models:
       decidim/initiative:
-        one: Initative
-        other: Initatives
+        one: Initatief
+        other: Initatieven
       decidim/initiative_comittee:
-        one: Comittee
-        other: Comittees
+        one: Kompas
+        other: Kompas
       decidim/initiative_vote:
-        one: Signature
-        other: Signatures
+        one: Handtekening
+        other: Handtekening
   decidim:
     admin:
       actions:
-        new_initiative_type: New initiative type
+        new_initiative_type: Nieuw initiatieftype
       menu:
-        initiatives: Initiatives
+        initiatives: Initiatieven
         initiatives_types: Nieuw initiatieftype
       models:
         initiatives:
