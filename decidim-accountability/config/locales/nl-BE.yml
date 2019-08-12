@@ -173,31 +173,31 @@ nl-BE:
       versions:
         index:
           changes_at_title: Veranderingen bij "%{title}"
-          title: Beschrijving
+          title: Versies
         show:
-          changes_at_title: Changes at "%{title}"
+          changes_at_title: Veranderingen bij "%{title}"
         version:
-          version_index: Version %{index}
+          version_index: Versie %{index}
     components:
       accountability:
-        name: Accountability
+        name: Verantwoording
         settings:
           global:
-            categories_label: Name for "Categories"
-            comments_enabled: Comments enabled
-            display_progress_enabled: Display progress
-            heading_leaf_level_results: Name for "Projects"
-            heading_parent_level_results: Name for "Results"
+            categories_label: Naam voor "Categorieën"
+            comments_enabled: Reacties ingeschakeld
+            display_progress_enabled: Toon synchronisatievoortgang
+            heading_leaf_level_results: Naam voor "Projecten"
+            heading_parent_level_results: Naam voor "Resultaten"
             intro: Intro
-            subcategories_label: Name for "Subcategories"
+            subcategories_label: Naam voor "Subcategorieën"
           step:
-            comments_blocked: Comments blocked
+            comments_blocked: Reacties geblokkeerd
     events:
       accountability:
         proposal_linked:
-          email_intro: 'The proposal "%{proposal_title}" has been included in a result. You can see it from this page:'
-          email_outro: You have received this notification because you are following "%{proposal_title}". You can stop receiving notifications following the previous link.
-          email_subject: An update to %{proposal_title}
+          email_intro: 'Het voorstel "%{proposal_title}" is in een resultaat opgenomen. Je kan het vanaf deze pagina bekijken:'
+          email_outro: Je hebt deze melding ontvangen omdat je "%{proposal_title}" volgt. Je kan de meldingen deactiveren door te klikken op de vorige link.
+          email_subject: Een update aan %{proposal_title}
           notification_title: Het voorstel <a href="%{proposal_path}">%{proposal_title}</a> is opgenomen in het resultaat <a href="%{resource_path}">%{resource_title}</a>.
     participatory_processes:
       participatory_process_groups:
