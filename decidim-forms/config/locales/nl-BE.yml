@@ -2,7 +2,7 @@ nl-BE:
   activemodel:
     attributes:
       answer:
-        body: Answer
+        body: Antwoord
       question:
         max_choices: Maximum number of choices
         question_type: Type
@@ -20,27 +20,27 @@ nl-BE:
       admin:
         models:
           components:
-            description: Description
+            description: Beschrijving
             tos: Terms of service
         questionnaires:
           answer_option:
             answer_option: Answer option
             free_text: Free text
-            remove: Remove
+            remove: Verwijderen
             statement: Statement
           edit:
-            save: Save
-            title: Title
+            save: Opslaan
+            title: Titel
           form:
             add_question: Add question
             already_answered_warning: The questionnaire is already answered by some users so you cannot modify its questions.
           question:
             add_answer_option: Add answer option
             any: Any
-            description: Description
+            description: Beschrijving
             down: Down
-            question: Question
-            remove: Remove
+            question: Vraag
+            remove: Verwijderen
             statement: Statement
             up: Up
           update:
