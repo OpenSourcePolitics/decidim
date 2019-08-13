@@ -9,7 +9,7 @@ nl-BE:
         copy_components: Kopieer componenten
         copy_features: Kopieerfuncties
         decidim_scope_id: Reikwijdte
-        description: Beschrijving
+        description: Omschrijving	
         hashtag: Hashtag
         hero_image: Afbeelding van de startpagina
         participatory_processes_ids: Update deelnemende proces gebruiker
@@ -17,10 +17,10 @@ nl-BE:
         published_at: Gepubliceerd op
         scope_id: Reikwijdte
         scopes_enabled: Scopes ingeschakeld
-        short_description: Korte beschrijving
+        short_description: Korte omschrijving
         show_statistics: Toon statistieken
         slogan: Slogan
-        slug: URL slak
+        slug: URL pad
         title: Titel
       conference_speaker:
         full_name: Volledige naam
@@ -288,7 +288,7 @@ nl-BE:
       admin:
         conference_copies:
           form:
-            slug_help: 'URL-slugs worden gebruikt om de URL''s te genereren die naar deze vergadering verwijzen. Accepteer alleen letters, cijfers en streepjes, en moet beginnen met een letter. Voorbeeld: %{url}'
+            slug_help: 'URL pads worden gebruikt om de URL''s te genereren die naar deze vergadering verwijzen. Accepteer alleen letters, cijfers en streepjes, en moet beginnen met een letter. Voorbeeld: %{url}'
         conference_invites:
           create:
             error: Er is een probleem geweest tijdens het uitnodigen van de gebruiker om toe te treden tot de conferentie.
@@ -330,7 +330,7 @@ nl-BE:
             registrations_count:
               one: Er zijn registraties geweest.
               other: Er zijn %{count} registraties geweest.
-            slug_help: 'URL-slugs worden gebruikt om de URL''s te genereren die naar deze vergadering verwijzen. Accepteer alleen letters, cijfers en streepjes, en moet beginnen met een letter. Voorbeeld: %{url}'
+            slug_help: 'URL pads worden gebruikt om de URL''s te genereren die naar deze vergadering verwijzen. Accepteer alleen letters, cijfers en streepjes, en moet beginnen met een letter. Voorbeeld: %{url}'
         diplomas:
           edit:
             save: Opslaan
