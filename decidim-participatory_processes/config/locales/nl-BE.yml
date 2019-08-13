@@ -8,7 +8,7 @@ nl-BE:
         copy_components: Kopieer componenten
         copy_steps: Kopieer stappen
         description: Omschrijving	
-        developer_group: Ontwikkelaarsgroep
+        developer_group: Promotorgroep
         domain: Domein
         end_date: Einddatum
         hashtag: Hashtag
@@ -348,7 +348,7 @@ nl-BE:
         index:
           loading: Laden van resultaten...
       show:
-        developer_group: Ontwikkelaarsgroep
+        developer_group: Promotorgroep
         end_date: Einddatum
         local_area: Organisatiegebied
         participatory_scope: Wat wordt besloten
