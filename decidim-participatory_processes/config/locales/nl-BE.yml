@@ -7,7 +7,7 @@ nl-BE:
         copy_categories: Kopieercategorieën
         copy_components: Kopieer componenten
         copy_steps: Kopieer stappen
-        description: Beschrijving
+        description: Omschrijving	
         developer_group: Ontwikkelaarsgroep
         domain: Domein
         end_date: Einddatum
@@ -23,24 +23,24 @@ nl-BE:
         published_at: Gepubliceerd op
         scope_id: Reikwijdte
         scopes_enabled: Scopes ingeschakeld
-        short_description: Korte beschrijving
+        short_description: Korte omschrijving
         show_statistics: Toon statistieken
-        slug: URL slak
+        slug: URL pad
         start_date: Begindatum
-        subtitle: subtitel
+        subtitle: Ondertitel
         target: Wie doet mee
         title: Titel
       participatory_process_group:
-        description: Beschrijving
+        description: Omschrijving		
         hero_image: Afbeelding
         name: Naam
         participatory_process_ids: Gerelateerde processen
       participatory_process_step:
         cta_path: Oproep naar Actiepad
         cta_text: Oproep naar Actietekst
-        description: Beschrijving
+        description: Omschrijving	
         end_date: Einddatum
-        short_description: Korte beschrijving
+        short_description: Korte omschrijving
         start_date: Begin datum
         title: Titel
       participatory_process_user_role:
@@ -294,7 +294,7 @@ nl-BE:
             max_results: Maximaal aantal te tonen elementen
         participatory_process_copies:
           form:
-            slug_help: 'URL-slugs worden gebruikt om de URL''s te genereren die naar deze vergadering verwijzen. Accepteer alleen letters, cijfers en streepjes, en moet beginnen met een letter. Voorbeeld: %{url}'
+            slug_help: 'URL pads worden gebruikt om de URL''s te genereren die naar deze vergadering verwijzen. Accepteer alleen letters, cijfers en streepjes, en moet beginnen met een letter. Voorbeeld: %{url}'
         participatory_process_steps:
           form:
             cta_path_help: 'Gebruik gedeeltelijke paden, niet volledige URL''s hier. Accepteert letters, cijfers, streepjes en slashes, en moet beginnen met een letter. Indien niet ingesteld, zal de knop niet worden weergegeven. Voorbeeld: %{url}'
@@ -302,7 +302,7 @@ nl-BE:
         participatory_processes:
           form:
             announcement_help: De tekst die u hier invoert zal worden weergegeven aan de gebruiker, rechts onder de procesinformatie.
-            slug_help: 'URL-slugs worden gebruikt om de URL''s te genereren die naar deze vergadering verwijzen. Accepteer alleen letters, cijfers en streepjes, en moet beginnen met een letter. Voorbeeld: %{url}'
+            slug_help: 'URL pads worden gebruikt om de URL''s te genereren die naar deze vergadering verwijzen. Accepteer alleen letters, cijfers en streepjes, en moet beginnen met een letter. Voorbeeld: %{url}'
       content_blocks:
         highlighted_processes:
           name: Gemarkeerde processen
