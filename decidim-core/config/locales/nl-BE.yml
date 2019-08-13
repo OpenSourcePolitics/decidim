@@ -957,7 +957,7 @@ nl-BE:
         results:
           one: "%{count} resultaten"
           other: "%{count} resultaten"
-        view_all: Zie alles (%{count})
+        view_all: Bekijk alles (%{count})
     shared:
       embed_modal:
         close_window: Sluit dit scherm
