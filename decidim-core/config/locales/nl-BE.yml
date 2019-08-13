@@ -10,7 +10,7 @@ nl-BE:
         email: Uw e-mailadres
         name: Uw naam
         nickname: Uw bijnaam
-        password: Nieuw wachtwoord
+        password: Wachtwoord
         password_confirmation: Bevestig uw wachtwoord
         personal_url: Persoonlijke URL
         remove_avatar: Verwijder avatar
@@ -1099,7 +1099,7 @@ nl-BE:
         confirm_new_password: Nieuw wachtwoord bevestigen
         new_password: Nieuw wachtwoord
       new:
-        forgot_your_password: Bevestig uw nieuwe wachtwoord?
+        forgot_your_password: Bevestig uw wachtwoord?
         send_me_reset_password_instructions: Reset wachtwoord instructies
       no_token: U kunt deze pagina niet openen zonder een e-mail voor het resetten van het wachtwoord te ontvangen. Als u wel komt uit een e-mail voor het resetten van het wachtwoord, zorg ervoor dat u de volledige URL gebruikt.
       send_instructions: U ontvangt een e-mail met instructies over hoe u uw wachtwoord over een paar minuten kunt resetten.
