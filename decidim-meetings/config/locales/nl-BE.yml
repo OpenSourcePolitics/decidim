@@ -22,9 +22,9 @@ nl-BE:
         location_hints: Locatie hints
         organizer_id: Organisator
         private_meeting: Maak een afspraak
-        registration_form_enabled: Registratieformulier ingeschakeld
+        registration_form_enabled: Inschrijvingsformulier ingeschakeld
         registration_terms: Type
-        registrations_enabled: Registratieformulier ingeschakeld
+        registrations_enabled: Inschrijvingen ingeschakeld
         start_time: Starttijd
         title: Titel
         transparent: Transparant
@@ -47,7 +47,7 @@ nl-BE:
     models:
       decidim/meetings/close_meeting_event: Vergadering gesloten
       decidim/meetings/create_meeting_event: Vergadering
-      decidim/meetings/meeting_registrations_enabled_event: Registratieformulier ingeschakeld
+      decidim/meetings/meeting_registrations_enabled_event: Inschrijvingen ingeschakeld
       decidim/meetings/meeting_registrations_over_percentage_event: Registraties over limiet
       decidim/meetings/upcoming_meeting_event: Aankomende vergadering
       decidim/meetings/update_meeting_event: Vergaderdatum (Automatic Translation)
