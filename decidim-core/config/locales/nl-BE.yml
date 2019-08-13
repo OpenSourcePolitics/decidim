@@ -194,24 +194,24 @@ nl-BE:
           newsletter_title: Contactrechten
           nickname_help: Uw korte, unieke identificator in %{organization}
           sign_in: Aanmelden
-          sign_up: Sign up
+          sign_up: Registreren
           sign_up_as:
-            legend: Sign up as
-            user: Individual
-            user_group: Organization/Collective
-          subtitle: Sign up to participate in discussions and support proposals.
-          terms: the terms and conditions of use
-          tos_agreement: By signing up you agree to %{link}.
-          tos_title: Terms of Service
-          username_help: Public name that appears on your posts. With the aim of guaranteeing the anonymity, can be any name.
+            legend: Aanmelden als
+            user: Individueel
+            user_group: Organisatie/Collectief
+          subtitle: Meldt u aan om deel te nemen aan discussies en voorstellen te steunen.
+          terms: de bepalingen en voorwaarden van gebruik
+          tos_agreement: Door het aanmelden gaat u akkoord met %{link}.
+          tos_title: Algemene voorwaarden
+          username_help: Publieke naam die op uw berichten verschijnt. Met het oog op het waarborgen van de anonimiteit hoeft dit niet uw echte naam te zijn.
       sessions:
         new:
-          are_you_new?: New to the platform?
-          register: Create an account
+          are_you_new?: Nieuw op het platform?
+          register: Een account aanmaken
       shared:
         newsletter_modal:
           buttons:
-            check: Check and continue
+            check: Ga verder
             uncheck: Keep uncheck
           notice: Hey, are you sure you don't want to receive a newsletter? Please consider again ticking the newsletter checkbox below. It is very important for us that you can receive occasional emails to make important announcements, you can always change this on your notifications settings page. If you don't tick the box you might be missing relevant information about new participatory opportunities within the platform. If you still want to avoid receiving newsletters, we perfectly understand your decision. Thanks for reading this!
           title: Newsletter notifications
