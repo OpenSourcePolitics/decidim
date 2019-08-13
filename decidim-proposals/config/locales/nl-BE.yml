@@ -680,7 +680,7 @@ nl-BE:
           address: "[n°] [street] [postal] [city]"
         preview:
           address: 'Adres: %{address}'
-          modify: Wijzig het voorstel
+          modify: Aanpassen het voorstel
           not_geocoded: Uw adres is niet geocoded, de preview is niet beschikbaar.
           proposal_edit_before_minutes:
             one: U kunt dit voorstel bewerken tijdens de eerste minuut nadat het voorstel is gepubliceerd. Zodra dit tijdvenster voorbij is, kunt u het voorstel niet bewerken.
