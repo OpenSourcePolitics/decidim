@@ -238,7 +238,7 @@ nl-BE:
             search: Zoeken
         content_blocks:
           highlighted_assemblies:
-            max_results: Maximaal aantal te tonen elementen
+            max_results: Maximum aantal elementen dat kan worden weergegeven	
       assembly_members:
         index:
           members: Leden
@@ -316,14 +316,14 @@ nl-BE:
         endorsements_count: Ondersteunt
         headline: Activiteit
         meetings_count: Vergaderingen
-        orders_count: bestellingen
+        orders_count: Stemmen
         pages_count: Pagina's
         projects_count: Projecten
         proposals_count: Voorstellen
         results_count: Resultaten
         surveys_count: onderzoeken
         users_count: Deelnemers
-        votes_count: stemmen
+        votes_count: Stemmen
     assembly_members:
       assembly_member:
         designated_on: Ontworpen op
