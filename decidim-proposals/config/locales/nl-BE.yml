@@ -59,15 +59,15 @@ nl-BE:
         one: Notitie
         other: Notitie
       decidim/proposals/proposal_vote:
-        one: Stemmen
-        other: stemmen
+        one: Stem
+        other: Stemmen
   decidim:
     components:
       proposals:
         actions:
           create: Creëren
           endorse: Eindstation
-          vote: Stemmen
+          vote: Stem
           withdraw: Uitgave
         name: Voorstellen
         settings:
@@ -282,8 +282,8 @@ nl-BE:
         title: Voorstellen
       votes:
         description: Aantal stemmen gegenereerd in voorstellen van gebruikers
-        object: <span class="card--list__data__number">%{count}</span>votes
-        title: stemmen
+        object: stemmen
+        title: Stemmen
     participatory_processes:
       participatory_process_groups:
         highlighted_proposals:
@@ -410,7 +410,7 @@ nl-BE:
           info_proposal:
             body: Lichaam
             created_at: Aanmaakdatum
-            proposal_votes_count: Bestellingen tellen
+            proposal_votes_count: Stemmen tellen
             proposals: Voorstellen
       admin_log:
         proposal:
@@ -582,7 +582,7 @@ nl-BE:
             scope: Reikwijdte
             state: Staat
             title: Titel
-            votes: stemmen
+            votes: Stemmen
       new:
         limit_reached: U kunt geen nieuwe voorstellen maken omdat u de limiet hebt overschreden.
       participatory_text_proposal:
@@ -661,8 +661,8 @@ nl-BE:
           view_proposal: Bekijk voorstel
         linked_proposals:
           proposal_votes:
-            one: <span class="card--list__data__number">1</span>vote
-            other: <span class="card--list__data__number">%{count}</span>votes
+            one: stem
+            other: stemmen
         new:
           send: Verstuur
           title: Nieuw voorstel
@@ -715,7 +715,7 @@ nl-BE:
           already_voted_hover: Uitstemmen
           maximum_votes_reached: Stemlimiet bereikt
           no_votes_remaining: Geen stemmen over
-          vote: Stemmen
+          vote: Stem
           votes_blocked: Stemmen uitgeschakeld
         vote_weight:
           maximum_votes_reached: Maximum aantal stemmen bereikt
@@ -723,8 +723,8 @@ nl-BE:
           votes_blocked: Stemmen geblokkeerd
         votes_count:
           count:
-            one: STEMMEN
-            other: STEMMINGEN
+            one: STEM
+            other: STEMMEN
           most_popular_proposal: Meest populaire voorstel
           need_more_votes: Meer qouta nodig
         votes_weight:
@@ -746,7 +746,7 @@ nl-BE:
           vote_limit:
             description: U kunt tot %{limit} voorstellen stemmen.
             left: Resterend
-            votes: stemmen
+            votes: Stemmen
         wizard_aside:
           back: Terug
           info: U maakt een <strong>voorstel</strong>.
