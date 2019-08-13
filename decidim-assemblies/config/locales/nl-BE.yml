@@ -3,8 +3,8 @@ nl-BE:
     attributes:
       assembly:
         area_id: Gebied
-        assembly_type: Buurderij type
-        assembly_type_other: Buurderij type anders
+        assembly_type: Groep type
+        assembly_type_other: Groep type anders
         banner_image: Banner afbeelding
         closing_date: Sluitingsdatum
         closing_date_reason: Reden sluitingsdatum
@@ -66,22 +66,22 @@ nl-BE:
   activerecord:
     models:
       decidim/assembly:
-        one: bijeenkomst
-        other: Gemeentes
+        one: Groep
+        other: Groepen
       decidim/assembly_member:
-        one: Buurderij gebruikers
-        other: Bijwerken
+        one: Groep gebruiker
+        other: Groep gebruikers
       decidim/assembly_user_role:
-        one: Bijwerken
-        other: Bijwerken
+        one: Gebruikersrol van groep
+        other: Gebruikersrol van groep
   decidim:
     admin:
       actions:
-        new_assembly: Nieuwe montage
+        new_assembly: Nieuwe groep
       assemblies:
         create:
-          error: Er is een fout opgetreden bij het maken van een nieuwe assemblage.
-          success: Assemblage is succesvol gecreëerd.
+          error: Er is een fout opgetreden bij het maken van een nieuwe groep.
+          success: Groep is succesvol gecreëerd.
         edit:
           update: Bijwerken
         form:
@@ -93,22 +93,22 @@ nl-BE:
           published: Gepubliceerd
         new:
           create: creëren
-          title: Nieuwe montage
+          title: Nieuwe groep
         update:
-          error: Er is een fout opgetreden bij het bijwerken van deze assemblage.
-          success: Assemblage is succesvol bijgewerkt.
+          error: Er is een fout opgetreden bij het bijwerken van deze groep.
+          success: Groep is succesvol bijgewerkt.
       assemblies_copies:
         create:
-          error: Er was een fout bij het dupliceren van deze assemblage.
-          success: Assemblage is succesvol gedupliceerd.
+          error: Er was een fout bij het dupliceren van deze groep.
+          success: Groep is succesvol gedupliceerd.
       assembly_copies:
         new:
           copy: Kopiëren
           select: Selecteer welke gegevens u wilt dupliceren
-          title: Dupliceerde montage
+          title: Dupliceerde groep
       assembly_members:
         create:
-          error: Er is een fout opgetreden die een gebruiker bijgewerkt heeft voor dit deelnemende proces.
+          error: Er is een fout opgetreden die een gebruiker bijgewerkt heeft voor dit groep.
           success: Gebruiker is succesvol bijgewerkt voor dit deelnemende proces.
         destroy:
           success: Gebruiker is succesvol bijgewerkt voor dit deelnemende proces.
@@ -148,9 +148,9 @@ nl-BE:
           error: Er is een fout opgetreden die een gebruiker bijgewerkt heeft voor dit deelnemende proces.
           success: Gebruiker is succesvol bijgewerkt voor deze vergadering.
       menu:
-        assemblies: Gemeentes
+        assemblies: Groepen
         assemblies_submenu:
-          assembly_admins: Buurderij gebruikers
+          assembly_admins: Groep gebruikers
           assembly_members: Leden
           attachment_collections: Mappen
           attachment_files: Bestanden
@@ -192,7 +192,7 @@ nl-BE:
             collaborator: Medewerker
             moderator: Moderaties
       titles:
-        assemblies: Gemeentes
+        assemblies: Groepen
     admin_log:
       assembly:
         create: "%{user_name} heeft de %{resource_name} -vergadering aangemaakt"
@@ -211,17 +211,17 @@ nl-BE:
       admin:
         assemblies:
           form:
-            duration_help: Als de looptijd van deze vergadering beperkt is, selecteer de einddatum. Anders zal deze voor onbepaalde tijd verschijnen.
+            duration_help: Als de looptijd van deze groep beperkt is, selecteer de einddatum. Anders zal deze voor onbepaalde tijd verschijnen.
             included_at_help: Selecteer de datum waarop deze vergadering is toegevoegd aan de Beslissingsdatum. Het hoeft niet noodzakelijkerwijs hetzelfde te zijn als de aanmaakdatum.
             select_a_created_by: Kies een categorie
             select_an_area: Selecteer een gebied
-            select_an_assembly_type: Selecteer een assemblage type
-            select_parent_assembly: Selecteer bovenliggende vergadering
-            slug_help: 'URL-slugs worden gebruikt om de URL''s te genereren die naar deze vergadering verwijzen. Accepteer alleen letters, cijfers en streepjes, en moet beginnen met een letter. Voorbeeld: %{url}'
+            select_an_assembly_type: Selecteer een groep type
+            select_parent_assembly: Selecteer bovenliggende groep
+            slug_help: 'URL-slugs worden gebruikt om de URL''s te genereren die naar deze groep verwijzen. Accepteer alleen letters, cijfers en streepjes, en moet beginnen met een letter. Voorbeeld: %{url}'
             social_handlers: Sociaal
         assembly_copies:
           form:
-            slug_help: 'URL-slugs worden gebruikt om de URL''s te genereren die naar deze vergadering verwijzen. Accepteer alleen letters, cijfers en streepjes, en moet beginnen met een letter. Voorbeeld: %{url}'
+            slug_help: 'URL-slugs worden gebruikt om de URL''s te genereren die naar deze groep verwijzen. Accepteer alleen letters, cijfers en streepjes, en moet beginnen met een letter. Voorbeeld: %{url}'
         assembly_members:
           form:
             existing_user: Bestaande gebruiker
@@ -270,21 +270,21 @@ nl-BE:
         placeholder: Filter op type
         working_group: Werkgroep
       index:
-        title: Gemeentes
+        title: Groepen
       last_activity:
-        new_assembly: Nieuwe montage
+        new_assembly: Nieuwe groep
       pages:
         home:
           highlighted_assemblies:
-            active_assemblies: Actieve bijeenkomsten
-            see_all_assemblies: Bekijk alle vergaderingen
+            active_assemblies: Actieve groepen
+            see_all_assemblies: Bekijk alle groepen
         user_profile:
           member_of:
             member_of: Lid van
       show:
         area: Gebied
-        assembly_type: Buurderij type
-        children: Gemeentes
+        assembly_type: Groep type
+        children: Groepen
         closing_date: Sluitingsdatum
         composition: Compositie
         created_by: Gemaakt door
@@ -310,7 +310,7 @@ nl-BE:
         target: Wie doet mee
       statistics:
         answers_count: antwoorden
-        assemblies_count: Gemeentes
+        assemblies_count: Groepen
         comments_count: Reacties
         debates_count: Debatten
         endorsements_count: Eindverklaringen
@@ -334,18 +334,18 @@ nl-BE:
         assemblies:
           contextual: "<p>Een vergadering is een groep leden van een organisatie die regelmatig bijeenkomen om besluiten te nemen over een specifiek gebied of bereik van de organisatie.</p> <p>Buurderijen houden vergaderingen, sommige zijn privé en sommige zijn open. Als ze open zijn, kan het mogelijk zijn om eraan deel te nemen (bijvoorbeeld: aanwezig zijn als de capaciteit dit toelaat, punten aan de agenda toevoegen, of commentaar leveren op de voorstellen en besluiten die door dit orgaan worden genomen).</p> <p>Voorbeelden: een algemene vergadering (die één keer per jaar bijeenkomt om de belangrijkste actielijnen van de organisatie en haar uitvoerende organen te definiëren door middel van stemming), een adviesraad voor gelijkheid (die elke twee maanden bijeenkomt om voorstellen te doen over hoe de genderbetrekkingen in de organisatie kunnen worden verbeterd), een evaluatiecommissie (die elke maand bijeenkomt om een proces te volgen) of een garantieorgaan (dat incidenten, misbruik of voorstellen verzamelt om de besluitvormingsprocedures te verbeteren) zijn allemaal voorbeelden van vergaderingen.</p>\n"
           page: "<p>Een vergadering is een groep leden van een organisatie die regelmatig bijeenkomen om besluiten te nemen over een specifiek gebied of bereik van de organisatie.</p> <p>Buurderijen houden vergaderingen, sommige zijn privé en sommige zijn open. Als ze open zijn, kan het mogelijk zijn om eraan deel te nemen (bijvoorbeeld: aanwezig zijn als de capaciteit dit toelaat, punten aan de agenda toevoegen, of commentaar leveren op de voorstellen en besluiten die door dit orgaan worden genomen).</p> <p>Voorbeelden: een algemene vergadering (die één keer per jaar bijeenkomt om de belangrijkste actielijnen van de organisatie en haar uitvoerende organen te definiëren door middel van stemming), een adviesraad voor gelijkheid (die elke twee maanden bijeenkomt om voorstellen te doen over hoe de genderbetrekkingen in de organisatie kunnen worden verbeterd), een evaluatiecommissie (die elke maand bijeenkomt om een proces te volgen) of een garantieorgaan (dat incidenten, misbruik of voorstellen verzamelt om de besluitvormingsprocedures te verbeteren) zijn allemaal voorbeelden van vergaderingen.</p>\n"
-          title: Wat zijn assemblages?
+          title: Wat zijn groepen?
     log:
       value_types:
         assembly_presenter:
           not_found: 'De Buurderij is niet gevonden op de database (ID: %{id})'
     menu:
-      assemblies: Gemeentes
+      assemblies: Groepen
     metrics:
       assemblies:
         description: Aantal aangemaakte vergaderingen
-        object: gemeentes
-        title: Gemeentes
+        object: groepen
+        title: Groepen
   errors:
     messages:
       cannot_be_blank: mag niet leeg zijn
@@ -356,12 +356,12 @@ nl-BE:
           take_part: Deelnemen
         index:
           organizational_chart: Organisatorische driver
-          promoted_assemblies: Uitgelichte samenstellingen
+          promoted_assemblies: Uitgelichte groepen
           reset_chart: Reset
         order_by_assemblies:
           assemblies:
-            one: "%{count} assemblage"
-            other: "%{count} gemeentes"
+            one: "%{count} groep"
+            other: "%{count} groepen"
         promoted_assembly:
           more_info: Meer informatie
           take_part: Deelnemen
