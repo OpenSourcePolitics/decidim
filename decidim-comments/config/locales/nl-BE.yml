@@ -11,7 +11,7 @@ nl-BE:
         one: Commentaar
         other: Reacties
       decidim/comments/comment_vote:
-        one: Stemmen
+        one: Stem
         other: Stemmen
   decidim:
     comments:
