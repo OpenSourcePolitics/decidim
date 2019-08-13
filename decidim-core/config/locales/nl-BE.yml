@@ -18,7 +18,7 @@ nl-BE:
       decidim/amendable/amendment_accepted_event: Amenden geaccepteerd
       decidim/amendable/amendment_created_event: Amenden geaccepteerd
       decidim/amendable/amendment_rejected_event: Amenden geaccepteerd
-      decidim/amendable/emendation_promoted_event: Amenden geaccepteerd
+      decidim/amendable/emendation_promoted_event: Amendement geaccepteerd
       decidim/attachment_created_event: Bijlage
       decidim/component_published_event: Actieve component
       decidim/demoted_membership: Niet langer een groepsbeheerder
