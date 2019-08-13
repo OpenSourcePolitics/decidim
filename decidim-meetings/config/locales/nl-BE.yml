@@ -2,7 +2,7 @@ nl-BE:
   activemodel:
     attributes:
       agenda:
-        description: Beschrijving
+        description: Omschrijving	
         duration: Looptijd
         title: Titel
       close_meeting:
@@ -16,7 +16,7 @@ nl-BE:
         available_slots: Beschikbare slots voor deze vergadering
         decidim_category_id: Categorie
         decidim_scope_id: Reikwijdte
-        description: Beschrijving
+        description: Omschrijving	
         end_time: Eindtijd
         location: Plaats
         location_hints: Locatie hints
@@ -30,7 +30,7 @@ nl-BE:
         transparent: Transparant
       minutes:
         audio_url: Audio url
-        description: Beschrijving
+        description: Omschrijving	
         video_url: Video url
         visible: Is zichtbaar
     errors:
@@ -249,7 +249,7 @@ nl-BE:
             create: Creëren
             title: Maak een afspraak
           service:
-            description: Beschrijving
+            description: Omschrijving	
             down: Onder
             remove: Verwijder
             service: Service
