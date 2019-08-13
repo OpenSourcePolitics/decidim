@@ -25,7 +25,7 @@ nl-BE:
       initiatives_committee_member:
         user: Comité leden
       initiatives_type:
-        banner_image: Banner afbeelding
+        banner_image: Bannerafbeelding
         description: Beschrijving
         title: Titel
       organization_data:
