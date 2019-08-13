@@ -13,10 +13,10 @@ nl-BE:
         end_date: Einddatum
         hashtag: Hashtag
         hero_image: Afbeelding van de startpagina
-        local_area: Lokale buurt
+        local_area: Organisatiegebied
         meta_scope: Omvang metadata
         participatory_process_group_id: Processen groep
-        participatory_scope: Participatief toepassingsgebied
+        participatory_scope: Wat wordt besloten
         participatory_structure: Participatieve structuur
         private_space: Concertatie privée
         promoted: gepromoveerd
@@ -28,7 +28,7 @@ nl-BE:
         slug: URL slak
         start_date: Begindatum
         subtitle: subtitel
-        target: Doel
+        target: Wie doet mee
         title: Titel
       participatory_process_group:
         description: Beschrijving
@@ -86,7 +86,7 @@ nl-BE:
         participatory_processes_submenu:
           attachment_collections: Map
           attachment_files: Bestanden
-          attachments: toebehoren
+          attachments: Bijlagen
           categories: Categorieën
           components: Componenten
           info: info
@@ -350,13 +350,13 @@ nl-BE:
       show:
         developer_group: Ontwikkelaarsgroep
         end_date: Einddatum
-        local_area: Lokale buurt
-        participatory_scope: Participatief toepassingsgebied
+        local_area: Organisatiegebied
+        participatory_scope: Wat wordt besloten
         participatory_structure: Participatieve structuur
         private_space: Dit is een privé-proces
         scope: Reikwijdte
         start_date: Begindatum
-        target: Doel
+        target: Wie doet mee
         unspecified: Niet Gespecificeerd
       statistics:
         answers_count: antwoorden
