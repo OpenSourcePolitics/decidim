@@ -18,7 +18,7 @@ nl-BE:
         decidim_area_id: Gebied
         decidim_scope_id: Reikwijdte
         description: Omschrijving	
-        developer_group: Ontwikkelaarsgroep
+        developer_group: Promotorgroep
         domain: Domein
         duration: Looptijd
         facebook: Facebook
@@ -289,7 +289,7 @@ nl-BE:
         composition: Compositie
         created_by: Gemaakt door
         creation_date: Datum aangemaakt
-        developer_group: Ontwikkelaarsgroep
+        developer_group: Promotorgroep
         duration: Looptijd
         included_at: '-'
         indefinite_duration: Onbepaald
