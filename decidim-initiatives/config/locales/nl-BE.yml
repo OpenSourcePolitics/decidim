@@ -3,7 +3,7 @@ nl-BE:
     attributes:
       initiative:
         decidim_user_group_id: Auteur
-        description: Beschrijving
+        description: Omschrijving	
         offline_votes: Face-to-face ondersteuning
         scope_id: Reikwijdte
         signature_end_date: Einde van de ondertekening collectie periode
@@ -26,7 +26,7 @@ nl-BE:
         user: Comité leden
       initiatives_type:
         banner_image: Bannerafbeelding
-        description: Beschrijving
+        description: Omschrijving	
         title: Titel
       organization_data:
         address: Adres
