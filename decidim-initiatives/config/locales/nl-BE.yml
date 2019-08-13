@@ -210,7 +210,7 @@ nl-BE:
         validating: Technische validatie
       committee_requests:
         new:
-          continue: Verstuur
+          continue: Volgende
           help_text: U gaat vragen lid te worden van de commissie promotor van dit initiatief
         spawn:
           success: Uw verzoek is verzonden naar de initiatiefauteur.
@@ -220,7 +220,7 @@ nl-BE:
       create_initiative:
         fill_data:
           back: Terug
-          continue: Verstuur
+          continue: Volgende
           fill_data_help: "<ul> <li>Herzie de inhoud van uw initiatief. Is uw titel gemakkelijk te begrijpen? Is de doelstelling van uw initiatief duidelijk?</li> <li>U moet het type handtekening kiezen. In-persoon, online of een combinatie van zowel</li> <li>welke de geografische reikwijdte van het initiatief is? Plaats, district?</li> </ul>"
           initiative_type: Nieuw initiatieftype
           more_information: "(Meer informatie)"
@@ -240,7 +240,7 @@ nl-BE:
           page: pagina's
         previous_form:
           back: Terug
-          continue: Verstuur
+          continue: Volgende
           help: Wat bestaat er uit het initiatief? Schrijf de titel en beschrijving op. We raden een korte en beknopte titel aan en een beschrijving die gericht is op de voorgestelde oplossing.
           more_information: "(Meer informatie)"
         promotal_committee:
@@ -253,7 +253,7 @@ nl-BE:
           select: Kiezen
           select_initiative_type_help: Burgerinitiatieven zijn een middel om het burgerschap te beïnvloeden, zodat de Raad van Stad maatregelen kan nemen ter verdediging van het algemeen belang dat onder de gemeentelijke jurisdictie valt, welk initiatief wilt u lanceren?
         share_committee_link:
-          continue: Verstuur
+          continue: Volgende
           invite_to_committee_help: Link om mensen uit te nodigen die deel zullen uitmaken van de promotor commissie
         show_similar_initiatives:
           back: Terug
