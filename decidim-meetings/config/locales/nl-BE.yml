@@ -155,7 +155,7 @@ nl-BE:
         attachments: Bijlagen
         close: Sluit
         confirm_destroy: Weet u zeker dat u deze vergadering wilt verwijderen?
-        destroy: Verwijderen
+        destroy: Verwijder
         edit: Bewerk
         minutes: Minuten
         new: nieuwe
@@ -169,12 +169,12 @@ nl-BE:
             agenda_item: Agenda item
             agenda_item_children: Agenda item Childs
             down: Onder
-            remove: Verwijderen
+            remove: Verwijder
             up: Op
           agenda_item_child:
             agenda_item_child: Agenda item Childs
             down: Onder
-            remove: Verwijderen
+            remove: Verwijder
             up: Op
           create:
             invalid: Er is een probleem opgetreden met het maken van deze vergadering
@@ -251,7 +251,7 @@ nl-BE:
           service:
             description: Beschrijving
             down: Onder
-            remove: Verwijderen
+            remove: Verwijder
             service: Service
             title: Titel
             up: Op
