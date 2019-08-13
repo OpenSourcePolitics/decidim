@@ -9,9 +9,9 @@ nl-BE:
         about: Over
         email: Uw e-mailadres
         name: Uw naam
-        nickname: Bijnaam
+        nickname: Uw bijnaam
         password: Nieuw wachtwoord
-        password_confirmation: Bevestig uw nieuwe wachtwoord
+        password_confirmation: Bevestig uw wachtwoord
         personal_url: Persoonlijke URL
         remove_avatar: Verwijder avatar
     models:
