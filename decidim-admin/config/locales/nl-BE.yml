@@ -3,10 +3,10 @@ nl-BE:
     attributes:
       area:
         area_type: Onderwerp
-        name: Beheerde gebruiker
+        name: Naam
         organization: Organisatie
       area_type:
-        name: Beheerde gebruiker
+        name: Naam
         organization: Organisatie
         plural: Meervoud
       attachment:
@@ -16,13 +16,13 @@ nl-BE:
         title: Titel
       attachment_collection:
         description: Beschrijving
-        name: Beheerde gebruiker
+        name: Naam
       category:
         description: Beschrijving
         name: Naam
         parent_id: Ouder
       component:
-        name: Beheerde gebruiker
+        name: Naam
         published_at: Gepubliceerd op
         weight: Gewicht
       id: ID kaart
@@ -30,7 +30,7 @@ nl-BE:
         body: Lichaam
         subject: Onderwerpen
       oauth_application:
-        name: Beheerde gebruiker
+        name: Naam
         organization_logo: Logo organisatie (vierkant)
         organization_name: Organisatienaam
         organization_url: URL van de organisatie
@@ -198,7 +198,7 @@ nl-BE:
           title: Bewerk bijlage
           update: Bijwerken
         index:
-          attachments_title: toebehoren
+          attachments_title: Bijlagen
         new:
           create: Maak bijlage
           title: Nieuwe bijlage
@@ -352,10 +352,10 @@ nl-BE:
         area:
           fields:
             area_type: Onderwerp
-            name: Beheerde gebruiker
+            name: Naam
         area_type:
           fields:
-            name: Beheerde gebruiker
+            name: Naam
             plural: Meervoud
         attachment:
           fields:
@@ -377,7 +377,7 @@ nl-BE:
             started_at: Gestart op
             user: Gebruiker
         managed_user:
-          name: Beheerde gebruiker
+          name: Naam
         navbar_link:
           fields:
             link: Link
@@ -393,7 +393,7 @@ nl-BE:
         oauth_application:
           fields:
             created_at: Gemaakt bij
-            name: Beheerde gebruiker
+            name: Naam
           name: OAuth uygulaması
         participatory_space_private_user:
           name: Gebruiker van de burgerinspraak
@@ -524,7 +524,7 @@ nl-BE:
             officialized: Officieel
           filter_by: Filteren op
           name: Naam
-          nickname: Gebruikesnaam
+          nickname: Bijnaam
           not_officialized: Niet officized
           officialize: Officieel
           officialized: Officieel
