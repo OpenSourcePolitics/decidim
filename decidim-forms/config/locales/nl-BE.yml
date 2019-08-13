@@ -20,7 +20,7 @@ nl-BE:
       admin:
         models:
           components:
-            description: Beschrijving
+            description: Omschrijving	
             tos: Algemene voorwaarden
         questionnaires:
           answer_option:
@@ -37,7 +37,7 @@ nl-BE:
           question:
             add_answer_option: Antwoord optie
             any: Maakt niet uit
-            description: Beschrijving
+            description: Omschrijving	
             down: Onder
             question: Vraag
             remove: Verwijder
