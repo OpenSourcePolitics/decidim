@@ -178,7 +178,7 @@ nl-BE:
           name: Leden
           positions:
             other: Overig
-            president: De Voorzitter
+            president: Voorzitter
             secretary: Minister
             vice_president: Ondervoorzitter
         assembly_user_role:
