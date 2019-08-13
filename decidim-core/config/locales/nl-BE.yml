@@ -57,16 +57,16 @@ nl-BE:
   date:
     formats:
       decidim_short: "%d/%m/%Y"
-      decidim_short_with_month_name_short: "%d/%b/%Y"
-      decidim_with_day_and_month_name: "%A %d, %b:%Y"
-      decidim_with_month_name: "%d/%B/%Y"
-      decidim_with_month_name_short: "%d/%b/"
+      decidim_short_with_month_name_short: "%d %b %Y"
+      decidim_with_day_and_month_name: "%A %d %b %Y"
+      decidim_with_month_name: "%d %B %Y"
+      decidim_with_month_name_short: "%d %b"
   decidim:
     account:
       data_portability_export:
         file_no_exists: Bestand bestaat niet
         invalid_token: De opgegeven token is ongeldig.
-        no_token: Geen token opgegeven
+        no_token: Geen token verstrekt
         notice: Uw export is momenteel aan de gang. U ontvangt een email wanneer het klaar is.
       delete:
         alert: Deze actie kan niet ongedaan gemaakt worden. Als u uw account verwijdert, kunt u zich niet aanmelden.
@@ -1262,11 +1262,11 @@ nl-BE:
     xing: Xing
   time:
     formats:
-      day_of_month: "%b/%d/"
+      day_of_month: "%b %d"
       day_of_week: "%a"
       day_of_week_long: "%a %e"
       day_of_year: "%d.%m.%y"
-      decidim_day_of_year: "%d/%B/%Y"
+      decidim_day_of_year: "%d %B %Y"
       decidim_short: "%d/%m/%Y/%H:%M/"
       devise:
         mailer:
