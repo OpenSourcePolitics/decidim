@@ -146,7 +146,7 @@ nl-BE:
         conferences_submenu:
           attachment_collections: Map
           attachment_files: Bestanden
-          attachments: Toebehoren
+          attachments: Bijlagen
           categories: Categorieën
           components: Componenten
           conference_admins: Nieuwe conferentie gebruiker
@@ -438,7 +438,7 @@ nl-BE:
         conference_invite:
           fields:
             email: E-mail
-            name: Beheerde gebruiker
+            name: Naam
             registration_type: Type
             sent_at: Verzonden bij
             status: Status
@@ -449,7 +449,7 @@ nl-BE:
         conference_registration:
           fields:
             email: E-mail
-            name: Beheerde gebruiker
+            name: Naam
             registration_type: Type
             state: Staat
             states:
