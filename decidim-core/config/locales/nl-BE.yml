@@ -544,7 +544,7 @@ nl-BE:
         error: Er is een fout opgetreden unfollowing van deze resource.
     forms:
       current_file: Huidig ​​bestand
-      current_image: Huidig ​​beeld
+      current_image: Huidig ​​afbeelding
       default_image: Standaard afbeelding
       errors:
         error: Er is een fout in dit veld.
