@@ -17,7 +17,7 @@ nl-BE:
         meta_scope: Omvang metadata
         participatory_process_group_id: Processen groep
         participatory_scope: Wat wordt besloten
-        participatory_structure: Participatieve structuur
+        participatory_structure: Hoe is het besloten
         private_space: Concertatie privée
         promoted: gepromoveerd
         published_at: Gepubliceerd op
@@ -352,7 +352,7 @@ nl-BE:
         end_date: Einddatum
         local_area: Organisatiegebied
         participatory_scope: Wat wordt besloten
-        participatory_structure: Participatieve structuur
+        participatory_structure: Hoe is het besloten
         private_space: Dit is een privé-proces
         scope: Reikwijdte
         start_date: Begindatum
@@ -365,7 +365,7 @@ nl-BE:
         endorsements_count: Eindverklaringen
         headline: Activiteit
         meetings_count: Vergaderingen
-        orders_count: bestellingen
+        orders_count: Stemmen
         pages_count: Pagina's
         processes_count: Processen
         projects_count: Projecten
@@ -373,7 +373,7 @@ nl-BE:
         results_count: Resultaten
         surveys_count: onderzoeken
         users_count: Deelnemers
-        votes_count: stemmen
+        votes_count: Stemmen
   layouts:
     decidim:
       participatory_process_groups:
