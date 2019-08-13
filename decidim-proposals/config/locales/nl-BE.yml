@@ -588,7 +588,7 @@ nl-BE:
       participatory_text_proposal:
         alternative_title: Er zijn momenteel geen participatieve teksten
         buttons:
-          amend: Wijzigend
+          amend: Pas aan
           comment: Commentaar
           comments: Reacties
           endorse: Eindstation
@@ -771,7 +771,7 @@ nl-BE:
         index:
           title: Versies
         stats:
-          back_to_collaborative_draft: Voltooi uw gezamenlijke ontwerp
+          back_to_collaborative_draft: Terug naar gezamenlijke ontwerp
           back_to_proposal: Terug naar voorstel
           number_of_versions: Versies
           show_all_versions: Alle versies weergeven
