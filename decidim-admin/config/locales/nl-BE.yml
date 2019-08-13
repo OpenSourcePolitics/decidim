@@ -11,14 +11,14 @@ nl-BE:
         plural: Meervoud
       attachment:
         attachment_collection_id: Map
-        description: Beschrijving
+        description: Omschrijving	
         file: Het dossier
         title: Titel
       attachment_collection:
-        description: Beschrijving
+        description: Omschrijving	
         name: Naam
       category:
-        description: Beschrijving
+        description: Omschrijving	
         name: Naam
         parent_id: Ouder
       component:
@@ -42,7 +42,7 @@ nl-BE:
         cta_button_path: Oproep naar actie knop pad
         cta_button_text: Oproep naar actie knop pad
         default_locale: Standaard locale
-        description: Beschrijving
+        description: Omschrijving	
         enable_omnipresent_banner: Toon omnipresent banner
         facebook_handler: Facebook handler
         favicon: Icoon
@@ -54,7 +54,7 @@ nl-BE:
         highlighted_content_banner_action_url: Ondertitels van de actieknop
         highlighted_content_banner_enabled: Toon de gemarkeerde inhoudsbanner
         highlighted_content_banner_image: Afbeelding
-        highlighted_content_banner_short_description: Korte beschrijving
+        highlighted_content_banner_short_description: Korte omschrijving
         highlighted_content_banner_title: Titel
         instagram_handler: Instagram handler
         logo: '-'
@@ -62,7 +62,7 @@ nl-BE:
         official_img_footer: Officiële logo footer
         official_img_header: Officiële logo header
         official_url: Officiële organisatie url
-        omnipresent_banner_short_description: Korte beschrijving
+        omnipresent_banner_short_description: Korte omschrijving
         omnipresent_banner_title: Titel
         omnipresent_banner_url: URL
         password: Wachtwoord
@@ -93,11 +93,11 @@ nl-BE:
         content: Inhoud
         organization: Organisatie
         show_in_footer: Toon in de voettekst
-        slug: URL slak
+        slug: URL pad
         title: Titel
         weight: Gewicht
       static_page_topic:
-        description: Beschrijving
+        description: Omschrijving	
         show_in_footer: Toon in de voettekst
         title: Titel
         weight: Gewicht
@@ -119,7 +119,7 @@ nl-BE:
     attributes:
       decidim/static_page:
         content: Inhoud
-        slug: URL slak
+        slug: URL pad
         title: Titel
       doorkeeper/application:
         authorize_url: Autorisatie URL
