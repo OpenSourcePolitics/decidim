@@ -5,7 +5,7 @@ nl-BE:
         budget: Begroting
         decidim_category_id: Categorie
         decidim_scope_id: Reikwijdte
-        description: Beschrijving
+        description: Omschrijving	
         proposal_ids: Verwante voorstellen
         title: Titel
   activerecord:
@@ -78,7 +78,7 @@ nl-BE:
           cancel: Annuleer
           confirm: Bevestigen
           description: Dit zijn de projecten die u hebt gekozen om deel uit te maken van de begroting.
-          title: Bevestig de stem
+          title: Bevestig stem
         budget_excess:
           close: Sluit
           description: Dit project overschrijdt het maximale budget en kan niet worden toegevoegd. Als u wilt, kunt u een project verwijderen dat u al hebt geselecteerd om toe te voegen of uw stem te maken met uw voorkeuren.
