@@ -367,7 +367,7 @@ nl-BE:
     decidim:
       admin:
         initiative:
-          attachments: toebehoren
+          attachments: Bijlagen
           committee_members: Comité leden
           components: Componenten
           information: Informatie
