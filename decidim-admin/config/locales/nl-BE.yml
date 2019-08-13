@@ -470,7 +470,7 @@ nl-BE:
           error_already_sent: 'Kan de nieuwsbrief niet vernietigen: het is al verstuurd.'
           success: Nieuwsbrief is succesvol vernietigd.
         edit:
-          save_and_preview: Opslaan en previewen
+          save_and_preview: Opslaan en voorbeeld
           title: Bewerk nieuwsbrief
         form:
           interpolations_hint: 'Hint: U kunt "%{name}" overal in het lichaam of onderwerp gebruiken en het wordt vervangen door de naam van de ontvanger.'
