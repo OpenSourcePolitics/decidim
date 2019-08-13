@@ -3,7 +3,7 @@ nl-BE:
     attributes:
       agenda:
         description: Beschrijving
-        duration: Duur
+        duration: Looptijd
         title: Titel
       close_meeting:
         attendees_count: Aantal deelnemers
@@ -38,8 +38,8 @@ nl-BE:
         meeting_agenda:
           attributes:
             base:
-              too_many_minutes: De duur van de items overschrijdt de vergaderduur met %{count} minuten
-              too_many_minutes_child: De duur van de item kinders overschrijdt de agenda item "%{parent_title}" bovenliggende duur met %{count} minuten
+              too_many_minutes: De looptijd van de items overschrijdt de vergaderduur met %{count} minuten
+              too_many_minutes_child: De looptijd van de item kinders overschrijdt de agenda item "%{parent_title}" bovenliggende duur met %{count} minuten
         meeting_registration_invite:
           attributes:
             email:
