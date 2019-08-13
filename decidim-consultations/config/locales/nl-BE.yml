@@ -55,7 +55,7 @@ nl-BE:
       actions:
         new_consultation: Nieuwe raadpleging
         new_question: Nieuwe vraag
-        new_response: Nieuwe antwoord
+        new_response: Nieuw antwoord
         publish_results: Publiceer resultaten
         unpublish_results: Publiceer resultaten
       consultation_publications:
@@ -152,10 +152,10 @@ nl-BE:
           success: Organisatie is succesvol gemaakt.
       responses:
         create:
-          error: Er is een fout opgetreden bij het maken van een nieuwe antwoord.
+          error: Er is een fout opgetreden bij het maken van een nieuw antwoord.
           success: Antwoord met succes gemaakt.
         destroy:
-          error: Er is een fout opgetreden bij het maken van een nieuwe antwoord.
+          error: Er is een fout opgetreden bij het maken van een nieuw antwoord.
           success: Antwoord met succes gemaakt.
         edit:
           update: Bijwerken
@@ -163,10 +163,10 @@ nl-BE:
           title: Algemene informatie
         new:
           create: Creëren
-          title: Nieuwe antwoord
+          title: Nieuw antwoord
         update:
           error: Er is een fout opgetreden bij het bijwerken van dit bereik.
-          success: Antwoord is succesvol gemaakt.
+          success: Reactie is bijgewerkt.
       titles:
         consultations: Raadplegingen
         questions: Vragen
@@ -178,9 +178,9 @@ nl-BE:
             max_results: Maximaal aantal te tonen elementen
       consultation:
         start_voting_date: Stemmen begint
-        view_results: Resultaten tonen
+        view_results: Bekijk resultaten
       consultation_card:
-        view_results: Resultaten tonen
+        view_results: Bekijk resultaten
       consultations:
         orders:
           label: 'Sorteer raadplegingen op:'
@@ -220,16 +220,16 @@ nl-BE:
             voting_ends_in:
               one: Stemmen eindigt <strong>morgen</strong>
               other: Stemmen eindigt over <strong>%{count} dagen</strong>
-            voting_ends_today: Stemmen eindigt <strong>morgen</strong>
+            voting_ends_today: Stemmen eindigt <strong>vandaag</strong>
       question:
         take_part: Deelnemen
-        view_results: Resultaten tonen
+        view_results: Bekijk resultaten
         votes_out_of:
           one: stem uit
           other: stemmen uit
       question_votes:
         create:
-          error: Er zijn fouten geweest bij het stemmen van de reactie
+          error: Er zijn fouten opgetreden bij het stemmen op de vraag
       regular_questions:
         title: Vragen voor deze raadpleging
       show:
@@ -239,11 +239,11 @@ nl-BE:
           open_votes: Open stemmen
           published_results: Resultaten gepubliceerd
         footer_button_text:
-          debate: Debatten
+          debate: Debat
           view: Uitzicht
-          view_results: Resultaten tonen
+          view_results: Bekijk resultaten
           vote: Stemmen
-        unspecified: Niet Gespecificeerd
+        unspecified: Niet gespecificeerd
     help:
       participatory_spaces:
         consultations:
@@ -274,7 +274,7 @@ nl-BE:
         starting_from: Begint vanaf %{date}
         vote: Stemmen
       vote_modal:
-        contextual_help: Kies een optie.
+        contextual_help: Maak een keuze a. u. b.	
         title: 'Raadpleging: vraagondersteuning'
       vote_modal_confirm:
         change: Wijzig
