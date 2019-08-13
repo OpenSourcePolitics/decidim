@@ -29,11 +29,11 @@ nl-BE:
         instagram: Instagram
         internal_organisation: Interne organisatie
         is_transparent: Is transparant
-        local_area: Lokale buurt
+        local_area: Organisatiegebied
         meta_scope: Omvang metadata
         parent_id: Ouder vergadering
         participatory_processes_ids: Update deelnemende proces gebruiker
-        participatory_scope: Participatief toepassingsgebied
+        participatory_scope: Wat wordt besloten
         participatory_structure: Participatieve structuur
         private_space: Privé ruimte
         promoted: gepromoveerd
@@ -44,9 +44,9 @@ nl-BE:
         short_description: Korte beschrijving
         show_statistics: Toon statistieken
         slug: URL slak
-        special_features: Speciale functies
+        special_features: Speciale functionaliteiten
         subtitle: subtitel
-        target: Doel
+        target: Wie doet mee
         title: Titel
         twitter: Twitter
         youtube: Youtube
@@ -122,7 +122,7 @@ nl-BE:
           title: Nieuwe montage.
         update:
           error: Er is een fout opgetreden die een gebruiker bijgewerkt heeft voor dit deelnemende proces.
-          success: Gebruiker is succesvol bijgewerkt voor dit deelnemende proces.
+          success: Gebruiker is succesvol bijgewerkt voor deze vergadering.
       assembly_publications:
         create:
           error: Er is een fout opgetreden bij het publiceren van deze assemblage.
@@ -146,7 +146,7 @@ nl-BE:
           title: Nieuwe montage.
         update:
           error: Er is een fout opgetreden die een gebruiker bijgewerkt heeft voor dit deelnemende proces.
-          success: Gebruiker is succesvol bijgewerkt voor dit deelnemende proces.
+          success: Gebruiker is succesvol bijgewerkt voor deze vergadering.
       menu:
         assemblies: Gemeentes
         assemblies_submenu:
@@ -154,7 +154,7 @@ nl-BE:
           assembly_members: Leden
           attachment_collections: Map
           attachment_files: Bestanden
-          attachments: toebehoren
+          attachments: Bijlagen
           categories: Categorieën
           components: Componenten
           info: info
@@ -168,25 +168,25 @@ nl-BE:
             promoted: Opvallende
             published: Gepubliceerd
             title: Titel
-          name: bijeenkomst
+          name: Groep
         assembly_member:
           fields:
             ceased_date: Datum van de datum
             designation_date: Ontwerpdatum
-            full_name: Beheerde gebruiker
+            full_name: Naam
             position: Positie
-          name: Leden
+          name: Lid
           positions:
             other: Overig
             president: Voorzitter
-            secretary: Minister
+            secretary: Secretaris
             vice_president: Ondervoorzitter
         assembly_user_role:
           fields:
             email: E-mail
-            name: Beheerde gebruiker
+            name: Naam
             role: Rol
-          name: Buurderij gebruikers
+          name: Groep gebruikers
           roles:
             admin: Beheerder
             collaborator: Medewerker
@@ -297,8 +297,8 @@ nl-BE:
         is_transparent:
           'false': ondoorzichtig
           'true': is transparant
-        local_area: Lokale buurt
-        participatory_scope: Participatief toepassingsgebied
+        local_area: Organisatiegebied
+        participatory_scope: Wat wordt besloten
         participatory_structure: Participatieve structuur
         private_space: Dit is een privé-vergadering
         purpose_of_action: Doelstelling
@@ -307,7 +307,7 @@ nl-BE:
         related_participatory_processes: Update deelnemende proces gebruiker
         scope: Reikwijdte
         social_networks: Social media
-        target: Doel
+        target: Wie doet mee
       statistics:
         answers_count: antwoorden
         assemblies_count: Gemeentes
