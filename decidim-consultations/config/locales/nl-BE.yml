@@ -48,7 +48,7 @@ nl-BE:
         one: Antwoord
         other: Antwoorden
       decidim/consultations/vote:
-        one: Toon stemmen
+        one: Toon stem
         other: Stemmen
   decidim:
     admin:
@@ -242,7 +242,7 @@ nl-BE:
           debate: Debat
           view: Uitzicht
           view_results: Bekijk resultaten
-          vote: Stemmen
+          vote: Stem
         unspecified: Niet gespecificeerd
     help:
       participatory_spaces:
@@ -272,7 +272,7 @@ nl-BE:
         already_voted: Al gestemd
         already_voted_hover: Ondersteuning intrekken
         starting_from: Begint vanaf %{date}
-        vote: Stemmen
+        vote: Stem
       vote_modal:
         contextual_help: Maak een keuze a. u. b.	
         title: 'Raadpleging: vraagondersteuning'
