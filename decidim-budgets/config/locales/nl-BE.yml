@@ -22,7 +22,7 @@ nl-BE:
         attachment_collections: Map
         attachments: Bijlagen
         confirm_destroy: Weet u zeker dat u dit project wilt verwijderen?
-        destroy: Verwijderen
+        destroy: Verwijder
         edit: Bewerk
         import: Importeer voorstellen naar projecten
         new: nieuwe
@@ -126,7 +126,7 @@ nl-BE:
           remaining_projects:
             one: 1 project om uw stem te valideren.
             other: "%{count} projecten om uw stem te valideren."
-          remove: Verwijderen
+          remove: Verwijder
           selected_projects:
             one: Geselecteerd project
             other: Geselecteerde projecten
@@ -140,7 +140,7 @@ nl-BE:
           count:
             one: 1 ondersteuning
             other: "%{count} ondersteunt"
-          remove: Verwijderen
+          remove: Verwijder
           view: Uitzicht
         project_budget_button:
           add: Toevoegen
