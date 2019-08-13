@@ -151,7 +151,7 @@ nl-BE:
     components:
       budgets:
         actions:
-          vote: Stemmen
+          vote: Stem
         name: Begroting
         settings:
           global:
@@ -188,5 +188,5 @@ nl-BE:
       included_proposals:
         project_proposal: 'Voorstellen opgenomen in dit resultaat:'
   index:
-    confirmed_orders_count: Bestellingen tellen
+    confirmed_orders_count: Stemmen tellen
   total_budget: Totale budget
