@@ -196,7 +196,7 @@ nl-BE:
       filters:
         active: Actief
         all: Alle
-        finished: Afgerond
+        finished: Voltooid
         search: Zoeken
         state: Staat
         upcoming: Aankomend
@@ -234,7 +234,7 @@ nl-BE:
         title: Vragen voor deze raadpleging
       show:
         badge_name:
-          finished: Afgerond
+          finished: Voltooid
           open: Open
           open_votes: Open stemmen
           published_results: Resultaten gepubliceerd
