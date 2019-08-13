@@ -4,7 +4,7 @@ nl-BE:
       debate:
         category_id: Categorie
         decidim_category_id: Categorie
-        description: Beschrijving
+        description: Omschrijving	
         end_time: Eindigde op
         information_updates: Informatie updates
         instructions: Instructies om deel te nemen
