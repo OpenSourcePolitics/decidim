@@ -12,13 +12,13 @@ nl-BE:
         title: Titel
         user_group_id: Maak debat als
     models:
-      decidim/debates/create_debate_event: Debatten
+      decidim/debates/create_debate_event: Debat
       decidim/debates/creation_disabled_event: Debatten uitgeschakeld
       decidim/debates/creation_enabled_event: Stemmen uitgeschakeld
   activerecord:
     models:
       decidim/debates/debate:
-        one: Debatten
+        one: Debat
         other: Debatten
   decidim:
     components:
@@ -64,7 +64,7 @@ nl-BE:
           debates: debatten
         models:
           debate:
-            name: Debatten
+            name: Debat
       admin_log:
         debate:
           create: "%{user_name} heeft het %{resource_name} lid aangemaakt in de %{space_name} -vergadering"
