@@ -47,7 +47,7 @@ nl-BE:
             - Fout bij het markeren van letter als verzonden.
             - Zodra u de brief zoals verzonden markert, kan de gebruiker de code invoeren en geverifieerd worden.
       direct: Direct
-      help: Meer informatie
+      help: Help
       id_documents:
         explanation: Upload uw identiteitsdocumenten zodat we uw identiteit kunnen controleren
         name: Identiteitsdocumenten
