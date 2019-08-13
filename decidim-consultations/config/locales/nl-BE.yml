@@ -4,14 +4,14 @@ nl-BE:
       consultation:
         banner_image: Bannerafbeelding
         decidim_highlighted_scope_id: Gemarkeerde scope
-        description: Beschrijving
+        description: Omschrijving	
         end_voting_date: Stemmen eindigt
         introductory_image: Introductieve afbeelding
-        introductory_video_url: Introductieve video URL
+        introductory_video_url: Introductievevideo-URL
         questions: Vragen
-        slug: URL slak
+        slug: URL pad
         start_voting_date: Stemmen begint
-        subtitle: Subtitel
+        subtitle: Ondertitel
         title: Titel
       question:
         banner_image: Bannerafbeelding
@@ -27,8 +27,8 @@ nl-BE:
         question_context: Context
         reference: Referentie
         scope: München gebied
-        slug: URL slak
-        subtitle: Subtitel
+        slug: URL pad
+        subtitle: Ondertitel
         title: Titel
         vote: Externe stemsysteem Url
         what_is_decided: Wat wordt besloten
@@ -45,8 +45,8 @@ nl-BE:
         one: Vraag
         other: Vragen
       decidim/consultations/response:
-        one: Reactie
-        other: Reactie
+        one: Antwoord
+        other: Antwoorden
       decidim/consultations/vote:
         one: Toon stemmen
         other: Stemmen
@@ -55,31 +55,31 @@ nl-BE:
       actions:
         new_consultation: Nieuwe raadpleging
         new_question: Nieuwe vraag
-        new_response: Nieuwe reactie
+        new_response: Nieuwe antwoord
         publish_results: Publiceer resultaten
         unpublish_results: Publiceer resultaten
       consultation_publications:
         create:
-          error: Er is een fout opgetreden bij het publiceren van deze assemblage.
-          success: Consultatie met succes gepubliceerd.
+          error: Er is een fout opgetreden bij het publiceren van deze raadpleging.
+          success: Raadpleging met succes gepubliceerd.
         destroy:
-          error: Er is een fout opgetreden bij het publiceren van deze assemblage.
-          success: Consultatie met succes gepubliceerd.
+          error: Er is een fout opgetreden bij het publiceren van deze raadpleging.
+          success: Raadpleging met succes gepubliceerd.
       consultation_results_publications:
         create:
-          error: Er is een fout opgetreden bij het publiceren van deze assemblage.
-          success: Consultatie met succes gepubliceerd.
+          error: Er is een fout opgetreden bij het publiceren van deze raadpleging.
+          success: Raadpleging met succes gepubliceerd.
         destroy:
-          error: Er is een fout opgetreden bij het publiceren van deze assemblage.
-          success: Consultatie met succes gepubliceerd.
+          error: Er is een fout opgetreden bij het publiceren van deze raadpleging.
+          success: Raadpleging met succes gepubliceerd.
       consultations:
         create:
-          error: Er is een fout opgetreden bij het maken van een nieuw bereik type.
-          success: Resultaat met succes gemaakt.
+          error: Er is een fout opgetreden bij het maken van een nieuw raadpleging.
+          success: Raadpleging met succes gemaakt.
         edit:
           update: Bijwerken
         form:
-          slug_help: 'URL-slugs worden gebruikt om de URL''s te genereren die naar deze vergadering verwijzen. Accepteer alleen letters, cijfers en streepjes, en moet beginnen met een letter. Voorbeeld: %{url}'
+          slug_help: 'URL pads worden gebruikt om de URL''s te genereren die naar deze raadpleging. Accepteer alleen letters, cijfers en streepjes, en moet beginnen met een letter. Voorbeeld: %{url}'
           title: Algemene informatie
         index:
           not_published: Niet gepubliceerd
@@ -88,10 +88,10 @@ nl-BE:
           create: Creëren
           title: Nieuwe raadpleging
         update:
-          error: Er is een fout opgetreden bij het bijwerken van deze organisatie.
-          success: Consultatie met succes gepubliceerd.
+          error: Er is een fout opgetreden bij het bijwerken van deze raadpleging.
+          success: Raadpleging met succes gepubliceerd.
       menu:
-        consultations: Raadpleging
+        consultations: Raadplegingen
         consultations_submenu:
           info: Informatie
           questions: Vragen
@@ -99,7 +99,7 @@ nl-BE:
           components: Componenten
           consultation: Raadpleging
           info: Informatie
-          responses: Reactie
+          responses: Antwoorden
       models:
         consultation:
           fields:
@@ -108,7 +108,7 @@ nl-BE:
             title: Titel
           name:
             one: Raadpleging
-            other: Raadpleging
+            other: Raadplegingen
         question:
           fields:
             created_at: Gemaakt bij
@@ -122,8 +122,8 @@ nl-BE:
             created_at: Gemaakt bij
             title: Titel
           name:
-            one: Reactie
-            other: Reactie
+            one: Antwoord
+            other: Antwoorden
       question_publications:
         create:
           error: Er is een fout opgetreden bij het publiceren van deze assemblage.
@@ -152,25 +152,25 @@ nl-BE:
           success: Organisatie is succesvol gemaakt.
       responses:
         create:
-          error: Er is een fout opgetreden bij het maken van een nieuwe reikwijdte.
-          success: Resultaat met succes gemaakt.
+          error: Er is een fout opgetreden bij het maken van een nieuwe antwoord.
+          success: Antwoord met succes gemaakt.
         destroy:
-          error: Er is een fout opgetreden bij het maken van een nieuwe reikwijdte.
-          success: Resultaat met succes gemaakt.
+          error: Er is een fout opgetreden bij het maken van een nieuwe antwoord.
+          success: Antwoord met succes gemaakt.
         edit:
           update: Bijwerken
         form:
           title: Algemene informatie
         new:
           create: Creëren
-          title: Nieuwe reactie
+          title: Nieuwe antwoord
         update:
           error: Er is een fout opgetreden bij het bijwerken van dit bereik.
-          success: Organisatie is succesvol gemaakt.
+          success: Antwoord is succesvol gemaakt.
       titles:
-        consultations: Raadpleging
+        consultations: Raadplegingen
         questions: Vragen
-        responses: Reactie
+        responses: Antwoorden
     consultations:
       admin:
         content_blocks:
@@ -208,7 +208,7 @@ nl-BE:
       highlighted_questions:
         title: Vragen van %{scope_name}
       index:
-        title: Raadpleging
+        title: Raadplegingen
       last_activity:
         new_consultation: Nieuwe raadpleging
         new_question_at_html: "<span>Nieuwe post op %{link}</span>"
@@ -249,13 +249,13 @@ nl-BE:
         consultations:
           contextual: "<p>raadplegingen zijn een ruimte die u in staat stelt een duidelijke vraag te stellen aan alle mensen die een organisatie vormen, een oproep te doen om deel te nemen aan de raadpleging, te vouwen en het debat voor of tegen een reactie te bestellen. Wanneer de raadplegingsdatum er is, kunt u stemmen en de uitslag van de stemmingen publiceren.</p> <p>Voorbeelden: het overleg kan over bijna elk aspect gaan dat een organisatie beïnvloedt: sommige voorbeelden veranderen de naam of het logo van de organisatie die verschillende alternatieven biedt, besluiten ja of nee om deel te nemen aan een grotere organisatie, valideren of verwerpen van een nieuw strategisch plan of het resultaat van een werkgroep, of bepalen of de posities maximaal 1, 2 of 3 mandaten moeten blijven.</p>\n"
           page: "<p>raadplegingen zijn een ruimte die u in staat stelt een duidelijke vraag te stellen aan alle mensen die een organisatie vormen, een oproep te doen om deel te nemen aan de raadpleging, te vouwen en het debat voor of tegen een reactie te bestellen. Wanneer de raadplegingsdatum er is, kunt u stemmen en de uitslag van de stemmingen publiceren.</p> <p>Voorbeelden: het overleg kan over bijna elk aspect gaan dat een organisatie beïnvloedt: sommige voorbeelden veranderen de naam of het logo van de organisatie die verschillende alternatieven biedt, besluiten ja of nee om deel te nemen aan een grotere organisatie, valideren of verwerpen van een nieuw strategisch plan of het resultaat van een werkgroep, of bepalen of de posities maximaal 1, 2 of 3 mandaten moeten blijven.</p>\n"
-          title: Actieve raadplegingen?
+          title: Wat zijn raadplegingen?
     menu:
-      consultations: Raadpleging
+      consultations: Raadplegingen
     pages:
       home:
         statistics:
-          consultations_count: Raadpleging
+          consultations_count: Raadplegingen
     questions:
       results:
         title: Resultaten
