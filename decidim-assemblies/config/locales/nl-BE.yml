@@ -20,7 +20,7 @@ nl-BE:
         description: Beschrijving
         developer_group: Ontwikkelaarsgroep
         domain: Domein
-        duration: Duur
+        duration: Looptijd
         facebook: Facebook
         github: GitHub
         hashtag: Hashtag
@@ -211,7 +211,7 @@ nl-BE:
       admin:
         assemblies:
           form:
-            duration_help: Als de duur van deze vergadering beperkt is, selecteer de einddatum. Anders zal deze voor onbepaalde tijd verschijnen.
+            duration_help: Als de looptijd van deze vergadering beperkt is, selecteer de einddatum. Anders zal deze voor onbepaalde tijd verschijnen.
             included_at_help: Selecteer de datum waarop deze vergadering is toegevoegd aan de Beslissingsdatum. Het hoeft niet noodzakelijkerwijs hetzelfde te zijn als de aanmaakdatum.
             select_a_created_by: Kies een categorie
             select_an_area: Selecteer een gebied
@@ -290,7 +290,7 @@ nl-BE:
         created_by: Gemaakt door
         creation_date: Datum aangemaakt
         developer_group: Ontwikkelaarsgroep
-        duration: Duur
+        duration: Looptijd
         included_at: '-'
         indefinite_duration: Onbepaald
         internal_organisation: Interne organisatie
