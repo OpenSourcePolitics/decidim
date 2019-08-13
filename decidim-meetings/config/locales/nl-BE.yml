@@ -210,7 +210,7 @@ nl-BE:
             existing_user: Bestaande gebruiker
             invite: Nodig uit
             invite_explanation: De gebruiker zal worden uitgenodigd om deel te nemen aan de conferentie en ook aan de organisatie.
-            non_user: Bestaande gebruiker
+            non_user: Niet bestaande gebruiker
             select_user: Gebruiker selecteren
           index:
             filter:
