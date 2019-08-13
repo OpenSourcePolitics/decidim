@@ -34,7 +34,7 @@ nl-BE:
         parent_id: Hoofdgroep
         participatory_processes_ids: Verwante bevragingen
         participatory_scope: Wat wordt besloten
-        participatory_structure: Participatieve structuur
+        participatory_structure: Hoe is het besloten
         private_space: Privé ruimte
         promoted: gepromoveerd
         published_at: Gepubliceerd op
@@ -299,7 +299,7 @@ nl-BE:
           'true': is transparant
         local_area: Organisatiegebied
         participatory_scope: Wat wordt besloten
-        participatory_structure: Participatieve structuur
+        participatory_structure: Hoe is het besloten
         private_space: Dit is een privé-groep
         purpose_of_action: Doelstelling
         read_less: Lees minder
