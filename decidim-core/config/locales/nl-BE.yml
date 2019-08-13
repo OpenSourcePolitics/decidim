@@ -40,7 +40,7 @@ nl-BE:
         remember_me: Blijf ingelogd
     models:
       decidim/amendment:
-        one: Amendementen
+        one: Amendement
         other: Amendementen
       decidim/user:
         one: Nieuwe gebruiker
@@ -893,7 +893,7 @@ nl-BE:
         badges: Symbool
         followers: Volgers
         following: Ga als volgt te
-        groups: Organisaties
+        groups: Groepen
         members: Leden
         timeline: Tijdslijn
         view_full_profile: Bezoek profiel
@@ -1225,7 +1225,7 @@ nl-BE:
         my_interests: Mijn belangen
         notifications_settings: Notificatie instellingen
         title: Gebruikersinstellingen
-        user_groups: Organisaties
+        user_groups: Groepen
       widget:
         see_more: B
   locale:
