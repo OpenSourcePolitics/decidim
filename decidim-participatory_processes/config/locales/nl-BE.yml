@@ -32,7 +32,7 @@ nl-BE:
         title: Titel
       participatory_process_group:
         description: Beschrijving
-        hero_image: Beeld
+        hero_image: Afbeelding
         name: Naam
         participatory_process_ids: Gerelateerde processen
       participatory_process_step:
