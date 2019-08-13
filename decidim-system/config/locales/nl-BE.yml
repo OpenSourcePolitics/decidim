@@ -11,7 +11,7 @@ nl-BE:
       admins:
         create:
           error: Er is een fout opgetreden bij het maken van een nieuwe admin.
-          success: Admin is succesvol gemaakt
+          success: Admin is succesvol aangemaakt
         destroy:
           success: Admin succesvol vernietigd
         edit:
@@ -52,12 +52,12 @@ nl-BE:
           fields:
             created_at: Gemaakt bij
             name: Naam
-            smtp_settings: Instellingen van de stappen
+            smtp_settings: SMTP-instellingen
           name: Organisatie
       organizations:
         create:
           error: Er is een fout opgetreden bij het aanmaken van een nieuwe organisatie.
-          success: Organisatie is succesvol gemaakt.
+          success: Organisatie is succesvol aangemaakt.
         edit:
           secondary_hosts_hint: Voer elk van hen in een nieuwe regel in
         index:
@@ -70,7 +70,7 @@ nl-BE:
           error: Er is een fout opgetreden bij het bijwerken van deze organisatie.
           success: Organisatie is succesvol bijgewerkt.
         users_registration_mode:
-          disabled: Toegang alleen kan worden gedaan met externe accounts
+          disabled: Enkel externe accounts hebben toegang
           enabled: Gebruikers toestaan om te registreren en in te loggen
           existing: Niet toestaan dat gebruikers zich registreren, maar toestaan dat bestaande gebruikers inloggen
       shared:
