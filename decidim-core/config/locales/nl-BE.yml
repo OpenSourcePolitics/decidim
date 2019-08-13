@@ -13,7 +13,7 @@ nl-BE:
         password: Wachtwoord
         password_confirmation: Bevestig uw wachtwoord
         personal_url: Persoonlijke URL
-        remove_avatar: Verwijder avatar
+        remove_avatar: Verwijder profielafbeelding
     models:
       decidim/amendable/amendment_accepted_event: Amenden geaccepteerd
       decidim/amendable/amendment_created_event: Amenden geaccepteerd
@@ -999,7 +999,7 @@ nl-BE:
         no_activities_warning: Deze gebruiker heeft deelgenomen aan debatten.
     user_interests:
       show:
-        my_interests: Mijn belangen
+        my_interests: Mijn interesses
         no_scopes: De organisatie heeft geen diensten!
         select_your_interests: Selecteer de onderwerpen die u interesseert om evenementen te ontvangen die met hen verband houden in uw profiel tijdlijn tabblad.
         update_my_interests: Update mijn interesses
@@ -1222,7 +1222,7 @@ nl-BE:
         authorizations: Bevoegdheden
         delete_my_account: Verwijder mijn account
         my_data: Mijn gegevens
-        my_interests: Mijn belangen
+        my_interests: Mijn interesses
         notifications_settings: Notificatie instellingen
         title: Gebruikersinstellingen
         user_groups: Groepen
