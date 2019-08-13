@@ -17,7 +17,7 @@ nl-BE:
         creation_date: Datum aangemaakt
         decidim_area_id: Gebied
         decidim_scope_id: Reikwijdte
-        description: Beschrijving
+        description: Omschrijving	
         developer_group: Ontwikkelaarsgroep
         domain: Domein
         duration: Looptijd
@@ -41,11 +41,11 @@ nl-BE:
         purpose_of_action: Doelstelling
         scope_id: Reikwijdte
         scopes_enabled: Scopes ingeschakeld
-        short_description: Korte beschrijving
+        short_description: Korte omschrijving
         show_statistics: Toon statistieken
-        slug: URL slak
+        slug: URL pad
         special_features: Speciale functionaliteiten
-        subtitle: subtitel
+        subtitle: Ondertitel
         target: Wie doet mee
         title: Titel
         twitter: Twitter
@@ -217,11 +217,11 @@ nl-BE:
             select_an_area: Selecteer een gebied
             select_an_assembly_type: Selecteer een groep type
             select_parent_assembly: Selecteer de hoofdgroep
-            slug_help: 'URL-slugs worden gebruikt om de URL''s te genereren die naar deze groep verwijzen. Accepteer alleen letters, cijfers en streepjes, en moet beginnen met een letter. Voorbeeld: %{url}'
+            slug_help: 'URL pads worden gebruikt om de URL''s te genereren die naar deze groep verwijzen. Accepteer alleen letters, cijfers en streepjes, en moet beginnen met een letter. Voorbeeld: %{url}'
             social_handlers: Sociaal
         assembly_copies:
           form:
-            slug_help: 'URL-slugs worden gebruikt om de URL''s te genereren die naar deze groep verwijzen. Accepteer alleen letters, cijfers en streepjes, en moet beginnen met een letter. Voorbeeld: %{url}'
+            slug_help: 'URL pads worden gebruikt om de URL''s te genereren die naar deze groep verwijzen. Accepteer alleen letters, cijfers en streepjes, en moet beginnen met een letter. Voorbeeld: %{url}'
         assembly_members:
           form:
             existing_user: Bestaande gebruiker
@@ -243,7 +243,7 @@ nl-BE:
         index:
           members: Leden
       assembly_types:
-        commission: Kompas
+        commission: Commissie
         consultative_advisory: Adviesgroep
         executive: Uitvoerend
         government: Overheid
