@@ -148,7 +148,7 @@ nl-BE:
         promote_help_text: U kunt deze amendement promoten en publiceren als onafhankelijke %{model_name}
         section_heading: Amendementen (%{count})
       created:
-        error: Er is een fout opgetreden bij het publiceren van dit amendement, probeer het later opnieuw
+        error: Er is een fout opgetreden tijdens het aanmaken van het amendement, probeer het later opnieuw
         success: Amendement succesvol gepubliceerd
       emendation:
         actions:
