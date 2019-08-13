@@ -31,7 +31,7 @@ nl-BE:
         subtitle: Subtitel
         title: Titel
         vote: Externe stemsysteem Url
-        what_is_decided: Participatief toepassingsgebied
+        what_is_decided: Wat wordt besloten
     errors:
       vote:
         decidim_consultations_response_id:
@@ -285,7 +285,7 @@ nl-BE:
     decidim:
       admin:
         question:
-          attachments: toebehoren
+          attachments: Bijlagen
           categories: Categorieën
       consultation_voting_data:
         start_voting_date: Stemmen begint
