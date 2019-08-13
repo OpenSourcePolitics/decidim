@@ -4,8 +4,8 @@ nl-BE:
       assembly:
         area_id: Gebied
         assembly_type: Groep type
-        assembly_type_other: Groep type anders
-        banner_image: Banner afbeelding
+        assembly_type_other: Ander groeptype
+        banner_image: Bannerafbeelding
         closing_date: Sluitingsdatum
         closing_date_reason: Reden sluitingsdatum
         composition: Compositie
@@ -32,7 +32,7 @@ nl-BE:
         local_area: Organisatiegebied
         meta_scope: Scope metadata
         parent_id: Hoofdgroep
-        participatory_processes_ids: Update deelnemende proces gebruiker
+        participatory_processes_ids: Verwante bevragingen
         participatory_scope: Wat wordt besloten
         participatory_structure: Participatieve structuur
         private_space: Privé ruimte
@@ -53,7 +53,7 @@ nl-BE:
       assembly_member:
         birthday: Verjaardag
         birthplace: Geboortplaats
-        ceased_date: Datum van de datum
+        ceased_date: Sluitingsdatum
         designation_date: Ontwerpdatum
         designation_mode: Ontwerpdatum
         full_name: Volledige naam
@@ -113,7 +113,7 @@ nl-BE:
         destroy:
           success: Gebruiker is succesvol bijgewerkt voor deze groep.
         edit:
-          title: Update groep gebruiker.
+          title: Groepslid bijwerken.
           update: Bijwerken
         index:
           assembly_members_title: Groep leden
@@ -137,7 +137,7 @@ nl-BE:
         destroy:
           success: Gebruiker is succesvol bijgewerkt voor deze groep.
         edit:
-          title: Update groep gebruiker.
+          title: Groepslid aanpassen.
           update: Bijwerken
         index:
           assembly_admins_title: Groep gebruikers
@@ -165,7 +165,7 @@ nl-BE:
           fields:
             created_at: Gemaakt bij
             private: Privé
-            promoted: Gemarkeerde
+            promoted: Gepromoveerd	
             published: Gepubliceerd
             title: Titel
           name: Groep
@@ -304,7 +304,7 @@ nl-BE:
         purpose_of_action: Doelstelling
         read_less: Lees minder
         read_more: Lees verder
-        related_participatory_processes: Update deelnemende proces gebruiker
+        related_participatory_processes: Verwante bevragingen
         scope: Reikwijdte
         social_networks: Social media
         target: Wie doet mee
