@@ -27,7 +27,7 @@ nl-BE:
         registrations_enabled: Registratieformulier ingeschakeld
         start_time: Starttijd
         title: Titel
-        transparent: Is transparant
+        transparent: Transparant
       minutes:
         audio_url: Audio url
         description: Beschrijving
@@ -420,7 +420,7 @@ nl-BE:
           success: U heeft de vergadering succesvol verlaten.
       types:
         private_meeting: Maak een afspraak
-        transparent: Is transparant
+        transparent: Transparant
     metrics:
       meetings:
         description: Aantal aangemaakte vergaderingen
