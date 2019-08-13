@@ -23,7 +23,7 @@ nl-BE:
       decidim/component_published_event: Actieve component
       decidim/demoted_membership: Niet langer een groepsbeheerder
       decidim/gamification/badge_earned_event: Badge verdiend
-      decidim/gamification/level_up_event: Je hebt omhoog geschoten
+      decidim/gamification/level_up_event: Je bereikte een hoger niveau
       decidim/join_request_accepted_event: Deelnameverzoek geaccepteerd
       decidim/join_request_rejected_event: Deelnameverzoek afgewezen
       decidim/profile_updated_event: Profiel bijgewerkt
@@ -173,7 +173,7 @@ nl-BE:
         back: Terug
         heading: Maak uw amendement aan
         help_text: U wijzigt de %{model_name}
-        send: Stuur amendement
+        send: Publiceer uw amendement
       promoted:
         error: Er zijn fouten geweest bij het stemmen van de reactie
         success: Emendatie succesvol gepromoot
@@ -993,7 +993,7 @@ nl-BE:
       version_author:
         deleted: Verwijderde gebruiker
     translate: Translators
-    translated: Translated
+    translated: Terug naar originele versie
     user_activity:
       index:
         no_activities_warning: Deze gebruiker heeft deelgenomen aan debatten.
