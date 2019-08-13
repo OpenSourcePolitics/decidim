@@ -117,7 +117,7 @@ nl-BE:
           title_per_budget: Maximale budget overschreden
           title_per_project: Maximum aantal projecten bereikt
         order_progress:
-          vote: Stemmen
+          vote: Stem
         order_selected_projects:
           choose: Keuze-mail encore
           per_project:
