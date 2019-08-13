@@ -108,45 +108,45 @@ nl-BE:
           title: Dupliceerde groep
       assembly_members:
         create:
-          error: Er is een fout opgetreden die een gebruiker bijgewerkt heeft voor dit groep.
-          success: Gebruiker is succesvol bijgewerkt voor dit deelnemende proces.
+          error: Er is een fout opgetreden die een gebruiker bijgewerkt heeft voor deze groep.
+          success: Gebruiker is succesvol bijgewerkt voor deze groep.
         destroy:
-          success: Gebruiker is succesvol bijgewerkt voor dit deelnemende proces.
+          success: Gebruiker is succesvol bijgewerkt voor deze groep.
         edit:
-          title: Update assemblee gebruiker.
+          title: Update groep gebruiker.
           update: Bijwerken
         index:
-          assembly_members_title: Bijwerken
+          assembly_members_title: Groep gebruikers
         new:
           create: Creëren
-          title: Nieuwe montage.
+          title: Nieuwe groep.
         update:
-          error: Er is een fout opgetreden die een gebruiker bijgewerkt heeft voor dit deelnemende proces.
-          success: Gebruiker is succesvol bijgewerkt voor deze vergadering.
+          error: Er is een fout opgetreden die een gebruiker bijgewerkt heeft voor deze groep.
+          success: Gebruiker is succesvol bijgewerkt voor deze groep.
       assembly_publications:
         create:
-          error: Er is een fout opgetreden bij het publiceren van deze assemblage.
-          success: Assemblage is succesvol gepubliceerd.
+          error: Er is een fout opgetreden bij het publiceren van deze groep.
+          success: Groep is succesvol gepubliceerd.
         destroy:
-          error: Er is een fout opgetreden bij het publiceren van deze assemblage.
-          success: Assemblage ongepubliceerd succesvol.
+          error: Er is een fout opgetreden bij het publiceren van deze groep.
+          success: Groep ongepubliceerd succesvol.
       assembly_user_roles:
         create:
-          error: Er is een fout opgetreden die een gebruiker bijgewerkt heeft voor dit deelnemende proces.
-          success: Gebruiker is succesvol bijgewerkt voor dit deelnemende proces.
+          error: Er is een fout opgetreden die een gebruiker bijgewerkt heeft voor deze groep.
+          success: Gebruiker is succesvol bijgewerkt voor deze groep.
         destroy:
-          success: Gebruiker is succesvol bijgewerkt voor dit deelnemende proces.
+          success: Gebruiker is succesvol bijgewerkt voor deze groep.
         edit:
-          title: Update assemblee gebruiker.
+          title: Update groep gebruiker.
           update: Bijwerken
         index:
-          assembly_admins_title: Buurderij gebruikers
+          assembly_admins_title: Groep gebruikers
         new:
           create: Creëren
-          title: Nieuwe montage.
+          title: Nieuwe groep gebruiker.
         update:
-          error: Er is een fout opgetreden die een gebruiker bijgewerkt heeft voor dit deelnemende proces.
-          success: Gebruiker is succesvol bijgewerkt voor deze vergadering.
+          error: Er is een fout opgetreden die een gebruiker bijgewerkt heeft voor deze groep.
+          success: Gebruiker is succesvol bijgewerkt voor deze groep.
       menu:
         assemblies: Groepen
         assemblies_submenu:
@@ -195,24 +195,24 @@ nl-BE:
         assemblies: Groepen
     admin_log:
       assembly:
-        create: "%{user_name} heeft de %{resource_name} -vergadering aangemaakt"
-        publish: "%{user_name} heeft de %{resource_name} -vergadering aangemaakt"
-        unpublish: "%{user_name} heeft de %{resource_name} -vergadering aangemaakt"
-        update: "%{user_name} heeft de %{resource_name} -vergadering aangemaakt"
+        create: "%{user_name} heeft de %{resource_name} -groep aangemaakt"
+        publish: "%{user_name} heeft de %{resource_name} -groep aangemaakt"
+        unpublish: "%{user_name} heeft de %{resource_name} -groep aangemaakt"
+        update: "%{user_name} heeft de %{resource_name} -groep aangemaakt"
       assembly_member:
-        create: "%{user_name} heeft het %{resource_name} lid aangemaakt in de %{space_name} -vergadering"
-        delete: "%{user_name} heeft het %{resource_name} lid aangemaakt in de %{space_name} -vergadering"
-        update: "%{user_name} heeft het %{resource_name} lid aangemaakt in de %{space_name} -vergadering"
+        create: "%{user_name} heeft het %{resource_name} lid aangemaakt in de %{space_name} -groep"
+        delete: "%{user_name} heeft het %{resource_name} lid aangemaakt in de %{space_name} -groep"
+        update: "%{user_name} heeft het %{resource_name} lid aangemaakt in de %{space_name} -groep"
       assembly_user_role:
-        create: "%{user_name} heeft het %{resource_name} lid aangemaakt in de %{space_name} -vergadering"
-        delete: "%{user_name} heeft het %{resource_name} lid aangemaakt in de %{space_name} -vergadering"
-        update: "%{user_name} heeft het %{resource_name} lid aangemaakt in de %{space_name} -vergadering"
+        create: "%{user_name} heeft het %{resource_name} lid aangemaakt in de %{space_name} -groep"
+        delete: "%{user_name} heeft het %{resource_name} lid aangemaakt in de %{space_name} -groep"
+        update: "%{user_name} heeft het %{resource_name} lid aangemaakt in de %{space_name} -groep"
     assemblies:
       admin:
         assemblies:
           form:
             duration_help: Als de looptijd van deze groep beperkt is, selecteer de einddatum. Anders zal deze voor onbepaalde tijd verschijnen.
-            included_at_help: Selecteer de datum waarop deze vergadering is toegevoegd aan de Beslissingsdatum. Het hoeft niet noodzakelijkerwijs hetzelfde te zijn als de aanmaakdatum.
+            included_at_help: Selecteer de datum waarop deze groep is toegevoegd aan de Beslissingsdatum. Het hoeft niet noodzakelijkerwijs hetzelfde te zijn als de aanmaakdatum.
             select_a_created_by: Kies een categorie
             select_an_area: Selecteer een gebied
             select_an_assembly_type: Selecteer een groep type
@@ -300,7 +300,7 @@ nl-BE:
         local_area: Organisatiegebied
         participatory_scope: Wat wordt besloten
         participatory_structure: Participatieve structuur
-        private_space: Dit is een privé-vergadering
+        private_space: Dit is een privé-groep
         purpose_of_action: Doelstelling
         read_less: Lees minder
         read_more: Lees verder
@@ -332,13 +332,13 @@ nl-BE:
     help:
       participatory_spaces:
         assemblies:
-          contextual: "<p>Een vergadering is een groep leden van een organisatie die regelmatig bijeenkomen om besluiten te nemen over een specifiek gebied of bereik van de organisatie.</p> <p>Buurderijen houden vergaderingen, sommige zijn privé en sommige zijn open. Als ze open zijn, kan het mogelijk zijn om eraan deel te nemen (bijvoorbeeld: aanwezig zijn als de capaciteit dit toelaat, punten aan de agenda toevoegen, of commentaar leveren op de voorstellen en besluiten die door dit orgaan worden genomen).</p> <p>Voorbeelden: een algemene vergadering (die één keer per jaar bijeenkomt om de belangrijkste actielijnen van de organisatie en haar uitvoerende organen te definiëren door middel van stemming), een adviesraad voor gelijkheid (die elke twee maanden bijeenkomt om voorstellen te doen over hoe de genderbetrekkingen in de organisatie kunnen worden verbeterd), een evaluatiecommissie (die elke maand bijeenkomt om een proces te volgen) of een garantieorgaan (dat incidenten, misbruik of voorstellen verzamelt om de besluitvormingsprocedures te verbeteren) zijn allemaal voorbeelden van vergaderingen.</p>\n"
-          page: "<p>Een vergadering is een groep leden van een organisatie die regelmatig bijeenkomen om besluiten te nemen over een specifiek gebied of bereik van de organisatie.</p> <p>Buurderijen houden vergaderingen, sommige zijn privé en sommige zijn open. Als ze open zijn, kan het mogelijk zijn om eraan deel te nemen (bijvoorbeeld: aanwezig zijn als de capaciteit dit toelaat, punten aan de agenda toevoegen, of commentaar leveren op de voorstellen en besluiten die door dit orgaan worden genomen).</p> <p>Voorbeelden: een algemene vergadering (die één keer per jaar bijeenkomt om de belangrijkste actielijnen van de organisatie en haar uitvoerende organen te definiëren door middel van stemming), een adviesraad voor gelijkheid (die elke twee maanden bijeenkomt om voorstellen te doen over hoe de genderbetrekkingen in de organisatie kunnen worden verbeterd), een evaluatiecommissie (die elke maand bijeenkomt om een proces te volgen) of een garantieorgaan (dat incidenten, misbruik of voorstellen verzamelt om de besluitvormingsprocedures te verbeteren) zijn allemaal voorbeelden van vergaderingen.</p>\n"
+          contextual: "<p>Een groep is een groep leden van een organisatie die regelmatig bijeenkomen om besluiten te nemen over een specifiek gebied of bereik van de organisatie.</p> <p>Groepen houden vergaderingen, sommige zijn privé en sommige zijn open. Als ze open zijn, kan het mogelijk zijn om eraan deel te nemen (bijvoorbeeld: aanwezig zijn als de capaciteit dit toelaat, punten aan de agenda toevoegen, of commentaar leveren op de voorstellen en besluiten die door dit orgaan worden genomen).</p> <p>Voorbeelden: een algemene groep (die één keer per jaar bijeenkomt om de belangrijkste actielijnen van de organisatie en haar uitvoerende organen te definiëren door middel van stemming), een adviesraad voor gelijkheid (die elke twee maanden bijeenkomt om voorstellen te doen over hoe de genderbetrekkingen in de organisatie kunnen worden verbeterd), een evaluatiecommissie (die elke maand bijeenkomt om een proces te volgen) of een garantieorgaan (dat incidenten, misbruik of voorstellen verzamelt om de besluitvormingsprocedures te verbeteren) zijn allemaal voorbeelden van groepen.</p>\n"
+          page: "<p>Een groep is een groep leden van een organisatie die regelmatig bijeenkomen om besluiten te nemen over een specifiek gebied of bereik van de organisatie.</p> <p>Groepen houden vergaderingen, sommige zijn privé en sommige zijn open. Als ze open zijn, kan het mogelijk zijn om eraan deel te nemen (bijvoorbeeld: aanwezig zijn als de capaciteit dit toelaat, punten aan de agenda toevoegen, of commentaar leveren op de voorstellen en besluiten die door dit orgaan worden genomen).</p> <p>Voorbeelden: een algemene groep (die één keer per jaar bijeenkomt om de belangrijkste actielijnen van de organisatie en haar uitvoerende organen te definiëren door middel van stemming), een adviesraad voor gelijkheid (die elke twee maanden bijeenkomt om voorstellen te doen over hoe de genderbetrekkingen in de organisatie kunnen worden verbeterd), een evaluatiecommissie (die elke maand bijeenkomt om een proces te volgen) of een garantieorgaan (dat incidenten, misbruik of voorstellen verzamelt om de besluitvormingsprocedures te verbeteren) zijn allemaal voorbeelden van groepen.</p>\n"
           title: Wat zijn groepen?
     log:
       value_types:
         assembly_presenter:
-          not_found: 'De Buurderij is niet gevonden op de database (ID: %{id})'
+          not_found: 'De groep is niet gevonden op de database (ID: %{id})'
     menu:
       assemblies: Groepen
     metrics:
@@ -367,7 +367,7 @@ nl-BE:
           take_part: Deelnemen
       assembly_navigation:
         assembly_member_menu_item: Leden
-        assembly_menu_item: Nieuwe montage
+        assembly_menu_item: De groep
       assembly_widgets:
         show:
           take_part: Deelnemen
