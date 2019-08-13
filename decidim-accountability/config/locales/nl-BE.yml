@@ -5,7 +5,7 @@ nl-BE:
         decidim_accountability_status_id: Status
         decidim_category_id: Categorie
         decidim_scope_id: Reikwijdte
-        description: Beschrijving
+        description: Omschrijving	
         end_date: Einddatum
         progress: Vooruitgang
         project_ids: Inclusief projecten
@@ -14,12 +14,12 @@ nl-BE:
         title: Titel
         updated_at: Gewijzigd op
       status:
-        description: Beschrijving
+        description: Omschrijving	
         key: Key
         name: Naam
         progress: Vooruitgang
       timeline_entry:
-        description: Beschrijving
+        description: Omschrijving	
         entry_date: Datum
     models:
       decidim/accountability/proposal_linked_event: Voorstellen opgenomen in dit resultaat
@@ -129,13 +129,13 @@ nl-BE:
             title: Titel
         status:
           fields:
-            description: Beschrijving
+            description: Omschrijving	
             key: Key
             name: Naam
             progress: Vooruitgang
         timeline_entry:
           fields:
-            description: Beschrijving
+            description: Omschrijving	
             entry_date: Datum
       results:
         count:
