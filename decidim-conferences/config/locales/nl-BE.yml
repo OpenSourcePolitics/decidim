@@ -297,7 +297,7 @@ nl-BE:
             attendee_type: Deelname type
             existing_user: Bestaande gebruiker
             invite_explanation: De gebruiker zal worden uitgenodigd om deel te nemen aan de conferentie en ook aan de organisatie.
-            non_user: Bestaande gebruiker
+            non_user: Niet bestaande gebruiker
             select_user: Gebruiker selecteren
           index:
             filter:
@@ -502,7 +502,7 @@ nl-BE:
         results_count: Resultaten
         surveys_count: onderzoeken
         users_count: Deelnemers
-        votes_count: stemmen
+        votes_count: Stemmen
     events:
       conferences:
         conference_registration_confirmed:
