@@ -9,7 +9,7 @@ nl-BE:
         about: Over
         email: Uw e-mailadres
         name: Uw naam
-        nickname: Nickname
+        nickname: Bijnaam
         password: Nieuw wachtwoord
         password_confirmation: Bevestig uw nieuwe wachtwoord
         personal_url: Persoonlijke URL
@@ -20,14 +20,14 @@ nl-BE:
       decidim/amendable/amendment_rejected_event: Amenden geaccepteerd
       decidim/amendable/emendation_promoted_event: Amenden geaccepteerd
       decidim/attachment_created_event: Bijlage
-      decidim/component_published_event: Actief component
-      decidim/demoted_membership: Geen groepsbeheerder meer
+      decidim/component_published_event: Actieve component
+      decidim/demoted_membership: Niet langer een groepsbeheerder
       decidim/gamification/badge_earned_event: Badge verdiend
       decidim/gamification/level_up_event: Je hebt omhoog geschoten
       decidim/join_request_accepted_event: Deelnameverzoek geaccepteerd
-      decidim/join_request_rejected_event: Deelnameverzoek geaccepteerd
+      decidim/join_request_rejected_event: Deelnameverzoek afgewezen
       decidim/profile_updated_event: Profiel bijgewerkt
-      decidim/promote_to_admin: Befördere naar groepsbeheerder
+      decidim/promote_to_admin: Gepromoveerd tot groepsbeheerder
       decidim/removed_from_group: Verwijderd van groep
   activerecord:
     attributes:
