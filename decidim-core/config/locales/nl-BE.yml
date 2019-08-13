@@ -843,7 +843,7 @@ nl-BE:
           endorsements_count: Eindverklaringen
           headline: Huidige status van %{organization}
           meetings_count: Vergaderingen
-          orders_count: stemmen
+          orders_count: Stemmen
           pages_count: Pagina's
           processes_count: Processen
           projects_count: Projecten
@@ -852,7 +852,7 @@ nl-BE:
           results_count: Resultaten
           surveys_count: onderzoeken
           users_count: Deelnemers
-          votes_count: stemmen
+          votes_count: Stemmen
         sub_hero:
           register: Registreer
       index:
