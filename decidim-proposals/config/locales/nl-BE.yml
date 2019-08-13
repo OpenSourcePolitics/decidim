@@ -211,7 +211,7 @@ nl-BE:
           affected_user:
             email_intro: '%{resource_title} is becommentarieerd. U kunt de reactie lezen op deze pagina:'
             email_outro: U heeft deze melding ontvangen omdat u bent genoemd in %{resource_title}".
-            email_subject: '-'
+            email_subject: De vergadering van is gesloten
             notification_title: Uw voorstel <a href="%{resource_path}">%{resource_title}</a> is geaccepteerd.
           email_intro: 'Пропозизицих "%{resource_title}" була прийнята. Ви можете прочитати вппов дов дов дь нирнит:'
           email_outro: Ви отримали за сповання, тому ви стежите за "%{resource_title}". Вимете припринити стежим, зим ния, пререййшивиза наведенименимеденимизизизя.
