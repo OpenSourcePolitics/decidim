@@ -357,7 +357,7 @@ nl-BE:
         scope: Reikwijdte
         start_date: Begindatum
         target: Wie doet mee
-        unspecified: Niet Gespecificeerd
+        unspecified: Niet gespecificeerd
       statistics:
         answers_count: antwoorden
         comments_count: Reacties
