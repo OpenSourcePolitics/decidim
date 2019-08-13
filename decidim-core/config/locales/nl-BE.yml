@@ -136,7 +136,7 @@ nl-BE:
     amendments:
       accepted:
         error: Er is een fout opgetreden bij het accepteren van de emendatie, probeer het later opnieuw.
-        success: Uw stem is succesvol geaccepteerd.
+        success: Uw amendement is succesvol geaccepteerd.
       amendable:
         amended_by: Gewijzigd door
         button: '%{model_name} wijzigend'
@@ -145,11 +145,11 @@ nl-BE:
         no_amenders: Er zijn geen orders
         no_amendments: Er zijn geen orders
         promote_button: Befördere tot %{model_name}
-        promote_help_text: U kunt deze emendatie promoten en publiceren als onafhankelijke %{model_name}
+        promote_help_text: U kunt deze amendement promoten en publiceren als onafhankelijke %{model_name}
         section_heading: Amendementen (%{count})
       created:
-        error: Er is een fout opgetreden bij het accepteren van de emendatie, probeer het later opnieuw
-        success: Uw stem is succesvol geaccepteerd
+        error: Er is een fout opgetreden bij het publiceren van dit amendement, probeer het later opnieuw
+        success: Amendement succesvol gepubliceerd
       emendation:
         actions:
           button_accept: Aanvaarden
