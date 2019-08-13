@@ -183,15 +183,15 @@ nl-BE:
             email_outro: U heeft deze melding ontvangen omdat u bent genoemd in %{resource_title}".
             email_subject: Voorstel wordt geëvalueerd
             notification_title: Uw voorstel <a href="%{resource_path}">%{resource_title}</a> is geaccepteerd.
-          email_intro: 'Пропозизизиць "%{resource_title}" зазазглялядаться. Ви можете перевретити наянссть вдпоровди:'
-          email_outro: Ви отримали за сповання, тому ви стежите за "%{resource_title}". Вимете припринити стежим, зим ния, пререййшивиза наведенименимеденимизизизя.
-          email_subject: Пропозизизих, за яколи ви стежите, зараз розглялядатьсть
+          email_intro: 'La proposition "%{resource_title}" est en cours d''évaluation. Vous pouvez consulter cette page pour voir si une réponse a été formulée:'
+          email_outro: U heeft deze melding ontvangen omdat u "%{resource_title}" volgt. U kunt stoppen met het volgen ervan door naar de vorige link te gaan.
+          email_subject: Een voorstel dat u volgt, wordt geëvalueerd
           follower:
             email_intro: '%{resource_title} is becommentarieerd. U kunt de reactie lezen op deze pagina:'
             email_outro: U ontvangt dit bericht omdat u "%{resource_title}" volgen. Je kunt het unfollow uit de vorige koppeling.
             email_subject: Een voorstel dat u volgt is geaccepteerd
             notification_title: De vergadering van <a href="%{resource_path}">%{resource_title}</a> is gesloten.
-          notification_title: Пропозицель <a href="%{resource_path}">%{resource_title}</a> було прийнято.
+          notification_title: Het voorstel <a href="%{resource_path}">%{resource_title}</a> wordt momenteel geëvalueerd.
         proposal_mentioned:
           email_intro: Uw voorstel "%{mentioned_proposal_title}" is genoemd <a href="%{resource_path}">in deze ruimte</a> in de commentaren.
           email_outro: U heeft deze melding ontvangen omdat u bent genoemd in %{resource_title}".
@@ -213,15 +213,15 @@ nl-BE:
             email_outro: U heeft deze melding ontvangen omdat u bent genoemd in %{resource_title}".
             email_subject: De vergadering van is gesloten
             notification_title: Uw voorstel <a href="%{resource_path}">%{resource_title}</a> is geaccepteerd.
-          email_intro: 'Пропозизицих "%{resource_title}" була прийнята. Ви можете прочитати вппов дов дов дь нирнит:'
-          email_outro: Ви отримали за сповання, тому ви стежите за "%{resource_title}". Вимете припринити стежим, зим ния, пререййшивиза наведенименимеденимизизизя.
-          email_subject: Пропозизизих, за яколи ви стежите, була прийнята
+          email_intro: 'Het voorstel "%{resource_title}" werd niet overgenomen. U kunt het commentaar hier lezen:'
+          email_outro: U heeft deze melding ontvangen omdat u "%{resource_title}" volgt. U kunt stoppen met het volgen ervan door naar de vorige link te gaan.
+          email_subject: Een voorstel dat u volgt is niet geselecteerd
           follower:
             email_intro: '%{resource_title} is becommentarieerd. U kunt de reactie lezen op deze pagina:'
             email_outro: U ontvangt dit bericht omdat u "%{resource_title}" volgen. Je kunt het unfollow uit de vorige koppeling.
             email_subject: Een voorstel dat u volgt is geaccepteerd
             notification_title: De vergadering van <a href="%{resource_path}">%{resource_title}</a> is gesloten.
-          notification_title: Пропозицель <a href="%{resource_path}">%{resource_title}</a> було прийнято.
+          notification_title: Het voorstel <a href="%{resource_path}">%{resource_title}</a> werd niet behouden.
         proposal_update_category:
           email_intro: 'Een admin heeft de categorie van uw voorstel "%{resource_title}", bekijk het uit:'
           email_outro: U heeft deze melding ontvangen omdat u bent genoemd in.
