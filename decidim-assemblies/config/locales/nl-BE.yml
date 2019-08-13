@@ -152,7 +152,7 @@ nl-BE:
         assemblies_submenu:
           assembly_admins: Buurderij gebruikers
           assembly_members: Leden
-          attachment_collections: Map
+          attachment_collections: Mappen
           attachment_files: Bestanden
           attachments: Bijlagen
           categories: Categorieën
@@ -171,13 +171,13 @@ nl-BE:
           name: Groep
         assembly_member:
           fields:
-            ceased_date: Datum van de datum
+            ceased_date: Sluitingsdatum
             designation_date: Ontwerpdatum
             full_name: Naam
             position: Positie
           name: Lid
           positions:
-            other: Overig
+            other: Overige
             president: Voorzitter
             secretary: Secretaris
             vice_president: Ondervoorzitter
@@ -188,7 +188,7 @@ nl-BE:
             role: Rol
           name: Groep gebruikers
           roles:
-            admin: Beheerder
+            admin: Groepsadmin
             collaborator: Medewerker
             moderator: Moderaties
       titles:
@@ -248,7 +248,7 @@ nl-BE:
         executive: Uitvoerend
         government: Overheid
         others: Leden
-        participatory: Participatief
+        participatory: Deelnemende
         working_group: Werkgroep
       content_blocks:
         highlighted_assemblies:
