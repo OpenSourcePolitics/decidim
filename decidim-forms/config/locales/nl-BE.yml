@@ -26,7 +26,7 @@ nl-BE:
           answer_option:
             answer_option: Antwoord optie
             free_text: Vrije tekst
-            remove: Verwijderen
+            remove: Verwijder
             statement: Verklaring
           edit:
             save: Opslaan
@@ -40,7 +40,7 @@ nl-BE:
             description: Beschrijving
             down: Onder
             question: Vraag
-            remove: Verwijderen
+            remove: Verwijder
             statement: Verklaring
             up: Op
           update:
