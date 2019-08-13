@@ -16,7 +16,7 @@ nl-BE:
       status:
         description: Beschrijving
         key: Key
-        name: Beheerde gebruiker
+        name: Naam
         progress: Vooruitgang
       timeline_entry:
         description: Beschrijving
