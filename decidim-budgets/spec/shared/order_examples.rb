@@ -4,6 +4,15 @@ shared_examples "order" do |*options|
   subject { order }
 
   let!(:order) { create :order, component: create(:budget_component) }
+  let(:component) { order.component }
+  let!(:category) { create(:category, participatory_space: component.participatory_space) }
+  let!(:other_category) { create(:category, participatory_space: component.participatory_space) }
+  let(:projects_per_category_treshold) do
+    {
+      category.id.to_s => "1",
+      other_category.id.to_s => "0"
+    }
+  end
 
   describe "validations" do
     it "is valid" do
@@ -37,7 +46,7 @@ shared_examples "order" do |*options|
             subject.projects << project2
 
             subject.component.settings = {
-              "total_budget" => 100, "vote_threshold" => 50
+              "vote_per_budget" => true, "total_budget" => 100, "vote_threshold" => 50
             }
 
             expect(subject).to be_invalid
@@ -49,7 +58,7 @@ shared_examples "order" do |*options|
             subject.projects << project1
 
             subject.component.settings = {
-              "total_budget" => 100, "vote_threshold" => 50
+              "vote_per_budget" => true, "total_budget" => 100, "vote_threshold" => 50
             }
 
             expect(subject).to be_valid
@@ -59,7 +68,7 @@ shared_examples "order" do |*options|
         end
       end
 
-      context "when vote by total budget" do
+      context "when vote by total projects" do
         if options.include? :total_projects
           let(:total_projects_component) { create(:budget_component, :with_vote_per_project) }
           let(:order) { create :order, component: total_projects_component }
@@ -120,6 +129,77 @@ shared_examples "order" do |*options|
           end
         end
       end
+
+      context "when vote by category" do
+        before do
+          settings = {
+            vote_per_category: true,
+            projects_per_category_treshold: projects_per_category_treshold
+          }
+
+          component.update(settings: settings)
+        end
+
+        it "must reach the projects per category treshold when checked out" do
+          subject.projects << create(:project, component: component)
+
+          expect(subject).to be_valid
+          subject.checked_out_at = Time.current
+          expect(subject).to be_invalid
+        end
+
+        it "can exceed the projects per category treshold when checked out" do
+          subject.projects << create(:project, component: component, category: category)
+          subject.projects << create(:project, component: component, category: category)
+
+          expect(subject).to be_valid
+          subject.checked_out_at = Time.current
+          expect(subject).to be_valid
+        end
+      end
+    end
+  end
+
+  describe "#projects_per_category" do
+    it "groups the projects per category and counts them" do
+      subject.projects << create(:project, component: component, category: category)
+      subject.projects << create(:project, component: component, category: other_category)
+
+      expect(subject.projects_per_category).to eq(category.id => 1, other_category.id => 1)
+    end
+  end
+
+  shared_examples "projects per category treshold" do
+    it "returns a Hash with keys and values as Integer" do
+      is_integer = proc { |e| e.is_a?(Integer) }
+
+      expect(subject.keys.all?(&is_integer)).to eq(true)
+      expect(subject.values.all?(&is_integer)).to eq(true)
+    end
+
+    it "contains only positive values" do
+      expect(subject.values.all?(&:positive?)).to eq(true)
+      expect(subject).not_to include(other_category.id => 0)
+    end
+  end
+
+  describe "::projects_per_category_treshold" do
+    before do
+      component.update(settings: { projects_per_category_treshold: projects_per_category_treshold })
+    end
+
+    it_behaves_like "projects per category treshold" do
+      subject { Decidim::Budgets::Order.projects_per_category_treshold(component) }
+    end
+  end
+
+  describe "#projects_per_category_treshold" do
+    before do
+      component.update(settings: { projects_per_category_treshold: projects_per_category_treshold })
+    end
+
+    it_behaves_like "projects per category treshold" do
+      subject { order.projects_per_category_treshold }
     end
   end
 
