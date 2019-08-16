@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 shared_examples "orders" do |*options|
+  include Decidim::TranslationsHelper
+
   let(:manifest_name) { "budgets" }
 
   let!(:user) { create :user, :confirmed, organization: organization }
@@ -20,7 +22,7 @@ shared_examples "orders" do |*options|
       visit_component
 
       within "#project-#{project.id}-item" do
-        page.find(".budget--list__action").click
+        find("*[type=submit]").click
       end
 
       expect(page).to have_css("#loginModal", visible: true)
@@ -40,22 +42,37 @@ shared_examples "orders" do |*options|
           it "adds a project to the current order" do
             visit_component
 
-            within "#project-#{project.id}-item" do
-              page.find(".budget--list__action").click
+            within ".budget-summary" do
+              within "#order-progress" do
+                expect(page).to have_content "0%"
+                expect(page).to have_button("Vote", disabled: true)
+                expect(page).to have_content "ASSIGNED: €0"
+              end
+
+              within "#order-selected-projects" do
+                expect(page).to have_button("Vote", disabled: true)
+              end
             end
 
-            expect(page).to have_selector ".budget-list__data--added", count: 1
+            within "#projects" do
+              within "#project-#{project.id}-item" do
+                find("*[type=submit]").click
+              end
 
-            expect(page).to have_content "ASSIGNED: €25,000,000"
-            expect(page).to have_content "1 project selected"
-
-            within ".budget-summary__selected" do
-              expect(page).to have_content project.title[I18n.locale]
+              expect(page).to have_selector ".budget-list__data--added", count: 1
             end
 
-            within "#order-progress .budget-summary__progressbox" do
-              expect(page).to have_content "25%"
-              expect(page).to have_selector("button.small:disabled")
+            within ".budget-summary" do
+              within "#order-progress" do
+                expect(page).to have_content "25%"
+                expect(page).to have_button("Vote", disabled: true)
+                expect(page).to have_content "ASSIGNED: €25,000,000"
+              end
+
+              within "#order-selected-projects" do
+                expect(page).to have_content(translated_attribute(project.title))
+                expect(page).to have_button("Vote", disabled: true)
+              end
             end
           end
         end
@@ -75,7 +92,7 @@ shared_examples "orders" do |*options|
             visit_component
 
             within "#project-#{project.id}-item" do
-              page.find(".budget--list__action").click
+              find("*[type=submit]").click
             end
 
             expect(page).to have_content("Authorization required")
@@ -89,21 +106,41 @@ shared_examples "orders" do |*options|
           it "removes a project from the current order" do
             visit_component
 
-            expect(page).to have_content "ASSIGNED: €25,000,000"
+            within ".budget-summary" do
+              within "#order-progress" do
+                expect(page).to have_content "25%"
+                expect(page).to have_button("Vote", disabled: true)
+                expect(page).to have_content "ASSIGNED: €25,000,000"
+              end
 
-            within "#project-#{project.id}-item" do
-              page.find(".budget--list__action").click
+              within "#order-selected-projects" do
+                expect(page).to have_content(translated_attribute(project.title))
+                expect(page).to have_button("Vote", disabled: true)
+              end
             end
 
-            expect(page).to have_content "ASSIGNED: €0"
-            expect(page).to have_no_content "1 project selected"
-            expect(page).to have_no_selector ".budget-summary__selected"
+            within "#projects" do
+              expect(page).to have_selector ".budget-list__data--added", count: 1
 
-            within "#order-progress .budget-summary__progressbox" do
-              expect(page).to have_content "0%"
+              within "#project-#{project.id}-item" do
+                find("*[type=submit]").click
+              end
+
+              expect(page).to have_no_selector ".budget-list__data--added"
             end
 
-            expect(page).to have_no_selector ".budget-list__data--added"
+            within ".budget-summary" do
+              within "#order-progress" do
+                expect(page).to have_content "0%"
+                expect(page).to have_button("Vote", disabled: true)
+                expect(page).to have_content "ASSIGNED: €0"
+              end
+
+              within "#order-selected-projects" do
+                expect(page).not_to have_content(translated_attribute(project.title))
+                expect(page).to have_button("Vote", disabled: true)
+              end
+            end
           end
 
           context "and try to vote a project that exceed the total budget" do
@@ -113,10 +150,12 @@ shared_examples "orders" do |*options|
               visit_component
 
               within "#project-#{expensive_project.id}-item" do
-                page.find(".budget--list__action").click
+                find("*[type=submit]").click
               end
 
-              expect(page).to have_css("#limit-excess", visible: true)
+              within "#limit-excess", visible: true do
+                expect(page).to have_content("Maximum budget exceeded")
+              end
             end
           end
 
@@ -126,26 +165,55 @@ shared_examples "orders" do |*options|
             it "can complete the checkout process" do
               visit_component
 
-              within "#project-#{other_project.id}-item" do
-                page.find(".budget--list__action").click
+              within ".budget-summary" do
+                within "#order-progress" do
+                  expect(page).to have_content "25%"
+                  expect(page).to have_button("Vote", disabled: true)
+                  expect(page).to have_content "ASSIGNED: €25,000,000"
+                end
+
+                within "#order-selected-projects" do
+                  expect(page).to have_content(translated_attribute(project.title))
+                  expect(page).to have_button("Vote", disabled: true)
+                end
               end
 
-              expect(page).to have_selector ".budget-list__data--added", count: 2
+              within "#projects" do
+                expect(page).to have_selector ".budget-list__data--added", count: 1
 
-              within "#order-progress .budget-summary__progressbox:not(.budget-summary__progressbox--fixed)" do
-                page.find(".button.small").click
+                within "#project-#{other_project.id}-item" do
+                  find("*[type=submit]").click
+                end
+
+                expect(page).to have_selector ".budget-list__data--added", count: 2
               end
 
-              expect(page).to have_css("#budget-confirm", visible: true)
+              within ".budget-summary" do
+                within "#order-progress" do
+                  expect(page).to have_content "75%"
+                  expect(page).to have_button("Vote", disabled: false)
+                  expect(page).to have_content "ASSIGNED: €75,000,000"
+                end
 
-              within "#budget-confirm" do
-                page.find(".button.expanded").click
+                within "#order-selected-projects" do
+                  expect(page).to have_content(translated_attribute(project.title))
+                  expect(page).to have_content(translated_attribute(other_project.title))
+                  expect(page).to have_button("Vote", disabled: false)
+                end
+              end
+
+              within ".budget-summary #order-progress" do
+                click_button("Vote")
+              end
+
+              within "#budget-confirm", visible: true do
+                click_button("Confirm")
               end
 
               expect(page).to have_content("successfully")
 
-              within "#order-progress .budget-summary__progressbox" do
-                expect(page).to have_no_selector("button.small")
+              within ".budget-summary" do
+                expect(page).not_to have_button("Vote")
               end
             end
           end
@@ -169,12 +237,8 @@ shared_examples "orders" do |*options|
 
             expect(page).to have_content("successfully")
 
-            within "#order-progress .budget-summary__progressbox" do
-              expect(page).to have_selector("button.small:disabled")
-            end
-
             within ".budget-summary" do
-              expect(page).to have_no_selector(".cancel-order")
+              expect(page).to have_button("Vote", disabled: true)
             end
           end
         end
@@ -241,51 +305,36 @@ shared_examples "orders" do |*options|
           it "adds a project to the current order" do
             visit_component
 
-            within "#project-#{project.id}-item" do
-              page.find(".budget--list__action").click
-            end
-
-            expect(page).to have_selector ".budget-list__data--added", count: 1
-
-            expect(page).to have_content "1 project selected out of a total of 5 projets"
-
-            within ".budget-summary__selected" do
-              expect(page).to have_content project.title[I18n.locale]
-            end
-
-            within ".budget-summary__selected" do
-              expect(page).to have_selector("button.small:disabled")
-            end
-          end
-
-          context "when projects number exceed limit", :slow do
-            let!(:other_project) { create(:project, component: component, budget: 50_000_000) }
-            let!(:order) do
-              order = create(:order, user: user, component: component)
-              order.projects = projects.take(4)
-              order.save!
-              order
-            end
-
-            it "can't complete the checkout process" do
-              visit_component
-
-              within "#project-#{projects.last.id}-item" do
-                page.find(".budget--list__action").click
-                wait_for_ajax
+            within ".budget-summary" do
+              within "#order-progress" do
+                expect(page).to have_content "0%"
+                expect(page).to have_button("Vote", disabled: true)
               end
 
-              within "#projects" do
-                expect(page).to have_selector(".budget--list__action.success", count: projects.count)
+              within "#order-selected-projects" do
+                expect(page).to have_content "0 projects selected out of a total of 5 projects"
+                expect(page).to have_button("Vote", disabled: true)
+              end
+            end
+
+            within "#projects" do
+              within "#project-#{project.id}-item" do
+                find("*[type=submit]").click
               end
 
-              within "#project-#{other_project.id}-item" do
-                page.find(".budget--list__action").click
-                wait_for_ajax
+              expect(page).to have_selector ".budget-list__data--added", count: 1
+            end
+
+            within ".budget-summary" do
+              within "#order-progress" do
+                expect(page).to have_content "20%"
+                expect(page).to have_button("Vote", disabled: true)
               end
 
-              within "#limit-excess" do
-                expect(page).to have_content("Maximum number of projects reached")
+              within "#order-selected-projects" do
+                expect(page).to have_content(translated_attribute(project.title))
+                expect(page).to have_content "1 project selected out of a total of 5 projects"
+                expect(page).to have_button("Vote", disabled: true)
               end
             end
           end
@@ -306,7 +355,7 @@ shared_examples "orders" do |*options|
             visit_component
 
             within "#project-#{project.id}-item" do
-              page.find(".budget--list__action").click
+              find("*[type=submit]").click
             end
 
             expect(page).to have_content("Authorization required")
@@ -320,39 +369,40 @@ shared_examples "orders" do |*options|
           it "removes a project from the current order" do
             visit_component
 
-            expect(page).to have_content "1 project selected out of a total of 5 projets"
-
-            within "#project-#{project.id}-item" do
-              page.find(".budget--list__action").click
+            within "#order-selected-projects" do
+              expect(page).to have_content "1 project selected out of a total of 5 projects"
             end
 
-            expect(page).to have_content "Choose 5 projects and validate your vote"
-            expect(page).to have_no_content "1 project selected"
-            expect(page).to have_no_selector ".budget-summary__selected"
+            expect(page).to have_selector ".budget-list__data--added", count: 1
+
+            within "#project-#{project.id}-item" do
+              find("*[type=submit]").click
+            end
 
             expect(page).to have_no_selector ".budget-list__data--added"
+
+            within "#order-selected-projects" do
+              expect(page).to have_content "0 projects selected out of a total of 5 projects"
+            end
           end
 
-          context "when projects exceed limit" do
+          context "when projects number exceed limit" do
             let!(:other_project) { create(:project, component: component, budget: 50_000_000) }
             let!(:line_item_two) { create(:line_item, order: order, project: projects[1]) }
             let!(:line_item_three) { create(:line_item, order: order, project: projects[2]) }
             let!(:line_item_four) { create(:line_item, order: order, project: projects[3]) }
             let!(:line_item_five) { create(:line_item, order: order, project: projects[4]) }
 
-            it "can't click on another project", :slow do
+            it "cannot add another project" do
               visit_component
 
-              expect(page).to have_selector ".budget-list__data--added", count: 5
-              expect(page).to have_selector("button.budget--list__action[disabled]", count: 1)
-
-              within ".budget-summary__selected" do
-                page.find("button.button.small.button--sc").click
+              within "#project-#{other_project.id}-item" do
+                find("*[type=submit]").click
               end
 
-              find_button("Confirm").click
-
-              expect(page).to have_content("successfully")
+              within "#limit-excess", visible: true do
+                expect(page).to have_content("Maximum number of projects reached")
+              end
             end
           end
         end
@@ -376,8 +426,8 @@ shared_examples "orders" do |*options|
             expect(page).to have_content("successfully")
 
             within ".budget-summary" do
-              expect(page).to have_content("Choose 5 projects and validate your vote.")
-              expect(page).to have_no_selector(".cancel-order")
+              expect(page).to have_content("0 projects selected out of a total of 5 projects")
+              expect(page).to have_button("Vote", disabled: true)
             end
           end
         end
@@ -435,6 +485,33 @@ shared_examples "orders" do |*options|
 
         before do
           login_as user, scope: :user
+        end
+
+        it "displays the budget summary" do
+          visit_component
+
+          within ".budget-summary" do
+            expect(page).to have_css("h3", text: "You decide the budget")
+            expect(page).to have_css("p", text: "To which projects do you think we should allocate a budget?")
+
+            within "#order-voting-rules" do
+              expect(page).to have_css("h3", text: "Voting rules")
+              expect(page).to have_css("p", text: "To complete your ballot you need to select:")
+              expect(page).to have_css("li", text: "Assign at least €70,000,000 to the projects you want and vote with your preferences to define the budget.")
+            end
+
+            within "#order-progress" do
+              expect(page).to have_css("span", text: "TOTAL BUDGET €100,000,000")
+              expect(page).to have_css("div.progress-meter")
+              expect(page).to have_css("span", text: "ASSIGNED: €0")
+              expect(page).to have_css("button", text: "VOTE")
+            end
+
+            within "#order-selected-projects" do
+              expect(page).to have_css("h3", text: "Your selection")
+              expect(page).to have_css("button", text: "VOTE")
+            end
+          end
         end
 
         it "displays the minimum vote amount" do
@@ -509,6 +586,8 @@ shared_examples "orders" do |*options|
             expect(page).to have_css(".progress_meter_state--completed")
           end
         end
+
+        it_behaves_like "orders vote per category"
       end
     end
 
@@ -526,6 +605,32 @@ shared_examples "orders" do |*options|
 
         before do
           login_as user, scope: :user
+        end
+
+        it "displays the budget summary" do
+          visit_component
+
+          within ".budget-summary" do
+            expect(page).to have_css("h3", text: "You decide the budget")
+            expect(page).to have_css("p", text: "To which projects do you think we should allocate a budget?")
+
+            within "#order-voting-rules" do
+              expect(page).to have_css("h3", text: "Voting rules")
+              expect(page).to have_css("p", text: "To complete your ballot you need to select:")
+              expect(page).to have_css("li", text: "5 projects total")
+            end
+
+            within "#order-progress" do
+              expect(page).to have_css("div.progress-meter")
+              expect(page).to have_css("button", text: "VOTE")
+            end
+
+            within "#order-selected-projects" do
+              expect(page).to have_css("h3", text: "Your selection")
+              expect(page).to have_css("li", text: "0 projects selected out of a total of 5 projects")
+              expect(page).to have_css("button", text: "VOTE")
+            end
+          end
         end
 
         it "displays the minimum vote amount" do
@@ -601,6 +706,8 @@ shared_examples "orders" do |*options|
           end
         end
       end
+
+      it_behaves_like "orders vote per category"
     end
 
     it "respects the projects_per_page setting when under total projects" do
