@@ -1,0 +1,18 @@
+<div id="order-voting-rules">
+  <h3 class="heading3"><%= t(".title") %></h3>
+  <p><%= t(".description") %></p>
+  <ul class="rules">
+    <% if component_settings.vote_per_project? %>
+      <li><%= t(".select_per_project", total: component_settings.total_projects) %></li>
+    <% else %>
+      <li><%= t(".select_per_budget", minimum_budget: budget_to_currency(minimum_budget)) %></li>
+    <% end %>
+    <% if component_settings.vote_per_category? %>
+      <% categories = current_participatory_space.categories.first_class %>
+      <% projects_per_category_treshold.each do |id, count| %>
+        <% category = categories.find_by(id: id)&.translated_name %>
+        <li><%= t(".select_per_category", count: count, category: category).html_safe %></li>
+      <% end %>
+    <% end %>
+  </ul>
+</div>

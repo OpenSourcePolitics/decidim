@@ -28,7 +28,7 @@ module Decidim
       end
 
       def current_order_percent
-        return current_order_budget_percent unless component_settings.vote_per_project
+        return current_order_budget_percent if component_settings.vote_per_budget
 
         current_order_project_percent
       end
@@ -61,6 +61,67 @@ module Decidim
         return "progress_meter_state--pending" if current_order_is_pending?
 
         ""
+      end
+
+      def minimum_budget
+        current_component.settings.total_budget.to_f * (current_component.settings.vote_threshold_percent.to_f / 100)
+      end
+
+      def projects_per_category_treshold
+        @projects_per_category_treshold ||= Order.projects_per_category_treshold(current_component)
+      end
+
+      def current_order_assigned_budget
+        current_order&.total_budget || 0
+      end
+
+      def current_order_projects_count
+        current_order&.total_projects || 0
+      end
+
+      def vote_button_disabled?
+        current_order_can_be_checked_out? ? "" : "disabled"
+      end
+
+      # Render a button_to form to delete a project.
+      def remove_project_trashcan_button(project)
+        button_to(
+          order_line_item_path(project_id: project),
+          method: :delete,
+          remote: true,
+          data: { disable: true },
+          form: { style: "display: inline" }
+        ) do
+          concat icon("trash", aria_label: t("remove", scope: "decidim.budgets.projects"), role: "img")
+        end
+      end
+
+      def add_project_authorized_button(project, css_classes, translation = nil, &block)
+        arguments = [order_line_item_path(project_id: project),
+                     method: :post,
+                     remote: true,
+                     data: { disable: true, add: true, budget: project.budget, "redirect-url": project_path(project) },
+                     disabled: !current_settings.votes_enabled?,
+                     class: css_classes]
+        if block
+          action_authorized_button_to("vote", *arguments, &block)
+        else
+          action_authorized_button_to("vote", translation, *arguments)
+        end
+      end
+
+      def remove_project_authorized_button(project, css_classes, translation = nil, &block)
+        arguments = [order_line_item_path(project_id: project),
+                     method: :delete,
+                     remote: true,
+                     data: { disable: true, budget: project.budget, "redirect-url": project_path(project) },
+                     disabled: !current_settings.votes_enabled?,
+                     class: css_classes]
+        if block
+          action_authorized_button_to("vote", *arguments, &block)
+        else
+          action_authorized_button_to("vote", translation, *arguments)
+        end
       end
     end
   end
