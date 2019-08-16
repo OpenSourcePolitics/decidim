@@ -1,9 +1,11 @@
+var $budgetSummary = $('.budget-summary');
 var $orderSelectedProjects = $('#order-selected-projects');
 var $orderProgress = $('#order-progress');
 var $projectItem = $('#project-<%= project.id %>-item');
 var $projectBudgetButton = $('#project-<%= project.id %>-budget-button');
 var $budgetConfirm = $('#budget-confirm');
 
+$budgetSummary.attr('class', '<%= "card budget-summary " + budget_summary_state %>');
 morphdom($orderSelectedProjects[0], '<%= j(render partial: "decidim/budgets/projects/order_selected_projects").strip.html_safe %>');
 morphdom($orderProgress[0], '<%= j(render partial: "decidim/budgets/projects/order_progress").strip.html_safe %>');
 morphdom($budgetConfirm[0], '<%= j(render partial: "decidim/budgets/projects/budget_confirm").strip.html_safe %>')
