@@ -1,11 +1,17 @@
 <div id="order-progress">
-  <% unless component_settings.vote_per_project? %>
-    <span class="mini-title"><%= t(".total_budget") %>
-      <strong class="mini-title__strong mini-title__strong--highlight">
-        <%= budget_to_currency(component_settings.total_budget) %>
-      </strong>
-    </span>
-  <% end %>
+  <div class="budget-summary__total"
+    data-total-budget="<%= component_settings.total_budget %>"
+    data-total-projects="<%= component_settings.total_projects %>"
+    data-vote-per-budget="<%= component_settings.vote_per_budget %>"
+    data-vote-per-project="<%= component_settings.vote_per_project %>">
+    <% unless component_settings.vote_per_project? %>
+      <span class="mini-title"><%= t(".total_budget") %>
+        <strong class="mini-title__strong mini-title__strong--highlight">
+          <%= budget_to_currency(component_settings.total_budget) %>
+        </strong>
+      </span>
+    <% end %>
+  </div>
 
   <div class="budget-summary__progressbox"
        data-current-budget="<%= current_order ? current_order.total_budget : 0 %>"

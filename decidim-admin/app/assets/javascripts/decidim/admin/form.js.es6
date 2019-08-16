@@ -1,4 +1,4 @@
-(() => {
+$(() => {
   const disableClick = (check1, check2) => {
     check1.prop("disabled", check2.is(":checked"));
   }
@@ -40,4 +40,4 @@
     disableClick($(field), $perBudget);
     switchDisabling($perBudget, $(field));
   })
-})();
+});
