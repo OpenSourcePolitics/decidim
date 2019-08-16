@@ -20,6 +20,7 @@ module Decidim
         include Virtus.model
 
         attribute :category_id, Integer
+        attribute :projects_per_category_treshold, Hash
       end.new
     end
 
@@ -108,6 +109,69 @@ module Decidim
 
         it "doesn't output the label" do
           expect(subject.xpath("//label")).to be_empty
+        end
+      end
+    end
+
+    shared_examples "renders the :projects_per_category_treshold_form_field" do
+      let(:label) { subject.css("label[for*='projects_per_category_treshold']") }
+      let(:input_attributes) { label.css("input").first.attributes }
+
+      it "sets the label text correctly" do
+        expect(subject.text).to eq(category.translated_name)
+      end
+
+      it "sets the input type correctly" do
+        expect(input_attributes["type"].value).to eq("number")
+      end
+
+      it "sets the input classes correctly" do
+        expect(input_attributes["class"].value).to eq("per-category-rule")
+      end
+
+      it "sets the input name correctly" do
+        expect(input_attributes["name"].value).to eq("resource[projects_per_category_treshold][#{category.id}]")
+      end
+
+      it "sets the input ID correctly" do
+        expect(input_attributes["id"].value).to eq("resource_projects_per_category_treshold_#{category.id}")
+      end
+
+      it "sets the input value correctly" do
+        if resource.projects_per_category_treshold.any?
+          expect(input_attributes["value"].value).to eq(resource.projects_per_category_treshold.values.first)
+        else
+          expect(input_attributes["value"].value).to eq("0")
+        end
+      end
+    end
+
+    describe "#projects_per_category_treshold" do
+      let(:output) { builder.projects_per_category_treshold_field(categories) }
+      let!(:category) { create(:category) }
+
+      context "without categories" do
+        let(:categories) { Decidim::Category.none }
+
+        it "doesn't render input field" do
+          expect(subject.xpath("//label")).to be_empty
+        end
+      end
+
+      context "with categories" do
+        let(:categories) { Decidim::Category.all }
+        let(:projects_per_category_treshold) { { category.id.to_s => 1.to_s } }
+
+        context "without previous value" do
+          it_behaves_like "renders the :projects_per_category_treshold_form_field"
+        end
+
+        context "with previous value" do
+          before do
+            resource.projects_per_category_treshold = projects_per_category_treshold
+          end
+
+          it_behaves_like "renders the :projects_per_category_treshold_form_field"
         end
       end
     end
