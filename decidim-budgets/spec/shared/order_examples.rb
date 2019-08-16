@@ -3,10 +3,10 @@
 shared_examples "order" do |*options|
   subject { order }
 
-  let!(:order) { create :order, component: create(:budget_component) }
-  let(:component) { order.component }
-  let!(:category) { create(:category, participatory_space: component.participatory_space) }
-  let!(:other_category) { create(:category, participatory_space: component.participatory_space) }
+  let(:order) { create :order, component: component }
+  let(:component) { create(:budget_component) }
+  let(:category) { create(:category, participatory_space: component.participatory_space) }
+  let(:other_category) { create(:category, participatory_space: component.participatory_space) }
   let(:projects_per_category_treshold) do
     {
       category.id.to_s => "1",
@@ -36,18 +36,52 @@ shared_examples "order" do |*options|
     end
 
     context "when total budgets is activated" do
+      let(:component) { create(:budget_component, settings: settings) }
+
+      shared_examples "validating projects_per_category_treshold when vote_per_category is enabled" do
+        before do
+          new_settings = component.settings.to_h.merge(
+            vote_per_category: true,
+            projects_per_category_treshold: projects_per_category_treshold
+          )
+          component.update(settings: new_settings)
+        end
+
+        it "must reach the projects per category treshold when checked out" do
+          subject.projects << create(:project, component: component, category: other_category, budget: 35)
+          subject.projects << create(:project, component: component, category: other_category, budget: 35)
+
+          expect(subject).to be_valid
+          subject.checked_out_at = Time.current
+          expect(subject).to be_invalid
+        end
+
+        it "can exceed the projects per category treshold when checked out" do
+          subject.projects << create(:project, component: component, category: category, budget: 35)
+          subject.projects << create(:project, component: component, category: category, budget: 35)
+
+          expect(subject).to be_valid
+          subject.checked_out_at = Time.current
+          expect(subject).to be_valid
+        end
+      end
+
       context "when vote by total budget" do
         if options.include? :total_budget
+          let(:settings) do
+            {
+              vote_per_budget: true,
+              total_budget: 100,
+              vote_threshold: 50
+            }
+          end
+
           it "can't exceed a maximum order value" do
             project1 = create(:project, component: subject.component, budget: 100)
             project2 = create(:project, component: subject.component, budget: 20)
 
             subject.projects << project1
             subject.projects << project2
-
-            subject.component.settings = {
-              "vote_per_budget" => true, "total_budget" => 100, "vote_threshold" => 50
-            }
 
             expect(subject).to be_invalid
           end
@@ -57,104 +91,71 @@ shared_examples "order" do |*options|
 
             subject.projects << project1
 
-            subject.component.settings = {
-              "vote_per_budget" => true, "total_budget" => 100, "vote_threshold" => 50
-            }
-
             expect(subject).to be_valid
             subject.checked_out_at = Time.current
             expect(subject).to be_invalid
           end
+
+          it_behaves_like "validating projects_per_category_treshold when vote_per_category is enabled"
         end
       end
 
       context "when vote by total projects" do
         if options.include? :total_projects
-          let(:total_projects_component) { create(:budget_component, :with_vote_per_project) }
-          let(:order) { create :order, component: total_projects_component }
+          let(:settings) do
+            {
+              vote_per_budget: false,
+              total_budget: 100,
+              vote_threshold: 50,
+              vote_per_project: true,
+              total_projects: 2
+            }
+          end
 
-          it "can't exceed a maximum order number" do
-            project1 = create(:project, component: subject.component, budget: 100)
-            project2 = create(:project, component: subject.component, budget: 20)
+          it "can't exceed the total_projects value" do
+            project1 = create(:project, component: subject.component)
+            project2 = create(:project, component: subject.component)
+            project3 = create(:project, component: subject.component)
 
             subject.projects << project1
             subject.projects << project2
-
-            subject.component.settings = {
-              "total_projects" => 1, "vote_per_project" => true
-            }
+            subject.projects << project3
 
             expect(subject).to be_invalid
           end
 
-          it "can't be lower than a minimum order number when checked out" do
-            project1 = create(:project, component: subject.component, budget: 20)
+          it "can't be lower than total_projects value when checked out" do
+            project1 = create(:project, component: subject.component)
 
             subject.projects << project1
-
-            subject.component.settings = {
-              "total_projects" => 10, "vote_per_project" => true
-            }
 
             expect(subject).to be_valid
             subject.checked_out_at = Time.current
             expect(subject).to be_invalid
           end
 
-          it "can exceed a maximum order value" do
+          it "can exceed the total_budget value" do
             project1 = create(:project, component: subject.component, budget: 99_999)
             project2 = create(:project, component: subject.component, budget: 99_999)
 
             subject.projects << project1
             subject.projects << project2
 
-            subject.component.settings = {
-              "total_projects" => 2, "vote_per_project" => true
-            }
-
             expect(subject).to be_valid
           end
 
-          it "can be lower than a minimum order value when checked out" do
+          it "can be lower than the minimum_budget value when checked out" do
             project1 = create(:project, component: subject.component, budget: 0)
+            project2 = create(:project, component: subject.component, budget: 0)
 
             subject.projects << project1
-
-            subject.component.settings = {
-              "total_projects" => 1, "vote_per_project" => true
-            }
+            subject.projects << project2
 
             subject.checked_out_at = Time.current
             expect(subject).to be_valid
           end
-        end
-      end
 
-      context "when vote by category" do
-        before do
-          settings = {
-            vote_per_category: true,
-            projects_per_category_treshold: projects_per_category_treshold
-          }
-
-          component.update(settings: settings)
-        end
-
-        it "must reach the projects per category treshold when checked out" do
-          subject.projects << create(:project, component: component)
-
-          expect(subject).to be_valid
-          subject.checked_out_at = Time.current
-          expect(subject).to be_invalid
-        end
-
-        it "can exceed the projects per category treshold when checked out" do
-          subject.projects << create(:project, component: component, category: category)
-          subject.projects << create(:project, component: component, category: category)
-
-          expect(subject).to be_valid
-          subject.checked_out_at = Time.current
-          expect(subject).to be_valid
+          it_behaves_like "validating projects_per_category_treshold when vote_per_category is enabled"
         end
       end
     end

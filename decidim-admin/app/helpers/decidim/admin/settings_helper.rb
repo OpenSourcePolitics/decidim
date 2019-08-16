@@ -24,10 +24,7 @@ module Decidim
       # Returns a rendered form field.
       def settings_attribute_input(form, attribute, name, options = {})
         if name == :projects_per_category_treshold
-          form.projects_per_category_treshold_field(
-            current_participatory_space.categories.first_class,
-            Decidim::Budgets::Project.where(component: @component).size
-          )
+          form.projects_per_category_treshold_field(current_participatory_space.categories.first_class, component_projects_count)
         elsif attribute.translated?
           form.send(:translated, form_method_for_attribute(attribute), name, options.merge(tabs_id: "#{options[:tabs_prefix]}-#{name}-tabs"))
         else
@@ -43,6 +40,11 @@ module Decidim
         TYPES[attribute.type.to_sym]
       end
 
+      # Counts how many Decidim::Budgets::Project belong to the Decidim::Budgets component.
+      def component_projects_count
+        @component_projects_count ||= Decidim::Budgets::Project.where(component: @component).size
+      end
+
       # Adds extra HTML options to `budget_voting_rules_settings` fields.
       #
       # Used in the following script:
@@ -53,14 +55,16 @@ module Decidim
         case field_name
         when :vote_per_budget, :vote_threshold_percent
           { class: "per-budget-rule" }
-        when :vote_per_project, :total_projects
+        when :vote_per_project
           { class: "per-project-rule" }
+        when :total_projects
+          { max: component_projects_count, class: "per-project-rule" }
         else
           {}
         end
       end
 
-      # Decidim::Budgets' component global settings related to "voting rules".
+      # Decidim::Budgets component's global settings related to "voting rules".
       # The order is important, as it is maintained by Hash#slice.
       #
       # Used in the following partials:

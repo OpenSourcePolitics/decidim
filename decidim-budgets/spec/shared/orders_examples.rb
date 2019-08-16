@@ -517,7 +517,7 @@ shared_examples "orders" do |*options|
         it "displays the minimum vote amount" do
           visit_component
 
-          expect(find(".progress-meter--minimum")[:style]).to eq("width: 70%;")
+          expect(find(".progress-meter--minimum")[:style]).to eq("width: 30%;")
         end
 
         context "when no project in order" do
