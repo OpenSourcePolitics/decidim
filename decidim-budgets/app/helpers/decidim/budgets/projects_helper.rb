@@ -63,28 +63,38 @@ module Decidim
         ""
       end
 
+      # Return the minimum budget as Integer based on current_component settings.
       def minimum_budget
         current_component.settings.total_budget.to_f * (current_component.settings.vote_threshold_percent.to_f / 100)
       end
 
+      # Return the current_component `projects_per_category_treshold` Hash,
+      # with key-values as Integer and keeping only positive values.
       def projects_per_category_treshold
         @projects_per_category_treshold ||= Order.projects_per_category_treshold(current_component)
       end
 
+      # Return the budget assigned to the current_order or zero if there isn't yet an order.
+      # Return an Integer.
       def current_order_assigned_budget
         current_order&.total_budget || 0
       end
 
+      # Return the number of projects added to the current_order or zero if there isn't yet an order.
+      # Return an Integer.
       def current_order_projects_count
         current_order&.total_projects || 0
       end
 
+      # Checks if the current_order can be checked out.
+      # Returns a String.
       def vote_button_disabled?
         current_order_can_be_checked_out? ? "" : "disabled"
       end
 
-      # Render a button_to form to delete a project.
-      def remove_project_trashcan_button(project)
+      # Render a `button_to` form to DELETE a project with a trash icon.
+      # Returns a HTML safe String.
+      def remove_project_trash_icon_button(project)
         button_to(
           order_line_item_path(project_id: project),
           method: :delete,
@@ -96,6 +106,9 @@ module Decidim
         end
       end
 
+      # Render a `button_to` form to ADD a project but conditionally renders a popup modal blocking the action.
+      # See Decidim::ActionAuthorizationHelper#action_authorized_button_to
+      # Returns a HTML safe String.
       def add_project_authorized_button(project, css_classes, translation = nil, &block)
         arguments = [order_line_item_path(project_id: project),
                      method: :post,
@@ -110,6 +123,9 @@ module Decidim
         end
       end
 
+      # Render a `button_to` form to DELETE a project but conditionally renders a popup modal blocking the action.
+      # See Decidim::ActionAuthorizationHelper#action_authorized_button_to
+      # Returns a HTML safe String.
       def remove_project_authorized_button(project, css_classes, translation = nil, &block)
         arguments = [order_line_item_path(project_id: project),
                      method: :delete,

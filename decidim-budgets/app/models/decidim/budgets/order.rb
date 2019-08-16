@@ -162,7 +162,8 @@ module Decidim
         component&.settings&.total_budget.to_f
       end
 
-      # Public: Returns the formatted value of a component `projects_per_category_treshold` setting.
+      # Public: Returns a component `projects_per_category_treshold` Hash,
+      # with key-values as Integer and keeping only positive values.
       # This logic is in a class method to be able to call it when there isn't a current_order yet.
       # See helpers/decidim/budgets/projects_helper.rb
       # Returns a Hash

@@ -9,7 +9,7 @@
             <strong class="budget-summary__selected-number">
               <%= budget_to_currency project.budget %>
             </strong>
-            <%= remove_project_trashcan_button(project) unless current_order_checked_out? %>
+            <%= remove_project_trash_icon_button(project) unless current_order_checked_out? %>
           </li>
         <% end %>
       </ul>
