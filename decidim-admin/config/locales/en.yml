@@ -248,6 +248,7 @@ en:
         form:
           default_step_settings: Default step settings
           global_settings: Global settings
+          voting_rules: Voting rules
           step_settings: Step settings
         index:
           add: Add component

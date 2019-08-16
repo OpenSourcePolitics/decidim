@@ -1,4 +1,12 @@
 <div id="order-progress">
+  <% unless component_settings.vote_per_project? %>
+    <span class="mini-title"><%= t(".total_budget") %>
+      <strong class="mini-title__strong mini-title__strong--highlight">
+        <%= budget_to_currency(component_settings.total_budget) %>
+      </strong>
+    </span>
+  <% end %>
+
   <div class="budget-summary__progressbox"
        data-current-budget="<%= current_order ? current_order.total_budget : 0 %>"
        data-current-projects="<%= current_order ? current_order.total_projects : 0 %>">
@@ -20,7 +28,7 @@
     <% unless current_order_checked_out? %>
       <button class="button small button--sc"
               data-toggle="budget-confirm"
-              <%= current_order_can_be_checked_out? ? "" : "disabled" %>>
+              <%= vote_button_disabled? %>>
         <%= t(".vote") %>
       </button>
     <% end %>
@@ -45,10 +53,18 @@
       <% unless current_order_checked_out? %>
         <button class="button small button--sc"
                 data-toggle="budget-confirm"
-                <%= current_order_can_be_checked_out? ? "" : "disabled" %>>
+                <%= vote_button_disabled? %>>
           <%= t(".vote") %>
         </button>
       <% end %>
     </div>
   </div>
+
+  <% unless component_settings.vote_per_project? %>
+    <span class="mini-title"><%= t(".assigned") %>
+      <strong class="mini-title__strong mini-title__strong--highlight">
+        <%= budget_to_currency(current_order_assigned_budget) %>
+      </strong>
+    </span>
+  <% end %>
 </div>
