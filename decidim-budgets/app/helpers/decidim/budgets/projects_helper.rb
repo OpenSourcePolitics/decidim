@@ -24,7 +24,7 @@ module Decidim
       def current_order_percent_minimum
         return 100 if component_settings.vote_per_project
 
-        component_settings.vote_threshold_percent
+        100 - component_settings.vote_threshold_percent
       end
 
       def current_order_percent
