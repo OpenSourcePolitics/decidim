@@ -1,79 +1,79 @@
 nl-BE:
   activemodel:
     models:
-      decidim/blogs/create_post_event: New blog post
+      decidim/blogs/create_post_event: Nieuwe blogpost
   activerecord:
     models:
       decidim/blogs/post:
-        one: Post
-        other: Posts
+        one: Posten
+        other: Posten
   decidim:
     blogs:
       actions:
-        confirm_destroy: Are you sure you want to delete this post?
-        destroy: Delete
-        edit: Edit
-        new: New post
-        title: Actions
+        confirm_destroy: Weet u zeker dat u dit project wilt verwijderen?
+        destroy: Vernietigen
+        edit: Bewerk
+        new: Nieuw bericht
+        title: Acties
       admin:
         models:
           components:
-            body: Body
+            body: Lichaam
           post:
-            name: Post
+            name: Posten
         posts:
           create:
-            invalid: There's been a problem creating this post
-            success: Post successfully created
+            invalid: Er is een probleem opgetreden met het creëren van dit project
+            success: Project succesvol gemaakt
           destroy:
-            success: Post successfully deleted
+            success: Project succesvol vernietigd
           edit:
-            save: Update
+            save: Bijwerken
           index:
-            title: Posts
+            title: Posten
           new:
-            create: Create
-            title: Create post
+            create: Creëren
+            title: Nieuwe
           update:
-            invalid: There's been errors when saving the post.
-            success: Post saved successfully
+            invalid: Er zijn fouten geweest bij het opslaan van de pagina.
+            success: Pagina is succesvol opgeslagen
       last_activity:
-        new_post_at_html: "<span>New post at %{link}</span>"
+        new_post_at_html: "<span>Nieuwe post op %{link}</span>"
       models:
         post:
           fields:
-            author: Author
-            body: Body
-            created_at: Created at
-            title: title
+            author: Auteur
+            body: Lichaam
+            created_at: Gemaakt bij
+            title: titel
       posts:
         show:
-          view: View
+          view: Uitzicht
         sidebar_blog:
-          comments: comments
-          most_commented_posts: Most commented posts
-      read_more: Read more
+          comments: reacties
+          most_commented_posts: Meest becommentarieerde berichten
+      read_more: Lees verder
     components:
       blogs:
         name: Blog
         settings:
           global:
-            announcement: Announcement
-            comments_enabled: Comments enabled
+            announcement: Bericht
+            comments_enabled: Reacties ingeschakeld
           step:
-            announcement: Announcement
-            comments_blocked: Comments blocked
+            announcement: Bericht
+            comments_blocked: Reacties geblokkeerd
     events:
       blogs:
         post_created:
-          email_intro: The post "%{resource_title}" has been published in "%{participatory_space_title}" that you are following.
-          email_outro: You have received this notification because you are following "%{participatory_space_title}". You can unfollow it from the previous link.
-          email_subject: New post published in %{participatory_space_title}
-          notification_title: The post <a href="%{resource_path}">%{resource_title}</a> has been published in %{participatory_space_title}
+          email_intro: Het bericht "%{resource_title}" is gepubliceerd in "%{participatory_space_title}" dat u volgt.
+          email_outro: U ontvangt dit bericht omdat u "%{participatory_space_title}" volgen. Je kunt het unfollow uit de vorige koppeling.
+          email_subject: Nieuw bericht gepubliceerd in %{participatory_space_title}
+          notification_title: Het bericht <a href="%{resource_path}">%{resource_title}</a> is gepubliceerd in %{participatory_space_title}
     pages:
       home:
         statistics:
-          posts_count: Posts
+          posts_count: Posten
     participatory_processes:
       statistics:
-        posts_count: Posts
+        posts_count: Posten
