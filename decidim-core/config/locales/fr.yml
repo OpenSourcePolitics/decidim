@@ -333,7 +333,7 @@ fr:
           newsletter: Recevoir une newsletter sur l'actualité de la plateforme
           newsletter_title: Recevoir les actualités de la plateforme
           nickname_help: Cet identifiant est public et unique sur la plateforme "%{organization}" ; il permet aux autres utilisateurs de vous suivre, de vous contacter ou de vous mentionner dans leurs commentaires. Il s’affichera précédé d’un « @ » ; il ne doit pas contenir d’espace ni de caractère spécial.
-          sign_in: S'identifier
+          sign_in: Se connecter
           sign_up: S'inscrire
           sign_up_as:
             legend: S'inscrire en tant que
@@ -1122,7 +1122,7 @@ fr:
     sessions:
       already_signed_out: Vous vous êtes bien déconnecté(e).
       new:
-        sign_in: S'identifier
+        sign_in: Se connecter
       signed_in: Connecté(e) avec succès.
       signed_out: Déconnecté(e) avec succès.
     shared:
@@ -1131,7 +1131,7 @@ fr:
         didn_t_receive_confirmation_instructions: Vous n'avez pas reçu d'instructions de confirmation?
         didn_t_receive_unlock_instructions: Vous n'avez pas reçu d'instructions de déverrouillage?
         forgot_your_password: Mot de passe oublié?
-        sign_in: S'identifier
+        sign_in: Se connecter
         sign_in_with_provider: Se connecter avec %{provider}
         sign_up: S'inscrire
       minimum_password_length:
