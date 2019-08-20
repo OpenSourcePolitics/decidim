@@ -2,29 +2,29 @@ nl-BE:
   activerecord:
     models:
       decidim/pages/page:
-        one: Page
-        other: Pages
+        one: Pagina's
+        other: Pagina's
   decidim:
     admin_log:
       page:
-        update: "%{user_name} updated the %{resource_name} page in %{space_name}"
+        update: "%{user_name} heeft resultaat %{resource_name} aangemaakt in %{space_name}"
     components:
       pages:
-        name: Page
+        name: Pagina's
         settings:
           global:
-            announcement: Announcement
+            announcement: Bericht
           step:
-            announcement: Announcement
+            announcement: Bericht
     pages:
       admin:
         models:
           components:
-            body: Body
+            body: Lichaam
         pages:
           edit:
-            save: Update
-            title: Edit page
+            save: Bijwerken
+            title: Pagina bewerken
           update:
-            invalid: There's been errors when saving the page.
-            success: Page saved successfully.
+            invalid: Er zijn fouten geweest bij het opslaan van de pagina.
+            success: Pagina is succesvol opgeslagen.

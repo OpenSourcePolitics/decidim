@@ -2,389 +2,389 @@ nl-BE:
   activemodel:
     attributes:
       initiative:
-        decidim_user_group_id: Author
-        description: Description
-        offline_votes: Face-to-face supports
-        scope_id: Scope
-        signature_end_date: End of signature collection period
-        signature_start_date: Start of signature collection period
-        signature_type: Signature collection type
+        decidim_user_group_id: Auteur
+        description: Omschrijving	
+        offline_votes: Face-to-face ondersteuning
+        scope_id: Reikwijdte
+        signature_end_date: Einde van de ondertekening collectie periode
+        signature_start_date: Einde van de ondertekening collectie periode
+        signature_type: Handtekening collectie type
         signature_type_values:
-          any: Mixed
-          offline: Face to face
-          online: OnLine
-        title: Title
+          any: Gemengd
+          offline: Gezicht om te zien
+          online: Online
+        title: Titel
       initiative_author:
-        address: Address
-        city: City
+        address: Adres
+        city: Stad
         id_document: DNI/NIE
-        name: Name and Surname
-        phone_number: Phone number
-        post_code: Post code
-        province: Province
+        name: Naam en achternaam
+        phone_number: Telefoonnummer
+        post_code: Postcode
+        province: Provincie
       initiatives_committee_member:
-        user: Committee member
+        user: Comité leden
       initiatives_type:
-        banner_image: Banner image
-        description: Description
-        title: Title
+        banner_image: Bannerafbeelding
+        description: Omschrijving	
+        title: Titel
       organization_data:
-        address: Address
-        id_document: ID document
-        name: Complete name
+        address: Adres
+        id_document: Document
+        name: Naam onderdeel
   activerecord:
     models:
       decidim/initiative:
-        one: Initative
-        other: Initatives
+        one: Initatief
+        other: Initatieven
       decidim/initiative_comittee:
-        one: Comittee
-        other: Comittees
+        one: Kompas
+        other: Kompas
       decidim/initiative_vote:
-        one: Signature
-        other: Signatures
+        one: Handtekening
+        other: Handtekening
   decidim:
     admin:
       actions:
-        new_initiative_type: New initiative type
+        new_initiative_type: Nieuw initiatieftype
       menu:
-        initiatives: Initiatives
-        initiatives_types: Initiative types
+        initiatives: Initiatieven
+        initiatives_types: Nieuw initiatieftype
       models:
         initiatives:
           fields:
-            created_at: Created at
-            id: ID
-            state: State
-            supports_count: Supports
-            title: Initiatives
+            created_at: Gemaakt bij
+            id: ID kaart
+            state: Staat
+            supports_count: Ondersteunt
+            title: Initiatieven
         initiatives_type_scope:
           fields:
-            scope: Scope
-            supports_required: Supports required
-          name: Initiative type scope
+            scope: Reikwijdte
+            supports_required: Ondersteunde vereist
+          name: Bewerk initiatieftype scope
         initiatives_types:
           fields:
-            created_at: Created at
-            title: Initiative types
-          name: Initiative type
+            created_at: Gemaakt bij
+            title: Nieuw initiatieftype
+          name: Nieuw initiatieftype
       titles:
-        initiatives: Initiatives
-        initiatives_types: Initiative types
+        initiatives: Initiatieven
+        initiatives_types: Nieuw initiatieftype
     events:
       initiatives:
         initiative_extended:
-          email_intro: The signatures end date for the initiative %{resource_title} has been extended!
-          email_outro: You have received this notification because you are following %{resource_title}. You can stop receiving notifications following the previous link.
-          email_subject: Initiative signatures end date extended!
-          notification_title: The signatures end date for the <a href="%{resource_path}">%{resource_title}</a> initiative has been extended.
+          email_intro: De sluitingsdatum van de ondertekening voor het initiatief %{resource_title} is verlengd!
+          email_outro: Je hebt deze melding ontvangen omdat je "%{resource_title}" volgt. Je kan de meldingen deactiveren door te klikken op de vorige link.
+          email_subject: Initiatief handtekeningen einddatum verlengd!
+          notification_title: De sluitingsdatum van de ondertekening voor het initiatief <a href="%{resource_path}">%{resource_title}</a> is verlengd.
         milestone_completed:
           affected_user:
-            email_intro: Your initiative %{resource_title} has achieved the %{percentage}% of signatures!
-            email_outro: You have received this notification because you are the author of the initiative %{resource_title}.
-            email_subject: New milestone completed!
-            notification_title: Your <a href="%{resource_path}">%{resource_title}</a> initiative has achieved the %{percentage}% of signatures.
-          email_intro: L'initiative %{resource_title} a atteint %{percentage}% des signatures requises !
-          email_outro: Vous avez reçu cette notification parce que vous suivez %{resource_title}. Vous pouvez arrêter de recevoir des notifications à partir du lien précédent.
-          email_subject: Nouvelle étape franchie !
+            email_intro: Het initiatief %{resource_title} heeft de %{percentage}% van de handtekeningen bereikt!
+            email_outro: U heeft deze melding ontvangen omdat u bent genoemd in %{resource_title}.
+            email_subject: Nieuwe mijlpaal voltooid!
+            notification_title: Het initiatief van <a href="%{resource_path}">%{resource_title}</a> heeft het %{percentage}% van de handtekeningen bereikt.
+          email_intro: L'initiatief %{resource_title} een atteint %{percentage}% des handtekeningen vereist!
+          email_outro: Vous avez reçu cette notificatie van que vous suivez %{resource_title}. Vous pouvez arrêter de recevoir des meldingen des partir du lien précédent.
+          email_subject: Nouvelle étape franchie!
           follower:
-            email_intro: The initiative %{resource_title} has achieved the %{percentage}% of signatures!
-            email_outro: You have received this notification because you are following %{resource_title}. You can stop receiving notifications following the previous link.
-            email_subject: New milestone completed!
-            notification_title: The <a href="%{resource_path}">%{resource_title}</a> initiative has achieved the %{percentage}% of signatures.
-          notification_title: La pétition <a href="%{resource_path}">%{resource_title}</a> a atteint %{percentage}% des signatures requises.
+            email_intro: Het initiatief %{resource_title} heeft de %{percentage}% van de handtekeningen bereikt!
+            email_outro: Je hebt deze melding ontvangen omdat je "%{resource_title}" volgt. Je kan de meldingen deactiveren door te klikken op de vorige link.
+            email_subject: Nieuwe mijlpaal voltooid!
+            notification_title: Het initiatief van <a href="%{resource_path}">%{resource_title}</a> heeft het %{percentage}% van de handtekeningen bereikt.
+          notification_title: La pétition <a href="%{resource_path}">%{resource_title}</a> a atteint %{percentage}% des handtekeningen vereist.
     gamification:
       badges:
         initiatives:
           conditions:
-            - Go to the participation space of Intiatives
-            - Follow the steps to create a new initiative
-          description: This badge is granted when you launch new initiatives, partnering with others to carry them out.
-          description_another: This user has gotten %{score} initiatives published.
-          description_own: You've got %{score} initiatives published.
-          name: Published initiatives
-          next_level_in: Get %{score} more initiatives published to reach the next level!
-          unearned_another: This user hasn't gotten any initiatives published yet.
-          unearned_own: You got no initiatives published yet.
+            - Ga naar de deelnemingsruimte van Intiatives
+            - Volg de stappen om een nieuw initiatief te maken
+          description: Deze badge wordt toegekend wanneer u nieuwe initiatieven ontplooit, die samenwerken met anderen om ze uit te voeren.
+          description_another: Deze gebruiker heeft %{score} initiatieven gepubliceerd.
+          description_own: Je hebt %{score} initiatieven gepubliceerd.
+          name: Heeft de -vergadering gepubliceerd
+          next_level_in: Krijg %{score} meer initiatieven gepubliceerd om het volgende niveau te bereiken!
+          unearned_another: Deze gebruiker heeft nog geen initiatieven gepubliceerd.
+          unearned_own: U hebt nog geen initiatieven gepubliceerd.
     help:
       participatory_spaces:
         initiatives:
-          contextual: "<p>An initiative is a proposal that can be promoted by anyone on their own initiative (independently of other channels or participation spaces) through the collection of (digital) signatures for the organization to carry out a specific action (modify a regulation, initiate a project, change the name of a department or a street, etc.).</p> <p>The promoters of an initiative can define its objectives, gather support, debate, disseminate it and define meeting points where signatures can be collected from the attendees or debates open to other participants.</p> <p>Examples: An initiative can collect signatures to convene a consultation among all the people of an organization, or to create or convene an assembly, or to initiate a process of budget increase for a territory or area of the organization. During the process of collecting signatures, more people can add to this demand and carry it forward in the organization.</p>\n"
-          page: "<p>An initiative is a proposal that can be promoted by anyone on their own initiative (independently of other channels or participation spaces) through the collection of (digital) signatures for the organization to carry out a specific action (modify a regulation, initiate a project, change the name of a department or a street, etc.).</p> <p>The promoters of an initiative can define its objectives, gather support, debate, disseminate it and define meeting points where signatures can be collected from the attendees or debates open to other participants.</p> <p>Examples: An initiative can collect signatures to convene a consultation among all the people of an organization, or to create or convene an assembly, or to initiate a process of budget increase for a territory or area of the organization. During the process of collecting signatures, more people can add to this demand and carry it forward in the organization.</p>\n"
-          title: What are initiatives?
+          contextual: "- <p>Een initiatief is een voorstel dat door iedereen op eigen initiatief (onafhankelijk van andere kanalen of deelnames) kan worden bevorderd door het verzamelen van (digitale) handtekeningen voor de organisatie om een specifieke actie uit te voeren (wijziging van een verordening, initiëren van een project, wijziging van de naam van een afdeling of straat, enz.).</p> <p>De initiatiefmakers kunnen de doelstellingen ervan definiëren, steun verzamelen, debatteren, verspreiden en vergaderpunten definiëren waar handtekeningen kunnen worden verzameld van de deelnemers of debatten die openstaan voor andere deelnemers.</p> <p>voorbeelden: Een initiatief kan handtekeningen verzamelen om een raadpleging te organiseren onder alle mensen van een organisatie, of om een vergadering te creëren of bijeen te roepen of om een proces van verhoging van de begroting voor een gebied of gebied van de organisatie te starten. Tijdens het proces van het verzamelen van handtekeningen kunnen meer mensen deze eis toevoegen en in de organisatie verder gaan.</p>\n"
+          page: "- <p>Een initiatief is een voorstel dat door iedereen op eigen initiatief (onafhankelijk van andere kanalen of deelnames) kan worden bevorderd door het verzamelen van (digitale) handtekeningen voor de organisatie om een specifieke actie uit te voeren (wijziging van een verordening, initiëren van een project, wijziging van de naam van een afdeling of straat, enz.).</p> <p>De initiatiefmakers kunnen de doelstellingen ervan definiëren, steun verzamelen, debatteren, verspreiden en vergaderpunten definiëren waar handtekeningen kunnen worden verzameld van de deelnemers of debatten die openstaan voor andere deelnemers.</p> <p>voorbeelden: Een initiatief kan handtekeningen verzamelen om een raadpleging te organiseren onder alle mensen van een organisatie, of om een vergadering te creëren of bijeen te roepen of om een proces van verhoging van de begroting voor een gebied of gebied van de organisatie te starten. Tijdens het proces van het verzamelen van handtekeningen kunnen meer mensen deze eis toevoegen en in de organisatie verder gaan.</p>\n"
+          title: Actieve initiatieven?
     initiatives:
       admin:
         committee_requests:
           index:
-            approve: Approve
-            confirm_revoke: Are you sure?
-            invite_to_committee_help: Share this link to invite other users to the promotion committee
-            no_members_yet: There are no members in the promoter committee
-            revoke: Revoke
-            title: Committee members
+            approve: Goedkeuren
+            confirm_revoke: Weet u het zeker?
+            invite_to_committee_help: Deel deze link om andere gebruikers uit te nodigen voor het promotiecomité
+            no_members_yet: Er zijn geen leden in de commissie promoter
+            revoke: Herhalen
+            title: Comité leden
         content_blocks:
           highlighted_initiatives:
-            max_results: Maximum amount of elements to show
+            max_results: Maximaal aantal te tonen elementen
         initiatives:
           edit:
-            accept: Accept initiative
-            confirm: Are you sure?
-            discard: Discard the initiative
-            export_votes: Export supports
-            reject: Reject initiative
-            send_to_technical_validation: Send to technical validation
-            success: The initiative has been sent to technical validation
-            update: Update
+            accept: Accepteer uitnodiging
+            confirm: Weet u het zeker?
+            discard: Verwijder het initiatief
+            export_votes: Exporteer ondersteuning
+            reject: Initiatief afwijzen
+            send_to_technical_validation: Stuur naar technische validatie
+            success: Het initiatief is verzonden naar technische validatie
+            update: Bijwerken
           form:
-            title: General information
+            title: Algemene informatie
           index:
-            actions_title: Action
+            actions_title: Acties
             filter:
-              accepted: Accepted
-              all: All
-              created: Created
-              discarded: Discarded
-              published: Published
-              rejected: Rejected
-              validating: Technical validation
-            filter_by: Filter by
-            preview: Preview
-            print: Print
-            search: Search
+              accepted: Aanvaard
+              all: Alle
+              created: Aangemaakt
+              discarded: Verwijderd
+              published: Gepubliceerd
+              rejected: Verworpen
+              validating: Technische validatie
+            filter_by: Filteren op
+            preview: Voorbeeld
+            print: Printen
+            search: Zoeken
           show:
-            print: Print
+            print: Printen
           update:
-            error: An error has occurred
-            success: The citizen initiative has been successfully updated
+            error: Er is een fout opgetreden
+            success: Het burgerinitiatief is succesvol bijgewerkt
         initiatives_type_scopes:
           create:
-            error: An error has occurred
-            success: A new scope for the given initiative type has been created
+            error: Er is een fout opgetreden
+            success: Er is een nieuwe ruimte gecreëerd voor het opgegeven initiatieftype
           destroy:
-            success: The scope has been successfully removed
+            success: Het onderdeel is succesvol gepubliceerd
           edit:
-            back: Back
-            confirm_destroy: Are you sure?
-            destroy: Delete
-            title: Edit initiative type scope
-            update: Update
+            back: Terug
+            confirm_destroy: Weet u het zeker?
+            destroy: Vernietigen
+            title: Bewerk initiatieftype scope
+            update: Bijwerken
           new:
-            back: Back
-            create: Create
-            title: Create initiative type scope
+            back: Terug
+            create: Creëren
+            title: Maak initiatieftype scope
           update:
-            error: An error has occurred
-            success: The scope has been successfully updated
+            error: Er is een fout opgetreden
+            success: Het onderdeel is succesvol gepubliceerd
         initiatives_types:
           create:
-            error: An error has occurred
-            success: A new initiative type has been successfully created
+            error: Er is een fout opgetreden
+            success: Een nieuw initiatieftype is succesvol aangemaakt
           destroy:
-            success: The initiative type has been successfully removed
+            success: Het onderdeel is succesvol gepubliceerd
           edit:
-            confirm_destroy: Are you sure?
-            destroy: Delete
-            update: Update
+            confirm_destroy: Weet u het zeker?
+            destroy: Vernietigen
+            update: Bijwerken
           form:
-            title: General information
+            title: Algemene informatie
           initiative_type_scopes:
-            title: Scopes for the initiative type
+            title: Scopes voor het initiatieftype
           new:
-            create: Create
-            title: New initiative type
+            create: Creëren
+            title: Nieuw initiatieftype
           update:
-            error: An error has occurred
-            success: The initiative type has been successfully updated
+            error: Er is een fout opgetreden
+            success: Het onderdeel is succesvol gepubliceerd
       admin_log:
         initiative:
-          publish: "%{user_name} published the %{resource_name} initiative"
-          send_to_technical_validation: "%{user_name} sent the %{resource_name} initiative to technical validation"
-          unpublish: "%{user_name} discarded the %{resource_name} initiative"
-          update: "%{user_name} updated the %{resource_name} initiative"
+          publish: "%{user_name} heeft de %{resource_name} -vergadering gepubliceerd"
+          send_to_technical_validation: "%{user_name} heeft het initiatief van %{resource_name} naar technische validatie gestuurd"
+          unpublish: "%{user_name} heeft de %{resource_name} -vergadering gepubliceerd"
+          update: "%{user_name} heeft de %{resource_name} -vergadering gepubliceerd"
       admin_states:
-        accepted: Accepted
-        created: Created
-        discarded: Discarded
-        published: Published
-        rejected: Rejected
-        validating: Technical validation
+        accepted: Aanvaard
+        created: Aangemaakt
+        discarded: Verwijderd
+        published: Gepubliceerd
+        rejected: Verworpen
+        validating: Technische validatie
       committee_requests:
         new:
-          continue: Continue
-          help_text: You are about to request becoming a member of the promoter committee of this initiative
+          continue: Volgende
+          help_text: U gaat vragen lid te worden van de commissie promotor van dit initiatief
         spawn:
-          success: Your request has been sent to the initiative author.
+          success: Uw verzoek is verzonden naar de initiatiefauteur.
       content_blocks:
         highlighted_initiatives:
-          name: Highlighted initiatives
+          name: Gemarkeerde initiatieven
       create_initiative:
         fill_data:
-          back: Back
-          continue: Continue
-          fill_data_help: "<ul> <li>Revise the content of your initiative. Is your title easy to understand? Is the objective of your initiative clear?</li> <li>You have to choose the type of signature. In-person, online or a combination of both</li> <li>Which is the geographic scope of the initiative? City, district?</li> </ul>"
-          initiative_type: Initiative type
-          more_information: "(More information)"
-          select_scope: Select a scope
+          back: Terug
+          continue: Volgende
+          fill_data_help: "<ul> <li>Herzie de inhoud van uw initiatief. Is uw titel gemakkelijk te begrijpen? Is de doelstelling van uw initiatief duidelijk?</li> <li>U moet het type handtekening kiezen. In-persoon, online of een combinatie van zowel</li> <li>welke de geografische reikwijdte van het initiatief is? Plaats, district?</li> </ul>"
+          initiative_type: Nieuw initiatieftype
+          more_information: "(Meer informatie)"
+          select_scope: Selecteer een scope
         finish:
-          back: Back
-          back_to_initiatives: Back to initiatives
-          callout_text: Congratulations! Your citizen initiative has been created successfully.
-          go_to_my_initiatives: Go to my initiatives
-          more_information: "(More information)"
+          back: Terug
+          back_to_initiatives: Terug naar initiatieven
+          callout_text: Gefeliciteerd! Uw burgerinitiatief is succesvol aangemaakt.
+          go_to_my_initiatives: Ga naar mijn initiatieven
+          more_information: "(Meer informatie)"
         finish_help:
-          access_reminder: Remember that you will always be able to access your initiatives through the user menu.
-          help_for_organizations: If you are an association you will have to upload the minutes of the management board of all the organisations that form the Promoting Commission
-          help_in_person_signatures: If you have chosen to collect the signatures in-person or combined with online, you will have to upload the required information.
-          help_text: Remember that in order to properly process the initiative you must access the administration panel where you will find the user menu, upload the information required and send it for processing.
-          initiatives_page_link: You can look up all this information on the %{link} dedicated to inform about initiatives.
-          page: page
+          access_reminder: Vergeet niet dat u altijd toegang zult hebben tot uw initiatieven via het gebruikersmenu.
+          help_for_organizations: Als u een associatie bent, moet u de notulen van de raad van beheer van alle organisaties die de Commissie Promotie opvolgen uploaden
+          help_in_person_signatures: Als u ervoor hebt gekozen om de handtekeningen in persoon of in combinatie met online te verzamelen, moet u de vereiste informatie uploaden.
+          help_text: Vergeet niet dat u het initiatief moet benaderen om het beheerpaneel te kunnen verwerken waar u het gebruikersmenu vindt, de vereiste informatie wilt uploaden en naar de procedure moet versturen.
+          initiatives_page_link: U kunt al deze informatie op de %{link} -site voor informatie over initiatieven bekijken.
+          page: pagina's
         previous_form:
-          back: Back
-          continue: Continue
-          help: What does the initiative consist of? Write down the title and description. We recommend a short and concise title and a description focused on the proposed solution.
-          more_information: "(More information)"
+          back: Terug
+          continue: Volgende
+          help: Wat bestaat er uit het initiatief? Schrijf de titel en beschrijving op. We raden een korte en beknopte titel aan en een beschrijving die gericht is op de voorgestelde oplossing.
+          more_information: "(Meer informatie)"
         promotal_committee:
-          back: Back
-          individual_help_text: Citizen initiatives require a Promoting Commission consisting of at least three people (attestors). You must share the following link with the other people that are part of this initiative. When your contacts receive this link they will have to follow the indicated steps.
-          more_information: "(More information)"
+          back: Terug
+          individual_help_text: Burgerinitiatieven vereisen een promotiecommissie bestaande uit ten minste drie personen (attesten). U moet de volgende link delen met de andere mensen die deel uitmaken van dit initiatief. Wanneer uw contacten deze link ontvangen, moeten ze de aangegeven stappen volgen.
+          more_information: "(Meer informatie)"
         select_initiative_type:
-          back: Back
-          more_information: "(More information)"
-          select: Choose
-          select_initiative_type_help: Citizen initiatives are a means by which the citizenship can intervene so that the City Council can undertake actions in defence of the general interest that are within fields of municipal jurisdiction. Which initiative do you want to launch?
+          back: Terug
+          more_information: "(Meer informatie)"
+          select: Kiezen
+          select_initiative_type_help: Burgerinitiatieven zijn een middel om het burgerschap te beïnvloeden, zodat de Raad van Stad maatregelen kan nemen ter verdediging van het algemeen belang dat onder de gemeentelijke jurisdictie valt, welk initiatief wilt u lanceren?
         share_committee_link:
-          continue: Continue
-          invite_to_committee_help: Link to invite people that will be part of the promoter committee
+          continue: Volgende
+          invite_to_committee_help: Link om mensen uit te nodigen die deel zullen uitmaken van de promotor commissie
         show_similar_initiatives:
-          back: Back
-          compare_help: If any of the following initiatives is similar to yours we encourage you to support it. Your proposal will have more possibilities to get done.
-          continue: My initiative is different
-          more_information: "(More information)"
+          back: Terug
+          compare_help: Als een van de volgende initiatieven vergelijkbaar is met die van u, moedigen wij u aan om dit te steunen, en uw voorstel zal meer mogelijkheden hebben om te doen.
+          continue: Mijn initiatief is anders
+          more_information: "(Meer informatie)"
       events:
         create_initiative_event:
-          email_intro: "%{author_name} %{author_nickname}, who you are following, has created a new initiative, check it out and contribute:"
-          email_outro: You have received this notification because you are following %{author_nickname}. You can stop receiving notifications following the previous link.
-          email_subject: New initiative by %{author_nickname}
-          notification_title: The <a href="%{resource_path}">%{resource_title}</a> initiative was created by <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+          email_intro: "Hallo,%{author_name} %{author_nickname}, wie u volgt, heeft een nieuw debat aangemaakt, bekijk het en draagt bij:"
+          email_outro: Je hebt deze melding ontvangen omdat je "%{author_nickname}" volgt. Je kan de meldingen deactiveren door te klikken op de vorige link.
+          email_subject: Nieuw debat door %{author_nickname}
+          notification_title: Het <a href="%{resource_path}">%{resource_title}</a> debat is aangemaakt door <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         endorse_initiative_event:
-          email_intro: "%{author_name} %{author_nickname}, who you are following, has endorsed the following initiative, maybe you want to contribute to the conversation:"
-          email_outro: You have received this notification because you are following %{author_nickname}. You can stop receiving notifications following the previous link.
-          email_subject: Initiative endorsed by %{author_nickname}
-          notification_title: The <a href="%{resource_path}">%{resource_title}</a> initiative was endorsed by <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+          email_intro: "%{author_name} %{author_nickname}, wie je volgt, heeft het volgende initiatief goedgekeurd, misschien wilt je bijdragen aan het gesprek:"
+          email_outro: Je hebt deze melding ontvangen omdat je "%{author_nickname}" volgt. Je kan de meldingen deactiveren door te klikken op de vorige link.
+          email_subject: Initiatief goedgekeurd door %{author_nickname}
+          notification_title: Het <a href="%{resource_path}">%{resource_title}</a> debat is aangemaakt door <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
       index:
-        title: Initiatives
+        title: Initiatieven
       initiative_votes:
         create:
-          error: There's been errors when signing the initiative.
+          error: Er zijn fouten geweest bij het opslaan van de pagina.
       initiatives:
         author:
-          deleted: Deleted
+          deleted: Vernietigen
         author_list:
           hidden_authors_count:
-            one: and 1 more person
-            other: and %{count} more people
+            one: en 1 meer persoon
+            other: en %{count} meer
         count:
           title:
-            one: "%{count} initiative"
-            other: "%{count} initiatives"
+            one: "initiatief %{count}"
+            other: "%{count} initiatieven"
         filters:
-          any: Any
-          author: Author
-          closed: Closed
-          myself: My initiatives
+          any: Maakt niet uit
+          author: Auteur
+          closed: Gesloten
+          myself: Initiatieven
           open: Open
-          search: Search
-          state: State
+          search: Zoeken
+          state: Staat
           type: Type
-          type_prompt: Select a type
+          type_prompt: Geselecteerde pagina
         filters_small_view:
-          close_modal: Close window
+          close_modal: Sluit dit scherm
           filter: Filter
-          filter_by: Filter by
-          unfold: Unfold
+          filter_by: Filteren op
+          unfold: Ontvouwen
         index_header:
-          new_initiative: New initiative
+          new_initiative: Nieuw initiatieftype
         orders:
-          label: 'Sort initiatives by:'
-          most_commented: Most commented
-          most_voted: Most signed
-          random: Random
-          recent: Most recent
+          label: 'Nieuw debat door:'
+          most_commented: Meest becommentarieerde berichten
+          most_voted: Meest ondertekend
+          random: Willekeurig
+          recent: Meest recent
         result:
-          initiative_accepted_reason: This initiative has been accepted because
-          initiative_rejected_reason: This initiative has been rejected due to its lack of supports.
+          initiative_accepted_reason: Dit voorstel is geaccepteerd omdat
+          initiative_rejected_reason: Dit initiatief is verworpen omdat het niet wordt gesteund.
         show:
-          any_vote_method: This citizen initiative collects online support as well as face to face.
-          offline_method: This citizen initiative only collects face to face supports.
+          any_vote_method: Dit burgerinitiatief verzamelt zowel online steun als gezicht.
+          offline_method: Dit burgerinitiatief wordt alleen maar met steun geconfronteerd.
         signature_identities:
-          select_identity: Select user identifier
+          select_identity: Selecteer gebruiker id
         signatures_count:
-          one: " signature"
-          other: " signatures"
+          one: " handtekening"
+          other: " handtekening"
         statistics:
-          assistants_count_title: Assistants
-          comments_count_title: Comments
-          meetings_count_title: Meetings
-          supports_count_title: Signatures
+          assistants_count_title: Assistenten
+          comments_count_title: Reacties
+          meetings_count_title: Vergaderingen
+          supports_count_title: Handtekening
         supports:
-          title: Listing of signatures
+          title: Lijst van handtekeningen
         vote_cabin:
-          already_voted: Already signed
-          supports_required: "%{total_supports} signatures required"
-          vote: Sign
-          votes_blocked: Signing disabled
+          already_voted: Al gestemd
+          supports_required: "%{total_supports} handtekeningen vereist"
+          vote: Bord
+          votes_blocked: Stemmen uitgeschakeld
         votes_count:
           count:
             one: SIGNATURE
             other: SIGNATURES
       initiatives_mailer:
-        creation_subject: Your citizen initiative '%{title}' has been created
+        creation_subject: Uw burgerinitiatief '%{title}' is aangemaakt
         initiative_link:
-          check_initiative_details: You can see the initiative details
-          here: here
-        more_information: Here you have more information about the initiative creation process.
-        progress_report_body_for: The initiative %{title} has reached the %{percentage}% of required supports.
-        progress_report_for: 'Resume about the initiative: %{title}'
-        promotal_committee_help: Remember that you must invite at least %{member_count} people to promoter committee. Forward the following link to invite people to the promoter committee
-        status_change_body_for: 'The initiative %{title} has changed its state to: %{state}'
-        status_change_for: The initiative %{title} has changed its state
-        technical_validation_body_for: The initiative %{title} has requested its technical validation.
-        technical_validation_for: The initiative %{title} has requested its technical validation.
+          check_initiative_details: U kunt de initiatiefdetails zien
+          here: hier
+        more_information: Hier hebt u meer informatie over het initiatiefproces.
+        progress_report_body_for: Het initiatief %{title} heeft de %{percentage}% van de vereiste ondersteuning bereikt.
+        progress_report_for: 'Hervat over het initiatief: %{title}'
+        promotal_committee_help: Vergeet niet dat je minstens %{member_count} mensen moet uitnodigen voor promotor commissie. Stuur de volgende link om mensen uit te nodigen naar de promotal commissie
+        status_change_body_for: 'Het initiatief %{title} heeft zijn status veranderd naar: %{state}'
+        status_change_for: Het initiatief %{title} heeft zijn status gewijzigd
+        technical_validation_body_for: Het initiatief %{title} heeft zijn technische validatie aangevraagd.
+        technical_validation_for: Het initiatief %{title} heeft zijn technische validatie aangevraagd.
       last_activity:
-        new_initiative: New initiative
+        new_initiative: Nieuw initiatieftype
       pages:
         home:
           highlighted_initiatives:
-            active_initiatives: Active initiatives
-            see_all_initiatives: See all initiatives
+            active_initiatives: Actieve initiatieven
+            see_all_initiatives: Alle initiatieven bekijken
       states:
-        accepted: Accepted
-        expired: Expired
-      unavailable_scope: Unavailable scope
+        accepted: Aanvaard
+        expired: Verlopen op
+      unavailable_scope: Niet beschikbaar bereik
     menu:
-      initiatives: Initiatives
+      initiatives: Initiatieven
   layouts:
     decidim:
       admin:
         initiative:
-          attachments: Attachments
-          committee_members: Committee members
-          components: Components
-          information: Information
+          attachments: Bijlagen
+          committee_members: Comité leden
+          components: Componenten
+          information: Informatie
       initiative_creation_header:
-        fill_data: Create
-        finish: Finish
-        previous_form: Start
-        promotal_committee: Promoter committee
-        select_initiative_type: Choose
-        show_similar_initiatives: Compare
-        step: Step %{current} of %{total}
-        title: Create new initiative
+        fill_data: Creëren
+        finish: Afgerond
+        previous_form: Beginnen
+        promotal_committee: Promotaal commissie
+        select_initiative_type: Kiezen
+        show_similar_initiatives: Vergelijk
+        step: Stap %{current} van %{total}
+        title: Nieuw initiatief aanmaken
       initiative_header:
-        initiative_menu_item: Initiative
+        initiative_menu_item: Initiatieven
       initiatives:
         initiative:
-          check: Check it out
-          check_and_support: Check it out and sign
+          check: Bekijk het
+          check_and_support: Bekijk het en meld het
         no_initiatives_yet:
-          no_initiatives_yet: No initiatives yet!
+          no_initiatives_yet: Nog geen initiatieven!
