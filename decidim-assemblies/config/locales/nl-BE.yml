@@ -119,7 +119,7 @@ nl-BE:
           assembly_members_title: Groep leden
         new:
           create: Creëren
-          title: Nieuwe groep.
+          title: Nieuwe groepslid.
         update:
           error: Er is een fout opgetreden die een gebruiker bijgewerkt heeft voor deze groep.
           success: Gebruiker is succesvol bijgewerkt voor deze groep.
