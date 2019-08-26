@@ -13,6 +13,15 @@
   )
 %>
 
+<%
+edit_link(
+  resource_locator(@proposal).edit,
+  :edit,
+  :proposal,
+  proposal: @proposal
+)
+%>
+
 <%= render partial: "voting_rules" %>
 <% if component_settings.participatory_texts_enabled? %>
   <div class="row column">
@@ -59,14 +68,28 @@
 
     <%= emendation_actions_for @proposal %>
 
-    <% if @proposal.withdrawn? %>
-      <div class="card">
-        <div class="card__content">
-          <% if current_settings.votes_enabled? %>
-            <%= render partial: "votes_count", locals: { proposal: @proposal, from_proposals_list: false } %>
-          <% end %>
+    <% if current_settings.votes_enabled? || show_endorsements_card? || current_user %>
+      <% if @proposal.withdrawn? %>
+        <div class="card">
+          <div class="card__content">
+            <% if current_settings.votes_enabled? %>
+              <%= render partial: "votes_count", locals: { proposal: @proposal, from_proposals_list: false } %>
+            <% end %>
+          </div>
         </div>
-      </div>
+      <% else %>
+        <div class="card">
+          <div class="card__content">
+            <% if current_settings.votes_enabled? %>
+              <%= render partial: "votes_count", locals: { proposal: @proposal, from_proposals_list: false } %>
+              <%= render partial: "vote_button", locals: { proposal: @proposal, from_proposals_list: false } %>
+            <% end %>
+            <%= render partial: "endorsements_card_row", locals: { proposal: @proposal } %>
+            <br />
+            <%= follow_button_for(@proposal) %>
+          </div>
+        </div>
+      <% end %>
     <% end %>
 
     <% if current_settings.votes_enabled? || show_endorsements_card? || current_settings.votes_weight_enabled? || current_user %>

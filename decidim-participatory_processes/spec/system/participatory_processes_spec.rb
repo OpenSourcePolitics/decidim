@@ -305,6 +305,12 @@ describe "Participatory Processes", type: :system do
                 end
               end
             end
+
+            within find("#processes-grid .column", text: translated(participatory_process.title)) do
+              within ".card__footer" do
+                expect(page).to have_content("CURRENT PHASE:\nActive step")
+              end
+            end
           end
         end
       end
