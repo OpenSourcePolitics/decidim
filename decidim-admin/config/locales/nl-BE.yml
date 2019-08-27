@@ -175,21 +175,21 @@ nl-BE:
           success: Collection updated successfully.
       attachments:
         create:
-          error: There was an error creating a new attachment.
-          success: Attachment created successfully.
+          error: Er is een fout opgetreden bij het maken van een nieuwe bijlage.
+          success: Bijlage is succesvol gemaakt.
         destroy:
-          success: Attachment destroyed successfully.
+          success: Bijlage is succesvol vernietigd.
         edit:
-          title: Edit attachment
-          update: Update
+          title: Bewerk bijlage
+          update: Bijwerken
         index:
-          attachments_title: Attachments
+          attachments_title: Bijlagen
         new:
-          create: Create attachment
-          title: New attachment
+          create: Nieuwe bijlage
+          title: Nieuwe bijlage
         update:
-          error: There was an error when updating this attachment.
-          success: Attachment updated successfully.
+          error: Er is een fout opgetreden bij het bijwerken van deze bijlage.
+          success: Bijlage is succesvol bijgewerkt.
       categories:
         create:
           error: There was an error creating this category.
