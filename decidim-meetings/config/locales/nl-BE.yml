@@ -69,7 +69,7 @@ nl-BE:
     meetings:
       actions:
         attachment_collections: Collections
-        attachments: Attachments
+        attachments: Bijlagen
         close: Close
         confirm_destroy: Are you sure you want to delete this meeting?
         destroy: Delete
