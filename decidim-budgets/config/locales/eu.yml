@@ -135,7 +135,6 @@ eu:
             one: projet
             other: projets
           view: Ikusi
-          vote: Voter
         project:
           add: Gehitu
           count:

@@ -133,8 +133,8 @@ nl:
           total_projects:
             one: projet
             other: projets
-          view: Uitzicht
-          vote: Voter
+            view: Uitzicht
+            vote: Voter
         project:
           add: Toevoegen
           count:

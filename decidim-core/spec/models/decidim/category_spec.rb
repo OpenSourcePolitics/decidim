@@ -37,5 +37,41 @@ module Decidim
         expect(subject.participatory_space).to eq parent.participatory_space
       end
     end
+
+    context "with a color" do
+      let(:color) { "#4286f4" }
+      let!(:category) { create(:category, color: color) }
+
+      it { is_expected.to be_valid }
+      it "return the category color" do
+        expect(category.color).to eq(color)
+      end
+
+      context "when category has no color" do
+        let!(:category) { create(:category, color: nil) }
+
+        it "returns nil" do
+          expect(category.color).to eq(nil)
+        end
+
+        context "when category has a parent" do
+          let!(:parent) { create(:category, color: nil) }
+          let!(:category) { create(:category, color: nil, parent: parent) }
+
+          it "returns nil" do
+            expect(category.color).to eq(nil)
+          end
+
+          context "when parent has a color" do
+            let(:parent_color) { "#333333" }
+            let!(:parent) { create(:category, color: parent_color) }
+
+            it "returns the parent color" do
+              expect(category.color).to eq(parent_color)
+            end
+          end
+        end
+      end
+    end
   end
 end

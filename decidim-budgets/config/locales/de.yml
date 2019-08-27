@@ -134,7 +134,6 @@ de:
             one: projet
             other: projets
           view: Aussicht
-          vote: Voter
         project:
           add: Hinzufügen
           count:

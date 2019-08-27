@@ -135,7 +135,6 @@ sv:
             one: projet
             other: projets
           view: Visa
-          vote: Voter
         project:
           add: Lägg till
           count:
