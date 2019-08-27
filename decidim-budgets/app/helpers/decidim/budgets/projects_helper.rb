@@ -44,6 +44,13 @@ module Decidim
         current_order&.can_checkout?
       end
 
+      def border_helper(project)
+        return unless project&.category
+        return "" if project.category.color.blank?
+
+        "border: 1px solid #{project.category.color}; border-top: 3px solid #{project.category.color};"
+      end
+
       # Return true if the order process is pending
       def current_order_is_pending?
         current_order&.pending?

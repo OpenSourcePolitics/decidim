@@ -253,7 +253,7 @@ shared_examples "orders" do |*options|
               expect(page).to have_content project.title[I18n.locale]
             end
 
-            within ".budget-summary__selected" do
+            within ".budget-summary__progressbox" do
               expect(page).to have_selector("button.small:disabled")
             end
           end
@@ -346,7 +346,7 @@ shared_examples "orders" do |*options|
               expect(page).to have_selector ".budget-list__data--added", count: 5
               expect(page).to have_selector("button.budget--list__action[disabled]", count: 1)
 
-              within ".budget-summary__selected" do
+              within ".budget-summary__progressbox" do
                 page.find("button.button.small.button--sc").click
               end
 
@@ -429,6 +429,21 @@ shared_examples "orders" do |*options|
   end
 
   describe "index" do
+    context "when category has color" do
+      let(:color) { "#ffffff" }
+      let!(:category) { create(:category, participatory_space: component.participatory_space, color: color) }
+      let!(:project) { create(:project, component: component) }
+      let!(:other_project) { create(:project, component: component) }
+
+      it "displays a border" do
+        project.update!(category: category)
+        visit_component
+
+        expect(page.find("#project-#{project.id}-item").style(:border)).not_to eq("border" => "1px solid rgb(232, 232, 232)")
+        expect(page.find("#project-#{other_project.id}-item").style(:border)).to eq("border" => "1px solid rgb(232, 232, 232)")
+      end
+    end
+
     context "when voting by budget" do
       if options.include? :total_budget
         let!(:projects) { create_list(:project, 4, budget: 25_000_000, component: component) }

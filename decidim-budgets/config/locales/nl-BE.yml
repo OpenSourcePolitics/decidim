@@ -134,6 +134,7 @@ nl-BE:
             one: projet
             other: projets
           view: Uitzicht
+          vote: Stemer
         project:
           add: Toevoegen
           count:

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-shared_examples "manage projects" do |options|
+shared_examples "manage projects" do |*options|
   it "updates a project" do
     within find("tr", text: translated(project.title)) do
       click_link "Edit"
@@ -41,8 +41,8 @@ shared_examples "manage projects" do |options|
   end
 
   context "when seeing finished and pending votes" do
-    if options == :total_budget
-      context "when voting by budget" do
+    context "when voting by budget" do
+      if options.include? :total_budget
         let!(:project) { create(:project, budget: 70_000_000, component: current_component) }
 
         let!(:finished_orders) do
@@ -66,8 +66,8 @@ shared_examples "manage projects" do |options|
       end
     end
 
-    if options == :total_projects
-      context "when voting by projects" do
+    context "when voting by projects" do
+      if options.include? :total_projects
         let(:component) do
           create(:budget_component,
                  :with_vote_per_project,

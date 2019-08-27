@@ -135,7 +135,6 @@ gl:
             one: projet
             other: projets
           view: Ver
-          vote: Voter
         project:
           add: Engadir
           count:
