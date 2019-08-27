@@ -253,7 +253,7 @@ shared_examples "orders" do |*options|
               expect(page).to have_content project.title[I18n.locale]
             end
 
-            within ".budget-summary__selected" do
+            within ".budget-summary__progressbox" do
               expect(page).to have_selector("button.small:disabled")
             end
           end
@@ -346,7 +346,7 @@ shared_examples "orders" do |*options|
               expect(page).to have_selector ".budget-list__data--added", count: 5
               expect(page).to have_selector("button.budget--list__action[disabled]", count: 1)
 
-              within ".budget-summary__selected" do
+              within ".budget-summary__progressbox" do
                 page.find("button.button.small.button--sc").click
               end
 
