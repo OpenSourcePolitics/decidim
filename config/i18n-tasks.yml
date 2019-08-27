@@ -198,6 +198,7 @@ ignore_unused:
   - decidim.initiatives.initiatives.votes_count.count.*
   - decidim.proposals.admin.participatory_texts.new_import.accepted_mime_types.*
   # OSP CUSTO START HERE
+  - decidim.admin.participatory_processes.index.promoted.*
   - decidim.proposals.proposals.edit.address
   - decidim.proposals.proposals.edit.not_geocoded
   - decidim.proposals.proposals.placeholder.address

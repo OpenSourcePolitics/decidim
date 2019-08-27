@@ -55,7 +55,7 @@ module Decidim
                     next if (attr == "body") && (proposal.participatory_text_level != Decidim::Proposals::ParticipatoryTextSection::LEVELS[:article])
 
                     expected[attr] = proposal_form.send attr.to_sym
-                    actual[attr] = proposal.attributes[attr]
+                    actual[attr] = proposal.attributes[attr].is_a?(String) ? JSON.parse(proposal.attributes[attr]) : proposal.attributes[attr]
                   end
                   expect(actual).to eq(expected)
                 end
