@@ -12,7 +12,7 @@ nl-BE:
     budgets:
       actions:
         attachment_collections: Collections
-        attachments: Attachments
+        attachments: Bijlagen
         confirm_destroy: Are you sure you want to delete this project?
         destroy: Delete
         edit: Edit
