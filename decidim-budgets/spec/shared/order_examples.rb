@@ -6,6 +6,7 @@ shared_examples "order" do |*options|
   let(:order) { create :order, component: component }
   let(:component) { create(:budget_component) }
   let(:category) { create(:category, participatory_space: component.participatory_space) }
+  let(:subcategory) { create(:category, parent: category, participatory_space: component.participatory_space) }
   let(:other_category) { create(:category, participatory_space: component.participatory_space) }
   let(:projects_per_category_treshold) do
     {
@@ -167,6 +168,12 @@ shared_examples "order" do |*options|
       subject.projects << create(:project, component: component, category: other_category)
 
       expect(subject.projects_per_category).to eq(category.id => 1, other_category.id => 1)
+    end
+
+    it "translates subcategories into categories and counts them" do
+      subject.projects << create(:project, component: component, category: subcategory)
+
+      expect(subject.projects_per_category).to eq(category.id => 1)
     end
   end
 

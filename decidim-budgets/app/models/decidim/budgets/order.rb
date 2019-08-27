@@ -124,7 +124,9 @@ module Decidim
       # Public: groups the projects per category and counts them
       # Returns a Hash
       def projects_per_category
-        projects.joins(:categorization).group(:decidim_category_id).count
+        projects.joins(:categorization).group(:decidim_category_id).count.transform_keys do |key|
+          subcategories.has_key?(key) ? subcategories[key] : key
+        end
       end
 
       # Public: Returns the number of projects added to the order
@@ -184,6 +186,10 @@ module Decidim
       end
 
       private
+
+      def subcategories
+        @subcategories ||= component.categories.pluck(:id, :parent_id).to_h.delete_if { |_k, v| v.nil? }
+      end
 
       def user_belongs_to_organization
         organization = component&.organization
