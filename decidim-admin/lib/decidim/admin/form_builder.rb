@@ -71,13 +71,13 @@ module Decidim
       # => {"category id"=>"number of projects to be selected", ...}
       #
       # Returns a HTML safe String
-      def projects_per_category_treshold_field(categories, total_projects = nil)
+      def projects_per_category_treshold_fields(categories, total_projects = nil)
         collection = categories.map { |c| [c.id, c.translated_name] }
 
         template = ""
         fields_for(:projects_per_category_treshold) do |fields_form|
           collection.each do |id, translated_name|
-            value = object.projects_per_category_treshold[id.to_s] || 0
+            value = object.projects_per_category_treshold.fetch(id.to_s, 0)
             template += fields_form.number_field(id,
                                                  min: 0,
                                                  max: total_projects,

@@ -113,7 +113,7 @@ module Decidim
       end
     end
 
-    shared_examples "renders the :projects_per_category_treshold_form_field" do
+    shared_examples "rendering projects_per_category_treshold_fields" do
       let(:label) { subject.css("label[for*='projects_per_category_treshold']") }
       let(:input_attributes) { label.css("input").first.attributes }
 
@@ -123,6 +123,14 @@ module Decidim
 
       it "sets the input type correctly" do
         expect(input_attributes["type"].value).to eq("number")
+      end
+
+      it "sets the min value correctly" do
+        expect(input_attributes["min"].value).to eq("0")
+      end
+
+      it "sets the max value correctly" do
+        expect(input_attributes["max"].value).to eq(input_max_value) if defined?(input_max_value)
       end
 
       it "sets the input classes correctly" do
@@ -138,17 +146,15 @@ module Decidim
       end
 
       it "sets the input value correctly" do
-        if resource.projects_per_category_treshold.any?
-          expect(input_attributes["value"].value).to eq(resource.projects_per_category_treshold.values.first)
-        else
-          expect(input_attributes["value"].value).to eq("0")
-        end
+        value = defined?(input_value) ? input_value : "0"
+        expect(input_attributes["value"].value).to eq(value)
       end
     end
 
-    describe "#projects_per_category_treshold" do
-      let(:output) { builder.projects_per_category_treshold_field(categories) }
+    describe "#projects_per_category_treshold_fields" do
+      let(:output) { builder.projects_per_category_treshold_fields(categories, total_projects) }
       let!(:category) { create(:category) }
+      let(:total_projects) { nil }
 
       context "without categories" do
         let(:categories) { Decidim::Category.none }
@@ -162,8 +168,14 @@ module Decidim
         let(:categories) { Decidim::Category.all }
         let(:projects_per_category_treshold) { { category.id.to_s => 1.to_s } }
 
-        context "without previous value" do
-          it_behaves_like "renders the :projects_per_category_treshold_form_field"
+        it_behaves_like "rendering projects_per_category_treshold_fields"
+
+        context "with projects count value" do
+          let(:total_projects) { 1 }
+
+          it_behaves_like "rendering projects_per_category_treshold_fields" do
+            let(:input_max_value) { "1" }
+          end
         end
 
         context "with previous value" do
@@ -171,7 +183,9 @@ module Decidim
             resource.projects_per_category_treshold = projects_per_category_treshold
           end
 
-          it_behaves_like "renders the :projects_per_category_treshold_form_field"
+          it_behaves_like "rendering projects_per_category_treshold_fields" do
+            let(:input_value) { resource.projects_per_category_treshold.values.first }
+          end
         end
       end
     end
