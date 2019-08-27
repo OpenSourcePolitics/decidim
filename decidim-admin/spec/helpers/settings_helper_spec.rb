@@ -62,7 +62,7 @@ module Decidim
         end
 
         it "is supported" do
-          expect(form).to receive(:projects_per_category_treshold_field).with(ActiveRecord::AssociationRelation, Integer)
+          expect(form).to receive(:projects_per_category_treshold_fields).with(ActiveRecord::AssociationRelation, Integer)
           render_input
         end
       end

@@ -4,6 +4,7 @@ require "spec_helper"
 
 describe "Budgets component" do # rubocop:disable RSpec/DescribeClass
   let!(:component) { create(:budget_component) }
+  let!(:projects) { create_list(:project, 2, component: component) }
   let(:participatory_space) { component.participatory_space }
   let!(:user) { create(:user, :admin, organization: participatory_space.organization) }
   let!(:category) { create(:category, participatory_space: participatory_space) }
@@ -28,7 +29,7 @@ describe "Budgets component" do # rubocop:disable RSpec/DescribeClass
           expect(page).to have_css("p", text: "In the \"Voting rules\" section, you must check one of the following options:")
           expect(page).to have_css("li", text: "Activate rule: \"number of projects selected\"")
           expect(page).to have_css("li", text: "Activate rule: \"minimum budget percentage\"")
-          expect(page).to have_css("p", text: "Also make sure that the value of the following fields does not surpass the total number of projects for this component: 0")
+          expect(page).to have_css("p", text: "Also make sure that the value of the following fields does not surpass the total number of projects for this component: #{total_projects}")
           expect(page).to have_css("li", text: "Number of projects the user has to select")
           expect(page).to have_css("li", text: "Activate rule: \"minimum projects to select per category\"")
         end
@@ -44,6 +45,9 @@ describe "Budgets component" do # rubocop:disable RSpec/DescribeClass
     end
 
     shared_examples "voting rules" do
+      let!(:new_component?) { find(".form")[:class].include?("new") }
+      let!(:total_projects) { new_component? ? 0 : projects.count }
+
       it "sets the min value for total_projects to '1'" do
         total_projects_min_value = find("#component_settings_total_projects")["min"]
         expect(total_projects_min_value).to eq("1")
@@ -72,22 +76,39 @@ describe "Budgets component" do # rubocop:disable RSpec/DescribeClass
         end
 
         context "and total_projects value does NOT surpass total component's projects" do
-          before { fill_in(:component_settings_total_projects, with: 0) }
+          before do
+            skip if new_component?
+            fill_in(:component_settings_total_projects, with: 1)
+          end
 
           it_behaves_like "not showing the voting rules modal on submit"
+
+          context "when vote_per_category is also checked" do
+            before { check('Activate rule: "minimum projects to select per category"') }
+
+            context "and projects_per_category_treshold sum surpass total_projects" do
+              before { fill_in(:"component_settings_projects_per_category_treshold_#{category.id}", with: 2) }
+
+              it_behaves_like "showing the voting rules modal on submit"
+            end
+          end
+        end
+
+        context "and total_projects value is less than '1'" do
+          before { fill_in(:component_settings_total_projects, with: 0) }
+
+          it_behaves_like "showing the voting rules modal on submit"
         end
 
         context "and total_projects value surpass total component's projects" do
-          before { fill_in(:component_settings_total_projects, with: 1) }
+          before { fill_in(:component_settings_total_projects, with: 3) }
 
           it_behaves_like "showing the voting rules modal on submit"
         end
       end
 
       context "when neither vote_per_project nor vote_per_project is selected" do
-        before do
-          uncheck('Activate rule: "minimum budget percentage"')
-        end
+        before { uncheck('Activate rule: "minimum budget percentage"') }
 
         it_behaves_like "showing the voting rules modal on submit"
       end
@@ -95,8 +116,14 @@ describe "Budgets component" do # rubocop:disable RSpec/DescribeClass
       context "when vote_per_category is checked" do
         before { check('Activate rule: "minimum projects to select per category"') }
 
-        context "and projects_per_category_treshold values sum surpass total component's projects" do
-          before { fill_in(:"component_settings_projects_per_category_treshold_#{category.id}", with: 1) }
+        context "and projects_per_category_treshold sum surpass total component's projects" do
+          before { fill_in(:"component_settings_projects_per_category_treshold_#{category.id}", with: 3) }
+
+          it_behaves_like "showing the voting rules modal on submit"
+        end
+
+        context "and a projects_per_category_treshold value is less than '0'" do
+          before { fill_in(:"component_settings_projects_per_category_treshold_#{category.id}", with: -1) }
 
           it_behaves_like "showing the voting rules modal on submit"
         end

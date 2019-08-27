@@ -49,20 +49,33 @@ $(() => {
   const $submitButton = $("button[type=submit]");
   const $votingRulesModal = $("#voting-rules-modal");
 
+  const getTotalProjects = () => {
+    return parseInt($totalProjects.val(), 10)
+  }
+
+  const getProjectsLimit = () => {
+    if ($perProject.is(":checked"))
+    { return getTotalProjects() }
+
+    return componentProjects;
+  }
+
   const noVotingRuleIsChecked = () => {
     return !$perBudget.is(":checked") && !$perProject.is(":checked")
   }
 
-  const totalProjectsExceedsComponentProjects = () => {
-    if (!$perProject.is(":checked")) return false
+  const totalProjectsIsInvalid = () => {
+    if (!$perProject.is(":checked"))
+    { return false; }
 
-    let totalProjects = parseInt($totalProjects.val(), 10);
+    let totalProjects = getTotalProjects();
 
-    return totalProjects > componentProjects
+    return totalProjects < 1 || totalProjects > componentProjects;
   }
 
-  const projectsPerCategoryExceedsComponentProjects = () => {
-    if (!$perCategory.is(":checked")) return false
+  const projectsPerCategoryIsInvalid = () => {
+    if (!$perCategory.is(":checked"))
+    { return false; }
 
     let totalProjectsPerCategory = 0;
 
@@ -70,14 +83,16 @@ $(() => {
       totalProjectsPerCategory += parseInt($(field).val(), 10);
     });
 
-    return totalProjectsPerCategory > componentProjects
+    let projectsLimit = getProjectsLimit();
+
+    return totalProjectsPerCategory < 0 || totalProjectsPerCategory > projectsLimit;
   }
 
   $submitButton.click((event) => {
     if (
       noVotingRuleIsChecked() ||
-      totalProjectsExceedsComponentProjects() ||
-      projectsPerCategoryExceedsComponentProjects()
+      totalProjectsIsInvalid() ||
+      projectsPerCategoryIsInvalid()
     ) {
       $votingRulesModal.foundation("toggle");
       event.preventDefault();
