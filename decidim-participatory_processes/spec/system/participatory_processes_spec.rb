@@ -243,7 +243,7 @@ describe "Participatory Processes", type: :system do
 
             within find("#highlighted-processes .card--full .card--full__image") do
               within ".button" do
-                expect(page).to have_content("MORE INFO")
+                expect(page).to have_content("TAKE PART")
               end
             end
           end
@@ -274,7 +274,7 @@ describe "Participatory Processes", type: :system do
                 visit decidim_participatory_processes.participatory_processes_path
                 within find("#highlighted-processes .card--full .card--full__image") do
                   within ".button" do
-                    expect(page).to have_content("MORE INFO")
+                    expect(page).to have_content("TAKE PART")
                   end
                 end
               end
@@ -287,7 +287,7 @@ describe "Participatory Processes", type: :system do
                 visit decidim_participatory_processes.participatory_processes_path
                 within find("#highlighted-processes .card--full .card--full__image") do
                   within ".button" do
-                    expect(page).to have_content("MORE INFO")
+                    expect(page).to have_content("TAKE PART")
                   end
                 end
               end
