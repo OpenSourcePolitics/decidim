@@ -80,7 +80,7 @@ fr:
             comments_enabled: Activer le module de commentaire
             geocoding_enabled: Géocodage activé
             minimum_votes_per_user: Nombre minimum de votes par utilisateur
-            new_proposal_help_text: Texte d'aide à la création d'une nouvelle proposition
+            new_proposal_help_text: Texte d'aide à la création d'une nouvelle proposition (texte d'aide général)
             official_proposals_enabled: Autoriser la création de propositions officielles
             participatory_texts_enabled: Textes participatifs activés
             proposal_answering_enabled: Autoriser la réponse officielle aux propositions
