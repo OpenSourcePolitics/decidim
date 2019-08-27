@@ -28,8 +28,8 @@ module Decidim
               modifs << Decidim::Proposals::Admin::ProposalForm.new(
                 id: proposal.id,
                 position: new_positions.shift,
-                title: ::Faker::Lovecraft.fhtagn,
-                body: ::Faker::Lovecraft.fhtagn(5)
+                title: ::Faker::Lorem.words,
+                body: ::Faker::Lorem.words(5)
               )
             end
             modifs
