@@ -24,7 +24,7 @@ module Decidim
       # Returns a rendered form field.
       def settings_attribute_input(form, attribute, name, options = {})
         if name == :projects_per_category_treshold
-          form.projects_per_category_treshold_field(current_participatory_space.categories.first_class, component_projects_count)
+          form.projects_per_category_treshold_fields(current_participatory_space.categories.first_class, component_projects_count)
         elsif attribute.translated?
           form.send(:translated, form_method_for_attribute(attribute), name, options.merge(tabs_id: "#{options[:tabs_prefix]}-#{name}-tabs"))
         else
@@ -58,7 +58,7 @@ module Decidim
         when :vote_per_project
           { class: "per-project-rule" }
         when :total_projects
-          { max: component_projects_count, class: "per-project-rule" }
+          { min: 1, max: component_projects_count, class: "per-project-rule" }
         else
           {}
         end

@@ -10,9 +10,9 @@ describe "Budgets component" do # rubocop:disable RSpec/DescribeClass
 
   describe "voting rules", type: :system do
     let(:routes) { Decidim::EngineRouter.admin_proxy(component.participatory_space) }
-    let(:total_budget_field) { page.find("input#component_settings_total_budget") }
-    let(:per_budget_rules_fields) { page.find_all("input.per-budget-rule") }
-    let(:per_project_rules_fields) { page.find_all("input.per-project-rule") }
+    let(:total_budget_field) { find("input#component_settings_total_budget") }
+    let(:per_budget_rules_fields) { find_all("input.per-budget-rule") }
+    let(:per_project_rules_fields) { find_all("input.per-project-rule") }
 
     before do
       switch_to_host(component.organization.host)
@@ -44,6 +44,11 @@ describe "Budgets component" do # rubocop:disable RSpec/DescribeClass
     end
 
     shared_examples "voting rules" do
+      it "sets the min value for total_projects to '1'" do
+        total_projects_min_value = find("#component_settings_total_projects")["min"]
+        expect(total_projects_min_value).to eq("1")
+      end
+
       context "when vote_per_budget is checked (default)" do
         it "disables fields with 'per-project-rule' class" do
           expect(per_project_rules_fields).to all(be_disabled)
@@ -66,32 +71,35 @@ describe "Budgets component" do # rubocop:disable RSpec/DescribeClass
           expect(total_budget_field).to be_disabled
         end
 
-        it_behaves_like "not showing the voting rules modal on submit"
+        context "and total_projects value does NOT surpass total component's projects" do
+          before { fill_in(:component_settings_total_projects, with: 0) }
+
+          it_behaves_like "not showing the voting rules modal on submit"
+        end
+
+        context "and total_projects value surpass total component's projects" do
+          before { fill_in(:component_settings_total_projects, with: 1) }
+
+          it_behaves_like "showing the voting rules modal on submit"
+        end
       end
 
       context "when neither vote_per_project nor vote_per_project is selected" do
         before do
           uncheck('Activate rule: "minimum budget percentage"')
-          uncheck('Activate rule: "number of projects selected"')
         end
 
         it_behaves_like "showing the voting rules modal on submit"
       end
 
-      context "when total_projects value surpass total component's projects" do
-        before do
-          uncheck('Activate rule: "minimum budget percentage"')
-          check('Activate rule: "number of projects selected"')
-          fill_in(:component_settings_total_projects, with: 1)
+      context "when vote_per_category is checked" do
+        before { check('Activate rule: "minimum projects to select per category"') }
+
+        context "and projects_per_category_treshold values sum surpass total component's projects" do
+          before { fill_in(:"component_settings_projects_per_category_treshold_#{category.id}", with: 1) }
+
+          it_behaves_like "showing the voting rules modal on submit"
         end
-
-        it_behaves_like "showing the voting rules modal on submit"
-      end
-
-      context "when projects_per_category_treshold values sum surpass total component's projects" do
-        before { fill_in(:"component_settings_projects_per_category_treshold_#{category.id}", with: 1) }
-
-        it_behaves_like "showing the voting rules modal on submit"
       end
     end
 

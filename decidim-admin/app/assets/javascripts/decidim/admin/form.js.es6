@@ -42,6 +42,7 @@ $(() => {
   })
 
   // BUDGET VALIDATIONS
+  const $perCategory = $("input#component_settings_vote_per_category");
   const componentProjects = parseInt($(".voting-rules-settings").attr("data-component-projects"), 10);
   const $totalProjects = $("input#component_settings_total_projects");
   const $perCategoryFields = $("input.per-category-rule");
@@ -53,12 +54,16 @@ $(() => {
   }
 
   const totalProjectsExceedsComponentProjects = () => {
+    if (!$perProject.is(":checked")) return false
+
     let totalProjects = parseInt($totalProjects.val(), 10);
 
     return totalProjects > componentProjects
   }
 
   const projectsPerCategoryExceedsComponentProjects = () => {
+    if (!$perCategory.is(":checked")) return false
+
     let totalProjectsPerCategory = 0;
 
     $perCategoryFields.each((_idx, field) => {

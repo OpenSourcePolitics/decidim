@@ -51,7 +51,7 @@ Decidim.register_component(:budgets) do |component|
     settings.attribute :vote_per_budget, type: :boolean, default: true
     settings.attribute :vote_threshold_percent, type: :integer, default: 70
     settings.attribute :vote_per_project, type: :boolean
-    settings.attribute :total_projects, type: :integer, default: 0
+    settings.attribute :total_projects, type: :integer, default: 5
     settings.attribute :vote_per_category, type: :boolean
     settings.attribute :projects_per_category_treshold, type: :hash
   end
