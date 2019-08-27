@@ -36,7 +36,7 @@ Gem::Specification.new do |s|
   s.add_dependency "foundation_rails_helper", "~> 3.0"
   s.add_dependency "geocoder", "~> 1.4"
   s.add_dependency "hashdiff", "~> 0.3.7"
-  s.add_dependency "invisible_captcha", "~> 0.10.0"
+  s.add_dependency "invisible_captcha", "~> 0.12"
   s.add_dependency "jquery-rails", "~> 4.3"
   s.add_dependency "kaminari", "~> 1.0"
   s.add_dependency "loofah", "~> 2.0", ">= 2.2.1" # version 2.2.0 has a vulnerability
@@ -46,6 +46,7 @@ Gem::Specification.new do |s|
   s.add_dependency "omniauth", "~> 1.6"
   s.add_dependency "omniauth-facebook", "~> 4.0"
   s.add_dependency "omniauth-google-oauth2", "~> 0.5.0"
+  s.add_dependency "omniauth-rails_csrf_protection", "~> 0.1"
   s.add_dependency "omniauth-twitter", "~> 1.4"
   s.add_dependency "paper_trail", "~> 9.0"
   s.add_dependency "pg", ">= 0.18", "< 2"
