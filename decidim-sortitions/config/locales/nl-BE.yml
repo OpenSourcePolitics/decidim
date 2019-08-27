@@ -1,0 +1,151 @@
+nl-BE:
+  activemodel:
+    attributes:
+      sortition:
+        additional_info: Sorteerinformatie
+        decidim_category_id: Categorieën van de reeks voorstellen waarin u de tekeningen wilt toepassen
+        decidim_proposals_component_id: Voorstellen ingesteld
+        dice: Resultaat van de hoofdelijke dood. Rol een 6-eenzijdige dood, of zoek een andere willekeurige manier om een getal te genereren van 1 tot 6, en voer hier het resulterende aantal voor sommige getuigen in. Dit draagt bij aan de kwaliteit en garanties van de randomheid van het resultaat
+        target_items: Aantal te selecteren voorstellen (geeft het aantal voorstellen aan dat u wilt selecteren door veel van de groep voorstellen te tekenen die u eerder hebt gekozen)
+        title: Titel
+        witnesses: Witgetuigen
+    models:
+      decidim/sortitions/create_sortition_event: Sortaties
+  activerecord:
+    models:
+      decidim/sortitions/sortition:
+        one: Sortaties
+        other: Sortaties
+  decidim:
+    components:
+      sortitions:
+        name: Sortaties
+        settings:
+          global:
+            comments_enabled: Reacties ingeschakeld
+    events:
+      sortitions:
+        sortition_created:
+          email_intro: Het bericht "%{resource_title}" is gepubliceerd in "%{participatory_space_title}" dat u volgt.
+          email_outro: U ontvangt dit bericht omdat u "%{participatory_space_title}" volgen. Je kunt het unfollow uit de vorige koppeling.
+          email_subject: Nieuwe post op %{participatory_space_title}
+          notification_title: Het bericht <a href="%{resource_path}">%{resource_title}</a> is gepubliceerd in %{participatory_space_title}
+    pages:
+      home:
+        statistics:
+          sortitions_count: Sortaties
+    participatory_processes:
+      statistics:
+        sortitions_count: Sortaties
+    sortitions:
+      admin:
+        actions:
+          destroy: Annuleer de sortering
+          edit: Bewerk
+          new: Nieuwe sortering
+          show: Sorteerdetails
+        models:
+          sortition:
+            fields:
+              category: Categorie
+              created_at: Aanmaakdatum
+              decidim_proposals_component: Voorstellen component
+              dice: Dice
+              reference: Referentie
+              request_timestamp: Teken tijd
+              seed: Zaad
+              target_items: Items om te selecteren
+              title: Titel
+            name:
+              one: Sortaties
+              other: Sortaties
+        sortitions:
+          confirm_destroy:
+            confirm_destroy: Weet u zeker dat u deze bestelling wilt annuleren?
+            destroy: Annuleer de sortering
+            title: Annulering van de sortering
+          create:
+            error: Er is een fout opgetreden bij het maken van een nieuw bereik type.
+            success: Vergadering met succes gemaakt
+          destroy:
+            error: Annuleer de sortering.
+            success: Vergadering met succes gemaakt
+          edit:
+            title: Update de informatie over de sortering
+            update: Bijwerken
+          form:
+            all_categories: Alle categorieën
+            select_proposal_component: Selecteer de voorstellen
+            title: Nieuwe sortering voor voorstellen
+          index:
+            title: Sortaties
+          new:
+            confirm: Door op de volgende knop te drukken zal de datum en tijd (met precisie van seconden) worden vastgelegd en samen met de dice roll, zal deze informatie worden gebruikt om een willekeurige selectie te genereren. De actie zal onomkeerbaar zijn, zodra de knop op het resultaat van deze tekening wordt geklikt, zal worden gepubliceerd, samen met de gegevens die in dit formulier zijn ingevoerd en niet kunnen worden gewijzigd, controleer de inhoud zorgvuldig
+            create: Creëren
+            title: Nieuwe sortering
+          show:
+            selected_proposals: Geselecteerde voorstellen voor tekenen
+          update:
+            error: Er is een fout opgetreden bij het bijwerken van deze organisatie.
+            success: Vergadering met succes gemaakt
+      admin_log:
+        sortition:
+          create: "%{user_name} heeft resultaat %{resource_name} aangemaakt in %{space_name}"
+          delete: "%{user_name} heeft resultaat %{resource_name} aangemaakt in %{space_name}"
+          update: "%{user_name} heeft resultaat %{resource_name} aangemaakt in %{space_name}"
+      sortitions:
+        count:
+          proposals_count:
+            one: voorstellen
+            other: "%{count} voorstellen"
+        filters:
+          active: Actief
+          all: Alle
+          cancelled: Geannuleerd
+          category: Categorie
+          category_prompt: Kies een categorie
+          search: Zoeken
+          state: Staat
+        filters_small_view:
+          close_modal: Dicht modaal
+          filter: Filter
+          filter_by: Filteren op
+          unfold: Ontvouwen
+        linked_sortitions:
+          selected_proposals: Verwante voorstellen
+        orders:
+          label: 'Bestellingsortities door:'
+          random: Willekeurig
+          recent: Recentelijk
+        results_count:
+          count:
+            one: verwante voorstellen
+            other: verwante voorstellen
+        show:
+          algorithm: Algoritme code van sortering
+          any_category: alle categorieën
+          cancelled: Annuleer de sortering
+          candidate_proposal_ids: Sortitie voorstellen volgorde en IDs
+          candidate_proposals_info: 'De sortitie is uitgevoerd onder de volgende voorstellen (%{category_label}), met de volgende IDs (in vet de geselecteerde voorstellen)  '
+          category: van de categorie %{category}
+          dice_result: "(1) Dice resultaat"
+          introduction: 'Deze pagina bevat de resultaten van de sortering %{reference}. Door deze sortering zijn %{target_items} aantal resultaten willekeurig geselecteerd en met een gelijke waarschijnlijkheid verdeling van de reeks voorstellen weergegeven bellow. Samen met de resultaten biedt de informatie die op deze pagina wordt weergegeven alle informatie die nodig is om garanties te maximaliseren en de resultaten te reproduceren. De sleutel tot de kwaliteit van deze sortering is de dubbele randomness die wordt geboden door het rollen van een dice (geverifieerd door getuigen) en de exacte tijd van de sortitie die input biedt voor een algoritme dat een willekeurige selectie genereert. De tijd voor de sortering is zo nauwkeurig (seconden) dat het onmogelijk is om door mensen te controleren en zo een dubbele "oncontroleerbare" input te leveren om een eerlijk resultaat te garanderen.  '
+          mathematical_result: Resultaat (1) x (2)
+          proposals_selected_by_sortition: Voorstellen geselecteerd door sortering
+          sortition_reproducibility_details: Sortering reproducibiliteit details
+          time_seed: "(2) Tijdseed"
+          witnesses: Witgetuigen
+        sortition:
+          random_seed: Willekeurig zaad
+          selected_proposals:
+            one: voorstel geaccepteerd
+            other: voorstel geaccepteerd
+          view: Uitzicht
+        sortition_author:
+          deleted: Verwijderde gebruiker
+        sortition_cancel_author:
+          deleted: Verwijderde gebruiker
+        sortitions_count:
+          count:
+            one: sortaties
+            other: "%{count} raadplegingen"

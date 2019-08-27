@@ -1,0 +1,30 @@
+nl-BE:
+  activerecord:
+    models:
+      decidim/pages/page:
+        one: Pagina's
+        other: Pagina's
+  decidim:
+    admin_log:
+      page:
+        update: "%{user_name} heeft resultaat %{resource_name} aangemaakt in %{space_name}"
+    components:
+      pages:
+        name: Pagina's
+        settings:
+          global:
+            announcement: Bericht
+          step:
+            announcement: Bericht
+    pages:
+      admin:
+        models:
+          components:
+            body: Lichaam
+        pages:
+          edit:
+            save: Bijwerken
+            title: Pagina bewerken
+          update:
+            invalid: Er zijn fouten geweest bij het opslaan van de pagina.
+            success: Pagina is succesvol opgeslagen.

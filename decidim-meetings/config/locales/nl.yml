@@ -2,446 +2,450 @@ nl:
   activemodel:
     attributes:
       agenda:
-        description: Beschrijving
-        duration: Looptijd
-        title: Titel
+        description: Description
+        duration: Duration
+        title: Title
       close_meeting:
         attendees_count: Aantal deelnemers
-        attending_organizations: Lijst van organisaties die bijwoonden
-        closing_report: Melden
+        attending_organizations: Lijst van organisaties die bijwonen
+        closing_report: Rapporteren
         contributions_count: Aantal bijdragen
         proposal_ids: Voorstellen die in de vergadering zijn gemaakt
       meeting:
         address: Adres
-        available_slots: Beschikbare plaatsen voor dit event
+        available_slots: Available slots for this meeting
         decidim_category_id: Categorie
-        decidim_scope_id: Scope
+        decidim_scope_id: Reikwijdte
         description: Beschrijving
         end_time: Eindtijd
         location: Plaats
         location_hints: Locatie hints
-        organizer_id: Organisator
-        private_meeting: Privé vergadering
-        registration_form_enabled: Registratieformulier ingeschakeld
-        registration_terms: Registratievoorwaarden
-        registrations_enabled: Registraties geactiveerd
+        organizer_id: Organizer
+        private_meeting: Private meeting
+        registration_form_enabled: Registration form enabled
+        registration_terms: Registration terms
+        registrations_enabled: Registrations enabled
         start_time: Starttijd
         title: Titel
-        transparent: Transparant
+        transparent: Transparent
       minutes:
-        audio_url: Audio-URL
-        description: Beschrijving
-        video_url: Video URL
-        visible: Is zichtbaar
+        audio_url: Audio url
+        description: Description
+        video_url: Video url
+        visible: Is visible
     errors:
       models:
         meeting_agenda:
           attributes:
             base:
-              too_many_minutes: De duur van de items overschrijdt de vergaderduur met %{count} minuten
-              too_many_minutes_child: De duur van het item childs overschrijdt de ouder-duur van het agendapunt "%{parent_title}" met %{count} minuut
+              too_many_minutes: The duration of the items exceed the meeting duration by %{count} minutes
+              too_many_minutes_child: The duration of the item childs exceed the agenda item "%{parent_title}" parent duration by %{count} minutes
         meeting_registration_invite:
           attributes:
             email:
-              already_invited: Deze e-mail is al uitgenodigd
+              already_invited: This email has already been invited
     models:
-      decidim/meetings/close_meeting_event: Vergadering gesloten
-      decidim/meetings/create_meeting_event: Vergadering
-      decidim/meetings/meeting_registrations_enabled_event: Registraties ingeschakeld
-      decidim/meetings/meeting_registrations_over_percentage_event: Registraties over limiet
-      decidim/meetings/upcoming_meeting_event: Aankomende vergadering
-      decidim/meetings/update_meeting_event: Vergadering bijgewerkt
+      decidim/meetings/close_meeting_event: Meeting closed
+      decidim/meetings/create_meeting_event: Meeting
+      decidim/meetings/meeting_registrations_enabled_event: Registrations enabled
+      decidim/meetings/meeting_registrations_over_percentage_event: Registrations over limit
+      decidim/meetings/upcoming_meeting_event: Upcoming meeting
+      decidim/meetings/update_meeting_event: Meeting updated
   activerecord:
     models:
       decidim/meetings/meeting:
-        one: Vergadering
-        other: vergaderingen
+        one: Meeting
+        other: Meetings
       decidim/meetings/minutes:
-        one: Notulen
-        other: Notulen
+        one: Minutes
+        other: Minutes
       decidim/meetings/registration:
-        one: registratie
-        other: registraties
+        one: Registration
+        other: Registrations
   decidim:
     admin:
       meeting_copies:
         create:
-          error: Er is een fout opgetreden tijdens het dupliceren van dit event.
-          success: Event succesvol gedupliceerd.
+          error: There was en error duplicating this meeting.
+          success: Duplicated meeting successfully.
         new:
-          copy: Kopiëren
-          select: Selecteer welke gegevens je wilt dupliceren
-          title: Event dupliceren
+          copy: Copy
+          select: Select which data you would like to duplicate
+          title: Duplicate meeting
     components:
       meetings:
         actions:
-          join: Word lid
-        name: event
+          join: Join
+        name: Meetings
         settings:
           global:
-            announcement: Aankondiging
-            comments_enabled: Reacties ingeschakeld
-            default_registration_terms: Standaard registratievoorwaarden
-            enable_pads_creation: Schakel het maken van pads in
-            resources_permissions_enabled: Actiemachtigingen kunnen voor elke vergadering worden ingesteld
+            announcement: Announcement
+            comments_enabled: Comments enabled
+            default_registration_terms: Default registration terms
+            enable_pads_creation: Enable pads creation
+            resources_permissions_enabled: Actions permissions can be set for each meeting
           step:
-            announcement: Aankondiging
-            comments_blocked: Reacties geblokkeerd
+            announcement: Announcement
+            comments_blocked: Comments blocked
     events:
       meetings:
         meeting_closed:
           affected_user:
-            email_intro: 'Uw vergadering "%{resource_title}" is gesloten. U kunt de conclusies lezen op de pagina:'
-            email_outro: U hebt deze melding ontvangen omdat u de vergadering "%{resource_title}" hebt georganiseerd.
-            email_subject: Het event "%{resource_title}" is afgelopen
-            notification_title: Het <a href="%{resource_path}">%{resource_title}</a> event is afgelopen.
+            email_intro: 'Your meeting "%{resource_title}" was closed. You can read the conclusions from its page:'
+            email_outro: You have received this notification because you organized the "%{resource_title}" meeting.
+            email_subject: The "%{resource_title}" meeting was closed
+            notification_title: The <a href="%{resource_path}">%{resource_title}</a> meeting was closed.
+          email_intro: 'La rencontre "%{resource_title}" est terminée. Vous pouvez en lire le compte rendu sur sa page :'
+          email_outro: Vous avez reçu cette notification, car vous suivez la rencontre "%{resource_title}". Vous pouvez arrêter de la suivre à partir du lien précédent.
+          email_subject: La rencontre "%{resource_title}" est terminée
           follower:
-            email_intro: 'Het event "%{resource_title}" is afgelopen. Je kan het besluit hier lezen:'
-            email_outro: U hebt deze melding ontvangen omdat u de vergadering "%{resource_title}" volgt. Je kunt het niet meer volgen vanaf de vorige link.
-            email_subject: Het event "%{resource_title}" is afgelopen
-            notification_title: Het <a href="%{resource_path}">%{resource_title}</a> event is afgelopen.
+            email_intro: 'The "%{resource_title}" meeting was closed. You can read the conclusions from its page:'
+            email_outro: You have received this notification because you are following the "%{resource_title}" meeting. You can unfollow it from the previous link.
+            email_subject: The "%{resource_title}" meeting was closed
+            notification_title: The <a href="%{resource_path}">%{resource_title}</a> meeting was closed.
+          notification_title: La rencontre <a href="%{resource_path}">%{resource_title}</a> est terminée.
         meeting_created:
-          email_intro: Het event "%{resource_title}" is toegevoegd aan "%{participatory_space_title}" dat je volgt.
-          email_outro: Je ontvangt deze melding omdat je "%{participatory_space_title}" volgt. Je kan dit ontvolgen door te klikken op de voorgaande link.
-          email_subject: Nieuw event toegevoegd aan %{participatory_space_title}
-          notification_title: Het event <a href="%{resource_path}">%{resource_title}</a> is toegevoegd aan %{participatory_space_title}
+          email_intro: The meeting "%{resource_title}" has been added to "%{participatory_space_title}" that you are following.
+          email_outro: You have received this notification because you are following "%{participatory_space_title}". You can unfollow it from the previous link.
+          email_subject: New meeting added to %{participatory_space_title}
+          notification_title: The meeting <a href="%{resource_path}">%{resource_title}</a> has been added to %{participatory_space_title}
         meeting_registration_confirmed:
-          notification_title: Uw registratie voor de vergadering <a href="%{resource_url}">%{resource_title}</a> is bevestigd. Je registratiecode is %{registration_code}.
+          notification_title: Your registration for the meeting <a href="%{resource_url}">%{resource_title}</a> has been confirmed. Your registration code is %{registration_code}.
         meeting_registrations_over_percentage:
-          email_intro: Het aantal ingenomen plaatsen voor het even "%{resource_title}" is groter dan %{percentage}%.
-          email_outro: Je ontvangt deze melding omdat je beheerder bent voor het event van de burgerinspraak.
-          email_subject: Het "%{resource_title}" event bezet meer plaatsen dan %{percentage}%
-          notification_title: De <a href="%{resource_path}">%{resource_title}</a> events bezette plaatsen zijn over %{percentage}%.
+          email_intro: The "%{resource_title}" meeting occupied slots are over %{percentage}%.
+          email_outro: You have received this notification because you are an admin of the meeting's participatory space.
+          email_subject: The "%{resource_title}" meeting occupied slots are over %{percentage}%
+          notification_title: The <a href="%{resource_path}">%{resource_title}</a> meeting occupied slots are over %{percentage}%.
         meeting_updated:
-          email_intro: 'Het event "%{resource_title}" is bijgewerkt. Je kan de nieuwe versie hier lezen:'
-          email_outro: Je ontvangt deze omdat je het event "%{resource_title}" volgt. Ontvolgen kan door te klikken op de voorgaande ink.
-          email_subject: Het event "%{resource_title}" is bijgewerkt
-          notification_title: Het <a href="%{resource_path}">%{resource_title}</a> event is bijgewerkt.
+          email_intro: 'The "%{resource_title}" meeting was updated. You can read the new version from its page:'
+          email_outro: You have received this notification because you are following the "%{resource_title}" meeting. You can unfollow it from the previous link.
+          email_subject: The "%{resource_title}" meeting was updated
+          notification_title: The <a href="%{resource_path}">%{resource_title}</a> meeting was updated.
         registration_code_validated:
-          email_intro: Uw registratiecode "%{registration_code}" voor de "%{resource_title}" -vergadering is gevalideerd.
-          email_outro: U hebt deze melding ontvangen omdat uw registratiecode voor de "%{resource_title}" -vergadering is gevalideerd.
-          email_subject: Uw registratiecode "%{registration_code}" voor de "%{resource_title}" -vergadering is gevalideerd
-          notification_title: Uw registratiecode "%{registration_code}" voor de <a href="%{resource_path}">%{resource_title}</a> vergadering is gevalideerd.
+          email_intro: Your registration code "%{registration_code}" for the "%{resource_title}" meeting has been validated.
+          email_outro: You have received this notification because your registration code for the "%{resource_title}" meeting has been validated.
+          email_subject: Your registration code "%{registration_code}" for the "%{resource_title}" meeting has been validated
+          notification_title: Your registration code "%{registration_code}" for the <a href="%{resource_path}">%{resource_title}</a> meeting has been validated.
         registrations_enabled:
-          email_intro: 'Het event ''%{resource_title}'' heeft registraties ingeschakeld. Je kan jezelf registreren op zijn pagina:'
-          email_outro: Je ontvangt deze melding omdat je het event "%{resource_title}" volgt. Ontvolgen kan door te klikken op de voorgaande link.
-          email_subject: Het event '%{resource_title}' heeft registraties ingeschakeld.
-          notification_title: Het <a href="%{resource_path}">%{resource_title}</a> event heeft registraties ingeschakeld.
+          email_intro: 'The "%{resource_title}" meeting has enabled registrations. You can register yourself on its page:'
+          email_outro: You have received this notification because you are following the "%{resource_title}" meeting. You can unfollow it from the previous link.
+          email_subject: The "%{resource_title}" meeting has enabled registrations.
+          notification_title: The <a href="%{resource_path}">%{resource_title}</a> meeting has enabled registrations.
         upcoming_meeting:
-          email_intro: Het "%{resource_title}"event start in minder dan 48 uur.
-          email_outro: Je ontvangt deze melding omdat je het event "%{resource_title}" volgt. Ontvolgen kan door te klikken op de voorgaande link.
-          email_subject: Het "%{resource_title}" event start in minder dan 48 uur.
-          notification_title: Het <a href="%{resource_path}">%{resource_title}</a> event begint over minder dan 48 uur.
+          email_intro: The "%{resource_title}" meeting will start in less than 48h.
+          email_outro: You have received this notification because you are following the "%{resource_title}" meeting. You can unfollow it from the previous link.
+          email_subject: The "%{resource_title}" meeting will start in less than 48h.
+          notification_title: The <a href="%{resource_path}">%{resource_title}</a> meeting will start in less than 48h.
     gamification:
       badges:
         attended_meetings:
           conditions:
-            - Registreer u in de vergaderingen die u wilt bijwonen
-          description: Deze badge wordt toegekend wanneer u verschillende persoonlijke vergaderingen bijwoont.
-          description_another: Deze gebruiker heeft %{score} vergaderingen bijgewoond.
-          description_own: U hebt %{score} vergaderingen bijgewoond.
-          name: Bijgewoond vergaderingen
-          next_level_in: Woon nog %{score} vergaderingen bij om het volgende niveau te bereiken!
-          unearned_another: Deze gebruiker heeft nog geen enkele vergadering bijgewoond.
-          unearned_own: U hebt nog geen vergadering bijgewoond.
+            - Register in the meetings you want to attend
+          description: This badge is granted when you attend several face-to-face meetings.
+          description_another: This user has attended %{score} meetings.
+          description_own: You have attended %{score} meetings.
+          name: Attended meetings
+          next_level_in: Attend %{score} more meetings to reach the next level!
+          unearned_another: This user hasn't attended any meeting yet.
+          unearned_own: You haven't attended any meeting yet.
     meetings:
       actions:
         agenda: Agenda
-        attachment_collections: folders
+        attachment_collections: Folders
         attachments: Bijlagen
         close: Sluit
         confirm_destroy: Weet u zeker dat u deze vergadering wilt verwijderen?
         destroy: Verwijderen
         edit: Bewerk
-        minutes: Notulen
-        new: Nieuwe ontmoeting
+        minutes: Minutes
+        new: nieuwe
         preview: Voorbeeld
         registrations: registraties
         title: Acties
       admin:
         agenda:
           agenda_item:
-            add_agenda_item_child: Agenda-item kind toevoegen
-            agenda_item: Agendapunt
-            agenda_item_children: Agendapunt Childs
-            down: naar beneden
-            remove: Verwijderen
-            up: omhoog
+            add_agenda_item_child: Add agenda item child
+            agenda_item: Agenda Item
+            agenda_item_children: Agenda Item Childs
+            down: Down
+            remove: Remove
+            up: Up
           agenda_item_child:
-            agenda_item_child: Agendapunt Kind
-            down: naar beneden
-            remove: Verwijderen
-            up: omhoog
+            agenda_item_child: Agenda Item Child
+            down: Down
+            remove: Remove
+            up: Up
           create:
-            invalid: Er is een probleem opgetreden bij het maken van deze agenda
-            success: Agenda succesvol gemaakt
+            invalid: There's been a problem creating this agenda
+            success: Agenda successfully created
           edit:
-            title: Agenda bewerken
-            update: Bijwerken
+            title: Edit agenda
+            update: Update
           form:
-            add_agenda_item: Agendapunt toevoegen
-            agenda_items: Agenda punten
-            end_date: Einddatum
-            start_date: Begin datum
+            add_agenda_item: Add agenda item
+            agenda_items: Agenda items
+            end_date: End date
+            start_date: Start date
           new:
-            create: creëren
-            title: Nieuwe agenda
+            create: Create
+            title: New agenda
           update:
-            invalid: Er is een probleem opgetreden bij het bijwerken van deze agenda
-            success: Agenda succesvol bijgewerkt
+            invalid: There's been a problem updating this agenda
+            success: Agenda successfully updated
         exports:
-          meetings: vergaderingen
+          meetings: Meetings
           registrations: registraties
         invite_join_meeting_mailer:
           invite:
-            decline: Uitnodiging afwijzen
-            invited_you_to_join_a_meeting: "%{invited_by} heeft u uitgenodigd om deel te nemen aan een vergadering op %{application}. U kunt het accepteren via de onderstaande link."
-            join: Word lid van '%{meeting_title}'
+            decline: Decline invitation
+            invited_you_to_join_a_meeting: "%{invited_by} has invited you to join a meeting at %{application}. You can decline or accept it through the links below."
+            join: Join meeting '%{meeting_title}'
         invites:
           create:
-            error: Er is een probleem opgetreden tijdens het uitnodigen van de gebruiker om deel te nemen aan de vergadering.
-            success: Gebruikers succesvol uitgenodigd om deel te nemen aan de vergadering.
+            error: There's been a problem while inviting the user to join the meeting.
+            success: User successfully invited to join the meeting.
           form:
-            attendee_type: Type deelnemer
-            existing_user: Bestaande gebruiker
-            invite: Uitnodigen
-            invite_explanation: De gebruiker wordt ook uitgenodigd om deel te nemen aan de vergadering en aan de organisatie.
-            non_user: Niet bestaande gebruiker
-            select_user: Selecteer gebruiker
+            attendee_type: Attendee type
+            existing_user: Existing user
+            invite: Invite
+            invite_explanation: The user will be invited to join the meeting and to the organization as well.
+            non_user: Non existing user
+            select_user: Select user
           index:
             filter:
-              accepted: Aanvaard
-              all: Alle
-              rejected: Verworpen
-              sent: Verzonden
-            filter_by: Filteren op
-            invite_attendee: Nodig de deelnemer uit
-            invites: Uitnodigingen
-            registrations_disabled: U kunt een deelnemer niet uitnodigen omdat de registraties zijn uitgeschakeld.
-            search: Zoeken
+              accepted: Accepted
+              all: All
+              rejected: Rejected
+              sent: Sent
+            filter_by: Filter by
+            invite_attendee: Invite attendee
+            invites: Invites
+            registrations_disabled: You can't invite an attendee because the registrations are disabled.
+            search: Search
         meeting_closes:
           edit:
-            close: Sluiten
-            title: Vergadering sluiten
+            close: Sluit
+            title: Dichte ontmoeting
         meeting_copies:
           form:
-            select_organizer: Selecteer de organisator
+            select_organizer: Select the organizer
         meetings:
           close:
             invalid: Er is een probleem opgetreden bij het sluiten van deze vergadering
-            success: Vergadering succesvol afgesloten
+            success: Vergadering met succes gesloten
           create:
             invalid: Er is een probleem opgetreden met het maken van deze vergadering
-            success: Vergadering succesvol aangemaakt
+            success: Vergadering met succes gemaakt
           destroy:
-            success: Vergadering succesvol verwijderd
+            success: Meeting met succes verwijderd
           edit:
             update: Bijwerken
           form:
-            select_organizer: Selecteer de organisator
+            select_organizer: Select the organizer
           index:
-            title: Events
+            title: Vergaderingen
           new:
             create: Creëren
-            title: Creëer vergadering
+            title: Maak een afspraak
           service:
-            description: Omschrijving
-            down: Omlaag
-            remove: Verwijderen
-            service: Dienst
-            title: Titel
-            up: Naar boven
+            description: Description
+            down: Down
+            remove: Remove
+            service: Service
+            title: Title
+            up: Up
           services:
-            add_service: Dienst toevoegen
-            services: Diensten
+            add_service: Add service
+            services: Services
           update:
             invalid: Er is een probleem opgetreden bij het bijwerken van deze vergadering
-            success: Vergadering succesvol bijgewerkt
+            success: Vergadering met succes bijgewerkt
         minutes:
           create:
-            invalid: Er is een probleem opgetreden bij het maken van deze minuten
-            success: Notulen met succes gemaakt
+            invalid: There's been a problem creating this minutes
+            success: Minutes successfully created
           edit:
-            update: Bijwerken
+            update: Update
           new:
-            create: creëren
-            title: Maak minuten
+            create: Create
+            title: Create minutes
           update:
-            invalid: Er is een probleem opgetreden bij het bijwerken van deze minuten
-            success: Notulen met succes bijgewerkt
+            invalid: There's been a problem updating this minutes
+            success: Minutes successfully updated
         models:
           meeting:
             name: Vergadering
         registrations:
           edit:
             save: Opslaan
-            validate: bevestigen
-            validate_registration_code: Valideer de registratiecode
+            validate: Validate
+            validate_registration_code: Validate registration code
           form:
-            available_slots_help: Laat het op 0 indien u onbeperkt beschikbare plaatsen hebt.
-            invites: Uitnodigingen
-            registration_form: Registratieformulier
+            available_slots_help: Laat het naar 0 als u onbeperkt beschikbare slots hebt.
+            invites: Invites
+            registration_form: Registration form
             registrations_count:
-              one: Er is %{count} registratie geweest.
+              one: Er is 1 registratie geweest.
               other: Er zijn %{count} registraties geweest.
-            reserved_slots_help: Laat het op 0 staan ​​als je geen plaatsen gereserveerd hebt
-            reserved_slots_less_than: Moet kleiner of gelijk zijn aan %{count}
+            reserved_slots_help: Leave it to 0 if you don't have reserved slots
+            reserved_slots_less_than: Must be less than or equal to %{count}
           update:
             invalid: Er is een probleem opgetreden bij het opslaan van de registratie-instellingen.
-            success: Instellingen bijeenkomst registraties succesvol opgeslagen.
+            success: Vergaderen van instellingen voor instellingen die succesvol zijn opgeslagen.
           validate_registration_code:
-            invalid: Deze registratiecode is ongeldig.
-            success: Registratiecode succesvol gevalideerd.
+            invalid: This registration code is invalid.
+            success: Registration code successfully validated.
       admin_log:
         invite:
-          create: "%{user_name} heeft %{attendee_name} uitgenodigd om deel te nemen aan %{resource_name} bijeenkomsten op de %{space_name} ruimte"
-          deleted: "%{user_name} onuitgenodigd %{attendee_name} van deelname aan %{resource_name} vergadering op de %{space_name} ruimte"
-          update: "%{user_name} heeft %{attendee_name} uitgenodigd om deel te nemen aan %{resource_name} bijeenkomsten op de %{space_name} ruimte"
+          create: "%{user_name} invited %{attendee_name} to join %{resource_name} meeting on the %{space_name} space"
+          deleted: "%{user_name} uninvited %{attendee_name} from joining %{resource_name} meeting on the %{space_name} space"
+          update: "%{user_name} invited %{attendee_name} to join %{resource_name} meeting on the %{space_name} space"
         meeting:
-          close: "%{user_name} sloot het %{resource_name} event in de %{space_name} ruimte"
-          create: "%{user_name} heeft het %{resource_name} event gemaakt in de %{space_name} ruimte"
-          delete: "%{user_name} heeft het %{resource_name} event verwijderd in de %{space_name} ruimte"
-          export_registrations: "%{user_name} exporteerde de registraties van het %{resource_name} event op de %{space_name} ruimte"
-          update: "%{user_name} heeft het %{resource_name} event bijgewerkt in de %{space_name} ruimte"
+          close: "%{user_name} closed the %{resource_name} meeting on the %{space_name} space"
+          create: "%{user_name} created the %{resource_name} meeting on the %{space_name} space"
+          delete: "%{user_name} deleted the %{resource_name} meeting on the %{space_name} space"
+          export_registrations: "%{user_name} exported the registrations of the %{resource_name} meeting on the %{space_name} space"
+          update: "%{user_name} updated the %{resource_name} meeting on the %{space_name} space"
           value_types:
             organizer_presenter:
-              not_found: 'De organisator is niet gevonden in de database (ID: %{id})'
+              not_found: 'The organizer was not found on the database (ID: %{id})'
         minutes:
-          create: "%{user_name} heeft de minuten van de vergadering %{resource_name} gemaakt op de %{space_name} spatie"
-          update: "%{user_name} heeft de notulen van de vergadering %{resource_name} op de %{space_name} -spatie bijgewerkt"
+          create: "%{user_name} created the minutes of the meeting %{resource_name} on the %{space_name} space"
+          update: "%{user_name} updated the minutes of the meeting %{resource_name} on the %{space_name} space"
       calendar_modal:
-        calendar_url: Agenda-URL
-        close_window: Venster sluiten
-        export_calendar: Kalender exporteren
-      conference_venues: Conferentie locaties
+        calendar_url: Calendar URL
+        close_window: Close window
+        export_calendar: Export calendar
+      conference_venues: Conference Venues
       content_blocks:
         upcoming_events:
-          name: Aankomende evenementen
-          upcoming_events: Komende vergaderingen
-          view_all_events: Bekijk alles
+          name: Upcoming events
+          upcoming_events: Upcoming meetings
+          view_all_events: View all
       directory:
         meetings:
           index:
-            all: Alle
-            date: Datum
-            meetings: vergaderingen
-            past: Verleden
-            search: Zoeken
-            space_type: Participatieve ruimte
-            upcoming: Aankomende
+            all: All
+            date: Date
+            meetings: Meetings
+            past: Past
+            search: Search
+            space_type: Participatory space
+            upcoming: Upcoming
       last_activity:
-        new_meeting_at_html: "<span>Nieuwe vergadering op %{link}</span>"
+        new_meeting_at_html: "<span>New meeting at %{link}</span>"
       mailer:
         invite_join_meeting_mailer:
           invite:
-            subject: Uitnodiging om deel te nemen aan een vergadering
+            subject: Invitation to join a meeting
         registration_mailer:
           confirmation:
             subject: Registratie van uw vergadering is bevestigd
       meeting:
-        not_allowed: U mag deze vergadering niet bekijken
+        not_allowed: You are not allowed to view this meeting
       meetings:
         filters:
           category: Categorie
           category_prompt: Kies een categorie
           date: Datum
-          past: Archief
+          past: Verleden
           search: Zoeken
           upcoming: Aankomend
         filters_small_view:
-          close_modal: Sluit modaal
+          close_modal: Dicht modaal
           filter: Filter
           filter_by: Filteren op
           unfold: Ontvouwen
         meeting_minutes:
           meeting_minutes: Meeting Minutes
-          related_information: Gerelateerde informatie
+          related_information: Related Information
         meetings:
           no_meetings_warning: Geen afspraken komen overeen met uw zoekcriteria of er is geen vergadering gepland.
-          upcoming_meetings_warning: Momenteel zijn er geen geplande vergaderingen, maar hier vindt u alle afgelopen vergaderingen.
+          upcoming_meetings_warning: Momenteel zijn er geen geplande vergaderingen, maar hier vindt u alle eerder genoemde vergaderingen.
         registration_confirm:
           cancel: Annuleer
           confirm: Bevestigen
         show:
           attendees: Aantal deelnemers
           contributions: Aantal bijdragen
-          going: Gaat
-          join: Deelnemen aan bijeenkomst
-          meeting_report: Bijeenkomst verslag
-          no_slots_available: Geen plaatsen beschikbaar
+          going: gaand
+          join: Word lid van de vergadering
+          meeting_report: Notulen
+          no_slots_available: Geen slots beschikbaar
           organizations: Bijwonen van organisaties
-          registration_code_help_text: Uw registratiecode
+          registration_code_help_text: Your registration code
           registration_state:
-            validated: GEVALIDEERD
-            validation_pending: WACHTEN OP GOEDKEURING
+            validated: VALIDATED
+            validation_pending: VALIDATION PENDING
           remaining_slots:
-            one: "%{count} slot over"
-            other: "%{count} slots over"
-          view: Uitzicht
+            one: "1 slot overblijft"
+            other: "%{count} resterende slots"
+          view: View
       meetings_map:
-        view_meeting: Bekijk vergadering
+        view_meeting: View meeting
       models:
         invite:
           fields:
-            email: E-mail
-            name: Naam
-            sent_at: Verzonden op
-            status: staat
+            email: Email
+            name: Name
+            sent_at: Sent at
+            status: Status
           status:
-            accepted: Geaccepteerd (%{at})
+            accepted: Accepted (%{at})
             rejected: Rejected (%{at})
-            sent: Verzonden
+            sent: Sent
         meeting:
           fields:
             closed: Gesloten
             end_time: Einddatum
             map: Kaart
-            start_time: Startdatum
+            start_time: Begin datum
             title: Titel
-      read_more: "(Lees meer)"
+      read_more: "(Lees verder)"
       registration_mailer:
         confirmation:
-          confirmed_html: Uw registratie voor de vergadering <a href="%{url}">%{title}</a> is bevestigd.
+          confirmed_html: Uw registratie voor de <a href="%{url}">%{title}</a> van de vergadering heeft bevestigd.
           details: In de bijlage vindt u de details van de vergadering.
-          registration_code: Uw registratiecode is %{code}.
+          registration_code: Your registration code is %{code}.
       registrations:
         create:
-          invalid: Er is een probleem opgetreden bij het deelnemen van deze vergadering.
-          success: U bent met succes lid geworden van de vergadering.
+          invalid: Er is een probleem bij deze ontmoeting geweest.
+          success: U heeft de vergadering succesvol aangesloten.
         decline_invitation:
-          invalid: Er is een probleem opgetreden bij het afwijzen van de uitnodiging.
-          success: U hebt de uitnodiging met succes afgewezen.
+          invalid: There's been a problem declining the invitation.
+          success: You have declined the invitation successfully.
         destroy:
           invalid: Er is een probleem geweest met het verlaten van deze vergadering.
           success: U heeft de vergadering succesvol verlaten.
       types:
-        private_meeting: Privé vergadering
-        transparent: Transparant
+        private_meeting: Private meeting
+        transparent: Transparent
     metrics:
       meetings:
-        description: Aantal gemaakte vergaderingen
-        object: vergaderingen
-        title: vergaderingen
+        description: Number of meetings created
+        object: meetings
+        title: Meetings
     participatory_processes:
       participatory_process_groups:
         highlighted_meetings:
-          past_meetings: Vorige events
-          upcoming_meetings: Toekomstige events
+          past_meetings: Past meetings
+          upcoming_meetings: Upcoming meetings
     participatory_spaces:
       highlighted_meetings:
-        past_meetings: Vorige events
-        see_all: Alles zien (%{count})
-        upcoming_meetings: Toekomstige events
+        past_meetings: Past meetings
+        see_all: See all (%{count})
+        upcoming_meetings: Upcoming meetings
       upcoming_meeting_for_card:
-        upcoming_meeting: Aankomende vergadering
+        upcoming_meeting: Upcoming meeting
     resource_links:
       meetings_through_proposals:
-        meeting_result: 'Gerelateerde resultaten:'
-        result_meeting: 'Gerelateerde vergaderingen:'
+        meeting_result: 'Related results:'
+        result_meeting: 'Related meetings:'
       proposals_from_meeting:
-        meeting_proposal: 'Gerelateerde voorstellen:'
-        proposal_meeting: 'Gerelateerde vergaderingen:'
+        meeting_proposal: 'Related proposals:'
+        proposal_meeting: 'Related meetings:'
   devise:
     mailer:
       join_meeting:
-        subject: Uitnodiging om deel te nemen aan een vergadering
+        subject: Invitation to join a meeting

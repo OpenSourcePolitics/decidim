@@ -1,0 +1,226 @@
+nl-BE:
+  activemodel:
+    attributes:
+      result:
+        decidim_accountability_status_id: Status
+        decidim_category_id: Categorie
+        decidim_scope_id: Reikwijdte
+        description: Omschrijving	
+        end_date: Einddatum
+        progress: Vooruitgang
+        project_ids: Inclusief projecten
+        proposals: Opgenomen voorstellen
+        start_date: Begindatum
+        title: Titel
+        updated_at: Gewijzigd op
+      status:
+        description: Omschrijving	
+        key: Key
+        name: Naam
+        progress: Vooruitgang
+      timeline_entry:
+        description: Omschrijving	
+        entry_date: Datum
+    models:
+      decidim/accountability/proposal_linked_event: Voorstellen opgenomen in dit resultaat
+      decidim/accountability/result_progress_updated_event: Resultaat voortgang bijgewerkt
+  activerecord:
+    models:
+      decidim/accountability/result:
+        one: Uitslag
+        other: Resultaten
+  decidim:
+    accountability:
+      actions:
+        confirm_destroy: Weet u zeker dat u deze %{name} wilt verwijderen?
+        destroy: Vernietigen
+        edit: Bewerk
+        new: Nieuw %{name}
+        preview: Voorbeeld
+        timeline_entries: Project evolutie
+        title: Acties
+      admin:
+        exports:
+          results: Resultaten
+        models:
+          result:
+            name: Uitslag
+          status:
+            name: Status
+          timeline_entry:
+            name: Tijdlijn gebeurtenis
+        results:
+          create:
+            invalid: Er is een probleem opgetreden bij het maken van dit resultaat
+            success: Resultaat met succes gemaakt
+          destroy:
+            success: Resultaat met succes verwijderd
+          edit:
+            title: Bewerk resultaat
+            update: Update resultaat
+          form:
+            add_proposal: Bewerk voorstel
+          index:
+            title: Resultaten
+          new:
+            create: Maak resultaat
+            title: Nieuw resultaat
+          proposals:
+            close: Dichtbij
+            current_selection: Huidige selectie
+            select: Selecteer
+          update:
+            invalid: Er is een probleem opgetreden bij het bijwerken van dit resultaat
+            success: Resultaat met succes bijgewerkt
+        shared:
+          subnav:
+            statuses: Statussen
+        statuses:
+          create:
+            invalid: Er is een probleem opgetreden bij het maken van deze status
+            success: Status succesvol gemaakt
+          destroy:
+            success: Status succesvol verwijderd
+          edit:
+            title: Bewerk status
+            update: Status bijwerken
+          index:
+            title: Statussen
+          new:
+            create: Status bijwerken
+            title: Nieuwe status
+          update:
+            invalid: Er is een probleem opgetreden bij het maken van deze status
+            success: Status succesvol gemaakt
+        timeline_entries:
+          create:
+            invalid: Er is een probleem opgetreden met het maken van deze vergadering
+            success: Status succesvol gemaakt
+          destroy:
+            success: Status succesvol verwijderd
+          edit:
+            title: Invoer bewerken
+            update: Invoer bijwerken
+          index:
+            title: Project tijdlijn items
+          new:
+            create: Invoer bijwerken
+            title: Nieuwe invoer
+          update:
+            invalid: Er is een probleem opgetreden met het maken van deze vergadering
+            success: Status succesvol gemaakt
+      admin_log:
+        result:
+          create: "%{user_name} heeft resultaat %{resource_name} aangemaakt in %{space_name}"
+          delete: "%{user_name} heeft resultaat %{resource_name} aangemaakt in %{space_name}"
+          update: "%{user_name} heeft resultaat %{resource_name} aangemaakt in %{space_name}"
+        value_types:
+          parent_presenter:
+            not_found: 'De Buurderij is niet gevonden op de database (ID: %{id})'
+      last_activity:
+        new_result_at_html: "<span>Nieuwe post op %{link}</span>"
+      models:
+        result:
+          fields:
+            end_date: Einddatum
+            progress: Vooruitgang
+            start_date: Begindatum
+            status: Status
+            title: Titel
+        status:
+          fields:
+            description: Omschrijving	
+            key: Key
+            name: Naam
+            progress: Vooruitgang
+        timeline_entry:
+          fields:
+            description: Omschrijving	
+            entry_date: Datum
+      results:
+        count:
+          results_count:
+            one: 1 resultaat
+            other: "%{count} resultaten"
+        filters:
+          all: Alle
+          scopes: Scope
+        home:
+          categories_label: Categorieën
+          subcategories_label: Subcategorieën
+        home_header:
+          global_status: Globale uitvoeringsstatus
+        nav_breadcrumb:
+          global: Globale uitvoering
+        search:
+          search: Zoek naar acties
+        show:
+          stats:
+            attendees: Deelnemers
+            back_to_result: Terug naar resultaat
+            comments: Reacties
+            contributions: Bijdragen
+            last_edited_by: Laatste wijzigingsdatum
+            last_updated_at: Laatst bijgewerkt op
+            meetings: Vergaderingen
+            number_of_versions: Versies
+            proposals: Voorstellen
+            show_all_versions: Alle versies weergeven
+            version_author: Beschrijving
+            version_created_at: Versie gemaakt op
+            version_number: Versienummer
+            version_number_out_of_total: "%{current_version} van %{total_count}"
+            votes: Ondersteunt
+        timeline:
+          title: Project evolutie
+      versions:
+        index:
+          changes_at_title: Veranderingen bij "%{title}"
+          title: Versies
+        show:
+          changes_at_title: Veranderingen bij "%{title}"
+        version:
+          version_index: Versie %{index}
+    components:
+      accountability:
+        name: Verantwoording
+        settings:
+          global:
+            categories_label: Naam voor "Categorieën"
+            comments_enabled: Reacties ingeschakeld
+            display_progress_enabled: Toon synchronisatievoortgang
+            heading_leaf_level_results: Naam voor "Projecten"
+            heading_parent_level_results: Naam voor "Resultaten"
+            intro: Intro
+            subcategories_label: Naam voor "Subcategorieën"
+          step:
+            comments_blocked: Reacties geblokkeerd
+    events:
+      accountability:
+        proposal_linked:
+          email_intro: 'Het voorstel "%{proposal_title}" is in een resultaat opgenomen. Je kan het vanaf deze pagina bekijken:'
+          email_outro: Je hebt deze melding ontvangen omdat je "%{proposal_title}" volgt. Je kan de meldingen deactiveren door te klikken op de vorige link.
+          email_subject: Een update aan %{proposal_title}
+          notification_title: Het voorstel <a href="%{proposal_path}">%{proposal_title}</a> is opgenomen in het resultaat <a href="%{resource_path}">%{resource_title}</a>.
+        result_progress_updated:
+          email_intro: 'Het resultaat "%{resource_title}", dat het voorstel "%{proposal_title}" bevat, is nu %{progress}% voltooid. U kunt het zien vanaf deze pagina:'
+          email_outro: U heeft deze melding ontvangen omdat u "%{proposal_title}" volgt en dit voorstel is opgenomen in het resultaat "%{resource_title}". U kunt stoppen met het ontvangen van meldingen na de vorige link.
+          email_subject: Een update aan %{resource_title}
+          notification_title: Het resultaat <a href="%{resource_path}">%{resource_title}</a>, dat het voorstel bevat <a href="%{proposal_path}">%{proposal_title}</a>, is nu %{progress}% voltooid.
+    metrics:
+      results:
+        description: Aantal gegenereerde resultaten
+        object: resultaten
+        title: Resultaten
+    participatory_processes:
+      participatory_process_groups:
+        highlighted_results:
+          results: Resultaten
+    participatory_spaces:
+      highlighted_results:
+        see_all: Zie alles (%{count})
+    resource_links:
+      included_projects:
+        result_project: Voorstellen opgenomen in dit resultaat
+      included_proposals:
+        result_proposal: Voorstellen opgenomen in dit resultaat

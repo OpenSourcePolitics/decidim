@@ -116,7 +116,7 @@ de:
               success: Überprüfung abgelehnt Benutzer wird aufgefordert, ihre Dokumente zu ändern
         authorizations:
           choose:
-            choose_a_type: "Bitte wählen Sie aus, wie Sie verifiziert werden möchten:"
+            choose_a_type: 'Bitte wählen Sie aus, wie Sie verifiziert werden möchten:'
             offline: Offline
             online: Online
             title: Überprüfen Sie sich anhand Ihres Ausweisdokuments

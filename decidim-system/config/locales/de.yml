@@ -1,4 +1,3 @@
----
 de:
   decidim:
     system:
@@ -30,9 +29,14 @@ de:
         placeholders:
           content: Fügen Sie der statischen Seite %{page} im Admin-Dashboard sinnvollen Inhalt hinzu.
           title: Standardtitel für %{page}
+      logs:
+        index:
+          download_log: Download log
+          view_log: View %{line} lines
       menu:
         admins: Admins
         dashboard: Instrumententafel
+        logs: Logs
         organizations: Organisationen
       models:
         admin:
@@ -48,6 +52,7 @@ de:
           fields:
             created_at: Hergestellt in
             name: Name
+            smtp_settings: SMTP settings
           name: Organisation
       organizations:
         create:

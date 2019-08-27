@@ -1,0 +1,79 @@
+nl-BE:
+  activemodel:
+    models:
+      decidim/blogs/create_post_event: Nieuwe blogpost
+  activerecord:
+    models:
+      decidim/blogs/post:
+        one: Posten
+        other: Posten
+  decidim:
+    blogs:
+      actions:
+        confirm_destroy: Weet u zeker dat u dit project wilt verwijderen?
+        destroy: Vernietigen
+        edit: Bewerk
+        new: Nieuw bericht
+        title: Acties
+      admin:
+        models:
+          components:
+            body: Lichaam
+          post:
+            name: Posten
+        posts:
+          create:
+            invalid: Er is een probleem opgetreden met het creëren van dit project
+            success: Project succesvol gemaakt
+          destroy:
+            success: Project succesvol vernietigd
+          edit:
+            save: Bijwerken
+          index:
+            title: Posten
+          new:
+            create: Creëren
+            title: Nieuwe
+          update:
+            invalid: Er zijn fouten geweest bij het opslaan van de pagina.
+            success: Pagina is succesvol opgeslagen
+      last_activity:
+        new_post_at_html: "<span>Nieuwe post op %{link}</span>"
+      models:
+        post:
+          fields:
+            author: Auteur
+            body: Lichaam
+            created_at: Gemaakt bij
+            title: titel
+      posts:
+        show:
+          view: Uitzicht
+        sidebar_blog:
+          comments: reacties
+          most_commented_posts: Meest becommentarieerde berichten
+      read_more: Lees verder
+    components:
+      blogs:
+        name: Blog
+        settings:
+          global:
+            announcement: Bericht
+            comments_enabled: Reacties ingeschakeld
+          step:
+            announcement: Bericht
+            comments_blocked: Reacties geblokkeerd
+    events:
+      blogs:
+        post_created:
+          email_intro: Het bericht "%{resource_title}" is gepubliceerd in "%{participatory_space_title}" dat u volgt.
+          email_outro: U ontvangt dit bericht omdat u "%{participatory_space_title}" volgen. Je kunt het unfollow uit de vorige koppeling.
+          email_subject: Nieuw bericht gepubliceerd in %{participatory_space_title}
+          notification_title: Het bericht <a href="%{resource_path}">%{resource_title}</a> is gepubliceerd in %{participatory_space_title}
+    pages:
+      home:
+        statistics:
+          posts_count: Posten
+    participatory_processes:
+      statistics:
+        posts_count: Posten
