@@ -1,34 +1,30 @@
----
 nl:
   activerecord:
     models:
       decidim/pages/page:
-        one: Pagina
+        one: Page
         other: Pages
   decidim:
     admin_log:
       page:
-        update: "%{user_name} heeft de %{resource_name} pagina in %{space_name} bijgewerkt"
+        update: "%{user_name} updated the %{resource_name} page in %{space_name}"
     components:
       pages:
-        name: Pagina
+        name: Page
         settings:
           global:
-            announcement: Aankondiging
+            announcement: Announcement
           step:
-            announcement: Aankondiging
+            announcement: Announcement
     pages:
       admin:
         models:
           components:
-            body: Body
+            body: Lichaam
         pages:
           edit:
             save: Bijwerken
             title: Pagina bewerken
           update:
-            invalid: Er zijn fouten opgetreden bij het opslaan van de pagina.
+            invalid: Er zijn fouten geweest bij het opslaan van de pagina.
             success: Pagina is succesvol opgeslagen.
-      terms_and_conditions:
-        form:
-          newsletter_notifications: Newsletter notifications

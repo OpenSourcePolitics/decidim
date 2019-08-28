@@ -2,5 +2,6 @@
 //= link decidim/admin/managed_users.js
 //= link decidim/admin/component_permissions.js
 //= link decidim/admin/welcome_notification.js
+//= link decidim/admin/color_field.js
 //= link decidim/admin/application.css
 //= link decidim/admin/form.js

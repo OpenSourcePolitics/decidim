@@ -134,7 +134,6 @@ fr:
             one: projet
             other: projets
           view: Voir
-          vote: Confirmez votre choix
         project:
           add: Ajouter
           count:

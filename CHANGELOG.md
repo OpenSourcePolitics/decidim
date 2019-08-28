@@ -8,6 +8,8 @@ Upgrade note:
 
 **Added**:
 
+- **decidim-budgets**: Assign a specific color for each budgets category
+[\#619](https://github.com/OpenSourcePolitics/decidim/pull/619)
 - **decidim-budgets**: Add Email notification for vote confirmation. [\#489](https://github.com/OpenSourcePolitics/decidim/pull/489)
 - **decidim-proposals**: Add multiple fields to proposals export. [\#602](https://github.com/OpenSourcePolitics/decidim/pull/602)
 - **decidim-proposals**: Change collaborative draft contributors permissions [\#4712](https://github.com/decidim/decidim/pull/4712)
@@ -21,6 +23,7 @@ Upgrade note:
 
 **Changed**:
 
+- **decidim-core**: Inverse blocks on the login modal so the user experience is more intuitive. [\#730](https://github.com/OpenSourcePolitics/decidim/pull/730)
 - **decidim-budgets**: Improve the display of budget voting [\#509](https://github.com/OpenSourcePolitics/decidim/pull/509)
 - **decidim-admin**: Change admin moderations manager [\#4717](https://github.com/decidim/decidim/pull/4717)
 - **decidim-proposals** Allow to change participatory texts title without uploading file. [\#4801](https://github.com/decidim/decidim/pull/4801)
