@@ -5,15 +5,11 @@
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
-  <p><%= t(".voting_rules_description").html_safe %></p>
+  <p><%= t(".total_projects_limit").html_safe %><strong id="total-projects"></strong></p>
+  <p><%= t(".component_projects_limit", total_projects: @component_projects_count).html_safe %></p>
   <ul>
-    <li><%= t("decidim.components.budgets.settings.global.vote_per_project") %></li>
-    <li><%= t("decidim.components.budgets.settings.global.vote_per_budget") %></li>
-  </ul>
-  <p><%= t(".projects_limit_description", total_projects: @component_projects_count).html_safe %></p>
-  <ul>
-    <li><%= t("decidim.components.budgets.settings.global.total_projects") %></li>
-    <li><%= t("decidim.components.budgets.settings.global.vote_per_category") %></li>
+    <li><em><%= t("decidim.components.budgets.settings.global.total_projects") %></em></li>
+    <li><em><%= t("decidim.components.budgets.settings.global.vote_per_category") %></em></li>
   </ul>
   <div class="row">
     <div class="columns medium-8">

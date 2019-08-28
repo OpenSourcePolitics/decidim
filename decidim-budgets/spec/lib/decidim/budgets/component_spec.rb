@@ -26,10 +26,8 @@ describe "Budgets component" do # rubocop:disable RSpec/DescribeClass
       it "displays the voting-rules-modal" do
         within "#voting-rules-modal", visible: true do
           expect(page).to have_css("h3", text: "There's been a problem with the votings rules!")
-          expect(page).to have_css("p", text: "In the \"Voting rules\" section, you must check one of the following options:")
-          expect(page).to have_css("li", text: "Activate rule: \"number of projects selected\"")
-          expect(page).to have_css("li", text: "Activate rule: \"minimum budget percentage\"")
-          expect(page).to have_css("p", text: "Also make sure that the value of the following fields does not surpass the total number of projects for this component: #{total_projects}")
+          expect(page).to have_css("p", text: "Make sure that the sum of minimums per categories does not amount to more than the value inputed for Number of projects the user has to select: #{total_projects}")
+          expect(page).to have_css("p", text: "Make sure that the value of the following fields does not surpass the total number of projects for this component: #{component_projects}")
           expect(page).to have_css("li", text: "Number of projects the user has to select")
           expect(page).to have_css("li", text: "Activate rule: \"minimum projects to select per category\"")
         end
@@ -46,7 +44,8 @@ describe "Budgets component" do # rubocop:disable RSpec/DescribeClass
 
     shared_examples "voting rules" do
       let!(:new_component?) { find(".form")[:class].include?("new") }
-      let!(:total_projects) { new_component? ? 0 : projects.count }
+      let!(:component_projects) { new_component? ? 0 : projects.count }
+      let!(:total_projects) { component.settings.total_projects }
 
       it "sets the min value for total_projects to '1'" do
         total_projects_min_value = find("#component_settings_total_projects")["min"]
@@ -76,9 +75,11 @@ describe "Budgets component" do # rubocop:disable RSpec/DescribeClass
         end
 
         context "and total_projects value does NOT surpass total component's projects" do
+          let(:total_projects) { 1 }
+
           before do
             skip if new_component?
-            fill_in(:component_settings_total_projects, with: 1)
+            fill_in(:component_settings_total_projects, with: total_projects)
           end
 
           it_behaves_like "not showing the voting rules modal on submit"
@@ -95,13 +96,17 @@ describe "Budgets component" do # rubocop:disable RSpec/DescribeClass
         end
 
         context "and total_projects value is less than '1'" do
-          before { fill_in(:component_settings_total_projects, with: 0) }
+          let(:total_projects) { 0 }
+
+          before { fill_in(:component_settings_total_projects, with: total_projects) }
 
           it_behaves_like "showing the voting rules modal on submit"
         end
 
         context "and total_projects value surpass total component's projects" do
-          before { fill_in(:component_settings_total_projects, with: 3) }
+          let(:total_projects) { 3 }
+
+          before { fill_in(:component_settings_total_projects, with: total_projects) }
 
           it_behaves_like "showing the voting rules modal on submit"
         end

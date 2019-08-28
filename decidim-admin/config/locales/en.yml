@@ -243,8 +243,8 @@ en:
             close: Close
             ok: OK
             title: "There's been a problem with the votings rules!"
-            voting_rules_description: "In the \"Voting rules\" section, you must check <strong>one</strong> of the following options:"
-            projects_limit_description: "Also make sure that the value of the following fields does not surpass the total number of projects for this component: <strong>%{total_projects}</strong>"
+            total_projects_limit: "Make sure that the sum of minimums per categories does not amount to more than the value inputed for <em>Number of projects the user has to select</em>: "
+            component_projects_limit: "Make sure that the value of the following fields does not surpass the total number of projects for this component: <strong>%{total_projects}</strong>"
         create:
           error: There was an error creating this component.
           success: Component created successfully.

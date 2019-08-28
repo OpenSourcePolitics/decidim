@@ -94,6 +94,7 @@ $(() => {
       totalProjectsIsInvalid() ||
       projectsPerCategoryIsInvalid()
     ) {
+      $votingRulesModal.find("#total-projects").html(getTotalProjects());
       $votingRulesModal.foundation("toggle");
       event.preventDefault();
       event.stopPropagation();
