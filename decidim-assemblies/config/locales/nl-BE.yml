@@ -92,7 +92,7 @@ nl-BE:
           public: Publiek
           published: Gepubliceerd
         new:
-          create: creëren
+          create: Creëren
           title: Nieuwe groep
         update:
           error: Er is een fout opgetreden bij het bijwerken van deze groep.
@@ -156,16 +156,16 @@ nl-BE:
           attachment_files: Bestanden
           attachments: Bijlagen
           categories: Categorieën
-          components: Componenten
-          info: info
-          moderations: matigingen
+          components: Onderdelen
+          info: Info
+          moderations: Moderatie
           private_users: Privé gebruikers
       models:
         assembly:
           fields:
             created_at: Gemaakt bij
             private: Privé
-            promoted: Gepromoveerd	
+            promoted: In de kijker
             published: Gepubliceerd
             title: Titel
           name: Groep
@@ -212,16 +212,16 @@ nl-BE:
         assemblies:
           form:
             duration_help: Als de looptijd van deze groep beperkt is, selecteer de einddatum. Anders zal deze voor onbepaalde tijd verschijnen.
-            included_at_help: Selecteer de datum waarop deze groep is toegevoegd aan de Beslissingsdatum. Het hoeft niet noodzakelijkerwijs hetzelfde te zijn als de aanmaakdatum.
-            select_a_created_by: Kies een categorie
+            included_at_help: Selecteer de datum waarop deze groep is toegevoegd aan Decidim. Deze hoeft niet noodzakelijkerwijs hetzelfde te zijn als de aanmaakdatum.
+            select_a_created_by: Aangemaakt door
             select_an_area: Selecteer een gebied
-            select_an_assembly_type: Selecteer een groep type
+            select_an_assembly_type: Selecteer een type groep
             select_parent_assembly: Selecteer de hoofdgroep
-            slug_help: 'URL pads worden gebruikt om de URL''s te genereren die naar deze groep verwijzen. Accepteer alleen letters, cijfers en streepjes, en moet beginnen met een letter. Voorbeeld: %{url}'
+            slug_help: 'URLpads worden gebruikt om de URL''s te genereren die naar deze groep verwijzen. Accepteert alleen letters, cijfers en streepjes, en moet beginnen met een letter. Voorbeeld: %{url}'
             social_handlers: Sociaal
         assembly_copies:
           form:
-            slug_help: 'URL pads worden gebruikt om de URL''s te genereren die naar deze groep verwijzen. Accepteer alleen letters, cijfers en streepjes, en moet beginnen met een letter. Voorbeeld: %{url}'
+            slug_help: 'URLpads worden gebruikt om de URL''s te genereren die naar deze groep verwijzen. Accepteert alleen letters, cijfers en streepjes, en moet beginnen met een letter. Voorbeeld: %{url}'
         assembly_members:
           form:
             existing_user: Bestaande gebruiker
@@ -252,7 +252,7 @@ nl-BE:
         working_group: Werkgroep
       content_blocks:
         highlighted_assemblies:
-          name: Gemarkeerde groepen
+          name: Groepen in de kijker
       created_by:
         city_council: Stadsraad
         others: Overige
@@ -343,7 +343,7 @@ nl-BE:
       assemblies: Groepen
     metrics:
       assemblies:
-        description: Aantal aangemaakte vergaderingen
+        description: Aantal aangemaakte groepen
         object: groepen
         title: Groepen
   errors:
@@ -356,7 +356,7 @@ nl-BE:
           take_part: Deelnemen
         index:
           organizational_chart: Organisatorische driver
-          promoted_assemblies: Gemarkeerde groepen
+          promoted_assemblies: Groepen in de kijker
           reset_chart: Reset
         order_by_assemblies:
           assemblies:
