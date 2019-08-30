@@ -109,7 +109,7 @@ nl-BE:
         debate:
           fields:
             end_time: Einddatum
-            official_debate: Officiële debat
+            official_debate: Officieel debat
             start_time: Begindatum
             title: Titel
     events:
@@ -127,7 +127,7 @@ nl-BE:
               Hallo,
               %{author_name} %{author_nickname}, wie je volgt, heeft een nieuw debat aangemaakt "%{resource_title}". Bekijk het en draag bij:
             email_outro: Je hebt deze melding ontvangen omdat je "%{author_nickname}" volgt. Je kan de meldingen deactiveren door te klikken op de vorige link.
-            email_subject: Nieuw voorstel "%{resource_title}" van %{author_nickname}
+            email_subject: Nieuw debat "%{resource_title}" van %{author_nickname}
             notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> heeft het <a href="%{resource_path}">%{resource_title}</a> gezamenlijk ontwerp ingetrokken.
         creation_disabled:
           email_intro: 'Debat creatie is niet langer actief in %{participatory_space_title}. U kunt nog steeds deelnemen aan open debatten vanaf deze pagina:'
@@ -149,10 +149,10 @@ nl-BE:
           description_own: Deze gebruiker heeft deelgenomen aan %{score} debatten.
           name: Debatten
           next_level_in: Neem deel aan %{score} meer debatten om het volgende niveau te bereiken!
-          unearned_another: Deze gebruiker heeft deelgenomen aan debatten.
-          unearned_own: Deze gebruiker heeft deelgenomen aan debatten.
+          unearned_another: Deze gebruiker heeft nog niet deelgenomen aan een debat.
+          unearned_own: U heeft nog niet deelgenomen aan debatten.
     metrics:
       debates:
-        description: Aantal aangemaakte vergaderingen
+        description: Aantal aangemaakte debatten
         object: debatten
         title: Debatten
