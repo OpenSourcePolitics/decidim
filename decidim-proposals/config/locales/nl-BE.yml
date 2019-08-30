@@ -91,7 +91,7 @@ nl-BE:
             proposal_wizard_step_2_help_text: Voorstel wizard "Vergelijk" stap help tekst
             proposal_wizard_step_3_help_text: Voorstel wizard "Voltooi" stap help tekst
             proposal_wizard_step_4_help_text: Voorstel wizard "Publiceer" stap help tekst
-            resources_permissions_enabled: Actierechten kunnen worden ingesteld voor elke vergadering
+            resources_permissions_enabled: Actierechten kunnen voor elk voorstel worden ingesteld
             threshold_per_proposal: Drempel per voorstel
             vote_limit: Stemlimiet per gebruiker
           step:
@@ -104,18 +104,18 @@ nl-BE:
             proposal_answering_enabled: Voorstel ondersteuning ingeschakeld
             suggested_hashtags: Hashtags voorgesteld aan gebruikers voor nieuwe voorstellen
             votes_blocked: Stemmen geblokkeerd
-            votes_enabled: Stemmen uitgeschakeld
+            votes_enabled: Stemmen ingeschakeld
             votes_hidden: Stemmen verborgen (als stemmen zijn ingeschakeld, controleer dit het aantal stemmen)
             votes_weight_enabled: Up / Down / Neutral stemmen ingeschakeld
     events:
       proposal_created:
-        email_subject: Nouvelle voorstel de %{author_name}.
+        email_subject: Nieuw voorstel van %{author_name}.
         moderation:
           email_intro: E-mail intro
           email_subject: E-mailonderwerp
           moderation_url: Moderaties
-        notification_title: Verlicht een ongewoon mooie suggestie de %{author_name} dans <a href="%{resource_path}">%{resource_title}</a>a>a
-        url: 'url de commentaire : %{resource_url}'
+        notification_title: Er is een nieuw voorstel van %{author_name} in <a href="%{resource_path}">%{resource_title}</a>
+        url: 'url van het voorstel: %{resource_url}'
       proposals:
         collaborative_draft_access_accepted:
           email_intro: '%{requester_name} is geaccepteerd om toegang te krijgen tot het project <a href="%{resource_path}">%{resource_title}</a> gezamenlijke versie.'
@@ -151,7 +151,7 @@ nl-BE:
           email_intro: 'U kunt nu nieuwe debatten starten in %{participatory_space_title}! Begin mee te doen aan deze pagina:'
           email_outro: Je hebt deze melding ontvangen omdat je "%{participatory_space_title}" volgt. Je kan de meldingen deactiveren door te klikken op de vorige link.
           email_subject: Debatten beschikbaar in %{participatory_space_title}
-          notification_title: Je kunt nu <a href="%{resource_path}">nieuwe debatten starten</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+          notification_title: Je kunt nu <a href="%{resource_path}">nieuwe voorstellen indienen</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         endorsing_enabled:
           email_intro: 'U kunt nu nieuwe debatten starten in %{participatory_space_title}! Begin mee te doen aan deze pagina:'
           email_outro: Je hebt deze melding ontvangen omdat je "%{participatory_space_title}" volgt. Je kan de meldingen deactiveren door te klikken op de vorige link.
@@ -159,9 +159,9 @@ nl-BE:
           notification_title: Je kunt nu <a href="%{resource_path}">nieuwe debatten starten</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         proposal_accepted:
           affected_user:
-            email_intro: '%{resource_title} is becommentarieerd. U kunt de reactie lezen op deze pagina:'
-            email_outro: U heeft deze melding ontvangen omdat u bent genoemd in %{resource_title}".
-            email_subject: '-'
+            email_intro: 'Je voorstel %{resource_title} is aanvaard. U kunt de reactie lezen op deze pagina:'
+            email_outro: U heeft deze melding ontvangen omdat u auteur bent van "%{resource_title}".
+            email_subject: Uw voorstel is geaccepteerd
             notification_title: Uw voorstel <a href="%{resource_path}">%{resource_title}</a> is geaccepteerd.
           email_intro: 'Пропозизицих "%{resource_title}" була прийнята. Ви можете прочитати вппов дов дов дь нирнит:'
           email_outro: Ви отримали за сповання, тому ви стежите за "%{resource_title}". Вимете припринити стежим, зим ния, пререййшивиза наведенименимеденимизизизя.
@@ -180,9 +180,9 @@ nl-BE:
         proposal_evaluating:
           affected_user:
             email_intro: '%{resource_title} is becommentarieerd. U kunt de reactie lezen op deze pagina:'
-            email_outro: U heeft deze melding ontvangen omdat u bent genoemd in %{resource_title}".
+            email_outro: U heeft deze melding ontvangen omdat u auteur bent van "%{resource_title}".
             email_subject: Voorstel wordt geëvalueerd
-            notification_title: Uw voorstel <a href="%{resource_path}">%{resource_title}</a> is geaccepteerd.
+            notification_title: Uw voorstel <a href="%{resource_path}">%{resource_title}</a> wordt geëvalueerd.
           email_intro: 'La proposition "%{resource_title}" est en cours d''évaluation. Vous pouvez consulter cette page pour voir si une réponse a été formulée:'
           email_outro: U heeft deze melding ontvangen omdat u "%{resource_title}" volgt. U kunt stoppen met het volgen ervan door naar de vorige link te gaan.
           email_subject: Een voorstel dat u volgt, wordt geëvalueerd
@@ -211,8 +211,8 @@ nl-BE:
           affected_user:
             email_intro: '%{resource_title} is becommentarieerd. U kunt de reactie lezen op deze pagina:'
             email_outro: U heeft deze melding ontvangen omdat u bent genoemd in %{resource_title}".
-            email_subject: De vergadering van is gesloten
-            notification_title: Uw voorstel <a href="%{resource_path}">%{resource_title}</a> is geaccepteerd.
+            email_subject: Uw voorstel is verworpen
+            notification_title: Uw voorstel <a href="%{resource_path}">%{resource_title}</a> is afgewezen.
           email_intro: 'Het voorstel "%{resource_title}" werd niet overgenomen. U kunt het commentaar hier lezen:'
           email_outro: U heeft deze melding ontvangen omdat u "%{resource_title}" volgt. U kunt stoppen met het volgen ervan door naar de vorige link te gaan.
           email_subject: Een voorstel dat u volgt is niet geselecteerd
@@ -239,45 +239,45 @@ nl-BE:
             - Kies de deelnameruimte van uw interesse met indiening voor voorstellen ingeschakeld
             - Probeer voorstellen te doen die kunnen worden gedaan, en op die manier zullen ze waarschijnlijk meer worden aanvaard.
           description: Deze badge wordt toegekend wanneer u actief deelneemt aan nieuwe voorstellen.
-          description_another: Deze gebruiker heeft deelgenomen aan %{score} debatten.
-          description_own: Je hebt %{score} voorstellen geaccepteerd.
+          description_another: Deze gebruiker heeft %{score} geaccepteerde voorstellen.
+          description_own: Je hebt %{score} geaccepteerde voorstellen.
           name: Geaccepteerde voorstellen
-          next_level_in: Neem deel aan %{score} meer debatten om het volgende niveau te bereiken!
-          unearned_another: Deze gebruiker heeft deelgenomen aan debatten.
-          unearned_own: Je hebt voorstellen geaccepteerd.
+          next_level_in: Krijg %{score} meer voorstellen geaccepteerd om het volgende niveau te bereiken!
+          unearned_another: Deze gebruiker heeft nog geen geaccepteerde voorstellen.
+          unearned_own: U hebt nog geen aanvaarde voorstellen geformuleerd.
         proposal_votes:
           conditions:
-            - Blader en lees wat tijd in om de voorstellen van anderen te lezen
-            - Geef steun aan de voorstellen die u wilt of vind je interessante
+            - Blader en neem de tijd om de voorstellen van anderen te lezen
+            - Geef steun aan de voorstellen die je goed of interessant vindt
           description: Deze badge wordt toegekend wanneer u de voorstellen van anderen steunt.
           description_another: Deze gebruiker heeft ondersteuning gegeven aan %{score} voorstellen.
-          description_own: Deze gebruiker heeft ondersteuning gegeven aan %{score} voorstellen.
-          name: Voorstellen
+          description_own: U heeft ondersteuning gegeven aan %{score} voorstellen.
+          name: Ondersteuningen van voorstel
           next_level_in: Geef ondersteuning aan %{score} meer voorstellen om het volgende niveau te bereiken!
-          unearned_another: Deze gebruiker heeft ondersteuning gegeven aan voorstellen.
-          unearned_own: Deze gebruiker heeft ondersteuning gegeven aan voorstellen.
+          unearned_another: Deze gebruiker heeft nog geen steun gegeven aan voorstellen.
+          unearned_own: U hebt nog geen voorstellen gesteund.
         proposals:
           conditions:
             - Kies de deelnameruimte van uw interesse met indiening voor voorstellen ingeschakeld
             - Maak een voorstel
           description: Deze badge wordt toegekend wanneer u actief deelneemt aan nieuwe voorstellen.
-          description_another: Deze gebruiker heeft deelgenomen aan %{score} debatten.
-          description_own: U heeft %{score} tests aangemaakt.
+          description_another: Deze gebruiker heeft %{score} voorstellen gemaakt.
+          description_own: U heeft %{score} voorstellen aangemaakt.
           name: Voorstellen
-          next_level_in: Neem deel aan %{score} meer debatten om het volgende niveau te bereiken!
-          unearned_another: Deze gebruiker heeft deelgenomen aan debatten.
-          unearned_own: U heeft tests aangemaakt.
+          next_level_in: Maak %{score} meer voorstellen om het volgende niveau te bereiken!
+          unearned_another: Deze gebruiker heeft nog geen voorstellen gemaakt.
+          unearned_own: U hebt nog geen voorstellen gedaan.
     metrics:
       accepted_proposals:
         description: Aantal voorstellen geaccepteerd door gebruikers
         object: voorstellen
         title: Geaccepteerde voorstellen
       endorsements:
-        description: Aantal in voorstellen gegenereerde endorsementen
-        object: eindverklaringen
+        description: Aantal ondersteuningen bij de voorstellen
+        object: ondersteuningen
         title: Eindverklaringen
       proposals:
-        description: Aantal gegenereerde resultaten
+        description: Aantal gegenereerde voorstellen
         object: voorstellen
         title: Voorstellen
       votes:
@@ -297,7 +297,7 @@ nl-BE:
         edit_proposal: Bewerk voorstel
         import: Importeren uit een ander component
         new: nieuwe
-        participatory_texts: Participatieve scope
+        participatory_texts: Participatieve teksten
         private_notes: Privé notities
         title: Acties
       admin:
@@ -320,24 +320,24 @@ nl-BE:
             invalid: Het formulier is ongeldig!
             success: Gefeliciteerd, de volgende secties zijn verwerkt uit het geïmporteerde document, ze zijn omgezet in voorstellen. Nu kunt u bekijken en aanpassen wat u nodig hebt voordat u publiceert.
           index:
-            info_1: Gefeliciteerd, de volgende secties zijn verwerkt uit het geïmporteerde document, ze zijn omgezet in voorstellen. Nu kunt u bekijken en aanpassen wat u nodig hebt voordat u publiceert.
+            info_1: De volgende secties zijn verwerkt uit het geïmporteerde document, ze zijn omgezet in voorstellen. Nu kunt u de benodigde wijzigingen beoordelen en aanpassen voordat u het document publiceert.
             publish_document: Document publiceren
-            save_draft: Voorstel opslaan
-            title: VOORDERKT PARTICITICITORY TEKT
+            save_draft: Concept opslaan
+            title: PREVIEW VAN DE TEKST
           new_import:
             bottom_hint: "(U kunt de documentsecties bekijken en sorteren)"
             document_legend: 'Voeg een document toe dat kleiner is dan 2MB, elke sectie tot 3 niveaus diep zal worden verwerkt in voorstellen. Onderdrukte formaten zijn: Markdown'
-            title: DOCUMENT ADD
+            title: VOEG DOCUMENT TOE
             upload_document: Document uploaden
           publish:
             invalid: Kon voorstellen niet publiceren
             success: Alle voorstellen zijn gepubliceerd
           sections:
             article: "<em>artikel</em>"
-            section: "<em>sectie:</em> <strong>%{title}</strong>"
-            sub-section: "<em>sectie:</em> %{title}"
+            section: "<em>Sectie:</em> <strong>%{title}</strong>"
+            sub-section: "<em>Subsectie:</em> %{title}"
           update:
-            success: Deelnemend proces is succesvol bijgewerkt.
+            success: Tekst succesvol bijgewerkt.
         proposal_answers:
           edit:
             accepted: Aanvaard
@@ -362,7 +362,7 @@ nl-BE:
             invalid: Er is een probleem opgetreden met het maken van dit voorstel
             success: Voorstel met succes gecreëerd
           edit:
-            title: Maak een voorstel
+            title: Bewerk voorstel
             update: Bijwerken
           form:
             attachment_legend: "(Optioneel) Een bijlage toevoegen"
@@ -377,7 +377,7 @@ nl-BE:
             merge_button: Samenvoegen
             select_component: Selecteer een component
             selected: selecteer
-            split: Verwante voorstellen
+            split: Splits voorstellen
             split_button: Deel
             title: Voorstellen
             update: Bijwerken
@@ -404,19 +404,19 @@ nl-BE:
             success: De voorstellen zijn met succes samengevoegd tot een nieuwe.
         proposals_splits:
           create:
-            invalid: Er is een fout opgetreden bij het samenvoegen van de geselecteerde voorstellen.
-            success: De voorstellen zijn met succes samengevoegd tot een nieuwe.
+            invalid: Er is een fout opgetreden bij het splitsen van de geselecteerde voorstellen.
+            success: De voorstellen zijn met succes in nieuwe voorstellen onderverdeeld.
         shared:
           info_proposal:
-            body: Lichaam
+            body: Tekst
             created_at: Aanmaakdatum
-            proposal_votes_count: Stemmen tellen
+            proposal_votes_count: Aantal stemmen
             proposals: Voorstellen
       admin_log:
         proposal:
           answer: "%{user_name} heeft het %{resource_name} lid aangemaakt in de %{space_name} -vergadering"
           create: "%{user_name} heeft het %{resource_name} lid aangemaakt in de %{space_name} -vergadering"
-          update: "%{user_name} heeft het %{resource_name} lid aangemaakt in de %{space_name} -vergadering"
+          update: "%{user_name} heeft het officiële voorstel van %{resource_name} op de ruimte %{space_name} bijgewerkt"
         proposal_note:
           create: "%{user_name} heeft het %{resource_name} lid aangemaakt in de %{space_name} -vergadering"
       answers:
@@ -451,16 +451,16 @@ nl-BE:
               cancel: Annuleer
               ok: Publiceer als voorstel
               title: De volgende actie is onomkeerbaar
-            success: Samenwerkingsontwerp is succesvol gepubliceerd als voorstel.
+            success: Gezamenlijke ontwerptekst is succesvol gepubliceerd als voorstel.
           view_collaborative_draft: Bekijk Collaborative draft
           withdraw:
             error: Er zijn fouten opgetreden bij het publiceren van het gezamenlijke ontwerp.
             irreversible_action_modal:
               body: Na het publiceren van het ontwerp als voorstel zal het ontwerp niet meer bewerkt kunnen worden. Het voorstel zal geen nieuwe auteurs of bijdragen accepteren.
               cancel: Annuleer
-              ok: Het gezamenlijke ontwerp terugnemen
+              ok: Het gezamenlijke ontwerp intrekken
               title: De volgende actie is onomkeerbaar
-            success: Collaborative draft succesvol ingetrokken.
+            success: Gezamenlijke tekst succesvol ingetrokken.
         compare:
           mine_is_different: Mijn gezamenlijke ontwerp is verschillend
           no_similars_found: Goed gedaan! Geen soortgelijke gezamenlijke concepten gevonden
@@ -480,7 +480,7 @@ nl-BE:
           back: Terug
           select_a_category: Selecteer een categorie
           send: sturen
-          title: Gezamenlijk ontwerp
+          title: Bewerk gezamenlijk ontwerp
         filters:
           all: Alle
           amendment: Amendementen
@@ -499,17 +499,17 @@ nl-BE:
           unfold: Ontvouwen
         new:
           send: Verstuur
-          title: Voltooi uw gezamenlijke ontwerp
+          title: Maak uw gezamenlijke ontwerp
         new_collaborative_draft_button:
-          new_collaborative_draft: Gezamenlijk ontwerp
+          new_collaborative_draft: Nieuw gezamenlijk ontwerp
         orders:
-          label: 'Bestel ontwerpen door:'
+          label: 'Sorter ontwerpteksten op:'
           most_contributed: Meest bijgedragen
           random: Willekeurig
           recent: Recentelijk
         requests:
           accepted_request:
-            error: Als medewerker kan men niet aanvaarden, probeer het later opnieuw.
+            error: U kon niet aanvaard worden als medewerker, probeer het later opnieuw.
             success: "@%{user} is met succes geaccepteerd als medewerker"
           access_requested:
             error: Uw verzoek kon niet worden voltooid, probeer het later opnieuw.
@@ -523,37 +523,37 @@ nl-BE:
             success: "@%{user} is met succes afgewezen als medewerker"
         show:
           back: Terug
-          edit: Gezamenlijk ontwerp
-          final_proposal: officieel voorstel
-          final_proposal_help_text: Dit ontwerp is klaar. U kunt het laatste voorstel zien
+          edit: Bewerk gezamenlijk ontwerp
+          final_proposal: eindvoorstel
+          final_proposal_help_text: Dit ontwerp is klaar. U kunt het eindvoorstel zien
           hidden_authors_count:
             one: en %{count} meer
             other: en %{count} meer
-          info-message: Dit is een <strong>gezamenlijk ontwerp</strong> voor een voorstel. Dit betekent dat u hun auteurs kunt helpen het voorstel te vormen met behulp van de onderstaande opmerking of het direct te verbeteren door de toegang te vragen om het te bewerken. Zodra de auteurs u toegang geven, kan u dit ontwerp wijzigen.
+          info-message: Dit is een <strong>gezamenlijk ontwerp</strong> voor een voorstel. Dit betekent dat u de auteurs kunt helpen het voorstel te vormen door opmerkingen te geven of door het direct te verbeteren (vraag toegang tot het bewerken). Zodra de auteurs u toegang geven, kan u dit ontwerp wijzigen.
           of_versions: "(van %{number})"
           publish: Publiceren
           publish_info: Publiceer deze versie van het concept of
-          published_proposal: publiceer als voorstel
+          published_proposal: gepubliceerd voorstel
           request_access: Toegang aanvragen
           requested_access: Toegang aangevraagd
           see_other_versions: zie andere versies
           version: Versie %{number}
-          version_history: zie versie geschiedenis voor dit voorstel
+          version_history: zie versiegeschiedenis voor dit voorstel
           withdraw: trek het concept in
         states:
           open: Open
           published: Gepubliceerd
           withdrawn: Opname
         update:
-          error: Er zijn fouten opgetreden bij het publiceren van het gezamenlijke ontwerp.
-          success: Collaborative draft succesvol ingetrokken.
+          error: Er zijn fouten opgetreden bij het opslaan van het gezamenlijke ontwerp.
+          success: Gemeenschappelijk concept succesvol bijgewerkt.
         wizard_aside:
           back: Terug
-          info: U maakt een gezamenlijk ontwerp <strong></strong> aan.
+          info: U maakt een <strong>gezamenlijk ontwerp</strong> aan.
         wizard_steps:
           see_steps: bekijk stappen
-          step_1: Voltooi uw gezamenlijke ontwerp
-          step_2: Voltooi uw gezamenlijke ontwerp
+          step_1: Maak uw gezamenlijke ontwerp
+          step_2: Vergelijk met gezamenlijke concepten
           step_3: Voltooi uw gezamenlijke ontwerp
           step_of: Stap %{current_step_num} van %{total_steps}
       create:
@@ -567,7 +567,7 @@ nl-BE:
       models:
         collaborative_draft:
           fields:
-            authors: Auteur
+            authors: Auteurs
             comments: Reacties
             contributions: Bijdragen
         proposal:
@@ -655,7 +655,7 @@ nl-BE:
           filter_by: Filteren op
           unfold: Ontvouwen
         index:
-          collaborative_drafts_list: Gezamenlijk ontwerp
+          collaborative_drafts_list: Toegang tot gezamenlijke concepten
           new_proposal: Nieuw voorstel
           see_all_withdrawn: Zie alle ingetrokken voorstellen
           view_proposal: Bekijk voorstel
@@ -680,7 +680,7 @@ nl-BE:
           address: "[n°] [street] [postal] [city]"
         preview:
           address: 'Adres: %{address}'
-          modify: Aanpassen het voorstel
+          modify: Wijzig het voorstel
           not_geocoded: Uw adres is niet geocoded, de preview is niet beschikbaar.
           proposal_edit_before_minutes:
             one: U kunt dit voorstel bewerken tijdens de eerste minuut nadat het voorstel is gepubliceerd. Zodra dit tijdvenster voorbij is, kunt u het voorstel niet bewerken.
@@ -728,16 +728,16 @@ nl-BE:
           most_popular_proposal: Meest populaire voorstel
           need_more_votes: Meer qouta nodig
         votes_weight:
-          count: tellen
-          most_popular_proposal: Voorstel la plus populaire
-          need_more_votes: Besoin de plus de stemmen
+          count: Aantal
+          most_popular_proposal: Populairste voorstel
+          need_more_votes: Heeft meer stemmen nodig
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Elk voorstel kan meer dan %{limit} ondersteuning verzamelen
           minimum_votes_per_user:
             description: U moet een minimum van %{votes} stemmen verdelen over verschillende voorstellen.
             given_enough_votes: Je hebt genoeg ondersteuning gegeven.
-            supports_remaining: U moet nog %{remaining_votes} voorstellen stemmen om rekening te houden met uw stemmen.
+            supports_remaining: U moet nog %{remaining_votes} stemmen verdelen over de voorstellen eer er rekening wordt gehouden met uw stemmen.
           proposal_limit:
             description: U heeft %{limit} tests aangemaakt.
           threshold_per_proposal:
@@ -775,7 +775,7 @@ nl-BE:
           back_to_proposal: Terug naar voorstel
           number_of_versions: Versies
           show_all_versions: Alle versies weergeven
-          version_author: Beschrijving
+          version_author: Versie auteur
           version_created_at: Versie gemaakt op
           version_number: Versienummer
           version_number_out_of_total: "%{current_version} van %{total_count}"
