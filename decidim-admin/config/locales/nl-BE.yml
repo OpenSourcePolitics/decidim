@@ -172,22 +172,22 @@ nl-BE:
           success: Admin is succesvol gemaakt
       attachment_collections:
         create:
-          error: Er is een fout opgetreden bij het maken van een nieuwe map.
-          success: Map succesvol aangemaakt.
+          error: Er is een fout opgetreden bij het maken van een nieuwe reikwijdte.
+          success: Folder renamed successfully. (Automatic Copy).
         destroy:
-          success: Map met succes vernietigd.
+          success: Folder renamed successfully. (Automatic Copy).
         edit:
           title: Map bewerken
           update: Bijwerken
         index:
-          attachment_collection_used: Deze categorie kan niet worden verwijderd omdat het in gebruik is.
+          attachment_collection_used: Deze map kan niet worden verwijderd omdat deze in gebruik is.
           attachment_collections_title: Bijlage mappen
         new:
           create: Creëren
           title: Nieuwe map
         update:
-          error: Er is een fout opgetreden bij het bijwerken van dit bereik.
-          success: Folder renamed successfully. (Automatic Copy).
+          error: Er is een fout opgetreden bij het bijwerken van deze map.
+          success: Map succesvol bijgewerkt.
       attachments:
         create:
           error: Er is een fout opgetreden bij het maken van een nieuwe bijlage.
@@ -239,7 +239,7 @@ nl-BE:
           error: Er is een fout opgetreden bij het maken van deze categorie.
           success: Bijlage is succesvol gemaakt.
         destroy:
-          error: Er is een fout opgetreden bij het maken van deze categorie.
+          error: Er is een fout opgetreden bij het verwijderen van dit onderdeel.
           success: Er is een fout opgetreden bij het maken van deze categorie.
         edit:
           title: Component bewerken
@@ -273,10 +273,10 @@ nl-BE:
         export_as: "%{name} als %{export_format}"
         notice: Uw export is momenteel aan de gang. U ontvangt een email wanneer het klaar is.
       help_sections:
-        error: Er is een fout opgetreden bij het maken van deze nieuwsbrief
+        error: Er is een fout opgetreden bij het bijwerken van de help secties
         form:
           save: Opslaan
-        success: Organisatie is succesvol gemaakt
+        success: Help secties succesvol bijgewerkt
       impersonatable_users:
         index:
           filter:
@@ -284,9 +284,9 @@ nl-BE:
             managed: Beheer
             not_managed: Niet beheerd
           filter_by: Filteren op
-          impersonate: verpersoonlijken
-          impersonate_new_managed_user: Impersoneer nieuwe beheerde gebruiker
-          managed: Beheer
+          impersonate: Werken als andere gebruiker
+          impersonate_new_managed_user: Werk als nieuwe 'managed user'
+          managed: Beheerd
           name: Naam
           needs_authorization_warning: U heeft minstens één geactiveerde autorisatie nodig voor deze organisatie.
           not_managed: Niet beheerd
@@ -306,7 +306,7 @@ nl-BE:
           name: Naam
           reason: Reden
         new:
-          impersonate: verpersoonlijken
+          impersonate: Werk als andere gebruiker
           impersonate_existing_managed_user: Zich voordoen als "%{name}"
           impersonate_existing_user: Zich voordoen als "%{name}"
           impersonate_new_managed_user: Impersoneer nieuwe beheerde gebruiker
@@ -315,7 +315,7 @@ nl-BE:
           no_logs_yet: Er zijn nog geen opmerkingen
       managed_users:
         index:
-          impersonate: verpersoonlijken
+          impersonate: Zich voordoen als
           needs_authoriation_warning: U heeft minstens één autorisatie nodig voor deze organisatie.
           promote: Promoten
           view_logs: Bekijk logboeken
@@ -329,7 +329,7 @@ nl-BE:
             promote: Promoten
       menu:
         admin_log: Admin activiteit log
-        admins: Beheerder
+        admins: Beheerders
         appearance: Uiterlijk
         area_types: Onderwerp
         areas: Gebied
@@ -396,7 +396,7 @@ nl-BE:
             name: Naam
           name: OAuth uygulaması
         participatory_space_private_user:
-          name: Gebruiker van de burgerinspraak
+          name: Privégebruiker van de bevraging
         scope:
           fields:
             name: Naam
@@ -516,16 +516,16 @@ nl-BE:
           success: Gebruiker heeft succesvol uitgenodigd
         index:
           actions: Acties
-          badge: Symbool
+          badge: Badge
           created_at: Aangemaakt Op
           filter:
             all: Alle
-            not_officialized: Niet officized
-            officialized: Officieel
+            not_officialized: Niet officieel
+            officialized: Officieel gemaakt
           filter_by: Filteren op
           name: Naam
           nickname: Bijnaam
-          not_officialized: Niet officized
+          not_officialized: Niet officieel
           officialize: Officieel
           officialized: Officieel
           reofficialize: Herzettelijk
