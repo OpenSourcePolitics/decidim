@@ -236,16 +236,16 @@ nl-BE:
           success: Admin succesvol bijgewerkt.
       components:
         create:
-          error: Er is een fout opgetreden bij het maken van deze categorie.
-          success: Bijlage is succesvol gemaakt.
+          error: Er is een fout opgetreden bij het maken van dit onderdeel.
+          success: Onderdeel is succesvol gemaakt.
         destroy:
-          error: Er is een fout opgetreden bij het verwijderen van dit onderdeel.
-          success: Er is een fout opgetreden bij het maken van deze categorie.
+          error: Er is een fout opgetreden bij het maken van dit onderdeel.
+          success: Onderdeel succesvol verwijderd.
         edit:
-          title: Component bewerken
+          title: Onderdeel bewerken
           update: Bijwerken
         form:
-          default_step_settings: Standaard instellingen stappen
+          default_step_settings: Standaardinstellingen stappen
           global_settings: Algemene instellingen
           step_settings: Instellingen van de stappen
         index:
@@ -259,12 +259,12 @@ nl-BE:
           title: 'Voeg onderdeel toe: %{name}'
         publish:
           success: Het onderdeel is succesvol gepubliceerd.
-        title: Componenten
+        title: Onderdelen
         unpublish:
           success: Het onderdeel is met succes verwijderd.
         update:
-          error: Er is een fout opgetreden bij het maken van deze categorie.
-          success: Component succesvol verwijderd.
+          error: Er is een fout opgetreden bij het bijwerken van dit onderdeel.
+          success: Onderdeel succesvol bijgewerkt.
       dashboard:
         show:
           view_more_logs: Bekijk meer logs
@@ -526,16 +526,16 @@ nl-BE:
           name: Naam
           nickname: Bijnaam
           not_officialized: Niet officieel
-          officialize: Officieel
-          officialized: Officieel
-          reofficialize: Herzettelijk
+          officialize: Officieel maken
+          officialized: Officieel gemaakt
+          reofficialize: Opnieuw officieel maken
           search: Zoeken
           status: Status
-          unofficialize: Onvofficialiseren
+          unofficialize: Maak inofficieel
         new:
           badge: Officialisaties
-          officialize: Officieel
-          title: Officieer gebruiker "%{name}"
+          officialize: Officieel maken
+          title: Gebruiker "%{name}" officieel maken
       organization:
         edit:
           title: Organisatie bewerken
@@ -555,18 +555,18 @@ nl-BE:
         edit:
           update: Bijwerken
         form:
-          colors_title: Organisatietelefoonnummers
+          colors_title: Organisatiekleuren
           cta_button_path_help: 'U kunt de verwijzing van de knop "Call to Action" overschrijven. Gebruik hier gedeeltelijke paden, niet volledige URL''s. Aanvaardt letters, cijfers, streepjes en streepjes en moet beginnen met een brief. De knop "Call to Action" wordt weergegeven op de homepage tussen de welkomsttekst en de omschrijving. Voorbeeld: %{url}'
           cta_button_text_help: U kunt de tekst voor "Call To Action" overschrijven op de homepage voor elke beschikbare taal in uw organisatie. Indien niet ingesteld, wordt de standaardwaarde gebruikt. De knop Call to Action wordt weergegeven op de homepage tussen de welkomsttekst en de omschrijving.
           header_snippets_help: Gebruik dit veld om dingen toe te voegen aan de HTML-kop. Het meest voorkomende gebruik is het integreren van diensten van derden die extra JavaScript of CSS nodig hebben. U kunt het ook gebruiken om extra metatags toe te voegen aan de HTML. Houd er rekening mee dat dit alleen op openbare pagina's wordt weergegeven, niet in de beheerdersafdeling.
           homepage_appearance_title: Bewerk de startpagina-weergave
           homepage_highlighted_content_banner_title: Uitgelichte inhoudsbanner
           layout_appearance_title: Weergave van de lay-out bewerken
-          omnipresent_banner_appearance_title: Toon omnipresent banner
+          omnipresent_banner_appearance_title: Bewerk omnipresent banner
       organization_homepage:
         edit:
           active_content_blocks: Actieve inhoudsblokken
-          inactive_content_blocks: Actieve inhoudsblokken
+          inactive_content_blocks: Inactieve inhoudsblokken
       organization_homepage_content_blocks:
         edit:
           update: Bijwerken
@@ -575,7 +575,7 @@ nl-BE:
           error: Er is een fout opgetreden bij het toevoegen van een privégebruiker aan deze burgerinspraak.
           success: De toegang van de privégebruiker voor de burgerinspraak is succesvol aangemaakt.
         destroy:
-          error: Er is een fout opgetreden bij het toevoegen van een privégebruiker aan deze burgerinspraak.
+          error: Er is een fout opgetreden bij het verwijderen van een privé-gebruiker voor deze participatieve ruimte.
           success: De toegang van de privégebruiker voor burgerinspraak is met succes verwijderd.
         index:
           title: Gebruiker van de burgerinspraak
