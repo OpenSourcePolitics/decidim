@@ -7,6 +7,7 @@ module Decidim
     include Cell::ViewModel::Partial
     include Decidim::ApplicationHelper
     include Decidim::TooltipHelper
+    include Decidim::DeeplHelper
     include Decidim::SanitizeHelper
     include Decidim::CardHelper
     include Decidim::LayoutHelper

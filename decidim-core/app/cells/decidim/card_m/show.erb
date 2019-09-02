@@ -13,7 +13,9 @@
           </span>
         </div>
       </div>
-      <%= render :translate %>
+      <% if translatable? %>
+        <%= translate_button_helper_for(model, current_locale, default_locale, "card-m") %>
+      <% end %>
       <%= render :tags %>
     </div>
 
