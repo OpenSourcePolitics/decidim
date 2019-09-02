@@ -8,7 +8,7 @@
       <div class="card__text">
         <div class="card__text--paragraph">
           <%= render :badge if has_badge? %>
-          <span <%= translate_body_helper_for(model) %>>
+          <span <%= "id=#{translate_body_helper_for(model)}" %>>
             <%= description %>
           </span>
         </div>

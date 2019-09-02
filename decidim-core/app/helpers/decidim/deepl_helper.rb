@@ -17,14 +17,14 @@ module Decidim
     def translate_title_helper_for(model)
       return unless translation_available?
 
-      "id=#{target_helper(model)}_title"
+      "#{target_helper(model)}_title"
     end
 
     # Displays the body id, uses to bind data inside
     def translate_body_helper_for(model)
       return unless translation_available?
 
-      "id=#{target_helper(model)}_body"
+      "#{target_helper(model)}_body"
     end
 
     def translate_link(model, current_locale, default_locale)

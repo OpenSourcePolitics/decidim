@@ -41,6 +41,8 @@ $(() => {
     if (translatable) {
       $spinner.removeClass("loading-spinner--hidden");
 
+      //TODO: Don't read from DOM, use data-atr instead
+
       translate($title.text(), targetLang, (response) => {
         $item.data("title", $title.text());
         $title.text(response[1]);

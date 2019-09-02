@@ -8,15 +8,15 @@ module Decidim
     class ProposalMCell < Decidim::CardMCell
       include ProposalCellsHelper
 
-      def translatable?
-        translation_available?
-      end
-
       def badge
         render if has_badge?
       end
 
       private
+
+      def translatable?
+        true
+      end
 
       def title
         decidim_html_escape(present(model).title)
