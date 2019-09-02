@@ -26,31 +26,17 @@ $(() => {
     const $spinner = $item.children(".loading-spinner");
     const $btn = $item.children("span");
 
-    let $title = null;
-    let $body = null;
-
     const original = $item.data("original");
     const translated = $item.data("translated");
-    const translatableId = $item.data("translatable-id");
     const targetLang = $item.data("targetlang");
-    const tranlatableType = $item.data("translatabletype");
+    const targetelement = $item.data("targetelem");
 
     let translatable = $item.data("translatable");
     let originalTitle = $item.data("title");
     let originalBody = $item.data("body");
 
-    switch (tranlatableType) {
-    case "card-m":
-      $title = $item.parentsUntil("[data-translatable-parent]").find("[data-translatable-title]");
-      $body = $item.parentsUntil("[data-translatable-parent]").find("[data-translatable-body]");
-      break;
-    case "proposal-show":
-      $title = $(document).find(`[data-translatable-title=${translatableId}]`);
-      $body = $(document).find(`[data-translatable-body=${translatableId}]`);
-      break;
-    default:
-      throw new Error("No translatable type");
-    }
+    const $title = $(`#${targetelement}_title`);
+    const $body = $(`#${targetelement}_body`);
 
     if (translatable) {
       $spinner.removeClass("loading-spinner--hidden");

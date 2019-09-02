@@ -1,5 +1,5 @@
 <div class="column" id="<%= dom_id(model) %>">
-  <article class="card <%= card_classes %>" data-translatable-parent>
+  <article class="card <%= card_classes %>">
     <%= render :label if has_label? %>
     <%= render :top if render_top? %>
     <%= render :image if has_image? %>
@@ -8,13 +8,13 @@
       <div class="card__text">
         <div class="card__text--paragraph">
           <%= render :badge if has_badge? %>
-          <span data-translatable-body>
+          <span <%= translate_body_helper_for(model) %>>
             <%= description %>
           </span>
         </div>
       </div>
       <% if translatable? %>
-        <%= translate_button_helper_for(model, current_locale, default_locale, "card-m") %>
+        <%= translate_button_helper_for(model, current_locale, default_locale) %>
       <% end %>
       <%= render :tags %>
     </div>

@@ -116,7 +116,7 @@
           <%= simple_format present(@proposal).body(links: true, strip_tags: true) %>
         </span>
         <% if translatable? %>
-          <%= translate_button_helper_for(@proposal, current_locale, default_locale, "proposal-show") %>
+          <%= translate_button_helper_for(@proposal, current_locale, default_locale) %>
         <% end %>
       <% end %>
       <% if component_settings.geocoding_enabled? %>

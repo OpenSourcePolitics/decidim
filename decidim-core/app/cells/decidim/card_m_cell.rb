@@ -21,7 +21,7 @@ module Decidim
     private
 
     def default_locale
-      current_component.organization.default_locale
+      current_organization.default_locale
     end
 
     def current_locale

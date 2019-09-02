@@ -5,15 +5,34 @@ module Decidim
   module DeeplHelper
     include Decidim::TranslatableAttributes
 
-    def translate_button_helper_for(model, current_locale, default_locale, type)
-      translate_link(model, current_locale, default_locale, type) if translation_available?
+    # Help to display the translation link, needs translate_title and
+    # translate_body helper to indicate where to inject the translated data
+    def translate_button_helper_for(model, current_locale, default_locale)
+      return unless translation_available?
+
+      translate_link(model, current_locale, default_locale) if translation_available?
     end
 
-    def translate_link(model, current_locale, default_locale, type)
+    # Displays the title id, uses to bind data inside
+    def translate_title_helper_for(model)
+      return unless translation_available?
+
+      "id=#{target_helper(model)}_title"
+    end
+
+    # Displays the body id, uses to bind data inside
+    def translate_body_helper_for(model)
+      return unless translation_available?
+
+      "id=#{target_helper(model)}_body"
+    end
+
+    def translate_link(model, current_locale, default_locale)
       content_tag(:div, class: "card__translate") do
         link_to "#", class: "translatable_btn btn btn-secondary", data: {
-          translatabletype: type,
-          "translatable-id": model.id,
+          title: model.try(:title),
+          body: model.try(:body) || model.try(:description),
+          targetElem: target_helper(model),
           targetlang: deepl_target_locale(current_locale, default_locale),
           translatable: true,
           translated: t("decidim.translated"),
@@ -30,16 +49,12 @@ module Decidim
       content << content_tag(:div, "", class: "loading-spinner loading-spinner--hidden")
     end
 
-    def translate_title_helper_for(model)
-      "data-translatable-title=#{model.id}"
-    end
-
-    def translate_body_helper_for(model)
-      "data-translatable-body=#{model.id}"
+    def target_helper(model)
+      "#{model.class.name.demodulize.downcase}_#{model.id}"
     end
 
     def translation_available?
-      current_component.organization.deepl_api_key.present? && current_component.organization.translatable_locales.count > 1
+      current_organization.deepl_api_key.present? && current_organization.translatable_locales.count > 1
     end
 
     def deepl_target_locale(requested_locale, default_locale)
