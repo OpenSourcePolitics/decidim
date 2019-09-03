@@ -7,10 +7,10 @@ module Decidim
 
     # Help to display the translation link, needs translate_title and
     # translate_body helper to indicate where to inject the translated data
-    def translate_button_helper_for(title:, body:, model:, current_locale:, default_locale:, options: {})
+    def translate_button_helper_for(title:, body:, model:, options: {})
       return unless translation_available?
 
-      translate_link(title, body, model, current_locale, default_locale, options)
+      translate_link(title, body, model, options)
     end
 
     def translate_helper_for(element:, model:)
@@ -19,7 +19,7 @@ module Decidim
       "#{target_helper(model)}_#{element}"
     end
 
-    def translate_link(title, body, model, current_locale, default_locale, options)
+    def translate_link(title, body, model, options)
       style = options[:class] ? "card__translate #{options[:class]}" : "card__translate"
 
       content_tag(:div, class: style) do
@@ -27,7 +27,7 @@ module Decidim
           title: title,
           body: body,
           targetElem: target_helper(model),
-          targetlang: deepl_target_locale(current_locale, default_locale),
+          targetlang: deepl_target_locale,
           translatable: true,
           translated: t("decidim.translated"),
           original: t("decidim.translate")
@@ -51,10 +51,10 @@ module Decidim
       current_organization.deepl_api_key.present? && current_organization.translatable_locales.count > 1
     end
 
-    def deepl_target_locale(requested_locale, default_locale)
-      return default_locale.upcase unless %w(EN DE FR ES PT IT NL PL RU).include? requested_locale.upcase
+    def deepl_target_locale
+      return default_locale.upcase unless %w(EN DE FR ES PT IT NL PL RU).include? current_locale.upcase
 
-      requested_locale.upcase
+      current_locale.upcase
     end
   end
 end
