@@ -29,17 +29,23 @@ module Decidim
           targetElem: target_helper(model),
           targetlang: deepl_target_locale,
           translatable: true,
-          translated: t("decidim.translated"),
-          original: t("decidim.translate")
+          translated: t("translated", scope: "decidim.translate"),
+          original: t("original", scope: "decidim.translate")
         } do
-          link_content
+          tooltip_content
         end
       end
     end
 
-    def link_content
+    def tooltip_content
       content = icon "globe", class: "action-icon action-icon--disabled"
-      content << content_tag(:span, t("decidim.translate"))
+      content << content_tag(:span, data: { tooltip: true, disable_hover: false, click_open: false }, title: t("tooltip", scope: "decidim.translate")) do
+        link_content
+      end
+    end
+
+    def link_content
+      content = content_tag(:span, t("original", scope: "decidim.translate"))
       content << content_tag(:div, "", class: "loading-spinner loading-spinner--hidden")
     end
 
