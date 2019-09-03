@@ -13,18 +13,10 @@ module Decidim
       translate_link(title, body, model, current_locale, default_locale)
     end
 
-    # Displays the title id, uses to bind data inside
-    def translate_title_helper_for(model)
+    def translate_helper_for(element:, model:)
       return unless translation_available?
 
-      "#{target_helper(model)}_title"
-    end
-
-    # Displays the body id, uses to bind data inside
-    def translate_body_helper_for(model)
-      return unless translation_available?
-
-      "#{target_helper(model)}_body"
+      "#{target_helper(model)}_#{element}"
     end
 
     def translate_link(title, body, model, current_locale, default_locale)
