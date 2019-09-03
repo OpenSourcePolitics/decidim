@@ -1001,8 +1001,8 @@ en:
         deleted: Deleted participant
     translate:
       original: Translate (*)
-      translated: Back to the original version
       tooltip: Translated with Deepl
+      translated: Back to the original version
     user_activity:
       index:
         no_activities_warning: This participant hasn't had any activity yet.

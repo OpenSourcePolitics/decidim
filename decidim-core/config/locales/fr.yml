@@ -991,8 +991,8 @@ fr:
         deleted: Utilisateur ayant supprimé son compte
     translate:
       original: Translate (*)
-      translated: Back to the original version
       tooltip: Translated with Deepl
+      translated: Back to the original version
     user_activity:
       index:
         no_activities_warning: Cet utilisateur n'a pas encore eu d'activité.
