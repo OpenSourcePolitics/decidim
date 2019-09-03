@@ -7,10 +7,10 @@ module Decidim
 
     # Help to display the translation link, needs translate_title and
     # translate_body helper to indicate where to inject the translated data
-    def translate_button_helper_for(title:, body:, model:, current_locale:, default_locale:)
+    def translate_button_helper_for(title:, body:, model:, current_locale:, default_locale:, options: {})
       return unless translation_available?
 
-      translate_link(title, body, model, current_locale, default_locale)
+      translate_link(title, body, model, current_locale, default_locale, options)
     end
 
     def translate_helper_for(element:, model:)
@@ -19,8 +19,10 @@ module Decidim
       "#{target_helper(model)}_#{element}"
     end
 
-    def translate_link(title, body, model, current_locale, default_locale)
-      content_tag(:div, class: "card__translate") do
+    def translate_link(title, body, model, current_locale, default_locale, options)
+      style = options[:class] ? "card__translate #{options[:class]}" : "card__translate"
+
+      content_tag(:div, class: style) do
         link_to "#", class: "translatable_btn btn btn-secondary", data: {
           title: title,
           body: body,

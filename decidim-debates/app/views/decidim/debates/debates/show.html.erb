@@ -24,7 +24,8 @@
         body: Decidim::Debates::DebatePresenter.new(debate).description,
         model: debate,
         current_locale: current_locale,
-        default_locale: default_locale
+        default_locale: default_locale,
+        options: { class: "hide-for-small-only" }
       ) %>
 </div>
 <div class="row">
@@ -56,6 +57,14 @@
                )
              )
       %></p>
+      <%= translate_button_helper_for(
+            title: Decidim::Debates::DebatePresenter.new(debate).title,
+            body: Decidim::Debates::DebatePresenter.new(debate).description,
+            model: debate,
+            current_locale: current_locale,
+            default_locale: default_locale,
+            options: { class: "show-for-small-only" }
+          ) %>
       <% if translated_attribute(debate.instructions).present? %>
         <div class="callout secondary">
           <%= decidim_sanitize(simple_format(translated_attribute(debate.instructions))) %>

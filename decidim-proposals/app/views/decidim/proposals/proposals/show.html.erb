@@ -38,6 +38,17 @@
   <% unless component_settings.participatory_texts_enabled? %>
     <%= cell("decidim/coauthorships", @proposal, has_actions: true, size: 3, context: { current_user: current_user }) %>
   <% end %>
+
+  <% if translatable? %>
+    <%= translate_button_helper_for(
+          title: @proposal.title,
+          body: @proposal.body,
+          model: @proposal,
+          current_locale: current_locale,
+          default_locale: default_locale,
+          options: { class: "hide-for-small-only" }
+        ) %>
+  <% end %>
 </div>
 <div class="row">
   <div class="columns section view-side mediumlarge-4 mediumlarge-push-8 large-3 large-push-9">
@@ -116,16 +127,19 @@
         <span <%= "id=#{translate_helper_for(element: :body, model: @proposal)}" %> >
           <%= simple_format present(@proposal).body(links: true, strip_tags: true) %>
         </span>
-        <% if translatable? %>
-          <%= translate_button_helper_for(
-                title: @proposal.title,
-                body: @proposal.body,
-                model: @proposal,
-                current_locale: current_locale,
-                default_locale: default_locale
-              ) %>
-        <% end %>
       <% end %>
+
+      <% if translatable? %>
+        <%= translate_button_helper_for(
+              title: @proposal.title,
+              body: @proposal.body,
+              model: @proposal,
+              current_locale: current_locale,
+              default_locale: default_locale,
+              options: { class: "show-for-small-only" }
+            ) %>
+      <% end %>
+
       <% if component_settings.geocoding_enabled? %>
         <%= render partial: "decidim/shared/static_map", locals: { icon_name: "map-marker", geolocalizable: @proposal } %>
       <% end %>
