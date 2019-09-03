@@ -19,7 +19,13 @@
   </h2>
 
   <%= cell "decidim/author", Decidim::Debates::DebatePresenter.new(debate).author, context: { extra_classes: ["author-data--small"] } %>
-  <%= translate_button_helper_for(debate, current_locale, default_locale) %>
+  <%= translate_button_helper_for(
+        title: Decidim::Debates::DebatePresenter.new(debate).title,
+        body: Decidim::Debates::DebatePresenter.new(debate).description,
+        model: debate,
+        current_locale: current_locale,
+        default_locale: default_locale
+      ) %>
 </div>
 <div class="row">
   <div class="columns section view-side mediumlarge-4 mediumlarge-push-8

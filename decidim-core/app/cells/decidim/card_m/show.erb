@@ -14,7 +14,13 @@
         </div>
       </div>
       <% if translatable? %>
-        <%= translate_button_helper_for(model, current_locale, default_locale) %>
+        <%= translate_button_helper_for(
+              title: title,
+              body: description,
+              model: model,
+              current_locale: current_locale,
+              default_locale: default_locale
+            ) %>
       <% end %>
       <%= render :tags %>
     </div>

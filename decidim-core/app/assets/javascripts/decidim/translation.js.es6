@@ -1,21 +1,23 @@
 let translate = function (originalText, targetLang, callback) {
-  $.ajax({
-    url: "/api/translate",
-    type: "POST",
-    // data: `target=${targetLang}&original=${originalText}`,
-    data: {
-      target: targetLang,
-      original: originalText,
-      "authenticity_token": window.$('meta[name="csrf-token"]').attr("content")
-    },
-    dataType: "json",
-    success: function (body) {
-      callback([body.translations[0].detected_source_language, body.translations[0].text]);
-    },
-    error: function (body, status, error) {
-      throw error;
-    }
-  });
+  if (originalText !== "" && targetLang !== "") {
+    $.ajax({
+      url: "/api/translate",
+      type: "POST",
+      // data: `target=${targetLang}&original=${originalText}`,
+      data: {
+        target: targetLang,
+        original: originalText,
+        "authenticity_token": window.$('meta[name="csrf-token"]').attr("content")
+      },
+      dataType: "json",
+      success: function (body) {
+        callback([body.translations[0].detected_source_language, body.translations[0].text]);
+      },
+      error: function (body, status, error) {
+        throw error;
+      }
+    });
+  }
 };
 
 
@@ -41,14 +43,12 @@ $(() => {
     if (translatable) {
       $spinner.removeClass("loading-spinner--hidden");
 
-      //TODO: Don't read from DOM, use data-atr instead
-
-      translate($title.text(), targetLang, (response) => {
+      translate(originalTitle, targetLang, (response) => {
         $item.data("title", $title.text());
         $title.text(response[1]);
       });
 
-      translate($body.html(), targetLang, (response) => {
+      translate(originalBody, targetLang, (response) => {
         $item.data("body", $body.html());
         $body.html(response[1]);
 
