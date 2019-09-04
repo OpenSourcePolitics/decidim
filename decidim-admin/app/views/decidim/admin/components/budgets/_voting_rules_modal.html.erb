@@ -1,0 +1,19 @@
+<div class="reveal" data-reveal id="voting-rules-modal">
+  <div class="reveal__header">
+    <h3 class="reveal__title"><%= t(".title") %></h3>
+    <button class="close-button" data-close aria-label="<%= t(".close") %>" type="button">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <p><%= t(".total_projects_limit").html_safe %><strong id="total-projects"></strong></p>
+  <p><%= t(".component_projects_limit", total_projects: @component_projects_count).html_safe %></p>
+  <ul>
+    <li><em><%= t("decidim.components.budgets.settings.global.total_projects") %></em></li>
+    <li><em><%= t("decidim.components.budgets.settings.global.vote_per_category") %></em></li>
+  </ul>
+  <div class="row">
+    <div class="columns medium-8">
+      <button data-close class="button expanded"><%= t(".ok") %></button>
+    </div>
+  </div>
+</div>

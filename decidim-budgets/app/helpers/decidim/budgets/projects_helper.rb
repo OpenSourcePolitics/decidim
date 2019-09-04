@@ -24,11 +24,11 @@ module Decidim
       def current_order_percent_minimum
         return 100 if component_settings.vote_per_project
 
-        component_settings.vote_threshold_percent
+        100 - component_settings.vote_threshold_percent
       end
 
       def current_order_percent
-        return current_order_budget_percent unless component_settings.vote_per_project
+        return current_order_budget_percent if component_settings.vote_per_budget
 
         current_order_project_percent
       end
@@ -61,6 +61,83 @@ module Decidim
         return "progress_meter_state--pending" if current_order_is_pending?
 
         ""
+      end
+
+      # Return the minimum budget as Integer based on current_component settings.
+      def minimum_budget
+        current_component.settings.total_budget.to_f * (current_component.settings.vote_threshold_percent.to_f / 100)
+      end
+
+      # Return the current_component `projects_per_category_treshold` Hash,
+      # with key-values as Integer and keeping only positive values.
+      def projects_per_category_treshold
+        @projects_per_category_treshold ||= Order.projects_per_category_treshold(current_component)
+      end
+
+      # Return the budget assigned to the current_order or zero if there isn't yet an order.
+      # Return an Integer.
+      def current_order_assigned_budget
+        current_order&.total_budget || 0
+      end
+
+      # Return the number of projects added to the current_order or zero if there isn't yet an order.
+      # Return an Integer.
+      def current_order_projects_count
+        current_order&.total_projects || 0
+      end
+
+      # Checks if the current_order can be checked out.
+      # Returns a String.
+      def vote_button_disabled?
+        current_order_can_be_checked_out? ? "" : "disabled"
+      end
+
+      # Render a `button_to` form to DELETE a project with a trash icon.
+      # Returns a HTML safe String.
+      def remove_project_trash_icon_button(project)
+        button_to(
+          order_line_item_path(project_id: project),
+          method: :delete,
+          remote: true,
+          data: { disable: true },
+          form: { style: "display: inline" }
+        ) do
+          concat icon("trash", aria_label: t("remove", scope: "decidim.budgets.projects"), role: "img")
+        end
+      end
+
+      # Render a `button_to` form to ADD a project but conditionally renders a popup modal blocking the action.
+      # See Decidim::ActionAuthorizationHelper#action_authorized_button_to
+      # Returns a HTML safe String.
+      def add_project_authorized_button(project, css_classes, translation = nil, &block)
+        arguments = [order_line_item_path(project_id: project),
+                     method: :post,
+                     remote: true,
+                     data: { disable: true, add: true, budget: project.budget, "redirect-url": project_path(project) },
+                     disabled: !current_settings.votes_enabled?,
+                     class: css_classes]
+        if block
+          action_authorized_button_to("vote", *arguments, &block)
+        else
+          action_authorized_button_to("vote", translation, *arguments)
+        end
+      end
+
+      # Render a `button_to` form to DELETE a project but conditionally renders a popup modal blocking the action.
+      # See Decidim::ActionAuthorizationHelper#action_authorized_button_to
+      # Returns a HTML safe String.
+      def remove_project_authorized_button(project, css_classes, translation = nil, &block)
+        arguments = [order_line_item_path(project_id: project),
+                     method: :delete,
+                     remote: true,
+                     data: { disable: true, budget: project.budget, "redirect-url": project_path(project) },
+                     disabled: !current_settings.votes_enabled?,
+                     class: css_classes]
+        if block
+          action_authorized_button_to("vote", *arguments, &block)
+        else
+          action_authorized_button_to("vote", translation, *arguments)
+        end
       end
     end
   end

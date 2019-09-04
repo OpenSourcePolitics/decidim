@@ -58,6 +58,12 @@ module Decidim
           expect(attribute.type_class).to eq(String)
           expect(attribute.default_value).to eq(nil)
         end
+
+        it "supports hashes" do
+          attribute = SettingsManifest::Attribute.new(type: :hash)
+          expect(attribute.type_class).to eq(Hash)
+          expect(attribute.default_value).to eq({})
+        end
       end
 
       it "only allows valid types" do
