@@ -53,8 +53,7 @@
                  translated_attribute(debate.description),
                  id: translate_helper_for(element: :body, model: debate)
                )
-             )
-      %></p>
+             ) %></p>
       <%= translate_button_helper_for(
             title: Decidim::Debates::DebatePresenter.new(debate).title,
             body: Decidim::Debates::DebatePresenter.new(debate).description,
