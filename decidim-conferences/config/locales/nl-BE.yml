@@ -12,7 +12,7 @@ nl-BE:
         description: Omschrijving	
         hashtag: Hashtag
         hero_image: Afbeelding van de startpagina
-        participatory_processes_ids: Update deelnemende proces gebruiker
+        participatory_processes_ids: Verwante bevragingen
         promoted: gepromoveerd
         published_at: Gepubliceerd op
         scope_id: Reikwijdte
@@ -485,7 +485,7 @@ nl-BE:
         objectives: Doelstellingen
         related_assemblies: Gerelateerde Buurderijen
         related_consultations: Verwante raadplegingen
-        related_participatory_processes: Update deelnemende proces gebruiker
+        related_participatory_processes: Verwante bevragingen
       statistics:
         answers_count: Antwoorden
         comments_count: Reacties

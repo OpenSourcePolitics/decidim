@@ -87,8 +87,8 @@ nl-BE:
               title: Identiteitsdocumenten configuratie
               update: Bijwerken
             update:
-              error: Er is een fout opgetreden bij het bijwerken van deze organisatie.
-              success: Resultaat met succes gemaakt
+              error: Er is een fout opgetreden bij het bijwerken van de configuratie.
+              success: Configuratie succesvol bijgewerkt
           confirmations:
             create:
               error: Verificatie komt niet overeen. Probeer het opnieuw of verwerp de verificatie zodat de gebruiker het kan wijzigen
@@ -108,8 +108,8 @@ nl-BE:
           pending_authorizations:
             index:
               config: Configuratie
-              offline_verification: Lopende verificaties
-              title: In afwachting van online verificaties
+              offline_verification: Offline verificatie
+              title: Hangende online verificaties
               verification_number: 'Verificatie #%{n}'
           rejections:
             create:
@@ -125,8 +125,8 @@ nl-BE:
             success: Document met succes opnieuw geproplomeerd
           edit:
             being_reviewed: We zijn bezig met het beoordelen van uw documenten. U zal binnenkort worden geverifieerd
-            offline: Lopende verificaties
-            online: Lopende verificaties
+            offline: Offline verificatie gebruiken
+            online: Online verificatie gebruiken
             rejection_clarity: Zorg ervoor dat de informatie duidelijk zichtbaar is in de geüploade afbeelding
             rejection_correctness: Zorg ervoor dat de ingevoerde informatie correct is
             rejection_notice: Er is een probleem opgetreden met uw verificatie. Probeer het opnieuw
@@ -181,7 +181,7 @@ nl-BE:
             send: Stuur mij een SMS
             title: Voer een geldige vervaldatum in
           update:
-            error: Uw verificatiecode komt niet overeen met onze. Controleer de brief die we u hebben gestuurd.
+            error: Uw verificatiecode komt niet overeen met onze. Controleer de SMS die we u hebben gestuurd.
             success: Gefeliciteerd. Je bent met succes geverifieerd.
   errors:
     messages:

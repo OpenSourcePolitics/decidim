@@ -3,7 +3,7 @@ nl-BE:
     system:
       actions:
         confirm_destroy: Weet u zeker dat u dit wilt verwijderen?
-        destroy: Vernietigen
+        destroy: Verwijderen
         edit: Bewerk
         new: nieuwe
         save: Opslaan
@@ -13,7 +13,7 @@ nl-BE:
           error: Er is een fout opgetreden bij het maken van een nieuwe admin.
           success: Admin is succesvol aangemaakt
         destroy:
-          success: Admin succesvol vernietigd
+          success: Admin succesvol verwijderd
         edit:
           title: Beheer admin
           update: Bijwerken
@@ -36,7 +36,7 @@ nl-BE:
       menu:
         admins: Beheerder
         dashboard: Dashboard
-        logs: Houtblokken
+        logs: Logs
         organizations: Organisaties
       models:
         admin:

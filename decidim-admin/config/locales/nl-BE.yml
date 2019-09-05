@@ -27,8 +27,8 @@ nl-BE:
         weight: Gewicht
       id: ID kaart
       newsletter:
-        body: Lichaam
-        subject: Onderwerpen
+        body: Tekst
+        subject: Onderwerp
       oauth_application:
         name: Naam
         organization_logo: Logo organisatie (vierkant)
@@ -49,18 +49,18 @@ nl-BE:
         from: Van e-mailadres
         github_handler: GitHub handler
         header_snippets: Koptekstjes
-        highlighted_content_banner_action_subtitle: Ondertitels van de actieknop
-        highlighted_content_banner_action_title: Ondertitels van de actieknop
-        highlighted_content_banner_action_url: Ondertitels van de actieknop
-        highlighted_content_banner_enabled: Toon de gemarkeerde inhoudsbanner
+        highlighted_content_banner_action_subtitle: Ondertitel van de actieknop
+        highlighted_content_banner_action_title: Titel van de actieknop
+        highlighted_content_banner_action_url: Actieknop URL
+        highlighted_content_banner_enabled: Toon de banner met uitgelichte inhoud
         highlighted_content_banner_image: Afbeelding
         highlighted_content_banner_short_description: Korte omschrijving
         highlighted_content_banner_title: Titel
         instagram_handler: Instagram handler
-        logo: '-'
+        logo: Logo
         name: Naam
-        official_img_footer: Officiële logo footer
-        official_img_header: Officiële logo header
+        official_img_footer: Officieel footer-logo
+        official_img_header: Officieel header-logo
         official_url: Officiële organisatie url
         omnipresent_banner_short_description: Korte omschrijving
         omnipresent_banner_title: Titel
@@ -72,7 +72,7 @@ nl-BE:
         secondary_color: Secundaire
         show_statistics: Toon statistieken
         success_color: Succes
-        tos_version: Algemene versie
+        tos_version: Gebruiksvoorwaarden-versie
         twitter_handler: Twitter handler
         user_groups_enabled: Gebruikersgroepen inschakelen
         warning_color: Waarschuwing
@@ -112,9 +112,9 @@ nl-BE:
         organization:
           attributes:
             official_img_footer:
-              allowed_file_content_types: Ongeldige afbeeldingsbestand
+              allowed_file_content_types: Ongeldig afbeeldingsbestand
             official_img_header:
-              allowed_file_content_types: Ongeldige afbeeldingsbestand
+              allowed_file_content_types: Ongeldig afbeeldingsbestand
   activerecord:
     attributes:
       decidim/static_page:
@@ -122,7 +122,7 @@ nl-BE:
         slug: URL pad
         title: Titel
       doorkeeper/application:
-        authorize_url: Autorisatie URL
+        authorize_url: Autoriseer URL
         client_id: Client-ID
         client_secret: Klant geheim
         organization_name: Organisatienaam
@@ -136,7 +136,7 @@ nl-BE:
         browse: Browsen
         export: Exporteren
         manage: Beheer
-        permissions: Toelatingen
+        permissions: Machtigingen
         reject: Afwijzen
         verify: Verifiëren
       area_types:
@@ -180,14 +180,14 @@ nl-BE:
           title: Map bewerken
           update: Bijwerken
         index:
-          attachment_collection_used: Deze categorie kan niet worden verwijderd omdat het in gebruik is.
+          attachment_collection_used: Deze map kan niet worden verwijderd omdat deze in gebruik is.
           attachment_collections_title: Bijlage mappen
         new:
           create: Creëren
           title: Nieuwe map
         update:
-          error: Er is een fout opgetreden bij het bijwerken van dit bereik.
-          success: Folder renamed successfully. (Automatic Copy).
+          error: Er is een fout opgetreden bij het bijwerken van deze map.
+          success: Map succesvol bijgewerkt.
       attachments:
         create:
           error: Er is een fout opgetreden bij het maken van een nieuwe bijlage.
@@ -236,16 +236,16 @@ nl-BE:
           success: Admin succesvol bijgewerkt.
       components:
         create:
-          error: Er is een fout opgetreden bij het maken van deze categorie.
-          success: Bijlage is succesvol gemaakt.
+          error: Er is een fout opgetreden bij het maken van dit onderdeel.
+          success: Onderdeel is succesvol gemaakt.
         destroy:
-          error: Er is een fout opgetreden bij het maken van deze categorie.
-          success: Er is een fout opgetreden bij het maken van deze categorie.
+          error: Er is een fout opgetreden bij het maken van dit onderdeel.
+          success: Onderdeel succesvol verwijderd.
         edit:
-          title: Component bewerken
+          title: Onderdeel bewerken
           update: Bijwerken
         form:
-          default_step_settings: Standaard instellingen stappen
+          default_step_settings: Standaardinstellingen stappen
           global_settings: Algemene instellingen
           step_settings: Instellingen van de stappen
         index:
@@ -259,12 +259,12 @@ nl-BE:
           title: 'Voeg onderdeel toe: %{name}'
         publish:
           success: Het onderdeel is succesvol gepubliceerd.
-        title: Componenten
+        title: Onderdelen
         unpublish:
           success: Het onderdeel is met succes verwijderd.
         update:
-          error: Er is een fout opgetreden bij het maken van deze categorie.
-          success: Component succesvol verwijderd.
+          error: Er is een fout opgetreden bij het bijwerken van dit onderdeel.
+          success: Onderdeel succesvol bijgewerkt.
       dashboard:
         show:
           view_more_logs: Bekijk meer logs
@@ -273,10 +273,10 @@ nl-BE:
         export_as: "%{name} als %{export_format}"
         notice: Uw export is momenteel aan de gang. U ontvangt een email wanneer het klaar is.
       help_sections:
-        error: Er is een fout opgetreden bij het maken van deze nieuwsbrief
+        error: Er is een fout opgetreden bij het bijwerken van de help secties
         form:
           save: Opslaan
-        success: Organisatie is succesvol gemaakt
+        success: Help secties succesvol bijgewerkt
       impersonatable_users:
         index:
           filter:
@@ -284,9 +284,9 @@ nl-BE:
             managed: Beheer
             not_managed: Niet beheerd
           filter_by: Filteren op
-          impersonate: verpersoonlijken
-          impersonate_new_managed_user: Impersoneer nieuwe beheerde gebruiker
-          managed: Beheer
+          impersonate: Werken als andere gebruiker
+          impersonate_new_managed_user: Werk als nieuwe 'managed user'
+          managed: Beheerd
           name: Naam
           needs_authorization_warning: U heeft minstens één geactiveerde autorisatie nodig voor deze organisatie.
           not_managed: Niet beheerd
@@ -306,7 +306,7 @@ nl-BE:
           name: Naam
           reason: Reden
         new:
-          impersonate: verpersoonlijken
+          impersonate: Werk als andere gebruiker
           impersonate_existing_managed_user: Zich voordoen als "%{name}"
           impersonate_existing_user: Zich voordoen als "%{name}"
           impersonate_new_managed_user: Impersoneer nieuwe beheerde gebruiker
@@ -315,7 +315,7 @@ nl-BE:
           no_logs_yet: Er zijn nog geen opmerkingen
       managed_users:
         index:
-          impersonate: verpersoonlijken
+          impersonate: Zich voordoen als
           needs_authoriation_warning: U heeft minstens één autorisatie nodig voor deze organisatie.
           promote: Promoten
           view_logs: Bekijk logboeken
@@ -329,7 +329,7 @@ nl-BE:
             promote: Promoten
       menu:
         admin_log: Admin activiteit log
-        admins: Beheerder
+        admins: Beheerders
         appearance: Uiterlijk
         area_types: Onderwerp
         areas: Gebied
@@ -396,7 +396,7 @@ nl-BE:
             name: Naam
           name: OAuth uygulaması
         participatory_space_private_user:
-          name: Gebruiker van de burgerinspraak
+          name: Privégebruiker van de bevraging
         scope:
           fields:
             name: Naam
@@ -516,26 +516,26 @@ nl-BE:
           success: Gebruiker heeft succesvol uitgenodigd
         index:
           actions: Acties
-          badge: Symbool
+          badge: Badge
           created_at: Aangemaakt Op
           filter:
             all: Alle
-            not_officialized: Niet officized
-            officialized: Officieel
+            not_officialized: Niet officieel
+            officialized: Officieel gemaakt
           filter_by: Filteren op
           name: Naam
           nickname: Bijnaam
-          not_officialized: Niet officized
-          officialize: Officieel
-          officialized: Officieel
-          reofficialize: Herzettelijk
+          not_officialized: Niet officieel
+          officialize: Officieel maken
+          officialized: Officieel gemaakt
+          reofficialize: Opnieuw officieel maken
           search: Zoeken
           status: Status
-          unofficialize: Onvofficialiseren
+          unofficialize: Maak inofficieel
         new:
           badge: Officialisaties
-          officialize: Officieel
-          title: Officieer gebruiker "%{name}"
+          officialize: Officieel maken
+          title: Gebruiker "%{name}" officieel maken
       organization:
         edit:
           title: Organisatie bewerken
@@ -555,18 +555,18 @@ nl-BE:
         edit:
           update: Bijwerken
         form:
-          colors_title: Organisatietelefoonnummers
+          colors_title: Organisatiekleuren
           cta_button_path_help: 'U kunt de verwijzing van de knop "Call to Action" overschrijven. Gebruik hier gedeeltelijke paden, niet volledige URL''s. Aanvaardt letters, cijfers, streepjes en streepjes en moet beginnen met een brief. De knop "Call to Action" wordt weergegeven op de homepage tussen de welkomsttekst en de omschrijving. Voorbeeld: %{url}'
           cta_button_text_help: U kunt de tekst voor "Call To Action" overschrijven op de homepage voor elke beschikbare taal in uw organisatie. Indien niet ingesteld, wordt de standaardwaarde gebruikt. De knop Call to Action wordt weergegeven op de homepage tussen de welkomsttekst en de omschrijving.
           header_snippets_help: Gebruik dit veld om dingen toe te voegen aan de HTML-kop. Het meest voorkomende gebruik is het integreren van diensten van derden die extra JavaScript of CSS nodig hebben. U kunt het ook gebruiken om extra metatags toe te voegen aan de HTML. Houd er rekening mee dat dit alleen op openbare pagina's wordt weergegeven, niet in de beheerdersafdeling.
           homepage_appearance_title: Bewerk de startpagina-weergave
           homepage_highlighted_content_banner_title: Uitgelichte inhoudsbanner
           layout_appearance_title: Weergave van de lay-out bewerken
-          omnipresent_banner_appearance_title: Toon omnipresent banner
+          omnipresent_banner_appearance_title: Bewerk omnipresent banner
       organization_homepage:
         edit:
           active_content_blocks: Actieve inhoudsblokken
-          inactive_content_blocks: Actieve inhoudsblokken
+          inactive_content_blocks: Inactieve inhoudsblokken
       organization_homepage_content_blocks:
         edit:
           update: Bijwerken
@@ -575,7 +575,7 @@ nl-BE:
           error: Er is een fout opgetreden bij het toevoegen van een privégebruiker aan deze burgerinspraak.
           success: De toegang van de privégebruiker voor de burgerinspraak is succesvol aangemaakt.
         destroy:
-          error: Er is een fout opgetreden bij het toevoegen van een privégebruiker aan deze burgerinspraak.
+          error: Er is een fout opgetreden bij het verwijderen van een privé-gebruiker voor deze participatieve ruimte.
           success: De toegang van de privégebruiker voor burgerinspraak is met succes verwijderd.
         index:
           title: Gebruiker van de burgerinspraak
