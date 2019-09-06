@@ -2,11 +2,11 @@ de:
   activemodel:
     attributes:
       dummy_resource:
-        created_at: Hergestellt in
-        field: Mein Feld
-        start_date: Anfangsdatum
-        title: Titel
-        updated_at: Aktualisiert am
+        created_at: Created at
+        field: My field
+        start_date: Start date
+        title: Title
+        updated_at: Updated at
   decidim:
     dummy:
       admin:
@@ -28,13 +28,13 @@ de:
       home:
         statistics:
           bar: Bar
-          dummies_count_high: Dummies hoch
-          dummies_count_medium: Dummies mittel
+          dummies_count_high: Dummies high
+          dummies_count_medium: Dummies medium
           foo: Foo
     participatory_processes:
       statistics:
-        dummies_count_high: Dummies hoch
-        dummies_count_medium: Dummies mittel
+        dummies_count_high: Dummies high
+        dummies_count_medium: Dummies medium
     resource_links:
       test_link:
-        dummy_resource_dummy: Verwandter Dummy
+        dummy_resource_dummy: Related dummy
