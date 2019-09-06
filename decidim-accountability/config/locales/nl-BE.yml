@@ -51,7 +51,7 @@ nl-BE:
             name: Tijdlijn gebeurtenis
         results:
           create:
-            invalid: There's been a problem creating this result
+            invalid: Er was een probleem bij het maken van dit resultaat
             success: Resultaat met succes gemaakt
           destroy:
             success: Resultaat met succes verwijderd
@@ -70,14 +70,14 @@ nl-BE:
             current_selection: Huidige selectie
             select: Selecteer
           update:
-            invalid: There's been a problem updating this result
+            invalid: Er is een probleem opgetreden bij het bijwerken van dit resultaat
             success: Resultaat met succes bijgewerkt
         shared:
           subnav:
             statuses: Statussen
         statuses:
           create:
-            invalid: There's been a problem creating this status
+            invalid: Er was een probleem bij het maken van deze status
             success: Status succesvol gemaakt
           destroy:
             success: Status succesvol verwijderd
@@ -90,11 +90,11 @@ nl-BE:
             create: Status bijwerken
             title: Nieuwe status
           update:
-            invalid: There's been a problem updating this status
+            invalid: Er is een probleem opgetreden bij het bijwerken van deze status
             success: Status succesvol gemaakt
         timeline_entries:
           create:
-            invalid: There's been a problem creating this entry
+            invalid: Er is een probleem opgetreden bij het maken van deze invoer
             success: Status succesvol gemaakt
           destroy:
             success: Status succesvol verwijderd
@@ -107,7 +107,7 @@ nl-BE:
             create: Invoer bijwerken
             title: Nieuwe invoer
           update:
-            invalid: There's been a problem updating this entry
+            invalid: Er is een probleem opgetreden bij het bijwerken van deze invoer
             success: Status succesvol gemaakt
       admin_log:
         result:
