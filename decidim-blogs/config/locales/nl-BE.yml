@@ -18,7 +18,7 @@ nl-BE:
       admin:
         models:
           components:
-            body: Lichaam
+            body: Tekst
           post:
             name: Posten
         posts:
@@ -76,4 +76,4 @@ nl-BE:
           posts_count: Posten
     participatory_processes:
       statistics:
-        posts_count: Posten
+        posts_count: Bijdragen
