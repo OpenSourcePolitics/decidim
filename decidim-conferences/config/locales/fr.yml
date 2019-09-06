@@ -53,7 +53,7 @@ fr:
         send_diplomas: Certificat de participation
       conference_copies:
         new:
-          copy: Copie
+          copy: Copier
           select: Sélectionnez les données que vous souhaitez dupliquer
           title: Conférence en double
       conference_publications:
@@ -328,7 +328,7 @@ fr:
           form:
             available_slots_help: Laissez-le à 0 si vous avez un nombre illimité d'emplacements disponibles.
             registrations_count:
-              one: Il y a eu 1 enregistrement.
+              one: Il y a eu une inscription.
               other: Il y a eu %{count} inscriptions.
             slug_help: 'Les slugs d''URL sont utilisés pour générer les URL qui pointent vers cette conférence. N''accepte que les lettres, les chiffres et les tirets et doit commencer par une lettre. Exemple: %{url}'
         diplomas:
