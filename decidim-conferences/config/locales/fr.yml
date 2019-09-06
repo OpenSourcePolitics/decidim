@@ -419,7 +419,7 @@ fr:
           register: registre
       content_blocks:
         highlighted_conferences:
-          name: Des conférences surlignées
+          name: Conférences mises en avant
       index:
         title: Conférences
       mailer:
