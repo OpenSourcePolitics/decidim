@@ -1,4 +1,3 @@
----
 fr:
   activemodel:
     attributes:
@@ -20,7 +19,7 @@ fr:
       decidim/amendable/amendment_created_event: Amendement créé
       decidim/amendable/amendment_rejected_event: Amendement rejeté
       decidim/amendable/emendation_promoted_event: Amendement promu
-      decidim/attachment_created_event: Pièce jointe
+      decidim/attachment_created_event: Document lié
       decidim/component_published_event: Fonctionnalité active
       decidim/demoted_membership: N'est plus un administrateur de groupe
       decidim/gamification/badge_earned_event: Badge gagné
@@ -34,7 +33,7 @@ fr:
     attributes:
       decidim/user:
         current_password: Mot de passe actuel
-        email: email
+        email: Email
         name: Nom d'utilisateur
         password: Mot de passe
         password_confirmation: Confirmation du mot de passe
@@ -50,8 +49,8 @@ fr:
         one: Groupe d'utilisateurs
         other: Groupes d'utilisateurs
   booleans:
-    'false': Non
-    'true': Oui
+    'false': 'Non'
+    'true': 'Oui'
   carrierwave:
     errors:
       image_too_big: L'image est trop grande
@@ -89,9 +88,9 @@ fr:
         success_with_email_confirmation: Votre compte a été mis à jour avec succès. Vous recevrez un email pour confirmer votre nouvelle adresse.
     admin_log:
       area:
-        create: "%{user_name} a créé le périmètre d'assemblée %{resource_name}"
-        delete: "%{user_name} a supprimé le périmètre d'assemblée %{resource_name}"
-        update: "%{user_name} a mis à jour le périmètre d'assemblée %{resource_name}"
+        create: "%{user_name} a créé la zone d'application %{resource_name}"
+        delete: "%{user_name} a supprimé la zone d'application %{resource_name}"
+        update: "%{user_name} a mis à jour la zone d'application %{resource_name}"
       component:
         create: "%{user_name} a ajouté la fonctionnalité %{resource_name} à l'espace %{space_name}"
         delete: "%{user_name} a supprimé la fonctionnalité %{resource_name} de l'espace %{space_name}"
@@ -116,11 +115,11 @@ fr:
         delete: "%{user_name} supprimé l'utilisateur %{resource_name} tant qu'utilisateur privé"
       scope:
         create: "%{user_name} a créé le secteur %{resource_name}"
-        create_with_parent: "%{user_name} a créé le sous-secteur %{resource_name} à l'intérieur du secteur %{parent_scope}"
+        create_with_parent: "%{user_name} a créé le secteur %{resource_name} à l'intérieur du périmètre %{parent_scope}"
         delete: "%{user_name} a supprimé le secteur %{resource_name}"
-        delete_with_parent: "%{user_name} a supprimé le sous-secteur %{resource_name} à l'intérieur du secteur %{parent_scope}"
+        delete_with_parent: "%{user_name} a supprimé le secteur %{resource_name} à l'intérieur du secteur %{parent_scope}"
         update: "%{user_name} a mis à jour le secteur %{resource_name}"
-        update_with_parent: "%{user_name} a mis à jour le sous-secteur %{resource_name} à l'intérieur du secteur %{parent_scope}"
+        update_with_parent: "%{user_name} a mis à jour le secteur %{resource_name} à l'intérieur du secteur %{parent_scope}"
       static_page:
         create: "%{user_name} a créé la page statique %{resource_name}"
         delete: "%{user_name} a supprimé la page statique %{resource_name}"
@@ -195,8 +194,8 @@ fr:
         related_photos: Photos associées
     author:
       comments:
-        one: Commentaire
-        other: Commentaires
+        one: commentaire
+        other: commentaires
     authorization_handlers:
       another_dummy_authorization_handler:
         explanation: Obtenir une vérification en saisissant un numéro de passeport commençant par "A"
@@ -235,8 +234,8 @@ fr:
           cancel: Annuler
           explanation: 'Même si vous êtes actuellement autorisé avec "%{authorization}", nous avons besoin de vous réautoriser car nous ne disposons pas des données suivantes :'
           invalid_field: "%{field}"
-          reauthorize: Autoriser de nouveau
-          title: Veuillez autoriser de nouveau
+          reauthorize: Réautoriser
+          title: Veuillez réautoriser
         missing:
           authorize: Autoriser avec "%{authorization}"
           explanation: Pour effectuer cette action, vous devez être autorisé avec "%{authorization}".
@@ -264,8 +263,8 @@ fr:
     components:
       dummy:
         actions:
-          bar: Bar
-          foo: Foo
+          bar: Seuil
+          foo: Truc
         name: Composant factice
         settings:
           global:
@@ -328,7 +327,7 @@ fr:
         new:
           already_have_an_account?: Vous avez déjà un compte ?
           newsletter: Recevoir une newsletter sur l'actualité de la plateforme
-          newsletter_title: Recevoir les actualités de la plateforme
+          newsletter_title: Autorisation de contact
           nickname_help: Cet identifiant est public et unique sur la plateforme "%{organization}" ; il permet aux autres utilisateurs de vous suivre, de vous contacter ou de vous mentionner dans leurs commentaires. Il s’affichera précédé d’un « @ » ; il ne doit pas contenir d’espace ni de caractère spécial.
           password_help: "%{minimun_characters} caractères minimum, ne doit pas être trop commun (ex. 123456) et doit être différent de votre pseudonyme et de votre email."
           sign_in: S'identifier
@@ -350,10 +349,11 @@ fr:
         newsletter_modal:
           buttons:
             check: Oui, je souhaite m'inscrire à la newsletter
-            close_modal: Fermer la fenêtre
+            close_modal: Fermer la fenêtre de dialogue
             uncheck: Non merci, je m'informerai autrement
-          notice: La newsletter vous permet de suivre tous les évènements importants sur la plateforme (lancement de nouvelles concertations, annonce des résultats, etc.). Souhaitez-vous vous y inscrire ?
-          title: Newsletter
+          notice: |-
+            La newsletter vous permet de suivre tous les évènements importants sur la plateforme (lancement de nouvelles concertations, annonce des résultats, etc.). Souhaitez-vous vous y inscrire ?
+          title: La newsletter
         omniauth_buttons:
           or: Ou
     doorkeeper:
@@ -369,7 +369,7 @@ fr:
           see_username: Voir votre pseudonyme
           this_application_will_be_able_to: 'Cette application sera capable de :'
           this_application_will_not_be_able_to: 'Cette application ne sera pas capable de :'
-          update_profile: Mettre à jour
+          update_profile: Mettre à jour votre profil
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> veut utiliser votre compte"
     errors:
       internal_server_error:
@@ -439,7 +439,7 @@ fr:
           notification_title: La fonctionnalité %{resource_title} est maintenant active pour <a href="%{resource_path}">%{participatory_space_title}</a>
       email_event:
         email_greeting: Bonjour %{user_name},
-        email_intro: "« %{resource_title} » a été mis à jour. Vous pouvez y accéder ici :"
+        email_intro: '« %{resource_title} » a été mis à jour. Vous pouvez y accéder ici :'
         email_outro: Vous recevez cet notification car vous suivez « %{resource_title} ». Vous pouvez cesser de le suivre en allant sur le lien précédent.
         email_subject: Mise à jour de %{resource_title}
       gamification:
@@ -544,7 +544,7 @@ fr:
       badges:
         continuity:
           conditions:
-          - Viens ici souvent
+            - Viens ici souvent
           description: Ce badge est attribué lorsque vous visitez la plate-forme de manière régulière. Nous aimons vous avoir ici!
           description_another: Cet utilisateur s'est connecté pendant %{score} jours consécutifs à un moment donné.
           description_own: Vous vous êtes connecté pendant %{score} jours consécutifs à un moment donné.
@@ -554,24 +554,24 @@ fr:
           unearned_own: Vous n'êtes pas connecté depuis plus d'un jour consécutif.
         followers:
           conditions:
-          - Être actif et suivre les autres incitera sûrement les autres à vous suivre.
+            - Être actif et suivre les autres incitera sûrement les autres à vous suivre.
           description: Ce badge est attribué lorsque vous atteignez un certain nombre d'adeptes. %{organization_name} est un réseau social et politique, tissez votre site Web pour communiquer avec les autres personnes de la plate-forme.
           description_another: Cet utilisateur a %{score} abonnés.
           description_own: "%{score} utilisateurs vous suivent."
-          name: Suiveurs
+          name: Abonnés
           next_level_in: Obtenez %{score} autres utilisateurs à vous suivre pour atteindre le niveau suivant!
           unearned_another: Cet utilisateur n'a pas encore de suiveurs.
           unearned_own: Vous n'avez pas encore de followers.
         index:
-          badge_title: 'Badge : %{name}'
+          badge_title: "Badge : %{name}"
           how: Comment pouvez-vous le gagner
           page_description: Les badges sont une reconnaissance des actions des participants et des progrès de la plate-forme. Lorsque vous commencerez à découvrir, à participer et à interagir avec la plateforme, vous obtiendrez différents badges. Voici la liste des badges et des moyens de les gagner.
           title: Insignes
         invitations:
           conditions:
-          - Utilisez le lien "inviter des amis" sur votre page utilisateur pour inviter vos amis.
-          - Personnalisez, si vous le souhaitez, le message que vous envoyez
-          - Vous augmenterez votre niveau en envoyant des invitations et en les faisant enregistrer.
+            - Utilisez le lien "inviter des amis" sur votre page utilisateur pour inviter vos amis.
+            - Personnalisez, si vous le souhaitez, le message que vous envoyez
+            - Vous augmenterez votre niveau en envoyant des invitations et en les faisant enregistrer.
           description: Ce badge est attribué lorsque vous avez invité des personnes qui ont passé un peu de temps à s’inscrire à %{organization_name} et devenir des participants. Merci de faire connaître %{organization_name} aux autres et d’aider à élargir la communauté!
           description_another: Cet utilisateur a invité %{score} utilisateurs.
           description_own: Vous avez invité %{score} utilisateurs.
@@ -635,8 +635,8 @@ fr:
         error: Il y a eu un problème pour créer le groupe
         success: Groupe créé avec succès
       edit:
-        edit_user_group: Éditer le groupe
-        update_user_group: Mettre à jour le groupe
+        edit_user_group: Editer le groupe
+        update_user_group: Groupe de mise à jour
       form:
         document_number_help: Ne pas utiliser de tirets ni d'espaces
         email_help: Email de votre organisation, association, collectif, groupe, etc.
@@ -669,8 +669,8 @@ fr:
     help:
       main_topic:
         default_page:
-          content: "<p>Sur %{organization} vous pouvez participer et décider sur différents sujets grâce aux espaces que vous voyez dans le menu principal: Processus, Assemblées, Initiatives, Consultations.</p> <p>Au sein de chacune d’elles, vous trouverez différentes options de participation: faites des propositions - individuellement ou avec d’autres personnes -, participez aux débats, accordez la priorité aux projets à mettre en œuvre, participez aux réunions en personne et autres actions.</p>\n"
-          title: Que puis-je faire sur %{organization} ?
+          content: "<p>Sur la plateforme %{organization}, vous pouvez participer et contribuer sur différents sujets grâce aux espaces que vous voyez dans le menu principal : Concertations, Assemblées, Initiatives, Consultations.</p> <p>Au sein de chacune d’elles, vous trouverez différentes options de participation : faites des propositions - individuellement ou avec d’autres personnes -, participez aux débats, accordez la priorité aux projets à mettre en œuvre, participez aux réunions en personne, etc.</p>\n"
+          title: Que puis-je faire sur la plateforme %{organization} ?
         description: En savoir plus sur %{organization}
         title: Rubrique d'aide
     last_activities:
@@ -692,13 +692,13 @@ fr:
         update_with_space: "%{user_name} a mis à jour %{resource_name} dans %{space_name}"
       value_types:
         area_presenter:
-          not_found: 'Le périmètre d''assemblée n''a pas été trouvée dans la base de données (ID: %{id})'
+          not_found: 'La zone d''application n''a pas été trouvée dans la base de données (ID: %{id})'
         area_type_presenter:
-          not_found: 'Le type de périmètre d''assemblée n''a pas été trouvé dans la base de données (ID: %{id})'
+          not_found: 'Le type de zone d''application n''a pas été trouvé dans la base de données (ID: %{id})'
         scope_presenter:
-          not_found: 'Le secteur n''a pas été trouvé dans la base de données (ID: %{id})'
+          not_found: 'Le périmètre n''a pas été trouvé dans la base de données (ID: %{id})'
         scope_type_presenter:
-          not_found: 'Le type de secteurs n''a pas été trouvé dans la base de données (ID: %{id})'
+          not_found: 'Le type de périmètre d''application n''a pas été trouvé dans la base de données (ID: %{id})'
     managed_users:
       expired_session: La session de représentation d'identité a expiré.
     members:
@@ -723,7 +723,7 @@ fr:
           error: La conversation n'a pas commencé. Réessayez plus tard
         index:
           no_conversations: Vous n'avez encore aucune conversation
-          title: Les conversations
+          title: Conversations
         reply:
           send: Envoyer
           title: Répondre
@@ -740,18 +740,18 @@ fr:
       followers:
         description: Nombre d'utilisateurs qui suivent cet espace de participation
         object: suiveurs
-        title: Suiveurs
+        title: Abonnés
       participants:
         description: Nombre d'utilisateurs actifs dans l'organisation
         object: les participants
         title: Participants
       users:
         description: Nombre d'utilisateurs dans l'organisation
-        object: utilisateurs
-        title: Utilisateurs
+        object: les participants
+        title: Participants
     newsletter_mailer:
       newsletter:
-        note: Vous avez reçu cet email parce que vous êtes abonné à la newsletter de %{organization_name}. Vous pouvez modifier vos paramètres sur votre <a href="%{link}">page de notifications</a>.
+        note: Vous avez reçu cet email parce que vous êtes abonné aux newsletters de %{organization_name}. Vous pouvez modifier vos paramètres sur votre <a href="%{link}">page de notifications</a>.
         see_on_website: Vous ne pouvez pas voir cet email correctement ? Consultez la <a href="%{link}" target="_blank">version web</a>.
         unsubscribe: Pour ne plus recevoir ce type d'email, <a href="%{link}" target="_blank" class="unsubscribe">Désabonnez-vous</a>.
     newsletters:
@@ -784,7 +784,7 @@ fr:
       show:
         email_on_notification: Je souhaite recevoir un email à chaque fois que je reçois une notification.
         everything_followed: Tout ce que je suis
-        newsletter_notifications: Je souhaite recevoir la newsletter de la plateforme
+        newsletter_notifications: Je souhaite recevoir une newsletter sur l'actualité de la plateforme
         newsletters: Newsletter
         own_activity: Ma propre activité, par exemple lorsque quelqu'un commente ma proposition ou me mentionne
         receive_notifications_about: Je veux recevoir des notifications sur
@@ -814,7 +814,7 @@ fr:
           meetings_explanation: Découvrez où et quand vous pouvez participer à des rencontres publiques.
           more_info: En savoir plus
           proposals: Propositions
-          proposals_explanation: Faites des propositions, appuyez les projets existants et soutenez les idées que vous souhaitez voir se réaliser.
+          proposals_explanation: Faites des propositions, appuyez les projets existants et soutenez les idées que vous souhaitez voir advenir.
         footer_sub_hero:
           footer_sub_hero_body: Construisons une société plus ouverte, transparente et collaborative.<br /> Rejoignez le mouvement, participez et décidez, ensemble.
           footer_sub_hero_headline: Bienvenue sur la plate-forme participative de %{organization}.
@@ -826,12 +826,12 @@ fr:
           headline: Historique de la participation sur %{organization}
         statistics:
           answers_count: Enquêtes terminées
-          assemblies_count: Assemblées
+          assemblies_count: Agora
           comments_count: Commentaires
           conferences_count: Conférences
           debates_count: Débats
           endorsements_count: Soutiens
-          headline: La participation en cours sur %{organization}
+          headline: État actuel de %{organization}
           meetings_count: Rencontres
           orders_count: Votes
           pages_count: Pages
@@ -847,7 +847,7 @@ fr:
           register: S'inscrire
       index:
         read_more: Lire la suite
-        standalone_pages: Autres
+        standalone_pages: Pages
         subheading: Naviguer à travers les pages d'aide de %{name}
         title: Aide
         topics: Thématiques
@@ -863,10 +863,10 @@ fr:
           modal_btn_continue: Accepter les conditions et continuer
           modal_btn_exit: Je l'examinerai plus tard
           modal_button: Refuser les conditions d'utilisation
-          modal_close: Fermer la fenêtre
+          modal_close: Fermer la fenêtre de dialogue
           modal_title: Refusez-vous vraiment les conditions d'utilisation mises à jour ?
         required_review:
-          alert: Vous n'avez pas accepté les conditions d'utilisation actuelles, veuillez les consulter.
+          alert: Nous avons mis à jour nos conditions d'utilisation, veuillez les consulter.
           body: Veuillez prendre un moment pour examiner nos conditions d'utilisation mises à jour. Sinon, vous ne pourrez pas utiliser la plate-forme.
           title: 'Obligatoire : consultez les conditions d''utilisation mises à jour'
     participatory_space_private_users:
@@ -875,14 +875,14 @@ fr:
       deleted: Utilisateur ayant supprimé son compte
       view: Voir
     profiles:
-      default_officialization_text: Justification
+      default_officialization_text: Vérifié
       default_officialization_text_for_user_groups: Ce groupe d'utilisateurs est publiquement vérifié, son nom a été vérifié pour correspondre à son vrai nom.
       default_officialization_text_for_users: L'identité de ce participant a été vérifiée. Son nom ou son rôle correspondent avec son vrai nom ou son vrai rôle dans le monde réel
       show:
         activity: Mon activité
         badges: Badges
         followers: Abonnés
-        following: Abonnements
+        following: Est abonné à
         groups: Groupes
         members: Membres
         timeline: Centres d'intérêts
@@ -892,9 +892,9 @@ fr:
           info: Les badges sont gagnés en effectuant des activités spécifiques sur la plateforme.
           title: Badges
       user:
-        confirmation_instructions_sent: Instructions de confirmation envoyées par courrier électronique
+        confirmation_instructions_sent: Envoi des instructions de confirmation par email
         create_user_group: Créer un groupe
-        edit_profile: Mettre à jour
+        edit_profile: Mettre à jour le profil
         edit_user_group: Modifier le profil du groupe
         fill_in_email_to_confirm_it: S'il vous plaît, remplissez l'email de votre groupe pour le confirmer
         invite_user: Inviter un utilisateur
@@ -902,7 +902,7 @@ fr:
         leave_user_group: Quitter le groupe
         manage_user_group_admins: Gérer les administrateurs
         manage_user_group_users: Gérer les membres
-        resend_email_confirmation_instructions: Renvoyer les instructions de confirmation par courrier électronique
+        resend_email_confirmation_instructions: Renvoyer les instructions de confirmation par email
     reported_mailer:
       hide:
         hello: Bonjour %{name},
@@ -925,7 +925,7 @@ fr:
         choose: Sélectionner
         title: Sélectionnez %{field}
       prompt: Sélectionnez un secteur
-      scopes: Secteurs
+      scopes: Secteur
     search:
       results_found_for_term: '%{count} résultats pour la recherche : "%{term}"'
       term_input_placeholder: Rechercher
@@ -955,7 +955,7 @@ fr:
         embed_link: Intégrer
       extended_navigation_bar:
         more: Plus
-        unfold: Se dérouler
+        unfold: Voir plus
       flag_modal:
         already_reported: Ce contenu a déjà été signalé et il sera examiné par un administrateur.
         close: Fermer
@@ -1016,11 +1016,11 @@ fr:
     failure:
       already_authenticated: Vous êtes déjà connecté.
       inactive: Votre compte n'est pas encore activé.
-      invalid: "%{authentication_keys} ou mot de passe invalide."
+      invalid: '%{authentication_keys} ou mot de passe invalide.'
       invited: Vous avez une invitation en attente, acceptez-la pour terminer la création de votre compte.
       last_attempt: Vous avez encore une tentative avant que votre compte soit verrouillé.
       locked: Ton compte est bloqué.
-      not_found_in_database: "%{authentication_keys} ou mot de passe invalide."
+      not_found_in_database: '%{authentication_keys} ou mot de passe invalide.'
       timeout: Votre session a expiré. Veuillez vous connecter à nouveau pour continuer.
       unauthenticated: Vous devez vous connecter ou vous inscrire avant de continuer.
     invitations:
@@ -1045,7 +1045,7 @@ fr:
         instruction: 'Vous pouvez confirmer votre compte email par le lien ci-dessous:'
         subject: Instructions de confirmation
       email_changed:
-        greeting: Bonjour %{recipient}!
+        greeting: Bonjour %{recipient} !
         message: Nous vous contactons pour vous informer que votre adresse email a été modifiée à %{email}.
         subject: Email modifié
       invitation_instructions:
@@ -1054,11 +1054,10 @@ fr:
         decline: Refuser l'invitation
         hello: Bonjour %{email},
         ignore: |-
-          Si vous ne souhaitez pas accepter l'invitation, veuillez ignorer cet email.<br />
-          Votre compte ne sera pas créé avant d'avoir cliqué sur le lien ci-dessus puis défini votre pseudonyme et votre mot de passe.
+          Votre compte ne sera pas créé avant d'avoir cliqué sur le lien ci-dessus et défini votre pseudonyme et votre mot de passe.
         invited_you_as_admin: "%{invited_by} vous a invité en tant qu'administrateur de %{application}. Vous pouvez accepter cette invitation grâce au lien ci-dessous."
         invited_you_as_private_user: "%{invited_by} vous a invité en tant qu'utilisateur privé de %{application}. Vous pouvez l'accepter via le lien ci-dessous."
-        someone_invited_you: Vous avez été invité à %{application}. Vous pouvez accepter cette invitation grâce au lien ci-dessous.
+        someone_invited_you: 'Vous avez été invité-e à participer sur la plateforme de %{application}. Vous pouvez accepter cette invitation grâce au lien ci-dessous :'
         someone_invited_you_as_admin: Vous avez été invité en tant qu'administrateur de %{application}, vous pouvez l'accepter via le lien ci-dessous.
         someone_invited_you_as_private_user: Vous avez été invité en tant qu'utilisateur privé de %{application}, vous pouvez l'accepter via le lien ci-dessous.
         subject: Instructions d'invitation
@@ -1076,14 +1075,14 @@ fr:
         subject: Mot de passe modifié
       reset_password_instructions:
         action: Changer mon mot de passe
-        greeting: Bonjour %{recipient}!
+        greeting: Bonjour %{recipient} !
         instruction: Quelqu'un a demandé un lien pour changer votre mot de passe, et vous pouvez le faire via le lien ci-dessous.
         instruction_2: Si vous n'êtes pas à l'origine de cette demande, merci d'ignorer cet email.
         instruction_3: Votre mot de passe ne changera pas jusqu'à ce que vous accédiez au lien ci-dessus et en créez un nouveau.
         subject: Réinitialiser les instructions de mot de passe
       unlock_instructions:
         action: Débloquer mon compte
-        greeting: Bonjour %{recipient}!
+        greeting: Bonjour %{recipient} !
         instruction: 'Cliquez sur le lien ci-dessous pour débloquer votre compte:'
         message: Votre compte a été verrouillé en raison d'une quantité excessive de tentatives de connexion infructueuses.
         subject: Instructions de déverrouillage
@@ -1095,7 +1094,7 @@ fr:
         change_my_password: Changer mon mot de passe
         change_your_password: changez votre mot de passe
         confirm_new_password: Confirmer le nouveau mot de passe
-        new_password: Votre mot de passe
+        new_password: Mot de passe
         password_help: "%{minimun_characters} caractères minimum, ne doit pas être trop commun (ex. 123456) et doit être différent de votre pseudonyme et de votre email."
       new:
         forgot_your_password: Mot de passe oublié?
@@ -1157,17 +1156,17 @@ fr:
       already_confirmed: était déjà confirmé, s'il vous plaît essayez de vous connecter
       confirmation_period_expired: doit être confirmé dans les %{period}, s'il vous plaît demander un nouveau
       content_type_whitelist_error: le type de fichier n'est pas valide
-      cycle_detected: un filtre géographique parent ne peut pas être au même niveau que ses sous-filtres
+      cycle_detected: un secteur ne peut pas être du même niveau que ses descendants
       expired: a expiré, s'il vous plaît demander un nouveau
       file_size_is_less_than_or_equal_to: la taille du fichier doit être inférieure ou égale à %{count}
       long_words: contient des mots trop longs (plus de 35 caractères)
       must_start_with_caps: doit commencer par une majuscule
       nesting_too_deep: ne peut pas être à l'intérieur d'une sous-catégorie
-      not_found: non trouvé
+      not_found: pas trouvé
       not_locked: n'était pas verrouillé
       not_saved:
-        one: '1 erreur a empêché la sauvegarde de %{resource} :'
-        other: "%{count} erreurs ont empêché la sauvegarde de %{resource} :"
+        one: '1 erreur a interdit cette sauvegarde %{resource}:'
+        other: "%{count} erreurs interdit ce %{resource} d'être sauvé:"
       too_many_marks: utilise trop de signes de ponctuation consécutifs (par exemple! et?)
       too_much_caps: utilise trop de lettres majuscules (plus de 25% du texte)
       too_short: est trop court (moins de 15 caractères)
@@ -1196,7 +1195,7 @@ fr:
       edit_link:
         edit: Modifier
       footer:
-        download_open_data: Télécharger les fichiers Open Data
+        download_open_data: Télécharger les fichiers de données ouvertes
         made_with_open_source: Site réalisé grâce au <a target="_blank" href="https://github.com/decidim/decidim">logiciel libre Decidim</a>.
       header:
         close_menu: Fermer le menu
@@ -1210,11 +1209,11 @@ fr:
       notifications_dashboard:
         mark_all_as_read: Marquer tout comme lu
       user_menu:
-        admin_dashboard: Tableau de bord
+        admin_dashboard: Tableau de bord des administrateurs
         conversations: Conversations
         notifications: Notifications
         profile: Mon compte
-        public_profile: Mon profil
+        public_profile: Mon profil public
         sign_out: Déconnexion
       user_profile:
         account: Compte
@@ -1242,9 +1241,9 @@ fr:
   social_share_button:
     delicious: Delicious
     douban: Douban
-    email: email
+    email: Email
     facebook: Facebook
-    google_bookmark: Google
+    google_bookmark: Google Bookmark
     google_plus: Google+
     hacker_news: Hacker News
     linkedin: LinkedIn
