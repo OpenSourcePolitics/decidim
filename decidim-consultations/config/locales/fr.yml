@@ -1,4 +1,3 @@
----
 fr:
   activemodel:
     attributes:
@@ -20,14 +19,14 @@ fr:
         hashtag: Hashtag
         hero_image: Image de la page d'accueil
         i_frame_url: URL du système de vote externe
-        origin_scope: Secteur
+        origin_scope: Périmètre
         origin_title: Origine
-        origin_url: URL de l'origine
+        origin_url: URL d'origine
         participatory_scope: Objectif
         promoter_group: Organisateur
         question_context: Contexte
         reference: Référence
-        scope: Secteur
+        scope: Échelle
         slug: Identifiant
         subtitle: Sous-titre
         title: Titre
@@ -40,8 +39,8 @@ fr:
   activerecord:
     models:
       decidim/consultation:
-        one: Consultation
-        other: Consultations
+        one: Votation
+        other: Votations
       decidim/consultations/question:
         one: Question
         other: Questions
@@ -50,11 +49,11 @@ fr:
         other: Réponses
       decidim/consultations/vote:
         one: Vote
-        other: Vote
+        other: Votes
   decidim:
     admin:
       actions:
-        new_consultation: Nouvelle votation
+        new_consultation: Nouvelle consultation
         new_question: Nouvelle question
         new_response: Nouvelle réponse
         publish_results: Publier les résultats
@@ -197,7 +196,7 @@ fr:
       filters:
         active: Actives
         all: Tout
-        finished: Archivées
+        finished: Passées
         search: Rechercher
         state: État
         upcoming: À venir
@@ -217,7 +216,7 @@ fr:
         home:
           highlighted_consultations:
             active_consultations: Consultations actives
-            see_all_consultations: Voir toutes les consultations
+            see_all_consultations: Voir toutes les votations
             voting_ends_in:
               one: Le vote se termine <strong>demain</strong>
               other: Le vote prend fin à <strong>%{count} jour</strong>
@@ -288,7 +287,7 @@ fr:
     decidim:
       admin:
         question:
-          attachments: Pièces jointes
+          attachments: Documents liés
           categories: Catégories
       consultation_voting_data:
         start_voting_date: Le vote commence le
