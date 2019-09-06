@@ -2,78 +2,81 @@ nl-BE:
   activemodel:
     attributes:
       answer:
-        body: Answer
+        body: Antwoord
       question:
-        max_choices: Maximum number of choices
+        max_choices: Maximale aantal karakters
         question_type: Type
       questionnaire_question:
-        mandatory: Mandatory
+        mandatory: Verplicht
     errors:
       models:
         answer:
           attributes:
             choices:
-              missing: are not complete
-              too_many: are too many
+              missing: zijn niet voltooid
+              too_many: zijn te veel
   decidim:
     forms:
       admin:
         models:
           components:
-            description: Description
-            tos: Terms of service
+            description: Omschrijving	
+            tos: Algemene voorwaarden
         questionnaires:
           answer_option:
-            answer_option: Answer option
-            free_text: Free text
-            remove: Remove
-            statement: Statement
+            answer_option: Antwoord optie
+            free_text: Vrije tekst
+            remove: Verwijder
+            statement: Verklaring
           edit:
-            save: Save
-            title: Title
+            save: Opslaan
+            title: Titel
           form:
-            add_question: Add question
+            add_question: Vraag toevoegen
             already_answered_warning: The questionnaire is already answered by some users so you cannot modify its questions.
           question:
-            add_answer_option: Add answer option
-            any: Any
-            description: Description
-            down: Down
-            question: Question
-            remove: Remove
-            statement: Statement
-            up: Up
+            add_answer_option: Antwoord optie
+            any: Maakt niet uit
+            description: Omschrijving	
+            down: Onder
+            question: Vraag
+            remove: Verwijder
+            statement: Verklaring
+            up: Op
           update:
             invalid: There's been errors when saving the questionnaire.
             success: Questionnaires saved successfully.
       errors:
         answer:
-          body: Body can't be blank
+          body: Lichaam kan niet leeg zijn
       question_types:
-        long_answer: Long answer
-        multiple_option: Multiple option
-        short_answer: Short answer
-        single_option: Single option
-        sorting: Sorting
+        long_answer: Lang antwoord
+        multiple_option: Meerdere opties
+        short_answer: Korte antwoord
+        single_option: Enkele optie
+        sorting: Sorteren
       questionnaires:
         answer:
           invalid: There's been errors when answering the questionnaire.
           success: Questionnaire answered successfully.
         question:
-          max_choices: 'Max choices: %{n}'
+          max_choices: 'Max keuzes: %{n}'
         show:
           answer_questionnaire:
             anonymous_user_message: <a href="%{sign_in_link}">Sign in with your account</a> or <a href="%{sign_up_link}">sign up</a> to answer the questionnaire.
             title: Answer the questionnaire
-          are_you_sure: This action cannot be undone and you will not be able to edit your answers. Are you sure?
+          are_you_sure: Deze actie kan niet ongedaan worden gemaakt en u kunt uw antwoorden niet bewerken. Weet u het zeker?
           questionnaire_answered:
             body: You have already answered this questionnaire.
-            title: Already answered
+            title: Al beantwoord
           questionnaire_closed:
             body: The questionnaire is closed and cannot be answered.
             title: Questionnaire closed
           questionnaire_for_private_users:
             body: The questionnaire is available only for private users
             title: Questionnaire closed
-          submit: Submit
-          tos_agreement: By participating you accept its Terms of Service
+          submit: Verzenden
+          tos_agreement: Door deel te nemen accepteer je de gebruiksvoorwaarden
+      user_answers_serializer:
+        created_at: Answered on
+        id: Answer ID
