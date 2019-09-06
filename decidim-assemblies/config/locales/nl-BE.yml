@@ -360,7 +360,7 @@ nl-BE:
           more_info: Meer informatie
           take_part: Deelnemen
         index:
-          children: 'Assemblies: '
+          children: 'Groepen: '
           organizational_chart: Organisatorische driver
           promoted_assemblies: Uitgelichte samenstellingen
           reset_chart: Reset
