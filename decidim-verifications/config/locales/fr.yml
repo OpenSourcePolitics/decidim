@@ -1,4 +1,3 @@
----
 fr:
   activemodel:
     attributes:
@@ -30,34 +29,34 @@ fr:
         authorization_workflows: Vérifications
     admin_log:
       organization:
-        update_id_documents_config: "%{user_name} a mis à jour la configuration de la vérification des documents d'identité"
+        update_id_documents_config: "%{user_name} mise à jour de la configuration de vérification des documents d'identité"
       user:
-        grant_id_documents_offline_verification: "%{user_name} a vérifié %{resource_name} aide d'une vérification hors ligne des documents d'identité"
+        grant_id_documents_offline_verification: "%{user_name} vérifié %{resource_name} utilisant une vérification hors ligne des documents d'identité"
     authorization_handlers:
       admin:
         csv_census:
           help:
-          - Les administrateurs téléchargent un fichier CSV avec les emails des participants acceptés
-          - Seuls les participants avec un email dans ce fichier CSV peuvent être vérifiés
+            - Les administrateurs téléchargent un fichier CSV avec les emails des participants acceptés
+            - Seuls les participants avec un email dans ce fichier CSV peuvent être vérifiés
         id_documents:
           help:
-          - Les utilisateurs remplissent leurs informations d'identité et téléchargent une copie de leur document.
-          - Vous remplissez les informations présentes dans l'image téléchargée.
-          - L'information doit correspondre à tout ce que l'utilisateur a rempli.
-          - Si vous ne pouvez pas voir clairement les informations ou si vous ne pouvez pas les vérifier, vous pouvez refuser la demande et l'utilisateur sera en mesure de les corriger.
+            - Les utilisateurs remplissent leurs informations d'identité et téléchargent une copie de leur document.
+            - Vous remplissez les informations présentes dans l'image téléchargée.
+            - L'information doit correspondre à tout ce que l'utilisateur a rempli.
+            - Si vous ne pouvez pas voir clairement les informations ou si vous ne pouvez pas les vérifier, vous pouvez rejeter la demande et l'utilisateur sera en mesure de les corriger.
         postal_letter:
           help:
-          - Les utilisateurs demandent un code de vérification à envoyer à leur adresse.
-          - Vous envoyez la lettre à leur adresse avec le code de vérification.
-          - Vous marquez la lettre comme envoyée.
-          - Une fois que vous avez coché la lettre, l'utilisateur sera en mesure de présenter le code et d'être vérifié.
+            - Les utilisateurs demandent un code de vérification à envoyer à leur adresse.
+            - Vous envoyez la lettre à leur adresse avec le code de vérification.
+            - Vous marquez la lettre comme envoyée.
+            - Une fois que vous avez coché la lettre, l'utilisateur sera en mesure de présenter le code et d'être vérifié.
       csv_census:
         explanation: Faites-vous vérifier en utilisant le recensement de l'organisation
         name: Recensement de l'organisation
       direct: Direct
       help: Texte d'aide
       id_documents:
-        explanation: Importer vos documents d'identité afin que nous puissions vérifier votre identité
+        explanation: Téléchargez vos documents d'identité afin que nous puissions vérifier votre identité
         name: Documents d'identité
       multistep: En plusieurs étapes
       name: Nom
@@ -90,7 +89,7 @@ fr:
           census:
             create:
               error: Une erreur est survenue lors du recensement.
-              success: "%{count} articles importés avec succès (%{errors} erreur)"
+              success: '%{count} articles importés avec succès (%{errors} erreur)'
             destroy_all:
               success: Toutes les données du recensement ont été supprimées
           destroy:
@@ -104,7 +103,7 @@ fr:
             body: Pour ce faire, vous devez entrer dans l’administration système et ajouter les autorisations csv_census à l’organisation.
             title: Vous devez activer le recensement CSV pour cette organisation
           new:
-            file: Fichier CSV avec données de courrier électronique
+            file: "Fichier CSV avec données de courrier électronique"
             info: 'Doit être un fichier au format CSV avec une colonne: email'
             submit: Téléverser un fichier
             title: Télécharger un nouveau recensement
@@ -121,7 +120,7 @@ fr:
           config:
             edit:
               title: Configuration des documents d'identité
-              update: Mettre à jour
+              update: Mise à jour
             update:
               error: Une erreur s'est produite lors de la mise à jour de la configuration.
               success: Configuration mise à jour avec succès
@@ -131,15 +130,7 @@ fr:
               success: Utilisateur vérifié avec succès
             new:
               introduce_user_data: Introduire les données dans l'image
-              reject: Refuser
-              verify: Vérifier
-          offline_confirmations:
-            create:
-              error: La vérification ne correspond pas. Réessayez ou dites à l'utilisateur de le modifier.
-              success: Utilisateur vérifié avec succès
-            new:
-              cancel: Annuler
-              introduce_user_data: Introduire le courrier électronique de l'utilisateur et les données du document
+              reject: Rejeter
               verify: Vérifier
           offline_confirmations:
             create:
@@ -160,12 +151,12 @@ fr:
               success: Vérification rejetée. L'utilisateur sera invité à modifier ses documents
         authorizations:
           choose:
-            choose_a_type: 'Veuillez sélectionner la façon dont vous voulez valider votre compte :'
+            choose_a_type: 'Veuillez sélectionner la façon dont vous voulez être vérifié :'
             offline: Hors ligne
             online: En ligne
-            title: Validation de votre pièce d'identité
+            title: Authentifiez-vous à l'aide de votre pièce d'identité
           create:
-            error: Un problème est survenu lors de l'importation de votre document
+            error: Un problème est survenu lors du téléchargement de votre document
             success: Document importé avec succès
           edit:
             being_reviewed: Nous examinons vos documents et votre autorisation sera bientôt validée
@@ -174,10 +165,10 @@ fr:
             rejection_clarity: Assurez-vous que les informations sont clairement visibles dans l'image téléchargée
             rejection_correctness: Assurez-vous que les informations entrées sont correctes
             rejection_notice: Il y a eu un problème avec votre vérification. Veuillez essayer à nouveau
-            send: Renouveler la demande de vérification
+            send: Demande de vérification à nouveau
           new:
             send: Demande de vérification
-            title: Importez votre document d'identité
+            title: Téléchargez votre document d'identité
           update:
             error: Un problème est survenu lors du chargement de votre document
             success: Document importé avec succès
@@ -216,7 +207,7 @@ fr:
       sms:
         authorizations:
           create:
-            error: Il y avait un problème avec votre demande
+            error: Il y a eu un problème avec votre demande
             success: Merci! Nous avons envoyé un SMS sur votre téléphone.
           destroy:
             success: Le code de vérification a été réinitialisé avec succès. Veuillez ré-entrer votre numéro de téléphone.
@@ -228,7 +219,7 @@ fr:
             title: Introduisez le code de vérification que vous avez reçu
           new:
             send: Envoyez moi un SMS
-            title: Demander votre code de vérification
+            title: Demandez votre code de vérification
           update:
             error: Votre code de vérification ne correspond pas au nôtre. Veuillez vérifier le SMS que nous vous avons envoyé.
             success: Toutes nos félicitations. Vous avez été vérifié avec succès.
