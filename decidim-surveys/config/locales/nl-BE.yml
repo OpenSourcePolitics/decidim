@@ -38,8 +38,8 @@ nl-BE:
     metrics:
       survey_answers:
         description: Number of surveys answered by users
-        object: answers to surveys
-        title: Answers to surveys
+        object: antwoorden op enquêtes
+        title: Antwoorden op enquêtes
     surveys:
       admin:
         exports:
@@ -49,7 +49,7 @@ nl-BE:
             invalid: There's been errors when saving the survey.
             success: Survey saved successfully.
       last_activity:
-        new_survey_at_html: "<span>New survey at %{link}</span>"
+        new_survey_at_html: "<span>Nieuwe enquête bij %{link}</span>"
       surveys:
         answer:
           invalid: There's been errors when answering the survey.
