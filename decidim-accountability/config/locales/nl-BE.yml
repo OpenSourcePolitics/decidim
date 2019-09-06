@@ -8,7 +8,7 @@ nl-BE:
         description: Omschrijving	
         end_date: Einddatum
         progress: Vooruitgang
-        project_ids: Inclusief projecten
+        project_ids: Opgenomen projecten
         proposals: Opgenomen voorstellen
         start_date: Begindatum
         title: Titel
@@ -37,7 +37,7 @@ nl-BE:
         edit: Bewerk
         new: Nieuw %{name}
         preview: Voorbeeld
-        timeline_entries: Project evolutie
+        timeline_entries: Projectevolutie
         title: Acties
       admin:
         exports:
@@ -59,14 +59,14 @@ nl-BE:
             title: Bewerk resultaat
             update: Update resultaat
           form:
-            add_proposal: Bewerk voorstel
+            add_proposal: Voeg voorstel toe
           index:
             title: Resultaten
           new:
             create: Maak resultaat
             title: Nieuw resultaat
           proposals:
-            close: Dichtbij
+            close: Sluiten
             current_selection: Huidige selectie
             select: Selecteer
           update:
@@ -102,7 +102,7 @@ nl-BE:
             title: Invoer bewerken
             update: Invoer bijwerken
           index:
-            title: Project tijdlijn items
+            title: Projecttijdlijn items
           new:
             create: Invoer bijwerken
             title: Nieuwe invoer
@@ -188,7 +188,7 @@ nl-BE:
           global:
             categories_label: Naam voor "Categorieën"
             comments_enabled: Reacties ingeschakeld
-            display_progress_enabled: Toon synchronisatievoortgang
+            display_progress_enabled: Toon voortgang
             heading_leaf_level_results: Naam voor "Projecten"
             heading_parent_level_results: Naam voor "Resultaten"
             intro: Intro
