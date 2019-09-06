@@ -156,7 +156,7 @@ nl-BE:
           global:
             announcement: Bericht
             comments_enabled: Reacties ingeschakeld
-            geocoding_enabled: Stemmen uitgeschakeld
+            geocoding_enabled: Geocoding ingeschakeld
             projects_per_page: Projecten per pagina
             resources_permissions_enabled: Actierechten kunnen worden ingesteld voor elke vergadering
             total_budget: Totale budget
