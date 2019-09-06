@@ -451,7 +451,7 @@ de:
             email: Email
             name: Name
             registration_type: Registrierungstyp
-            state: Zustand
+            state: Status
             states:
               confirmed: Bestätigt
               pending: steht aus
@@ -555,7 +555,7 @@ de:
           more_info: Mehr Info
           take_part: Teilnehmen
         index:
-          promoted_conferences: Geförderte Konferenzen
+          promoted_conferences: Hervorgehobene Konferenzen
         order_by_conferences:
           conferences:
             one: "%{count} Konferenz"
