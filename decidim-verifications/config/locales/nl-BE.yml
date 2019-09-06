@@ -2,9 +2,9 @@ nl-BE:
   activemodel:
     attributes:
       config:
-        available_methods: Available methods
+        available_methods: Beschikbare methoden
         offline: Offline
-        offline_explanation: Instructions for offline verification
+        offline_explanation: Instructies voor offline verificatie
         online: Online
       id_document_information:
         document_number: Document number (with letter)
@@ -29,11 +29,15 @@ nl-BE:
         authorization_workflows: Verifications
     admin_log:
       organization:
-        update_id_documents_config: "%{user_name} updated the Identity Documents verification configuration"
+        update_id_documents_config: "%{user_name} heeft de verificatie configuratie van identiteitsdocumenten bijgewerkt"
       user:
-        grant_id_documents_offline_verification: "%{user_name} verified %{resource_name} using an offline Identity Documents verification"
+        grant_id_documents_offline_verification: "%{user_name} geverifiëerd %{resource_name} via een offline identificatie Documenten verificatie"
     authorization_handlers:
       admin:
+        csv_census:
+          help:
+            - Admins upload a CSV with the emails of the accepted participants
+            - Only participants with an email in that CSV file can get verified
         id_documents:
           help:
             - Users fill in their identity information and upload a copy of their document.
@@ -46,6 +50,9 @@ nl-BE:
             - You send the letter to their address with the verification code.
             - You mark the letter as sent.
             - Once you mark the letter as sent, the user will be able to introduce the code and get verified.
+      csv_census:
+        explanation: Get verified using the organization's census
+        name: Organization's census
       direct: Direct
       help: Help
       id_documents:
@@ -61,10 +68,11 @@ nl-BE:
         create:
           error: There was an error creating the authorization.
           success: You've been successfully authorized.
-          unconfirmed: You need to confirm your email in order to authorize yourself.
+          unconfirmed: Je moet je e-mailadres bevestigen om jezelf te autoriseren.
         first_login:
           actions:
             another_dummy_authorization_handler: Verify against another example of authorization handler
+            csv_census: Verify against the organization's census
             dummy_authorization_handler: Verify against the example authorization handler
             dummy_authorization_workflow: Verify against the example authorization workflow
             id_documents: Get verified by uploading your identity document
@@ -76,6 +84,33 @@ nl-BE:
           authorize_with: Verify with %{authorizer}
         skip_verification: You can skip this for now and %{link}
         start_exploring: start exploring
+      csv_census:
+        admin:
+          census:
+            create:
+              error: There was an error importing census.
+              success: Successfully imported %{count} items (%{errors} errors)
+            destroy_all:
+              success: All census data have been deleted
+          destroy:
+            confirm: Delete all the census can not be undone. Are you sure you want to continue?
+            title: Delete all census data
+          index:
+            data: There are %{count} records loaded in total. Last upload date was on %{due_date}
+            empty: There are no census data. Use the form below to import it using a CSV file.
+            title: Current census data
+          instructions:
+            body: To do this you must enter system administration and add the csv_census authorizations to the organization
+            title: You need to activate the csv census for this organization
+          new:
+            file: ".csv file with emails data"
+            info: 'Must be a file with CSV format with one column: email'
+            submit: Upload file
+            title: Upload a new census
+        authorizations:
+          new:
+            error: We could not verify your account or you are not in the organization's census.
+            success: Your account has been successfully verified.
       dummy_authorization:
         extra_explanation:
           one: Participation is restricted to users with the postal code %{postal_codes}.
@@ -84,11 +119,11 @@ nl-BE:
         admin:
           config:
             edit:
-              title: Identity documents configuration
-              update: Update
+              title: Identiteitsdocumenten configuratie
+              update: Bijwerken
             update:
               error: There was an error updating the configuration.
-              success: Configuration successfully updated
+              success: Configuratie succesvol bijgewerkt
           confirmations:
             create:
               error: Verification doesn't match. Try again or reject the verification so the user can amend it
@@ -102,31 +137,31 @@ nl-BE:
               error: Verification doesn't match. Try again or tell the user to amend it
               success: User successfully verified
             new:
-              cancel: Cancel
+              cancel: Annuleer
               introduce_user_data: Introduce the user email and the document data
               verify: Verify
           pending_authorizations:
             index:
-              config: Config
-              offline_verification: Offline verification
-              title: Pending online verifications
+              config: Configuratie
+              offline_verification: Offline verificatie
+              title: Hangende online verificaties
               verification_number: 'Verification #%{n}'
           rejections:
             create:
               success: Verification rejected. User will be prompted to amend her documents
         authorizations:
           choose:
-            choose_a_type: 'Please select how you want to be verified:'
+            choose_a_type: 'Selecteer hoe u wilt worden geverifieerd:'
             offline: Offline
             online: Online
-            title: Verify yourself using your identity document
+            title: Verifieer uzelf met uw identiteitsdocument
           create:
             error: There was a problem uploading your document
             success: Document uploaded successfully
           edit:
             being_reviewed: We're reviewing your documents. You'll be verified shortly
-            offline: Use offline verification
-            online: Use online verification
+            offline: Offline verificatie gebruiken
+            online: Online verificatie gebruiken
             rejection_clarity: Make sure the information is clearly visible in the uploaded image
             rejection_correctness: Make sure the information entered is correct
             rejection_notice: There was a problem with your verification. Please try again
@@ -173,16 +208,21 @@ nl-BE:
         authorizations:
           create:
             error: There was a problem with your request
-            success: Thanks! We've sent an SMS to your phone.
+            success: Bedankt! We hebben een SMS naar je telefoon gestuurd.
+          destroy:
+            success: Verification code sucessfully reset. Please re-enter your phone number.
           edit:
+            confirm_destroy: Are you sure you want to reset the verification code?
+            destroy: Reset verification code
+            resend: Didn't receive the verification code?
             send: Confirm
             title: Introduce the verification code you received
           new:
-            send: Send me an SMS
+            send: Stuur mij een SMS
             title: Request your verification code
           update:
-            error: Your verification code doesn't match ours. Please double-check the SMS we sent you.
-            success: Congratulations. You've been successfully verified.
+            error: Uw verificatiecode komt niet overeen met onze. Controleer de SMS die we u hebben gestuurd.
+            success: Gefeliciteerd. Je bent met succes geverifieerd.
   errors:
     messages:
       uppercase_only_letters_numbers: must be all uppercase and contain only letters and/or numbers
