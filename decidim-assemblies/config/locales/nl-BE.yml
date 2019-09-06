@@ -82,7 +82,7 @@ nl-BE:
           error: Er is een fout opgetreden die een gebruiker bijgewerkt heeft voor dit deelnemende proces.
           success: Gebruiker is succesvol bijgewerkt voor dit deelnemende proces.
       menu:
-        assemblies: Gemeentes
+        assemblies: Groepen
         assemblies_submenu:
           assembly_admins: Gemeentes
           attachment_collections: Collectie
@@ -111,7 +111,7 @@ nl-BE:
             collaborator: Medewerker
             moderator: Moderaties
       titles:
-        assemblies: Gemeentes
+        assemblies: Groepen
     admin_log:
       assembly:
         create: "%{user_name} heeft de %{resource_name} -vergadering aangemaakt"
