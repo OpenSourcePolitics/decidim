@@ -1,4 +1,3 @@
----
 fr:
   activemodel:
     attributes:
@@ -20,12 +19,12 @@ fr:
         description: Description
         end_time: Heure de fin
         location: Lieu
-        location_hints: Données de localisation
+        location_hints: Précisions
         organizer_id: Organisateur
         private_meeting: Rencontre privée
         registration_form_enabled: Formulaire d'inscription activé
         registration_terms: Conditions d'inscription
-        registrations_enabled: Inscriptions ouvertes
+        registrations_enabled: Activer les inscriptions
         start_time: Heure de début
         title: Titre
         transparent: Visible par les non-membres
@@ -58,8 +57,8 @@ fr:
         one: Rencontre
         other: Rencontres
       decidim/meetings/minutes:
-        one: Retranscription
-        other: Retranscriptions
+        one: Compte rendu
+        other: Comptes rendus
       decidim/meetings/registration:
         one: Inscription
         other: Inscriptions
@@ -92,13 +91,13 @@ fr:
       meetings:
         meeting_closed:
           affected_user:
-            email_intro: 'La rencontre "%{resource_title}" est terminée. Vous pouvez en lire le compte rendu sur sa page :'
-            email_outro: Vous avez reçu cette notification, car vous suivez la rencontre "%{resource_title}". Vous pouvez arrêter de la suivre à partir du lien précédent.
+            email_intro: 'Votre réunion "%{resource_title}" est close. Vous pouvez lire les conclusions sur sa page :'
+            email_outro: Vous avez reçu cette notification parce que vous avez organisé la réunion "%{resource_title}".
             email_subject: La rencontre "%{resource_title}" est terminée
             notification_title: La rencontre <a href="%{resource_path}">%{resource_title}</a> est terminée.
           follower:
             email_intro: 'La rencontre "%{resource_title}" est terminée. Vous pouvez en lire le compte rendu sur sa page :'
-            email_outro: Vous avez reçu cette notification parce que vous suivez la rencontre "%{resource_title}". Vous pouvez arrêter de la suivre à partir du lien précédent.
+            email_outro: Vous avez reçu cette notification, car vous suivez la rencontre "%{resource_title}". Vous pouvez arrêter de la suivre à partir du lien précédent.
             email_subject: La rencontre "%{resource_title}" est terminée
             notification_title: La rencontre <a href="%{resource_path}">%{resource_title}</a> est terminée.
         meeting_created:
@@ -107,7 +106,7 @@ fr:
           email_subject: Nouvelle rencontre ajoutée à %{participatory_space_title}
           notification_title: La rencontre <a href="%{resource_path}">%{resource_title}</a> a été ajoutée à %{participatory_space_title}
         meeting_registration_confirmed:
-          notification_title: Votre inscription à la rencontre <a href="%{resource_url}">%{resource_title}</a> a> est confirmée. Votre code d'enregistrement est %{registration_code}.
+          notification_title: Votre inscription à la rencontre <a href="%{resource_url}">%{resource_title}</a> a> a été confirmée. Votre code d'enregistrement est %{registration_code}.
         meeting_registrations_over_percentage:
           email_intro: Le nombre de places occupées par la rencontre "%{resource_title}" est supérieur à %{percentage}%.
           email_outro: Vous avez reçu cette notification parce que vous êtes administrateur de la concertation à laquelle est associée la rencontre.
@@ -137,19 +136,19 @@ fr:
       badges:
         attended_meetings:
           conditions:
-          - Inscrivez-vous aux rencontres auxquelles vous souhaitez participer
-          description: Ce badge est attribué lorsque vous participez à plusieurs rencontres en face à face.
+            - Inscrivez-vous aux rencontres auxquelles vous souhaitez participer
+          description: Ce badge est attribué lorsque vous participez à plusieurs réunions en face à face.
           description_another: Cet utilisateur a participé à %{score} rencontres.
-          description_own: Vous avez assisté à %{score} rencontres.
-          name: Assister aux rencontres
-          next_level_in: Assister à %{score} plus de rencontres pour atteindre le prochain niveau!
+          description_own: Vous avez assisté à %{score} réunions.
+          name: Assister aux réunions
+          next_level_in: Assister à %{score} plus de réunions pour atteindre le prochain niveau!
           unearned_another: Cet utilisateur n'a encore assisté à aucune réunion.
           unearned_own: Vous n'avez encore assisté à aucune réunion.
     meetings:
       actions:
         agenda: Ordre du jour
         attachment_collections: Dossiers
-        attachments: Pièces jointes
+        attachments: Documents liés
         close: Clore
         confirm_destroy: Êtes-vous certain de vouloir supprimer cette rencontre ?
         destroy: Supprimer
@@ -158,7 +157,7 @@ fr:
         new: Nouvelle réunion
         preview: Aperçu
         registrations: Inscriptions
-        title: Titre
+        title: Actions
       admin:
         agenda:
           agenda_item:
@@ -219,7 +218,7 @@ fr:
             invite_attendee: Inviter un participant
             invites: Invitations
             registrations_disabled: Vous ne pouvez pas inviter un participant car les invitations sont désactivées.
-            search: Chercher
+            search: Rechercher
         meeting_closes:
           edit:
             close: Clore
@@ -249,24 +248,24 @@ fr:
             description: Description
             down: Vers le bas
             remove: Retirer
-            service: Information pratique
+            service: Service
             title: Titre
             up: Vers le haut
           services:
             add_service: Ajouter un service
-            services: Informations pratiques
+            services: Services
           update:
             invalid: Il y a eu un problème lors de la mise à jour de cette rencontre
             success: Rencontre mise à jour avec succès
         minutes:
           create:
             invalid: Un problème est survenu lors de la création de cette retranscription
-            success: Retranscription créée avec succès
+            success: Compte rendu créé avec succès
           edit:
             update: Mettre à jour
           new:
             create: Créer
-            title: Créer une retranscription
+            title: Créer un compte rendu
           update:
             invalid: Un problème est survenu lors de la mise à jour de ce compte rendu
             success: Compte rendu mis à jour avec succès
@@ -325,7 +324,7 @@ fr:
         meetings:
           index:
             all: Tout
-            date: Rendez-vous amoureux
+            date: Date
             meetings: Rencontres
             past: Passées
             search: Rechercher
@@ -381,7 +380,7 @@ fr:
             other: "%{count} places disponibles"
           view: Voir
       meetings_map:
-        view_meeting: Voir la réunion
+        view_meeting: Voir la rencontre
       models:
         invite:
           fields:
@@ -421,8 +420,8 @@ fr:
         transparent: Visible par les non-membres
     metrics:
       meetings:
-        description: Nombre de rencontres créées
-        object: rencontres
+        description: Nombre de réunions créées
+        object: des réunions
         title: Rencontres
     participatory_processes:
       participatory_process_groups:
@@ -441,7 +440,7 @@ fr:
         meeting_result: 'Résultats associés :'
         result_meeting: 'Rencontres associées :'
       proposals_from_meeting:
-        meeting_proposal: 'Propositions élaborées lors de cette rencontre :'
+        meeting_proposal: 'Propositions créées lors de cette rencontre :'
         proposal_meeting: 'Rencontres associées :'
   devise:
     mailer:
