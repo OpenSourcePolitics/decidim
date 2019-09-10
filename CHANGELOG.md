@@ -38,6 +38,35 @@ use the following command in your rails console : `Decidim::User.find_each { |us
 - **decidim-participatory_processes**: Make process moderators receive notifications about flagged content [\#228](https://github.com/OpenSourcePolitics/decidim/pull/228)
 - **decidim-participatory_processes**: Add customised action button text regarding to the steps [\#257](https://github.com/OpenSourcePolitics/decidim/issues/257)
  - **decidim-participatory_processes**: Make process moderators receive notifications about flagged content [\#228](https://github.com/OpenSourcePolitics/decidim/pull/228)
+- **decidim-accountability**, **decidim-assemblies**, **decidim-consultations**, **decidim-core**, **decidim-proposals**, **decidim-debates**, **decidim-dev**, **decidim-generators**, **decidim-initiatives**, **decidim-meetings**, **decidim-participatory_processes**, **decidim-proposals**, **decidim-sortitions**, **decidim_app-design**: Change: social share button default sites [\#5270](https://github.com/decidim/decidim/pull/5270)
+
+**Fixed**:
+
+- **decidim-participatory_processes**: Fix: ParticipatoryProcessSearch#search_date [#5319](https://github.com/decidim/decidim/pull/5319)
+- **decidim-proposals**: Fix: Show error when upload a file with the correct extension but with an error in the content [#5320](https://github.com/decidim/decidim/pull/5320)
+- **decidim-core**: Fix: saving default language to session if choosen by the user [#5308](https://github.com/decidim/decidim/pull/5308)
+- **decidim-proposals**: Fix: show amend button in `ParticipatoryText` when `amendment_creation` is enabled and there are no visible emendations [#5300](https://github.com/decidim/decidim/pull/5300)
+- **decidim-proposals**: Fix: prevent ransack gem to upgrade to 2.3 as breaks searches with amendments. [#5303](https://github.com/decidim/decidim/pull/5303)
+- **decidim-admin**, **decidim-core**, **decidim-dev**, **decidim-proposals**: Fix: multiple items related to amendments step settings and wizard [#5263](https://github.com/decidim/decidim/pull/5263)
+- **decidim-admin**, **decidim-assemblies**, **decidim-conferences**, **decidim-consultations**, **decidim-core**, **decidim-dev**, **decidim-initiatives**, **decidim-participatory_processes**: Fix: `Decidim::Admin::ComponentForm` validations [#5269](https://github.com/decidim/decidim/pull/5269)
+- **decidim-core**: Fix: `Accept-Language` header language detection and uses language default from the organization [#5272](https://github.com/decidim/decidim/pull/5272)
+- **decidim-core**, **decidim-proposals**: When rendering the admin log for a Proposal, use the title from extras instead of crashing, when proposal has been deleted. [#5267](https://github.com/decidim/decidim/pull/5267)
+- **decidim-core**, **decidim-proposals**: Fix: diffing withdrawn amendments and new lines in body [#5242](https://github.com/decidim/decidim/pull/5242)
+- **decidim-core**: Filter forbidden characters in users invitations. [\#5245](https://github.com/decidim/decidim/pull/5245)
+- **decidim-assemblies**: Don't show private assemblies when becoming childs from another assembly. [#5235](https://github.com/decidim/decidim/pull/5235)
+- **decidim-conferences**: Fix: can't remove area, when conferences are enabled [#5234](https://github.com/decidim/decidim/pull/5234)
+- **decidim-conferences**: Don't send registrations enabled notification when creating a Conference[#5240](https://github.com/decidim/decidim/pull/5240)
+- **decidim-admin**: Fix: Proposals component form introduced regression [#5179](https://github.com/decidim/decidim/pull/5179)
+- **decidim-core**: Fix seeds and typo in ActionAuthorizer [#5168](https://github.com/decidim/decidim/pull/5168)
+- **decidim-proposals**: Fix seeds [#5168](https://github.com/decidim/decidim/pull/5168)
+- **decidim-core**: Fix user names migration [#5209](https://github.com/decidim/decidim/pull/5209)
+- **decidim-proposals**: Fix proposals accepted stat when they include hidden proposals [#5276](https://github.com/decidim/decidim/pull/5276)
+- **decidim-forms**: Fix adding answer options to a new form [#5275](https://github.com/decidim/decidim/pull/5275)
+- **decidim-core**: Add missing locales when creating a new user group [#5262](https://github.com/decidim/decidim/pull/5262)
+- **decidim-core**: Fix CVE-2015-9284 Omniauth issue [#5284](https://github.com/decidim/decidim/pull/5284)
+- **decidim-comments**, **decidim-core**, **decidim-verifications**, **decidim-initiatives**: Bugfixing [#5213](https://github.com/decidim/decidim/pull/5213)
+- **decidim-admin**: Fix managed users stolen identities with users having the same name [#5318](https://github.com/decidim/decidim/pull/5318)
+- **decidim-core**: Fix usernames migration [#5321](https://github.com/decidim/decidim/pull/5321)
 
 **Fixed**:
 
