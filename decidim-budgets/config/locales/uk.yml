@@ -141,7 +141,6 @@ uk:
             one: projet
             other: projets
           view: Переглянути
-          vote: Voter
         project:
           add: Додати
           count:

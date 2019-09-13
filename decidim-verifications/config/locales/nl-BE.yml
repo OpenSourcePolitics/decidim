@@ -2,187 +2,187 @@ nl-BE:
   activemodel:
     attributes:
       config:
-        available_methods: Available methods
+        available_methods: Beschikbare methoden
         offline: Offline
-        offline_explanation: Instructions for offline verification
+        offline_explanation: Instructies voor offline verificatie
         online: Online
       id_document_information:
-        document_number: Document number (with letter)
-        document_type: Type of the document
+        document_number: Document nummer (met letter)
+        document_type: Type document
       id_document_upload:
-        document_number: Document number (with letter)
-        document_type: Type of your document
-        user: User
-        verification_attachment: Scanned copy of your document
+        document_number: Document nummer (met letter)
+        document_type: Type document
+        user: Gebruiker
+        verification_attachment: Gedeelde kopie van uw document
       offline_confirmation:
-        email: User email
+        email: E-mailadres van gebruiker
       postal_letter_address:
-        full_address: Full address
+        full_address: Volledig adres
       postal_letter_confirmation:
-        verification_code: Verification code
+        verification_code: Verificatiecode
       postal_letter_postage:
-        full_address: Full address
-        verification_code: Verification code
+        full_address: Volledig adres
+        verification_code: Verificatiecode
   decidim:
     admin:
       menu:
-        authorization_workflows: Verifications
+        authorization_workflows: Verificatiecode
     admin_log:
       organization:
-        update_id_documents_config: "%{user_name} updated the Identity Documents verification configuration"
+        update_id_documents_config: "%{user_name} heeft de verificatie configuratie van identiteitsdocumenten bijgewerkt"
       user:
-        grant_id_documents_offline_verification: "%{user_name} verified %{resource_name} using an offline Identity Documents verification"
+        grant_id_documents_offline_verification: "%{user_name} geverifiëerd %{resource_name} via een offline identificatie Documenten verificatie"
     authorization_handlers:
       admin:
         id_documents:
           help:
-            - Users fill in their identity information and upload a copy of their document.
-            - You fill in the information present in the uploaded image.
-            - The information should match whatever the user filled in.
-            - If you can't clearly see the information or you can't get it verified, you can reject the request and the user will be able to fix it.
+            - Gebruikers vullen hun identiteitsgegevens in en uploaden een kopie van hun document.
+            - U vult de informatie in die aanwezig is in de geüploade afbeelding.
+            - De informatie moet overeenkomen met de gebruiker in welke gebruiker hij ingevuld heeft.
+            - Als u de informatie niet duidelijk kunt zien of u deze niet kunt verifiëren, kunt u het verzoek afwijzen en de gebruiker kan het repareren.
         postal_letter:
           help:
-            - Users request a verification code to be sent to their address.
-            - You send the letter to their address with the verification code.
-            - You mark the letter as sent.
-            - Once you mark the letter as sent, the user will be able to introduce the code and get verified.
+            - Gebruikers vragen om een verificatiecode die naar hun adres moet worden verzonden.
+            - U stuurt de brief naar hun adres met de verificatiecode.
+            - Fout bij het markeren van letter als verzonden.
+            - Zodra u de brief zoals verzonden markert, kan de gebruiker de code invoeren en geverifieerd worden.
       direct: Direct
       help: Help
       id_documents:
-        explanation: Upload your identity documents so we can check your identity
-        name: Identity documents
-      multistep: Multi-Step
-      name: Name
+        explanation: Upload uw identiteitsdocumenten zodat we uw identiteit kunnen controleren
+        name: Identiteitsdocumenten
+      multistep: Multi-stap
+      name: Naam
       postal_letter:
-        explanation: We'll send you a postal letter with a code that you'll have to enter so we can verify your address
-        name: Code by postal letter
+        explanation: We sturen je een postbrief met een code die je moet invoeren zodat we je adres kunnen verifiëren
+        name: Code per post
     verifications:
       authorizations:
         create:
-          error: There was an error creating the authorization.
-          success: You've been successfully authorized.
-          unconfirmed: You need to confirm your email in order to authorize yourself.
+          error: Er is een fout opgetreden bij het bijwerken van deze organisatie.
+          success: U bent met succes geautoriseerd.
+          unconfirmed: Je moet je e-mailadres bevestigen om jezelf te autoriseren.
         first_login:
           actions:
-            another_dummy_authorization_handler: Verify against another example of authorization handler
-            dummy_authorization_handler: Verify against the example authorization handler
-            dummy_authorization_workflow: Verify against the example authorization workflow
-            id_documents: Get verified by uploading your identity document
-            postal_letter: Get verified by receiving a verification code through postal mail
-          title: Verify your identity
-          verify_with_these_options: 'These are the available options to verify your identity:'
+            another_dummy_authorization_handler: Verifieer een ander voorbeeld van autorisatie handler
+            dummy_authorization_handler: Verifieer tegen de voorbeeld autorisatiehandler
+            dummy_authorization_workflow: Verifieer tegen de voorbeeld autorisatieworkflow
+            id_documents: Verifieer je identiteit door het uploaden van je identiteitsdocument
+            postal_letter: Verifieer je door een verificatiecode te ontvangen via de postmail
+          title: '-'
+          verify_with_these_options: 'Dit zijn de beschikbare opties om uw identiteit te verifiëren:'
         new:
-          authorize: Send
-          authorize_with: Verify with %{authorizer}
-        skip_verification: You can skip this for now and %{link}
-        start_exploring: start exploring
+          authorize: sturen
+          authorize_with: Verifieer met %{authorizer}
+        skip_verification: U kunt dit nu overslaan en %{link}
+        start_exploring: start Verkennen
       dummy_authorization:
         extra_explanation:
-          one: Participation is restricted to users with the postal code %{postal_codes}.
-          other: 'Participation is restricted to users with any of the following postal codes: %{postal_codes}.'
+          one: Deelname is beperkt tot gebruikers met de postcode %{postal_codes}.
+          other: 'Deelname is beperkt tot gebruikers met een van de volgende postcodes: %{postal_codes}.'
       id_documents:
         admin:
           config:
             edit:
-              title: Identity documents configuration
-              update: Update
+              title: Identiteitsdocumenten configuratie
+              update: Bijwerken
             update:
-              error: There was an error updating the configuration.
-              success: Configuration successfully updated
+              error: Er is een fout opgetreden bij het bijwerken van de configuratie.
+              success: Configuratie succesvol bijgewerkt
           confirmations:
             create:
-              error: Verification doesn't match. Try again or reject the verification so the user can amend it
-              success: User successfully verified
+              error: Verificatie komt niet overeen. Probeer het opnieuw of verwerp de verificatie zodat de gebruiker het kan wijzigen
+              success: Verifiëren gelukt
             new:
-              introduce_user_data: Introduce the data in the picture
-              reject: Reject
-              verify: Verify
+              introduce_user_data: Introduceer de gegevens in de afbeelding
+              reject: Afwijzen
+              verify: Verifiëren
           offline_confirmations:
             create:
-              error: Verification doesn't match. Try again or tell the user to amend it
-              success: User successfully verified
+              error: Verificatie komt niet overeen. Probeer het opnieuw of vertel de gebruiker om het te wijzigen
+              success: Verifiëren gelukt
             new:
-              cancel: Cancel
-              introduce_user_data: Introduce the user email and the document data
-              verify: Verify
+              cancel: Annuleer
+              introduce_user_data: Introduceer de e-mail van de gebruiker en de documentgegevens
+              verify: Verifiëren
           pending_authorizations:
             index:
-              config: Config
-              offline_verification: Offline verification
-              title: Pending online verifications
-              verification_number: 'Verification #%{n}'
+              config: Configuratie
+              offline_verification: Offline verificatie
+              title: Hangende online verificaties
+              verification_number: 'Verificatie #%{n}'
           rejections:
             create:
-              success: Verification rejected. User will be prompted to amend her documents
+              success: Verificatie geweigerd. Gebruiker wordt gevraagd haar documenten te wijzigen
         authorizations:
           choose:
-            choose_a_type: 'Please select how you want to be verified:'
+            choose_a_type: 'Selecteer hoe u wilt worden geverifieerd:'
             offline: Offline
             online: Online
-            title: Verify yourself using your identity document
+            title: Verifieer uzelf met uw identiteitsdocument
           create:
-            error: There was a problem uploading your document
-            success: Document uploaded successfully
+            error: Er is een probleem opgetreden bij het uploaden van uw document
+            success: Document met succes opnieuw geproplomeerd
           edit:
-            being_reviewed: We're reviewing your documents. You'll be verified shortly
-            offline: Use offline verification
-            online: Use online verification
-            rejection_clarity: Make sure the information is clearly visible in the uploaded image
-            rejection_correctness: Make sure the information entered is correct
-            rejection_notice: There was a problem with your verification. Please try again
-            send: Request verification again
+            being_reviewed: We zijn bezig met het beoordelen van uw documenten. U zal binnenkort worden geverifieerd
+            offline: Offline verificatie gebruiken
+            online: Online verificatie gebruiken
+            rejection_clarity: Zorg ervoor dat de informatie duidelijk zichtbaar is in de geüploade afbeelding
+            rejection_correctness: Zorg ervoor dat de ingevoerde informatie correct is
+            rejection_notice: Er is een probleem opgetreden met uw verificatie. Probeer het opnieuw
+            send: Verificatie opnieuw aanvragen
           new:
-            send: Request verification
-            title: Upload your identity document
+            send: Verificatie opnieuw aanvragen
+            title: Upload uw identiteitsdocument
           update:
-            error: There was a problem reuploading your document
-            success: Document reuploaded successfully
+            error: Er is een probleem opgetreden bij het uploaden van uw document
+            success: Document met succes opnieuw geproplomeerd
         dni: DNI
         nie: NIE
-        passport: Passport
+        passport: Paspoort
       postal_letter:
         admin:
           pending_authorizations:
             index:
-              address: Address
-              letter_sent_at: Letter sent at
-              mark_as_sent: Mark as sent
-              not_yet_sent: Not yet sent
-              title: Ongoing verifications
-              username: Username
-              verification_code: Verification code
+              address: Adres
+              letter_sent_at: Brief verzonden op
+              mark_as_sent: Markeer als verzonden
+              not_yet_sent: Nog niet verzonden
+              title: Lopende verificaties
+              username: Gebruikersnaam
+              verification_code: Verificatiecode
           postages:
             create:
-              error: Error marking letter as sent
-              success: Letter successfully marked as sent
+              error: Fout bij het markeren van letter als verzonden
+              success: Brief succesvol gemarkeerd als verzonden
         authorizations:
           create:
-            error: There was a problem with your request
-            success: Thanks! We'll send a verification code to your address
+            error: Er was een probleem met de server
+            success: Bedankt! We sturen een verificatiecode naar je adres
           edit:
-            send: Confirm
-            title: Introduce the verification code you received
-            waiting_for_letter: We'll be sending a letter to your address with your verification code soon
+            send: Bevestigen
+            title: Voer de verificatiecode in die u hebt ontvangen
+            waiting_for_letter: We sturen binnenkort een brief naar uw adres met uw verificatiecode
           new:
-            send: Send me a letter
-            title: Request your verification code
+            send: Stuur me een brief
+            title: Voer een geldige vervaldatum in
           update:
-            error: Your verification code doesn't match ours. Please double-check the letter we sent to you
-            success: Congratulations. You've been successfully verified
+            error: Uw verificatiecode komt niet overeen met onze. Controleer de brief die we u hebben gestuurd
+            success: Gefeliciteerd. Je bent met succes geverifieerd
       sms:
         authorizations:
           create:
-            error: There was a problem with your request
-            success: Thanks! We've sent an SMS to your phone.
+            error: Er was een probleem met de server
+            success: Bedankt! We hebben een SMS naar je telefoon gestuurd.
           edit:
-            send: Confirm
-            title: Introduce the verification code you received
+            send: Bevestigen
+            title: Voer de verificatiecode in die u hebt ontvangen
           new:
-            send: Send me an SMS
-            title: Request your verification code
+            send: Stuur mij een SMS
+            title: Voer een geldige vervaldatum in
           update:
-            error: Your verification code doesn't match ours. Please double-check the SMS we sent you.
-            success: Congratulations. You've been successfully verified.
+            error: Uw verificatiecode komt niet overeen met onze. Controleer de SMS die we u hebben gestuurd.
+            success: Gefeliciteerd. Je bent met succes geverifieerd.
   errors:
     messages:
-      uppercase_only_letters_numbers: must be all uppercase and contain only letters and/or numbers
+      uppercase_only_letters_numbers: moet alle hoofdletters en/of cijfers bevatten

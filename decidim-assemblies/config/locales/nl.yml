@@ -1,374 +1,373 @@
----
 nl:
   activemodel:
     attributes:
       assembly:
-        area_id: Onderwerp
-        assembly_type: Montage type
-        assembly_type_other: Montagetype anders
-        banner_image: Bannerafbeelding
-        closing_date: Einddatum
-        closing_date_reason: Reden sluitingsdatum
-        composition: Samenstelling
-        copy_categories: Categorieën kopiëren
-        copy_components: Onderdelen tekst
-        copy_features: Functionaliteiten kopiëren
-        created_by: Aangemaakt door
-        created_by_other: Aangemaakt door iemand anders
-        creation_date: Gemaakt op
-        decidim_area_id: onderwerp
-        decidim_scope_id: Bereik
+        area_id: Area
+        assembly_type: Assembly type
+        assembly_type_other: Assembly type other
+        banner_image: Banner afbeelding
+        closing_date: Closing date
+        closing_date_reason: Closing date reason
+        composition: Composition
+        copy_categories: Kopieercategorieën
+        copy_components: Copy components
+        copy_features: Kopieerfuncties
+        created_by: Created by
+        created_by_other: Created by other
+        creation_date: Date created
+        decidim_area_id: Area
+        decidim_scope_id: Scope
         description: Beschrijving
-        developer_group: Promotergroep
+        developer_group: Ontwikkelaarsgroep
         domain: Domein
-        duration: Looptijd
+        duration: Duration
         facebook: Facebook
         github: GitHub
         hashtag: Hashtag
-        hero_image: Afbeelding van de startpagina
-        included_at: Inbegrepen bij
+        hero_image: Home image
+        included_at: Included at
         instagram: Instagram
-        internal_organisation: Interne organisatie
-        is_transparent: Is transparant
-        local_area: Organisatiegebied
+        internal_organisation: Internal organisation
+        is_transparent: Is transparent
+        local_area: Lokale buurt
         meta_scope: Omvang metadata
-        parent_id: Montage van de ouders
-        participatory_processes_ids: Verwante burgerinspraken
-        participatory_scope: Wat wordt besloten
-        participatory_structure: Hoe is het besloten
-        private_space: Prive ruimte
+        parent_id: Parent assembly
+        participatory_processes_ids: Related Participatory processes
+        participatory_scope: Participatief toepassingsgebied
+        participatory_structure: Participatieve structuur
+        private_space: Private space
         promoted: gepromoveerd
-        published_at: Gepubliceerd op
-        purpose_of_action: Doel van actie
-        scope_id: Scope
+        published_at: Published at
+        purpose_of_action: Purpose of action
+        scope_id: Reikwijdte
         scopes_enabled: Scopes ingeschakeld
         short_description: Korte beschrijving
-        show_statistics: Toon statistieken
+        show_statistics: Show statistics
         slug: URL slak
-        special_features: Speciale functies
-        subtitle: Ondertiteling
-        target: Wie doet mee
+        special_features: Special features
+        subtitle: subtitel
+        target: Doel
         title: Titel
         twitter: Twitter
         youtube: YouTube
       assembly_member:
-        birthday: Verjaardag
-        birthplace: Geboorteplaats
-        ceased_date: Gestaakte datum
-        designation_date: Aanwijzingsdatum
-        designation_mode: Aanwijzingsmodus
-        full_name: Voor-en achternaam
-        gender: Geslacht
-        position: Positie
+        birthday: Birthday
+        birthplace: Birthplace
+        ceased_date: Ceased date
+        designation_date: Designation date
+        designation_mode: Designation mode
+        full_name: Full name
+        gender: Gender
+        position: Position
       assembly_user_role:
-        email: E-mail
-        name: Naam
-        role: Rol
+        email: Email
+        name: Name
+        role: Role
   activerecord:
     models:
       decidim/assembly:
-        one: bijeenkomst
+        one: Assembly
         other: Assemblies
       decidim/assembly_member:
-        one: Montage lid
-        other: Vergadering leden
+        one: Assembly member
+        other: Assembly members
       decidim/assembly_user_role:
-        one: Assemblage gebruikersrol
-        other: Assemblage van gebruikersrollen
+        one: Assembly user role
+        other: Assembly user roles
   decidim:
     admin:
       actions:
-        new_assembly: Nieuwe vergadering
+        new_assembly: New assembly
       assemblies:
         create:
-          error: Er is een fout opgetreden bij het maken van een nieuw event.
-          success: Bijeenkomst is succesvol gecreëerd.
+          error: Er is een fout opgetreden bij het maken van een nieuwe assemblage.
+          success: Assemblage is succesvol gecreëerd.
         edit:
           update: Bijwerken
         form:
           title: Algemene informatie
         index:
           not_published: Niet gepubliceerd
-          private: Privé
-          public: Openbaar
+          private: Private
+          public: Public
           published: Gepubliceerd
         new:
           create: creëren
-          title: Nieuwe bijeenkomst
+          title: Nieuwe montage
         update:
-          error: Er is een fout opgetreden bij het bijwerken van deze bijeenkomt.
-          success: Bijeenkomst is succesvol bijgewerkt.
+          error: Er is een fout opgetreden bij het bijwerken van deze assemblage.
+          success: Assemblage is succesvol bijgewerkt.
       assemblies_copies:
         create:
-          error: Er was een fout bij het dupliceren van deze bijeenkomt.
-          success: Bijeenkomst is succesvol gedupliceerd.
+          error: Er was een fout bij het dupliceren van deze assemblage.
+          success: Assemblage is succesvol gedupliceerd.
       assembly_copies:
         new:
           copy: Kopiëren
           select: Selecteer welke gegevens u wilt dupliceren
-          title: Dupliceer bijeenkomst
+          title: Dupliceerde montage
       assembly_members:
         create:
-          error: Er is een fout opgetreden bij het toevoegen van een lid voor deze assembly.
-          success: Lid is met succes voor deze assembly gemaakt.
+          error: There was an error adding a member for this assembly.
+          success: Member created successfully for this assembly.
         destroy:
-          success: Lid is met succes verwijderd voor deze assembly.
+          success: Member deleted successfully for this assembly.
         edit:
-          title: Update assembly-lid.
-          update: Bijwerken
+          title: Update assembly member.
+          update: Update
         index:
-          assembly_members_title: Vergadering leden
+          assembly_members_title: Assembly members
         new:
-          create: creëren
-          title: Nieuw assemblagelid.
+          create: Create
+          title: New assembly member.
         update:
-          error: Er is een fout opgetreden bij het bijwerken van het lid voor deze assembly.
-          success: Lid is succesvol bijgewerkt voor deze assembly.
+          error: There was an error updating the member for this assembly.
+          success: Member updated successfully for this assembly.
       assembly_publications:
         create:
-          error: Er is een fout opgetreden bij het publiceren van deze bijeenkomt.
-          success: Bijeenkomst is succesvol gepubliceerd.
+          error: Er is een fout opgetreden bij het publiceren van deze assemblage.
+          success: Assemblage is succesvol gepubliceerd.
         destroy:
-          error: Er is een fout opgetreden bij het publiceren van deze bijeenkomt.
-          success: Bijeenkomt succesvol ongepubliceerd.
+          error: Er is een fout opgetreden bij het publiceren van deze assemblage.
+          success: Assemblage ongepubliceerd succesvol.
       assembly_user_roles:
         create:
-          error: Er is een fout opgetreden bij het toevoegen van een gebruiker voor dit event.
-          success: Gebruiker is succesvol toegevoegd aan deze assembly.
+          error: There was an error adding a user for this assembly.
+          success: User added successfully to this assembly.
         destroy:
-          success: Gebruiker is met succes van deze assembly verwijderd.
+          success: User removed successfully from this assembly.
         edit:
-          title: Update event gebruiker.
-          update: Bijwerken
+          title: Update assembly user.
+          update: Update
         index:
-          assembly_admins_title: Assemblage gebruikers
+          assembly_admins_title: Assembly users
         new:
-          create: Aanmaken
-          title: Nieuwe vergaderinggebruiker.
+          create: Create
+          title: New assembly user.
         update:
-          error: Er is een fout opgetreden bij het bijwerken van een gebruiker voor deze vergadering.
-          success: Gebruiker is succesvol bijgewerkt voor deze vergadering.
+          error: There was an error updated a user for this assembly.
+          success: User updated successfully for this assembly.
       menu:
-        assemblies: Events
+        assemblies: Assemblies
         assemblies_submenu:
-          assembly_admins: Gebruikersbijeenkomst
-          assembly_members: leden
-          attachment_collections: folders
-          attachment_files: bestanden
-          attachments: Bijlagen
+          assembly_admins: Assembly users
+          assembly_members: Members
+          attachment_collections: Folders
+          attachment_files: Files
+          attachments: toebehoren
           categories: Categorieën
-          components: Onderdelen
+          components: Components
           info: info
-          moderations: Moderaties
-          private_users: Particuliere gebruikers
+          moderations: matigingen
+          private_users: Private users
       models:
         assembly:
           fields:
             created_at: Gemaakt bij
-            private: Privaat
-            promoted: Gemarkeerd
+            private: Private
+            promoted: Opvallende
             published: Gepubliceerd
             title: Titel
-          name: Bijeenkomst
+          name: bijeenkomst
         assembly_member:
           fields:
-            ceased_date: Gestaakte datum
-            designation_date: Aanwijzingsdatum
-            full_name: Naam
-            position: Positie
-          name: Lid
+            ceased_date: Ceased date
+            designation_date: Designation date
+            full_name: Name
+            position: Position
+          name: Member
           positions:
-            other: anders
+            other: Other
             president: President
-            secretary: Secretaris
-            vice_president: Onderdirecteur
+            secretary: Secretary
+            vice_president: Vice president
         assembly_user_role:
           fields:
-            email: E-mail
-            name: Naam
-            role: Rol
-          name: Vergaderinggebruiker
+            email: Email
+            name: Name
+            role: Role
+          name: Assembly User
           roles:
-            admin: Beheerder
-            collaborator: Medewerker
+            admin: Administrator
+            collaborator: Collaborator
             moderator: Moderator
       titles:
-        assemblies: Events
+        assemblies: Assemblies
     admin_log:
       assembly:
-        create: "%{user_name} heeft de vergadering %{resource_name} gemaakt"
-        publish: "%{user_name} heeft de %{resource_name} vergadering gepubliceerd"
-        unpublish: "%{user_name} ongepubliceerd de %{resource_name} vergadering"
-        update: "%{user_name} heeft de vergadering %{resource_name} bijgewerkt"
+        create: "%{user_name} created the %{resource_name} assembly"
+        publish: "%{user_name} published the %{resource_name} assembly"
+        unpublish: "%{user_name} unpublished the %{resource_name} assembly"
+        update: "%{user_name} updated the %{resource_name} assembly"
       assembly_member:
-        create: "%{user_name} heeft het %{resource_name} lid in de %{space_name} assembly gemaakt"
-        delete: "%{user_name} verwijderde het %{resource_name} lid uit de %{space_name} assembly"
-        update: "%{user_name} heeft het %{resource_name} lid in de %{space_name} assembly bijgewerkt"
+        create: "%{user_name} created the %{resource_name} member in the %{space_name} assembly"
+        delete: "%{user_name} removed the %{resource_name} member from the %{space_name} assembly"
+        update: "%{user_name} updated the %{resource_name} member in the %{space_name} assembly"
       assembly_user_role:
-        create: "%{user_name} nodigde %{resource_name} uit voor de vergadering %{space_name}"
-        delete: "%{user_name} heeft de gebruiker %{resource_name} verwijderd uit de %{space_name} vergadering"
-        update: "%{user_name} heeft de rol van %{resource_name} in de %{space_name} vergadering gewijzigd"
+        create: "%{user_name} invited %{resource_name} to the %{space_name} assembly"
+        delete: "%{user_name} removed the user %{resource_name} from the %{space_name} assembly"
+        update: "%{user_name} changed the role of %{resource_name} in the %{space_name} assembly"
     assemblies:
       admin:
         assemblies:
           form:
-            duration_help: Als de duur van deze assembly beperkt is, selecteert u de einddatum. Anders zal het verschijnen als onbepaald.
-            included_at_help: Selecteer de datum waarop deze assembly aan Decidim is toegevoegd. Het hoeft niet noodzakelijk hetzelfde te zijn als de aanmaakdatum.
-            select_a_created_by: Selecteer op 'gemaakt door'
-            select_an_area: Selecteer een onderwerp
-            select_an_assembly_type: Selecteer een vergadering type
-            select_parent_assembly: Selecteer de ouderassemblage
-            slug_help: 'URL-slugs worden gebruikt om de URL''s te genereren die naar deze bijeenkomst verwijzen. Enkel letters, cijfers en streepjes worden toegestaan en deze moet beginnen met een letter. Voorbeeld: %{url}'
-            social_handlers: sociaal
+            duration_help: If the duration of this assembly is limited, select the end date. Otherwise, it will appear as indefinite.
+            included_at_help: Select the date when this assembly was added to Decidim. It does not necessarily have to be the same as the creation date.
+            select_a_created_by: Select a created by
+            select_an_area: Select an Area
+            select_an_assembly_type: Select an assembly type
+            select_parent_assembly: Select parent assembly
+            slug_help: 'URL slugs are used to generate the URLs that point to this assembly. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
+            social_handlers: Social
         assembly_copies:
           form:
-            slug_help: 'URL-slugs worden gebruikt om de URL''s te genereren die naar deze bijeenkomst verwijzen. Enkel letters, cijfers en streepjes worden toegestaan en deze moet beginnen met een letter. Voorbeeld: %{url}'
+            slug_help: 'URL slugs are used to generate the URLs that point to this assembly. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
         assembly_members:
           form:
-            existing_user: Bestaande gebruiker
-            non_user: Niet gebruiker
-            select_a_position: Selecteer een positie
-            select_user: Selecteer een gebruiker
-            user_type: Gebruikerstype
+            existing_user: Existing user
+            non_user: Non user
+            select_a_position: Select a position
+            select_user: Select an user
+            user_type: User type
           index:
             filter:
-              all: Alle
-              ceased: opgehouden
-              not_ceased: Niet opgehouden
-            filter_by: Filteren op
-            search: Zoeken
+              all: All
+              ceased: Ceased
+              not_ceased: Not ceased
+            filter_by: Filter by
+            search: Search
         content_blocks:
           highlighted_assemblies:
-            max_results: Maximum aantal elementen dat kan worden weergegeven
+            max_results: Maximum amount of elements to show
       assembly_members:
         index:
-          members: leden
+          members: Members
       assembly_types:
-        commission: Comissie
-        consultative_advisory: Consultative / Advisory
-        executive: Uitvoerend
-        government: Regering
-        others: Overige
-        participatory: deelnemende
-        working_group: Werkgroep
+        commission: Comission
+        consultative_advisory: Consultative/Advisory
+        executive: Executive
+        government: Government
+        others: Others
+        participatory: Participatory
+        working_group: Working group
       content_blocks:
         highlighted_assemblies:
-          name: Gemarkeerde vergaderingen
+          name: Highlighted assemblies
       created_by:
-        city_council: Gemeenteraad
-        others: Overige
-        public: Openbaar
+        city_council: City Council
+        others: Others
+        public: Public
       filter:
-        all: Alle
-        commission: Commissie
-        consultative_advisory: Consultative / Advisory
-        executive: uitvoerend
-        government: Regering
-        help: 'Laten zien:'
-        label: 'Laten zien:'
-        others: anderen
-        participatory: deelnemend
-        placeholder: Filteren op type
-        working_group: Werkgroep
+        all: All
+        commission: Commission
+        consultative_advisory: Consultative/Advisory
+        executive: Executive
+        government: Government
+        help: 'Show:'
+        label: 'Show:'
+        others: Others
+        participatory: Participatory
+        placeholder: Filter by type
+        working_group: Working group
       index:
-        title: Events
+        title: Assemblies
       last_activity:
-        new_assembly: Nieuwe vergadering
+        new_assembly: New assembly
       pages:
         home:
           highlighted_assemblies:
-            active_assemblies: Huidige events
-            see_all_assemblies: Bekijk alle events
+            active_assemblies: Active assemblies
+            see_all_assemblies: See all assemblies
         user_profile:
           member_of:
-            member_of: Lid van
+            member_of: Member of
       show:
-        area: onderwerp
-        assembly_type: Montage type
-        children: Events
-        closing_date: Einddatum
-        composition: Samenstelling
-        created_by: Aangemaakt door
-        creation_date: Gemaakt op
-        developer_group: Promotergroep
-        duration: Looptijd
-        included_at: Inbegrepen bij
-        indefinite_duration: onbepaald
-        internal_organisation: Interne organisatie
+        area: Area
+        assembly_type: Assembly type
+        children: Assemblies
+        closing_date: Closing date
+        composition: Composition
+        created_by: Created by
+        creation_date: Date created
+        developer_group: Ontwikkelaarsgroep
+        duration: Duration
+        included_at: Included at
+        indefinite_duration: Indefinite
+        internal_organisation: Internal organisation
         is_transparent:
-          'false': ondoorzichtig
-          'true': Transparant
-        local_area: Organisatiegebied
-        participatory_scope: Wat wordt besloten
-        participatory_structure: Hoe is het besloten
-        private_space: Dit is een privé event
-        purpose_of_action: Doel van actie
-        read_less: Minder lezen
-        read_more: Lees verder
-        related_participatory_processes: Verwante burgerinspraken
-        scope: Scope
-        social_networks: Sociale netwerken
-        target: Wie doet mee
+          'false': opaque
+          'true': transparent
+        local_area: Lokale buurt
+        participatory_scope: Participatief toepassingsgebied
+        participatory_structure: Participatieve structuur
+        private_space: This is a private assembly
+        purpose_of_action: Purpose of action
+        read_less: Read less
+        read_more: Read more
+        related_participatory_processes: Related participatory processes
+        scope: Reikwijdte
+        social_networks: Social Networks
+        target: Doel
       statistics:
-        answers_count: Antwoorden
-        assemblies_count: Bijeenkomsten
-        comments_count: Reacties
-        debates_count: Debatten
-        endorsements_count: Aanbevelingen
+        answers_count: antwoorden
+        assemblies_count: Assemblies
+        comments_count: Comments
+        debates_count: Debates
+        endorsements_count: Endorsements
         headline: Activiteit
-        meetings_count: Events
-        orders_count: Stemmen
-        pages_count: Pagina's
+        meetings_count: Vergaderingen
+        orders_count: bestellingen
+        pages_count: Pages
         projects_count: Projecten
         proposals_count: Voorstellen
         results_count: Resultaten
-        surveys_count: Enquêtes
+        surveys_count: onderzoeken
         users_count: Deelnemers
-        votes_count: Stemmen
+        votes_count: stemmen
     assembly_members:
       assembly_member:
-        designated_on: Aangewezen op
+        designated_on: Designated on
       index:
-        title: leden
+        title: Members
     help:
       participatory_spaces:
         assemblies:
-          contextual: "<p>Een vergadering is een groep leden van een organisatie die periodiek bijeenkomen om beslissingen te nemen over een specifiek gebied of een bepaald bereik van de organisatie.</p> <p>Vergaderingen houden vergaderingen, sommige zijn privé en sommige zijn open. Als ze open zijn, is het mogelijk om eraan deel te nemen (bijvoorbeeld: aanwezig zijn als de capaciteit het toelaat, punten toevoegen aan de agenda of commentaar geven op de voorstellen en beslissingen van dit orgel).</p> <p>Voorbeelden: een algemene vergadering (die eenmaal per jaar bijeenkomt om de hoofdlijnen van de organisatie te bepalen, evenals haar uitvoerende organen bij stemming), een gelijkheidsadviesraad (die om de twee maanden bijeenkomt om voorstellen te doen over het verbeteren van de genderrelaties in de organisatie) zijn een evaluatiecommissie (die elke maand bijeenkomt om een ​​proces te volgen) of een garantieorgaan (dat incidenten, misbruiken of voorstellen verzamelt om de besluitvormingsprocedures te verbeteren) allemaal voorbeelden van vergaderingen.</p>\n"
-          page: "<p>Een vergadering is een groep leden van een organisatie die periodiek bijeenkomen om beslissingen te nemen over een specifiek gebied of een bepaald bereik van de organisatie.</p> <p>Vergaderingen houden vergaderingen, sommige zijn privé en sommige zijn open. Als ze open zijn, is het mogelijk om eraan deel te nemen (bijvoorbeeld: aanwezig zijn als de capaciteit het toelaat, punten toevoegen aan de agenda of commentaar geven op de voorstellen en beslissingen van dit orgel).</p> <p>Voorbeelden: een algemene vergadering (die eenmaal per jaar bijeenkomt om de hoofdlijnen van de organisatie te bepalen, evenals haar uitvoerende organen bij stemming), een gelijkheidsadviesraad (die om de twee maanden bijeenkomt om voorstellen te doen over het verbeteren van de genderrelaties in de organisatie) zijn een evaluatiecommissie (die elke maand bijeenkomt om een ​​proces te volgen) of een garantieorgaan (dat incidenten, misbruiken of voorstellen verzamelt om de besluitvormingsprocedures te verbeteren) allemaal voorbeelden van vergaderingen.</p>\n"
-          title: Wat zijn vergaderingen?
+          contextual: "<p>An assembly is a group of members of an organization who meet periodically to make decisions about a specific area or scope of the organization.</p> <p>Assemblies hold meetings, some are private and some are open. If they are open, it is possible to participate in them (for example: attending if the capacity allows it, adding points to the agenda, or commenting on the proposals and decisions taken by this organ).</p> <p>Examples: A general assembly (which meets once a year to define the organisation's main lines of action as well as its executive bodies by vote), an equality advisory council (which meets every two months to make proposals on how to improve gender relations in the organisation), an evaluation commission (which meets every month to monitor a process) or a guarantee body (which collects incidents, abuses or proposals to improve decision-making procedures) are all examples of assemblies.</p>\n"
+          page: "<p>An assembly is a group of members of an organization who meet periodically to make decisions about a specific area or scope of the organization.</p> <p>Assemblies hold meetings, some are private and some are open. If they are open, it is possible to participate in them (for example: attending if the capacity allows it, adding points to the agenda, or commenting on the proposals and decisions taken by this organ).</p> <p>Examples: A general assembly (which meets once a year to define the organisation's main lines of action as well as its executive bodies by vote), an equality advisory council (which meets every two months to make proposals on how to improve gender relations in the organisation), an evaluation commission (which meets every month to monitor a process) or a guarantee body (which collects incidents, abuses or proposals to improve decision-making procedures) are all examples of assemblies.</p>\n"
+          title: What are assemblies?
     log:
       value_types:
         assembly_presenter:
-          not_found: 'De assembly is niet gevonden in de database (ID: %{id})'
+          not_found: 'The assembly was not found on the database (ID: %{id})'
     menu:
-      assemblies: Events
+      assemblies: Assemblies
     metrics:
       assemblies:
-        description: Aantal aangemaakte vergaderingen
-        object: assemblages
+        description: Number of assemblies created
+        object: assemblies
         title: Assemblies
   errors:
     messages:
-      cannot_be_blank: mag niet leeg zijn
+      cannot_be_blank: can not be blank
   layouts:
     decidim:
       assemblies:
         assembly:
           take_part: Deelnemen
         index:
-          organizational_chart: Organisatieschema
-          promoted_assemblies: Uitgelichte events
+          organizational_chart: Organizational chart
+          promoted_assemblies: Uitgelichte samenstellingen
           reset_chart: Reset
         order_by_assemblies:
           assemblies:
-            one: "%{count} bijeenkomst"
-            other: "%{count} bijeenkomsten"
+            one: "%{count} assemblage"
+            other: "%{count} gemeentes"
         promoted_assembly:
           more_info: Meer informatie
           take_part: Deelnemen
       assembly_navigation:
-        assembly_member_menu_item: leden
-        assembly_menu_item: De bijeenkomst
+        assembly_member_menu_item: Members
+        assembly_menu_item: The assembly
       assembly_widgets:
         show:
           take_part: Deelnemen

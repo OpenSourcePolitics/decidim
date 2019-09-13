@@ -2,400 +2,400 @@ nl-BE:
   activemodel:
     attributes:
       participatory_process:
-        announcement: Announcement
-        banner_image: Banner image
-        copy_categories: Copy categories
-        copy_components: Copy components
-        copy_steps: Copy steps
-        description: Description
-        developer_group: Promoter group
-        domain: Domain
-        end_date: End date
+        announcement: Bericht
+        banner_image: Bannerafbeelding
+        copy_categories: Kopieercategorieën
+        copy_components: Kopieer componenten
+        copy_steps: Kopieer stappen
+        description: Omschrijving	
+        developer_group: Promotorgroep
+        domain: Domein
+        end_date: Einddatum
         hashtag: Hashtag
-        hero_image: Home image
-        local_area: Organization area
-        meta_scope: Scope metadata
-        participatory_process_group_id: Processes group
-        participatory_scope: What is decided
-        participatory_structure: How is it decided
-        private_space: Concertation privée
-        promoted: Promoted
-        published_at: Published at
-        scope_id: Scope
-        scopes_enabled: Scopes enabled
-        short_description: Short description
-        show_statistics: Show statistics
-        slug: URL slug
-        start_date: Start date
-        subtitle: Subtitle
-        target: Who participates
-        title: Title
+        hero_image: Afbeelding van de startpagina
+        local_area: Organisatiegebied
+        meta_scope: Omvang metadata
+        participatory_process_group_id: Processen groep
+        participatory_scope: Wat wordt besloten
+        participatory_structure: Hoe is het besloten
+        private_space: Concertatie privée
+        promoted: gepromoveerd
+        published_at: Gepubliceerd op
+        scope_id: Reikwijdte
+        scopes_enabled: Scopes ingeschakeld
+        short_description: Korte omschrijving
+        show_statistics: Toon statistieken
+        slug: URL pad
+        start_date: Begindatum
+        subtitle: Ondertitel
+        target: Wie doet mee
+        title: Titel
       participatory_process_group:
-        description: Description
-        hero_image: Image
-        name: Name
-        participatory_process_ids: Related processes
+        description: Omschrijving		
+        hero_image: Afbeelding
+        name: Naam
+        participatory_process_ids: Gerelateerde processen
       participatory_process_step:
-        cta_path: Call to Action path
-        cta_text: Call to Action text
-        description: Description
-        end_date: End date
-        short_description: Short description
-        start_date: Start date
-        title: Title
+        cta_path: Oproep naar Actiepad
+        cta_text: Oproep naar Actietekst
+        description: Omschrijving	
+        end_date: Einddatum
+        short_description: Korte omschrijving
+        start_date: Begin datum
+        title: Titel
       participatory_process_user_role:
-        email: Email
-        name: Name
-        role: Role
+        email: E-mail
+        name: Naam
+        role: Rol
     models:
-      decidim/participatory_process_step_activated_event: Step activated
-      decidim/participatory_process_step_changed_event: Step changed
+      decidim/participatory_process_step_activated_event: Stap geactiveerd
+      decidim/participatory_process_step_changed_event: Stap gewijzigd
   activerecord:
     models:
       decidim/participatory_process:
-        one: Participatory process
-        other: Participatory processes
+        one: Deelnemend proces
+        other: Participatieve processen
       decidim/participatory_process_group:
-        one: Participatory process group
-        other: Participatory process groups
+        one: Deelnemende procesgroepen
+        other: Deelnemende procesgroepen
       decidim/participatory_process_step:
-        one: Step
-        other: Steps
+        one: Stappen
+        other: Stappen
   decidim:
     admin:
       actions:
-        activate: Activate
-        configure: Configure
-        confirm_destroy: Confirm delete
-        destroy: Delete
-        duplicate: Duplicate
-        edit: Edit
-        new: New
-        new_process_group: New process group
-        new_process_step: New step
-        new_process_user_role: New process user
+        activate: Activeren
+        configure: Configureren
+        confirm_destroy: Bevestigen vernietigen
+        destroy: Vernietigen
+        duplicate: Dupliceren
+        edit: Bewerken
+        new: Nieuw
+        new_process_group: Nieuwe procesgroep
+        new_process_step: Bekijk stappen
+        new_process_user_role: Nieuwe procesgroep
         participatory_process:
-          new: New process
-        preview: Preview
-        publish: Publish
-        resend_invitation: Resend invitation
-        unpublish: Unpublish
+          new: 1 proces
+        preview: Voorbeeld
+        publish: Publiceren
+        resend_invitation: Uitnodiging verzenden
+        unpublish: Publicatie ongedaan maken
       menu:
-        participatory_process_groups: Process groups
-        participatory_processes: Processes
+        participatory_process_groups: Procesgroepen
+        participatory_processes: Processen
         participatory_processes_submenu:
-          attachment_collections: Folders
-          attachment_files: Files
-          attachments: Attachments
-          categories: Categories
-          components: Components
-          info: Info
-          moderations: Moderations
-          private_users: Private Users
-          process_admins: Process users
-          steps: Steps
+          attachment_collections: Map
+          attachment_files: Bestanden
+          attachments: Bijlagen
+          categories: Categorieën
+          components: Componenten
+          info: info
+          moderations: matigingen
+          private_users: Privé gebruikers
+          process_admins: Gebruikers verwerken
+          steps: Stappen
       models:
         participatory_process:
           fields:
-            created_at: Created at
-            private: Private
-            promoted: Highlighted
-            published: Published
-            title: Title
-          name: Participatory process
+            created_at: Gemaakt bij
+            private: Privé
+            promoted: Opvallende
+            published: Gepubliceerd
+            title: Titel
+          name: Deelnemend proces
         participatory_process_group:
           fields:
-            name: Name
-          name: Process group
+            name: Naam
+          name: Procesgroep
         participatory_process_step:
           fields:
-            end_date: End date
-            start_date: Start date
-            title: Title
-          name: Participatory process step
+            end_date: Einddatum
+            start_date: Begin datum
+            title: Titel
+          name: Deelnemende processtap
         participatory_process_user_role:
           fields:
-            email: Email
-            name: Name
-            role: Role
-          name: Participatory process user
+            email: E-mail
+            name: Naam
+            role: Rol
+          name: Participatory Process User
           roles:
-            admin: Administrator
-            collaborator: Collaborator
-            moderator: Moderator
+            admin: Beheerder
+            collaborator: Medewerker
+            moderator: Moderaties
         user:
           fields:
-            invitation_accepted_at: Invitation accepted at
-            invitation_sent_at: Invitation sent at
+            invitation_accepted_at: Uitnodiging geaccepteerd op
+            invitation_sent_at: Uitnodiging verzonden op
       participatory_process_copies:
         new:
-          copy: Copy
-          select: Select which data you would like to duplicate
-          title: Duplicate participatory process
+          copy: Kopiëren
+          select: Selecteer welke gegevens u wilt dupliceren
+          title: Dubbele participatieve processen
       participatory_process_groups:
         destroy:
-          success: Participatory process group deleted successfully.
+          success: Deelnemende procesgroep is succesvol vernietigd.
         edit:
-          title: Edit process group
-          update: Update
+          title: Edit procesgroep
+          update: Bijwerken
         new:
-          create: Create
-          title: New process group
+          create: creëren
+          title: Nieuwe procesgroep
         update:
-          error: There was en error updating this participatory process group.
-          success: Participatory process group updated successfully.
+          error: Er was een fout bij het bijwerken van deze deelnemende procesgroep.
+          success: Deelnemende procesgroep is succesvol bijgewerkt.
       participatory_process_publications:
         create:
-          error: There was an error publishing this participatory process.
-          success: Participatory process published successfully.
+          error: Er is een fout opgetreden bij het publiceren van dit deelnemende proces.
+          success: Deelnemend proces is succesvol gepubliceerd.
         destroy:
-          error: There was an error unpublishing this participatory process.
-          success: Participatory process unpublished successfully.
+          error: Er is een fout opgetreden bij het publiceren van dit deelnemende proces.
+          success: Deelnemend proces is succesvol gepubliceerd.
       participatory_process_step_activations:
         create:
-          error: There was an error activating this participatory process step.
-          success: Participatory process step activated successfully.
+          error: Er is een fout opgetreden bij het activeren van deze deelnemende processtap.
+          success: Deelnemende processtap is succesvol geactiveerd.
       participatory_process_steps:
         create:
-          error: There was an error creating a new participatory process step.
-          success: Participatory process step created successfully.
-        default_title: Introduction
+          error: Er is een fout opgetreden bij het maken van een nieuwe participerende processtap.
+          success: Deelnemende processtap is succesvol gecreëerd.
+        default_title: Invoering
         destroy:
           error:
-            active_step: Can't delete the active step.
-            last_step: Can't delete the last step of a process.
-          success: Participatory process step deleted successfully.
+            active_step: Kan de actieve stap niet verwijderen.
+            last_step: Kan de laatste stap van een proces niet verwijderen.
+          success: Deelnemende processtap is succesvol vernietigd.
         edit:
-          title: Edit participatory process step
-          update: Update
+          title: Bewerk participatieve processtap
+          update: Bijwerken
         index:
-          steps_title: Steps
+          steps_title: Stappen
         new:
-          create: Create
-          title: New participatory process step
+          create: creëren
+          title: Nieuwe participerende processtap
         ordering:
-          error: There was an error when reordering this participatory process steps.
+          error: Er is een fout opgetreden bij het herbestellen van deze deelnemende processtappen.
         update:
-          error: There was an error when updating this participatory process step.
-          success: Participatory process step updated successfully.
+          error: Er is een fout opgetreden bij het bijwerken van deze deelnemende processtap.
+          success: Deelnameproces stap succesvol bijgewerkt.
       participatory_process_user_roles:
         create:
-          error: There was an error adding a user for this participatory process.
-          success: User added successfully to this participatory process.
+          error: Er is een fout opgetreden bij het toevoegen van een gebruiker voor dit deelnemende proces.
+          success: Gebruikers die succesvol zijn gemaakt voor dit deelnemende proces.
         destroy:
-          success: User removed successfully from this participatory process.
+          success: Gebruiker is succesvol vernietigd voor dit deelnemende proces.
         edit:
-          title: Update participatory process user.
-          update: Update
+          title: Update deelnemende proces gebruiker.
+          update: Bijwerken
         index:
-          process_admins_title: Participatory process users
+          process_admins_title: Deelnemende procesgebruikers
         new:
-          create: Create
-          title: New participatory process user.
+          create: creëren
+          title: Nieuwe deelnemende procesgebruiker.
         update:
-          error: There was an error updated a user for this participatory process.
-          success: User updated successfully for this participatory process.
+          error: Er is een fout opgetreden die een gebruiker bijgewerkt heeft voor dit deelnemende proces.
+          success: Gebruiker is succesvol bijgewerkt voor dit deelnemende proces.
       participatory_processes:
         create:
-          error: There was an error creating a new participatory process.
-          success: Participatory process created successfully. Configure now its steps.
+          error: Er is een fout opgetreden bij het maken van een nieuw deelnemend proces.
+          success: Deelnemend proces is succesvol gecreëerd. Configureer nu zijn stappen.
         edit:
-          update: Update
+          update: Bijwerken
         form:
-          title: General Information
+          title: Algemene informatie
         index:
-          not_published: Not published
-          private: Private
+          not_published: Niet gepubliceerd
+          private: Privé
           promoted:
-            'false': 'False'
-            'true': 'True'
-          public: Public
-          published: Published
+            'false': 'Fout'
+            'true': 'Juist'
+          public: Publiek
+          published: Gepubliceerd
         new:
-          create: Create
-          title: New participatory process
+          create: creëren
+          title: Nieuw deelnemend proces
         update:
-          error: There was an error when updating this participatory process.
-          success: Participatory process updated successfully.
+          error: Er is een fout opgetreden bij het bijwerken van dit deelnemende proces.
+          success: Deelnemend proces is succesvol bijgewerkt.
       participatory_processes_copies:
         create:
-          error: There was an error when duplicating this participatory process.
-          success: Participatory process duplicated successfully.
+          error: Er was een fout bij het dupliceren van dit deelnemende proces.
+          success: Deelnemend proces is succesvol gedupliceerd.
       participatory_processes_group:
         create:
-          error: There was an error creating a new participatory process group.
-          success: Participatory process group created successfully.
+          error: Er is een fout opgetreden bij het maken van een nieuwe participerende procesgroep.
+          success: Deelnemende procesgroep is succesvol opgericht.
       titles:
-        participatory_process_groups: Participatory process groups
-        participatory_processes: Participatory processes
+        participatory_process_groups: Deelnemende procesgroepen
+        participatory_processes: Participatieve processen
       users:
         resend_invitation:
-          error: There was an error resending the invitation.
-          success: Invitation resent successfully.
+          error: Er is een fout opgetreden opnieuw verzenden van de uitnodiging.
+          success: Uitnodiging opnieuw met succes verzonden.
     admin_log:
       participatory_process:
-        create: "%{user_name} created the %{resource_name} participatory process"
-        publish: "%{user_name} published the %{resource_name} participatory process"
-        unpublish: "%{user_name} unpublished the %{resource_name} participatory process"
-        update: "%{user_name} updated the %{resource_name} participatory process"
+        create: "%{user_name} heeft de %{resource_name} -vergadering aangemaakt"
+        publish: "%{user_name} heeft de %{resource_name} -vergadering gepubliceerd"
+        unpublish: "%{user_name} heeft de %{resource_name} -vergadering aangemaakt"
+        update: "%{user_name} heeft de %{resource_name} -vergadering aangemaakt"
       participatory_process_step:
-        activate: "%{user_name} activated the %{resource_name} step in the %{space_name} participatory process"
-        create: "%{user_name} created the %{resource_name} step in the %{space_name} participatory process"
-        delete: "%{user_name} deleted the %{resource_name} step in the %{space_name} participatory process"
-        update: "%{user_name} updated the %{resource_name} step in the %{space_name} participatory process"
+        activate: "%{user_name} heeft het %{resource_name} lid aangemaakt in de %{space_name} -vergadering"
+        create: "%{user_name} heeft het %{resource_name} lid aangemaakt in de %{space_name} -vergadering"
+        delete: "%{user_name} heeft het %{resource_name} lid aangemaakt in de %{space_name} -vergadering"
+        update: "%{user_name} heeft het %{resource_name} lid aangemaakt in de %{space_name} -vergadering"
       participatory_process_user_role:
-        create: "%{user_name} invited the user %{resource_name} to the %{space_name} participatory process"
-        delete: "%{user_name} removed the user %{resource_name} from the %{space_name} participatory process"
-        update: "%{user_name} changed the role of the user %{resource_name} in the %{space_name} participatory process"
+        create: "%{user_name} heeft het %{resource_name} lid aangemaakt in de %{space_name} -vergadering"
+        delete: "%{user_name} heeft het %{resource_name} lid aangemaakt in de %{space_name} -vergadering"
+        update: "%{user_name} heeft het %{resource_name} lid aangemaakt in de %{space_name} -vergadering"
     events:
       participatory_process:
         step_activated:
-          email_intro: 'The %{resource_title} step is now active for %{participatory_space_title}. You can see it from this page:'
-          email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
-          email_subject: An update to %{participatory_space_title}
-          notification_title: The %{resource_title} step is now active for <a href="%{resource_path}">%{participatory_space_title}</a>
+          email_intro: 'Het %{resource_title} component is nu actief voor %{participatory_space_title}. U kunt het zien vanaf deze pagina:'
+          email_outro: Je hebt deze melding ontvangen omdat je "%{participatory_space_title}" volgt. Je kan de meldingen deactiveren door te klikken op de vorige link.
+          email_subject: Een update aan %{participatory_space_title}
+          notification_title: Het %{resource_title} component is nu actief voor <a href="%{resource_path}">%{participatory_space_title}</a>
         step_changed:
-          email_intro: 'The dates for the %{resource_title} step at %{participatory_space_title} have been updated. You can see it from this page:'
-          email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
-          email_subject: An update to %{participatory_space_title}
-          notification_title: The dates for the <a href="%{resource_path}">%{resource_title}</a> step at <a href="%{participatory_space_url}">%{participatory_space_title}</a> have been updated.
+          email_intro: 'De data voor de %{resource_title} stap op %{participatory_space_title} zijn bijgewerkt. U kunt het zien vanaf deze pagina:'
+          email_outro: Je hebt deze melding ontvangen omdat je "%{participatory_space_title}" volgt. Je kan de meldingen deactiveren door te klikken op de vorige link.
+          email_subject: Een update aan %{participatory_space_title}
+          notification_title: De data voor de <a href="%{resource_path}">%{resource_title}</a> stap op <a href="%{participatory_space_url}">%{participatory_space_title}</a> zijn bijgewerkt.
     help:
       participatory_spaces:
         participatory_processes:
-          contextual: "<p>A <strong>participatory process</strong> is a sequence of participatory activities (e.g. first filling out a survey, then making proposals, discussing them in face-to-face or virtual meetings, and finally prioritizing them) with the aim of defining and making a decision on a specific topic.</p> <p>Examples of participatory processes are: a process of electing committee members (where candidatures are first presented, then debated and finally a candidacy is chosen), participatory budgets (where proposals are made, valued economically and voted on with the money available), a strategic planning process, the collaborative drafting of a regulation or norm, the design of an urban space or the production of a public policy plan.</p>\n"
-          page: "<p>A <strong>participatory process</strong> is a sequence of participatory activities (e.g. first filling out a survey, then making proposals, discussing them in face-to-face or virtual meetings, and finally prioritizing them) with the aim of defining and making a decision on a specific topic.</p> <p>Examples of participatory processes are: a process of electing committee members (where candidatures are first presented, then debated and finally a candidacy is chosen), participatory budgets (where proposals are made, valued economically and voted on with the money available), a strategic planning process, the collaborative drafting of a regulation or norm, the design of an urban space or the production of a public policy plan.</p>\n"
-          title: What is a participatory process?
+          contextual: "<p>A <strong>participatief proces</strong> is een reeks van participatieve activiteiten (bijv. vul eerst een enquête in, maak vervolgens voorstellen, bespreek ze in de face-to-face of virtuele vergaderingen, en tenslotte prioriteren) met het doel om een bepaald onderwerp te definiëren en te bepalen.</p> <p>Voorbeelden van participatieve processen zijn: een proces van verkiezing van commissieleden (waar kandidaten voor het eerst worden gepresenteerd, vervolgens worden behandeld en uiteindelijk een kandidatuur wordt gekozen), participatieve begrotingen (waar voorstellen worden gedaan, beoordeeld worden en gestemd worden met het beschikbare geld), een strategisch planningsproces, de gezamenlijke opstelling van een verordening of norm, de opzet van een stedelijke ruimte of de productie van een openbaar beleidsplan.</p>\n"
+          page: "<p>A <strong>participatief proces</strong> is een reeks van participatieve activiteiten (bijv. vul eerst een enquête in, maak vervolgens voorstellen, bespreek ze in de face-to-face of virtuele vergaderingen, en tenslotte prioriteren) met het doel om een bepaald onderwerp te definiëren en te bepalen.</p> <p>Voorbeelden van participatieve processen zijn: een proces van verkiezing van commissieleden (waar kandidaten voor het eerst worden gepresenteerd, vervolgens worden behandeld en uiteindelijk een kandidatuur wordt gekozen), participatieve begrotingen (waar voorstellen worden gedaan, beoordeeld worden en gestemd worden met het beschikbare geld), een strategisch planningsproces, de gezamenlijke opstelling van een verordening of norm, de opzet van een stedelijke ruimte of de productie van een openbaar beleidsplan.</p>\n"
+          title: Nieuw deelnemend proces?
     menu:
-      processes: Processes
+      processes: Processen
     metrics:
       participatory_processes:
-        description: Number of participatory processes in this organization
-        object: participatory processes
-        title: Participatory processes
+        description: Aantal participatieve processen in deze organisatie
+        object: participatieve processen
+        title: Participatieve processen
     pages:
       participatory_space:
         metrics:
-          headline: Participation in figures
-          link: Show all statistics
+          headline: Deelname aan cijfers
+          link: Toon statistieken
     participatory_process_groups:
       show:
         group_participatory_processes:
-          one: 1 processes for %{group}
-          other: "%{count} processes for %{group}"
-        title: Participatory process groups
+          one: 1 processen voor %{group}
+          other: "%{count} processen voor %{group}"
+        title: Titel
     participatory_process_steps:
       index:
-        process_steps: Process steps
-        title: Participatory process steps
+        process_steps: Processtappen
+        title: Participatieve processtappen
     participatory_processes:
       admin:
         content_blocks:
           highlighted_processes:
-            max_results: Maximum amount of elements to show
+            max_results: Maximaal aantal te tonen elementen
         participatory_process_copies:
           form:
-            slug_help: 'URL slugs are used to generate the URLs that point to this process. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
+            slug_help: 'URL pads worden gebruikt om de URL''s te genereren die naar deze vergadering verwijzen. Accepteer alleen letters, cijfers en streepjes, en moet beginnen met een letter. Voorbeeld: %{url}'
         participatory_process_steps:
           form:
-            cta_path_help: 'Use partial paths, not full URLs here. Accepts letters, numbers, dashes and slashes, and must start with a letter. If not set, the button will not be shown. Example: %{url}'
-            cta_text_help: If not set, the button will not be shown.
+            cta_path_help: 'Gebruik gedeeltelijke paden, niet volledige URL''s hier. Accepteert letters, cijfers, streepjes en slashes, en moet beginnen met een letter. Indien niet ingesteld, zal de knop niet worden weergegeven. Voorbeeld: %{url}'
+            cta_text_help: Indien niet ingesteld, wordt de knop niet getoond.
         participatory_processes:
           form:
-            announcement_help: The text you enter here will be shown to the user right below the process information.
-            slug_help: 'URL slugs are used to generate the URLs that point to this process. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
+            announcement_help: De tekst die u hier invoert zal worden weergegeven aan de gebruiker, rechts onder de procesinformatie.
+            slug_help: 'URL pads worden gebruikt om de URL''s te genereren die naar deze vergadering verwijzen. Accepteer alleen letters, cijfers en streepjes, en moet beginnen met een letter. Voorbeeld: %{url}'
       content_blocks:
         highlighted_processes:
-          name: Highlighted processes
+          name: Gemarkeerde processen
       index:
-        title: Participatory processes
+        title: Participatieve processen
       last_activity:
-        new_participatory_process: New participatory process
+        new_participatory_process: Nieuw deelnemend proces
       pages:
         home:
           highlighted_processes:
-            active_processes: Active processes
-            active_step: Active step
-            more_information: More information
-            participate: Participate
-            see_all_processes: See all processes
+            active_processes: Actieve processen
+            active_step: Actieve stap
+            more_information: Meer informatie
+            participate: Deelnemers
+            see_all_processes: Alle processen bekijken
       participatory_process_groups:
-        none: None
+        none: Geen
       participatory_processes:
         filters:
           counters:
             active:
-              one: 1 active process
-              other: "%{count} active processes"
+              one: actieve processen
+              other: "%{count} actieve processen"
             all:
-              one: 1 process
-              other: "%{count} processes"
+              one: 1 proces
+              other: "%{count} projecten"
             past:
-              one: 1 past process
-              other: "%{count} past processes"
+              one: 1 verleden proces
+              other: "%{count} actieve processen"
             upcoming:
-              one: 1 upcoming process
-              other: "%{count} upcoming processes"
+              one: 1 aankomend proces
+              other: "%{count} actieve processen"
           explanations:
-            no_active: No active processes
-            no_active_nor_upcoming: No active nor upcoming processes
-            no_active_nor_upcoming_callout: There are no active nor upcoming processes. Here is a list of the past ones.
+            no_active: Actieve processen
+            no_active_nor_upcoming: Geen actieve of aankomende processen
+            no_active_nor_upcoming_callout: Er zijn geen actieve of aankomende processen. Hier is een lijst van de vorige processen.
           names:
-            active: Active
-            all: All
-            past: Past
-            upcoming: Upcoming
-          see: See
+            active: Actief
+            all: Alle
+            past: Verleden
+            upcoming: Aankomend
+          see: Zie
         index:
-          loading: Loading results...
+          loading: Laden van resultaten...
       show:
-        developer_group: Promoter group
-        end_date: End date
-        local_area: Organization Area
-        participatory_scope: What is decided
-        participatory_structure: How is it decided
-        private_space: This is a private process
-        scope: Scope
-        start_date: Start date
-        target: Who participates
-        unspecified: Not specified
+        developer_group: Promotorgroep
+        end_date: Einddatum
+        local_area: Organisatiegebied
+        participatory_scope: Wat wordt besloten
+        participatory_structure: Hoe is het besloten
+        private_space: Dit is een privé-proces
+        scope: Reikwijdte
+        start_date: Begindatum
+        target: Wie doet mee
+        unspecified: Niet gespecificeerd
       statistics:
-        answers_count: Answers
-        comments_count: Comments
-        debates_count: Debates
-        endorsements_count: Endorsements
-        headline: Activity
-        meetings_count: Meetings
-        orders_count: Votes
-        pages_count: Pages
-        processes_count: Processes
-        projects_count: Projects
-        proposals_count: Proposals
-        results_count: Results
-        surveys_count: Surveys
-        users_count: Participants
-        votes_count: Votes
+        answers_count: antwoorden
+        comments_count: Reacties
+        debates_count: Debatten
+        endorsements_count: Eindverklaringen
+        headline: Activiteit
+        meetings_count: Vergaderingen
+        orders_count: Stemmen
+        pages_count: Pagina's
+        processes_count: Processen
+        projects_count: Projecten
+        proposals_count: Voorstellen
+        results_count: Resultaten
+        surveys_count: onderzoeken
+        users_count: Deelnemers
+        votes_count: Stemmen
   layouts:
     decidim:
       participatory_process_groups:
         participatory_process_group:
-          browse: Browse
-          processes_count: 'Processes:'
+          browse: Browsen
+          processes_count: 'Processen:'
       participatory_process_widgets:
         show:
-          active_step: Active step
-          take_part: Take part
+          active_step: Actieve stap
+          take_part: Deelnemen
       participatory_processes:
         index:
-          promoted_processes: Highlighted processes
+          promoted_processes: Gemarkeerde processen
         participatory_process:
-          active_step: 'Current step:'
-          take_part: Take part
+          active_step: 'Huidige stap:'
+          take_part: Deelnemen
         promoted_process:
-          active_step: 'Current step:'
-          more_info: More info
-          take_part: Take part
+          active_step: 'Huidige stap:'
+          more_info: Meer informatie
+          take_part: Deelnemen
       process_header_steps:
-        step: Step %{current} of %{total}
-        view_steps: View steps
+        step: Stap %{current} van %{total}
+        view_steps: Bekijk stappen
       process_navigation:
-        process_menu_item: The process
+        process_menu_item: 1 proces

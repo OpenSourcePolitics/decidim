@@ -24,6 +24,13 @@ module Decidim
       @descendants ||= Category.where(parent_id: id)
     end
 
+    def color
+      return super unless super.nil?
+      return parent.color if parent&.color
+
+      nil
+    end
+
     def translated_name
       Decidim::CategoryPresenter.new(self).translated_name
     end

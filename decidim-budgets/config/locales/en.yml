@@ -127,6 +127,21 @@ en:
           total_budget: Total budget
           vote: Vote
         order_selected_projects:
+          choose: Choisissez encore
+          per_project:
+            one: project selected out of a total of
+            other: projects selected out of a total of
+          remaining_projects:
+            one: 1 project to validate your vote.
+            other: "%{count} projects to validate your vote."
+          remove: Remove
+          selected_projects:
+            one: project selected
+            other: projects selected
+          total_projects:
+            one: projet
+            other: projets
+          view: View
           selected_total:
             one: "<strong>%{count}</strong> project selected out of a total of <strong>%{total} projects</strong>"
             other: "<strong>%{count}</strong> projects selected out of a total of <strong>%{total} projects</strong>"

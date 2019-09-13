@@ -135,7 +135,6 @@ hu:
             one: projet
             other: projets
           view: Nézet
-          vote: Voter
         project:
           add: Hozzáad
           count:

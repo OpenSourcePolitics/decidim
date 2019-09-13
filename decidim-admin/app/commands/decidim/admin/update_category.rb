@@ -41,8 +41,15 @@ module Decidim
         {
           name: form.name,
           parent_id: form.parent_id,
+          color: category_color,
           description: form.description
         }
+      end
+
+      def category_color
+        return nil unless form.has_color
+
+        form.color
       end
     end
   end
