@@ -994,8 +994,10 @@ de:
         share_link: Share link
       version_author:
         deleted: Gelöschter Benutzer
-    translate: Translate
-    translated: Back to the original version
+    translate:
+      original: Translate (*)
+      tooltip: Translated with Deepl
+      translated: Back to the original version
     user_activity:
       index:
         no_activities_warning: Dieser Benutzer hat noch keine Aktivität gehabt.
