@@ -997,8 +997,10 @@ nl-BE:
         share_link: Share link
       version_author:
         deleted: Deleted user
-    translate: Vertalen
-    translated: Translated
+    translate:
+      original: Translate (*)
+      tooltip: Translated with Deepl
+      translated: Back to the original version
     user_activity:
       index:
         no_activities_warning: This user hasn't had any activity yet.
