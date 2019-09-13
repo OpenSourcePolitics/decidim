@@ -27,8 +27,8 @@ nl-BE:
         weight: Gewicht
       id: ID kaart
       newsletter:
-        body: Lichaam
-        subject: Onderwerpen
+        body: Tekst
+        subject: Onderwerp
       oauth_application:
         name: Beheerde gebruiker
         organization_logo: Logo organisatie (vierkant)
@@ -49,8 +49,8 @@ nl-BE:
         from: Van e-mailadres
         github_handler: GitHub handler
         header_snippets: Koptekstjes
-        highlighted_content_banner_action_subtitle: Ondertitels van de actieknop
-        highlighted_content_banner_action_title: Ondertitels van de actieknop
+        highlighted_content_banner_action_subtitle: Ondertitel van de actieknop
+        highlighted_content_banner_action_title: Titel van de actieknop
         highlighted_content_banner_action_url: Ondertitels van de actieknop
         highlighted_content_banner_enabled: Toon de gemarkeerde inhoudsbanner
         highlighted_content_banner_image: Beeld
