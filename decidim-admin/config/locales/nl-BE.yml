@@ -235,6 +235,15 @@ nl-BE:
         update:
           success: Admin succesvol bijgewerkt.
       components:
+        budgets:
+          voting_rules_fieldset:
+            voting_rules: Voting rules
+          voting_rules_modal:
+            close: Close
+            ok: OK
+            title: "There's been a problem with the votings rules!"
+            total_projects_limit: "Make sure that the sum of minimums per categories does not amount to more than the value inputed for <em>Number of projects the user has to select</em>: "
+            component_projects_limit: "Make sure that the value of the following fields does not surpass the total number of projects for this component: <strong>%{total_projects}</strong>"
         create:
           error: Er is een fout opgetreden bij het maken van dit onderdeel.
           success: Onderdeel is succesvol gemaakt.
