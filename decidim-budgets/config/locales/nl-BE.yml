@@ -73,27 +73,29 @@ nl-BE:
             map: Kaart
             title: Titel
       projects:
+        remove: Verwijderen
         budget_confirm:
           are_you_sure: Bent u het eens? Zodra u uw stem heeft bevestigd, kunt u het niet wijzigen.
           cancel: Annuleer
           confirm: Bevestigen
           description: Dit zijn de projecten die u hebt gekozen om deel uit te maken van de begroting.
           title: Bevestig stem
-        budget_excess:
-          close: Sluit
-          description: Dit project overschrijdt het maximale budget en kan niet worden toegevoegd. Als u wilt, kunt u een project verwijderen dat u al hebt geselecteerd om toe te voegen of uw stem te maken met uw voorkeuren.
-          ok: OK
-          title: Maximum budget overschreden
         budget_summary:
           are_you_sure: Weet u zeker dat u uw stem wilt annuleren?
-          assigned: 'Toegewezen:'
           cancel_order: Verwijder uw stem en begin opnieuw
           checked_out:
             description: Je hebt al voor de begroting gestemd. Als u van mening bent, kunt u %{cancel_link}.
             title: Begrotingsstemming voltooid
-          description_per_budget: Welke projecten vinden u dat we budget moeten toewijzen? Wijs tenminste %{minimum_budget} toe aan de projecten die u wilt en stem met uw voorkeuren om het budget te definiëren.
-          description_per_project: Naar welke projecten denkt u een budget te moeten toewijzen? Kies %{minimum_project} projecten en gevalideerd uw stem. Let op, alle stemmen zijn onherroepelijk.
           title: U bepaalt het budget
+          description: To which projects do you think we should allocate a budget?
+        order_voting_rules:
+          title: Voting rules
+          description: "To complete your ballot you need to select:"
+          select_per_project: "%{total} projects total"
+          select_per_budget: "Assign at least %{minimum_budget} to the projects you want and vote with your preferences to define the budget."
+          select_per_category:
+            one: "%{count} project for <strong>%{category}</strong>"
+            other: "%{count} projects for <strong>%{category}</strong>"
         count:
           projects_count:
             one: project
@@ -117,6 +119,8 @@ nl-BE:
           title_per_budget: Maximale budget overschreden
           title_per_project: Maximum aantal projecten bereikt
         order_progress:
+          assigned: 'Toegewezen:'
+          total_budget: Totale budget
           vote: Stem
         order_selected_projects:
           choose: Keuze-mail encore
@@ -134,6 +138,14 @@ nl-BE:
             one: projet
             other: projets
           view: Uitzicht
+          selected_total:
+            one: "<strong>%{count}</strong> project selected out of a total of <strong>%{total} projects</strong>"
+            other: "<strong>%{count}</strong> projects selected out of a total of <strong>%{total} projects</strong>"
+          selected_per_category:
+            one: "<strong>%{count}</strong> project selected out of <strong>%{total} for %{category}</strong>"
+            other: "<strong>%{count}</strong> projects selected out of <strong>%{total} for %{category}</strong>"
+          title: Your selection
+          vote: Stemmen
         project:
           add: Toevoegen
           count:
@@ -160,10 +172,12 @@ nl-BE:
             projects_per_page: Projecten per pagina
             resources_permissions_enabled: Actierechten kunnen worden ingesteld voor elke vergadering
             total_budget: Totale budget
-            total_projects: Totaal projecten
-            vote_per_budget: budget bedrag ingeschakeld (standaard)
-            vote_per_project: projectnummer ingeschakeld
-            vote_threshold_percent: Stemdrempel percentage
+            total_projects: Number of projects the user has to select
+            vote_per_budget: 'Activate rule: "minimum budget percentage"'
+            vote_per_project: 'Activate rule: "number of projects selected"'
+            vote_threshold_percent: Minimum percentage of the budget the user's selection must represent
+            vote_per_category: 'Activate rule: "minimum projects to select per category"'
+            projects_per_category_treshold: Projects per category
           step:
             announcement: Bericht
             comments_blocked: Reacties geblokkeerd
@@ -188,4 +202,3 @@ nl-BE:
         project_proposal: 'Voorstellen opgenomen in dit resultaat:'
   index:
     confirmed_orders_count: Stemmen tellen
-  total_budget: Totale budget
