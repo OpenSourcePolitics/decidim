@@ -162,6 +162,7 @@ fr:
             total_budget: Budget total
             total_projects: Nombre de projets total
             vote_per_budget: Activer le "Vote selon un budget" (par défaut)
+            vote_per_category: Activer le "Vote par catégorie requise"
             vote_per_project: Activer le "Vote par nombre de projets"
             vote_threshold_percent: Pourcentage du budget à atteindre pour voter
           step:
