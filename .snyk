@@ -1,0 +1,23 @@
+# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
+version: v1.13.5
+ignore: {}
+# patches apply the minimum changes required to fix a vulnerability
+patch:
+  SNYK-JS-AXIOS-174505:
+    - axios:
+        patched: '2019-05-06T02:15:30.003Z'
+  SNYK-JS-LODASH-450202:
+    - snyk > lodash:
+        patched: '2019-07-04T02:23:50.134Z'
+    - snyk > inquirer > lodash:
+        patched: '2019-07-04T02:23:50.134Z'
+    - snyk > snyk-config > lodash:
+        patched: '2019-07-04T02:23:50.134Z'
+    - snyk > snyk-mvn-plugin > lodash:
+        patched: '2019-07-04T02:23:50.134Z'
+    - snyk > snyk-nodejs-lockfile-parser > lodash:
+        patched: '2019-07-04T02:23:50.134Z'
+    - snyk > snyk-nuget-plugin > lodash:
+        patched: '2019-07-04T02:23:50.134Z'
+    - snyk > snyk-php-plugin > @snyk/composer-lockfile-parser > lodash:
+        patched: '2019-07-04T02:23:50.134Z'

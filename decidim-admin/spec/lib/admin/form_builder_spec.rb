@@ -20,6 +20,7 @@ module Decidim
         include Virtus.model
 
         attribute :category_id, Integer
+        attribute :projects_per_category_treshold, Hash
       end.new
     end
 
@@ -108,6 +109,83 @@ module Decidim
 
         it "doesn't output the label" do
           expect(subject.xpath("//label")).to be_empty
+        end
+      end
+    end
+
+    shared_examples "rendering projects_per_category_treshold_fields" do
+      let(:label) { subject.css("label[for*='projects_per_category_treshold']") }
+      let(:input_attributes) { label.css("input").first.attributes }
+
+      it "sets the label text correctly" do
+        expect(subject.text).to eq(category.translated_name)
+      end
+
+      it "sets the input type correctly" do
+        expect(input_attributes["type"].value).to eq("number")
+      end
+
+      it "sets the min value correctly" do
+        expect(input_attributes["min"].value).to eq("0")
+      end
+
+      it "sets the max value correctly" do
+        expect(input_attributes["max"].value).to eq(input_max_value) if defined?(input_max_value)
+      end
+
+      it "sets the input classes correctly" do
+        expect(input_attributes["class"].value).to eq("per-category-rule")
+      end
+
+      it "sets the input name correctly" do
+        expect(input_attributes["name"].value).to eq("resource[projects_per_category_treshold][#{category.id}]")
+      end
+
+      it "sets the input ID correctly" do
+        expect(input_attributes["id"].value).to eq("resource_projects_per_category_treshold_#{category.id}")
+      end
+
+      it "sets the input value correctly" do
+        value = defined?(input_value) ? input_value : "0"
+        expect(input_attributes["value"].value).to eq(value)
+      end
+    end
+
+    describe "#projects_per_category_treshold_fields" do
+      let(:output) { builder.projects_per_category_treshold_fields(categories, total_projects) }
+      let!(:category) { create(:category) }
+      let(:total_projects) { nil }
+
+      context "without categories" do
+        let(:categories) { Decidim::Category.none }
+
+        it "doesn't render input field" do
+          expect(subject.xpath("//label")).to be_empty
+        end
+      end
+
+      context "with categories" do
+        let(:categories) { Decidim::Category.all }
+        let(:projects_per_category_treshold) { { category.id.to_s => 1.to_s } }
+
+        it_behaves_like "rendering projects_per_category_treshold_fields"
+
+        context "with projects count value" do
+          let(:total_projects) { 1 }
+
+          it_behaves_like "rendering projects_per_category_treshold_fields" do
+            let(:input_max_value) { "1" }
+          end
+        end
+
+        context "with previous value" do
+          before do
+            resource.projects_per_category_treshold = projects_per_category_treshold
+          end
+
+          it_behaves_like "rendering projects_per_category_treshold_fields" do
+            let(:input_value) { resource.projects_per_category_treshold.values.first }
+          end
         end
       end
     end

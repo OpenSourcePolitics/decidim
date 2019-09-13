@@ -60,6 +60,34 @@ module Decidim
         template += error_for(attribute, options) if error?(attribute)
         template.html_safe
       end
+
+      # Generates a number_field for each passed Decidim::Category.
+      #
+      # Each number_field is associated to a Decidim::Budget's component
+      # :projects_per_category_treshold setting, which is of type Hash.
+      #
+      # The result after creating/updating the component will be:
+      # component.settings.projects_per_category_treshold
+      # => {"category id"=>"number of projects to be selected", ...}
+      #
+      # Returns a HTML safe String
+      def projects_per_category_treshold_fields(categories, total_projects = nil)
+        collection = categories.map { |c| [c.id, c.translated_name] }
+
+        template = ""
+        fields_for(:projects_per_category_treshold) do |fields_form|
+          collection.each do |id, translated_name|
+            value = object.projects_per_category_treshold.fetch(id.to_s, 0)
+            template += fields_form.number_field(id,
+                                                 min: 0,
+                                                 max: total_projects,
+                                                 value: value,
+                                                 label: translated_name,
+                                                 class: "per-category-rule")
+          end
+        end
+        template.html_safe
+      end
     end
   end
 end

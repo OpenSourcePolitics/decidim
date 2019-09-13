@@ -1,0 +1,22 @@
+<fieldset class="voting-rules-settings" data-component-projects="<%= component_projects_count %>">
+  <div class="card">
+    <div class="card-divider">
+      <legend><%= t ".voting_rules" %></legend>
+    </div>
+    <div class="card-section">
+      <%= form.fields_for :settings, form.object.settings do |settings_fields| %>
+        <% settings_fields.object.manifest.attributes.slice(*budget_voting_rules_settings).each do |name, attribute| %>
+          <%= settings_attribute_input(
+            settings_fields,
+            attribute,
+            name,
+            label: t("decidim.components.#{@component.manifest.name}.settings.global.#{name}"),
+            tabs_prefix: "global-settings"
+          ) %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</fieldset>
+
+<%= render partial: "decidim/admin/components/budgets/voting_rules_modal" %>

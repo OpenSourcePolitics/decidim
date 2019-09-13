@@ -79,6 +79,7 @@ module Decidim
         integer: { klass: Integer, default: 0 },
         string: { klass: String, default: nil },
         text: { klass: String, default: nil },
+        hash: { klass: Hash, default: {} },
         array: { klass: Array, default: [] }
       }.freeze
 

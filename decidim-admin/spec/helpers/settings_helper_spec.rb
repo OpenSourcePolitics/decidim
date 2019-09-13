@@ -5,7 +5,7 @@ require "spec_helper"
 module Decidim
   module Admin
     describe SettingsHelper do
-      let(:options) { double }
+      let(:options) { {} }
       let(:attribute) { double(type: type, translated?: false, editor?: false) }
       let(:type) { :boolean }
       let(:name) { :test }
@@ -50,6 +50,19 @@ module Decidim
 
         it "is supported" do
           expect(form).to receive(:text_area).with(:test, options)
+          render_input
+        end
+      end
+
+      describe "projects_per_category_treshold_form_field" do
+        let(:name) { :projects_per_category_treshold }
+
+        before do
+          expect(helper).to receive(:current_participatory_space).and_return(create(:participatory_process))
+        end
+
+        it "is supported" do
+          expect(form).to receive(:projects_per_category_treshold_fields).with(ActiveRecord::AssociationRelation, Integer)
           render_input
         end
       end
