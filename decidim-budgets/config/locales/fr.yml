@@ -73,27 +73,29 @@ fr:
             map: Carte
             title: Titre
       projects:
+        remove: Supprimer
         budget_confirm:
           are_you_sure: Êtes-vous sûr ? Une fois que vous aurez confirmé votre vote vous pourrez toujours le recommencer si vous changez d'avis.
           cancel: Annuler
           confirm: Confirmer
           description: Voici les projets que vous avez choisi pour le budget.
           title: Confirmez votre choix
-        budget_excess:
-          close: Fermer
-          description: L'ajout de ce projet dépassera le budget maximum autorisé. Il ne peut donc pas être ajouté pour le moment. Vous pouvez supprimer certains des projets que vous avez précédemment choisi d'ajouter.
-          ok: Ok
-          title: Limite du budget dépassée
         budget_summary:
           are_you_sure: Êtes-vous certain de vouloir annuler votre vote ?
-          assigned: 'Montant affecté :'
           cancel_order: supprimer votre vote et recommencer
           checked_out:
             description: Vous avez déjà voté. Si vous avez changé d'avis, vous pouvez %{cancel_link}.
             title: Vote du budget terminé
-          description_per_budget: Sélectionnez les projets que vous souhaitez voir être réalisés puis confirmez votre choix. Les projets choisis doivent atteindre le montant minimum cumulé de %{minimum_budget}.
-          description_per_project: A quels projets pensez-vous que nous devrions allouer un budget ? Choisissez %{minimum_project} projets et validez votre vote.
           title: Vous décidez du budget
+          description: To which projects do you think we should allocate a budget?
+        order_voting_rules:
+          title: Voting rules
+          description: "To complete your ballot you need to select:"
+          select_per_project: "%{total} projects total"
+          select_per_budget: "Assign at least %{minimum_budget} to the projects you want and vote with your preferences to define the budget."
+          select_per_category:
+            one: "%{count} project for <strong>%{category}</strong>"
+            other: "%{count} projects for <strong>%{category}</strong>"
         count:
           projects_count:
             one: 1 projet
@@ -117,6 +119,8 @@ fr:
           title_per_budget: Budget maximum dépassé
           title_per_project: Nombre de projets maximum atteint
         order_progress:
+          assigned: 'Affecté à :'
+          total_budget: Budget total
           vote: Confirmer votre choix
         order_selected_projects:
           choose: Choisissez encore
@@ -134,6 +138,14 @@ fr:
             one: projet
             other: projets
           view: Voir
+          selected_total:
+            one: "<strong>%{count}</strong> project selected out of a total of <strong>%{total} projects</strong>"
+            other: "<strong>%{count}</strong> projects selected out of a total of <strong>%{total} projects</strong>"
+          selected_per_category:
+            one: "<strong>%{count}</strong> project selected out of <strong>%{total} for %{category}</strong>"
+            other: "<strong>%{count}</strong> projects selected out of <strong>%{total} for %{category}</strong>"
+          title: Your selection
+          vote: Confirmer votre vote
         project:
           add: Ajouter
           count:
@@ -160,10 +172,12 @@ fr:
             projects_per_page: Projets par page
             resources_permissions_enabled: Les autorisations d'actions peuvent être définies pour chaque réunion
             total_budget: Budget total
-            total_projects: Nombre de projets total
-            vote_per_budget: Activer le "Vote selon un budget" (par défaut)
-            vote_per_project: Activer le "Vote par nombre de projets"
-            vote_threshold_percent: Pourcentage du budget à atteindre pour voter
+            total_projects: Number of projects the user has to select
+            vote_per_budget: 'Activate rule: "minimum budget percentage"'
+            vote_per_project: 'Activate rule: "number of projects selected"'
+            vote_threshold_percent: Minimum percentage of the budget the user's selection must represent
+            vote_per_category: 'Activate rule: "minimum projects to select per category"'
+            projects_per_category_treshold: Projects per category
           step:
             announcement: Annonce
             comments_blocked: Bloquer la création de nouveaux commentaires
@@ -188,4 +202,3 @@ fr:
         project_proposal: 'Propositions incluses dans ce projet:'
   index:
     confirmed_orders_count: Nombre de votes
-  total_budget: Budget total
