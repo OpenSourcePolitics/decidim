@@ -1,3 +1,4 @@
+---
 fr:
   activemodel:
     attributes:
@@ -44,19 +45,19 @@ fr:
         default_locale: Langue par défaut
         description: Description
         enable_omnipresent_banner: Afficher une bannière d'actualités
-        facebook_handler: Gestionnaire Facebook
+        facebook_handler: Compte Facebook
         favicon: Favicon
         from: Adresse e-mail de l’expéditeur
-        github_handler: Gestionnaire GitHub
+        github_handler: Compte GitHub
         header_snippets: Éléments à ajouter entre les balises HTML
-        highlighted_content_banner_action_subtitle: Sous-titre du bouton d'appel à l'action
-        highlighted_content_banner_action_title: Texte du bouton d'appel à l'action
-        highlighted_content_banner_action_url: URL du bouton d'appel à l'action
-        highlighted_content_banner_enabled: Afficher la bannière de contenu mis en valeur
+        highlighted_content_banner_action_subtitle: Sous-titre du bouton d'action
+        highlighted_content_banner_action_title: Texte du bouton d'action
+        highlighted_content_banner_action_url: URL du bouton d'action
+        highlighted_content_banner_enabled: Afficher la bannière de contenu mise en valeur
         highlighted_content_banner_image: Bannière de contenu mis en valeur
         highlighted_content_banner_short_description: Brève description
         highlighted_content_banner_title: Titre
-        instagram_handler: Gestionnaire Instagram
+        instagram_handler: Compte Instagram
         logo: Logo
         name: Nom
         official_img_footer: Logo officiel - pied de page
@@ -73,10 +74,10 @@ fr:
         show_statistics: Afficher les statistiques
         success_color: Couleur de succès
         tos_version: Version des conditions d'utilisation
-        twitter_handler: Gestionnaire Twitter
+        twitter_handler: Compte Twitter
         user_groups_enabled: Activer les groupes d'utilisateurs
         warning_color: Couleur d'avertissement
-        youtube_handler: Gestionnaire YouTube
+        youtube_handler: Compte YouTube
       scope:
         code: Code
         name: Titre
@@ -235,6 +236,18 @@ fr:
         update:
           success: Autorisations mises à jour avec succès.
       components:
+        budgets:
+          voting_rules_fieldset:
+            voting_rules: Règles de vote
+          voting_rules_modal:
+            close: Fermer
+            component_projects_limit: 'Assurez-vous que la valeur des champs suivants
+              ne dépasse pas le nombre total de projet: <strong>%{total_projects}</strong>%{total_projects}</strong>'
+            ok: OK
+            title: Il y a un problème avec les règles de vote !
+            total_projects_limit: 'Assurez-vous que la somme des minimums par catégorie
+              ne dépasse pas le <em>nombre de projets total que l''utilisateur
+              doit sélectionner </em> '
         create:
           error: Une erreur s'est produite lors de la création de cette fonctionnalité.
           success: Fonctionnalité créée avec succès.
@@ -556,9 +569,22 @@ fr:
           update: Mettre à jour
         form:
           colors_title: Couleurs de l'organisation
-          cta_button_path_help: 'Vous pouvez remplacer le lien vers lequel renvoie le bouton de la page d''accueil. Utilisez ici des chemins partiels et non des URL complets. Il accepte les lettres, les chiffres, les tirets et les barres obliques, et doit commencer par une lettre. Le bouton apparaît sur la page d''accueil entre le texte de bienvenue et la description. Exemple : %{url}'
-          cta_button_text_help: Vous pouvez remplacer le texte du bouton dans la page d'accueil pour chaque langue disponible dans votre organisation. Si elle n'est pas définie, la valeur par défaut sera utilisée. Le bouton apparaît sur la page d'accueil entre le texte de bienvenue et la description.
-          header_snippets_help: Utilisez ce champ pour ajouter des éléments entre les balises HTML <head> </head>. L'utilisation la plus courante de champs consiste à intégrer des services tiers nécessitant du JavaScript ou du CSS supplémentaire. Vous pouvez aussi l'utiliser pour ajouter des méta-tags supplémentaires au code HTML. Notez que cela ne fonctionnera que dans sur les pages publiques, et non dans la section admin.
+          cta_button_path_help: 'Vous pouvez remplacer le lien vers lequel renvoie
+            le bouton de la page d''accueil. Utilisez ici des chemins partiels et
+            non des URL complets. Il accepte les lettres, les chiffres, les tirets
+            et les barres obliques, et doit commencer par une lettre. Le bouton apparaît
+            sur la page d''accueil entre le texte de bienvenue et la description.
+            Exemple : %{url}'
+          cta_button_text_help: Vous pouvez remplacer le texte du bouton dans la page
+            d'accueil pour chaque langue disponible dans votre organisation. Si elle
+            n'est pas définie, la valeur par défaut sera utilisée. Le bouton apparaît
+            sur la page d'accueil entre le texte de bienvenue et la description.
+          header_snippets_help: Utilisez ce champ pour ajouter des éléments entre
+            les balises HTML <head> </head>. L'utilisation la plus courante de champs
+            consiste à intégrer des services tiers nécessitant du JavaScript ou du
+            CSS supplémentaire. Vous pouvez aussi l'utiliser pour ajouter des méta-tags
+            supplémentaires au code HTML. Notez que cela ne fonctionnera que dans
+            sur les pages publiques, et non dans la section admin.
           homepage_appearance_title: Modifier l'apparence de la page d'accueil
           homepage_highlighted_content_banner_title: Bannière de contenu mis en valeur
           layout_appearance_title: Modifier l’aspect de la mise en page

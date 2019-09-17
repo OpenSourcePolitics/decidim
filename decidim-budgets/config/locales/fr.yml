@@ -1,3 +1,4 @@
+---
 fr:
   activemodel:
     attributes:
@@ -60,13 +61,16 @@ fr:
             success: "%{number} propositions importées avec succès"
           new:
             create: Importer des propositions dans des projets
-            no_components: Il n'y a pas d'autre module de propositions dans lequel importer les propositions dans des projets, au sein de cet espace participatif.
+            no_components: Il n'y a pas d'autre module de propositions dans lequel
+              importer les propositions dans des projets, au sein de cet espace participatif.
             select_component: Veuillez sélectionner un module
       admin_log:
         project:
           create: "%{user_name} a créé le projet %{resource_name} dans l'espace %{space_name}"
-          delete: "%{user_name} a supprimé le projet %{resource_name} dans l'espace %{space_name}"
-          update: "%{user_name} a mis à jour le projet %{resource_name} dans l'espace %{space_name}"
+          delete: "%{user_name} a supprimé le projet %{resource_name} dans l'espace
+            %{space_name}"
+          update: "%{user_name} a mis à jour le projet %{resource_name} dans l'espace
+            %{space_name}"
       models:
         project:
           fields:
@@ -74,14 +78,17 @@ fr:
             title: Titre
       projects:
         budget_confirm:
-          are_you_sure: Êtes-vous sûr ? Une fois que vous aurez confirmé votre vote vous pourrez toujours le recommencer si vous changez d'avis.
+          are_you_sure: Êtes-vous sûr ? Une fois que vous aurez confirmé votre vote
+            vous pourrez toujours le recommencer si vous changez d'avis.
           cancel: Annuler
           confirm: Confirmer
           description: Voici les projets que vous avez choisi pour le budget.
           title: Confirmez votre choix
         budget_excess:
           close: Fermer
-          description: L'ajout de ce projet dépassera le budget maximum autorisé. Il ne peut donc pas être ajouté pour le moment. Vous pouvez supprimer certains des projets que vous avez précédemment choisi d'ajouter.
+          description: L'ajout de ce projet dépassera le budget maximum autorisé.
+            Il ne peut donc pas être ajouté pour le moment. Vous pouvez supprimer
+            certains des projets que vous avez précédemment choisi d'ajouter.
           ok: Ok
           title: Limite du budget dépassée
         budget_summary:
@@ -89,11 +96,17 @@ fr:
           assigned: 'Montant affecté :'
           cancel_order: supprimer votre vote et recommencer
           checked_out:
-            description: Vous avez déjà voté. Si vous avez changé d'avis, vous pouvez %{cancel_link}.
-            title: Vote du budget terminé
-          description_per_budget: Sélectionnez les projets que vous souhaitez voir être réalisés puis confirmez votre choix. Les projets choisis doivent atteindre le montant minimum cumulé de %{minimum_budget}.
-          description_per_project: A quels projets pensez-vous que nous devrions allouer un budget ? Choisissez %{minimum_project} projets et validez votre vote.
-          title: Vous décidez du budget
+            description: Si vous avez changé d'avis, vous pouvez %{cancel_link}.
+            title: Votre vote est terminé
+          description: Sélectionnez les projets que vous souhaitez voir être réalisés
+            puis confirmez votre choix.
+          description_per_budget: Sélectionnez les projets que vous souhaitez voir
+            être réalisés puis confirmez votre choix. Les projets choisis doivent
+            atteindre le montant minimum cumulé de %{minimum_budget}.
+          description_per_project: A quels projets pensez-vous que nous devrions allouer
+            un budget ? Choisissez %{minimum_project} projets et validez votre vote.
+          title: Vous décidez des projets à financer
+          description: Sélectionnez les projets que vous souhaitez voir être réalisés puis confirmez votre choix.
         count:
           projects_count:
             one: 1 projet
@@ -111,29 +124,55 @@ fr:
           view_project: Voir le projet
         limit_excess:
           close: Fermer
-          description_per_budget: Ce projet ne peut pas être ajouté car le budget maximum serait dépassé. Pour l'ajouter, supprimez un projet que vous avez déjà sélectionné.
-          description_per_project: Ce projet ne peut pas être ajouté car le nombre maximum de projets à sélectionner serait dépassé. Pour l'ajouter, supprimez un projet que vous avez déjà sélectionné.
-          ok: D'accord
+          description_per_budget: Ce projet ne peut pas être ajouté car le budget
+            maximum serait dépassé. Pour l'ajouter, supprimez un projet que vous avez
+            déjà sélectionné.
+          description_per_project: Ce projet ne peut pas être ajouté car le nombre
+            maximum de projets à sélectionner serait dépassé. Pour l'ajouter, supprimez
+            un projet que vous avez déjà sélectionné.
+          ok: Valider
           title_per_budget: Budget maximum dépassé
           title_per_project: Nombre de projets maximum atteint
         order_progress:
+          assigned: 'Balance:'
+          total_budget: Budget total
           vote: Confirmer votre choix
         order_selected_projects:
-          choose: Choisissez encore
+          choose: Choisir
           per_project:
             one: projet sélectionné sur un total de
             other: projets sélectionnés sur un total de
           remaining_projects:
             one: 1 projet pour valider votre vote.
             other: "%{count} projets pour valider votre vote."
-          remove: Supprimer
+          remove: Annuler
+          selected_per_category:
+            one: "<strong>%{count}</strong> projet sélectionné sur un minimum de <strong>%{total}
+              dans la catégorie %{category}</strong>"
+            other: "<strong>%{count}</strong> projets sélectionnés sur un minimum
+              de <strong>%{total} dans la catégorie %{category}</strong>"
           selected_projects:
             one: projet sélectionné
             other: projets sélectionnés
+          selected_total:
+            one: "<strong>%{count}</strong> projet sélectionné sur un total de <strong>%{total}</strong>"
+            other: "<strong>%{count}</strong> projets sélectionnés sur un total de
+              <strong>%{total}</strong>"
+          title: Votre bulletin de vote
           total_projects:
             one: projet
             other: projets
           view: Voir
+          vote: Vote
+        order_voting_rules:
+          description: 'Pour que votre vote soit pris en compte, vous devez sélectionner
+            :'
+          select_per_budget: un ou plusieurs projets pour un minimum de %{minimum_budget} de budget.
+          select_per_category:
+            one: "%{count} projet au minimum pour la catégorie <strong>%{category}</strong>"
+            other: "%{count} projets au minimum pour la catégorie <strong>%{category}</strong>"
+          select_per_project: "%{total} projets au total"
+          title: Règles du vote
         project:
           add: Ajouter
           count:
@@ -144,6 +183,7 @@ fr:
         project_budget_button:
           add: Ajouter
           added: Ajouté
+        remove: Enlever
         show:
           budget: Budget
           view_all_projects: Voir tous les projets
@@ -157,13 +197,15 @@ fr:
             announcement: Annonce
             comments_enabled: Activer le module de "Commentaires"
             geocoding_enabled: Activer la "Géolocalisation"
+            projects_per_category_treshold: Projets par catégorie
             projects_per_page: Projets par page
-            resources_permissions_enabled: Les autorisations d'actions peuvent être définies pour chaque réunion
+            resources_permissions_enabled: Les autorisations d'actions peuvent être
+              définies pour chaque réunion
             total_budget: Budget total
-            total_projects: Nombre de projets total
-            vote_per_budget: Activer le "Vote selon un budget" (par défaut)
+            total_projects: Nombre de projet total
+            vote_per_budget: Activer le "Vote selon un budget minimum" (par défaut)
             vote_per_category: Activer le "Vote par catégorie requise"
-            vote_per_project: Activer le "Vote par nombre de projets"
+            vote_per_project: Activer le "Vote par nombre de projet"
             vote_threshold_percent: Pourcentage du budget à atteindre pour voter
           step:
             announcement: Annonce
@@ -173,10 +215,12 @@ fr:
     events:
       budgets:
         order_checkout:
-          email_intro: 'Votre vote a été validé. Vous pouvez toujours l''éditer si vous voulez en cliquant ici : <a href=''%{resource_url}''>%{participatory_space_title}'
+          email_intro: 'Votre vote a été validé. Vous pouvez toujours l''éditer si
+            vous voulez en cliquant ici : <a href=''%{resource_url}''>%{participatory_space_title}'
           email_outro: Merci de votre participation
           email_subject: Une enquête est terminée à %{participatory_space_title}
-          notification_title: Votre vote a été validé le <a href='%{resource_url}'>%{participatory_space_title}</a> Vous pouvez toujours l'éditer si vous le souhaitez.
+          notification_title: Votre vote a été validé le <a href='%{resource_url}'>%{participatory_space_title}</a>
+            Vous pouvez toujours l'éditer si vous le souhaitez.
     orders:
       checkout:
         error: Une erreur s'est produite lors du traitement de votre vote
