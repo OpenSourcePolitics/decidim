@@ -88,14 +88,6 @@ nl-BE:
             title: Begrotingsstemming voltooid
           title: U bepaalt het budget
           description: To which projects do you think we should allocate a budget?
-        order_voting_rules:
-          title: Voting rules
-          description: "To complete your ballot you need to select:"
-          select_per_project: "%{total} projects total"
-          select_per_budget: "Assign at least %{minimum_budget} to the projects you want and vote with your preferences to define the budget."
-          select_per_category:
-            one: "%{count} project for <strong>%{category}</strong>"
-            other: "%{count} projects for <strong>%{category}</strong>"
         count:
           projects_count:
             one: project
@@ -123,7 +115,7 @@ nl-BE:
           total_budget: Totale budget
           vote: Stem
         order_selected_projects:
-          choose: Keuze-mail encore
+          choose: Choose
           per_project:
             one: project geselecteerd van een totaal van
             other: projecten geselecteerd van een totaal van
@@ -135,8 +127,8 @@ nl-BE:
             one: Geselecteerd project
             other: Geselecteerde projecten
           total_projects:
-            one: projet
-            other: projets
+            one: project
+            other: projects
           view: Uitzicht
           selected_total:
             one: "<strong>%{count}</strong> project selected out of a total of <strong>%{total} projects</strong>"
@@ -146,6 +138,14 @@ nl-BE:
             other: "<strong>%{count}</strong> projects selected out of <strong>%{total} for %{category}</strong>"
           title: Your selection
           vote: Stemmen
+        order_voting_rules:
+          title: Voting rules
+          description: "To complete your ballot you need to select:"
+          select_per_project: "%{total} projects total"
+          select_per_budget: "Assign at least %{minimum_budget} to the projects you want and vote with your preferences to define the budget."
+          select_per_category:
+            one: "%{count} project for <strong>%{category}</strong>"
+            other: "%{count} projects for <strong>%{category}</strong>"
         project:
           add: Toevoegen
           count:
