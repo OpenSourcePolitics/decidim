@@ -8,7 +8,7 @@ module Decidim
       include Decidim::Core::Engine.routes.url_helpers
 
       def show
-        return if activities.empty?
+        return if valid_activities.empty?
 
         render
       end

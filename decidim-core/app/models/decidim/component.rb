@@ -73,7 +73,12 @@ module Decidim
     # Public: Returns an empty description
     def resource_description; end
 
-    delegate :serializes_specific_data?, to: :manifest
+    def can_participate_in_space?(user)
+      return true unless participatory_space.try(:private_space?)
+      return false unless user
+
+      participatory_space.can_participate?(user)
+    end
 
     private
 
