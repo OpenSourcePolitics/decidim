@@ -213,5 +213,4 @@ describe "Conferences", type: :system do
       end
     end
   end
-
 end
