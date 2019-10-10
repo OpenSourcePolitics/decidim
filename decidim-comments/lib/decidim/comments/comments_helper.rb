@@ -26,10 +26,12 @@ module Decidim
         commentable_type = resource.commentable_type
         commentable_id = resource.id.to_s
         node_id = "comments-for-#{commentable_type.demodulize}-#{commentable_id}"
-        react_comments_component(node_id, commentableType: commentable_type,
-                                 commentableId: commentable_id,
-                                 locale: I18n.locale,
-                                 commentsMaxLength: 123)
+        react_comments_component(
+          node_id, commentableType: commentable_type,
+          commentableId: commentable_id,
+          locale: I18n.locale,
+          commentsMaxLength: comments_max_length(resource)
+        )
       end
 
       # Private: Render Comments component using inline javascript
@@ -58,6 +60,23 @@ module Decidim
         @organization ||= try(:current_component).try(:organization)
         @organization ||= request.env["decidim.current_organization"]
         @organization.try(:deepl_api_key).present? && @organization.try(:translatable_locales).count > 1
+      end
+
+      def comments_max_length(resource)
+        return component_comments_max_length(resource) if component_comments_max_length(resource).positive?
+        return organization_comments_max_length(resource) if organization_comments_max_length(resource)
+
+        1000
+      end
+
+      def component_comments_max_length(resource)
+        return unless resource.component.settings.respond_to?(:comments_max_length)
+
+        resource.component.settings.comments_max_length
+      end
+
+      def organization_comments_max_length(resource)
+        resource.component.organization.comments_max_length if resource.component.organization.comments_max_length.positive?
       end
     end
   end
