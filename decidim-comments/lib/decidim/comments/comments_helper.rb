@@ -27,8 +27,9 @@ module Decidim
         commentable_id = resource.id.to_s
         node_id = "comments-for-#{commentable_type.demodulize}-#{commentable_id}"
         react_comments_component(node_id, commentableType: commentable_type,
-                                          commentableId: commentable_id,
-                                          locale: I18n.locale)
+                                 commentableId: commentable_id,
+                                 locale: I18n.locale,
+                                 commentsMaxLength: 123)
       end
 
       # Private: Render Comments component using inline javascript
@@ -44,7 +45,8 @@ module Decidim
               {
                 commentableType: "#{props[:commentableType]}",
                 commentableId: "#{props[:commentableId]}",
-                locale: "#{props[:locale]}"
+                locale: "#{props[:locale]}",
+                commentsMaxLength: "#{props[:commentsMaxLength]}"
               }
             );
           })
