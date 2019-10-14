@@ -101,9 +101,9 @@ module Decidim
 
       def self.newsletter_participant_ids(space)
         Decidim::Comments::Comment.includes(:root_commentable).not_hidden
-                                  .where("decidim_comments_comments.decidim_author_id IN (?)", Decidim::User.where(organization: space.organization).pluck(:id))
-                                  .where("decidim_comments_comments.decidim_author_type IN (?)", "Decidim::UserBaseEntity")
-                                  .map(&:author).pluck(:id).flatten.compact.uniq
+          .where("decidim_comments_comments.decidim_author_id IN (?)", Decidim::User.where(organization: space.organization).pluck(:id))
+          .where("decidim_comments_comments.decidim_author_type IN (?)", "Decidim::UserBaseEntity")
+          .map(&:author).pluck(:id).flatten.compact.uniq
       end
 
       private
@@ -113,10 +113,17 @@ module Decidim
       end
 
       def comment_maximum_length
-        return component.settings.comments_max_length if component.settings.respond_to?(:comments_max_length) && component.settings.comments_max_length.positive?
+        return unless commentable.commentable?
+        return component.settings.comments_max_length if component_settings_comments_max_length?
         return organization.comments_max_length if organization.comments_max_length.positive?
 
         1000
+      end
+
+      def component_settings_comments_max_length?
+        return unless component&.settings.respond_to?(:comments_max_length)
+
+        component.settings.comments_max_length.positive?
       end
 
       # Private: Check if commentable can have comments and if not adds
