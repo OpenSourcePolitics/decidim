@@ -106,7 +106,7 @@ module Decidim
         it "includes the values from its commentable" do
           allow(comment.commentable)
             .to receive(:users_to_notify_on_comment_created)
-                  .and_return(Decidim::User.where(id: user.id))
+            .and_return(Decidim::User.where(id: user.id))
 
           expect(comment.users_to_notify_on_comment_created)
             .to include(user)

@@ -101,9 +101,9 @@ module Decidim
 
       def self.newsletter_participant_ids(space)
         Decidim::Comments::Comment.includes(:root_commentable).not_hidden
-          .where("decidim_comments_comments.decidim_author_id IN (?)", Decidim::User.where(organization: space.organization).pluck(:id))
-          .where("decidim_comments_comments.decidim_author_type IN (?)", "Decidim::UserBaseEntity")
-          .map(&:author).pluck(:id).flatten.compact.uniq
+                                  .where("decidim_comments_comments.decidim_author_id IN (?)", Decidim::User.where(organization: space.organization).pluck(:id))
+                                  .where("decidim_comments_comments.decidim_author_type IN (?)", "Decidim::UserBaseEntity")
+                                  .map(&:author).pluck(:id).flatten.compact.uniq
       end
 
       private

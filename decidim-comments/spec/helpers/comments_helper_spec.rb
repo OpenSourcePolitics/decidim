@@ -11,13 +11,13 @@ module Decidim
         it "renders the react component `Comments` with the correct data" do
           expect(helper)
             .to receive(:react_comments_component)
-                  .with(
-                    "comments-for-DummyResource-#{dummy_resource.id}",
-                    commentableType: "Decidim::DummyResources::DummyResource",
-                    commentableId: dummy_resource.id.to_s,
-                    locale: I18n.locale,
-                    commentsMaxLength: 1000
-                  ).and_call_original
+            .with(
+              "comments-for-DummyResource-#{dummy_resource.id}",
+              commentableType: "Decidim::DummyResources::DummyResource",
+              commentableId: dummy_resource.id.to_s,
+              locale: I18n.locale,
+              commentsMaxLength: 1000
+            ).and_call_original
 
           helper.comments_for(dummy_resource)
         end
@@ -43,7 +43,6 @@ module Decidim
           end
 
           context "when component has a default comments length params" do
-
             it "is invalid" do
               component.update!(settings: { comments_max_length: 2000 })
               expect(helper.comments_max_length(dummy_resource)).to eq(2000)

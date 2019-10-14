@@ -28,9 +28,9 @@ module Decidim
         node_id = "comments-for-#{commentable_type.demodulize}-#{commentable_id}"
         react_comments_component(
           node_id, commentableType: commentable_type,
-          commentableId: commentable_id,
-          locale: I18n.locale,
-          commentsMaxLength: comments_max_length(resource)
+                   commentableId: commentable_id,
+                   locale: I18n.locale,
+                   commentsMaxLength: comments_max_length(resource)
         )
       end
 
