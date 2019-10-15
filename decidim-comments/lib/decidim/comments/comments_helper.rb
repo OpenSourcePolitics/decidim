@@ -72,9 +72,8 @@ module Decidim
 
       def component_comments_max_length(resource)
         return unless resource.component&.settings.respond_to?(:comments_max_length)
-        return unless resource.component.settings.comments_max_length.positive?
 
-        resource.component.settings.comments_max_length.positive?
+        resource.component.settings.comments_max_length if resource.component.settings.comments_max_length.positive?
       end
 
       def organization_comments_max_length(resource)
