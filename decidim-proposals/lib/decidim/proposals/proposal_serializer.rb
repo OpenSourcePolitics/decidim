@@ -47,8 +47,7 @@ module Decidim
           published_at: proposal.published_at,
           url: url,
           meeting_urls: meetings,
-          related_proposals: related_proposals,
-          authors_url: authors_url
+          related_proposals: related_proposals
         }
       end
 
