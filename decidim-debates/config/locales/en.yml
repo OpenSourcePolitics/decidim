@@ -29,6 +29,7 @@ en:
         name: Debates
         settings:
           global:
+            comments_max_length: Comments max length
             announcement: Announcement
             comments_enabled: Comments enabled
           step:

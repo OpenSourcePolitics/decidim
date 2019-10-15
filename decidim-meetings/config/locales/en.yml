@@ -80,6 +80,7 @@ en:
         name: Meetings
         settings:
           global:
+            comments_max_length: Comments max length
             announcement: Announcement
             comments_enabled: Comments enabled
             default_registration_terms: Default registration terms
