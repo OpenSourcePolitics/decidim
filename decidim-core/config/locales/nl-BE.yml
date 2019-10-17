@@ -670,7 +670,7 @@ nl-BE:
       day_of_week_long: "%a %e"
       day_of_year: "%d.%m.%y"
       decidim_day_of_year: "%d/%B/%Y"
-      decidim_short: "%d/%m/%Y/%H:%M/"
+      decidim_short: "%d/%m/%Y %H:%M"
       time_of_day: "%H:%M"
   views:
     pagination:
