@@ -25,7 +25,7 @@ nl-BE:
         scopes_enabled: Scopes enabled
         short_description: Short description
         show_statistics: Show statistics
-        slug: URL slug
+        slug: URL pad
         start_date: Start date
         subtitle: Subtitle
         target: Target
@@ -81,7 +81,7 @@ nl-BE:
         participatory_processes: Processes
         participatory_processes_submenu:
           attachment_collections: Collections
-          attachment_files: Files
+          attachment_files: Bestanden
           attachments: Attachments
           categories: Categories
           components: Components
@@ -101,7 +101,7 @@ nl-BE:
         participatory_process_group:
           fields:
             name: Name
-          name: Process group
+          name: Groep inspraakprocessen
         participatory_process_step:
           fields:
             end_date: End date
@@ -135,7 +135,7 @@ nl-BE:
           update: Update
         new:
           create: Create
-          title: New process group
+          title: Nieuwe groep
         update:
           error: There was en error updating this participatory process group.
           success: Participatory process group updated successfully.
@@ -167,7 +167,7 @@ nl-BE:
         index:
           steps_title: Stappen
         new:
-          create: Create
+          create: Aanmaken
           title: New participatory process step
         ordering:
           error: There was an error when reordering this participatory process steps.
@@ -186,7 +186,7 @@ nl-BE:
         index:
           process_admins_title: Participatory process users
         new:
-          create: Create
+          create: Aanmaken
           title: New participatory process user.
         update:
           error: There was an error updated a user for this participatory process.
@@ -210,7 +210,7 @@ nl-BE:
           public: Public
           published: Published
         new:
-          create: Create
+          create: Aanmaken
           title: New participatory process
         update:
           error: Er was een probleem bij het bijwerken van dit participatief proces.
@@ -258,7 +258,7 @@ nl-BE:
           email_subject: An update to %{participatory_space_title}
           notification_title: The dates for the <a href="%{resource_path}">%{resource_title}</a> step at <a href="%{participatory_space_url}">%{participatory_space_title}</a> have been updated.
     menu:
-      processes: Processes
+      processes: Inspraakprocessen
     participatory_process_groups:
       show:
         group_participatory_processes: Processes for %{group}
@@ -271,11 +271,11 @@ nl-BE:
       admin:
         participatory_process_copies:
           form:
-            slug_help: 'URL slugs are used to generate the URLs that point to this process. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
+            slug_help: 'URL-paden worden gebruikt om de URL''s te genereren die naar dit proces verwijzen. Enkel letters, cijfers en streepjes worden toegestaan en deze moet beginnen met een letter. Voorbeeld: %{url}'
         participatory_processes:
           form:
             announcement_help: The text you enter here will be shown to the user right below the process information.
-            slug_help: 'URL slugs are used to generate the URLs that point to this process. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
+            slug_help: 'URL-paden worden gebruikt om de URL''s te genereren die naar dit proces verwijzen. Enkel letters, cijfers en streepjes worden toegestaan en deze moet beginnen met een letter. Voorbeeld: %{url}'
       index:
         title: Participatory processes
       order_by_processes:
