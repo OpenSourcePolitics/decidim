@@ -213,10 +213,10 @@ nl-BE:
         assemblies:
           form:
             duration_help: Als de duur van deze vergadering beperkt is, selecteer de einddatum. Anders zal deze voor onbepaalde tijd verschijnen.
-            included_at_help: Selecteer de datum waarop deze vergadering is toegevoegd aan de Beslissingsdatum. Het hoeft niet noodzakelijkerwijs hetzelfde te zijn als de aanmaakdatum.
+            included_at_help: Selecteer de datum waarop deze groep aan Decidim is toegevoegd. Het hoeft niet noodzakelijk hetzelfde te zijn als de aanmaakdatum.
             select_a_created_by: Kies een categorie
             select_an_area: Selecteer een onderwerp
-            select_an_assembly_type: Selecteer een assemblage type
+            select_an_assembly_type: Selecteer een groepstype
             slug_help: 'URL-slugs worden gebruikt om de URL''s te genereren die naar deze vergadering verwijzen. Accepteer alleen letters, cijfers en streepjes, en moet beginnen met een letter. Voorbeeld: %{url}'
             social_handlers: Sociaal
         assembly_copies:
