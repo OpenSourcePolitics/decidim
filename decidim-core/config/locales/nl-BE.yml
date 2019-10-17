@@ -982,7 +982,7 @@ nl-BE:
         sign_up: Sign up
       participatory_space_filters:
         filters:
-          areas: Areas
+          areas: Onderwerpen
           select_an_area: Selecteer een onderwerp
       reference:
         reference: 'Reference: %{reference}'
