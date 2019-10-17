@@ -15,7 +15,7 @@ nl-BE:
         hero_image: Home image
         local_area: Local area
         meta_scope: Scope metadata
-        participatory_process_group_id: Processes group
+        participatory_process_group_id: Groep van processen
         participatory_scope: Participatory scope
         participatory_structure: Participatory structure
         private_space: Espace privé
@@ -27,7 +27,7 @@ nl-BE:
         show_statistics: Show statistics
         slug: URL pad
         start_date: Start date
-        subtitle: Subtitle
+        subtitle: Ondertitel
         target: Target
         title: Title
       participatory_process_group:
@@ -77,8 +77,8 @@ nl-BE:
         resend_invitation: Resend invitation
         unpublish: Unpublish
       menu:
-        participatory_process_groups: Process groups
-        participatory_processes: Processes
+        participatory_process_groups: Inspraakproces groepen
+        participatory_processes: Inspraakprocessen
         participatory_processes_submenu:
           attachment_collections: Collections
           attachment_files: Bestanden
@@ -126,7 +126,7 @@ nl-BE:
         new:
           copy: Copy
           select: Select which data you would like to duplicate
-          title: Duplicate participatory process
+          title: Inspraakproces dupliceren
       participatory_process_groups:
         destroy:
           success: Participatory process group destroyed successfully.
@@ -224,7 +224,7 @@ nl-BE:
           error: There was an error creating a new participatory process group.
           success: Groep van participatieve processen succesvol aangemaakt.
       titles:
-        participatory_process_groups: Participatory process groups
+        participatory_process_groups: Groepen van participatieve processen
         participatory_processes: Participatory processes
       users:
         resend_invitation:
@@ -262,7 +262,7 @@ nl-BE:
     participatory_process_groups:
       show:
         group_participatory_processes: Processes for %{group}
-        title: Participatory process groups
+        title: Groepen van participatieve processen
     participatory_process_steps:
       index:
         process_steps: Stappen van het proces
@@ -277,7 +277,7 @@ nl-BE:
             announcement_help: The text you enter here will be shown to the user right below the process information.
             slug_help: 'URL-paden worden gebruikt om de URL''s te genereren die naar dit proces verwijzen. Enkel letters, cijfers en streepjes worden toegestaan en deze moet beginnen met een letter. Voorbeeld: %{url}'
       index:
-        title: Participatory processes
+        title: Inspraakproces
       order_by_processes:
         active: Active
         all: All
