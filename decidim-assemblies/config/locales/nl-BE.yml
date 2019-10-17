@@ -20,7 +20,7 @@ nl-BE:
         description: Omschrijving	
         developer_group: Promotorgroep
         domain: Domein
-        duration: Looptijd
+        duration: Duur
         facebook: Facebook
         github: GitHub
         hashtag: Hashtag
@@ -34,7 +34,7 @@ nl-BE:
         parent_id: Hoofdgroep
         participatory_processes_ids: Verwante bevragingen
         participatory_scope: Wat wordt besloten
-        participatory_structure: Hoe is het besloten
+        participatory_structure: Hoe wordt er besloten
         private_space: Privé ruimte
         promoted: gepromoveerd
         published_at: Gepubliceerd op
@@ -290,7 +290,7 @@ nl-BE:
         created_by: Gemaakt door
         creation_date: Datum aangemaakt
         developer_group: Promotorgroep
-        duration: Looptijd
+        duration: Duur
         included_at: '-'
         indefinite_duration: Onbepaald
         internal_organisation: Interne organisatie
@@ -299,7 +299,7 @@ nl-BE:
           'true': is transparant
         local_area: Organisatiegebied
         participatory_scope: Wat wordt besloten
-        participatory_structure: Hoe is het besloten
+        participatory_structure: Hoe wordt er besloten
         private_space: Dit is een privé-groep
         purpose_of_action: Doelstelling
         read_less: Lees minder
