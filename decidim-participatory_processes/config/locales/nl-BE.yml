@@ -3,12 +3,12 @@ nl-BE:
     attributes:
       participatory_process:
         announcement: Bericht
-        area_id: Area
+        area_id: Onderwerp
         banner_image: Banner afbeelding
         copy_categories: Kopieercategorieën
         copy_components: Kopieer componenten
         copy_steps: Kopieer stappen
-        decidim_area_id: Area
+        decidim_area_id: Onderwerp
         description: Beschrijving
         developer_group: Promotorgroep
         domain: Domain
@@ -88,7 +88,7 @@ nl-BE:
         participatory_process_groups: Process groups
         participatory_processes: Processes
         participatory_processes_submenu:
-          attachment_collections: Map
+          attachment_collections: Mappen
           attachment_files: Files
           attachments: Attachments
           categories: Categories
@@ -96,7 +96,7 @@ nl-BE:
           info: Info
           moderations: Moderations
           private_users: Private Users
-          process_admins: Process users
+          process_admins: Admins van het proces
           steps: Steps
       models:
         participatory_process:
@@ -116,13 +116,13 @@ nl-BE:
             end_date: End date
             start_date: Start date
             title: Title
-          name: Participatory process step
+          name: Stap van het inspraakproces
         participatory_process_user_role:
           fields:
             email: Email
             name: Name
             role: Role
-          name: Participatory process user
+          name: Admin van het participatief proces
           roles:
             admin: Administrator
             collaborator: Collaborator
@@ -153,8 +153,8 @@ nl-BE:
           error: There was an error publishing this participatory process.
           success: Participatory process published successfully.
         destroy:
-          error: There was an error unpublishing this participatory process.
-          success: Participatory process unpublished successfully.
+          error: Er was een probleem bij het depubliceren van dit participatief proces.
+          success: Participatief proces is succesvol gedepubliceerd.
       participatory_process_step_activations:
         create:
           error: There was an error activating this participatory process step.
@@ -170,35 +170,35 @@ nl-BE:
             last_step: Can't delete the last step of a process.
           success: Participatory process step deleted successfully.
         edit:
-          title: Edit participatory process step
+          title: Bewerk processtap
           update: Update
         index:
-          steps_title: Steps
+          steps_title: Fases
         new:
           create: Create
-          title: New participatory process step
+          title: Nieuwe processtap
         ordering:
-          error: There was an error when reordering this participatory process steps.
+          error: Er is een fout opgetreden bij het herschikken van deze processtappen.
         update:
-          error: There was an error when updating this participatory process step.
-          success: Participatory process step updated successfully.
+          error: Er is een fout opgetreden bij het bijwerken van deze processtap.
+          success: Fase van participatief proces succesvol bijgewerkt.
       participatory_process_user_roles:
         create:
-          error: There was an error adding a user for this participatory process.
-          success: User added successfully to this participatory process.
+          error: Er is een fout opgetreden bij het toevoegen van een gebruiker aan dit inspraakproces.
+          success: Admin is succesvol toegevoegd aan dit participatief proces.
         destroy:
-          success: User removed successfully from this participatory process.
+          success: Admin succesvol verwijderd van dit participatief proces.
         edit:
-          title: Update participatory process user.
+          title: Werk procesbeheerder bij.
           update: Update
         index:
-          process_admins_title: Participatory process users
+          process_admins_title: Admins van het participatieve proces
         new:
           create: Create
-          title: New participatory process user.
+          title: Nieuwe admin voor het participatieve proces.
         update:
-          error: There was an error updated a user for this participatory process.
-          success: User updated successfully for this participatory process.
+          error: Er is een probleem opgetreden bij het bijwerken van een admin voor dit participatief proces.
+          success: Admin succesvol bijgewerkt voor dit participatief proces.
       participatory_processes:
         create:
           error: There was an error creating a new participatory process.
@@ -217,16 +217,16 @@ nl-BE:
           create: Create
           title: New participatory process
         update:
-          error: There was an error when updating this participatory process.
-          success: Participatory process updated successfully.
+          error: Er was een probleem bij het bijwerken van dit participatief proces.
+          success: Participatief proces succesvol bijgewerkt.
       participatory_processes_copies:
         create:
           error: There was an error when duplicating this participatory process.
-          success: Participatory process duplicated successfully.
+          success: Participatief proces is succesvol gedupliceerd.
       participatory_processes_group:
         create:
-          error: There was an error creating a new participatory process group.
-          success: Participatory process group created successfully.
+          error: Er is een fout opgetreden bij het maken van een nieuwe groep voor participatieve processen.
+          success: Groep van participatieve processen succesvol aangemaakt.
       titles:
         participatory_process_groups: Participatory process groups
         participatory_processes: Participatory processes
@@ -241,7 +241,7 @@ nl-BE:
         unpublish: "%{user_name} unpublished the %{resource_name} participatory process"
         update: "%{user_name} updated the %{resource_name} participatory process"
       participatory_process_step:
-        activate: "%{user_name} activated the %{resource_name} step in the %{space_name} participatory process"
+        activate: "%{user_name} heeft %{resource_name} fase in de %{space_name} het inspraakproces geactiveerd"
         create: "%{user_name} created the %{resource_name} step in the %{space_name} participatory process"
         delete: "%{user_name} deleted the %{resource_name} step in the %{space_name} participatory process"
         update: "%{user_name} updated the %{resource_name} step in the %{space_name} participatory process"
@@ -288,7 +288,7 @@ nl-BE:
     participatory_process_steps:
       index:
         process_steps: Process steps
-        title: Participatory process steps
+        title: Fases van het participatieve proces
     participatory_processes:
       admin:
         content_blocks:
