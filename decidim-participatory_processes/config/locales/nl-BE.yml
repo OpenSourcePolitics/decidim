@@ -33,7 +33,7 @@ nl-BE:
       participatory_process_group:
         description: Description
         hero_image: Image
-        name: Name
+        name: Naam
         participatory_process_ids: Related processes
       participatory_process_step:
         action_btn_text: Action bouton text
