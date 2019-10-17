@@ -165,7 +165,7 @@ nl-BE:
           title: Edit participatory process step
           update: Update
         index:
-          steps_title: Steps
+          steps_title: Stappen
         new:
           create: Create
           title: New participatory process step
@@ -265,7 +265,7 @@ nl-BE:
         title: Participatory process groups
     participatory_process_steps:
       index:
-        process_steps: Process steps
+        process_steps: Stappen van het proces
         title: Participatory process steps
     participatory_processes:
       admin:
