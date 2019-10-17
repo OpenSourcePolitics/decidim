@@ -4,7 +4,7 @@ namespace :decidim do
   namespace :budgets do
     desc "Setup environment so that only decidim migrations are installed."
     task reminder: :environment do
-      pending_orders = Decidim::Budgets::Order.where(checked_out_at: nil).where("updated_at > ?", 24.hours.ago)
+      pending_orders = Decidim::Budgets::Order.where(checked_out_at: nil).where("updated_at < ?", 24.hours.ago)
 
       notify_user(pending_orders)
     end
