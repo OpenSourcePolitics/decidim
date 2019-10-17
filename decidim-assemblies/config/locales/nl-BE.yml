@@ -10,7 +10,7 @@ nl-BE:
         closing_date_reason: Reden sluitingsdatum
         composition: Compositie
         copy_categories: Kopieercategorieën
-        copy_components: Kopieer componenten
+        copy_components: Kopieer onderdelen
         copy_features: Kopieerfuncties
         created_by: Gemaakt door
         created_by_other: Gemaakt door andere
@@ -30,8 +30,8 @@ nl-BE:
         internal_organisation: Interne organisatie
         is_transparent: Is transparant
         local_area: Lokale buurt
-        meta_scope: Omvang metadata
-        participatory_processes_ids: Update deelnemende proces gebruiker
+        meta_scope: Scope metadata
+        participatory_processes_ids: Verwante inspraakprocessen
         participatory_scope: Participatieve scope
         participatory_structure: Participatieve structuur
         private_space: Privé ruimte
@@ -150,7 +150,7 @@ nl-BE:
           error: Er is een fout opgetreden die een gebruiker bijgewerkt heeft voor dit deelnemende proces.
           success: Gebruiker is succesvol bijgewerkt voor dit deelnemende proces.
       menu:
-        assemblies: Gemeentes
+        assemblies: Groepen
         assemblies_submenu:
           assembly_admins: Gemeentes
           assembly_members: Leden
@@ -165,7 +165,7 @@ nl-BE:
       models:
         assembly:
           fields:
-            created_at: Gemaakt bij
+            created_at: Aangemaakt op
             private: Privé
             promoted: Opvallende
             published: Gepubliceerd
