@@ -46,7 +46,7 @@ nl-BE:
         enable_omnipresent_banner: Toon omnipresent banner
         facebook_handler: Facebook handler
         favicon: Icoon
-        from: Van e-mailadres
+        from: Afzender van de e-mail
         github_handler: GitHub handler
         header_snippets: Koptekstjes
         highlighted_content_banner_action_subtitle: Ondertitel van de actieknop
