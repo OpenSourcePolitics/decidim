@@ -1,6 +1,8 @@
 ---
 fr:
   activemodel:
+    models:
+      decidim/budgets/decidim_events_budgets_reminder_order: Événement de rappel de vote
     attributes:
       project:
         budget: Budget

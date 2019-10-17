@@ -1,6 +1,8 @@
 ---
 en:
   activemodel:
+    models:
+      decidim/budgets/decidim_events_budgets_reminder_order: Reminder order event
     attributes:
       project:
         budget: Budget
