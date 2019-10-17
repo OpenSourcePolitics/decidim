@@ -75,7 +75,7 @@ nl-BE:
         tos_version: Algemene versie
         twitter_handler: Twitter handler
         user_groups_enabled: Enable user groups
-        user_name: Username
+        user_name: Gebruikersnaam
         warning_color: Waarschuwing
         youtube_handler: YouTube-handler
       scope:
@@ -160,7 +160,7 @@ nl-BE:
           error: There was an error creating a new area.
           success: Admin is succesvol gemaakt.
         destroy:
-          has_spaces: Area has dependent spaces, it must not have dependencies in order to be deleted.
+          has_spaces: Gebied heeft afhankelijke ruimten, het mag geen afhankelijkheden hebben om te worden verwijderd.
           success: Pagina succesvol vernietigd
         edit:
           title: Bewerk gebied
@@ -387,7 +387,7 @@ nl-BE:
             created_at: Gemaakt bij
             progress: Vooruitgang
             sent_at: Verzonden bij
-            sent_to: Sent to
+            sent_to: Verzonden aan
             subject: Onderwerpen
           name: Nieuwsbrief
         oauth_application:
@@ -475,11 +475,11 @@ nl-BE:
         form:
           interpolations_hint: 'Hint: U kunt "%{name}" overal in het lichaam of onderwerp gebruiken en het wordt vervangen door de naam van de ontvanger.'
         index:
-          all: all
-          all_users: 'All users '
-          and: 'and '
+          all: alle
+          all_users: 'Alle gebruikers '
+          and: 'en '
           confirm_delete: Weet u zeker dat u deze nieuwsbrief wilt verwijderen?
-          followers: 'followers '
+          followers: 'volgers '
           has_been_sent_to: 'Is verzonden naar: '
           no_scopes: Geen scopes
           not_sent: Niet verzonden
