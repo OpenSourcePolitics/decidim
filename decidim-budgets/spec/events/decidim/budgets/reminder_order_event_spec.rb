@@ -20,7 +20,7 @@ describe Decidim::Budgets::ReminderOrderEvent do
   describe "email_intro" do
     it "is generated correctly" do
       expect(subject.email_intro)
-        .to eq("A vote is still pending! You can always continue by clicking here: <a href='#{component_url}'>#{translated(resource.participatory_space.title)}")
+        .to eq("A vote is still pending! You can always continue by clicking here: <a href='#{component_url}'>#{translated(resource.participatory_space.title)}</a>")
     end
   end
 

@@ -173,6 +173,11 @@ fr:
             votes_enabled: Votes activés
     events:
       budgets:
+        reminder_order:
+          email_intro: "Un vote est toujours en attente ! Vous pouvez toujours continuer en cliquant ici : <a href='%{resource_url}'>%{participatory_space_title}</a>"
+          email_outro: Merci de votre participation
+          email_subject: "Un vote est toujours en attente sur %{participatory_space_title}"
+          notification_title: "Un vote est toujours en attente ! Vous pouvez toujours continuer en cliquant ici : <a href='%{resource_url}'>%{participatory_space_title}</a>"
         order_checkout:
           email_intro: 'Your vote has been validated. You can always edit it if you
             like by clicking here:'
