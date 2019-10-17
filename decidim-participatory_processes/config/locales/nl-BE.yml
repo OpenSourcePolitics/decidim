@@ -299,7 +299,7 @@ nl-BE:
         end_date: End date
         local_area: Organization Area
         participatory_scope: What is decided
-        participatory_structure: How is it decided
+        participatory_structure: Hoe wordt er besloten
         private_space: This is a private process
         scope: Scope
         start_date: Start date
@@ -333,7 +333,7 @@ nl-BE:
           take_part: Take part
       participatory_processes:
         index:
-          promoted_processes: Highlighted processes
+          promoted_processes: Uitgelichte processen
         order_by_processes:
           processes:
             one: "%{count} process"
