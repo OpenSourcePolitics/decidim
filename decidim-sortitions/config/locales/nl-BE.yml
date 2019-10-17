@@ -6,7 +6,7 @@ nl-BE:
         decidim_category_id: Categories of the set of proposals in which you want to apply the draw
         decidim_proposals_component_id: Proposals set
         dice: Result of die roll. Roll a 6-sided die, or look for another random way to generate a number from 1 to 6, and enter here the resulting number in front of some witnesses. This contributes to the quality and guarantees of the randomness of the result
-        target_items: Number of proposals to be selected (indicates the number of proposals you want to be selected by drawing lots of the group of proposals you have previously chosen)
+        target_items: Aantal voorstellen dat moet worden geselecteerd (geeft het aantal voorstellen aan dat je wil selecteren door groepsvoorstellen te selecteren die je eerder hebt gekozen)
         title: Title
         witnesses: Witnesses
     models:
@@ -69,30 +69,30 @@ nl-BE:
             success: Sortition successfully created
           destroy:
             error: Can not cancel the sortition.
-            success: Sortition successfully cancelled
+            success: Loting succesvol geannuleerd
           edit:
-            title: Update the information about the sortition
+            title: Update de informatie over de loting
             update: Update
           form:
             all_categories: All categories
             select_proposal_component: Select the proposals set
-            title: New sortition for proposals
+            title: Nieuwe loting van de voorstellen
           index:
             title: Sortitions
           new:
             confirm: By pressing the next button Decidim will record the date and time (with precision of seconds) and together with the dice roll, this information will be used to generate a random selection. The action will be irreversible, once the button is clicked the result of this draw will be published, together with the data entered in this form and can not be modified, please check the content carefully
             create: Create
-            title: New sortition
+            title: Nieuwe loting
           show:
             selected_proposals: Proposals selected for draw
           update:
             error: There was an error updating the sortition.
-            success: Sortition successfully updated
+            success: Loting succesvol bijgewerkt
       admin_log:
         sortition:
-          create: "%{user_name} created the %{resource_name} sortition in %{space_name}"
-          delete: "%{user_name} cancelled the %{resource_name} sortition in %{space_name}"
-          update: "%{user_name} updated the %{resource_name} sortition in %{space_name}"
+          create: "%{user_name} heeft de %{resource_name} loting gemaakt in %{space_name}"
+          delete: "%{user_name} heeft de %{resource_name} loting geannuleerd in %{space_name}"
+          update: "%{user_name} heeft de %{resource_name} loting bijgewerkt in %{space_name}"
       sortitions:
         count:
           proposals_count:
@@ -114,7 +114,7 @@ nl-BE:
         linked_sortitions:
           selected_proposals: Selected proposals
         orders:
-          label: 'Order sortitions by:'
+          label: 'Lotingen ordenen op:'
           random: Random
           recent: Recent
         results_count:
@@ -126,10 +126,10 @@ nl-BE:
           any_category: from all categories
           cancelled: Cancelled sortition
           candidate_proposal_ids: Sortition proposals order and IDs
-          candidate_proposals_info: 'The sortition was carried out among the following proposals (%{category_label}), with the following IDs (in bold the selected proposals) '
+          candidate_proposals_info: 'De loting werd uitgevoerd tussen de volgende voorstellen (%{category_label}), met de volgende ID''s (vetgedrukt de geselecteerde voorstellen) '
           category: from the %{category} category
           dice_result: "(1) Dice result"
-          introduction: 'This page contains the results of the sortition %{reference}. By means of this sortition, %{target_items} number of results have been selected randomly and with an equal probability distribution from the set of proposals displayed bellow. Together with the results, the information displayed on this page provides all the information required to maximize guarantees and to reproduce the results. The key to the quality of this sortition is the double randomness provided by a the rolling of a dice(verified by witnesses) and the precise time of the sortition that provides input for an algorithm that generates a random selection. The time-seed for the sortition is so accurate (seconds) that it is impossible to control by humans thus providing a double "uncontrollable" input to guarantee a fair result. '
+          introduction: 'Deze pagina bevat de resultaten van de loting %{reference}. Door middel van deze loting is het %{target_items} aantal resultaten willekeurig geselecteerd en met een gelijke kansverdeling uit de set weergegeven voorstellen. Samen met de resultaten biedt de informatie die op deze pagina wordt weergegeven alle informatie die nodig is om garanties te maximaliseren en de resultaten te reproduceren. De sleutel tot de kwaliteit van deze loting is de dubbele willekeurigheid die wordt geboden door het rollen van een dobbelsteen (geverifieerd door getuigen) en de precieze tijd van de loting die input levert voor een algoritme dat een willekeurige selectie genereert. Het tijdsbestek voor de loting is zo nauwkeurig (seconden) dat het onmogelijk is om door mensen te controleren en biedt dus een dubbele "oncontroleerbare" invoer om een ​​rechtvaardig resultaat te garanderen. '
           mathematical_result: Result (1) x (2)
           proposals_selected_by_sortition: Voorstellen geselecteerd door loting
           sortition_reproducibility_details: Loting reproduceerbaarheidsdetails
