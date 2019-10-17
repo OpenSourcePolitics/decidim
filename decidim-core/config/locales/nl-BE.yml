@@ -173,7 +173,7 @@ nl-BE:
         back: Terug
         heading: Maak uw amendement aan
         help_text: U wijzigt de %{model_name}
-        send: Stuur amendement in
+        send: Aanmaken
       promoted:
         error: Er zijn fouten opgetreden bij het promoten van het amendement
         success: Emendatie succesvol gepromoveerd
@@ -836,7 +836,7 @@ nl-BE:
           headline: In cijfers
         statistics:
           answers_count: Voltooide Surveys
-          assemblies_count: Gemeentes
+          assemblies_count: Groepen
           comments_count: Reacties
           conferences_count: Conferenties
           debates_count: Debatten
@@ -845,7 +845,7 @@ nl-BE:
           meetings_count: Vergaderingen
           orders_count: Stemmen
           pages_count: Pagina's
-          processes_count: Bevragingen
+          processes_count: Inspraakprocessen
           projects_count: Projecten
           proposals_accepted: Geaccepteerde voorstellen
           proposals_count: Voorstellen
@@ -1267,7 +1267,7 @@ nl-BE:
       day_of_week_long: "%a %e"
       day_of_year: "%d.%m.%y"
       decidim_day_of_year: "%d %B %Y"
-      decidim_short: "%d/%m/%Y/%H:%M/"
+      decidim_short: "%d/%m/%Y %H:%M"
       devise:
         mailer:
           invitation_instructions:
