@@ -311,7 +311,7 @@ nl-BE:
             name: Voorstel
         participatory_texts:
           bulk-actions:
-            are_you_sure: Weet u zeker dat u de hele participatieve tekst tekst wilt verwijderen?
+            are_you_sure: Weet je zeker dat je de hele ontwerptekst wilt verwijderen?
             discard_all: Alles verwijderen
             import_doc: Importeer document
           discard:
