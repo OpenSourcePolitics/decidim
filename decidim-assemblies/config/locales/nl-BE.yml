@@ -114,7 +114,7 @@ nl-BE:
           title: Update assemblee gebruiker.
           update: Bijwerken
         index:
-          assembly_members_title: Bijwerken
+          assembly_members_title: Groep leden
         new:
           create: Creëren
           title: Nieuwe montage.
@@ -265,18 +265,18 @@ nl-BE:
       filter:
         all: Alle types
         commission: Commissie
-        consultative_advisory: Raadgevend/Raadgevend
+        consultative_advisory: Adviesgroep
         executive: Uitvoerend
         government: Overheid
         help: 'Toon:'
         label: 'Toon:'
-        others: Leden
+        others: Overige
         participatory: Participatief
         working_group: Werkgroep
       index:
         title: Gemeentes
       last_activity:
-        new_assembly: Nieuwe montage
+        new_assembly: Nieuwe groep
       pages:
         home:
           highlighted_assemblies:
@@ -287,7 +287,7 @@ nl-BE:
             member_of: Lid van
       show:
         area: Gebied
-        assembly_type: Buurderij type
+        assembly_type: Groepstype
         children: Gemeentes
         closing_date: Sluitingsdatum
         composition: Compositie
@@ -320,14 +320,14 @@ nl-BE:
         endorsements_count: Ondersteuningen
         headline: Activiteit
         meetings_count: Vergaderingen
-        orders_count: Votes
+        orders_count: Ondersteunt
         pages_count: Pagina's
         projects_count: Projecten
         proposals_count: Voorstellen
         results_count: Resultaten
         surveys_count: Overleven
         users_count: Deelnemers
-        votes_count: Votes
+        votes_count: Ondersteunt
     assembly_members:
       assembly_member:
         designated_on: Ontworpen op
@@ -342,7 +342,7 @@ nl-BE:
     log:
       value_types:
         assembly_presenter:
-          not_found: 'De Buurderij is niet gevonden op de database (ID: %{id})'
+          not_found: 'De groep is niet gevonden in de database (ID: %{id})'
     menu:
       assemblies: Gemeentes
     metrics:
