@@ -70,8 +70,8 @@ nl-BE:
           error: Er is een fout opgetreden bij het publiceren van deze raadpleging.
           success: Raadpleging met succes gepubliceerd.
         destroy:
-          error: Er is een fout opgetreden bij het publiceren van deze raadpleging.
-          success: Raadpleging met succes gepubliceerd.
+          error: Er is een fout opgetreden bij het depubliceren van de resultaten van deze raadpleging.
+          success: Resultaten van raadpleging met succes gedepubliceerd.
       consultations:
         create:
           error: Er is een fout opgetreden bij het maken van een nieuw raadpleging.
@@ -240,14 +240,14 @@ nl-BE:
           published_results: Resultaten gepubliceerd
         footer_button_text:
           debate: Debat
-          view: Uitzicht
+          view: Bekijk
           view_results: Bekijk resultaten
           vote: Stem
         unspecified: Niet gespecificeerd
     help:
       participatory_spaces:
         consultations:
-          contextual: "<p>raadplegingen zijn een ruimte die u in staat stelt een duidelijke vraag te stellen aan alle mensen die een organisatie vormen, een oproep te doen om deel te nemen aan de raadpleging, te vouwen en het debat voor of tegen een reactie te bestellen. Wanneer de raadplegingsdatum er is, kunt u stemmen en de uitslag van de stemmingen publiceren.</p> <p>Voorbeelden: het overleg kan over bijna elk aspect gaan dat een organisatie beïnvloedt: sommige voorbeelden veranderen de naam of het logo van de organisatie die verschillende alternatieven biedt, besluiten ja of nee om deel te nemen aan een grotere organisatie, valideren of verwerpen van een nieuw strategisch plan of het resultaat van een werkgroep, of bepalen of de posities maximaal 1, 2 of 3 mandaten moeten blijven.</p>\n"
+          contextual: "<p><strong>Raadplegingen</strong> is een ruimte die u toelaat om een duidelijke vraag te stellen aan alle mensen die een organisatie vormen, een oproep doen om deel te nemen aan de raadpleging en het debat voor of tegen een reactie te faciliteren. Wanneer de raadplegingsdatum bereikt wordt, kunt u stemmen en de resultaten van de stemmen publiceren.</p> <p>Voorbeelden: de raadplegingen kunnen bijna elk aspect van een organisatie betreffen: bijvoorbeeld een discussie over het veranderen van naam of het logo van de organisatie met verschillende alternatieven; beslissen Ja of Nee om deel uit te maken van een grotere organisatie; een nieuwe strategische plan; het resultaat van een werkgroep valideren;...</p>\n"
           page: "<p>raadplegingen zijn een ruimte die u in staat stelt een duidelijke vraag te stellen aan alle mensen die een organisatie vormen, een oproep te doen om deel te nemen aan de raadpleging, te vouwen en het debat voor of tegen een reactie te bestellen. Wanneer de raadplegingsdatum er is, kunt u stemmen en de uitslag van de stemmingen publiceren.</p> <p>Voorbeelden: het overleg kan over bijna elk aspect gaan dat een organisatie beïnvloedt: sommige voorbeelden veranderen de naam of het logo van de organisatie die verschillende alternatieven biedt, besluiten ja of nee om deel te nemen aan een grotere organisatie, valideren of verwerpen van een nieuw strategisch plan of het resultaat van een werkgroep, of bepalen of de posities maximaal 1, 2 of 3 mandaten moeten blijven.</p>\n"
           title: Wat zijn raadplegingen?
     menu:
