@@ -1,7 +1,5 @@
 fr:
   activemodel:
-    models:
-      decidim/budgets/decidim_events_budgets_reminder_order: Reminder order event
     attributes:
       project:
         budget: Budget
@@ -10,6 +8,8 @@ fr:
         description: Description
         proposal_ids: Propositions liées
         title: Titre
+    models:
+      decidim/budgets/decidim_events_budgets_reminder_order: Reminder order event
   activerecord:
     errors:
       messages:
@@ -174,16 +174,16 @@ fr:
             votes_enabled: Votes activés
     events:
       budgets:
-        reminder_order:
-          email_intro: "A vote is still pending! You can always continue by clicking here: <a href='%{resource_url}'>%{participatory_space_title}</a>"
-          email_outro: Merci de votre participation
-          email_subject: "A vote is still pending on %{participatory_space_title}"
-          notification_title: "A vote is still pending! You can always continue by clicking here: <a href='%{resource_url}'>%{participatory_space_title}</a>"
         order_checkout:
           email_intro: 'Votre vote a été validé. Vous pouvez toujours l''éditer si vous voulez en cliquant ici : <a href=''%{resource_url}''>%{participatory_space_title}'
           email_outro: Merci de votre participation
           email_subject: Une enquête est terminée à %{participatory_space_title}
           notification_title: Votre vote a été validé le <a href='%{resource_url}'>%{participatory_space_title}</a> Vous pouvez toujours l'éditer si vous le souhaitez.
+        reminder_order:
+          email_intro: 'A vote is still pending! You can always continue by clicking here: <a href=''%{resource_url}''>%{participatory_space_title}</a>'
+          email_outro: Merci de votre participation
+          email_subject: A vote is still pending on %{participatory_space_title}
+          notification_title: 'A vote is still pending! You can always continue by clicking here: <a href=''%{resource_url}''>%{participatory_space_title}</a>'
     orders:
       checkout:
         error: Une erreur s'est produite lors du traitement de votre vote
