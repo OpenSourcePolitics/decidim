@@ -329,7 +329,7 @@ nl-BE:
           newsletter: Ontvang een incidentele nieuwsbrief met relevante informatie
           newsletter_title: Contactrechten
           nickname_help: Your short, unique identifier in %{organization}
-          password_help: "%{minimun_characters} characters minimum, must not be too common (e.g. 123456) and must be different from your nickname and your email."
+          password_help: "gebruik minimaal %{minimun_characters} tekens, deze mogen niet te algemeen zijn (bijv. 123456) en moeten anders zijn dan je alias en je e-mail."
           sign_in: Aanmelden
           sign_up: Registreren
           sign_up_as:
@@ -834,7 +834,7 @@ nl-BE:
           headline: In cijfers
         statistics:
           answers_count: Voltooide Surveys
-          assemblies_count: Gemeentes
+          assemblies_count: Groepen
           comments_count: Beschrijving
           conferences_count: Conferenties
           debates_count: Debatten
@@ -1105,7 +1105,7 @@ nl-BE:
         change_your_password: Wijzig uw wachtwoord
         confirm_new_password: Nieuw wachtwoord bevestigen
         new_password: Nieuw wachtwoord
-        password_help: "%{minimun_characters} characters minimum, must not be too common (e.g. 123456) and must be different from your nickname and your email."
+        password_help: "gebruik minimaal %{minimun_characters} tekens, deze mogen niet te algemeen zijn (bijv. 123456) en moeten anders zijn dan je alias en je e-mail."
       new:
         forgot_your_password: Wachtwoord vergeten?
         send_me_reset_password_instructions: Stuur me instructies om mijn wachtwoord te resetten
@@ -1283,12 +1283,12 @@ nl-BE:
       time_of_day: "%H:%M"
   versions:
     directions:
-      left: Deletions
-      right: Additions
+      left: Verwijderingen
+      right: Toevoegingen
     dropdown:
-      choose_diff_view_mode: 'Compare view mode:'
-      option_split: Side-by-side
-      option_unified: Unified
+      choose_diff_view_mode: 'Vergelijk weergavemodus:'
+      option_split: Naast elkaar
+      option_unified: Verenigd
   views:
     pagination:
       first: "&laquo; Eerste"
