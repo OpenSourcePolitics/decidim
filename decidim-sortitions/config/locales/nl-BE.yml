@@ -33,10 +33,10 @@ nl-BE:
     pages:
       home:
         statistics:
-          sortitions_count: Sortitions
+          sortitions_count: Lotingen
     participatory_processes:
       statistics:
-        sortitions_count: Sortitions
+        sortitions_count: Lotingen
     sortitions:
       admin:
         actions:
@@ -147,5 +147,5 @@ nl-BE:
           deleted: Deleted user
         sortitions_count:
           count:
-            one: 1 sortition
-            other: "%{count} sortitions"
+            one: 1 loting
+            other: "%{count} lotingen"
