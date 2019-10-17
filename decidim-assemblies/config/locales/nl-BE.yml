@@ -271,7 +271,7 @@ nl-BE:
         creation_date: Datum aangemaakt
         developer_group: Ontwikkelaarsgroep
         duration: Duur
-        included_at: '-'
+        included_at: Opgenomen op
         indefinite_duration: Onbepaald
         internal_organisation: Interne organisatie
         is_transparent:
@@ -324,7 +324,7 @@ nl-BE:
         assembly:
           take_part: Deelnemen
         index:
-          promoted_assemblies: Uitgelichte samenstellingen
+          promoted_assemblies: Uitgelichte groepen
         order_by_assemblies:
           assemblies:
             one: "%{count} gemeentes"
