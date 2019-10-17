@@ -417,7 +417,7 @@ nl-BE:
           welcome: Welkom bij %{organization}!
         statistics:
           answers_count: Voltooide Surveys
-          assemblies_count: Gemeentes
+          assemblies_count: Groepen
           comments_count: Beschrijving
           debates_count: Debatten
           endorsements_count: Eindverklaringen
@@ -436,7 +436,7 @@ nl-BE:
         sub_hero:
           register: Registreer
       index:
-        title: Meer informatie
+        title: Help
       terms_and_conditions:
         accept:
           error: Er is een fout opgetreden tijdens het accepteren van de voorwaarden en voorwaarden.
