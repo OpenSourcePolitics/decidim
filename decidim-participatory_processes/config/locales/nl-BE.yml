@@ -15,7 +15,7 @@ nl-BE:
         hero_image: Afbeelding van de startpagina
         local_area: Organisatiegebied
         meta_scope: Omvang metadata
-        participatory_process_group_id: Processen groep
+        participatory_process_group_id: Groep van processen
         participatory_scope: Wat wordt besloten
         participatory_structure: Hoe wordt er besloten
         private_space: Concertatie privée
@@ -81,8 +81,8 @@ nl-BE:
         resend_invitation: Uitnodiging verzenden
         unpublish: Publicatie ongedaan maken
       menu:
-        participatory_process_groups: Procesgroepen
-        participatory_processes: Processen
+        participatory_process_groups: Inspraakproces groepen
+        participatory_processes: Inspraakprocessen
         participatory_processes_submenu:
           attachment_collections: Mappen
           attachment_files: Bestanden
@@ -102,7 +102,7 @@ nl-BE:
             promoted: Opvallende
             published: Gepubliceerd
             title: Titel
-          name: Deelnemend proces
+          name: Inspraakproces
         participatory_process_group:
           fields:
             name: Naam
@@ -131,7 +131,7 @@ nl-BE:
         new:
           copy: Kopiëren
           select: Selecteer welke gegevens u wilt dupliceren
-          title: Dubbele participatieve processen
+          title: Inspraakproces dupliceren
       participatory_process_groups:
         destroy:
           success: Deelnemende procesgroep is succesvol vernietigd.
@@ -140,7 +140,7 @@ nl-BE:
           update: Bijwerken
         new:
           create: creëren
-          title: Nieuwe procesgroep
+          title: Nieuwe groep
         update:
           error: Er was een fout bij het bijwerken van deze deelnemende procesgroep.
           success: Deelnemende procesgroep is succesvol bijgewerkt.
@@ -171,7 +171,7 @@ nl-BE:
         index:
           steps_title: Stappen
         new:
-          create: creëren
+          create: Aanmaken
           title: Nieuwe participerende processtap
         ordering:
           error: Er is een fout opgetreden bij het herbestellen van deze deelnemende processtappen.
@@ -190,7 +190,7 @@ nl-BE:
         index:
           process_admins_title: Deelnemende procesgebruikers
         new:
-          create: creëren
+          create: Aanmaken
           title: Nieuwe deelnemende procesgebruiker.
         update:
           error: Er is een fout opgetreden die een gebruiker bijgewerkt heeft voor dit deelnemende proces.
@@ -212,7 +212,7 @@ nl-BE:
           public: Publiek
           published: Gepubliceerd
         new:
-          create: creëren
+          create: Aanmaken
           title: Nieuw deelnemend proces
         update:
           error: Er was een probleem bij het bijwerken van dit participatief proces.
@@ -226,7 +226,7 @@ nl-BE:
           error: Er is een fout opgetreden bij het maken van een nieuwe participerende procesgroep.
           success: Groep van participatieve processen succesvol aangemaakt.
       titles:
-        participatory_process_groups: Deelnemende procesgroepen
+        participatory_process_groups: Groepen van participatieve processen
         participatory_processes: Participatieve processen
       users:
         resend_invitation:
@@ -282,7 +282,7 @@ nl-BE:
         group_participatory_processes:
           one: 1 processen voor %{group}
           other: "%{count} processen voor %{group}"
-        title: Titel
+        title: Groepen van participatieve processen
     participatory_process_steps:
       index:
         process_steps: Processtappen
@@ -294,7 +294,7 @@ nl-BE:
             max_results: Maximaal aantal te tonen elementen
         participatory_process_copies:
           form:
-            slug_help: 'URL pads worden gebruikt om de URL''s te genereren die naar deze vergadering verwijzen. Accepteer alleen letters, cijfers en streepjes, en moet beginnen met een letter. Voorbeeld: %{url}'
+            slug_help: 'URL-paden worden gebruikt om de URL''s te genereren die naar dit proces verwijzen. Enkel letters, cijfers en streepjes worden toegestaan en deze moet beginnen met een letter. Voorbeeld: %{url}'
         participatory_process_steps:
           form:
             cta_path_help: 'Gebruik gedeeltelijke paden, niet volledige URL''s hier. Accepteert letters, cijfers, streepjes en slashes, en moet beginnen met een letter. Indien niet ingesteld, zal de knop niet worden weergegeven. Voorbeeld: %{url}'
@@ -302,7 +302,7 @@ nl-BE:
         participatory_processes:
           form:
             announcement_help: De tekst die u hier invoert zal worden weergegeven aan de gebruiker, rechts onder de procesinformatie.
-            slug_help: 'URL pads worden gebruikt om de URL''s te genereren die naar deze vergadering verwijzen. Accepteer alleen letters, cijfers en streepjes, en moet beginnen met een letter. Voorbeeld: %{url}'
+            slug_help: 'URL-paden worden gebruikt om de URL''s te genereren die naar dit proces verwijzen. Enkel letters, cijfers en streepjes worden toegestaan en deze moet beginnen met een letter. Voorbeeld: %{url}'
       content_blocks:
         highlighted_processes:
           name: Uitgelichte processen
