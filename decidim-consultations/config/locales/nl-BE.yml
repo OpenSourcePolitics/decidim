@@ -70,11 +70,11 @@ nl-BE:
           error: There was an error publishing the results for this consultation.
           success: Consultation results published successfully.
         destroy:
-          error: There was an error unpublishing the results for this consultation.
-          success: Consultation results unpublished successfully.
+          error: Er is een fout opgetreden bij het depubliceren van de resultaten van deze raadpleging.
+          success: Resultaten van raadpleging met succes gedepubliceerd.
       consultations:
         create:
-          error: There was an error creating a new consultation.
+          error: Er was een probleem bij het creëren van een nieuwe raadpleging.
           success: Resultaat met succes gemaakt.
         edit:
           update: Bijwerken
@@ -234,13 +234,13 @@ nl-BE:
         title: Vragen voor deze raadpleging
       show:
         badge_name:
-          finished: Afgerond
+          finished: Voltooid
           open: Open
           open_votes: Open stemmen
           published_results: Resultaten gepubliceerd
         footer_button_text:
           debate: Debatten
-          view: Uitzicht
+          view: Bekijk
           view_results: Resultaten tonen
           vote: Stemmen
         unspecified: Niet Gespecificeerd
