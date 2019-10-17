@@ -1,7 +1,5 @@
 nl-BE:
   activemodel:
-    models:
-      decidim/budgets/decidim_events_budgets_reminder_order: Reminder order event
     attributes:
       project:
         budget: Begroting
@@ -10,6 +8,8 @@ nl-BE:
         description: Beschrijving
         proposal_ids: Verwante voorstellen
         title: Titel
+    models:
+      decidim/budgets/decidim_events_budgets_reminder_order: Reminder order event
   activerecord:
     errors:
       messages:
@@ -174,16 +174,16 @@ nl-BE:
             votes_enabled: Stemmen uitgeschakeld
     events:
       budgets:
-        reminder_order:
-          email_intro: "A vote is still pending! You can always continue by clicking here: <a href='%{resource_url}'>%{participatory_space_title}</a>"
-          email_outro: Bedankt voor je bijdrage
-          email_subject: "A vote is still pending on %{participatory_space_title}"
-          notification_title: "A vote is still pending! You can always continue by clicking here: <a href='%{resource_url}'>%{participatory_space_title}</a>"
         order_checkout:
           email_intro: 'Uw stem is gevalideerd. U kunt het altijd bewerken als u wilt door hier te klikken: <a href=''%{resource_url}''>%{participatory_space_title}'
           email_outro: Bedankt voor je bijdrage
           email_subject: Uw stem is gevalideerd op %{participatory_space_title}
           notification_title: Uw stem is gevalideerd op <a href='%{resource_url}'>%{participatory_space_title}</a> U kunt het altijd bewerken als u wilt.
+        reminder_order:
+          email_intro: 'A vote is still pending! You can always continue by clicking here: <a href=''%{resource_url}''>%{participatory_space_title}</a>'
+          email_outro: Bedankt voor je bijdrage
+          email_subject: A vote is still pending on %{participatory_space_title}
+          notification_title: 'A vote is still pending! You can always continue by clicking here: <a href=''%{resource_url}''>%{participatory_space_title}</a>'
     orders:
       checkout:
         error: An error ocurred while processing your vote
