@@ -2,7 +2,7 @@ nl-BE:
   activemodel:
     attributes:
       consultation:
-        banner_image: Banner afbeelding
+        banner_image: Bannerafbeelding
         decidim_highlighted_scope_id: Gemarkeerde scope
         description: Beschrijving
         end_voting_date: Einddatum
@@ -14,7 +14,7 @@ nl-BE:
         subtitle: Subtitel
         title: Titel
       question:
-        banner_image: Banner afbeelding
+        banner_image: Bannerafbeelding
         decidim_scope_id: München gebied
         hashtag: Hashtag
         hero_image: Afbeelding van de startpagina
@@ -120,8 +120,8 @@ nl-BE:
             created_at: Gemaakt bij
             title: Titel
           name:
-            one: Reactie
-            other: Reactie
+            one: Antwoord
+            other: Antwoorden
       question_publications:
         create:
           error: Er is een fout opgetreden bij het publiceren van deze assemblage.
@@ -228,7 +228,7 @@ nl-BE:
     pages:
       home:
         statistics:
-          consultations_count: Raadpleging
+          consultations_count: Raadplegingen
     questions:
       results:
         title: Resultaten
