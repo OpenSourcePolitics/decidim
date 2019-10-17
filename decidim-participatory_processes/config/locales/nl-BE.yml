@@ -84,7 +84,7 @@ nl-BE:
         participatory_process_groups: Procesgroepen
         participatory_processes: Processen
         participatory_processes_submenu:
-          attachment_collections: Map
+          attachment_collections: Mappen
           attachment_files: Bestanden
           attachments: Bijlagen
           categories: Categorieën
@@ -112,7 +112,7 @@ nl-BE:
             end_date: Einddatum
             start_date: Begin datum
             title: Titel
-          name: Deelnemende processtap
+          name: Stap van het inspraakproces
         participatory_process_user_role:
           fields:
             email: E-mail
@@ -149,8 +149,8 @@ nl-BE:
           error: Er is een fout opgetreden bij het publiceren van dit deelnemende proces.
           success: Deelnemend proces is succesvol gepubliceerd.
         destroy:
-          error: Er is een fout opgetreden bij het publiceren van dit deelnemende proces.
-          success: Deelnemend proces is succesvol gepubliceerd.
+          error: Er was een probleem bij het depubliceren van dit participatief proces.
+          success: Participatief proces is succesvol gedepubliceerd.
       participatory_process_step_activations:
         create:
           error: Er is een fout opgetreden bij het activeren van deze deelnemende processtap.
@@ -215,16 +215,16 @@ nl-BE:
           create: creëren
           title: Nieuw deelnemend proces
         update:
-          error: Er is een fout opgetreden bij het bijwerken van dit deelnemende proces.
-          success: Deelnemend proces is succesvol bijgewerkt.
+          error: Er was een probleem bij het bijwerken van dit participatief proces.
+          success: Participatief proces succesvol bijgewerkt.
       participatory_processes_copies:
         create:
           error: Er was een fout bij het dupliceren van dit deelnemende proces.
-          success: Deelnemend proces is succesvol gedupliceerd.
+          success: Participatief proces is succesvol gedupliceerd.
       participatory_processes_group:
         create:
           error: Er is een fout opgetreden bij het maken van een nieuwe participerende procesgroep.
-          success: Deelnemende procesgroep is succesvol opgericht.
+          success: Groep van participatieve processen succesvol aangemaakt.
       titles:
         participatory_process_groups: Deelnemende procesgroepen
         participatory_processes: Participatieve processen
@@ -239,7 +239,7 @@ nl-BE:
         unpublish: "%{user_name} heeft de %{resource_name} -vergadering aangemaakt"
         update: "%{user_name} heeft de %{resource_name} -vergadering aangemaakt"
       participatory_process_step:
-        activate: "%{user_name} heeft het %{resource_name} lid aangemaakt in de %{space_name} -vergadering"
+        activate: "%{user_name} heeft %{resource_name} stap in de %{space_name} het inspraakproces geactiveerd"
         create: "%{user_name} heeft het %{resource_name} lid aangemaakt in de %{space_name} -vergadering"
         delete: "%{user_name} heeft het %{resource_name} lid aangemaakt in de %{space_name} -vergadering"
         update: "%{user_name} heeft het %{resource_name} lid aangemaakt in de %{space_name} -vergadering"
