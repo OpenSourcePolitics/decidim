@@ -17,7 +17,7 @@ nl-BE:
         meta_scope: Omvang metadata
         participatory_process_group_id: Processen groep
         participatory_scope: Wat wordt besloten
-        participatory_structure: Hoe is het besloten
+        participatory_structure: Hoe wordt er besloten
         private_space: Concertatie privée
         promoted: gepromoveerd
         published_at: Gepubliceerd op
@@ -305,7 +305,7 @@ nl-BE:
             slug_help: 'URL pads worden gebruikt om de URL''s te genereren die naar deze vergadering verwijzen. Accepteer alleen letters, cijfers en streepjes, en moet beginnen met een letter. Voorbeeld: %{url}'
       content_blocks:
         highlighted_processes:
-          name: Gemarkeerde processen
+          name: Uitgelichte processen
       index:
         title: Participatieve processen
       last_activity:
@@ -333,8 +333,8 @@ nl-BE:
               one: 1 verleden proces
               other: "%{count} actieve processen"
             upcoming:
-              one: 1 aankomend proces
-              other: "%{count} actieve processen"
+              one: 1 aankomend inspraakproces
+              other: "%{count} aankomende processen"
           explanations:
             no_active: Actieve processen
             no_active_nor_upcoming: Geen actieve of aankomende processen
@@ -352,7 +352,7 @@ nl-BE:
         end_date: Einddatum
         local_area: Organisatiegebied
         participatory_scope: Wat wordt besloten
-        participatory_structure: Hoe is het besloten
+        participatory_structure: Hoe wordt er besloten
         private_space: Dit is een privé-proces
         scope: Reikwijdte
         start_date: Begindatum
@@ -386,7 +386,7 @@ nl-BE:
           take_part: Deelnemen
       participatory_processes:
         index:
-          promoted_processes: Gemarkeerde processen
+          promoted_processes: Uitgelichte processen
         participatory_process:
           active_step: 'Huidige stap:'
           take_part: Deelnemen
