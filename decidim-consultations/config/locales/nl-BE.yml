@@ -19,11 +19,11 @@ nl-BE:
         hashtag: Hashtag
         hero_image: Afbeelding van de startpagina
         i_frame_url: Externe stemsysteem URL
-        origin_scope: Reikwijdte
+        origin_scope: Scope
         origin_title: Oorsprong
         origin_url: Originele URL
         participatory_scope: Participatieve scope
-        promoter_group: Ontwikkelaarsgroep
+        promoter_group: Promotorgroep
         question_context: Context
         reference: Referentie
         scope: München gebied
@@ -40,15 +40,15 @@ nl-BE:
     models:
       decidim/consultations:
         one: Raadpleging
-        other: Raadpleging
+        other: Raadplegingen
       decidim/consultations/question:
         one: Vraag
         other: Vragen
       decidim/consultations/response:
-        one: Reactie
-        other: Reactie
+        one: Antwoord
+        other: Antwoorden
       decidim/consultations/vote:
-        one: Stemmen
+        one: Stem
         other: Stemmen
   decidim:
     admin:
@@ -59,15 +59,15 @@ nl-BE:
         unpublish_results: Publiceer resultaten
       consultation_publications:
         create:
-          error: Er is een fout opgetreden bij het publiceren van deze assemblage.
-          success: Consultatie met succes gepubliceerd.
+          error: Er was een probleem bij het publiceren van deze raadpleging.
+          success: Raadpleging succesvol gepubliceerd.
         destroy:
-          error: Er is een fout opgetreden bij het publiceren van deze assemblage.
-          success: Consultatie met succes gepubliceerd.
+          error: Er was een probleem bij het depubliceren van deze raadpleging.
+          success: Raadpleging succesvol gedepubliceerd.
       consultation_results_publications:
         create:
           error: Er is een fout opgetreden bij het publiceren van deze assemblage.
-          success: Consultatie met succes gepubliceerd.
+          success: Resultaten van raadpleging met succes gepubliceerd.
         destroy:
           error: Er is een fout opgetreden bij het depubliceren van de resultaten van deze raadpleging.
           success: Resultaten van raadpleging met succes gedepubliceerd.
