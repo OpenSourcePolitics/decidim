@@ -18,7 +18,7 @@ nl-BE:
         decidim_area_id: Gebied
         decidim_scope_id: Reikwijdte
         description: Omschrijving	
-        developer_group: Promotorgroep
+        developer_group: Organisator
         domain: Domein
         duration: Duur
         facebook: Facebook
@@ -32,7 +32,7 @@ nl-BE:
         local_area: Organisatiegebied
         meta_scope: Scope metadata
         parent_id: Hoofdgroep
-        participatory_processes_ids: Verwante bevragingen
+        participatory_processes_ids: Verwante inspraakprocessen
         participatory_scope: Wat wordt besloten
         participatory_structure: Hoe wordt er besloten
         private_space: Privé ruimte
@@ -163,7 +163,7 @@ nl-BE:
       models:
         assembly:
           fields:
-            created_at: Gemaakt bij
+            created_at: Aangemaakt op
             private: Privé
             promoted: In de kijker
             published: Gepubliceerd
@@ -214,7 +214,7 @@ nl-BE:
             duration_help: Als de looptijd van deze groep beperkt is, selecteer de einddatum. Anders zal deze voor onbepaalde tijd verschijnen.
             included_at_help: Selecteer de datum waarop deze groep is toegevoegd aan Decidim. Deze hoeft niet noodzakelijkerwijs hetzelfde te zijn als de aanmaakdatum.
             select_a_created_by: Aangemaakt door
-            select_an_area: Selecteer een gebied
+            select_an_area: Selecteer een onderwerp
             select_an_assembly_type: Selecteer een type groep
             select_parent_assembly: Selecteer de hoofdgroep
             slug_help: 'URLpads worden gebruikt om de URL''s te genereren die naar deze groep verwijzen. Accepteert alleen letters, cijfers en streepjes, en moet beginnen met een letter. Voorbeeld: %{url}'
@@ -248,7 +248,7 @@ nl-BE:
         executive: Uitvoerend
         government: Overheid
         others: Overige
-        participatory: Deelnemende
+        participatory: Participatief
         working_group: Werkgroep
       content_blocks:
         highlighted_assemblies:
@@ -258,7 +258,7 @@ nl-BE:
         others: Overige
         public: Publiek
       filter:
-        all: Alle
+        all: Alle types
         commission: Commissie
         consultative_advisory: Adviesgroep
         executive: Uitvoerend
@@ -291,7 +291,7 @@ nl-BE:
         creation_date: Datum aangemaakt
         developer_group: Promotorgroep
         duration: Duur
-        included_at: '-'
+        included_at: Opgenomen op
         indefinite_duration: Onbepaald
         internal_organisation: Interne organisatie
         is_transparent:
@@ -304,7 +304,7 @@ nl-BE:
         purpose_of_action: Doelstelling
         read_less: Lees minder
         read_more: Lees verder
-        related_participatory_processes: Verwante bevragingen
+        related_participatory_processes: Verwante inspraakprocessen
         scope: Reikwijdte
         social_networks: Social media
         target: Wie doet mee
@@ -356,7 +356,7 @@ nl-BE:
           take_part: Deelnemen
         index:
           organizational_chart: Organisatorische driver
-          promoted_assemblies: Groepen in de kijker
+          promoted_assemblies: Uitgelichte groepen
           reset_chart: Reset
         order_by_assemblies:
           assemblies:
