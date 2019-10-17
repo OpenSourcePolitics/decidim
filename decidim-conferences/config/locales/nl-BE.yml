@@ -511,7 +511,7 @@ nl-BE:
           notification_title: Uw registratie voor de <a href="%{resource_url}">%{resource_title}</a> van de vergadering heeft bevestigd.
         conference_registrations_over_percentage:
           email_intro: De "%{resource_title}" vergadering bezette slots zijn meer dan %{percentage}%.
-          email_outro: U heeft deze melding ontvangen omdat u een beheerder bent van de participatieve ruimte van de vergadering.
+          email_outro: U hebt deze melding ontvangen omdat u een beheerder bent van de inspraakruimte van de conferentie.
           email_subject: De "%{resource_title}" vergadering bezette slots zijn meer dan %{percentage}%
           notification_title: De <a href="%{resource_path}">%{resource_title}</a> vergadering bezette slots zijn meer dan %{percentage}%.
         conference_updated:
