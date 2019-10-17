@@ -3,8 +3,8 @@ nl-BE:
     attributes:
       assembly:
         area_id: Gebied
-        assembly_type: Buurderij type
-        assembly_type_other: Buurderij type anders
+        assembly_type: Groepstype
+        assembly_type_other: Groep type anders
         banner_image: Banner afbeelding
         closing_date: Sluitingsdatum
         closing_date_reason: Reden sluitingsdatum
@@ -43,7 +43,7 @@ nl-BE:
         short_description: Korte beschrijving
         show_statistics: Toon statistieken
         slug: URL slak
-        special_features: Speciale functies
+        special_features: Speciale functionaliteiten
         subtitle: Subtitel
         target: Doelstelling
         title: Titel
@@ -172,16 +172,16 @@ nl-BE:
             title: Titel
         assembly_member:
           fields:
-            ceased_date: Datum van de datum
+            ceased_date: Sluitingsdatum
             designation_date: Ontwerpdatum
             full_name: Naam
             position: Positie
           name: Leden
           positions:
             other: Overige
-            president: De Voorzitter
+            president: Voorzitter
             secretary: Minister
-            vice_president: Minister
+            vice_president: Ondervoorzitter
         assembly_user_role:
           fields:
             email: E-mail
@@ -196,23 +196,23 @@ nl-BE:
         assemblies: Gemeentes
     admin_log:
       assembly:
-        create: "%{user_name} heeft de %{resource_name} -vergadering aangemaakt"
-        publish: "%{user_name} heeft de %{resource_name} -vergadering gepubliceerd"
-        unpublish: "%{user_name} heeft de %{resource_name} -vergadering aangemaakt"
-        update: "%{user_name} heeft de %{resource_name} -vergadering aangemaakt"
+        create: "%{user_name} heeft de groep %{resource_name} gemaakt"
+        publish: "%{user_name} heeft de %{resource_name} groep gepubliceerd"
+        unpublish: "%{user_name} heeft de %{resource_name} groep gedepubliceerd"
+        update: "%{user_name} heeft de groep %{resource_name} bijgewerkt"
       assembly_member:
-        create: "%{user_name} heeft het %{resource_name} lid aangemaakt in de %{space_name} -vergadering"
-        delete: "%{user_name} heeft het %{resource_name} lid aangemaakt in de %{space_name} -vergadering"
-        update: "%{user_name} heeft het %{resource_name} lid aangemaakt in de %{space_name} -vergadering"
+        create: "%{user_name} heeft het %{resource_name} lid in de %{space_name} groep gemaakt"
+        delete: "%{user_name} verwijderde het %{resource_name} lid uit de %{space_name} groep"
+        update: "%{user_name} heeft het %{resource_name} lid in de %{space_name} groep bijgewerkt"
       assembly_user_role:
-        create: "%{user_name} heeft het %{resource_name} lid aangemaakt in de %{space_name} -vergadering"
-        delete: "%{user_name} heeft het %{resource_name} lid aangemaakt in de %{space_name} -vergadering"
-        update: "%{user_name} heeft het %{resource_name} lid aangemaakt in de %{space_name} -vergadering"
+        create: "%{user_name} nodigde %{resource_name} uit voor de groep %{space_name}"
+        delete: "%{user_name} heeft de gebruiker %{resource_name} verwijderd uit de %{space_name} groep"
+        update: "%{user_name} heeft de rol van %{resource_name} in de %{space_name} groep gewijzigd"
     assemblies:
       admin:
         assemblies:
           form:
-            duration_help: Als de duur van deze vergadering beperkt is, selecteer de einddatum. Anders zal deze voor onbepaalde tijd verschijnen.
+            duration_help: Als de duur van deze groep beperkt is, selecteert u de einddatum. Anders zal dit verschijnen als onbepaald.
             included_at_help: Selecteer de datum waarop deze groep aan Decidim is toegevoegd. Het hoeft niet noodzakelijk hetzelfde te zijn als de aanmaakdatum.
             select_a_created_by: Kies een categorie
             select_an_area: Selecteer een onderwerp
