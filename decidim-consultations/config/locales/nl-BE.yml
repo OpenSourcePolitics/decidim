@@ -69,11 +69,11 @@ nl-BE:
           error: Er is een fout opgetreden bij het publiceren van deze assemblage.
           success: Consultatie met succes gepubliceerd.
         destroy:
-          error: Er is een fout opgetreden bij het publiceren van deze assemblage.
-          success: Consultatie met succes gepubliceerd.
+          error: Er is een fout opgetreden bij het depubliceren van de resultaten van deze raadpleging.
+          success: Resultaten van raadpleging met succes gedepubliceerd.
       consultations:
         create:
-          error: Er is een fout opgetreden bij het maken van een nieuw bereik type.
+          error: Er was een probleem bij het creëren van een nieuwe raadpleging.
           success: Resultaat met succes gemaakt.
         destroy:
           success: Resultaat met succes gemaakt.
@@ -213,13 +213,13 @@ nl-BE:
         title: Vragen voor deze raadpleging
       show:
         badge_name:
-          finished: Afgerond
+          finished: Voltooid
           open: Open
           open_votes: Open stemmen
           published_results: Resultaten gepubliceerd
         footer_button_text:
           debate: Debatten
-          view: Uitzicht
+          view: Bekijk
           view_results: Resultaten tonen
           vote: Stemmen
         unspecified: Niet Gespecificeerd
