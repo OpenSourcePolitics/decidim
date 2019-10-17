@@ -180,7 +180,7 @@ nl-BE:
           version_index: Versie %{index}
     components:
       accountability:
-        name: Verantwoording
+        name: Opvolging
         settings:
           global:
             categories_label: Naam voor "Categorieën"
