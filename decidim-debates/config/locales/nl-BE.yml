@@ -118,7 +118,7 @@ nl-BE:
           space_followers:
             email_intro: |-
               Hallo,
-              Een nieuw debat "%{resource_title}" is aangemaakt op de %{space_title} participatieve ruimte, bekijk het en draag bij:
+              Een nieuw debat "%{resource_title}" is opgezet op de %{space_title} inspraakruimte, bekijk het en draag bij:
             email_outro: Je hebt deze melding ontvangen omdat je "%{space_title}" volgt. Je kan de meldingen deactiveren door te klikken op de vorige link.
             email_subject: Nieuw debat "%{resource_title}" op %{space_title}
             notification_title: Het <a href="%{resource_path}">%{resource_title}</a> debat is aangemaakt op <a href="%{space_path}">%{space_title}</a>.
