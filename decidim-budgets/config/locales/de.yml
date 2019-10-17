@@ -1,7 +1,5 @@
 de:
   activemodel:
-    models:
-      decidim/budgets/decidim_events_budgets_reminder_order: Reminder order event
     attributes:
       project:
         budget: Budget
@@ -10,6 +8,8 @@ de:
         description: Description
         proposal_ids: Related proposals
         title: Title
+    models:
+      decidim/budgets/decidim_events_budgets_reminder_order: Reminder order event
   activerecord:
     errors:
       messages:
@@ -174,16 +174,16 @@ de:
             votes_enabled: Abstimmung aktiviert
     events:
       budgets:
-        reminder_order:
-          email_intro: "A vote is still pending! You can always continue by clicking here: <a href='%{resource_url}'>%{participatory_space_title}</a>"
-          email_outro: Thank you for your participation
-          email_subject: "A vote is still pending on %{participatory_space_title}"
-          notification_title: "A vote is still pending! You can always continue by clicking here: <a href='%{resource_url}'>%{participatory_space_title}</a>"
         order_checkout:
           email_intro: 'Your vote has been validated. You can always edit it if you like by clicking here:'
           email_outro: Thank you for your participation
           email_subject: Your vote has been validated
           notification_title: Your vote has been validated
+        reminder_order:
+          email_intro: 'A vote is still pending! You can always continue by clicking here: <a href=''%{resource_url}''>%{participatory_space_title}</a>'
+          email_outro: Thank you for your participation
+          email_subject: A vote is still pending on %{participatory_space_title}
+          notification_title: 'A vote is still pending! You can always continue by clicking here: <a href=''%{resource_url}''>%{participatory_space_title}</a>'
     orders:
       checkout:
         error: Während der Bearbeitung Ihrer Abstimmung ist ein Fehler aufgetreten
