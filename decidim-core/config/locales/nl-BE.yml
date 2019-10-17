@@ -76,7 +76,7 @@ nl-BE:
         delete: "%{user_name} heeft de %{resource_name} -vergadering aangemaakt"
         update: "%{user_name} heeft de %{resource_name} -vergadering aangemaakt"
       component:
-        create: "%{user_name} heeft het %{resource_name} lid aangemaakt in de %{space_name} -vergadering"
+        create: "%{user_name} voegde het onderdeel %{resource_name} toe aan de ruimte %{space_name}"
         delete: "%{user_name} heeft het %{resource_name} lid aangemaakt in de %{space_name} -vergadering"
         publish: "%{user_name} heeft het %{resource_name} lid aangemaakt in de %{space_name} -vergadering"
         unpublish: "%{user_name} heeft het %{resource_name} lid aangemaakt in de %{space_name} -vergadering"
