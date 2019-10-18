@@ -112,6 +112,7 @@ end
 - **decidim-debates** Fix debates card and ordering [\#4879](https://github.com/decidim/decidim/pull/4879)
 - **decidim-proposals** Don't count withdrawn proposals when publishing one [\#4875](https://github.com/decidim/decidim/pull/4875)
 - **decidim-core**: Fix process filters [\#4872](https://github.com/decidim/decidim/pull/4872)
+- **decidim-core**: BACKPORT Fix rendering when custom colors exist [#835](https://github.com/OpenSourcePolitics/decidim/pull/835)
 
 ## [0.16.0](https://github.com/decidim/decidim/tree/v0.16.0)
 
