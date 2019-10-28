@@ -29,7 +29,7 @@ fr:
         banner_image: Image d'en-tête
         collect_user_extra_fields: Collecter les données personnelles de l'utilisateur lors de la signature
         description: Description
-        document_number_authorization_handler: Autorisation de vérifier le numéro de document sur les votes
+        document_number_authorization_handler: Niveau d'autorisation nécessaire pour signer les pétitions de ce type de pétition
         extra_fields_legal_information: Informations juridiques sur la collecte de données personnelles
         minimum_committee_members: Minimum de membres du comité
         online_signature_enabled: Signature en ligne activée
@@ -226,7 +226,7 @@ fr:
             destroy: Effacer
             update: Mettre à jour
           form:
-            title: Information générale
+            title: Informations générales
           initiative_type_scopes:
             title: Secteur pour ce type d'initiative
           new:
