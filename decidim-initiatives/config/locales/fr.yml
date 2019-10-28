@@ -199,7 +199,7 @@ fr:
         initiatives_type_scopes:
           create:
             error: Une erreur s'est produite
-            success: Un nouveau secteur pour ce type d'initiative a été créé
+            success: Un nouveau secteur a été créé pour ce type d'initiative
           destroy:
             success: Le secteur a été supprimé avec succès
           edit:
@@ -211,7 +211,7 @@ fr:
           new:
             back: Retour
             create: Créer
-            title: Créer un type de secteur pour les initiatives
+            title: Créer un secteur pour ce type d'initiative
           update:
             error: Une erreur s'est produite
             success: Le secteur a été mis à jour avec succès
