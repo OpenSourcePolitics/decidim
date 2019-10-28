@@ -261,7 +261,7 @@ fr:
         fill_data:
           back: Retour
           continue: Continuer
-          fill_data_help: "<ul> <li>Vérifier le contenu de votre initiative. Votre titre est-il facile à comprendre ? L'objectif de votre initiative est-il clair ?</li> <li>Vous devez choisir le type de recueil des signatures : en présentiel, en ligne ou une combinaison des deux</li> <li>Quelle est la portée géographique de l'initiative ? Ville, arrondissement, quartier ?</li> </ul>"
+          fill_data_help: "<ul> <li>Vérifiez le contenu de votre pétition. Votre titre est-il facile à comprendre ? L'objectif de votre pétition est-il clair ?</li> <li>Vous devez choisir le type de recueil des signatures : en présentiel, en ligne ou mixte</li> <li>Quel est le secteur géographique de la pétition ? Ville, arrondissement, quartier ?</li> </ul>"
           initiative_type: Type d'initiative
           more_information: "(Plus d'informations)"
           select_scope: Sélectionnez une portée
