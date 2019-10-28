@@ -291,8 +291,8 @@ fr:
           back: Retour
           choose_html: Je veux créer un <strong>%{title}</strong>
           more_information: "(Plus d'informations)"
-          select: Je veux promouvoir cette initiative
-          select_initiative_type_help: Les initiatives sont un moyen par lequel la communauté des citoyens peut se manifester afin que le conseil municipal entreprenne des actions d'intérêt général qui relèvent des champs de compétence municipaux. Quelle initiative voulez-vous lancer ?
+          select: Créer une pétition
+          select_initiative_type_help: Les pétitions sont un moyen par lequel la communauté des citoyens peut se manifester afin que le conseil municipal ou l'organisation entreprenne des actions d'intérêt général qui relèvent de ses champs de compétence. Quel type d'initiative voulez-vous lancer ?
         share_committee_link:
           continue: Continuer
           invite_to_committee_help: Lien pour inviter des personnes à faire partie du Comité de promotion
