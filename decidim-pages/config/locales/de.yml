@@ -1,31 +1,30 @@
----
 de:
   activerecord:
     models:
       decidim/pages/page:
-        one: Seite
-        other: Seiten
+        one: Page
+        other: Pages
   decidim:
     admin_log:
       page:
-        update: "%{user_name} aktualisiert die %{resource_name} Seite in %{space_name}"
+        update: "%{user_name} updated the %{resource_name} page in %{space_name}"
     components:
       pages:
-        name: Seite
+        name: Page
         settings:
           global:
-            announcement: Ankündigung
+            announcement: Announcement
           step:
-            announcement: Ankündigung
+            announcement: Announcement
     pages:
       admin:
         models:
           components:
-            body: Karosserie
+            body: Body
         pages:
           edit:
-            save: Aktualisieren
-            title: Seite bearbeiten
+            save: Update
+            title: Edit page
           update:
             invalid: Beim Speichern der Seite sind Fehler aufgetreten.
             success: Seite erfolgreich gespeichert
