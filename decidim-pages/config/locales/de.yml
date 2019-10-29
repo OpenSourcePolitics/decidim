@@ -7,7 +7,7 @@ de:
   decidim:
     admin_log:
       page:
-        update: "%{user_name} updated the %{resource_name} page in %{space_name}"
+        update: "%{user_name} hat die Seite %{resource_name} in %{space_name} aktualisiert"
     components:
       pages:
         name: Page
@@ -20,11 +20,11 @@ de:
       admin:
         models:
           components:
-            body: Body
+            body: Textkörper
         pages:
           edit:
-            save: Update
-            title: Edit page
+            save: aktualisieren
+            title: Seite ändern
           update:
             invalid: Beim Speichern der Seite sind Fehler aufgetreten.
             success: Seite erfolgreich gespeichert
