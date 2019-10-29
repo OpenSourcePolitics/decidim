@@ -23,9 +23,9 @@ de:
         url: "Comment's url : %{resource_url}"
         email_subject: 'New proposal from %{author_name}'
         moderation:
-          email_intro: '%{author_name} published a new proposal in'
-          moderation_url: "You can moderate it here : %{moderation_url}"
-          email_subject: 'New proposal from %{author_name} waiting for moderation'
+          email_intro: '%{author_name} hat einen neuen Vorschlag veröffentlicht unter'
+          moderation_url: "Sie können den Inhalt moderieren, indem Sie diesem Link folgen  %{moderation_url}"
+          email_subject: 'Neuer Vorschlag von %{author_name} wartet auf Moderation'
       proposals:
         creation_enabled:
           email_intro: 'You can now create new proposals in %{participatory_space_title}! Start participating in this page:'
@@ -43,10 +43,10 @@ de:
           email_subject: A proposal you're following has been accepted
           notification_title: The <a href="%{resource_path}">%{resource_title}</a> proposal has been accepted.
         proposal_created:
-          email_intro: "%{author_name} %{author_nickname}, who you are following, has created a new proposal, check it out and contribute:"
+          email_intro: "%{author_name} %{author_nickname}, dem Sie folgen, hat einen neuen Vorschlag erstellt. Entdecken Sie ihn und machen Sie mit"
           email_outro: You have received this notification because you are following %{author_nickname}. You can stop receiving notifications following the previous link.
           email_subject: New proposal by %{author_nickname}
-          notification_title: The <a href="%{resource_path}">%{resource_title}</a> proposal was created by <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+          notification_title: Der Vorschlag <a href="%{resource_path}">%{resource_title}</a> wurde erstellt von <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         proposal_created_for_space:
           email_intro: The proposal "%{resource_title}" has been added to "%{participatory_space_title}" that you are following.
           email_outro: You have received this notification because you are following "%{participatory_space_title}". You can unfollow it from the previous link.
@@ -103,8 +103,8 @@ de:
             proposal_wizard_step_3_help_text: Proposal wizard "Publish" step help text
             threshold_per_proposal: Threshold per proposal
             vote_limit: Vote limit per user
-            upstream_moderation_enabled: Upstream moderation for proposals enabled
-            comments_upstream_moderation_enabled: Upstream moderation for comments enabled
+            upstream_moderation_enabled: A-priori-Moderation der Vorschläge aktiviert
+            comments_upstream_moderation_enabled: A-priori-Moderation der Kommentare aktiviert
           step:
             announcement: Announcement
             comments_blocked: Comments blocked
@@ -192,7 +192,7 @@ de:
             success: "%{number} proposals successfully imported"
           new:
             create: Import proposals
-            no_features: There are no other proposal features in this participatory space to import the proposals from.
+            no_features: Es gibt keine anderen Vorschlagsfunktionen in diesem Teilnahmebereich, um Vorschläge zu importieren.
             select_feature: Please select a component
             select_states: Check the states of the proposals to import
         shared:
@@ -217,15 +217,14 @@ de:
         error: There's been errors when saving the proposal.
         success: Proposal created successfully. Saved as a Draft.
         moderation:
-          success: Proposal successfully created. It will be published as soon as an administrator will have authorized it.
+          success: Vorschlag erfolgreich erstellt. Er wird veröffentlicht, sobald er von einem Administrator validiert wurde.
       events:
         create_proposal_event:
           email_intro: |-
-            Hi,
-            %{author_name} %{author_nickname}, who you are following, has created a new proposal, check it out and contribute:
+            Bonjour, %{author_name} %{author_nickname}, que vous suivez, a créé une nouvelle proposition. Prenez-en connaissance et contribuez :
           email_outro: You have received this notification because you are following %{author_nickname}. You can stop receiving notifications following the previous link.
           email_subject: New proposal by %{author_nickname}
-          notification_title: The <a href="%{resource_path}">%{resource_title}</a> proposal was created by <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+          notification_title: Der Vorschlag <a href="%{resource_path}">%{resource_title}</a> wurde erstellt von <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
       models:
         proposal:
           fields:
@@ -249,7 +248,7 @@ de:
           select_identity: Select identity
       proposal_endorsements_helper:
         endorsement_button:
-          already_endorsed: Already endorsed
+          already_endorsed: Bereits empfohlen
           endorse: Endorse
       proposal_votes:
         create:
@@ -277,15 +276,15 @@ de:
           send: Preview
           title: Edit Proposal Draft
         endorsement_button:
-          already_endorsed: Already endorsed
-          already_endorsed_hover: Unendorse
+          already_endorsed: Bereits empfohlen
+          already_endorsed_hover: Nicht mehr empfehlen
         endorsement_identities_cabin:
           endorse: Endorse
         endorsements_card_row:
           endorse: Endorse
         endorsements_listing:
-          see_all: See all
-          see_less: See less
+          see_all: Alles anzeigen
+          see_less: Weniger anzeigen
           title: List of Endorsements
         filters:
           accepted: Accepted
@@ -366,7 +365,7 @@ de:
           proposal_limit:
             description: You can create up to %{limit} proposals.
           threshold_per_proposal:
-            description: In order to be accepted proposals need to reach %{limit} supports
+            description: Unterstützen Sie die Vorschläge, die Sie für am relevantesten halten
           title: 'Voting is subject to the following rules:'
           vote_limit:
             description: You can vote up to %{limit} proposals.
