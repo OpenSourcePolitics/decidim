@@ -5,7 +5,7 @@ de:
         announcement: Announcement
         banner_image: Banner image
         copy_categories: Copy categories
-        copy_features: Copy features
+        copy_features: Funktionen kopieren
         copy_steps: Copy steps
         description: Description
         developer_group: Developer group
@@ -66,11 +66,11 @@ de:
           attachment_files: Files
           attachments: Attachments
           categories: Categories
-          features: Features
+          features: Funktionen
           info: Info
           moderation:
-            downstream: Downstream
-            upstream: Upstream
+            downstream: A posteriori
+            upstream: A priori
           moderations: Moderations
           process_admins: Process users
           steps: Steps
