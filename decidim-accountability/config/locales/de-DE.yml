@@ -19,7 +19,7 @@ de:
         name: Name
         progress: Progress
       timeline_entry:
-        description: Description
+        description: Beschreibung
         entry_date: Date
   decidim:
     accountability:
