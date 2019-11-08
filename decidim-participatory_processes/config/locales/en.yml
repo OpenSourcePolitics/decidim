@@ -82,8 +82,8 @@ en:
         filter:
           all: Show all processes
           process_groups: Process Groups
-        new: New
         import_process: Import
+        new: New
         new_process: New process
         new_process_group: New process group
         new_process_step: New phase

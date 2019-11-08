@@ -99,10 +99,10 @@ module Decidim::ParticipatoryProcesses
 
         imported_participatory_process_category = Decidim::Category.first
         expect(imported_participatory_process_category.name).to eq(
-                                                                  "ca" => "Rerum quo dicta asperiores officiis.",
-                                                                  "en" => "Illum nesciunt praesentium explicabo qui.",
-                                                                  "es" => "Consequatur dolorem aspernatur quia aut."
-                                                                )
+          "ca" => "Rerum quo dicta asperiores officiis.",
+          "en" => "Illum nesciunt praesentium explicabo qui.",
+          "es" => "Consequatur dolorem aspernatur quia aut."
+        )
         expect(imported_participatory_process_category.participatory_space).to eq(Decidim::ParticipatoryProcess.last)
       end
     end

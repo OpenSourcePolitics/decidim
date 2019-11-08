@@ -28,9 +28,9 @@ module Decidim::Surveys
         end
         questionnaire_attrs[:questions] = questions
         [{
-           id: rand(99_999),
-           questionnaire: questionnaire_attrs
-         }]
+          id: rand(99_999),
+          questionnaire: questionnaire_attrs
+        }]
       end
 
       describe "#import" do

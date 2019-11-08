@@ -71,7 +71,7 @@ module Decidim::Importers
         # to the +component+ used to generate the impoted json.
         def imported_from(component)
           imported = Decidim::Component.where.not(id: component.id)
-                       .find_by(manifest_name: component.manifest_name, weight: component.weight)
+                                       .find_by(manifest_name: component.manifest_name, weight: component.weight)
           expect(imported).to be_present
           imported
         end

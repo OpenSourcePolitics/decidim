@@ -27,7 +27,7 @@ module Decidim
         describe "POST create" do
           it "enqueues a job with the default format" do
             expect(ExportParticipatorySpaceJob).to receive(:perform_later)
-                                                     .with(user, participatory_process, "participatory_processes", "JSON")
+              .with(user, participatory_process, "participatory_processes", "JSON")
 
             post(:create, params: params)
           end

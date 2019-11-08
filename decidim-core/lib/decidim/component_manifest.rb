@@ -77,7 +77,6 @@ module Decidim
     #
     attribute :specific_data_importer_class_name, String
 
-
     validates :name, presence: true
 
     # Public: Registers a hook to this manifest. Hooks get fired when some
