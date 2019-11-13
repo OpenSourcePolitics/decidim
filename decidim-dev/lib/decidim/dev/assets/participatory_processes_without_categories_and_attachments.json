@@ -1,0 +1,234 @@
+[
+  {
+    "id": 1,
+    "title": {
+      "ca": "Laborum totam et nisi autem.",
+      "en": "Tempora esse debitis in ut.",
+      "es": "Eum quia ut maiores officia."
+    },
+    "subtitle": {
+      "ca": "Sit ut.",
+      "en": "Consequatur sed.",
+      "es": "In laudantium."
+    },
+    "slug": "distinctio-cupiditate",
+    "hashtag": "harum",
+    "short_description": {
+      "ca": "<p>Harum magnam id.</p>",
+      "en": "<p>Aut quam doloribus.</p>",
+      "es": "<p>Vel eaque voluptatem.</p>"
+    },
+    "description": {
+      "ca": "<p>Eius velit earum. Dolorem consequuntur ullam. Atque autem non.</p>",
+      "en": "<p>Ad quaerat consequuntur. Voluptas dignissimos eos. Eos saepe et.</p>",
+      "es": "<p>Omnis similique illo. Expedita adipisci qui. Voluptas cupiditate qui.</p>"
+    },
+    "announcement": null,
+    "start_date": "2019-10-02",
+    "end_date": "2019-12-02",
+    "remote_hero_image_url": "http://localhost:3000/uploads/decidim/participatory_process/hero_image/1/city.jpeg",
+    "remote_banner_image_url": "http://localhost:3000/uploads/decidim/participatory_process/banner_image/1/city2.jpeg",
+    "developer_group": {
+      "ca": "Reiciendis.",
+      "en": "Nostrum.",
+      "es": "Aut."
+    },
+    "local_area": {
+      "ca": "Eum necessitatibus.",
+      "en": "Aspernatur perspiciatis.",
+      "es": "A laudantium."
+    },
+    "meta_scope": {
+      "ca": "sint",
+      "en": "voluptas",
+      "es": "ullam"
+    },
+    "participatory_scope": {
+      "ca": "Ad.",
+      "en": "Amet.",
+      "es": "Excepturi."
+    },
+    "participatory_structure": {
+      "ca": "Eos est.",
+      "en": "Quaerat mollitia.",
+      "es": "Vel iusto."
+    },
+    "target": {
+      "ca": "Ratione amet harum.",
+      "en": "Deserunt nulla modi.",
+      "es": "Aut quae ipsa."
+    },
+    "area": {
+      "id": null,
+      "name": {
+        "en": "",
+        "ca": "",
+        "es": ""
+      }
+    },
+    "participatory_process_group": {
+      "id": 1,
+      "name": {
+        "ca": "Molestias pariatur eaque.",
+        "en": "Iure iusto ut.",
+        "es": "Pariatur culpa reprehenderit."
+      },
+      "description": {
+        "ca": "<p>Et accusamus debitis. Sint voluptatem velit. Quia architecto at.</p>",
+        "en": "<p>Sunt eius labore. Odit fugiat numquam. Et consequatur pariatur.</p>",
+        "es": "<p>Rerum aperiam omnis. Optio est quo. Odit est eveniet.</p>"
+      },
+      "remote_hero_image_url": "http://localhost:3000/uploads/decidim/participatory_process_group/hero_image/1/city.jpeg"
+    },
+    "scope": {
+      "id": 1,
+      "name": {
+        "ca": "South Carolina",
+        "en": "South Carolina",
+        "es": "South Carolina"
+      }
+    },
+    "private_space": false,
+    "promoted": true,
+    "scopes_enabled": true,
+    "show_statistics": true,
+    "participatory_process_steps": [
+      {
+        "id": 1,
+        "title": {
+          "ca": "Quo.",
+          "en": "Magni.",
+          "es": "Praesentium."
+        },
+        "description": {
+          "ca": "<p>Est placeat ut. Odit eum consequatur. Aliquam consequatur molestiae.</p>",
+          "en": "<p>Possimus similique repudiandae. Sunt praesentium incidunt. Ipsam qui ullam.</p>",
+          "es": "<p>Quo cum amet. Ea quis aut. Voluptas sed quis.</p>"
+        },
+        "start_date": "2019-09-02",
+        "end_date": "2019-12-02",
+        "cta_path": null,
+        "cta_text": {
+        },
+        "active": true,
+        "position": 0
+      }
+    ],
+    "participatory_process_categories": null,
+    "attachments": {
+      "attachment_collections": null,
+      "files": null
+    },
+    "components": [
+      {
+        "manifest_name": "accountability",
+        "id": 15,
+        "name": {
+          "ca": "Seguiment",
+          "en": "Accountability",
+          "es": "Seguimiento"
+        },
+        "participatory_space_id": 2,
+        "participatory_space_type": "Decidim::ParticipatoryProcess",
+        "settings": {
+          "comments_enabled": true,
+          "intro": {
+            "ca": "<p>Sapiente animi quo at.</p>",
+            "en": "<p>Voluptatem praesentium maxime vitae.</p>",
+            "es": "<p>Illum veritatis porro nulla.</p>"
+          },
+          "intro_en": "<p>Voluptatem praesentium maxime vitae.</p>",
+          "intro_ca": "<p>Sapiente animi quo at.</p>",
+          "intro_es": "<p>Illum veritatis porro nulla.</p>",
+          "categories_label": {
+            "ca": "alias",
+            "en": "aut",
+            "es": "omnis"
+          },
+          "categories_label_en": "aut",
+          "categories_label_ca": "alias",
+          "categories_label_es": "omnis",
+          "subcategories_label": {
+            "ca": "rerum",
+            "en": "reprehenderit",
+            "es": "nostrum"
+          },
+          "subcategories_label_en": "reprehenderit",
+          "subcategories_label_ca": "rerum",
+          "subcategories_label_es": "nostrum",
+          "heading_parent_level_results": {
+            "ca": "et",
+            "en": "explicabo",
+            "es": "officiis"
+          },
+          "heading_parent_level_results_en": "explicabo",
+          "heading_parent_level_results_ca": "et",
+          "heading_parent_level_results_es": "officiis",
+          "heading_leaf_level_results": {
+            "ca": "consectetur",
+            "en": "illum",
+            "es": "sunt"
+          },
+          "heading_leaf_level_results_en": "illum",
+          "heading_leaf_level_results_ca": "consectetur",
+          "heading_leaf_level_results_es": "sunt",
+          "display_progress_enabled": true
+        },
+        "weight": 0,
+        "permissions": null,
+        "published_at": "2019-10-02 13:08:43 UTC"
+      },
+      {
+        "manifest_name": "blogs",
+        "id": 18,
+        "name": {
+          "ca": "Blog",
+          "en": "Blog",
+          "es": "Blog"
+        },
+        "participatory_space_id": 2,
+        "participatory_space_type": "Decidim::ParticipatoryProcess",
+        "settings": {
+          "announcement": {
+            "ca": null,
+            "en": null,
+            "es": null
+          },
+          "announcement_en": null,
+          "announcement_ca": null,
+          "announcement_es": null,
+          "comments_enabled": true
+        },
+        "weight": 0,
+        "permissions": null,
+        "published_at": "2019-10-02 13:08:47 UTC"
+      },
+      {
+        "manifest_name": "budgets",
+        "id": 13,
+        "name": {
+          "ca": "Pressupostos",
+          "en": "Budgets",
+          "es": "Presupuestos"
+        },
+        "participatory_space_id": 2,
+        "participatory_space_type": "Decidim::ParticipatoryProcess",
+        "settings": {
+          "projects_per_page": 12,
+          "total_budget": 100000000,
+          "vote_threshold_percent": 70,
+          "comments_enabled": true,
+          "resources_permissions_enabled": true,
+          "announcement": {
+          },
+          "announcement_en": null,
+          "announcement_ca": null,
+          "announcement_es": null
+        },
+        "weight": 0,
+        "permissions": null,
+        "published_at": "2019-10-02 13:08:42 UTC"
+      }
+    ]
+  }
+]

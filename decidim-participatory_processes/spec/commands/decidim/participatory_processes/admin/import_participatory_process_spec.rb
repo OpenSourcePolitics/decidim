@@ -105,6 +105,12 @@ module Decidim::ParticipatoryProcesses
         )
         expect(imported_participatory_process_category.participatory_space).to eq(Decidim::ParticipatoryProcess.last)
       end
+
+      context "when categories are null" do
+        let(:document_name) { "participatory_processes_without_categories_and_attachments.json" }
+
+        it_behaves_like "import participatory_process succeeds"
+      end
     end
 
     describe "when import_attachments exists" do
@@ -117,6 +123,12 @@ module Decidim::ParticipatoryProcesses
           expect(imported_participatory_process_collection.name).to eq("ca" => "assumenda", "en" => "cumque", "es" => "rem")
           expect(imported_participatory_process_collection.collection_for).to eq(Decidim::ParticipatoryProcess.last)
         end
+      end
+
+      context "when attachments are null" do
+        let(:document_name) { "participatory_processes_without_categories_and_attachments.json" }
+
+        it_behaves_like "import participatory_process succeeds"
       end
     end
   end

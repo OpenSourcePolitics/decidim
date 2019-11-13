@@ -80,6 +80,8 @@ module Decidim
       end
 
       def import_categories(categories)
+        return if categories.nil?
+
         categories.map do |category_attributes|
           category = Decidim.traceability.create!(
             Category,
@@ -105,6 +107,8 @@ module Decidim
       end
 
       def import_folders_and_attachments(attachments)
+        return if attachments["files"].nil?
+
         attachments["files"].map do |file|
           next unless remote_file_exists?(file["remote_file_url"])
 
