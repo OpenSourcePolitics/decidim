@@ -64,6 +64,8 @@ module Decidim
       end
 
       def import_participatory_process_steps(steps)
+        return if steps.nil?
+
         steps.map do |step_attributes|
           Decidim.traceability.create!(
             ParticipatoryProcessStep,
@@ -139,6 +141,8 @@ module Decidim
 
       # +components+: An Array of Hashes, each corresponding with the settings of a Decidim::Component.
       def import_components(components)
+        return if components.nil?
+
         importer = Decidim::Importers::ParticipatorySpaceComponentsImporter.new(@imported_process)
         importer.import(components, @user)
       end
