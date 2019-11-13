@@ -132,26 +132,12 @@ fr:
         redirect_uri: Rediriger l'URI
         site: Site Internet
   decidim:
-    participatory_processes:
-      admin:
-        participatory_process_imports:
-          form:
-            document_legend: Document legend
-            slug_help: Slug help
     admin:
-      participatory_process_imports:
-        create:
-          success: Success
-          error: error
-        new:
-          import: Import
-          select: Select
-          title: Title
       actions:
-        import_process: Import process
         add: Ajouter
         browse: Parcourir
         export: Exporter
+        import_process: Import process
         manage: Modifier
         permissions: Autorisations
         reject: Rejeter
@@ -613,6 +599,14 @@ fr:
       organization_homepage_content_blocks:
         edit:
           update: Mettre à jour
+      participatory_process_imports:
+        create:
+          error: error
+          success: Success
+        new:
+          import: Import
+          select: Select
+          title: Title
       participatory_space_private_users:
         create:
           error: Une erreur s'est produite lors de l'ajout d'un utilisateur pour cet espace participatif.
@@ -799,6 +793,12 @@ fr:
             reported_content_url: URL
             reports: Motif
             visit_url: Visitez l'URL
+    participatory_processes:
+      admin:
+        participatory_process_imports:
+          form:
+            document_legend: Document legend
+            slug_help: Slug help
   errors:
     messages:
       invalid_json: JSON non valide
