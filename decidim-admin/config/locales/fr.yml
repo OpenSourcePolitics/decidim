@@ -132,8 +132,23 @@ fr:
         redirect_uri: Rediriger l'URI
         site: Site Internet
   decidim:
+    participatory_processes:
+      admin:
+        participatory_process_imports:
+          form:
+            document_legend: Document legend
+            slug_help: Slug help
     admin:
+      participatory_process_imports:
+        create:
+          success: Success
+          error: error
+        new:
+          import: Import
+          select: Select
+          title: Title
       actions:
+        import_process: Import process
         add: Ajouter
         browse: Parcourir
         export: Exporter
