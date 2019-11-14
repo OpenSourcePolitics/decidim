@@ -49,6 +49,12 @@ de:
         email: Email
         name: Name
         role: Role
+    errors:
+      models:
+        participatory_process:
+          attributes:
+            document:
+              invalid_document_type: 'Invalid document type. Accepted formats are: %{valid_mime_types}'
     models:
       decidim/participatory_process_step_activated_event: Schritt aktiviert
       decidim/participatory_process_step_changed_event: Schritt geändert
@@ -75,6 +81,7 @@ de:
         filter:
           all: Alle Prozesse anzeigen
           process_groups: Prozessgruppen
+        import_process: Import
         new: New
         new_process: New
         new_process_group: New process group
@@ -148,6 +155,14 @@ de:
         update:
           error: Beim Aktualisieren dieser partizipativen Prozessgruppe ist ein Fehler aufgetreten.
           success: Partizipative Prozessgruppe wurde erfolgreich aktualisiert.
+      participatory_process_imports:
+        create:
+          error: There was a problem importing this participatory process.
+          success: Participatory process successfully imported.
+        new:
+          import: Import
+          select: Select which data you would like to import
+          title: Import participatory process
       participatory_process_publications:
         create:
           error: Bei der Veröffentlichung dieses partizipativen Prozesses ist ein Fehler aufgetreten.
@@ -296,6 +311,10 @@ de:
             max_results: Maximale Anzahl der Elemente, die angezeigt werden sollen
         participatory_process_copies:
           form:
+            slug_help: 'URL slugs are used to generate the URLs that point to this process. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
+        participatory_process_imports:
+          form:
+            document_legend: Add a document
             slug_help: 'URL slugs are used to generate the URLs that point to this process. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
         participatory_process_steps:
           form:
