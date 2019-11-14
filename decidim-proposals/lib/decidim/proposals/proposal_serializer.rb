@@ -75,10 +75,6 @@ module Decidim
         Decidim::ResourceLocatorPresenter.new(proposal).url
       end
 
-      def authors_url
-        proposal.authors.map { |author| Decidim::UserPresenter.new(author).profile_url }
-      end
-
       def attachments_url
         proposal.attachments.map { |attachment| proposal.organization.host + attachment.url }
       end
