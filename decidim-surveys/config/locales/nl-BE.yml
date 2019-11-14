@@ -1,4 +1,3 @@
----
 nl-BE:
   activemodel:
     models:
@@ -23,6 +22,8 @@ nl-BE:
             announcement: Announcement
           step:
             allow_answers: Allow answers
+            allow_unregistered: Allow unregistered users to answer the survey
+            allow_unregistered_help: If active, no login will be required in order to answer the survey. This may lead to poor or unreliable data and it will be more vulnerable to automated attacks. Use with caution!
             announcement: Announcement
     events:
       surveys:
@@ -39,8 +40,8 @@ nl-BE:
     metrics:
       survey_answers:
         description: Number of surveys answered by users
-        object: answers to surveys
-        title: Answers to surveys
+        object: antwoorden op enquêtes
+        title: Antwoorden op enquêtes
     surveys:
       admin:
         exports:
@@ -50,8 +51,9 @@ nl-BE:
             invalid: There's been errors when saving the survey.
             success: Survey saved successfully.
       last_activity:
-        new_survey_at_html: "<span>New survey at %{link}</span>"
+        new_survey_at_html: "<span>Nieuwe enquête bij %{link}</span>"
       surveys:
         answer:
           invalid: There's been errors when answering the survey.
+          spam_detected: There was a problem answering the form. Maybe you've been too quick, can you try again?
           success: Survey answered successfully.
