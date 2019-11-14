@@ -1,4 +1,3 @@
----
 fr:
   activemodel:
     models:
@@ -23,6 +22,8 @@ fr:
             announcement: Annonce
           step:
             allow_answers: Autoriser les réponses
+            allow_unregistered: Allow unregistered users to answer the survey
+            allow_unregistered_help: If active, no login will be required in order to answer the survey. This may lead to poor or unreliable data and it will be more vulnerable to automated attacks. Use with caution!
             announcement: Annonce
     events:
       surveys:
@@ -54,4 +55,5 @@ fr:
       surveys:
         answer:
           invalid: Votre réponse à l'enquête comporte des erreurs.
+          spam_detected: There was a problem answering the form. Maybe you've been too quick, can you try again?
           success: Votre participation à l'enquête a bien été enregistrée.
