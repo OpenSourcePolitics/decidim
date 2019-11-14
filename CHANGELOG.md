@@ -56,6 +56,7 @@ end
 - **decidim-system**: Add custom SMTP settings for multitenant [#4698](https://github.com/decidim/decidim/pull/4698)
 - **decidim-proposals**: Add proposal answers to the proposal export [#5139](https://github.com/decidim/decidim/pull/5139)
 - **decidim-core**: Provide "good" password rules [#5106](https://github.com/decidim/decidim/pull/5106)
+- **decidim-surveys**: Added a setting to surveys to allow unregistered (aka: anonymous) users to answer a survey. [\#4996](https://github.com/decidim/decidim/pull/4996)
 
 **Changed**:
 
@@ -100,6 +101,7 @@ end
 - **decidim-budgets**: Fix import of proposals to budget projects [#5097](https://github.com/decidim/decidim/pull/5097)
 - **decidim-core**: Escape fingerprint content [#5146](https://github.com/decidim/decidim/pull/5146)
 - **decidim-initiatives**: Escape hashtag content [#5150](https://github.com/decidim/decidim/pull/5150)
+- **decidim-sortitions**: Fix: Creating a Sortition ignores categories [#5412](https://github.com/decidim/decidim/pull/5412)
 - **decidim-core**: Fix seeds and typo in ActionAuthorizer [#5168](https://github.com/decidim/decidim/pull/5168)
 - **decidim-proposals**: Fix seeds [#5168](https://github.com/decidim/decidim/pull/5168)
 - **decidim-core**: Fix user names migration [#5210](https://github.com/decidim/decidim/pull/5210)
