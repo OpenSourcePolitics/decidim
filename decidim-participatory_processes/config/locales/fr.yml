@@ -138,7 +138,7 @@ fr:
         create:
           error: Une erreur s'est produite lors de la création d'une nouvelle étape de la concertation.
           success: Etape de la concertation créée avec succès.
-        default_title: Introduction
+        default_title: Présentation
         destroy:
           error:
             active_step: Vous ne pouvez pas supprimer l'étape active de la concertation.
