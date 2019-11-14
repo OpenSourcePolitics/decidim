@@ -158,6 +158,7 @@ fr:
           global:
             announcement: Annonce
             comments_enabled: Activer le module de "Commentaires"
+            comments_max_length: Nombre de caractères maximum des commentaires
             geocoding_enabled: Activer la "Géolocalisation"
             projects_per_page: Projets par page
             resources_permissions_enabled: Les autorisations d'actions peuvent être définies pour chaque réunion
