@@ -17,7 +17,7 @@ nl-BE:
         hero_image: Home image
         local_area: Organisatiegebied
         meta_scope: Scope metadata
-        participatory_process_group_id: Processes group
+        participatory_process_group_id: Groep van processen
         participatory_scope: What is decided
         participatory_structure: Hoe wordt er besloten
         private_space: Concertatie privée
@@ -27,15 +27,15 @@ nl-BE:
         scopes_enabled: Scopes enabled
         short_description: Short description
         show_statistics: Show statistics
-        slug: URL slug
+        slug: URL pad
         start_date: Start date
-        subtitle: Subtitle
+        subtitle: Ondertitel
         target: Who participates
         title: Title
       participatory_process_group:
         description: Description
         hero_image: Image
-        name: Name
+        name: Naam
         participatory_process_ids: Related processes
       participatory_process_step:
         cta_path: Oproep naar Actiepad
@@ -49,6 +49,12 @@ nl-BE:
         email: Email
         name: Name
         role: Role
+    errors:
+      models:
+        participatory_process:
+          attributes:
+            document:
+              invalid_document_type: 'Invalid document type. Accepted formats are: %{valid_mime_types}'
     models:
       decidim/participatory_process_step_activated_event: Step activated
       decidim/participatory_process_step_changed_event: Step changed
@@ -75,9 +81,10 @@ nl-BE:
         filter:
           all: Show all processes
           process_groups: Process Groups
+        import_process: Import
         new: New
         new_process: 1 proces
-        new_process_group: New process group
+        new_process_group: Nieuwe groep
         new_process_step: New step
         new_process_user_role: New process user
         preview: Preview
@@ -85,11 +92,11 @@ nl-BE:
         resend_invitation: Resend invitation
         unpublish: Unpublish
       menu:
-        participatory_process_groups: Process groups
-        participatory_processes: Processes
+        participatory_process_groups: Inspraakproces groepen
+        participatory_processes: Inspraakprocessen
         participatory_processes_submenu:
           attachment_collections: Mappen
-          attachment_files: Files
+          attachment_files: Bestanden
           attachments: Attachments
           categories: Categories
           components: Components
@@ -106,11 +113,11 @@ nl-BE:
             promoted: Highlighted
             published: Published
             title: Title
-          name: Deelnemend proces
+          name: Inspraakproces
         participatory_process_group:
           fields:
             name: Name
-          name: Process group
+          name: Groep inspraakprocessen
         participatory_process_step:
           fields:
             end_date: End date
@@ -135,7 +142,7 @@ nl-BE:
         new:
           copy: Copy
           select: Select which data you would like to duplicate
-          title: Duplicate participatory process
+          title: Inspraakproces dupliceren
       participatory_process_groups:
         destroy:
           success: Participatory process group deleted successfully.
@@ -144,10 +151,18 @@ nl-BE:
           update: Update
         new:
           create: Create
-          title: New process group
+          title: Nieuwe groep
         update:
           error: There was en error updating this participatory process group.
           success: Participatory process group updated successfully.
+      participatory_process_imports:
+        create:
+          error: There was a problem importing this participatory process.
+          success: Participatory process successfully imported.
+        new:
+          import: Import
+          select: Select which data you would like to import
+          title: Import participatory process
       participatory_process_publications:
         create:
           error: There was an error publishing this participatory process.
@@ -175,7 +190,7 @@ nl-BE:
         index:
           steps_title: Fases
         new:
-          create: Create
+          create: Aanmaken
           title: Nieuwe processtap
         ordering:
           error: Er is een fout opgetreden bij het herschikken van deze processtappen.
@@ -194,7 +209,7 @@ nl-BE:
         index:
           process_admins_title: Admins van het participatieve proces
         new:
-          create: Create
+          create: Aanmaken
           title: Nieuwe admin voor het participatieve proces.
         update:
           error: Er is een probleem opgetreden bij het bijwerken van een admin voor dit participatief proces.
@@ -214,7 +229,7 @@ nl-BE:
           public: Public
           published: Published
         new:
-          create: Create
+          create: Aanmaken
           title: New participatory process
         update:
           error: Er was een probleem bij het bijwerken van dit participatief proces.
@@ -228,7 +243,7 @@ nl-BE:
           error: Er is een fout opgetreden bij het maken van een nieuwe groep voor participatieve processen.
           success: Groep van participatieve processen succesvol aangemaakt.
       titles:
-        participatory_process_groups: Participatory process groups
+        participatory_process_groups: Groepen van participatieve processen
         participatory_processes: Participatory processes
       users:
         resend_invitation:
@@ -268,7 +283,7 @@ nl-BE:
           page: "<p>A <strong>participatief proces</strong> is een reeks van participatieve activiteiten (bijv. vul eerst een enquête in, maak vervolgens voorstellen, bespreek ze in de face-to-face of virtuele vergaderingen, en tenslotte prioriteren) met het doel om een bepaald onderwerp te definiëren en te bepalen.</p> <p>Voorbeelden van participatieve processen zijn: een proces van verkiezing van commissieleden (waar kandidaten voor het eerst worden gepresenteerd, vervolgens worden behandeld en uiteindelijk een kandidatuur wordt gekozen), participatieve begrotingen (waar voorstellen worden gedaan, beoordeeld worden en gestemd worden met het beschikbare geld), een strategisch planningsproces, de gezamenlijke opstelling van een verordening of norm, de opzet van een stedelijke ruimte of de productie van een openbaar beleidsplan.</p>\n"
           title: Nieuw deelnemend proces?
     menu:
-      processes: Processes
+      processes: Inspraakprocessen
     metrics:
       participatory_processes:
         description: Aantal participatieve processen in deze organisatie
@@ -284,7 +299,7 @@ nl-BE:
         group_participatory_processes:
           one: 1 proces voor %{group}
           other: "%{count} processen voor %{group}"
-        title: Participatory process groups
+        title: Groepen van participatieve processen
     participatory_process_steps:
       index:
         process_steps: Process steps
@@ -296,7 +311,11 @@ nl-BE:
             max_results: Maximaal aantal te tonen elementen
         participatory_process_copies:
           form:
-            slug_help: 'URL slugs are used to generate the URLs that point to this process. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
+            slug_help: 'URL-paden worden gebruikt om de URL''s te genereren die naar dit proces verwijzen. Enkel letters, cijfers en streepjes worden toegestaan en deze moet beginnen met een letter. Voorbeeld: %{url}'
+        participatory_process_imports:
+          form:
+            document_legend: Add a document
+            slug_help: 'URL-paden worden gebruikt om de URL''s te genereren die naar dit proces verwijzen. Enkel letters, cijfers en streepjes worden toegestaan en deze moet beginnen met een letter. Voorbeeld: %{url}'
         participatory_process_steps:
           form:
             cta_path_help: 'Gebruik gedeeltelijke paden, niet volledige URL''s hier. Accepteert letters, cijfers, streepjes en slashes, en moet beginnen met een letter. Indien niet ingesteld, zal de knop niet worden weergegeven. Voorbeeld: %{url}'
@@ -311,14 +330,14 @@ nl-BE:
             other: Overige
             select_an_area: Selecteer een onderwerp
             select_process_group: Select a process group
-            slug_help: 'URL slugs are used to generate the URLs that point to this process. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
+            slug_help: 'URL-paden worden gebruikt om de URL''s te genereren die naar dit proces verwijzen. Enkel letters, cijfers en streepjes worden toegestaan en deze moet beginnen met een letter. Voorbeeld: %{url}'
             title: General Information
             visbility: Visibility
       content_blocks:
         highlighted_processes:
           name: Uitgelichte processen
       index:
-        title: Participatory processes
+        title: Inspraakproces
       last_activity:
         new_participatory_process: New participatory process
       pages:
