@@ -1,4 +1,3 @@
----
 fr:
   activemodel:
     attributes:
@@ -16,6 +15,8 @@ fr:
             choices:
               missing: ne sont pas complets
               too_many: sont trop nombreux
+        questionnaire:
+          request_invalid: There's been an error handling the request. Please try again
   decidim:
     forms:
       admin:
@@ -81,3 +82,7 @@ fr:
       user_answers_serializer:
         created_at: Répondu le
         id: ID de réponse
+        ip_hash: Ip Hash
+        registered: Registered
+        unregistered: Unregistered
+        user_status: User status
