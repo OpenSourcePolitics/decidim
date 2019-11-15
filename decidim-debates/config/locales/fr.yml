@@ -30,7 +30,7 @@ fr:
           global:
             announcement: Annonce
             comments_enabled: Commentaires activés
-            comments_max_length: Comments max length
+            comments_max_length: Nombre maximum de caractères des commentaires
           step:
             announcement: Annonce
             comments_blocked: Commentaires désactivés
