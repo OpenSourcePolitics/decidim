@@ -90,6 +90,7 @@ nl-BE:
             can_accumulate_supports_beyond_threshold: Can accumulate supports beyond threshold
             collaborative_drafts_enabled: Gezamenlijk ontwerp
             comments_enabled: Comments enabled
+            comments_max_length: Comments max length
             geocoding_enabled: Geocoding enabled
             minimum_votes_per_user: Minimum votes per user
             new_proposal_help_text: New proposal help text
@@ -323,7 +324,7 @@ nl-BE:
             name: Proposal
         participatory_texts:
           bulk-actions:
-            are_you_sure: Weet u zeker dat u de hele participatieve tekst tekst wilt verwijderen?
+            are_you_sure: Weet je zeker dat je de hele ontwerptekst wilt verwijderen?
             discard_all: Alles verwijderen
             import_doc: Importeer document
           discard:
