@@ -90,6 +90,7 @@ fr:
             can_accumulate_supports_beyond_threshold: Peut accumuler des supports au-delà du seuil
             collaborative_drafts_enabled: Propositions collaboratives activées
             comments_enabled: Activer le module de commentaire
+            comments_max_length: Comments max length
             geocoding_enabled: Géocodage activé
             minimum_votes_per_user: Nombre minimum de votes par utilisateur
             new_proposal_help_text: Texte d'aide à la création d'une nouvelle proposition
