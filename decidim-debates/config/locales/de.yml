@@ -30,6 +30,7 @@ de:
           global:
             announcement: Announcement
             comments_enabled: Comments enabled
+            comments_max_length: Comments max length
           step:
             announcement: Announcement
             comments_blocked: Comments blocked
