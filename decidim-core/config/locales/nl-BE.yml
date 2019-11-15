@@ -270,6 +270,7 @@ nl-BE:
           global:
             amendments_enabled: Amendementen ingeschakeld
             comments_enabled: Reacties ingeschakeld
+            comments_max_length: comments_max_length
             dummy_global_attribute_1: Dummy Attribuut 1
             dummy_global_attribute_2: Dummy Attribuut 2
             enable_pads_creation: Schakel paden aanmaken in
