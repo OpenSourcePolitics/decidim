@@ -81,6 +81,7 @@ de:
           global:
             announcement: Announcement
             comments_enabled: Comments enabled
+            comments_max_length: Comments max length
             default_registration_terms: Default registration terms
             enable_pads_creation: Aktivieren Sie die Pads-Erstellung
             resources_permissions_enabled: Aktionsberechtigungen können für jedes Meeting festgelegt werden
