@@ -81,7 +81,7 @@ fr:
           global:
             announcement: Annonce
             comments_enabled: Activer le module de commentaire
-            comments_max_length: Comments max length
+            comments_max_length: Nombre maximum de caractères des commentaires
             default_registration_terms: Conditions d'inscription par défaut
             enable_pads_creation: Activer la création de pads
             resources_permissions_enabled: Les autorisations d'actions peuvent être définies pour chaque réunion
