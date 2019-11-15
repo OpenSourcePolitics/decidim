@@ -270,6 +270,7 @@ de:
           global:
             amendments_enabled: Änderungen aktiviert
             comments_enabled: Comments enabled
+            comments_max_length: comments_max_length
             dummy_global_attribute_1: Dummy Attribute 1
             dummy_global_attribute_2: Dummy Attribute 2
             enable_pads_creation: Aktivieren Sie die Pads-Erstellung
