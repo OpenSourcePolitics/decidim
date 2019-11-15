@@ -270,7 +270,7 @@ fr:
           global:
             amendments_enabled: Activer le module "Amendements"
             comments_enabled: Activer le module de commentaire
-            comments_max_length: comments_max_length
+            comments_max_length: nombre maximum de caractères des commentaires
             dummy_global_attribute_1: Attribut factice 1
             dummy_global_attribute_2: Attribut factice 2
             enable_pads_creation: Activer la création de pads
@@ -991,9 +991,9 @@ fr:
       version_author:
         deleted: Utilisateur ayant supprimé son compte
     translate:
-      original: Translate (*)
-      tooltip: Translated with Deepl
-      translated: Back to the original version
+      original: Traduire (*)
+      tooltip: Traduit avec Deepl
+      translated: Retour à la version d'origine
     user_activity:
       index:
         no_activities_warning: Cet utilisateur n'a pas encore eu d'activité.
