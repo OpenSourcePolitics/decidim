@@ -159,7 +159,7 @@ fr:
           global:
             announcement: Annonce
             comments_enabled: Activer le module de commentaire
-            comments_max_length: Comments max length
+            comments_max_length: Nombre maximum de caractères des commentaires
             geocoding_enabled: Géocodage activé
             projects_per_page: Projets par page
             resources_permissions_enabled: Les autorisations d'actions peuvent être définies pour chaque réunion
@@ -181,10 +181,10 @@ fr:
           email_subject: Une enquête est terminée à %{participatory_space_title}
           notification_title: Votre vote a été validé le <a href='%{resource_url}'>%{participatory_space_title}</a> Vous pouvez toujours l'éditer si vous le souhaitez.
         reminder_order:
-          email_intro: 'A vote is still pending! You can always continue by clicking here: <a href=''%{resource_url}''>%{participatory_space_title}</a>'
+          email_intro: 'Votre vote est toujours en attente ! Vous pouvez toujours continuer en cliquant ici : <a href=''%{resource_url}''>%{participatory_space_title}</a>'
           email_outro: Merci de votre participation
-          email_subject: A vote is still pending on %{participatory_space_title}
-          notification_title: 'A vote is still pending! You can always continue by clicking here: <a href=''%{resource_url}''>%{participatory_space_title}</a>'
+          email_subject: Votre vote est toujours en attente pour %{participatory_space_title}
+          notification_title: 'Votre vote est toujours en attente ! Vous pouvez toujours continuer en cliquant ici : <a href=''%{resource_url}''>%{participatory_space_title}</a>'
     orders:
       checkout:
         error: Une erreur s'est produite lors du traitement de votre vote
