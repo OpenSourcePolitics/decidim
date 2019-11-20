@@ -5,7 +5,7 @@ require "nokogiri"
 
 module Decidim
   describe FormBuilder do
-    let(:helper) { Class.new(ActionView::Base).new }
+    let(:helper) { ActionView::Base.new }
     let(:available_locales) { %w(ca en de-CH) }
 
     let(:resource) do

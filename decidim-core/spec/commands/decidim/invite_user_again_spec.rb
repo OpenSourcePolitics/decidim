@@ -16,7 +16,7 @@ module Decidim
 
       it "sends the invitation instructions" do
         command.call
-        expect(ActionMailer::DeliveryJob).to have_been_enqueued.on_queue("mailers")
+        expect(ActionMailer::MailDeliveryJob).to have_been_enqueued.on_queue("mailers")
       end
 
       it "broadcasts ok" do
@@ -45,7 +45,7 @@ module Decidim
 
       it "does not send an email" do
         command.call
-        expect(ActionMailer::DeliveryJob).not_to have_been_enqueued.on_queue("mailers")
+        expect(ActionMailer::MailDeliveryJob).not_to have_been_enqueued.on_queue("mailers")
       end
 
       it "broadcasts invalid" do

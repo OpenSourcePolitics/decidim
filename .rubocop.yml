@@ -1186,6 +1186,10 @@ Lint/UnusedMethodArgument:
   AllowUnusedKeywordArguments: false
   IgnoreEmptyMethods: true
 
+Lint/UselessAssignment:
+  Exclude:
+    - "decidim-core/spec/services/decidim/searchable_user_resource_spec.rb"
+
 ##################### Performance ############################
 
 Metrics/BlockLength:

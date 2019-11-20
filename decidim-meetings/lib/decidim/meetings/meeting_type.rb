@@ -29,7 +29,7 @@ module Decidim
 
       field :address, types.String, "The physical address of this meeting"
       field :coordinates, Decidim::Core::CoordinatesType, "Physical coordinates for this meeting" do
-        resolve ->(meeting, _args, _ctx) {
+        resolve lambda { |meeting, _args, _ctx|
           [meeting.latitude, meeting.longitude]
         }
       end

@@ -61,6 +61,10 @@ module Decidim
                           default: false,
                           desc: "Generate demo authorization handlers"
 
+      def application_js
+        template "application.js.erb", "app/assets/javascripts/application.js", force: true
+      end
+
       def database_yml
         template "database.yml.erb", "config/database.yml", force: true
       end
@@ -140,6 +144,13 @@ module Decidim
             compile_cache_iseq: !ENV["SIMPLECOV"],
             compile_cache_yaml: true
           )
+        RUBY
+      end
+
+      def tweak_application
+        gsub_file "config/application.rb", /config.load_defaults 6.0.*$/, <<~RUBY.rstrip
+          config.load_defaults 6.0
+          config.autoloader = :classic
         RUBY
       end
 

@@ -80,6 +80,10 @@ module Decidim
   autoload :HasResourcePermission, "decidim/has_resource_permission"
   autoload :PermissionsRegistry, "decidim/permissions_registry"
   autoload :Randomable, "decidim/randomable"
+  autoload :LayoutHelper, "decidim/layout_helper"
+  autoload :CurrentOrganization, "decidim/current_organization"
+  autoload :EventsManager, "decidim/events_manager"
+  autoload :SettingsChange, "decidim/settings_change"
 
   include ActiveSupport::Configurable
   # Loads seeds from all engines.

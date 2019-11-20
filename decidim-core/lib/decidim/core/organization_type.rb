@@ -11,7 +11,7 @@ module Decidim
       field :stats do
         type types[Core::StatisticType]
         description "The statistics associated to this object"
-        resolve ->(object, _args, _ctx) {
+        resolve lambda { |object, _args, _ctx|
           Decidim.stats.with_context(object)
         }
       end

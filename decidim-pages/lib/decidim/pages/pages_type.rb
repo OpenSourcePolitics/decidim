@@ -9,7 +9,7 @@ module Decidim
       description "A pages component of a participatory space."
 
       connection :pages, PageType.connection_type do
-        resolve ->(component, _args, _ctx) {
+        resolve lambda { |component, _args, _ctx|
                   PagesTypeHelper.base_scope(component).includes(:component)
                 }
       end
@@ -17,7 +17,7 @@ module Decidim
       field(:page, PageType) do
         argument :id, !types.ID
 
-        resolve ->(component, args, _ctx) {
+        resolve lambda { |component, args, _ctx|
           PagesTypeHelper.base_scope(component).find_by(id: args[:id])
         }
       end

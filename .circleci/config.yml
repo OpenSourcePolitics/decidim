@@ -79,6 +79,7 @@ jobs:
     steps:
       - checkout
       - *restore_ruby_cache
+      - run: gem install bundler:2.0.2
       - run: bundle install
       - *save_ruby_cache
       - *wait_for_db
@@ -109,6 +110,7 @@ jobs:
           name: Run js lint & tests
           command: npm run test:ci
       - *restore_ruby_cache
+      - run: gem install bundler:2.0.2
       - run: bundle install
       - *save_ruby_cache
       - *wait_for_db
@@ -128,6 +130,7 @@ jobs:
       - *attach_workspace
       - checkout
       - *restore_ruby_cache
+      - run: gem install bundler:2.0.2
       - *install_ruby_dependencies
       - *save_ruby_cache
       - *wait_for_db

@@ -12,5 +12,7 @@ module Decidim
   module Meetings
     autoload :Registrations, "decidim/meetings/registrations"
     autoload :MeetingSerializer, "decidim/meetings/meeting_serializer"
+    autoload :MeetingType, "decidim/meetings/meeting_type"
+    autoload :MeetingsType, "decidim/meetings/meetings_type"
   end
 end

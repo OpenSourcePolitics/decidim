@@ -8,6 +8,8 @@ require "decidim/participatory_processes/participatory_space"
 module Decidim
   # Base module for the participatory processes engine.
   module ParticipatoryProcesses
+    autoload :ParticipatoryProcessStepType, "decidim/participatory_processes/participatory_process_step_type"
+    autoload :ParticipatoryProcessType, "decidim/participatory_processes/participatory_process_type"
     # Public: Stores an instance of ViewHooks
     def self.view_hooks
       @view_hooks ||= ViewHooks.new

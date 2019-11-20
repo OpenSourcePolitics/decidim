@@ -27,7 +27,7 @@ module Decidim
       end
 
       field :endorsements, !types[Decidim::Core::AuthorInterface], "The endorsements of this proposal." do
-        resolve ->(proposal, _, _) {
+        resolve lambda { |proposal, _, _|
           proposal.endorsements.map(&:normalized_author)
         }
       end
@@ -39,7 +39,7 @@ module Decidim
 
       field :voteCount, types.Int do
         description "The total amount of votes the proposal has received"
-        resolve ->(proposal, _args, _ctx) {
+        resolve lambda { |proposal, _args, _ctx|
           current_component = proposal.component
           proposal.proposal_votes_count unless current_component.current_settings.votes_hidden?
         }

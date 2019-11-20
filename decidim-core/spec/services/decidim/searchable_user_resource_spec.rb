@@ -22,6 +22,7 @@ module Decidim
         it "updates the associated SearchableResource after User update" do
           searchable = SearchableResource.find_by(resource_type: user.class.name, resource_id: user.id)
           created_at = searchable.created_at
+          updated_at = searchable.updated_at
           user.save!
 
           organization.available_locales.each do |locale|

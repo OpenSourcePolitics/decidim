@@ -32,9 +32,13 @@ describe "Follow users", type: :system do
     context "when user clicks the Follow button" do
       it "makes the user follow the user" do
         visit decidim.profile_path(followable.nickname)
+        expect(page).to have_content "Stop following"
+
         expect do
           click_button "Stop following"
-          expect(page).to have_content "Follow"
+          within "button.follow-button" do
+            expect(page).to have_content "Follow"
+          end
         end.to change(Decidim::Follow, :count).by(-1)
       end
     end
