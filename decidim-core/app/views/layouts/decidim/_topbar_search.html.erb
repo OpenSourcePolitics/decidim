@@ -2,8 +2,8 @@
   <div class="topbar__search js-append">
     <%= icon "magnifying-glass", aria_label: t("decidim.search.term_input_placeholder"), role: "img" %>
     <%= form_tag(decidim.search_path, method: :get, id: "form-search_topbar") do %>
-      <%= label_tag t("decidim.search.term_input_placeholder"), title: "search-bar" do %>
-        <%= text_field_tag :term, nil, class: "m-none", placeholder: t("decidim.search.term_input_placeholder") %>
+      <%= label_tag t("decidim.search.term_input_placeholder") do %>
+        <%= text_field_tag :term, nil, class: "m-none", placeholder: t("decidim.search.term_input_placeholder"), title: t("decidim.search.term_input_placeholder") %>
       <% end %>
     <% end %>
   </div>
