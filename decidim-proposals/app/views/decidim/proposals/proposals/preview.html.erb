@@ -13,7 +13,7 @@
               <button type="button" class="button hollow expanded card--button" data-open="address_input_modal">
                 <div class="button-data">
                   <div class="button-data--icon">
-                    <%= icon "map-marker", class: "icon--big" %>
+                    <%= icon "map-marker", class: "icon--big", role: "img" %>
                   </div>
                   <div class="button-data--map">
                     <%= image_tag decidim.static_map_path(sgid: @proposal.to_sgid.to_s) %>
@@ -63,7 +63,7 @@
                   </div>
                 <% end %>
                 <button class="close-button" data-close aria-label="Close modal" type="button">
-                  <%= icon "x" %>
+                  <%= icon "x", role: "img" %>
                 </button>
               </div>
             </div>

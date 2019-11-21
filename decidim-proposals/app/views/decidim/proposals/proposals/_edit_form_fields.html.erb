@@ -41,7 +41,7 @@
     <% if has_position?(@proposal) %>
       <div class="button-wrapper">
         <button type="button" name="map-preview" class="button hollow" data-open="address_input_modal">
-          <%= icon "map-marker" %>
+          <%= icon "map-marker", role: "img" %>
         </button>
       </div>
       <%= form.hidden_field :latitude, data: { type: "latitude" } %>
@@ -55,7 +55,7 @@
           <%= javascript_include_tag "decidim/map" %>
         <% end %>
         <button class="close-button" data-close aria-label="Close modal" type="button">
-          <%= icon "x" %>
+          <%= icon "x", role: "img" %>
         </button>
       </div>
     <% end %>

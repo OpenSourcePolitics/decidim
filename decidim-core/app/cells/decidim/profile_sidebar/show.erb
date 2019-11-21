@@ -67,7 +67,7 @@
           <strong class="muted"><%= t("decidim.profiles.sidebar.badges.title") %></strong>
           <div class="badge-tip badge-tip--inline">
             <div data-tooltip data-position="top" title="<%= t("decidim.profiles.sidebar.badges.info") %>" aria-describedby="badges-tooltip" data-yeti-box="badges-tooltip" data-toggle="badges-tooltip" data-resize="badges-tooltip" class="has-tip" data-events="resize">
-              <%= icon "info", class: "icon--small" %>
+              <%= icon "info", class: "icon--small", aria_label: t("decidim.profiles.sidebar.badges.info"), role: "img" %>
             </div>
           </div>
         </div>
