@@ -155,7 +155,13 @@ en:
           global: Global execution
         search:
           search: Search for actions
+        show_parent:
+          back: Back to list
+        show_leaf:
+          back_from_child: Back to parent
         show:
+          back: Back to list
+          back_from_child: Back to parent
           stats:
             attendees: Attendees
             back_to_result: Go back to result
