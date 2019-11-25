@@ -23,7 +23,7 @@ describe Decidim::ContentBlocks::LastActivityCell, type: :cell do
     subject { cell.valid_activities }
 
     let(:cell) do
-      described_class.new(nil, activities_count: 3)
+      described_class.new(nil, activities_count: 5)
     end
     let!(:action_log) do
       create(:action_log, action: "publish", visibility: "all", resource: resource, organization: organization)

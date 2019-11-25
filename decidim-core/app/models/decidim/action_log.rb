@@ -137,6 +137,8 @@ module Decidim
       return false if participatory_space_lazy.blank?
       return false if resource_lazy.respond_to?(:hidden?) && resource_lazy.hidden?
       return false if resource_lazy.respond_to?(:can_participate?) && !resource_lazy.can_participate?(user)
+      return false if participatory_space.blank?
+      return false unless participatory_space.can_participate?(user)
 
       true
     end
