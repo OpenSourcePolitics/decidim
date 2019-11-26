@@ -156,8 +156,6 @@ en:
         search:
           search: Search for actions
         show:
-          back: Back to list
-          back_from_child: Back to parent
           stats:
             attendees: Attendees
             back_to_result: Go back to result
