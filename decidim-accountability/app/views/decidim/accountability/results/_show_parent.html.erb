@@ -1,6 +1,6 @@
 <div class="row accountability result-view">
 
-  <%= link_to :results, class: "muted-link" do %>
+  <%= link_to results_path(filter: { category_id: result.try(:category), scope_id: current_scope }), class: "muted-link" do %>
     <%= icon "chevron-left", class: "icon--small" %>
     <%= t(".back") %>
   <% end %>

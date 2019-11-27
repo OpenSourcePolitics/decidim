@@ -95,6 +95,7 @@ describe "Explore results", versioning: true, type: :system do
 
   describe "show" do
     let(:path) { decidim_participatory_process_accountability.result_path(id: result.id, participatory_process_slug: participatory_process.slug, component_id: component.id) }
+
     let(:results_count) { 1 }
     let(:result) { results.first }
 
@@ -103,6 +104,55 @@ describe "Explore results", versioning: true, type: :system do
       expect(page).to have_i18n_content(result.description)
       expect(page).to have_content(result.reference)
       expect(page).to have_content("#{result.progress.to_i}%")
+    end
+
+    context "when result has children" do
+      let(:back_path) do
+        decidim_participatory_process_accountability.results_path(
+          participatory_process_slug: participatory_process.slug, component_id: component.id, filter: { category_id: category.id, scope_id: scope.id }
+        )
+      end
+
+      it "shows a back to parent link" do
+        byebug
+        expect(page).to have_link(class: "muted-link", href: back_path)
+      end
+
+      context "when clicking back to parent link" do
+        before do
+          click_link(class: "muted-link", href: back_path)
+        end
+
+        it "redirect the user to parent result" do
+          expect(page).to redirect_to back_path
+        end
+      end
+
+    end
+
+    context "when result has no children" do
+      let(:back_path) { decidim_participatory_process_accountability.result_path(id: result.parent, participatory_process_slug: participatory_process.slug, component_id: component.id) }
+
+      let(:results_count) { 2 }
+      let(:result_parent) { results[1] }
+
+      before do
+        result.parent = result_parent
+      end
+
+      it "shows a 'Back to list' link" do
+        expect(page).to have_link(class: "muted-link", href: back_path)
+      end
+
+      context "when clicking 'back to list' link" do
+        before do
+          click_link(class: "muted-link", href: back_path)
+        end
+
+        it "redirect the user to parent result" do
+          expect(page).to redirect_to back_path
+        end
+      end
     end
 
     context "when it has no versions" do
