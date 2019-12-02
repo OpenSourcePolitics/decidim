@@ -172,10 +172,6 @@ en:
             version_number: Version number
             version_number_out_of_total: "%{current_version} out of %{total_count}"
             votes: Supports
-        show_leaf:
-          back_from_child: Back to parent
-        show_parent:
-          back: Back to list
         timeline:
           title: Project evolution
       versions:
