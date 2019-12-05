@@ -50,7 +50,6 @@ describe "Explore posts", type: :system do
     it "shows the back button" do
       expect(page).to have_link(href: "#{main_component_path(component)}posts")
     end
-
   end
 
   describe "most commented" do
