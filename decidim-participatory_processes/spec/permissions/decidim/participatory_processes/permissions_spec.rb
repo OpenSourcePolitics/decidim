@@ -278,6 +278,7 @@ describe Decidim::ParticipatoryProcesses::Permissions do
       it_behaves_like "allows any action on subject", :moderation
       it_behaves_like "allows any action on subject", :process
       it_behaves_like "allows any action on subject", :process_step
+      it_behaves_like "allows any action on subject", :space_private_user
       it_behaves_like "allows any action on subject", :process_user_role
     end
 
