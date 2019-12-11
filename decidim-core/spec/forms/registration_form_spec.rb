@@ -6,9 +6,9 @@ module Decidim
   describe RegistrationForm do
     subject do
       described_class.from_params(
-        attributes
+          attributes
       ).with_context(
-        context
+          context
       )
     end
 
@@ -19,21 +19,34 @@ module Decidim
     let(:password) { "S4CGQ9AM4ttJdPKS" }
     let(:password_confirmation) { password }
     let(:tos_agreement) { "1" }
+    let(:additional_tos) { "1" }
+    let(:residential_area) { create(:scope, organization: organization) }
+    let(:work_area) { create(:scope, organization: organization) }
+    let(:gender) { "female" }
+    let(:month) { "January" }
+    let(:year) { "1992" }
+
 
     let(:attributes) do
       {
-        name: name,
-        nickname: nickname,
-        email: email,
-        password: password,
-        password_confirmation: password_confirmation,
-        tos_agreement: tos_agreement
+          name: name,
+          nickname: nickname,
+          email: email,
+          password: password,
+          password_confirmation: password_confirmation,
+          tos_agreement: tos_agreement,
+          additional_tos: additional_tos,
+          residential_area: residential_area,
+          work_area: work_area,
+          gender: gender,
+          month: month,
+          year: year
       }
     end
 
     let(:context) do
       {
-        current_organization: organization
+          current_organization: organization
       }
     end
 
@@ -109,6 +122,60 @@ module Decidim
 
     context "when the tos_agreement is not accepted" do
       let(:tos_agreement) { "0" }
+
+      it { is_expected.to be_invalid }
+    end
+
+    context "when the additional_tos is not accepted" do
+      let(:additional_tos) { "0" }
+
+      it { is_expected.to be_invalid }
+    end
+
+    context "when residential_area is not a scope" do
+      let(:residential_area) { "23" }
+
+      it { is_expected.to be_invalid }
+    end
+
+    context "when residential_area is nil" do
+      let(:residential_area) { nil }
+
+      it { is_expected.to be_invalid }
+    end
+
+    context "when work_area is not a scope" do
+      let(:work_area) { "abcd" }
+
+      it { is_expected.to be_invalid }
+    end
+
+    context "when work_area is nil" do
+      let(:work_area) { nil }
+
+      it { is_expected.to be_valid }
+    end
+
+    context "when gender is not in list" do
+      let(:gender) { "Apache helicopter" }
+
+      it { is_expected.to be_invalid }
+    end
+
+    context "when gender is nil" do
+      let(:gender) { nil }
+
+      it { is_expected.to be_valid }
+    end
+
+    context "when birth_date year is not in the range" do
+      let(:year) { "1000" }
+
+      it { is_expected.to be_invalid }
+    end
+
+    context "when birth_date month is not in the list" do
+      let(:month) { "Apple" }
 
       it { is_expected.to be_invalid }
     end

@@ -1,4 +1,4 @@
-.register__separator{
+.register__separator {
   display: block;
   text-align: center;
   position: relative;
@@ -6,7 +6,7 @@
   font-style: italic;
   margin: 1rem 0 2rem;
 
-  &::before{
+  &::before {
     content: "";
     display: block;
     height: 1px;
@@ -18,20 +18,20 @@
   }
 }
 
-.register__separator__text{
+.register__separator__text {
   display: inline-block;
   background: $light-gray;
   padding: 0 1rem;
 }
 
-.register-form{
+.register-form {
   input[type="text"],
   input[type="email"],
-  input[type="password"]{
+  input[type="password"] {
     height: 3rem;
   }
 
-  legend{
+  legend {
     font-size: 1.25em;
     line-height: 1.2;
     margin-bottom: 1.5rem;
@@ -39,11 +39,11 @@
     text-align: center;
   }
 
-  label > [type='checkbox']{
+  label > [type='checkbox'] {
     margin-bottom: 1rem;
   }
 
-  .tos-text{
+  .tos-text {
     padding: .5rem;
     border: 1px solid #e8e8e8;
     margin: 1rem 0;
@@ -54,7 +54,11 @@
   }
 
   #card__tos,
-  #card__newsletter{
+  #card__newsletter {
     text-align: center;
+  }
+
+  .tos_checkboxes {
+    text-align: left;
   }
 }
