@@ -22,10 +22,9 @@ module Decidim
     attribute :tos_agreement, Boolean
     attribute :additional_tos, Boolean
     jsonb_attribute :birth_date, [
-        [:month, String],
-        [:year, String]
+      [:month, String],
+      [:year, String]
     ]
-
 
     validates :name, presence: true
     validates :nickname, presence: true, length: { maximum: Decidim::User.nickname_max_length }
@@ -81,8 +80,8 @@ module Decidim
     def gender_types_for_select
       GENDER_TYPES.map do |type|
         [
-            I18n.t(type.downcase, scope: "decidim.devise.registrations.new.gender"),
-            type
+          I18n.t(type.downcase, scope: "decidim.devise.registrations.new.gender"),
+          type
         ]
       end
     end
@@ -90,8 +89,8 @@ module Decidim
     def month_names_for_select
       MONTHNAMES.map do |month_name|
         [
-            I18n.t(month_name.downcase, scope: "decidim.devise.registrations.new.month_name"),
-            month_name
+          I18n.t(month_name.downcase, scope: "decidim.devise.registrations.new.month_name"),
+          month_name
         ]
       end
     end
