@@ -56,23 +56,26 @@
 
         <div class="card" id="card__tos">
           <div class="card__content">
-            <legend><%= t(".tos_title") %></legend>
+            <fieldset>
+              <legend><%= t(".tos_title") %>
 
-            <p class="tos-text">
-              <%= strip_tags(translated_attribute(terms_and_conditions_page.content)) %>
-            </p>
+                <p class="tos-text">
+                  <%= strip_tags(translated_attribute(terms_and_conditions_page.content)) %>
+                </p>
 
-            <div class="field">
-              <%= f.check_box :tos_agreement, label: t(".tos_agreement", link: link_to(t(".terms"), page_path("terms-and-conditions"))) %>
-            </div>
+                <div class="field">
+                  <%= f.check_box :tos_agreement, label: t(".tos_agreement", link: link_to(t(".terms"), page_path("terms-and-conditions"))) %>
+                </div>
+
+              </legend>
+            </fieldset>
           </div>
         </div>
 
         <div class="card" id="card__newsletter">
           <div class="card__content">
-            <legend><%= t(".newsletter_title") %></legend>
-
             <fieldset>
+              <legend><%= t(".newsletter_title") %></legend>
               <div class="field">
                 <%= f.check_box :newsletter, label: t(".newsletter"), checked: @form.newsletter %>
               </div>
