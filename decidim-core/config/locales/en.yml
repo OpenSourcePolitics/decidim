@@ -327,13 +327,13 @@ en:
           username_help: Public name that appears on your posts. With the aim of guaranteeing the anonymity, can be any name.
       registrations:
         new:
-          gdpr_disclaimer: Gdpr disclaimer
           additional_tos: Additional tos
-          gender:
-            male: Male
-            female: Female
-            other: Other
           already_have_an_account?: Already have an account?
+          gdpr_disclaimer: Gdpr disclaimer
+          gender:
+            female: Female
+            male: Male
+            other: Other
           newsletter: Receive an occasional newsletter with relevant information
           newsletter_title: Contact permission
           nickname_help: Your alias (@nickname) in %{organization}
@@ -1151,8 +1151,8 @@ en:
       signed_out: Signed out successfully.
     shared:
       links:
-        captcha_protection: Captcha protection
         back: Back
+        captcha_protection: Captcha protection
         didn_t_receive_confirmation_instructions: Didn't receive confirmation instructions?
         didn_t_receive_unlock_instructions: Didn't receive unlock instructions?
         forgot_your_password: Forgot your password?

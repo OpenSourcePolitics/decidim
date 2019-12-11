@@ -207,6 +207,7 @@ ignore_unused:
   - decidim.system.organizations.smtp_settings.*
   - layouts.decidim.participatory_processes.participatory_process.more_info
   - layouts.decidim.participatory_processes.participatory_process.take_part
+  - decidim.devise.registrations.new.gender.*
   # OSP CUSTO END HERE
 
 ## Exclude these keys from the `i18n-tasks eq-base' report:

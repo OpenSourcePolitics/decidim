@@ -1,5 +1,4 @@
 ---
-
 fr:
   activemodel:
     attributes:
@@ -327,13 +326,13 @@ fr:
           username_help: Le nom est public et apparaît dans votre profil et sur vos messages. Dans le but de garantir l'anonymat, vous pouvez choisir n'importe quel nom.
       registrations:
         new:
-          gdpr_disclaimer: Gdpr disclaimer
-          gender:
-            male: Male
-            female: Female
-            other: Other
           additional_tos: Additional tos
           already_have_an_account?: Vous avez déjà un compte ?
+          gdpr_disclaimer: Gdpr disclaimer
+          gender:
+            female: Female
+            male: Male
+            other: Other
           newsletter: Recevoir une newsletter sur l'actualité de la plateforme
           newsletter_title: Recevoir les actualités de la plateforme
           nickname_help: Cet identifiant est public et unique sur la plateforme "%{organization}" ; il permet aux autres utilisateurs de vous suivre, de vous contacter ou de vous mentionner dans leurs commentaires. Il s’affichera précédé d’un « @ » ; il ne doit pas contenir d’espace ni de caractère spécial.
@@ -1141,8 +1140,8 @@ fr:
       signed_out: Déconnecté(e) avec succès.
     shared:
       links:
-        captcha_protection: Captcha protection
         back: Arrière
+        captcha_protection: Captcha protection
         didn_t_receive_confirmation_instructions: Vous n'avez pas reçu d'instructions de confirmation?
         didn_t_receive_unlock_instructions: Vous n'avez pas reçu d'instructions de déverrouillage?
         forgot_your_password: Mot de passe oublié?
