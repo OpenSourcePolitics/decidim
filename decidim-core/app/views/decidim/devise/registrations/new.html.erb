@@ -76,6 +76,17 @@
             </div>
           </div>
 
+          <div class="card">
+            <div class="card__content">
+              <div class="field">
+                <%= f.check_box :underage, label: t(".underage"), id: "underage_registration" %>
+              </div>
+              <div class="field hide" id="statutory_representative_email">
+                <%= f.email_field :statutory_representative_email, label: t(".statutory_representative_email") %>
+              </div>
+            </div>
+          </div>
+
           <div class="card" id="card__tos">
             <div class="card__content">
               <legend><%= t(".tos_title") %></legend>

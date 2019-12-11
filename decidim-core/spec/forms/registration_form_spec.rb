@@ -25,6 +25,8 @@ module Decidim
     let(:gender) { "female" }
     let(:month) { "January" }
     let(:year) { "1992" }
+    let(:underage) { true }
+    let(:statutory_representative_email) { "statutory-representative@example.org" }
 
     let(:attributes) do
       {
@@ -39,7 +41,9 @@ module Decidim
         work_area: work_area,
         gender: gender,
         month: month,
-        year: year
+        year: year,
+        underage: underage,
+        statutory_representative_email: statutory_representative_email
       }
     end
 
@@ -175,6 +179,18 @@ module Decidim
 
     context "when birth_date month is not in the list" do
       let(:month) { "Apple" }
+
+      it { is_expected.to be_invalid }
+    end
+
+    context "when underage is unchecked" do
+      let(:underage) { nil }
+
+      it { is_expected.to be_valid }
+    end
+
+    context "when underage is checked but statutory_representative_email is nil" do
+      let(:statutory_representative_email) { nil }
 
       it { is_expected.to be_invalid }
     end

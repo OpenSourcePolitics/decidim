@@ -329,6 +329,8 @@ fr:
           additional_tos: Additional tos
           already_have_an_account?: Vous avez déjà un compte ?
           gdpr_disclaimer: Gdpr disclaimer
+          underage: Underage
+          statutory_representative_email: Statutory representative email
           gender:
             female: Female
             male: Male

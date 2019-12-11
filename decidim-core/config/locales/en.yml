@@ -327,9 +327,11 @@ en:
           username_help: Public name that appears on your posts. With the aim of guaranteeing the anonymity, can be any name.
       registrations:
         new:
+          statutory_representative_email: Statutory representative email
           additional_tos: Additional tos
           already_have_an_account?: Already have an account?
           gdpr_disclaimer: Gdpr disclaimer
+          underage: Underage
           gender:
             female: Female
             male: Male

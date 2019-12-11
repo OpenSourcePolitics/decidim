@@ -25,6 +25,8 @@ module Decidim
       [:month, String],
       [:year, String]
     ]
+    attribute :underage, Boolean
+    attribute :statutory_representative_email, String
 
     validates :name, presence: true
     validates :nickname, presence: true, length: { maximum: Decidim::User.nickname_max_length }
@@ -57,6 +59,11 @@ module Decidim
     validates :year,
               inclusion: { in: :year_for_select },
               if: ->(form) { form.year.present? }
+
+    validates :statutory_representative_email,
+              presence: true,
+              'valid_email_2/email': { disposable: true },
+              if: ->(form) { form.underage.present? }
 
     def map_model(model)
       self.month = model.birth_date["month"]
