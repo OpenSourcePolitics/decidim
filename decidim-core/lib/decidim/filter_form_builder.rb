@@ -61,7 +61,7 @@ module Decidim
       @template.content_tag(:div, "", class: "filters__section") do
         @template.content_tag(:fieldset) do
           @template.content_tag(:legend) do
-            @template.content_tag(:h3, legend_title, class: "heading6")
+            @template.content_tag(:h2, legend_title, class: "heading6")
           end + yield
         end
       end
