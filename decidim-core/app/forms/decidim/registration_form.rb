@@ -15,8 +15,8 @@ module Decidim
     attribute :email, String
     attribute :password, String
     attribute :password_confirmation, String
-    attribute :residential_area, Decidim::Scope
-    attribute :work_area, Decidim::Scope
+    attribute :residential_area, String
+    attribute :work_area, String
     attribute :gender, String
     attribute :newsletter, Boolean
     attribute :tos_agreement, Boolean
@@ -45,11 +45,11 @@ module Decidim
               if: ->(form) { form.gender.present? }
 
     validates :residential_area,
-              inclusion: { in: :scopes },
+              inclusion: { in: :scopes_ids },
               presence: true
 
     validates :work_area,
-              inclusion: { in: :scopes },
+              inclusion: { in: :scopes_ids },
               if: ->(form) { form.work_area.present? }
 
     validates :month,
@@ -110,6 +110,10 @@ module Decidim
 
     def scopes
       current_organization.scopes
+    end
+
+    def scopes_ids
+      current_organization.scopes.collect{|scope|scope.id.to_s}
     end
 
     def email_unique_in_organization

@@ -20,8 +20,8 @@ module Decidim
     let(:password_confirmation) { password }
     let(:tos_agreement) { "1" }
     let(:additional_tos) { "1" }
-    let(:residential_area) { create(:scope, organization: organization) }
-    let(:work_area) { create(:scope, organization: organization) }
+    let(:residential_area) { create(:scope, organization: organization).id.to_s }
+    let(:work_area) { create(:scope, organization: organization).id.to_s }
     let(:gender) { "female" }
     let(:month) { "January" }
     let(:year) { "1992" }

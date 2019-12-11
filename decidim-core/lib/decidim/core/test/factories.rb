@@ -90,11 +90,11 @@ FactoryBot.define do
     comments_max_length { 1000 }
     smtp_settings do
       {
-        "from" => "test@example.org",
-        "user_name" => "test",
-        "encrypted_password" => Decidim::AttributeEncryptor.encrypt("demo"),
-        "port" => "25",
-        "address" => "smtp.example.org"
+          "from" => "test@example.org",
+          "user_name" => "test",
+          "encrypted_password" => Decidim::AttributeEncryptor.encrypt("demo"),
+          "port" => "25",
+          "address" => "smtp.example.org"
       }
     end
 
@@ -119,6 +119,14 @@ FactoryBot.define do
     confirmation_sent_at { Time.current }
     accepted_tos_version { organization.tos_version }
     email_on_notification { true }
+    registration_metadata do
+      {
+          residential_area: create(:scope, organization: organization).id.to_s,
+          work_area: create(:scope, organization: organization).id.to_s,
+          gender: "other",
+          birth_date: { month: Faker::Date.birthday.month, year: Faker::Date.birthday.year },
+          statutory_representative_email: generate(:email) }
+    end
 
     trait :confirmed do
       confirmed_at { Time.current }
@@ -206,10 +214,10 @@ FactoryBot.define do
 
     after(:build) do |user_group, evaluator|
       user_group.extended_data = {
-        document_number: evaluator.document_number,
-        phone: evaluator.phone,
-        rejected_at: evaluator.rejected_at,
-        verified_at: evaluator.verified_at
+          document_number: evaluator.document_number,
+          phone: evaluator.phone,
+          rejected_at: evaluator.rejected_at,
+          verified_at: evaluator.verified_at
       }
     end
 
@@ -428,8 +436,8 @@ FactoryBot.define do
   factory :follow, class: "Decidim::Follow" do
     user do
       build(
-        :user,
-        organization: followable.try(:organization) || build(:organization)
+          :user,
+          organization: followable.try(:organization) || build(:organization)
       )
     end
     followable { build(:dummy_resource) }
@@ -438,8 +446,8 @@ FactoryBot.define do
   factory :notification, class: "Decidim::Notification" do
     user do
       build(
-        :user,
-        organization: resource.try(:organization) || build(:organization)
+          :user,
+          organization: resource.try(:organization) || build(:organization)
       )
     end
     resource { build(:dummy_resource) }
@@ -447,7 +455,7 @@ FactoryBot.define do
     event_class { "Decidim::DummyResourceEvent" }
     extra do
       {
-        some_extra_data: "1"
+          some_extra_data: "1"
       }
     end
   end
@@ -466,22 +474,22 @@ FactoryBot.define do
     visibility { "admin-only" }
     extra do
       {
-        component: {
-          manifest_name: component.try(:manifest_name),
-          title: component.try(:name) || component.try(:title)
-        }.compact,
-        participatory_space: {
-          manifest_name: participatory_space.try(:class).try(:participatory_space_manifest).try(:name),
-          title: participatory_space.try(:name) || participatory_space.try(:title)
-        }.compact,
-        resource: {
-          title: resource.try(:name) || resource.try(:title)
-        }.compact,
-        user: {
-          ip: user.try(:current_sign_in_ip),
-          name: user.try(:name),
-          nickname: user.try(:nickname)
-        }.compact
+          component: {
+              manifest_name: component.try(:manifest_name),
+              title: component.try(:name) || component.try(:title)
+          }.compact,
+          participatory_space: {
+              manifest_name: participatory_space.try(:class).try(:participatory_space_manifest).try(:name),
+              title: participatory_space.try(:name) || participatory_space.try(:title)
+          }.compact,
+          resource: {
+              title: resource.try(:name) || resource.try(:title)
+          }.compact,
+          user: {
+              ip: user.try(:current_sign_in_ip),
+              name: user.try(:name),
+              nickname: user.try(:nickname)
+          }.compact
       }.deep_merge(extra_data)
     end
   end
@@ -544,8 +552,8 @@ FactoryBot.define do
   factory :amendment, class: "Decidim::Amendment" do
     amender do
       build(
-        :user,
-        organization: amendable.try(:organization) || build(:organization)
+          :user,
+          organization: amendable.try(:organization) || build(:organization)
       )
     end
     state { "evaluating" }

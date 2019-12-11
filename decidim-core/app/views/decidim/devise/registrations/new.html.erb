@@ -51,11 +51,11 @@
           <div class="card">
             <div class="card__content">
               <div class="field">
-                <%= f.select :residential_area, @form.residential_area_for_select.map { |residential_area| [translated_attribute(residential_area.name), residential_area] }, prompt: true %>
+                <%= f.select :residential_area, @form.residential_area_for_select.map { |residential_area| [translated_attribute(residential_area.name), residential_area.id.to_s] }, prompt: true %>
               </div>
 
               <div class="field">
-                <%= f.select :work_area, @form.work_area_for_select.map { |work_area| [translated_attribute(work_area.name), work_area] }, prompt: true %>
+                <%= f.select :work_area, @form.work_area_for_select.map { |work_area| [translated_attribute(work_area.name), work_area.id.to_s] }, prompt: true %>
               </div>
 
               <div class="field">

@@ -41,8 +41,19 @@ module Decidim
         tos_agreement: form.tos_agreement,
         newsletter_notifications_at: form.newsletter_at,
         email_on_notification: true,
-        accepted_tos_version: form.current_organization.tos_version
+        accepted_tos_version: form.current_organization.tos_version,
+        registration_metadata: registration_metadata
       )
+    end
+
+    def registration_metadata
+      {
+          residential_area: form.residential_area,
+          work_area: form.work_area,
+          gender: form.gender,
+          birth_date: form.birth_date,
+          statutory_representative_email: form.statutory_representative_email
+      }
     end
   end
 end
