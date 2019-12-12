@@ -62,6 +62,7 @@ describe "Registration", type: :system do
 
     it "checks when clicking the checking button" do
       within "form.new_user" do
+        fill_registration_metadata
         find("*[type=submit]").click
       end
       click_button "Check and continue"
@@ -72,6 +73,7 @@ describe "Registration", type: :system do
 
     it "submit after modal has been opened and selected an option" do
       within "form.new_user" do
+        fill_registration_metadata
         find("*[type=submit]").click
       end
       click_button "Keep uncheck"
@@ -93,6 +95,7 @@ describe "Registration", type: :system do
 
     it "keeps the user newsletter checkbox true value" do
       within "form.new_user" do
+        fill_registration_metadata
         find("*[type=submit]").click
       end
       expect(page).to have_current_path decidim.user_registration_path
