@@ -328,11 +328,14 @@ fr:
         new:
           additional_tos: En cochant cette case, je consens à ce que mes données soient traitées dans le cadre de ma participation au projet pour lequel je contribue en ligne, organisé par la Mairie de Toulouse. Je suis informé.e du retrait possible de mon consentement, à tout moment, en le demandant à jeparticipe@mairie-toulouse.fr
           already_have_an_account?: Vous avez déjà un compte ?
+          birth_date: Birth date
           gdpr_disclaimer: Les données recueillies font l’objet d’un traitement informatique destiné à solliciter les usagers dans une démarche de participation citoyenne relative aux projets à l’échelle de la commune ou de Toulouse Métropole. La Mairie de Toulouse est responsable du traitement, représentée par la Direction de l'Action Territoriale. Seuls les agents habilités des directions en charge des projets et les élus concernés sont destinataires des données qui seront conservées la durée de l’inscription. Conformément à la législation relative à la protection des données personnelles, vous bénéficiez d'un droit d'accès, de modification et de suppression des données qui vous concernent. Vous pouvez exercer ces droits en vous adressant par voie postale à Direction Action Territoriale – pôle participation citoyenne 34 rue pargaminières 31000 TOULOUSE ou par email à contact.participation@mairie-toulouse.fr. La base légale de ce traitement est le consentement.
           gender:
             female: Femme
             male: Homme
             other: Autre
+          gender_label: Gender
+          month_label: Month
           month_name:
             april: Avril
             august: Août
@@ -350,6 +353,7 @@ fr:
           newsletter_title: Recevoir les actualités de la plateforme
           nickname_help: Cet identifiant est public et unique sur la plateforme "%{organization}" ; il permet aux autres utilisateurs de vous suivre, de vous contacter ou de vous mentionner dans leurs commentaires. Il s’affichera précédé d’un « @ » ; il ne doit pas contenir d’espace ni de caractère spécial.
           password_help: "%{minimun_characters} caractères minimum, ne doit pas être trop commun (ex. 123456) et doit être différent de votre pseudonyme et de votre email."
+          residential_area: Residential area
           sign_in: S'identifier
           sign_up: S'inscrire
           sign_up_as:
@@ -361,6 +365,8 @@ fr:
           tos_title: Conditions d'utilisation
           underage: J’ai moins de 15 ans, mon parent ou mon représentant légal m’autorise à m’inscrire.
           username_help: Le nom est public et apparaît dans votre profil et sur vos messages. Dans le but de garantir l'anonymat, vous pouvez choisir n'importe quel nom.
+          work_area: Work area
+          year_label: Year
       sessions:
         new:
           are_you_new?: Nouveau sur la plateforme ?

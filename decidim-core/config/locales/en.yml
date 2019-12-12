@@ -329,11 +329,14 @@ en:
         new:
           additional_tos: Additional tos
           already_have_an_account?: Already have an account?
+          birth_date: Birth date
           gdpr_disclaimer: Gdpr disclaimer
           gender:
             female: Female
             male: Male
             other: Other
+          gender_label: Gender
+          month_label: Month
           month_name:
             april: April
             august: August
@@ -351,6 +354,7 @@ en:
           newsletter_title: Contact permission
           nickname_help: Your alias (@nickname) in %{organization}
           password_help: "%{minimun_characters} characters minimum, must not be too common (e.g. 123456) and must be different from your nickname and your email."
+          residential_area: Residential area
           sign_in: Log in
           sign_up: Sign up
           sign_up_as:
@@ -362,6 +366,8 @@ en:
           tos_title: Terms of Service
           underage: Underage
           username_help: Public name that appears on your posts. With the aim of guaranteeing the anonymity, can be any name.
+          work_area: Work area
+          year_label: Year
       sessions:
         new:
           are_you_new?: New to the platform?

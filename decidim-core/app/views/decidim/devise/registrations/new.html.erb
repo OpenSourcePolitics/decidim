@@ -51,25 +51,41 @@
           <div class="card">
             <div class="card__content">
               <div class="field">
-                <%= f.select :residential_area, @form.residential_area_for_select.map { |residential_area| [translated_attribute(residential_area.name), residential_area.id.to_s] }, prompt: true %>
+                <%= f.select :residential_area,
+                             @form.residential_area_for_select.map { |residential_area| [translated_attribute(residential_area.name), residential_area.id.to_s] },
+                             label: t(".residential_area"),
+                             prompt: true %>
               </div>
 
               <div class="field">
-                <%= f.select :work_area, @form.work_area_for_select.map { |work_area| [translated_attribute(work_area.name), work_area.id.to_s] }, prompt: true %>
+                <%= f.select :work_area,
+                             @form.work_area_for_select.map { |work_area| [translated_attribute(work_area.name), work_area.id.to_s] },
+                             label: t(".work_area"),
+                             prompt: true
+                %>
               </div>
 
               <div class="field">
-                <%= f.select :gender, @form.gender_types_for_select %>
+                <%= f.select :gender,
+                             @form.gender_types_for_select,
+                             label: t(".gender_label")
+                %>
               </div>
 
               <div class="field">
-                <%= f.label :birth_date %>
+                <%= f.label t(".birth_date") %>
                 <div class="row">
                   <div class="columns large-6 small-12">
-                    <%= f.select :month, @form.month_names_for_select %>
+                    <%= f.select :month,
+                                 @form.month_names_for_select,
+                                 label: t(".month_label")
+                    %>
                   </div>
                   <div class="columns large-6 small-12">
-                    <%= f.select :year, @form.year_for_select %>
+                    <%= f.select :year,
+                                 @form.year_for_select,
+                                 label: t(".year_label")
+                    %>
                   </div>
                 </div>
               </div>
