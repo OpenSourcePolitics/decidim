@@ -3,6 +3,7 @@
 require "spec_helper"
 
 describe "Authentication", type: :system do
+  let!(:scopes) { create_list(:scope, 5, organization: organization) }
   let(:organization) { create(:organization) }
   let(:last_user) { Decidim::User.last }
 
@@ -24,6 +25,14 @@ describe "Authentication", type: :system do
           fill_in :user_password_confirmation, with: "DfyvHn425mYAy2HL"
           check :user_tos_agreement
           check :user_newsletter
+          select translated(scopes.first.name), from: :user_residential_area
+          select translated(scopes.first.name), from: :user_work_area
+          select "Other", from: :user_gender
+          select "September", from: :user_month
+          select "1992", from: :user_year
+          check :underage_registration
+          fill_in :user_statutory_representative_email, with: "milutin.tesla@example.org"
+          check :user_additional_tos
           find("*[type=submit]").click
         end
 
@@ -44,6 +53,14 @@ describe "Authentication", type: :system do
           fill_in :user_password_confirmation, with: "DfyvHn425mYAy2HL"
           check :user_tos_agreement
           check :user_newsletter
+          select translated(scopes.first.name), from: :user_residential_area
+          select translated(scopes.first.name), from: :user_work_area
+          select "Other", from: :user_gender
+          select "September", from: :user_month
+          select "1992", from: :user_year
+          check :underage_registration
+          fill_in :user_statutory_representative_email, with: "milutin.tesla@example.org"
+          check :user_additional_tos
           find("*[type=submit]").click
         end
 
@@ -411,6 +428,14 @@ describe "Authentication", type: :system do
             fill_in :user_password_confirmation, with: "DfyvHn425mYAy2HL"
             check :user_tos_agreement
             check :user_newsletter
+            select translated(scopes.first.name), from: :user_residential_area
+            select translated(scopes.first.name), from: :user_work_area
+            select "Other", from: :user_gender
+            select "September", from: :user_month
+            select "1992", from: :user_year
+            check :underage_registration
+            fill_in :user_statutory_representative_email, with: "milutin.tesla@example.org"
+            check :user_additional_tos
             find("*[type=submit]").click
           end
 
