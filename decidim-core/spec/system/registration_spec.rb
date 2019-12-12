@@ -100,7 +100,7 @@ describe "Registration", type: :system do
     end
   end
 
-  context "When registering with additional fields" do
+  context "when registering with additional fields" do
     before do
       fill_registration_form
       fill_registration_metadata

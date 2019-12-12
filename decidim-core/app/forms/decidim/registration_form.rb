@@ -113,7 +113,7 @@ module Decidim
     end
 
     def scopes_ids
-      current_organization.scopes.collect{|scope|scope.id.to_s}
+      current_organization.scopes.collect { |scope| scope.id.to_s }
     end
 
     def email_unique_in_organization

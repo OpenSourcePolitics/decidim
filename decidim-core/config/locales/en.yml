@@ -327,11 +327,9 @@ en:
           username_help: Public name that appears on your posts. With the aim of guaranteeing the anonymity, can be any name.
       registrations:
         new:
-          statutory_representative_email: Statutory representative email
           additional_tos: Additional tos
           already_have_an_account?: Already have an account?
           gdpr_disclaimer: Gdpr disclaimer
-          underage: Underage
           gender:
             female: Female
             male: Male
@@ -357,10 +355,12 @@ en:
           sign_up: Sign up
           sign_up_as:
             legend: Sign up as
+          statutory_representative_email: Statutory representative email
           subtitle: Sign up to participate in discussions and support proposals.
           terms: the terms and conditions of use
           tos_agreement: By signing up you agree to %{link}.
           tos_title: Terms of Service
+          underage: Underage
           username_help: Public name that appears on your posts. With the aim of guaranteeing the anonymity, can be any name.
       sessions:
         new:

@@ -329,8 +329,6 @@ fr:
           additional_tos: Additional tos
           already_have_an_account?: Vous avez déjà un compte ?
           gdpr_disclaimer: Gdpr disclaimer
-          underage: Underage
-          statutory_representative_email: Statutory representative email
           gender:
             female: Female
             male: Male
@@ -356,10 +354,12 @@ fr:
           sign_up: S'inscrire
           sign_up_as:
             legend: S'inscrire en tant que
+          statutory_representative_email: Statutory representative email
           subtitle: Inscrivez-vous pour participer aux discussions et pour exprimer votre soutien aux propositions de votre choix.
           terms: les termes et conditions d'utilisation
           tos_agreement: En vous inscrivant, vous acceptez %{link}.
           tos_title: Conditions d'utilisation
+          underage: Underage
           username_help: Le nom est public et apparaît dans votre profil et sur vos messages. Dans le but de garantir l'anonymat, vous pouvez choisir n'importe quel nom.
       sessions:
         new:
