@@ -145,7 +145,7 @@
       <% if @proposal.accepted? %>
         <div class="section">
           <div class="callout success">
-            <h5><%= t(".proposal_accepted_reason") %></h5>
+            <h4><%= t(".proposal_accepted_reason") %></h4>
             <p><%= decidim_sanitize translated_attribute @proposal.answer %></p>
           </div>
         </div>
