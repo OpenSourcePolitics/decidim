@@ -326,26 +326,26 @@ fr:
           username_help: Le nom est public et apparaît dans votre profil et sur vos messages. Dans le but de garantir l'anonymat, vous pouvez choisir n'importe quel nom.
       registrations:
         new:
-          additional_tos: Additional tos
+          additional_tos: En cochant cette case, je consens à ce que mes données soient traitées dans le cadre de ma participation au projet pour lequel je contribue en ligne, organisé par la Mairie de Toulouse. Je suis informé.e du retrait possible de mon consentement, à tout moment, en le demandant à jeparticipe@mairie-toulouse.fr
           already_have_an_account?: Vous avez déjà un compte ?
-          gdpr_disclaimer: Gdpr disclaimer
+          gdpr_disclaimer: Les données recueillies font l’objet d’un traitement informatique destiné à solliciter les usagers dans une démarche de participation citoyenne relative aux projets à l’échelle de la commune ou de Toulouse Métropole. La Mairie de Toulouse est responsable du traitement, représentée par la Direction de l'Action Territoriale. Seuls les agents habilités des directions en charge des projets et les élus concernés sont destinataires des données qui seront conservées la durée de l’inscription. Conformément à la législation relative à la protection des données personnelles, vous bénéficiez d'un droit d'accès, de modification et de suppression des données qui vous concernent. Vous pouvez exercer ces droits en vous adressant par voie postale à Direction Action Territoriale – pôle participation citoyenne 34 rue pargaminières 31000 TOULOUSE ou par email à contact.participation@mairie-toulouse.fr. La base légale de ce traitement est le consentement.
           gender:
-            female: Female
-            male: Male
-            other: Other
+            female: Femme
+            male: Homme
+            other: Autre
           month_name:
-            april: April
-            august: August
-            december: December
-            february: February
-            january: January
-            july: July
-            june: June
-            march: March
-            may: May
-            november: November
-            october: October
-            september: September
+            april: Avril
+            august: Août
+            december: Décembre
+            february: Février
+            january: Janvier
+            july: Juillet
+            june: Juin
+            march: Mars
+            may: Mai
+            november: Novembre
+            october: Octobre
+            september: Septembre
           newsletter: Recevoir une newsletter sur l'actualité de la plateforme
           newsletter_title: Recevoir les actualités de la plateforme
           nickname_help: Cet identifiant est public et unique sur la plateforme "%{organization}" ; il permet aux autres utilisateurs de vous suivre, de vous contacter ou de vous mentionner dans leurs commentaires. Il s’affichera précédé d’un « @ » ; il ne doit pas contenir d’espace ni de caractère spécial.
@@ -354,12 +354,12 @@ fr:
           sign_up: S'inscrire
           sign_up_as:
             legend: S'inscrire en tant que
-          statutory_representative_email: Statutory representative email
+          statutory_representative_email: Email de mon parent ou de mon représentant légal
           subtitle: Inscrivez-vous pour participer aux discussions et pour exprimer votre soutien aux propositions de votre choix.
           terms: les termes et conditions d'utilisation
           tos_agreement: En vous inscrivant, vous acceptez %{link}.
           tos_title: Conditions d'utilisation
-          underage: Underage
+          underage: J’ai moins de 15 ans, mon parent ou mon représentant légal m’autorise à m’inscrire.
           username_help: Le nom est public et apparaît dans votre profil et sur vos messages. Dans le but de garantir l'anonymat, vous pouvez choisir n'importe quel nom.
       sessions:
         new:
@@ -1156,7 +1156,7 @@ fr:
     shared:
       links:
         back: Arrière
-        captcha_protection: Captcha protection
+        captcha_protection: Ce formulaire d'inscription est protégé par un mécanisme d'Invisible Captcha (ICM)
         didn_t_receive_confirmation_instructions: Vous n'avez pas reçu d'instructions de confirmation?
         didn_t_receive_unlock_instructions: Vous n'avez pas reçu d'instructions de déverrouillage?
         forgot_your_password: Mot de passe oublié?
