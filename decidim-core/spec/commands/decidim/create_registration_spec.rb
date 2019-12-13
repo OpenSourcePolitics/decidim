@@ -16,6 +16,29 @@ module Decidim
         let(:tos_agreement) { "1" }
         let(:newsletter) { "1" }
 
+        let(:additional_tos) { "1" }
+        let(:residential_area) { create(:scope, organization: organization).id.to_s }
+        let(:work_area) { create(:scope, organization: organization).id.to_s }
+        let(:gender) { "other" }
+        let(:birth_date) do
+          {
+            month: "January",
+            year: "1992"
+          }
+        end
+        let(:underage) { "1" }
+        let(:statutory_representative_email) { "statutory-representative@example.org" }
+
+        let(:registration_metadata) do
+          {
+            residential_area: residential_area,
+            work_area: work_area,
+            gender: gender,
+            birth_date: birth_date,
+            statutory_representative_email: statutory_representative_email
+          }
+        end
+
         let(:form_params) do
           {
             "user" => {
@@ -25,7 +48,14 @@ module Decidim
               "password" => password,
               "password_confirmation" => password_confirmation,
               "tos_agreement" => tos_agreement,
-              "newsletter_at" => newsletter
+              "newsletter_at" => newsletter,
+              "additional_tos" => additional_tos,
+              "residential_area" => residential_area,
+              "work_area" => work_area,
+              "gender" => gender,
+              "birth_date" => birth_date,
+              "underage" => underage,
+              "statutory_representative_email" => statutory_representative_email
             }
           }
         end
@@ -70,7 +100,8 @@ module Decidim
               newsletter_notifications_at: form.newsletter_at,
               email_on_notification: true,
               organization: organization,
-              accepted_tos_version: organization.tos_version
+              accepted_tos_version: organization.tos_version,
+              registration_metadata: registration_metadata
             ).and_call_original
 
             expect { command.call }.to change(User, :count).by(1)

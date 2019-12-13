@@ -1,10 +1,20 @@
 $(() => {
   const $userRegistrationForm = $("#register-form");
-  const $userGroupFields      = $userRegistrationForm.find(".user-group-fields");
-  const inputSelector         = 'input[name="user[sign_up_as]"]';
-  const newsletterSelector    = 'input[type="checkbox"][name="user[newsletter]"]';
-  const $newsletterModal      = $("#sign-up-newsletter-modal");
+  const $userGroupFields = $userRegistrationForm.find(".user-group-fields");
+  const inputSelector = 'input[name="user[sign_up_as]"]';
+  const newsletterSelector = 'input[type="checkbox"][name="user[newsletter]"]';
+  const $newsletterModal = $("#sign-up-newsletter-modal");
 
+  const $underageSelector = $("#underage_registration");
+  const $statutoryRepresentativeEmailSelector = $("#statutory_representative_email")
+
+  $underageSelector.on("click", () => {
+    if ($underageSelector.is(":checked")) {
+      $statutoryRepresentativeEmailSelector.removeClass("hide");
+    } else {
+      $statutoryRepresentativeEmailSelector.addClass("hide");
+    }
+  });
 
   const setGroupFieldsVisibility = (value) => {
     if (value === "user") {

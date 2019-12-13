@@ -6,6 +6,7 @@ module Decidim
   describe Decidim::Devise::RegistrationsController, type: :controller do
     routes { Decidim::Core::Engine.routes }
 
+    let(:scope) { create(:scope, organization: organization) }
     let(:organization) { create(:organization) }
 
     before do
@@ -25,7 +26,15 @@ module Decidim
             password: "rPYWYKQJrXm97b4ytswc",
             password_confirmation: "rPYWYKQJrXm97b4ytswc",
             tos_agreement: "1",
-            newsletter: "0"
+            newsletter: "0",
+            additional_tos: "1",
+            residential_area: scope.id.to_s,
+            work_area: scope.id.to_s,
+            gender: "other",
+            month: "January",
+            year: "1992",
+            underage: "1",
+            statutory_representative_email: "statutory_representative_email@example.org"
           }
         }
       end

@@ -327,20 +327,47 @@ en:
           username_help: Public name that appears on your posts. With the aim of guaranteeing the anonymity, can be any name.
       registrations:
         new:
+          additional_tos: Additional tos
           already_have_an_account?: Already have an account?
+          birth_date: Birth date
+          gdpr_disclaimer: Gdpr disclaimer
+          gender:
+            female: Female
+            male: Male
+            other: Other
+          gender_label: Gender
+          month_label: Month
+          month_name:
+            april: April
+            august: August
+            december: December
+            february: February
+            january: January
+            july: July
+            june: June
+            march: March
+            may: May
+            november: November
+            october: October
+            september: September
           newsletter: Receive an occasional newsletter with relevant information
           newsletter_title: Contact permission
           nickname_help: Your alias (@nickname) in %{organization}
           password_help: "%{minimun_characters} characters minimum, must not be too common (e.g. 123456) and must be different from your nickname and your email."
+          residential_area: Residential area
           sign_in: Log in
           sign_up: Sign up
           sign_up_as:
             legend: Sign up as
+          statutory_representative_email: Statutory representative email
           subtitle: Sign up to participate in discussions and support proposals.
           terms: the terms and conditions of use
           tos_agreement: By signing up you agree to %{link}.
           tos_title: Terms of Service
+          underage: Underage
           username_help: Public name that appears on your posts. With the aim of guaranteeing the anonymity, can be any name.
+          work_area: Work area
+          year_label: Year
       sessions:
         new:
           are_you_new?: New to the platform?
@@ -1146,6 +1173,7 @@ en:
     shared:
       links:
         back: Back
+        captcha_protection: Captcha protection
         didn_t_receive_confirmation_instructions: Didn't receive confirmation instructions?
         didn_t_receive_unlock_instructions: Didn't receive unlock instructions?
         forgot_your_password: Forgot your password?
