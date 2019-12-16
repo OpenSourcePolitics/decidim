@@ -329,7 +329,13 @@ en:
         new:
           additional_tos: Additional tos
           already_have_an_account?: Already have an account?
+          back: Back
           birth_date: Birth date
+          complete_profile: Complete profile
+          complete_sign_up: Complete sign up
+          complete_sign_up_subtitle: Complete sign up subtitle
+          continue: Continue
+          create_account: Create account
           gdpr_disclaimer: Gdpr disclaimer
           gender:
             female: Female
@@ -356,11 +362,11 @@ en:
           password_help: "%{minimun_characters} characters minimum, must not be too common (e.g. 123456) and must be different from your nickname and your email."
           residential_area: Residential area
           sign_in: Log in
-          sign_up: Sign up
+          sign_up: Sign up to participate
           sign_up_as:
             legend: Sign up as
+          sign_up_subtitle: Sign up to participate in discussions and support proposals.
           statutory_representative_email: Statutory representative email
-          subtitle: Sign up to participate in discussions and support proposals.
           terms: the terms and conditions of use
           tos_agreement: By signing up you agree to %{link}.
           tos_title: Terms of Service
@@ -1034,6 +1040,16 @@ en:
     user_activity:
       index:
         no_activities_warning: This participant hasn't had any activity yet.
+    user_complete_registration:
+      show:
+        complete_registration: Complete registration
+        complete_registration_subtitle: Complete registration subtitle
+        my_interests: My interests
+        no_scopes: No scopes
+        save_and_start_explore: Save and start explore
+        select_your_interests: Select your interests
+        skip: Skip this step
+        welcome: Welcome
     user_interests:
       show:
         my_interests: My interests
@@ -1157,13 +1173,15 @@ en:
         update: Update
         we_need_your_current_password_to_confirm_your_changes: we need your current password to confirm your changes
       new:
-        sign_up: Sign up
+        sign_up: Sign up to participate
       signed_up: Welcome! You have signed up successfully.
       signed_up_but_inactive: You have signed up successfully. However, we could not sign you in because your account is not yet activated.
       signed_up_but_locked: You have signed up successfully. However, we could not sign you in because your account is locked.
       signed_up_but_unconfirmed: A message with a confirmation link has been sent to your email address. Please follow the link to activate your account.
       update_needs_confirmation: You updated your account successfully, but we need to verify your new email address. Please check your email and follow the confirm link to confirm your new email address.
       updated: Your account has been successfully updated.
+      user:
+        registration_errors: Registration errors
     sessions:
       already_signed_out: Signed out successfully.
       new:
@@ -1179,7 +1197,7 @@ en:
         forgot_your_password: Forgot your password?
         sign_in: Log in
         sign_in_with_provider: Sign in with %{provider}
-        sign_up: Sign up
+        sign_up: Sign up to participate
       minimum_password_length:
         one: "(%{count} character minimum)"
         other: "(%{count} characters minimum)"

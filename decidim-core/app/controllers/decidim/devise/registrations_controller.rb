@@ -14,6 +14,8 @@ module Decidim
 
       invisible_captcha
 
+      helper_method :form_step_attributes, :form_step_style
+
       def new
         @form = form(RegistrationForm).from_params(
           user: {
@@ -30,7 +32,7 @@ module Decidim
             if user.active_for_authentication?
               set_flash_message! :notice, :signed_up
               sign_up(:user, user)
-              respond_with user, location: after_sign_up_path_for(user)
+              respond_with user, location: user_complete_registration_path
             else
               set_flash_message! :notice, :"signed_up_but_#{user.inactive_message}"
               expire_data_after_sign_in!
@@ -39,6 +41,7 @@ module Decidim
           end
 
           on(:invalid) do
+            set_flash_message :alert, :registration_errors
             render :new
           end
         end
@@ -58,6 +61,14 @@ module Decidim
       def build_resource(hash = nil)
         super(hash)
         resource.organization = current_organization
+      end
+
+      def form_step_style(params)
+        "display: none" if params[:step] == 2 && @form.errors.empty?
+      end
+
+      def form_step_attributes(params)
+        %(form-step="#{params[:step]}" style="#{form_step_style(params)}").html_safe
       end
     end
   end
