@@ -84,6 +84,7 @@ en:
         created_at: Answered on
         id: Answer ID
         ip_hash: Ip Hash
+        registration_metadata: Registration metadata
         registered: Registered
         unregistered: Unregistered
         user_status: User status
