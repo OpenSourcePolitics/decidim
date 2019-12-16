@@ -38,6 +38,10 @@ module Decidim
         it "includes the root commentable's url" do
           expect(subject.serialize[:root_commentable_url]).to match(/http/)
         end
+
+        it "includes authors metadata" do
+          expect(subject.serialize[:author]).to include(registration_metadata: comment.author.registration_metadata)
+        end
       end
     end
   end
