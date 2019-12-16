@@ -79,6 +79,6 @@ fr:
           submit: Soumettre
           tos_agreement: En participant, vous acceptez ses conditions d'utilisation
       user_answers_serializer:
-        registration_metadata: Registration metadata
         created_at: Répondu le
         id: ID de réponse
+        registration_metadata: Registration metadata
