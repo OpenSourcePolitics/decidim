@@ -119,6 +119,11 @@ module Decidim
           expect(serialized[:related_proposals].first).to match(%r{http.*/proposals})
         end
 
+        it "serializes authors metadata" do
+          expect(serialized[:authors_registration_metadata].length).to eq(1)
+          expect(serialized[:authors_registration_metadata].first).to eq(proposal.authors.first.registration_metadata)
+        end
+
         context "with proposal having an answer" do
           let!(:proposal) { create(:proposal, :with_answer) }
 
