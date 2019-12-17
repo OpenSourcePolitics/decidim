@@ -359,7 +359,7 @@ fr:
           newsletter_title: Recevoir les actualités de la plateforme
           nickname_help: Cet identifiant est public et unique sur la plateforme "%{organization}" ; il permet aux autres utilisateurs de vous suivre, de vous contacter ou de vous mentionner dans leurs commentaires. Il s’affichera précédé d’un « @ » ; il ne doit pas contenir d’espace ni de caractère spécial.
           password_help: "%{minimun_characters} caractères minimum, ne doit pas être trop commun (ex. 123456) et doit être différent de votre pseudonyme et de votre email."
-          residential_area: Residential area
+          residential_area: Dans quel quartier habitez-vous ?
           sign_in: S'identifier
           sign_up: S'inscrire
           sign_up_as:
