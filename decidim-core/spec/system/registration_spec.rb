@@ -140,6 +140,9 @@ describe "Registration", type: :system do
       expect(page).to have_field("user_password_confirmation")
       expect(page).to have_field("user_name")
       expect(page).to have_field("user_nickname")
+
+      expect(page).to have_field("underage_registration", checked: true)
+      expect(page).to have_field(:user_statutory_representative_email, with: "milutin.tesla@example.org")
     end
 
     it "keeps the user newsletter checkbox true value" do

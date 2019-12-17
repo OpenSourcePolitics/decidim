@@ -1,21 +1,29 @@
 $(() => {
-  const $userRegistrationForm  = $("#register-form");
-  const $userGroupFields       = $userRegistrationForm.find(".user-group-fields");
-  const inputSelector          = "input[name='user[sign_up_as]']";
-  const newsletterSelector     = "input[type='checkbox'][name='user[newsletter]']";
-  const $newsletterModal       = $("#sign-up-newsletter-modal");
+  const $userRegistrationForm = $("#register-form");
+  const $userGroupFields = $userRegistrationForm.find(".user-group-fields");
+  const inputSelector = "input[name='user[sign_up_as]']";
+  const newsletterSelector = "input[type='checkbox'][name='user[newsletter]']";
+  const $newsletterModal = $("#sign-up-newsletter-modal");
   const $formStepForwardButton = $(".form-step-forward-button");
-  const $formStepBackButton    = $(".form-step-back-button");
+  const $formStepBackButton = $(".form-step-back-button");
 
   const $underageSelector = $("#underage_registration");
-  const $statutoryRepresentativeEmailSelector = $("#statutory_representative_email")
+  const $statutoryRepresentativeEmailSelector = $("#statutory_representative_email");
 
-  $underageSelector.on("click", () => {
+  const emailSelectorToggle = () => {
     if ($underageSelector.is(":checked")) {
       $statutoryRepresentativeEmailSelector.removeClass("hide");
     } else {
       $statutoryRepresentativeEmailSelector.addClass("hide");
     }
+  };
+
+  if ($underageSelector.is(":checked")) {
+    emailSelectorToggle();
+  }
+
+  $underageSelector.on("click", () => {
+    emailSelectorToggle();
   });
 
   const setGroupFieldsVisibility = (value) => {
