@@ -19,11 +19,14 @@ describe "Authentication", type: :system do
 
         within ".new_user" do
           fill_in :user_email, with: "user@example.org"
-          fill_in :user_name, with: "Responsible Citizen"
-          fill_in :user_nickname, with: "responsible"
           fill_in :user_password, with: "DfyvHn425mYAy2HL"
           fill_in :user_password_confirmation, with: "DfyvHn425mYAy2HL"
           check :user_tos_agreement
+          check :user_additional_tos
+          click_button "Continue"
+
+          fill_in :user_nickname, with: "responsible"
+          fill_in :user_name, with: "Responsible Citizen"
           check :user_newsletter
           select translated(scopes.first.name), from: :user_residential_area
           select translated(scopes.first.name), from: :user_work_area
@@ -32,7 +35,7 @@ describe "Authentication", type: :system do
           select "1992", from: :user_year
           check :underage_registration
           fill_in :user_statutory_representative_email, with: "milutin.tesla@example.org"
-          check :user_additional_tos
+
           find("*[type=submit]").click
         end
 
@@ -47,11 +50,14 @@ describe "Authentication", type: :system do
         within ".new_user" do
           page.execute_script("$($('.new_user > div > input')[0]).val('Ima robot :D')")
           fill_in :user_email, with: "user@example.org"
-          fill_in :user_name, with: "Responsible Citizen"
-          fill_in :user_nickname, with: "responsible"
+          check :user_tos_agreement
+          check :user_additional_tos
           fill_in :user_password, with: "DfyvHn425mYAy2HL"
           fill_in :user_password_confirmation, with: "DfyvHn425mYAy2HL"
-          check :user_tos_agreement
+          click_button "Continue"
+
+          fill_in :user_name, with: "Responsible Citizen"
+          fill_in :user_nickname, with: "responsible"
           check :user_newsletter
           select translated(scopes.first.name), from: :user_residential_area
           select translated(scopes.first.name), from: :user_work_area
@@ -60,7 +66,7 @@ describe "Authentication", type: :system do
           select "1992", from: :user_year
           check :underage_registration
           fill_in :user_statutory_representative_email, with: "milutin.tesla@example.org"
-          check :user_additional_tos
+
           find("*[type=submit]").click
         end
 
@@ -137,6 +143,7 @@ describe "Authentication", type: :system do
 
           within ".new_user" do
             fill_in :user_email, with: "user@from-twitter.com"
+
             find("*[type=submit]").click
           end
         end
@@ -153,6 +160,7 @@ describe "Authentication", type: :system do
 
             within ".new_user" do
               fill_in :user_email, with: "user@from-twitter.com"
+
               find("*[type=submit]").click
             end
 
@@ -282,6 +290,7 @@ describe "Authentication", type: :system do
         within ".new_user" do
           fill_in :user_email, with: user.email
           fill_in :user_password, with: "DfyvHn425mYAy2HL"
+
           find("*[type=submit]").click
         end
 
@@ -315,6 +324,7 @@ describe "Authentication", type: :system do
         within ".new_user" do
           fill_in :user_password, with: "DfyvHn425mYAy2HL"
           fill_in :user_password_confirmation, with: "DfyvHn425mYAy2HL"
+
           find("*[type=submit]").click
         end
 
@@ -422,11 +432,14 @@ describe "Authentication", type: :system do
 
           within ".new_user" do
             fill_in :user_email, with: user.email
-            fill_in :user_name, with: "Responsible Citizen"
-            fill_in :user_nickname, with: "responsible"
             fill_in :user_password, with: "DfyvHn425mYAy2HL"
             fill_in :user_password_confirmation, with: "DfyvHn425mYAy2HL"
             check :user_tos_agreement
+            check :user_additional_tos
+            click_button "Continue"
+
+            fill_in :user_name, with: "Responsible Citizen"
+            fill_in :user_nickname, with: "responsible"
             check :user_newsletter
             select translated(scopes.first.name), from: :user_residential_area
             select translated(scopes.first.name), from: :user_work_area
@@ -435,7 +448,7 @@ describe "Authentication", type: :system do
             select "1992", from: :user_year
             check :underage_registration
             fill_in :user_statutory_representative_email, with: "milutin.tesla@example.org"
-            check :user_additional_tos
+
             find("*[type=submit]").click
           end
 
@@ -498,6 +511,7 @@ describe "Authentication", type: :system do
         within ".new_user" do
           fill_in :user_email, with: user.email
           fill_in :user_password, with: "DfyvHn425mYAy2HL"
+
           find("*[type=submit]").click
         end
 
