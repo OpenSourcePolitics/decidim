@@ -14,7 +14,8 @@ module Decidim
           body: resource.body,
           author: {
             id: resource.author.id,
-            name: resource.author.name
+            name: resource.author.name,
+            registration_metadata: resource.author.registration_metadata
           },
           alignment: resource.alignment,
           depth: resource.depth,

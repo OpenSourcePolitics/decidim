@@ -47,7 +47,8 @@ module Decidim
           published_at: proposal.published_at,
           url: url,
           meeting_urls: meetings,
-          related_proposals: related_proposals
+          related_proposals: related_proposals,
+          authors_registration_metadata: authors_registration_metadata
         }
       end
 
@@ -77,6 +78,10 @@ module Decidim
 
       def attachments_url
         proposal.attachments.map { |attachment| proposal.organization.host + attachment.url }
+      end
+
+      def authors_registration_metadata
+        proposal.authors.collect(&:registration_metadata)
       end
     end
   end
