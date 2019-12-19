@@ -67,7 +67,7 @@ module Decidim
       def endorsements_count_status
         return endorsements_count unless has_link_to_resource?
 
-        link_to resource_path, title: "link to the proposal's endorsements" do
+        link_to resource_path, title: "endorsements" do
           endorsements_count
         end
       end
