@@ -113,7 +113,7 @@ module Decidim
         content = icon("bullhorn", class: "icon--small", aria_label: "Endorsements", role: "img")
         content += proposal.proposal_endorsements_count.to_s
         html_class = "button small compact light button--sc button--shadow" if html_class.blank?
-        tag_params = { id: "proposal-#{proposal.id}-endorsements-count", class: "#{html_class} #{fully_endorsed ? "success" : "secondary"}" }
+        tag_params = { id: "proposal-#{proposal.id}-endorsements-count", class: "#{html_class} #{fully_endorsed ? "success" : "secondary"}", title: "endorsements" }
         if proposal.proposal_endorsements_count.positive?
           link_to "#list-of-endorsements", tag_params do
             content
