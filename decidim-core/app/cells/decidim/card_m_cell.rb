@@ -141,7 +141,7 @@ module Decidim
     def comments_count_status
       return render_comments_count unless has_link_to_resource?
 
-      link_to resource_path, title: "comments number" do
+      link_to resource_path, title: "link to the proposal's comments" do
         render_comments_count
       end
     end
