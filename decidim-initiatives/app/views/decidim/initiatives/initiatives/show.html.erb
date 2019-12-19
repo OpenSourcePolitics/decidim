@@ -73,18 +73,15 @@
       <br>
       <div class="row column">
         <%= render partial: "initiative_badge", locals: { initiative: current_initiative } %>
-        <%= decidim_sanitize simple_format(
-                               translated_attribute(
-                                 current_initiative.description,
-                                 id: translate_helper_for(element: :body, model: current_initiative)
-                               )
-                             ) %>
-        <%= translate_button_helper_for(
-              title: translated_attribute(current_initiative.title),
-              body: translated_attribute(current_initiative.description),
-              model: current_initiative,
-              options: { class: "show-for-small-only" }
-            ) %>
+        <div id="<%= translate_helper_for(element: :body, model: current_initiative) %>">
+          <%= decidim_sanitize simple_format(translated_attribute(current_initiative.description)) %>
+          <%= translate_button_helper_for(
+                title: translated_attribute(current_initiative.title),
+                body: translated_attribute(current_initiative.description),
+                model: current_initiative,
+                options: { class: "show-for-small-only" }
+              ) %>
+        </div>
         <%= render partial: "tags", locals: { resource: current_initiative } %>
       </div>
 
