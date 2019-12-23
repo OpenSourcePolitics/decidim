@@ -8,7 +8,6 @@ def fill_registration_form(params = {})
     fill_in :user_password, with: "sekritpass123"
     fill_in :user_password_confirmation, with: "sekritpass123"
     check("user_tos_agreement")
-    check :user_additional_tos
   else
     fill_in :user_name, with: "Nikola Tesla"
     fill_in :user_nickname, with: "the-greatest-genius-in-history"

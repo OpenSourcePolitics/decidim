@@ -27,7 +27,6 @@ module Decidim
             password_confirmation: "rPYWYKQJrXm97b4ytswc",
             tos_agreement: "1",
             newsletter: "0",
-            additional_tos: "1",
             residential_area: scope.id.to_s,
             work_area: scope.id.to_s,
             gender: "other",

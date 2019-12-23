@@ -22,7 +22,6 @@ describe "Authentication", type: :system do
           fill_in :user_password, with: "DfyvHn425mYAy2HL"
           fill_in :user_password_confirmation, with: "DfyvHn425mYAy2HL"
           check :user_tos_agreement
-          check :user_additional_tos
           click_button "Continue"
 
           fill_in :user_nickname, with: "responsible"
@@ -51,7 +50,6 @@ describe "Authentication", type: :system do
           page.execute_script("$($('.new_user > div > input')[0]).val('Ima robot :D')")
           fill_in :user_email, with: "user@example.org"
           check :user_tos_agreement
-          check :user_additional_tos
           fill_in :user_password, with: "DfyvHn425mYAy2HL"
           fill_in :user_password_confirmation, with: "DfyvHn425mYAy2HL"
           click_button "Continue"
@@ -435,7 +433,6 @@ describe "Authentication", type: :system do
             fill_in :user_password, with: "DfyvHn425mYAy2HL"
             fill_in :user_password_confirmation, with: "DfyvHn425mYAy2HL"
             check :user_tos_agreement
-            check :user_additional_tos
             click_button "Continue"
 
             fill_in :user_name, with: "Responsible Citizen"

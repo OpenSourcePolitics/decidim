@@ -19,7 +19,6 @@ module Decidim
     let(:password) { "S4CGQ9AM4ttJdPKS" }
     let(:password_confirmation) { password }
     let(:tos_agreement) { "1" }
-    let(:additional_tos) { "1" }
     let(:residential_area) { create(:scope, organization: organization).id.to_s }
     let(:work_area) { create(:scope, organization: organization).id.to_s }
     let(:gender) { "female" }
@@ -36,7 +35,6 @@ module Decidim
         password: password,
         password_confirmation: password_confirmation,
         tos_agreement: tos_agreement,
-        additional_tos: additional_tos,
         residential_area: residential_area,
         work_area: work_area,
         gender: gender,
@@ -125,12 +123,6 @@ module Decidim
 
     context "when the tos_agreement is not accepted" do
       let(:tos_agreement) { "0" }
-
-      it { is_expected.to be_invalid }
-    end
-
-    context "when the additional_tos is not accepted" do
-      let(:additional_tos) { "0" }
 
       it { is_expected.to be_invalid }
     end
