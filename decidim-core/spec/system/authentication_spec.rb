@@ -22,11 +22,11 @@ describe "Authentication", type: :system do
           fill_in :user_password, with: "DfyvHn425mYAy2HL"
           fill_in :user_password_confirmation, with: "DfyvHn425mYAy2HL"
           check :user_tos_agreement
+          check :user_newsletter
           click_button "Continue"
 
           fill_in :user_nickname, with: "responsible"
           fill_in :user_name, with: "Responsible Citizen"
-          check :user_newsletter
           select translated(scopes.first.name), from: :user_residential_area
           select translated(scopes.first.name), from: :user_work_area
           select "Other", from: :user_gender
@@ -52,11 +52,11 @@ describe "Authentication", type: :system do
           check :user_tos_agreement
           fill_in :user_password, with: "DfyvHn425mYAy2HL"
           fill_in :user_password_confirmation, with: "DfyvHn425mYAy2HL"
+          check :user_newsletter
           click_button "Continue"
 
           fill_in :user_name, with: "Responsible Citizen"
           fill_in :user_nickname, with: "responsible"
-          check :user_newsletter
           select translated(scopes.first.name), from: :user_residential_area
           select translated(scopes.first.name), from: :user_work_area
           select "Other", from: :user_gender
@@ -433,11 +433,11 @@ describe "Authentication", type: :system do
             fill_in :user_password, with: "DfyvHn425mYAy2HL"
             fill_in :user_password_confirmation, with: "DfyvHn425mYAy2HL"
             check :user_tos_agreement
+            check :user_newsletter
             click_button "Continue"
 
             fill_in :user_name, with: "Responsible Citizen"
             fill_in :user_nickname, with: "responsible"
-            check :user_newsletter
             select translated(scopes.first.name), from: :user_residential_area
             select translated(scopes.first.name), from: :user_work_area
             select "Other", from: :user_gender
