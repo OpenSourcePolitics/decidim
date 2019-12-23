@@ -104,6 +104,8 @@ nl-BE:
           close_window: Sluit dit scherm
           share: Deel
           share_link: Link delen
+        show:
+          back: Back to list
       last_activity:
         new_debate_at_html: "<span>Nieuwe post op %{link}</span>"
       models:
