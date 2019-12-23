@@ -327,7 +327,6 @@ en:
           username_help: Public name that appears on your posts. With the aim of guaranteeing the anonymity, can be any name.
       registrations:
         new:
-          additional_tos: Additional tos
           already_have_an_account?: Already have an account?
           back: Back
           birth_date: Birth date
