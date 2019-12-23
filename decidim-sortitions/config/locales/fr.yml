@@ -1,4 +1,3 @@
----
 fr:
   activemodel:
     attributes:
@@ -97,7 +96,7 @@ fr:
       sortitions:
         count:
           proposals_count:
-            one: "%{count} proposition"
+            one: 1 proposition
             other: "%{count} propositions"
         filters:
           active: Actif
@@ -125,6 +124,7 @@ fr:
         show:
           algorithm: Code de l'algorithme de tirage au sort
           any_category: toutes les catégories
+          back: Back to list
           cancelled: Tirage au sort annulé
           candidate_proposal_ids: Ordre des propositions du tirage au sort et identifiants
           candidate_proposals_info: 'Le tirage au sort a été effectué parmi les propositions suivantes (%{category_label}), avec les identifiants suivants (en gras les propositions sélectionnées)  '
@@ -140,7 +140,7 @@ fr:
           random_seed: Valeur aléatoire
           selected_proposals:
             one: proposition sélectionnée
-            other: "%{count} propositions sélectionnées"
+            other: '%{count} propositions sélectionnées'
           view: Voir
         sortition_author:
           deleted: Utilisateur supprimé
@@ -148,5 +148,5 @@ fr:
           deleted: Utilisateur supprimé
         sortitions_count:
           count:
-            one: "%{count} tirage au sort"
+            one: 1 tirage au sort
             other: "%{count} tirages au sort"
