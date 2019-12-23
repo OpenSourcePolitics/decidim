@@ -72,6 +72,8 @@ fr:
           create: "%{user_name} a créé le débat %{resource_name} sur l'espace %{space_name}"
           update: "%{user_name} a mis à jour le débat %{resource_name} sur l'espace %{space_name}"
       debates:
+        show:
+          back: Retourner à la liste
         count:
           debates_count:
             one: "%{count} débat"
