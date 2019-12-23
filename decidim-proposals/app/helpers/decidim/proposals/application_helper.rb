@@ -151,11 +151,15 @@ module Decidim
       end
 
       def filter_type_values
-        [
+        base = [
           ["all", t("decidim.proposals.application_helper.filter_type_values.all")],
-          ["proposals", t("decidim.proposals.application_helper.filter_type_values.proposals")],
-          ["amendments", t("decidim.proposals.application_helper.filter_type_values.amendments")]
+          ["proposals", t("decidim.proposals.application_helper.filter_type_values.proposals")]
         ]
+        if component_settings.amendments_enabled
+          base <<
+            ["amendments", t("decidim.proposals.application_helper.filter_type_values.amendments")]
+        end
+        base
       end
     end
   end
