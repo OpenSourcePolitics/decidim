@@ -48,6 +48,7 @@ de:
             title: title
       posts:
         show:
+          back: Back to list
           view: View
         sidebar_blog:
           comments: comments
