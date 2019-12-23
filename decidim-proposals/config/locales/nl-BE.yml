@@ -708,6 +708,7 @@ nl-BE:
           creation_date: 'Creation: %{date}'
           view_proposal: View proposal
         show:
+          back: Back to list
           back_to: Terug naar
           edit_proposal: Edit proposal
           endorsements_list: List of Endorsements
