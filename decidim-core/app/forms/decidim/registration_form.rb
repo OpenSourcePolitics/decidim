@@ -101,7 +101,7 @@ module Decidim
     end
 
     def year_for_select
-      (Time.current.year - 120..Time.current.year).map(&:to_s).reverse
+      (Time.current.year - 100..Time.current.year).map(&:to_s).reverse
     end
 
     private
