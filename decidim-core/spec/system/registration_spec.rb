@@ -70,9 +70,9 @@ describe "Registration", type: :system do
         expect(page).to have_field("user_nickname", with: "")
         expect(page).to have_select("user[residential_area]", selected: "Please select")
         expect(page).to have_select("user[work_area]", selected: "Please select")
-        expect(page).to have_select("user[gender]", selected: "Male")
-        expect(page).to have_select("user[month]", selected: "January")
-        expect(page).to have_select("user[year]", selected: Time.current.year.to_s)
+        expect(page).to have_select("user[gender]", selected: "Please select")
+        expect(page).to have_select("user[month]", selected: "Please select")
+        expect(page).to have_select("user[year]", selected: "Please select")
         expect(page).to have_unchecked_field("Underage")
       end
     end

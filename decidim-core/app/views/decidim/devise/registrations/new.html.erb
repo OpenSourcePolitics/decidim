@@ -90,7 +90,8 @@
               <div class="field">
                 <%= f.select :gender,
                              @form.gender_types_for_select,
-                             label: t(".gender_label") %>
+                             label: t(".gender_label"),
+                             prompt: true %>
               </div>
 
               <div class="field">
@@ -99,12 +100,14 @@
                   <div class="columns large-6 small-12">
                     <%= f.select :month,
                                  @form.month_names_for_select,
-                                 label: t(".month_label") %>
+                                 label: t(".month_label"),
+                                 prompt: true %>
                   </div>
                   <div class="columns large-6 small-12">
                     <%= f.select :year,
                                  @form.year_for_select,
-                                 label: t(".year_label") %>
+                                 label: t(".year_label"),
+                                 prompt: true %>
                   </div>
                 </div>
               </div>
