@@ -366,6 +366,7 @@ nl-BE:
           confirm: Bevestigen
         show:
           attendees: Aantal deelnemers
+          back: Back to list
           contributions: Aantal bijdragen
           going: Gaand
           join: Word lid van de vergadering
