@@ -155,7 +155,7 @@ module Decidim
           ["all", t("decidim.proposals.application_helper.filter_type_values.all")],
           ["proposals", t("decidim.proposals.application_helper.filter_type_values.proposals")]
         ]
-        if component_settings.amendments_enabled
+        if component_settings.amendments_enabled || Proposal.where(component: current_component).only_emendations.any?
           base <<
             ["amendments", t("decidim.proposals.application_helper.filter_type_values.amendments")]
         end
