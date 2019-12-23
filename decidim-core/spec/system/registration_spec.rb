@@ -44,6 +44,7 @@ describe "Registration", type: :system do
         expect(page).to have_field("user_email", with: "")
         expect(page).to have_field("user_password", with: "")
         expect(page).to have_field("user_password_confirmation", with: "")
+        expect(page).to have_field("user_newsletter", checked: false)
       end
     end
 
@@ -56,7 +57,6 @@ describe "Registration", type: :system do
         expect(page).to have_field("user_password_confirmation", with: "")
         expect(page).not_to have_field("user_name", with: "")
         expect(page).not_to have_field("user_nickname", with: "")
-        expect(page).not_to have_field("user_newsletter", checked: false)
       end
 
       it "shows fields empty" do
@@ -68,7 +68,6 @@ describe "Registration", type: :system do
         expect(page).not_to have_field("user_password_confirmation")
         expect(page).to have_field("user_name", with: "")
         expect(page).to have_field("user_nickname", with: "")
-        expect(page).to have_field("user_newsletter", checked: false)
         expect(page).to have_select("user[residential_area]", selected: "Please select")
         expect(page).to have_select("user[work_area]", selected: "Please select")
         expect(page).to have_select("user[gender]", selected: "Male")
@@ -117,7 +116,7 @@ describe "Registration", type: :system do
       click_button "Keep uncheck"
       expect(page).to have_css("#sign-up-newsletter-modal", visible: false)
 
-      expect(page).to have_field("user_newsletter", checked: false)
+      expect(page).to have_field("user_newsletter", checked: false, visible: false)
     end
   end
 
@@ -125,10 +124,10 @@ describe "Registration", type: :system do
     before do
       fill_registration_form(step: 1)
       fill_in :user_password_confirmation, with: "failure"
+      page.check("user_newsletter")
       click_button "Continue"
 
       fill_registration_form(step: 2)
-      page.check("user_newsletter")
       submit_form
     end
 
@@ -153,9 +152,9 @@ describe "Registration", type: :system do
   context "when newsletter checkbox is checked and registration is successful" do
     before do
       fill_registration_form(step: 1)
+      page.check("user_newsletter")
       click_button "Continue"
       fill_registration_form(step: 2)
-      page.check("user_newsletter")
     end
 
     it "creates the user" do
@@ -174,9 +173,9 @@ describe "Registration", type: :system do
   context "when registering with additional fields" do
     before do
       fill_registration_form(step: 1)
+      page.check("user_newsletter")
       click_button "Continue"
       fill_registration_form(step: 2)
-      page.check("user_newsletter")
     end
 
     it "allows user to register" do

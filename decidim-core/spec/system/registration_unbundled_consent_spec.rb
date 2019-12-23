@@ -22,7 +22,7 @@ describe "TOS", type: :system do
 
     it "show tos checkbox separaterly from other input elements" do
       within("div#card__tos") do
-        expect(page).to have_css("input:not(#user_tos_agreement)", count: 1)
+        expect(page).not_to have_css("input:not(#user_tos_agreement)")
       end
     end
   end
