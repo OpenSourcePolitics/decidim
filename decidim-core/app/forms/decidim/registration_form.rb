@@ -21,8 +21,8 @@ module Decidim
     attribute :newsletter, Boolean
     attribute :tos_agreement, Boolean
     jsonb_attribute :birth_date, [
-      [:month, String],
-      [:year, String]
+        [:month, String],
+        [:year, String]
     ]
     attribute :underage, Boolean
     attribute :statutory_representative_email, String
@@ -30,8 +30,7 @@ module Decidim
     validates :name, presence: true
     validates :nickname, presence: true, length: { maximum: Decidim::User.nickname_max_length }
     validates :email, presence: true, 'valid_email_2/email': { disposable: true }
-    validates :password, confirmation: true
-    validates :password, password: { name: :name, email: :email, username: :nickname }
+    validates :password, password: { name: :name, email: :email, username: :nickname }, presence: true, confirmation: true
     validates :password_confirmation, presence: true
     validates :tos_agreement, allow_nil: false, acceptance: true
 
@@ -52,15 +51,15 @@ module Decidim
 
     validates :month,
               inclusion: { in: MONTHNAMES },
-              if: ->(form) { form.month.present? }
+              presence: true
 
     validates :year,
               inclusion: { in: :year_for_select },
-              if: ->(form) { form.year.present? }
+              presence: true
 
     validates :statutory_representative_email,
-              presence: true,
               'valid_email_2/email': { disposable: true },
+              presence: true,
               if: ->(form) { form.underage.present? }
 
     def map_model(model)
@@ -85,8 +84,8 @@ module Decidim
     def gender_types_for_select
       GENDER_TYPES.map do |type|
         [
-          I18n.t(type.downcase, scope: "decidim.devise.registrations.new.gender"),
-          type
+            I18n.t(type.downcase, scope: "decidim.devise.registrations.new.gender"),
+            type
         ]
       end
     end
@@ -94,8 +93,8 @@ module Decidim
     def month_names_for_select
       MONTHNAMES.map do |month_name|
         [
-          I18n.t(month_name.downcase, scope: "decidim.devise.registrations.new.month_name"),
-          month_name
+            I18n.t(month_name.downcase, scope: "decidim.devise.registrations.new.month_name"),
+            month_name
         ]
       end
     end
