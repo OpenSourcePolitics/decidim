@@ -366,6 +366,7 @@ fr:
           confirm: Confirmer
         show:
           attendees: Nombre de participants
+          back: Back to list
           contributions: Décompte des contributions
           going: J'y vais
           join: Participer à la rencontre
