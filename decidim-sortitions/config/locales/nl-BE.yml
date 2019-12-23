@@ -33,16 +33,16 @@ nl-BE:
     pages:
       home:
         statistics:
-          sortitions_count: Sortaties
+          sortitions_count: Lotingen
     participatory_processes:
       statistics:
-        sortitions_count: Sortaties
+        sortitions_count: Lotingen
     sortitions:
       admin:
         actions:
           destroy: Annuleer de sortering
           edit: Bewerk
-          new: Nieuwe sortering
+          new: Nieuwe loting
           show: Sorteerdetails
         models:
           sortition:
@@ -69,30 +69,30 @@ nl-BE:
             success: Vergadering met succes gemaakt
           destroy:
             error: Annuleer de sortering.
-            success: Vergadering met succes gemaakt
+            success: Loting succesvol geannuleerd
           edit:
-            title: Update de informatie over de sortering
+            title: Update de informatie over de loting
             update: Bijwerken
           form:
             all_categories: Alle categorieën
             select_proposal_component: Selecteer de voorstellen
-            title: Nieuwe sortering voor voorstellen
+            title: Nieuwe loting van de voorstellen
           index:
             title: Sortaties
           new:
             confirm: Door op de volgende knop te drukken zal de datum en tijd (met precisie van seconden) worden vastgelegd en samen met de dice roll, zal deze informatie worden gebruikt om een willekeurige selectie te genereren. De actie zal onomkeerbaar zijn, zodra de knop op het resultaat van deze tekening wordt geklikt, zal worden gepubliceerd, samen met de gegevens die in dit formulier zijn ingevoerd en niet kunnen worden gewijzigd, controleer de inhoud zorgvuldig
             create: Creëren
-            title: Nieuwe sortering
+            title: Nieuwe loting
           show:
             selected_proposals: Geselecteerde voorstellen voor tekenen
           update:
             error: Er is een fout opgetreden bij het bijwerken van deze organisatie.
-            success: Vergadering met succes gemaakt
+            success: Loting succesvol bijgewerkt
       admin_log:
         sortition:
-          create: "%{user_name} heeft resultaat %{resource_name} aangemaakt in %{space_name}"
-          delete: "%{user_name} heeft resultaat %{resource_name} aangemaakt in %{space_name}"
-          update: "%{user_name} heeft resultaat %{resource_name} aangemaakt in %{space_name}"
+          create: "%{user_name} heeft de %{resource_name} loting gemaakt in %{space_name}"
+          delete: "%{user_name} heeft de %{resource_name} loting geannuleerd in %{space_name}"
+          update: "%{user_name} heeft de %{resource_name} loting bijgewerkt in %{space_name}"
       sortitions:
         count:
           proposals_count:
@@ -114,7 +114,7 @@ nl-BE:
         linked_sortitions:
           selected_proposals: Verwante voorstellen
         orders:
-          label: 'Bestellingsortities door:'
+          label: 'Lotingen ordenen op:'
           random: Willekeurig
           recent: Recentelijk
         results_count:
@@ -131,8 +131,8 @@ nl-BE:
           dice_result: "(1) Dice resultaat"
           introduction: 'Deze pagina bevat de resultaten van de loting %{reference}. Door deze loting zijn %{target_items} aantal resultaten willekeurig geselecteerd en uit de set van hieronder weergegeven voorstellen. Samen met de resultaten biedt de informatie die op deze pagina wordt weergegeven alle informatie die nodig is om garanties te maximaliseren en de resultaten te reproduceren. De sleutel tot de kwaliteit van deze loting is de dubbele willekeurigheid die wordt geboden door het rollen van een dobbelsteen (geverifieerd door getuigen) en de exacte tijd van de loting die input biedt voor een algoritme dat een willekeurige selectie genereert. Het tijdstip van de loting is zo nauwkeurig (seconden) dat het onmogelijk is om door mensen te controleren en zo een dubbele "oncontroleerbare" input levert om een eerlijk resultaat te garanderen.  '
           mathematical_result: Resultaat (1) x (2)
-          proposals_selected_by_sortition: Voorstellen geselecteerd door sortering
-          sortition_reproducibility_details: Sortering reproducibiliteit details
+          proposals_selected_by_sortition: Voorstellen geselecteerd door loting
+          sortition_reproducibility_details: Loting reproduceerbaarheidsdetails
           time_seed: "(2) Tijdseed"
           witnesses: Witgetuigen
         sortition:
@@ -147,5 +147,5 @@ nl-BE:
           deleted: Verwijderde gebruiker
         sortitions_count:
           count:
-            one: sortaties
-            other: "%{count} raadplegingen"
+            one: 1 loting
+            other: "%{count} lotingen"
