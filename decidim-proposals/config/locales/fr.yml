@@ -708,6 +708,7 @@ fr:
           creation_date: 'Création : %{date}'
           view_proposal: Voir la proposition
         show:
+          back: Back to list
           back_to: Retour à
           edit_proposal: Modifier la proposition
           endorsements_list: Liste des soutiens
