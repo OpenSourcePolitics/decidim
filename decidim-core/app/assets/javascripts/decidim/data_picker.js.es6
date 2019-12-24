@@ -7,6 +7,9 @@
       this.modal = this._createModalContainer();
       this.modal.appendTo($("body"));
       this.current = null;
+      this.choosenUrl = {
+        previous: String()
+      };
 
       elements.each((_index, element) => {
         this.activate(element);
@@ -98,6 +101,7 @@
 
     _load(url) {
       $.ajax(url).done((resp) => {
+        this.choosenUrl.previous = url;
         let modalContent = $(".data_picker-modal-content", this.modal);
         modalContent.html(resp);
         this._handleLinks(modalContent);
@@ -117,7 +121,9 @@
           let chooseUrl = $link.attr("href");
           if (chooseUrl) {
             if (typeof $link.data("picker-choose") === "undefined") {
-              this._load(chooseUrl);
+              if (chooseUrl !== this.choosenUrl.previous) {
+                this._load(chooseUrl);
+              }
             } else {
               this._choose({ url: chooseUrl, value: $link.data("picker-value") || "", text: $link.data("picker-text") || "" });
             }
