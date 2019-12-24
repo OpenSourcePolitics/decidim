@@ -81,7 +81,7 @@
 
     _openPicker($picker, div) {
       this._setCurrentPicker($picker, div);
-      this._load($("a", div).attr("href"));
+      this._loadOpenPicker($("a", div).attr("href"));
     }
 
     _setCurrentPicker($picker, div) {
@@ -100,6 +100,19 @@
     }
 
     _load(url) {
+      this.choosenUrl.previous = url;
+      $.ajax(url).done((resp) => {
+        if ($("#data_picker-modal").attr("aria-hidden") === "false") {
+          let modalContent = $(".data_picker-modal-content", this.modal);
+          modalContent.html(resp);
+          this._handleLinks(modalContent);
+          this.modal.foundation("open");
+        }
+      });
+    }
+
+    _loadOpenPicker(url) {
+      // clone _load() function to make difference between Ajax from picker select and picker option
       this.choosenUrl.previous = url;
       $.ajax(url).done((resp) => {
         let modalContent = $(".data_picker-modal-content", this.modal);
