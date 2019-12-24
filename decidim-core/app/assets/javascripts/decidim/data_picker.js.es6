@@ -101,8 +101,10 @@
 
     _load(url) {
       this.choosenUrl.previous = url;
+      $("a.button[data-picker-choose]").attr("disabled", "disabled");
       $.ajax(url).done((resp) => {
         if ($("#data_picker-modal").attr("aria-hidden") === "false") {
+          $("button[data-picker-choose]").removeAttr("disabled");
           let modalContent = $(".data_picker-modal-content", this.modal);
           modalContent.html(resp);
           this._handleLinks(modalContent);
