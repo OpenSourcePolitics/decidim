@@ -100,8 +100,8 @@
     }
 
     _load(url) {
+      this.choosenUrl.previous = url;
       $.ajax(url).done((resp) => {
-        this.choosenUrl.previous = url;
         let modalContent = $(".data_picker-modal-content", this.modal);
         modalContent.html(resp);
         this._handleLinks(modalContent);
