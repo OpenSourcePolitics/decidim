@@ -33,6 +33,7 @@ module Decidim
             .where.not(coauthorships_count: 0)
             .joins(:coauthorships)
             .where.not(decidim_coauthorships: { decidim_author_type: "Decidim::Organization" })
+            .where.not(decidim_coauthorships: { decidim_author_type: "Decidim::Meetings::Meeting" })
         when "user_group"
           query
             .where.not(coauthorships_count: 0)
