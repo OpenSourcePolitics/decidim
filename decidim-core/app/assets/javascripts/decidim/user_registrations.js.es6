@@ -6,6 +6,9 @@ $(() => {
   const $newsletterModal = $("#sign-up-newsletter-modal");
   const $formStepForwardButton = $(".form-step-forward-button");
   const $formStepBackButton = $(".form-step-back-button");
+  const $formFirstStepFields = $("[form-step='1'] input");
+  const $tosAgreement = $("#user_tos_agreement");
+  const $mandatoryFormFirstStepFields = $formFirstStepFields.not("#user_newsletter").not("input[type ='hidden']").add($tosAgreement);
 
   const $underageSelector = $("#underage_registration");
   const $statutoryRepresentativeEmailSelector = $("#statutory_representative_email");
@@ -72,7 +75,7 @@ $(() => {
     event.preventDefault();
 
     // validate only input elements from step 1
-    $("[form-step='1'] input").each((index, element) => {
+    $formFirstStepFields.each((index, element) => {
       $userRegistrationForm.foundation("validateInput", $(element));
     });
 
@@ -85,5 +88,34 @@ $(() => {
     event.preventDefault();
 
     toggleFromSteps();
+  });
+
+  let fieldEmptyOrFalse = (element) => {
+    if ($(element)[0].type === "checkbox") {
+      return $(element)[0].checked === false;
+    }
+    return $(element).val().length === 0;
+  };
+
+
+  let filedMandatoryFormField = () => {
+    return $mandatoryFormFirstStepFields.map((index, element) => {
+      if (fieldEmptyOrFalse(element)) {
+        return element;
+      }
+      return null
+    });
+  };
+
+  const checkMandatoryFormField = () => {
+    return filedMandatoryFormField();
+  };
+
+  $userRegistrationForm.on("load keypress change", () => {
+    if (checkMandatoryFormField().length === 0) {
+      $formStepForwardButton.attr("disabled", false);
+    } else {
+      $formStepForwardButton.attr("disabled", true);
+    }
   });
 });
