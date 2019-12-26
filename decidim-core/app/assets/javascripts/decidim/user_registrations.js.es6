@@ -9,6 +9,8 @@ $(() => {
   const $formFirstStepFields = $("[form-step='1'] input");
   const $tosAgreement = $("#user_tos_agreement");
   const $mandatoryFormFirstStepFields = $formFirstStepFields.not("#user_newsletter").not("input[type ='hidden']").add($tosAgreement);
+  const $userPassword = $("#user_password");
+  const $userPasswordConfirmation = $("#user_password_confirmation");
 
   const $underageSelector = $("#underage_registration");
   const $statutoryRepresentativeEmailSelector = $("#statutory_representative_email");
@@ -107,33 +109,41 @@ $(() => {
     });
   };
 
+  let samePassword = () => {
+    if ($userPassword.val() !== $userPasswordConfirmation.val()) {
+      return $userPasswordConfirmation;
+    }
+    return null;
+  };
+
   const checkMandatoryFormField = () => {
-    return filedMandatoryFormField();
+    return $.uniqueSort(filedMandatoryFormField().add(samePassword()))
   };
 
   const displayError = (element) => {
-    $(element).addClass("is-invalid-input")
-    $(element).parent().addClass("is-invalid-label")
-    $(element).next("span").addClass("is-visible")
+    $(element).addClass("is-invalid-input");
+    $(element).parent().addClass("is-invalid-label");
+    $(element).next("span").addClass("is-visible");
   };
 
   const hideError = (element) => {
-    $(element).removeClass("is-invalid-input")
-    $(element).parent().removeClass("is-invalid-label")
-    $(element).next("span").removeClass("is-visible")
+    $(element).removeClass("is-invalid-input");
+    $(element).parent().removeClass("is-invalid-label");
+    $(element).next("span").removeClass("is-visible");
   };
 
-  $userRegistrationForm.on("load keypress change", () => {
+  $userRegistrationForm.on("click load change input", () => {
     $mandatoryFormFirstStepFields.each((index, element) => {
       hideError(element);
+    });
+
+    checkMandatoryFormField().each((index, element) => {
+      displayError(element);
     });
 
     if (checkMandatoryFormField().length === 0) {
       $formStepForwardButton.attr("disabled", false);
     } else {
-      checkMandatoryFormField().each((index, element) => {
-        displayError(element);
-      });
       $formStepForwardButton.attr("disabled", true);
     }
   });
