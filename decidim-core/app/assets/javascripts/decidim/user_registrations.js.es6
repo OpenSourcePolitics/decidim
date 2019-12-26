@@ -111,10 +111,29 @@ $(() => {
     return filedMandatoryFormField();
   };
 
+  const displayError = (element) => {
+    $(element).addClass("is-invalid-input")
+    $(element).parent().addClass("is-invalid-label")
+    $(element).next("span").addClass("is-visible")
+  };
+
+  const hideError = (element) => {
+    $(element).removeClass("is-invalid-input")
+    $(element).parent().removeClass("is-invalid-label")
+    $(element).next("span").removeClass("is-visible")
+  };
+
   $userRegistrationForm.on("load keypress change", () => {
+    $mandatoryFormFirstStepFields.each((index, element) => {
+      hideError(element);
+    });
+
     if (checkMandatoryFormField().length === 0) {
       $formStepForwardButton.attr("disabled", false);
     } else {
+      checkMandatoryFormField().each((index, element) => {
+        displayError(element);
+      });
       $formStepForwardButton.attr("disabled", true);
     }
   });
