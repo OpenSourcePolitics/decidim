@@ -46,6 +46,10 @@ module Decidim
       it "returns only published public participatory spaces" do
         expect(participatory_spaces).to contain_exactly(*participatory_spaces)
       end
+
+      it "doesn't return unpublished public participatory spaces" do
+        expect(participatory_spaces).not_to include(*unpublished_participatory_space)
+      end
     end
   end
 end
