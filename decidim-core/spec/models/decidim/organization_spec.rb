@@ -37,5 +37,15 @@ module Decidim
         expect(subject).not_to be_valid
       end
     end
+
+    describe "retrieve public participatory spaces" do
+      let(:participatory_spaces) { create_list(:participatory_process, 5, organization: organization, published_at: 2.days.ago) }
+      let(:unpublished_participatory_space) { create(:participatory_process, organization: organization, published_at: nil) }
+      let(:public_participatory_spaces) { organization.public_participatory_spaces }
+
+      it "returns only published public participatory spaces" do
+        expect(participatory_spaces).to contain_exactly(*participatory_spaces)
+      end
+    end
   end
 end

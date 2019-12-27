@@ -57,7 +57,7 @@ module Decidim
 
     def public_participatory_spaces
       @public_participatory_spaces ||= Decidim.participatory_space_manifests.flat_map do |manifest|
-        manifest.participatory_spaces.call(self).public_spaces
+        manifest.participatory_spaces.call(self).public_spaces.published
       end
     end
 
