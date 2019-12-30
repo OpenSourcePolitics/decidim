@@ -15,5 +15,9 @@ module Decidim
         format.html { redirect_back fallback_location: root_path }
       end
     end
+
+    def show_terms
+      render html: "okok"
+    end
   end
 end
