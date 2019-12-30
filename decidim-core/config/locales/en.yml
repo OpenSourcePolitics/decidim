@@ -946,6 +946,10 @@ en:
         manage_user_group_admins: Manage admins
         manage_user_group_users: Manage members
         resend_email_confirmation_instructions: Resend email confirmation instructions
+    statutory_representative:
+      inform:
+        subject: A new underage user has been created
+        body: "A new underage user has registered on %{organization} with name: %{name} and nickname: %{nickname}"
     reported_mailer:
       hide:
         hello: Hello %{name},

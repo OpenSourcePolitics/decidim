@@ -20,8 +20,8 @@ module Decidim
       let(:gender) { "other" }
       let(:birth_date) do
         {
-          month: "January",
-          year: "1992"
+            month: "January",
+            year: "1992"
         }
       end
       let(:underage) { "1" }
@@ -29,38 +29,38 @@ module Decidim
 
       let(:registration_metadata) do
         {
-          residential_area: residential_area,
-          work_area: work_area,
-          gender: gender,
-          birth_date: birth_date,
-          statutory_representative_email: statutory_representative_email
+            residential_area: residential_area,
+            work_area: work_area,
+            gender: gender,
+            birth_date: birth_date,
+            statutory_representative_email: statutory_representative_email
         }
       end
 
       let(:form_params) do
         {
-          "user" => {
-            "name" => name,
-            "nickname" => nickname,
-            "email" => email,
-            "password" => password,
-            "password_confirmation" => password_confirmation,
-            "tos_agreement" => tos_agreement,
-            "newsletter_at" => newsletter,
-            "residential_area" => residential_area,
-            "work_area" => work_area,
-            "gender" => gender,
-            "birth_date" => birth_date,
-            "underage" => underage,
-            "statutory_representative_email" => statutory_representative_email
-          }
+            "user" => {
+                "name" => name,
+                "nickname" => nickname,
+                "email" => email,
+                "password" => password,
+                "password_confirmation" => password_confirmation,
+                "tos_agreement" => tos_agreement,
+                "newsletter_at" => newsletter,
+                "residential_area" => residential_area,
+                "work_area" => work_area,
+                "gender" => gender,
+                "birth_date" => birth_date,
+                "underage" => underage,
+                "statutory_representative_email" => statutory_representative_email
+            }
         }
       end
       let(:form) do
         RegistrationForm.from_params(
-          form_params
+            form_params
         ).with_context(
-          current_organization: organization
+            current_organization: organization
         )
       end
       let(:command) { described_class.new(form) }
@@ -88,17 +88,17 @@ module Decidim
 
         it "creates a new user" do
           expect(User).to receive(:create!).with(
-            name: form.name,
-            nickname: form.nickname,
-            email: form.email,
-            password: form.password,
-            password_confirmation: form.password_confirmation,
-            tos_agreement: form.tos_agreement,
-            newsletter_notifications_at: form.newsletter_at,
-            email_on_notification: true,
-            organization: organization,
-            accepted_tos_version: organization.tos_version,
-            registration_metadata: registration_metadata
+              name: form.name,
+              nickname: form.nickname,
+              email: form.email,
+              password: form.password,
+              password_confirmation: form.password_confirmation,
+              tos_agreement: form.tos_agreement,
+              newsletter_notifications_at: form.newsletter_at,
+              email_on_notification: true,
+              organization: organization,
+              accepted_tos_version: organization.tos_version,
+              registration_metadata: registration_metadata
           ).and_call_original
 
           expect { command.call }.to change(User, :count).by(1)
@@ -112,6 +112,30 @@ module Decidim
               command.call
               expect(User.last.newsletter_notifications_at).to eq(nil)
             end.to change(User, :count).by(1)
+          end
+        end
+
+        describe "#send_email_to_statutory_representative" do
+          it "send an email to statutory representative" do
+            allow(StatutoryRepresentativeMailer).to receive(:inform).and_call_original
+            command.call
+            expect(StatutoryRepresentativeMailer)
+                .to have_received(:inform)
+                        .with(User.last)
+          end
+
+          context "when underage is not checked" do
+            let(:underage) { "0" }
+
+            it "doesn't include statutory representative" do
+              command.call
+              expect(User.last.registration_metadata[:statutory_representative_email]).to eq(nil)
+            end
+
+            it "doesn't send an email to statutory representative" do
+              expect_any_instance_of(StatutoryRepresentativeMailer).not_to receive(:inform)
+              command.call
+            end
           end
         end
       end

@@ -21,6 +21,8 @@ module Decidim
 
       create_user
 
+      send_email_to_statutory_representative
+
       broadcast(:ok, @user)
     rescue ActiveRecord::RecordInvalid
       broadcast(:invalid)
@@ -52,8 +54,18 @@ module Decidim
         work_area: form.work_area,
         gender: form.gender,
         birth_date: form.birth_date,
-        statutory_representative_email: form.statutory_representative_email
+        statutory_representative_email: statutory_representative_email
       }
+    end
+
+    def statutory_representative_email
+      form.statutory_representative_email if form.underage.present?
+    end
+
+    def send_email_to_statutory_representative
+      return unless registration_metadata[:statutory_representative_email].present?
+
+      Decidim::StatutoryRepresentativeMailer.inform(@user).deliver_later
     end
   end
 end
