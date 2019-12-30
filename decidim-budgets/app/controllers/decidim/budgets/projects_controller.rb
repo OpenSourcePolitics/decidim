@@ -36,8 +36,6 @@ module Decidim
         { component: current_component, organization: current_organization }
       end
 
-      private
-
       def geocoded_projects
         @geocoded_projects ||= search.results.select(&:geocoded?)
       end
