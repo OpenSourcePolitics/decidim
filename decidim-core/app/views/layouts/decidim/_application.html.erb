@@ -19,7 +19,6 @@
 
   <body>
     <%= render partial: "layouts/decidim/impersonation_warning" %>
-    <%= render partial: "layouts/decidim/cookie_warning" %>
     <%= render partial: "layouts/decidim/omnipresent_banner" %>
 
     <%= render "layouts/decidim/wrapper" do %>
@@ -28,6 +27,7 @@
 
     <%= render partial: "decidim/shared/login_modal" %>
     <%= render partial: "decidim/shared/authorization_modal" %>
+    <%= render partial: "layouts/decidim/cookie_banner" %>
     <script type="text/javascript">
       window.Decidim.locale = "<%= I18n.locale.to_s.html_safe %>";
       window.Decidim.locale_name = "<%= t("name", scope: "locale") %>";

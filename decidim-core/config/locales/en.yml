@@ -1,4 +1,5 @@
 ---
+
 en:
   activemodel:
     attributes:
@@ -1202,6 +1203,12 @@ en:
     timestamp_error_message: Sorry, that was too quick! Please resubmit.
   layouts:
     decidim:
+      cookie_banner:
+        description_html: This site uses cookies to collect data to enable better traffic management and to improve the user experience on the platform. You can accept or refuse the use of cookies by clicking on the buttons below or by visiting our "Cookie Policy" page. A default "no consent" option applies if you did no choice, and a refusal will not limit your user experience. If you would like to know more about our cookies policy, click on the "More Information" button below.
+        link_label: here
+        more_information: More informations
+        ok: I agree to all cookies
+        title: Decidim is here to protect your data
       cookie_warning:
         description_html: This site uses cookies. By continuing to browse the site, you agree to our use of cookies. Find out more about it %{link}.
         link_label: here
