@@ -31,6 +31,7 @@ describe "Registration", type: :system do
   let!(:scopes) { create_list(:scope, 5, organization: organization) }
   let(:organization) { create(:organization) }
   let!(:terms_and_conditions_page) { Decidim::StaticPage.find_by(slug: "terms-and-conditions", organization: organization) }
+  let!(:another_user) { create(:user, organization: organization) }
 
   before do
     switch_to_host(organization.host)
@@ -50,13 +51,45 @@ describe "Registration", type: :system do
 
     describe "after clicking in next step" do
       it "forces user to fill first step attributes" do
-        click_button "Continue"
+        expect(page).to have_button("Continue", disabled: true)
 
         expect(page).to have_field("user_email", with: "")
         expect(page).to have_field("user_password", with: "")
         expect(page).to have_field("user_password_confirmation", with: "")
         expect(page).not_to have_field("user_name", with: "")
         expect(page).not_to have_field("user_nickname", with: "")
+      end
+
+      context "when a mandatory field is missing" do
+        it "forces user to fill first step attributes" do
+          fill_registration_form(step: 1)
+          fill_in :user_email, with: ""
+
+          expect(page).to have_button("Continue", disabled: true)
+          expect(find_field(:user_email)[:class]).to eq("is-invalid-input")
+        end
+      end
+
+      context "when multiples mandatory fields are missing" do
+        it "forces user to fill first step attributes" do
+          fill_registration_form(step: 1)
+          fill_in :user_email, with: ""
+          fill_in :user_password, with: ""
+
+          expect(page).to have_button("Continue", disabled: true)
+          expect(find_field(:user_email)[:class]).to eq("is-invalid-input")
+          expect(find_field(:user_password)[:class]).to eq("is-invalid-input")
+        end
+      end
+
+      context "when a password confirmation doesn't match" do
+        it "forces user to fill first step attributes" do
+          fill_registration_form(step: 1)
+          fill_in :user_password_confirmation, with: "no-match"
+
+          expect(page).to have_button("Continue", disabled: true)
+          expect(find_field(:user_password_confirmation)[:class]).to eq("is-invalid-input")
+        end
       end
 
       it "shows fields empty" do
@@ -127,11 +160,11 @@ describe "Registration", type: :system do
   context "when newsletter checkbox is checked but submit fails" do
     before do
       fill_registration_form(step: 1)
-      fill_in :user_password_confirmation, with: "failure"
       page.check("user_newsletter")
       click_button "Continue"
 
       fill_registration_form(step: 2)
+      fill_in :user_nickname, with: another_user.nickname
       submit_form
     end
 
