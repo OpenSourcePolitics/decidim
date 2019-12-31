@@ -17,7 +17,11 @@ module Decidim
     end
 
     def show_terms
-      render html: "okok"
+      content = {
+        title: "Let us know you agree to cookies",
+        description: "Un \"cookie\" est une suite d'informations, généralement de petite taille et identifié par un nom, qui peut être transmis à votre navigateur par un site web sur lequel vous vous connectez. Votre navigateur web le conservera pendant une certaine durée, et le renverra au serveur web chaque fois que vous vous y re-connecterez."
+      }
+      render partial: "decidim/cookie_policy/cookie_banner_modal", locals: { content: content }
     end
   end
 end

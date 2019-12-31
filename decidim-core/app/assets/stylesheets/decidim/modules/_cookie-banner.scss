@@ -38,3 +38,26 @@
     }
   }
 }
+
+.cookie-banner__modal {
+  .header {
+    .title {
+      color: $primary-color;
+      text-align: center;
+    }
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    & > div {
+      flex: 1;
+    }
+
+    @include breakpoint(mediumlarge){
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+}
