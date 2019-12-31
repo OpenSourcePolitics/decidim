@@ -7,7 +7,7 @@
     </div>
 
     <div class="cookie-banner__description">
-      <p><%= t(".description_html", link: link_to(t(".link_label"), decidim.page_path("terms-and-conditions"), target: "_blank")) %></p>
+      <p><%= t(".description_html") %></p>
     </div>
     <div class="cookie-banner__action">
       <%= button_to t(".ok"), decidim.accept_cookies_path, method: :get, remote: true, class: "button tiny cookie-banner__button" %>
