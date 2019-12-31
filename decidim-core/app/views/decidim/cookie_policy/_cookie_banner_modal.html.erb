@@ -9,16 +9,68 @@
   </div>
 
   <div class="content">
-    <!-- Ici tableau & activation / deactivation cookies -->
     <div class="explanation">
       <div class="title">
         <h5><%= t('.explanation.title') %></h5>
+      </div>
+
+      <div class="content">
+        <table>
+          <thead>
+            <tr>
+              <td>Type</td>
+              <td>Name</td>
+              <td>Owner</td>
+              <td>Aim</td>
+              <td>Privacy policy</td>
+              <td>Duration</td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><p>Analytics</p></td>
+              <td><p>Google analytics</p></td>
+              <td><p>Google LLC</p></td>
+              <td><p>Traffic tracking</p></td>
+              <td><a href="https://developers.google.com/analytics/devguides/collection/analyticsjs/cookie-usage" target="_blank">See usage</a></td>
+              <td><p></p></td>
+            </tr>
+          </tbody>
+        </table>
       </div>
 
     </div>
     <div class="control">
       <div class="title">
         <h5><%= t('.control.title') %></h5>
+      </div>
+      <div class="content">
+        <div>
+          <div class="cookie-control">
+            <div>
+              <h6>Mesure d'audience (Matomo)</h6>
+            </div>
+            <div class="activation-control">
+              <div>
+                <p class="control-description">
+                  La mesure de l'audience du site contribue à l'amélioration continue de son ergonomie, de sa navigation et de ses contenu
+                </p>
+              </div>
+              <div style="display: flex;">
+                <div class="activation-control__toggle">
+                  <p class="success activated_cc_message" data-cc="matomo">Activé</p>
+                </div>
+                <div class="switch tiny">
+                  <input class="switch-input" checked="checked" data-cc="matomo" id="deactivate_cc_matomo" onchange="console.log($('#deactivate_cc_matomo').is(':checked'));" type="checkbox" name="exampleSwitch">
+                  <label class="switch-paddle" for="deactivate_cc_matomo">
+                    <span class="switch-active" aria-hidden="true">✓</span>
+                    <span class="switch-inactive" aria-hidden="true">✕</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>

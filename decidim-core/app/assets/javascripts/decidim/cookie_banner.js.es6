@@ -28,5 +28,16 @@ $(() => {
 
   });
 
+  $(document).on("change", ".switch-input", (event) => {
+    const switchInput = $(event.currentTarget);
+    const cookieName = switchInput.data("cc");
+
+    if ($(`#deactivate_cc_${cookieName}`).is(":checked")) {
+      $(`.activated_cc_message[data-cc="${cookieName}"]`).css("visibility", "visible");
+    } else {
+      $(`.activated_cc_message[data-cc="${cookieName}"]`).css("visibility", "hidden");
+    }
+
+  });
 
 });

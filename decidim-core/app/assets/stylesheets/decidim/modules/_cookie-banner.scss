@@ -54,14 +54,57 @@
     & > div {
       // Explanation table & cookies activation / deactivation
       flex: 1;
+      width: 100%;
       .title {
         text-align: center;
       }
     }
 
-    @include breakpoint(mediumlarge){
+    .explanation {
+      .content {
+        overflow-y: visible;
+      }
+    }
+
+    .control {
+      .cookie-control {
+        .activation-control {
+          display: flex;
+
+          .activated_cc_message {
+            padding-right: 1rem;
+          }
+
+          .control-description {
+            max-width: 90%;
+          }
+        }
+      }
+
+      .switch-paddle {
+        border-radius: 30px;
+
+        .switch-inactive {
+          right: 22%;
+        }
+
+        .switch-active {
+          left: 20%;
+        }
+        &::after {
+          border-radius: 50%;
+        }
+      }
+    }
+
+    @include breakpoint(large){
       flex-direction: row;
       justify-content: space-between;
+      align-items: start;
+
+      .control {
+        padding-left: 1rem;
+      }
     }
   }
 }
