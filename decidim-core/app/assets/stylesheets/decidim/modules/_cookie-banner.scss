@@ -52,7 +52,11 @@
     flex-direction: column-reverse;
     align-items: center;
     & > div {
+      // Explanation table & cookies activation / deactivation
       flex: 1;
+      .title {
+        text-align: center;
+      }
     }
 
     @include breakpoint(mediumlarge){
