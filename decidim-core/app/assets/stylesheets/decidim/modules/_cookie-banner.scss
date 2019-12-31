@@ -60,9 +60,10 @@
       }
     }
 
-    .explanation {
+    .explanation, .control {
       .content {
-        overflow-y: visible;
+        max-height: 50vh;
+        overflow-y: scroll;
       }
     }
 
