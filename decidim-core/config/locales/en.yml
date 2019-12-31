@@ -1,5 +1,4 @@
 ---
-
 en:
   activemodel:
     attributes:
@@ -64,14 +63,6 @@ en:
       decidim_with_month_name: "%d %B %Y"
       decidim_with_month_name_short: "%d %b"
   decidim:
-    cookie_policy:
-      cookie_banner_modal:
-        control:
-          title: Cookies activation / deactivation
-        explanation:
-          title: Cookies statement
-        description: A "cookie" is a series of information, generally small and identified by name, which can be transmitted to your browser by a website on which you connect. Your web browser will keep it for a certain period of time, and return it to the web server each time you connect to it again.
-        title: Let us know you agree to cookies
     account:
       data_portability_export:
         file_no_exists: File does not exist
@@ -339,6 +330,17 @@ en:
         name: Organization stats
       sub_hero:
         name: Sub hero banner
+    cookie_policy:
+      cookie_banner_modal:
+        control:
+          title: Cookies activation / deactivation
+        description: A "cookie" is a series of information, generally small and identified
+          by name, which can be transmitted to your browser by a website on which
+          you connect. Your web browser will keep it for a certain period of time,
+          and return it to the web server each time you connect to it again.
+        explanation:
+          title: Cookies statement
+        title: Let us know you agree to cookies
     core:
       actions:
         unauthorized: You are not authorized to perform this action
