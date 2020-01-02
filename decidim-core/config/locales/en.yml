@@ -332,6 +332,7 @@ en:
         name: Sub hero banner
     cookie_policy:
       cookie_banner_modal:
+        activated: Activated
         control:
           title: Cookies activation / deactivation
         description: A "cookie" is a series of information, generally small and identified
@@ -339,6 +340,15 @@ en:
           you connect. Your web browser will keep it for a certain period of time,
           and return it to the web server each time you connect to it again.
         explanation:
+          table:
+            column:
+              name:
+                aim: Aim
+                duration: Duration
+                name: Name
+                owner: Owner
+                privacy_policy: Privacy policy
+                type: Type
           title: Cookies statement
         title: Let us know you agree to cookies
     core:

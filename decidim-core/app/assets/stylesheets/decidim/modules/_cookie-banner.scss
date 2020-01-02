@@ -72,28 +72,31 @@
         .activation-control {
           display: flex;
 
-          .activated_cc_message {
-            padding-right: 1rem;
+          .activation-control__toggle {
+            display: flex;
+            .activated_cc_message {
+              padding-right: 1rem;
+            }
+
+            .switch-paddle {
+              border-radius: 30px;
+
+              .switch-inactive {
+                right: 22%;
+              }
+
+              .switch-active {
+                left: 20%;
+              }
+              &::after {
+                border-radius: 50%;
+              }
+            }
           }
 
           .control-description {
             max-width: 90%;
           }
-        }
-      }
-
-      .switch-paddle {
-        border-radius: 30px;
-
-        .switch-inactive {
-          right: 22%;
-        }
-
-        .switch-active {
-          left: 20%;
-        }
-        &::after {
-          border-radius: 50%;
         }
       }
     }

@@ -18,12 +18,12 @@
         <table>
           <thead>
             <tr>
-              <td>Type</td>
-              <td>Name</td>
-              <td>Owner</td>
-              <td>Aim</td>
-              <td>Privacy policy</td>
-              <td>Duration</td>
+              <td><%= t('.explanation.table.column.name.type') %></td>
+              <td><%= t('.explanation.table.column.name.name') %></td>
+              <td><%= t('.explanation.table.column.name.owner') %></td>
+              <td><%= t('.explanation.table.column.name.aim') %></td>
+              <td><%= t('.explanation.table.column.name.privacy_policy') %></td>
+              <td><%= t('.explanation.table.column.name.duration') %></td>
             </tr>
           </thead>
           <tbody>
@@ -56,9 +56,9 @@
                   La mesure de l'audience du site contribue à l'amélioration continue de son ergonomie, de sa navigation et de ses contenu
                 </p>
               </div>
-              <div style="display: flex;">
-                <div class="activation-control__toggle">
-                  <p class="success activated_cc_message" data-cc="matomo">Activé</p>
+              <div  class="activation-control__toggle">
+                <div>
+                  <p class="success activated_cc_message" data-cc="matomo"><%= t('.activated') %></p>
                 </div>
                 <div class="switch tiny">
                   <input class="switch-input" checked="checked" data-cc="matomo" id="deactivate_cc_matomo" type="checkbox" name="cc_matomo">
