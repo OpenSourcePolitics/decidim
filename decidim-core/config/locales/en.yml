@@ -349,6 +349,36 @@ en:
                 owner: Owner
                 privacy_policy: Privacy policy
                 type: Type
+            row:
+              pk_id:
+                aim: Used to store a few details about the user such as the unique
+                  visitor ID
+                duration: 13 months
+                name: _pk_id
+                owner: Matomo
+                privacy_policy: See usage
+                type: Storage
+              pk_ses:
+                aim: Short lived cookies used to temporarily store data for the visit
+                duration: 30 minutes
+                name: _pk_ses
+                owner: Matomo
+                privacy_policy: See usage
+                type: Storage
+              session:
+                aim: Session managing
+                duration: Until end session
+                name: _osp_decidim_development_app_session
+                owner: OpenSourcePolitics
+                privacy_policy: See usage
+                type: Session
+              test_cookie:
+                aim: Used to check whether the visitor’s browser supports cookies
+                duration: Directly removed
+                name: _pk_test_cookie
+                owner: Matomo
+                privacy_policy: See usage
+                type: Testing
           title: Cookies statement
         title: Let us know you agree to cookies
     core:

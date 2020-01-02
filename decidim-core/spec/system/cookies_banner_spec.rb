@@ -20,8 +20,7 @@ describe "Cookies", type: :system do
   end
 
   context "when user accept the cookie policy and he doesn't see it anymore'" do
-
-    it "should not see it anymore" do
+    it "does not see it anymore" do
       click_button "I agree to all cookies"
       expect(page).to have_no_content "I agree to all cookies"
 
@@ -31,7 +30,6 @@ describe "Cookies", type: :system do
   end
 
   context "when user clicks on more informations link" do
-
     before do
       click_button "More informations"
     end
@@ -49,7 +47,6 @@ describe "Cookies", type: :system do
 
       find("label.switch-paddle", match: :first).click
       expect(evaluate_script(check_inspect_script)).to eq(true)
-
     end
   end
 end

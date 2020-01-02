@@ -1,13 +1,13 @@
 .cookie-banner{
   z-index: 999;
   position: fixed;
-  bottom: 0px;
+  bottom: 0;
   background: $medium-gray;
   padding: .5em 1em;
   text-align: center;
-  -webkit-box-shadow: 0px -4px 3px rgba(50, 50, 50, 0.75);
-  -moz-box-shadow: 0px -4px 3px rgba(50, 50, 50, 0.75);
-  box-shadow: 0px -4px 3px rgba(50, 50, 50, 0.75);
+  -webkit-box-shadow: 0 -4px 3px rgba(50, 50, 50, .75);
+  -moz-box-shadow: 0 -4px 3px rgba(50, 50, 50, .75);
+  box-shadow: 0 -4px 3px rgba(50, 50, 50, .75);
 
   a{
     color: darken($anchor-color, 10%);
@@ -25,10 +25,11 @@
     margin: .5em 0;
   }
 
-  .cookie-banner__more-informations {
+  .cookie-banner__more-informations{
     text-decoration: underline;
     cursor: pointer;
   }
+
   @include breakpoint(mediumlarge){
     flex-direction: row;
     justify-content: space-around;
@@ -39,76 +40,60 @@
   }
 }
 
-.cookie-banner__modal {
-  .header {
-    .title {
+.cookie-banner__modal{
+  .header{
+    .title{
       color: $primary-color;
       text-align: center;
     }
   }
 
-  .content {
+  .content{
     display: flex;
     flex-direction: column-reverse;
     align-items: center;
-    & > div {
-      // Explanation table & cookies activation / deactivation
-      flex: 1;
+
+    & > div{
       width: 100%;
-      .title {
+
+      .title{
         text-align: center;
       }
     }
 
-    .explanation, .control {
-      .content {
+    .explanation,
+    .control{
+      .content{
         max-height: 50vh;
         overflow-y: scroll;
       }
     }
 
-    .control {
-      .cookie-control {
-        .activation-control {
-          display: flex;
+    .explanation{
+      flex: 4;
+    }
+  }
 
-          .activation-control__toggle {
-            display: flex;
-            .activated_cc_message {
-              padding-right: 1rem;
-            }
+  .control{
+    flex: 2;
 
-            .switch-paddle {
-              border-radius: 30px;
+    .iframe-matomo{
+      border: 0;
+      width: 100%;
 
-              .switch-inactive {
-                right: 22%;
-              }
-
-              .switch-active {
-                left: 20%;
-              }
-              &::after {
-                border-radius: 50%;
-              }
-            }
-          }
-
-          .control-description {
-            max-width: 90%;
-          }
-        }
+      @include breakpoint(large){
+        height: 49vh;
       }
     }
+  }
 
-    @include breakpoint(large){
-      flex-direction: row;
-      justify-content: space-between;
-      align-items: start;
+  @include breakpoint(large){
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: start;
 
-      .control {
-        padding-left: 1rem;
-      }
+    .control{
+      padding-left: 1rem;
     }
   }
 }
