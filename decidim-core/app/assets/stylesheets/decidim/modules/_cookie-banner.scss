@@ -72,6 +72,16 @@
     .explanation{
       flex: 4;
     }
+
+    @include breakpoint(large){
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: start;
+
+      .control{
+        padding-left: 1rem;
+      }
+    }
   }
 
   .control{
@@ -84,16 +94,6 @@
       @include breakpoint(large){
         height: 49vh;
       }
-    }
-  }
-
-  @include breakpoint(large){
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: start;
-
-    .control{
-      padding-left: 1rem;
     }
   }
 }
