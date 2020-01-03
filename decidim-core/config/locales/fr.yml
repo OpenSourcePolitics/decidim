@@ -339,63 +339,62 @@ fr:
       sub_hero:
         name: Bannière en dessous de l'image principale ("hero")
     cookie_policy:
-      control:
-        title: Activation / désactivation cookies
-      description: Un "cookie" est une suite d'informations, généralement de petite
-        taille et identifié par un nom, qui peut être transmis à votre navigateur
-        par un site web sur lequel vous vous connectez. Votre navigateur web le conservera
-        pendant une certaine durée, et le renverra au serveur web chaque fois que
-        vous vous y re-connecterez.
-      explanation:
-        table:
-          column:
-            name:
-              aim: Objectif
-              duration: Durée
-              name: Nom
-              owner: Propriétaire
-              privacy_policy: Politique de confidentialité
-              type: Type
-          row:
-            matomo_session:
-              aim: Aide à la prévention des risques d'attaques informatiques CSRF
-              duration: Temporaire
-              name: MATOMO_SESSID
-              owner: Matomo
-              privacy_policy: Voir l'usage
-              type: Session
-            pk_id:
-              aim: Stocker quelques informations à propos de l'utilisateur tels que
-                l'ID visiteur
-              duration: 13 mois
-              name: _pk_id
-              owner: Matomo
-              privacy_policy: Voir l'usage
-              type: Storage
-            pk_ses:
-              aim: Cookies à courte durée utilisé pour stocker temporairement des
-                données relatives à la navigation
-              duration: 30 minutes
-              name: _pk_ses
-              owner: Matomo
-              privacy_policy: Voir l'usage
-              type: Storage
-            session:
-              aim: Gestion de session
-              duration: Jusqu'à la fin de la session
-              name: _osp_decidim_development_app_session
-              owner: OpenSourcePolitics
-              privacy_policy: Voir l'usage
-              type: Session
-            test_cookie:
-              aim: Utilisé pour vérifier si le navigateur de l'utilisateur supporte
-                les cookies
-              duration: Directement supprimé
-              name: _pk_test_cookie
-              owner: Matomo
-              privacy_policy: Voir l'usage
-              type: Test
-        title: État des cookies
+      cookie_banner_modal:
+        control:
+          title: Activation / désactivation cookies
+        description: Un "cookie" est une suite d'informations, généralement de petite taille et identifié par un nom, qui peut être transmis à votre navigateur par un site web sur lequel vous vous connectez. Votre navigateur web le conservera pendant une certaine durée, et le renverra au serveur web chaque fois que vous vous y re-connecterez.
+        explanation:
+          table:
+            column:
+              name:
+                aim: Objectif
+                duration: Durée
+                name: Nom
+                owner: Propriétaire
+                privacy_policy: Politique de confidentialité
+                type: Type
+            row:
+              matomo_session:
+                aim: Aide à la prévention des risques d'attaques informatiques CSRF
+                duration: Temporaire
+                name: MATOMO_SESSID
+                owner: Matomo
+                privacy_policy: Voir l'usage
+                type: Session
+              pk_id:
+                aim: Stocker quelques informations à propos de l'utilisateur tels que
+                  l'ID visiteur
+                duration: 13 mois
+                name: _pk_id
+                owner: Matomo
+                privacy_policy: Voir l'usage
+                type: Storage
+              pk_ses:
+                aim: Cookies à courte durée utilisé pour stocker temporairement des
+                  données relatives à la navigation
+                duration: 30 minutes
+                name: _pk_ses
+                owner: Matomo
+                privacy_policy: Voir l'usage
+                type: Storage
+              session:
+                aim: Gestion de session
+                duration: Jusqu'à la fin de la session
+                name: _osp_decidim_development_app_session
+                owner: OpenSourcePolitics
+                privacy_policy: Voir l'usage
+                type: Session
+              test_cookie:
+                aim: Utilisé pour vérifier si le navigateur de l'utilisateur supporte
+                  les cookies
+                duration: Directement supprimé
+                name: _pk_test_cookie
+                owner: Matomo
+                privacy_policy: Voir l'usage
+                type: Test
+          title: État des cookies
+        title: Faites nous savoir que vous acceptez l'utilisation de cookies
+      description: Ce site utilise des cookies pour collecter des données afin de permettre une meilleure gestion du trafic et d'améliorer l'expérience utilisateur sur la plateforme. Vous pouvez accepter ou refuser l'utilisation de cookies en cliquant sur les boutons ci-dessous ou en visitant notre page "Politique de cookies". Une option par défaut "sans consentement" s'applique si vous n'avez pas fait de choix, et un refus ne limitera pas votre expérience utilisateur. Si vous souhaitez en savoir plus sur notre politique de cookies, cliquez sur le bouton "Plus d'informations" ci-dessous.
       title: Faites nous savoir si vous acceptez l'utilisation de cookies
     core:
       actions:
