@@ -100,10 +100,6 @@ fr:
           create: Créer
           select_a_category: Veuillez sélectionner une catégorie
           title: Nouveau débat
-        share:
-          close_window: Fermer la fenêtre
-          share: Partager
-          share_link: Lien de partage
         show:
           back: Back to list
       last_activity:
