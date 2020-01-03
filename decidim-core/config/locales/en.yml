@@ -331,63 +331,61 @@ en:
       sub_hero:
         name: Sub hero banner
     cookie_policy:
-      cookie_banner_modal:
-        activated: Activated
-        control:
-          title: Cookies activation / deactivation
-        description: A "cookie" is a series of information, generally small and identified
-          by name, which can be transmitted to your browser by a website on which
-          you connect. Your web browser will keep it for a certain period of time,
-          and return it to the web server each time you connect to it again.
-        explanation:
-          table:
-            column:
-              name:
-                aim: Aim
-                duration: Duration
-                name: Name
-                owner: Owner
-                privacy_policy: Privacy policy
-                type: Type
-            row:
-              matomo_session:
-                aim: Helps prevent CSRF security issues
-                duration: Temporary
-                name: MATOMO_SESSID
-                owner: Matomo
-                privacy_policy: See usage
-                type: Session
-              pk_id:
-                aim: Used to store a few details about the user such as the unique
-                  visitor ID
-                duration: 13 months
-                name: _pk_id
-                owner: Matomo
-                privacy_policy: See usage
-                type: Storage
-              pk_ses:
-                aim: Short lived cookies used to temporarily store data for the visit
-                duration: 30 minutes
-                name: _pk_ses
-                owner: Matomo
-                privacy_policy: See usage
-                type: Storage
-              session:
-                aim: Session managing
-                duration: Until end session
-                name: _osp_decidim_development_app_session
-                owner: OpenSourcePolitics
-                privacy_policy: See usage
-                type: Session
-              test_cookie:
-                aim: Used to check whether the visitor’s browser supports cookies
-                duration: Directly removed
-                name: _pk_test_cookie
-                owner: Matomo
-                privacy_policy: See usage
-                type: Testing
-          title: Cookies statement
-        title: Let us know you agree to cookies
+      control:
+        title: Cookies activation / deactivation
+      description: A "cookie" is a series of information, generally small and identified
+        by name, which can be transmitted to your browser by a website on which you
+        connect. Your web browser will keep it for a certain period of time, and return
+        it to the web server each time you connect to it again.
+      explanation:
+        table:
+          column:
+            name:
+              aim: Aim
+              duration: Duration
+              name: Name
+              owner: Owner
+              privacy_policy: Privacy policy
+              type: Type
+          row:
+            matomo_session:
+              aim: Helps prevent CSRF security issues
+              duration: Temporary
+              name: MATOMO_SESSID
+              owner: Matomo
+              privacy_policy: See usage
+              type: Session
+            pk_id:
+              aim: Used to store a few details about the user such as the unique visitor
+                ID
+              duration: 13 months
+              name: _pk_id
+              owner: Matomo
+              privacy_policy: See usage
+              type: Storage
+            pk_ses:
+              aim: Short lived cookies used to temporarily store data for the visit
+              duration: 30 minutes
+              name: _pk_ses
+              owner: Matomo
+              privacy_policy: See usage
+              type: Storage
+            session:
+              aim: Session managing
+              duration: Until end session
+              name: _osp_decidim_development_app_session
+              owner: OpenSourcePolitics
+              privacy_policy: See usage
+              type: Session
+            test_cookie:
+              aim: Used to check whether the visitor’s browser supports cookies
+              duration: Directly removed
+              name: _pk_test_cookie
+              owner: Matomo
+              privacy_policy: See usage
+              type: Testing
+        title: Cookies statement
+      title: Let us know you agree to cookies
     core:
       actions:
         unauthorized: You are not authorized to perform this action
