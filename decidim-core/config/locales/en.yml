@@ -350,6 +350,13 @@ en:
                 privacy_policy: Privacy policy
                 type: Type
             row:
+              matomo_session:
+                aim: Helps prevent CSRF security issues
+                duration: Temporary
+                name: MATOMO_SESSID
+                owner: Matomo
+                privacy_policy: See usage
+                type: Session
               pk_id:
                 aim: Used to store a few details about the user such as the unique
                   visitor ID

@@ -35,6 +35,14 @@
               <td><a href="https://opensourcepolitics.eu/" target="_blank"><p><%= t('.explanation.table.row.session.privacy_policy') %></p></a></td>
               <td><p><%= t('.explanation.table.row.session.duration') %></p></td>
             </tr>
+            <tr data-ccname="matomo_session">
+              <td><p><%= t('.explanation.table.row.matomo_session.type') %></p></td>
+              <td><p><%= truncate(t('.explanation.table.row.matomo_session.name'), length: 15) %></p></td>
+              <td><p><%= t('.explanation.table.row.matomo_session.owner') %></p></td>
+              <td><p><%= t('.explanation.table.row.matomo_session.aim') %></p></td>
+              <td><a href="https://fr.matomo.org/faq/general/faq_146/" target="_blank"><p><%= t('.explanation.table.row.matomo_session.privacy_policy') %></p></a></td>
+              <td><p><%= t('.explanation.table.row.matomo_session.duration') %></p></td>
+            </tr>
             <tr data-ccname="pk_id">
               <td><p><%= t('.explanation.table.row.pk_id.type') %></p></td>
               <td><p><%= truncate(t('.explanation.table.row.pk_id.name'), length: 15) %></p></td>

@@ -37,7 +37,5 @@ $(() => {
     } else {
       $(`.activated_cc_message[data-cc="${cookieName}"]`).css("visibility", "hidden");
     }
-
   });
-
 });
