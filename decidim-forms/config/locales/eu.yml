@@ -16,6 +16,8 @@ eu:
             choices:
               missing: ez dira osatu
               too_many: gehiegi dira
+        questionnaire:
+          request_invalid: There's been an error handling the request. Please try again
   decidim:
     forms:
       admin:
@@ -81,3 +83,7 @@ eu:
       user_answers_serializer:
         created_at: Erantzuna
         id: Erantzun IDa
+        ip_hash: Ip Hash
+        registered: Registered
+        unregistered: Unregistered
+        user_status: User status

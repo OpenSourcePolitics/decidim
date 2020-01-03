@@ -16,6 +16,8 @@ pt:
             choices:
               missing: não estão completos
               too_many: são muitos
+        questionnaire:
+          request_invalid: There's been an error handling the request. Please try again
   decidim:
     forms:
       admin:
@@ -81,3 +83,7 @@ pt:
       user_answers_serializer:
         created_at: Respondido em
         id: ID da resposta
+        ip_hash: Ip Hash
+        registered: Registered
+        unregistered: Unregistered
+        user_status: User status

@@ -270,8 +270,10 @@ de:
         executive: Executive
         government: Regierung
         help: 'Show:'
+        label: 'Show:'
         others: Andere
         participatory: Partizipativ
+        placeholder: Filtrer par type
         working_group: Arbeitsgruppe
       index:
         title: Baugruppen
@@ -360,6 +362,7 @@ de:
           more_info: Mehr Info
           take_part: Teilnehmen
         index:
+          children: 'Assemblies: '
           organizational_chart: Organigramm
           promoted_assemblies: Hervorgehobene Baugruppen
           reset_chart: Zurücksetzen

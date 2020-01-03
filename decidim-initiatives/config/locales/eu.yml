@@ -34,6 +34,7 @@ eu:
         extra_fields_legal_information: Datu pertsonalen bilketari buruzko informazio juridikoa
         minimum_committee_members: Batzorde kideen gutxienekoak
         online_signature_enabled: Sinadura elektronikoa gaituta dago
+        promoting_committee_enabled: Inschakelen bevorderingscommissie
         title: Izenburua
         undo_online_signatures_enabled: Gaitu erabiltzaileek beren sinadurak desegin ditzaten
         validate_sms_code_on_votes: Gehitu SMS kodea baliozkotzeko urratsa sinadura prozesura
@@ -112,11 +113,15 @@ eu:
             email_outro: Jakinarazpen hau jaso duzu ekimenaren egilea delako %{resource_title}.
             email_subject: Mugarri berria osatu da!
             notification_title: Zure <a href="%{resource_path}">%{resource_title}</a> ekimenek sinadurak% %{percentage}lortu dituzte.
+          email_intro: L'initiative %{resource_title} a atteint %{percentage}% des signatures requises !
+          email_outro: Vous avez reçu cette notification parce que vous suivez %{resource_title}. Vous pouvez arrêter de recevoir des notifications à partir du lien précédent.
+          email_subject: Nouvelle étape franchie !
           follower:
             email_intro: "%{resource_title} ekimena sinadurak% %{percentage}lortu ditu!"
             email_outro: Jakinarazpen hau jaso duzu %{resource_title}jarraitzen duzulako. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
             email_subject: Mugarri berria osatu da!
             notification_title: <a href="%{resource_path}">%{resource_title}</a> ekimenek sinadurak% %{percentage}lortu dituzte.
+          notification_title: La pétition <a href="%{resource_path}">%{resource_title}</a> a atteint %{percentage}% des signatures requises.
     gamification:
       badges:
         initiatives:

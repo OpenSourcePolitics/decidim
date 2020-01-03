@@ -49,6 +49,7 @@ sv:
             title: titel
       posts:
         show:
+          back: Back to list
           view: Visa
         sidebar_blog:
           comments: kommentarer
@@ -61,6 +62,7 @@ sv:
           global:
             announcement: Meddelande
             comments_enabled: Kommentarer aktiverade
+            comments_max_length: Nombre de caractères maximum des commentaires (Mettre 0 pour laisser la valeur par défaut)
           step:
             announcement: Meddelande
             comments_blocked: Kommentarer blockerade

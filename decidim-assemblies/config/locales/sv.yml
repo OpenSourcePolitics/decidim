@@ -270,8 +270,10 @@ sv:
         executive: Verkställande
         government: Styrande
         help: 'Visa:'
+        label: 'Show:'
         others: Övriga
         participatory: Deltagande
+        placeholder: Filtrer par type
         working_group: Arbetsgrupp
       index:
         title: Församlingar

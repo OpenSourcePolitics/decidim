@@ -1,3 +1,4 @@
+---
 nl-BE:
   activemodel:
     attributes:
@@ -25,7 +26,7 @@ nl-BE:
         github: GitHub
         hashtag: Hashtag
         hero_image: Afbeelding van de startpagina
-        included_at: '-'
+        included_at: "-"
         instagram: Instagram
         internal_organisation: Interne organisatie
         is_transparent: Is transparant
@@ -243,7 +244,7 @@ nl-BE:
             search: Zoeken
         content_blocks:
           highlighted_assemblies:
-            max_results: Maximum aantal elementen dat kan worden weergegeven	
+            max_results: Maximum aantal elementen dat kan worden weergegeven
       assembly_members:
         index:
           members: Leden
@@ -272,6 +273,7 @@ nl-BE:
         label: 'Toon:'
         others: Overige
         participatory: Participatief
+        placeholder: Filtrer par type
         working_group: Werkgroep
       index:
         title: Gemeentes

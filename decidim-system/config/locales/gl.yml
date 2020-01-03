@@ -67,6 +67,13 @@ gl:
           reference_prefix_hint: O prefixo de referencia utilízase para identificar de forma exclusiva recursos en todas as organizacións
           secondary_hosts_hint: Entre cada unha delas nunha nova liña
           title: Nova organización
+        smtp_settings:
+          address: Server address
+          from_email: From email
+          from_label: From label
+          password: Password
+          port: Server port
+          user_name: Username
         update:
           error: Produciuse un erro ao actualizar esta organización.
           success: A organización actualizouse con éxito.

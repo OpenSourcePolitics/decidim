@@ -31,6 +31,7 @@ it:
           global:
             announcement: Annuncio
             comments_enabled: Commenti abilitati
+            comments_max_length: Comments max length
           step:
             announcement: Annuncio
             comments_blocked: Commenti bloccati
@@ -100,10 +101,8 @@ it:
           create: Creare
           select_a_category: Si prega di selezionare una categoria
           title: Nuovo dibattito
-        share:
-          close_window: Chiudi la finestra
-          share: Condividere
-          share_link: Condividi il link
+        show:
+          back: Back to list
       last_activity:
         new_debate_at_html: "<span>Nuovo dibattito al %{link}</span>"
       models:

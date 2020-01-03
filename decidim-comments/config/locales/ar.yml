@@ -27,6 +27,8 @@ ar:
       comments: تعليقات
       last_activity:
         new_comment_at_html: "<span>تعليق جديد على %{link}</span>"
+      translate: Translate
+      translated: Back to original version
       votes:
         create:
           error: حدثت مشكلة في التصويت على التعليق.
@@ -77,6 +79,8 @@ ar:
         blocked_comments_warning: التعليقات معطلة في هذا الوقت ، لكن يمكنك قراءة التعليقات السابقة.
         loading: جارٍ تحميل التعليقات ...
         title: "%{count} تعليقات"
+        title_0: There are no comments yet
+        title_1: "%{count} comment"
     events:
       comments:
         comment_by_followed_user:

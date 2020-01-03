@@ -270,8 +270,10 @@ es-PY:
         executive: Ejecutivo
         government: Gobierno
         help: 'Muestra:'
+        label: 'Show:'
         others: Otros
         participatory: Participativo
+        placeholder: Filtrer par type
         working_group: Grupo de trabajo
       index:
         title: Asambleas

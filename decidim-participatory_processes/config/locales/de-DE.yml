@@ -4,10 +4,12 @@ de-DE:
     attributes:
       participatory_process:
         announcement: Announcement
+        area_id: Area
         banner_image: Banner image
         copy_categories: Copy categories
         copy_components: Copy components
         copy_steps: Copy steps
+        decidim_area_id: Area
         description: Description
         developer_group: Promoter group
         domain: Domain
@@ -48,6 +50,12 @@ de-DE:
         email: Email
         name: Name
         role: Role
+    errors:
+      models:
+        participatory_process:
+          attributes:
+            document:
+              invalid_document_type: 'Invalid document type. Accepted formats are: %{valid_mime_types}'
     models:
       decidim/participatory_process_step_activated_event: Step activated
       decidim/participatory_process_step_changed_event: Step changed
@@ -71,7 +79,12 @@ de-DE:
         destroy: Delete
         duplicate: Duplicate
         edit: Edit
+        filter:
+          all: Show all processes
+          process_groups: Process Groups
+        import_process: Import
         new: New
+        new_process: New process
         new_process_group: New process group
         new_process_step: New step
         new_process_user_role: New process user
@@ -143,6 +156,14 @@ de-DE:
         update:
           error: There was en error updating this participatory process group.
           success: Participatory process group updated successfully.
+      participatory_process_imports:
+        create:
+          error: There was a problem importing this participatory process.
+          success: Participatory process successfully imported.
+        new:
+          import: Import
+          select: Select which data you would like to import
+          title: Import participatory process
       participatory_process_publications:
         create:
           error: There was an error publishing this participatory process.
@@ -235,6 +256,9 @@ de-DE:
         publish: "%{user_name} published the %{resource_name} participatory process"
         unpublish: "%{user_name} unpublished the %{resource_name} participatory process"
         update: "%{user_name} updated the %{resource_name} participatory process"
+      participatory_process_group:
+        create: "%{user_name} heeft de burgerinspraak %{resource_name} aangemaakt"
+        update: "%{user_name} heeft de burgerinspraak %{resource_name} aangemaakt"
       participatory_process_step:
         activate: "%{user_name} activated the %{resource_name} step in the %{space_name} participatory process"
         create: "%{user_name} created the %{resource_name} step in the %{space_name} participatory process"
@@ -292,6 +316,10 @@ de-DE:
         participatory_process_copies:
           form:
             slug_help: 'URL slugs are used to generate the URLs that point to this process. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
+        participatory_process_imports:
+          form:
+            document_legend: Add a document
+            slug_help: 'URL slugs are used to generate the URLs that point to this process. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
         participatory_process_steps:
           form:
             cta_path_help: 'Use partial paths, not full URLs here. Accepts letters, numbers, dashes and slashes, and must start with a letter. If not set, the button will not be shown. Example: %{url}'
@@ -299,7 +327,16 @@ de-DE:
         participatory_processes:
           form:
             announcement_help: The text you enter here will be shown to the user right below the process information.
+            duration: Duration
+            filters: Filters
+            images: Images
+            metadata: Metadata
+            other: Other
+            select_an_area: Select an Area
+            select_process_group: Select a process group
             slug_help: 'URL slugs are used to generate the URLs that point to this process. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
+            title: General Information
+            visbility: Visibility
       content_blocks:
         highlighted_processes:
           name: Highlighted processes
@@ -343,6 +380,7 @@ de-DE:
         index:
           loading: Loading results...
       show:
+        area: Area
         developer_group: Promoter group
         end_date: End date
         local_area: Organization Area
@@ -384,6 +422,7 @@ de-DE:
           promoted_processes: Highlighted processes
         participatory_process:
           active_step: 'Current step:'
+          more_info: More info
           take_part: Take part
         promoted_process:
           active_step: 'Current step:'

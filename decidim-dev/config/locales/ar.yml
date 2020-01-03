@@ -7,6 +7,7 @@ ar:
         field: مجالي
         start_date: تاريخ البداية
         title: العنوان
+        translatable_text: Vertaal mijn tekst
         updated_at: تم التحديث في
   decidim:
     dummy:

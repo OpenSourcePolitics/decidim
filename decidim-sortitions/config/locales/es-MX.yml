@@ -24,6 +24,7 @@ es-MX:
         settings:
           global:
             comments_enabled: Comentarios habilitados
+            comments_max_length: Nombre de caractères maximum des commentaires (Mettre 0 pour laisser la valeur par défaut)
     events:
       sortitions:
         sortition_created:
@@ -125,6 +126,7 @@ es-MX:
         show:
           algorithm: Código de algoritmo del sorteo
           any_category: de todas las categorías
+          back: Back to list
           cancelled: Cancelación de la clasificación
           candidate_proposal_ids: Orden de propuestas de clasificación e ID
           candidate_proposals_info: 'La clasificación se realizó entre las siguientes propuestas (%{category_label}), con los siguientes ID (en negrita las propuestas seleccionadas)  '

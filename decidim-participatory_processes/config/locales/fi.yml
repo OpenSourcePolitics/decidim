@@ -21,6 +21,7 @@ fi:
         participatory_process_group_id: Prosessiryhmä
         participatory_scope: Mitä päätetään
         participatory_structure: Miten päätetään
+        private_space: Concertation privée
         promoted: Korostettu
         published_at: Julkaisuaika
         scope_id: Teema
@@ -49,6 +50,12 @@ fi:
         email: Sähköposti
         name: Nimi
         role: Rooli
+    errors:
+      models:
+        participatory_process:
+          attributes:
+            document:
+              invalid_document_type: 'Invalid document type. Accepted formats are: %{valid_mime_types}'
     models:
       decidim/participatory_process_step_activated_event: Vaihe aktivoitu
       decidim/participatory_process_step_changed_event: Vaihe muutettu
@@ -75,6 +82,7 @@ fi:
         filter:
           all: Näytä kaikki prosessit
           process_groups: Prosessiryhmät
+        import_process: Import
         new_process: Uusi prosessi
         new_process_group: Uusi prosessiryhmä
         new_process_step: Uusi vaihe
@@ -147,6 +155,14 @@ fi:
         update:
           error: Osallisuusprosessien ryhmän päivitys epäonnistui.
           success: Osallisuusprosessien ryhmän päivitys onnistui.
+      participatory_process_imports:
+        create:
+          error: There was a problem importing this participatory process.
+          success: Participatory process successfully imported.
+        new:
+          import: Import
+          select: Select which data you would like to import
+          title: Import participatory process
       participatory_process_publications:
         create:
           error: Osallisuusprosessin julkaisu epäonnistui.
@@ -207,6 +223,9 @@ fi:
         index:
           not_published: Ei julkaistu
           private: Yksityinen
+          promoted:
+            'false': 'False'
+            'true': 'True'
           public: Julkinen
           published: Julkaistu
         new:
@@ -236,6 +255,9 @@ fi:
         publish: "%{user_name} julkaisi osallisuusprosessin %{resource_name}"
         unpublish: "%{user_name} muutti osallisuusprosessin %{resource_name} julkaisemattomaksi"
         update: "%{user_name} päivitti osallisuusprosessin %{resource_name}"
+      participatory_process_group:
+        create: "%{user_name} heeft de burgerinspraak %{resource_name} aangemaakt"
+        update: "%{user_name} heeft de burgerinspraak %{resource_name} aangemaakt"
       participatory_process_step:
         activate: "%{user_name} aktivoi vaiheen %{resource_name} osallisuusprosessissa %{space_name}"
         create: "%{user_name} loi vaiheen %{resource_name} osallisuusprosessissa %{space_name}"
@@ -288,6 +310,10 @@ fi:
         participatory_process_copies:
           form:
             slug_help: 'URL-tunnisteita käytetään tuottamaan URL-tunnisteet, jotka viittaavat tähän prosessiin. Hyväksyy vain kirjaimia, numeroita ja viivoja. Arvon on alettava kirjaimella. Esimerkki: %{url}'
+        participatory_process_imports:
+          form:
+            document_legend: Add a document
+            slug_help: 'URL slugs are used to generate the URLs that point to this process. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
         participatory_process_steps:
           form:
             cta_path_help: 'Käytä osittaisia ​​polkuja, ei kokonaisia URL-osoitteita. Hyväksyy kirjaimet, numerot, väliviivat ja kauttaviivat. Arvon täytyy alkaa kirjaimella. Jos asetusta ei ole asetettu, painiketta ei näytetä. Esimerkki: %{url}'

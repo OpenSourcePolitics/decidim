@@ -26,6 +26,7 @@ uk:
         settings:
           global:
             comments_enabled: Коментарі увімкнено
+            comments_max_length: Nombre de caractères maximum des commentaires (Mettre 0 pour laisser la valeur par défaut)
     events:
       sortitions:
         sortition_created:
@@ -133,6 +134,7 @@ uk:
         show:
           algorithm: Код алгоритму жеребкування
           any_category: з усіх категорій
+          back: Back to list
           cancelled: Скасоване жеребкування
           candidate_proposal_ids: Порядок та назви жеребкованих пропозицій
           candidate_proposals_info: 'Жеребкування було проведено серед пропозицій (%{category_label}), з наступними назвами (напівжирним шрифтом виділені обрані пропозиції)  '

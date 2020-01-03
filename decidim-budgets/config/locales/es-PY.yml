@@ -9,6 +9,8 @@ es-PY:
         description: Descripción
         proposal_ids: Propuestas relacionadas
         title: Título
+    models:
+      decidim/budgets/decidim_events_budgets_reminder_order: Reminder order event
   activerecord:
     errors:
       messages:
@@ -158,6 +160,7 @@ es-PY:
           global:
             announcement: Anuncio
             comments_enabled: Comentarios habilitados
+            comments_max_length: Comments max length
             geocoding_enabled: Geocoding enabled
             projects_per_page: Proyectos por página
             resources_permissions_enabled: Los permisos sobre acciones pueden establecerse para cada reunión
@@ -178,6 +181,11 @@ es-PY:
           email_outro: Thank you for your participation
           email_subject: Your vote has been validated
           notification_title: Your vote has been validated
+        reminder_order:
+          email_intro: 'A vote is still pending! You can always continue by clicking here: <a href=''%{resource_url}''>%{participatory_space_title}</a>'
+          email_outro: Thank you for your participation
+          email_subject: A vote is still pending on %{participatory_space_title}
+          notification_title: 'A vote is still pending! You can always continue by clicking here: <a href=''%{resource_url}''>%{participatory_space_title}</a>'
     orders:
       checkout:
         error: Se ha producido un error al procesar tu voto

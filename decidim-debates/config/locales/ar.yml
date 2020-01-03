@@ -35,6 +35,7 @@ ar:
           global:
             announcement: إعلان
             comments_enabled: تم تمكين التعليقات
+            comments_max_length: Comments max length
           step:
             announcement: إعلان
             comments_blocked: تم حظر التعليقات
@@ -64,6 +65,9 @@ ar:
           update:
             invalid: كانت هناك مشكلة في تحديث هذا النقاش.
             success: تم تحديث المناقشة بنجاح.
+        exports:
+          comments: comments
+          debates: debates
         models:
           debate:
             name: النقاش
@@ -105,10 +109,8 @@ ar:
           create: إنشاء
           select_a_category: الرجاء تحديد الفئة
           title: نقاش جديد
-        share:
-          close_window: أغلق النافذة
-          share: شارك
-          share_link: مشاركة الرابط
+        show:
+          back: Back to list
       last_activity:
         new_debate_at_html: "<span>مناقشة جديدة في %{link}</span>"
       models:

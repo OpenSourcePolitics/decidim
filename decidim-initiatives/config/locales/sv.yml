@@ -34,6 +34,7 @@ sv:
         extra_fields_legal_information: Juridisk information om insamling av personuppgifter
         minimum_committee_members: Minsta antal kommittémedlemmar
         online_signature_enabled: Digitala signaturer är aktiverade
+        promoting_committee_enabled: Inschakelen bevorderingscommissie
         title: Titel
         undo_online_signatures_enabled: Tillåt deltagare att ångra sina online-underskrifter
         validate_sms_code_on_votes: Lägg till SMS-validering till signeringsprocessen
@@ -112,11 +113,15 @@ sv:
             email_outro: Du har fått den här meddelandet eftersom du är författaren av initiativet %{resource_title}.
             email_subject: Uppnådde ny milstolpe!
             notification_title: Ditt initiativ <a href="%{resource_path}">%{resource_title}</a> har uppnått %{percentage}% underskrifter.
+          email_intro: L'initiative %{resource_title} a atteint %{percentage}% des signatures requises !
+          email_outro: Vous avez reçu cette notification parce que vous suivez %{resource_title}. Vous pouvez arrêter de recevoir des notifications à partir du lien précédent.
+          email_subject: Nouvelle étape franchie !
           follower:
             email_intro: Initiativet %{resource_title} har uppnått %{percentage}% underskrifter!
             email_outro: Du har fått den här meddelandet eftersom du följer %{resource_title}. Du kan sluta att ta emot meddelanden via föregående länk.
             email_subject: Uppnådde ny milstolpe!
             notification_title: Initiativet <a href="%{resource_path}">%{resource_title}</a> har uppnått %{percentage}% underskrifter.
+          notification_title: La pétition <a href="%{resource_path}">%{resource_title}</a> a atteint %{percentage}% des signatures requises.
     gamification:
       badges:
         initiatives:

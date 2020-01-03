@@ -1,3 +1,4 @@
+---
 nl:
   activemodel:
     attributes:
@@ -23,6 +24,10 @@ nl:
         personal_url: Persoonlijke URL
         remove_avatar: Verwijder avatar
     models:
+      decidim/amendable/amendment_accepted_event: Amendment accepted
+      decidim/amendable/amendment_created_event: Amendment created
+      decidim/amendable/amendment_rejected_event: Amendment rejected
+      decidim/amendable/emendation_promoted_event: Amendment promoted
       decidim/attachment_created_event: Bijlage
       decidim/component_published_event: Actieve component
       decidim/demoted_membership: Niet langer een groepsbeheerder
@@ -53,8 +58,8 @@ nl:
         one: Groep
         other: Groepen
   booleans:
-    'false': 'Nee'
-    'true': 'Ja'
+    'false': Nee
+    'true': Ja
   carrierwave:
     errors:
       image_too_big: De afbeelding is te groot
@@ -151,21 +156,9 @@ nl:
         promote_confirm_text: Weet je zeker dat je deze eervolle vermelding wilt promoten?
         promote_help_text: U kunt deze eervolle vermelding promoten en publiceren als een onafhankelijke %{model_name}
         section_heading: Wijzigingen (%{count})
-      compare_draft:
-        continue: Volgende
-        no_similars_found: Geen gelijkaardige amendementen gevonden.
-        title: Gelijkaardige amendementen
       created:
         error: Er is een fout opgetreden tijdens het aanmaken van het amendement.
         success: Het amendement werd met succes aangemaakt.
-      destroy_draft:
-        error: Er was een probleem bij het verwijderen van het amendement.
-        success: Amendement ontwerp is succesvol verwijderd.
-      edit_draft:
-        discard: Verwijder dit concept
-        discard_confirmation: Weet u zeker dat u dit amendementsontwerp wilt verwijderen?
-        send: Voorbeeld
-        title: Wijzig amendement concept
       emendation:
         actions:
           button_accept: Aanvaarden
@@ -179,24 +172,21 @@ nl:
             Dit amendement voor de %{amendable_type} %{amendable_link}
             wordt geëvalueerd.
           promoted: Gepromoveerd naar een %{amendable_type}.
-          rejected: "Deze emendatie voor de %{amendable_type} %{amendable_link}\nwerd afgewezen op <strong>%{announcement_date}</strong>."
+          rejected: |-
+            Deze emendatie voor de %{amendable_type} %{amendable_link}
+            werd afgewezen op <strong>%{announcement_date}</strong>.
           withdrawn: |-
             Dit amendement voor de %{amendable_type} %{amendable_link}
             is door de auteur ingetrokken.
       new:
         amendment_author: Amendement auteur
+        back: Back
+        heading: Create your amendment
+        help_text: You are amending the %{model_name}
         send: Aanmaken
-        title: Maak een amendement
-      preview_draft:
-        modify: Aanpassen
-        publish: Publiceren
-        title: Publiceer het ontwerpdocument van amendement
       promoted:
         error: Er zijn fouten opgetreden bij het publiceren van het amendement als een nieuw voorstel
         success: Het amendement is gepubliceerd als een nieuw voorstel
-      publish_draft:
-        error: Er is een fout opgetreden bij het publiceren van dit amendement.
-        success: Amendement succesvol gepubliceerd.
       rejected:
         error: Er is een fout opgetreden bij het afwijzen van dit amendement. Probeer het later opnieuw
         success: Het amendement is met succes afgewezen
@@ -205,21 +195,6 @@ nl:
         heading: Bekijk het amendement
         help_text: U bekijkt een amendement op de %{model_name}
         send: Accepteer het amendement
-      update_draft:
-        error: Er is een fout opgetreden bij het bijwerken van dit amendement.
-        success: Amendement ontwerp is succesvol bijgewerkt.
-      visibility_options:
-        all: Amendementen zijn zichtbaar voor iedereen
-        participants: Amendementen zijn alleen zichtbaar voor hun auteurs
-      withdraw:
-        error: Er is een fout opgetreden tijdens het intrekken van het amendement
-        success: Het amendement is met succes ingetrokken
-      wizard_step_form:
-        steps:
-          '1': Maak uw amendement
-          '2': Vergelijk uw amendement
-          '3': Voltooi uw amendement
-          '4': Publiceer uw amendement
     anonymous_user: Anoniem
     application:
       collection:
@@ -308,6 +283,7 @@ nl:
           global:
             amendments_enabled: Wijzigingen toegestaan
             comments_enabled: Reacties ingeschakeld
+            comments_max_length: comments_max_length
             dummy_global_attribute_1: Voorbeeld-kenmerk 1
             dummy_global_attribute_2: Voorbeeld-kenmerk 2
             dummy_global_translatable_text: Vertaalbare tekst Dummy
@@ -347,7 +323,6 @@ nl:
         name: Sub hero banner
     core:
       actions:
-        login_before_access: Log in met uw account voor toegang
         unauthorized: U bent niet gemachtigd dit te doen
     data_portability:
       export:
@@ -374,7 +349,7 @@ nl:
           newsletter: Ontvang af en toe een nieuwsbrief met relevante informatie
           newsletter_title: Contact toestemming
           nickname_help: Jouw bijnaam in %{organization}
-          password_help: "gebruik minimaal %{minimun_characters} tekens, deze mogen niet te algemeen zijn (bijv. 123456) en moeten anders zijn dan je alias en je e-mail."
+          password_help: gebruik minimaal %{minimun_characters} tekens, deze mogen niet te algemeen zijn (bijv. 123456) en moeten anders zijn dan je alias en je e-mail.
           sign_in: Aanmelden
           sign_up: Registratie
           sign_up_as:
@@ -597,7 +572,7 @@ nl:
       badges:
         continuity:
           conditions:
-            - Kijk hier regelmatig
+          - Kijk hier regelmatig
           description: Deze badge wordt toegekend wanneer u het platform regelmatig bezoekt. We vinden het leuk om je hier in de buurt te hebben!
           description_another: Deze gebruiker heeft zich %{score} opeenvolgende dagen aangemeld.
           description_own: Je hebt je %{score} opeenvolgende dagen aangemeld.
@@ -607,7 +582,7 @@ nl:
           unearned_own: Je hebt je niet meer dan één dag opeenvolgend aangemeld.
         followers:
           conditions:
-            - Actief zijn en andere mensen volgen, zal ervoor zorgen dat andere mensen je volgen.
+          - Actief zijn en andere mensen volgen, zal ervoor zorgen dat andere mensen je volgen.
           description: Deze badge wordt toegekend wanneer je een bepaald aantal volgers bereikt. %{organization_name} is een netwerk, weef je web om te communiceren met andere mensen op het platform.
           description_another: Deze deelnemer heeft %{score} volgers.
           description_own: "%{score} gebruikers volgen jou."
@@ -622,9 +597,9 @@ nl:
           title: Badges
         invitations:
           conditions:
-            - Gebruik de link "Vrienden uitnodigen" op uw gebruikerspagina om uw vrienden uit te nodigen
-            - Pas het bericht aan dat u stuurt, als u wilt
-            - Je komt op een niveau door uitnodigingen te versturen en ze te laten registreren.
+          - Gebruik de link "Vrienden uitnodigen" op uw gebruikerspagina om uw vrienden uit te nodigen
+          - Pas het bericht aan dat u stuurt, als u wilt
+          - Je komt op een niveau door uitnodigingen te versturen en ze te laten registreren.
           description: Deze badge wordt toegekend als je enkele mensen hebt uitgenodigd en ze hebben een beetje tijd besteed om in %{organization_name} te registreren en deelnemers te worden. Dank u om %{organization_name} bekend te maken bij anderen en om de community te helpen uit te breiden!
           description_another: Deze deelnemer heeft %{score} personen uitgenodigd.
           description_own: Je hebt %{score} mensen uitgenodigd.
@@ -664,7 +639,7 @@ nl:
     group_members:
       accept:
         error: Er is een fout opgetreden bij het accepteren van dit deelnameverzoek
-        success: Het deelnameverzoek is geaccepteerd 
+        success: Het deelnameverzoek is geaccepteerd
       actions:
         are_you_sure: Weet je het zeker?
         promote_to_admin: Beheerder maken
@@ -828,6 +803,9 @@ nl:
         greetings: Groeten,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Hallo,
         subject: Wilt u relevante informatie over %{organization_name}blijven ontvangen?
+    notification_mailer:
+      shared:
+        note: You received this message because you are subscribed to the email notification on %{organization_name}. You can change your settings on your notification page <a href="%{link}"></a>.
     notifications:
       no_notifications: Nog geen meldingen.
     notifications_settings:
@@ -929,6 +907,7 @@ nl:
       deleted: Verwijderde gebruiker
       view: Bekijk
     profiles:
+      default_officialization_text: Verified
       default_officialization_text_for_user_groups: Deze gebruikersgroep is openbaar geverifieerd, de naam is geverifieerd om overeen te komen met de echte naam
       default_officialization_text_for_users: Deze deelnemer wordt publiekelijk geverifieerd, zijn/haar naam of rol is geverifieerd om overeen te komen met zijn/haar echte naam en rol
       show:
@@ -1042,6 +1021,10 @@ nl:
         share_link: Link delen
       version_author:
         deleted: Verwijderde deelnemer
+    translate:
+      original: Translate (*)
+      tooltip: Translated with Deepl
+      translated: Back to the original version
     user_activity:
       index:
         no_activities_warning: Deze deelnemer heeft nog geen activiteit gehad.
@@ -1057,12 +1040,6 @@ nl:
     welcome_notification:
       default_body: <p>Hi {{name}}, bedankt om lid te worden van {{organization}} en welkom!</p><ul><li>Als u snel een idee wilt krijgen van wat u hier kunt doen, bekijk dan het gedeelte <a href="{{help_url}}">Help</a>.</li><li>Zodra u het heeft gelezen, krijgt u uw eerste badge. Hier is een <a href="{{badges_url}}">lijst van alle badges</a> die je kunt krijgen als je deelneemt {{organization}}</li><li>Last but not least, voeg je bij andere mensen, deel met hen de ervaring van betrokkenheid en deelname aan {{organization}}. Doe voorstellen, reageer, debatteer, denk na over hoe je een bijdrage kunt leveren aan het algemeen belang, lever argumenten aan om te overtuigen, luister en lees om overtuigd te worden, vertel je ideeën op een concrete en directe manier, reageer met geduld en vastbeslotenheid, verdedig je ideeën en houd een open geest om samen te werken en zich aan te sluiten bij de ideeën van andere mensen.</li></ul>
       default_subject: Bedankt dat je lid bent geworden van {{organization}}!
-    wizard_step_form:
-      wizard_aside:
-        back: Terug
-      wizard_header:
-        see_steps: bekijk stappen
-        step_of: Stap %{current_step} van %{total_steps}
   devise:
     confirmations:
       confirmed: Uw e-mailadres is succesvol bevestigd.
@@ -1153,7 +1130,7 @@ nl:
         change_your_password: Verander uw wachtwoord
         confirm_new_password: Bevestig nieuw wachtwoord
         new_password: Nieuw wachtwoord
-        password_help: "gebruik minimaal %{minimun_characters} tekens, deze mogen niet te algemeen zijn (bijv. 123456) en moeten anders zijn dan je alias en je e-mail."
+        password_help: gebruik minimaal %{minimun_characters} tekens, deze mogen niet te algemeen zijn (bijv. 123456) en moeten anders zijn dan je alias en je e-mail.
       new:
         forgot_your_password: Je wachtwoord vergeten?
         send_me_reset_password_instructions: Stuur mij opnieuw wachtwoordinstructies
@@ -1199,6 +1176,7 @@ nl:
       minimum_password_length:
         one: "(Minimaal%{count} tekens)"
         other: "(Minimaal%{count} tekens)"
+      password_help: 'At least 8 characters, a capital letter and a special character (ex: !)'
     unlocks:
       new:
         resend_unlock_instructions: Verzend ontgrendel-instructies opnieuw
@@ -1229,6 +1207,17 @@ nl:
       too_short: is te kort (minder dan 15 tekens)
   forms:
     required: Vereist
+  instructions:
+    decidim:
+      system:
+        organizations:
+          smtp_settings:
+            address: Address
+            from_email: Sender's e-mail address
+            from_label: Shipper name
+            password: Password
+            port: Port
+            user_name: User Name
   invisible_captcha:
     sentence_for_humans: Als u een mens bent negeert u dit veld
     timestamp_error_message: Sorry, dat was te snel! Gelieve opnieuw in te dienen.

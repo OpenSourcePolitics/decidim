@@ -16,6 +16,8 @@ fi:
             choices:
               missing: ovat puutteellisia
               too_many: liian monta
+        questionnaire:
+          request_invalid: There's been an error handling the request. Please try again
   decidim:
     forms:
       admin:
@@ -81,3 +83,7 @@ fi:
       user_answers_serializer:
         created_at: Vastauksen ajankohta
         id: Vastauksen ID
+        ip_hash: Ip Hash
+        registered: Registered
+        unregistered: Unregistered
+        user_status: User status

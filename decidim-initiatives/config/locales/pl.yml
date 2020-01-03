@@ -34,6 +34,7 @@ pl:
         extra_fields_legal_information: Informacje prawne dotyczące gromadzenia danych osobowych
         minimum_committee_members: Minimum członków komitetu
         online_signature_enabled: Włączony podpis online
+        promoting_committee_enabled: Inschakelen bevorderingscommissie
         title: Tytuł
         undo_online_signatures_enabled: Umożliwia użytkownikom cofanie ich podpisów online
         validate_sms_code_on_votes: Dodaj krok weryfikacji kodu SMS do procesu podpisu
@@ -118,11 +119,15 @@ pl:
             email_outro: Otrzymałeś to powiadomienie, ponieważ jesteś autorem inicjatywy %{resource_title}.
             email_subject: Nowy kamień milowy zakończony!
             notification_title: Twoja inicjatywa <a href="%{resource_path}">%{resource_title}</a> osiągnęła %{percentage}% podpisów.
+          email_intro: L'initiative %{resource_title} a atteint %{percentage}% des signatures requises !
+          email_outro: Vous avez reçu cette notification parce que vous suivez %{resource_title}. Vous pouvez arrêter de recevoir des notifications à partir du lien précédent.
+          email_subject: Nouvelle étape franchie !
           follower:
             email_intro: Inicjatywa %{resource_title} osiągnęła %{percentage}% podpisów!
             email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{resource_title}. Możesz przestać otrzymywać powiadomienia po poprzednim linku.
             email_subject: Nowy kamień milowy zakończony!
             notification_title: Inicjatywa <a href="%{resource_path}">%{resource_title}</a> osiągnęła %{percentage}% podpisów.
+          notification_title: La pétition <a href="%{resource_path}">%{resource_title}</a> a atteint %{percentage}% des signatures requises.
     gamification:
       badges:
         initiatives:

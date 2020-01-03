@@ -19,6 +19,8 @@ fi-pl:
       comments: Kommentit
       last_activity:
         new_comment_at_html: "<span>Uusi kommentti osoitteessa %{link}</span>"
+      translate: Translate
+      translated: Back to original version
       votes:
         create:
           error: Äänestettäessä kommenttia tapahtui virhe.
@@ -65,9 +67,12 @@ fi-pl:
       comment_thread:
         title: Keskustelu henkilön %{authorName} kanssa
       comments:
+        blocked_comments_for_user_warning: You are not able to comment at this moment, but you can read the previous ones.
         blocked_comments_warning: Kommentit on poistettu käytöstä tällä hetkellä, mutta voit lukea aikaisempia kommentteja.
         loading: Ladataan kommentteja ...
         title: "%{count} kommenttia"
+        title_0: There are no comments yet
+        title_1: "%{count} comment"
     events:
       comments:
         comment_by_followed_user:

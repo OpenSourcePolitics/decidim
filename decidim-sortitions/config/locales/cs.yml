@@ -26,6 +26,7 @@ cs:
         settings:
           global:
             comments_enabled: Komentáře povoleny
+            comments_max_length: Nombre de caractères maximum des commentaires (Mettre 0 pour laisser la valeur par défaut)
     events:
       sortitions:
         sortition_created:
@@ -133,6 +134,7 @@ cs:
         show:
           algorithm: Kód algoritmu Sortition
           any_category: ze všech kategorií
+          back: Back to list
           cancelled: Zrušený výběr
           candidate_proposal_ids: Sortimentní objednávky a ID
           candidate_proposals_info: 'Rozbor byl proveden mezi následujícími návrhy (%{category_label}), s následujícími ID (označené tučně vybranými návrhy)  '

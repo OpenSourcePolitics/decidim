@@ -241,6 +241,9 @@ fr:
         publish: "%{user_name} a publié la concertation %{resource_name}"
         unpublish: "%{user_name} n'a pas publié la concertation %{resource_name}"
         update: "%{user_name} a mis à jour la concertation %{resource_name}"
+      participatory_process_group:
+        create: "%{user_name} heeft de burgerinspraak %{resource_name} aangemaakt"
+        update: "%{user_name} heeft de burgerinspraak %{resource_name} aangemaakt"
       participatory_process_step:
         activate: "%{user_name} a activé l'étape %{resource_name} dans la concertation %{space_name}"
         create: "%{user_name} a créé l'étape %{resource_name} dans la concertation %{space_name}"

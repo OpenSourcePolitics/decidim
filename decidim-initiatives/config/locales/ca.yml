@@ -34,6 +34,7 @@ ca:
         extra_fields_legal_information: Informació legal sobre la recollida de dades personals
         minimum_committee_members: Mínim de membres de la comissió
         online_signature_enabled: S'ha activat la signatura digital
+        promoting_committee_enabled: Inschakelen bevorderingscommissie
         title: Títol
         undo_online_signatures_enabled: Permetre a les participants desfer les seves signatures digitals
         validate_sms_code_on_votes: Afegeix el pas de la validació mitjançant SMS al procés de signatura
@@ -112,11 +113,15 @@ ca:
             email_outro: Has rebut aquesta notificació perquè ets l'autora de la iniciativa %{resource_title}.
             email_subject: S'ha completat una nova fita!
             notification_title: La teva iniciativa <a href="%{resource_path}">%{resource_title}</a> ha aconseguit el %{percentage}% de les signatures.
+          email_intro: L'initiative %{resource_title} a atteint %{percentage}% des signatures requises !
+          email_outro: Vous avez reçu cette notification parce que vous suivez %{resource_title}. Vous pouvez arrêter de recevoir des notifications à partir du lien précédent.
+          email_subject: Nouvelle étape franchie !
           follower:
             email_intro: La iniciativa %{resource_title} ha aconseguit el %{percentage}% de les signatures!
             email_outro: Has rebut aquesta notificació perquè estàs seguint %{resource_title}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
             email_subject: S'ha completat una nova fita!
             notification_title: La iniciativa <a href="%{resource_path}">%{resource_title}</a> ha aconseguit el %{percentage}% de les signatures.
+          notification_title: La pétition <a href="%{resource_path}">%{resource_title}</a> a atteint %{percentage}% des signatures requises.
     gamification:
       badges:
         initiatives:

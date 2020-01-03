@@ -19,6 +19,8 @@ ca:
       comments: Comentaris
       last_activity:
         new_comment_at_html: "<span>Nou comentari a %{link}</span>"
+      translate: Translate
+      translated: Back to original version
       votes:
         create:
           error: S'ha produït un error en votar el comentari.
@@ -69,6 +71,8 @@ ca:
         blocked_comments_warning: Els comentaris estan desactivats en aquest moment, però pots llegir els anteriors.
         loading: Carregant els comentaris ...
         title: "%{count} comentaris"
+        title_0: There are no comments yet
+        title_1: "%{count} comment"
     events:
       comments:
         comment_by_followed_user:

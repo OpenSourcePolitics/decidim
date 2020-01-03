@@ -1,3 +1,4 @@
+---
 nl-BE:
   activemodel:
     attributes:
@@ -19,6 +20,9 @@ nl-BE:
         hashtag: Hashtag
         hero_image: Afbeelding van de startpagina
         i_frame_url: Externe stemsysteem URL
+        instructions: Extra instructies voor stemmen
+        max_votes: Maximum aantal stemmen
+        min_votes: Minimaal aantal stemmen
         origin_scope: Scope
         origin_title: Oorsprong
         origin_url: Originele URL
@@ -32,7 +36,14 @@ nl-BE:
         title: Titel
         vote: Externe stemsysteem Url
         what_is_decided: Participatief toepassingsgebied
+      response:
+        decidim_consultations_response_group_id: Groep
     errors:
+      models:
+        question:
+          attributes:
+            max_votes:
+              lower_than_min: Maximum aantal stemmen moet hoger of gelijk zijn aan het minimum.
       vote:
         decidim_consultations_response_id:
           not_found: Antwoord niet gevonden.
@@ -283,6 +294,10 @@ nl-BE:
         confirm: Bevestigen
         contextual_help: Bevestig de geselecteerde optie.
         title: 'Consultation: confirm support'
+    resources:
+      consultations:
+        actions:
+          vote: Stem
   layouts:
     decidim:
       admin:

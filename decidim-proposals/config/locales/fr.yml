@@ -78,6 +78,7 @@ fr:
     components:
       proposals:
         actions:
+          amend: Pas aan
           create: Créer
           endorse: Soutenir
           vote: Voter
@@ -86,6 +87,8 @@ fr:
         settings:
           global:
             amendments_enabled: Modifications activées (Amendements)
+            amendments_enabled_help: 'Indien actief: stel de amendementsfunctionaliteiten in voor elke stap.'
+            amendments_wizard_help_text: Hulptekst van de amendementen wizard
             announcement: Annonce
             attachments_allowed: Autoriser les pièces jointes
             can_accumulate_supports_beyond_threshold: Peut accumuler des supports au-delà du seuil
@@ -96,6 +99,7 @@ fr:
             minimum_votes_per_user: Nombre minimum de votes par utilisateur
             new_proposal_help_text: Texte d'aide à la création d'une nouvelle proposition
             official_proposals_enabled: Autoriser la création de propositions officielles
+            participatory_texts_disabled_help: Instelling niet aanpasbaar als er bestaande voorstellen zijn. Maak een nieuwe `Voorstellen component` aan als u deze functie wilt inschakelen of wijs alle geïmporteerde voorstellen in het `Participatieve Teksten` menu af, als u de instelling wilt uitschakelen.
             participatory_texts_enabled: Textes participatifs activés
             proposal_answering_enabled: Autoriser la réponse officielle aux propositions
             proposal_edit_before_minutes: Délai (en minutes) après lequel les auteurs ne peuvent plus modifier leurs propositions
@@ -109,6 +113,14 @@ fr:
             threshold_per_proposal: Seuil par proposition
             vote_limit: Limite de votes par utilisateur
           step:
+            amendment_creation_enabled: Aanmaken van amendementen ingeschakeld
+            amendment_creation_enabled_help: Deelnemer kan voorstellen wijzigen.
+            amendment_promotion_enabled: Promoten van amendementen ingeschakeld
+            amendment_promotion_enabled_help: De auteurs van de Emandation kunnen de afgewezen emendatie voorstellen.
+            amendment_reaction_enabled: Reageren op amendementen ingeschakeld
+            amendment_reaction_enabled_help: De auteurs van het voorstel kunnen de amendementen van deelnemers accepteren of verwerpen.
+            amendments_visibility: Zichtbaarheid van amendement
+            amendments_visibility_help: Als de optie "alleen zichtbaar voor de auteurs" wordt geselecteerd, moet een deelnemer aangemeld zijn om de amendementen te zien.
             announcement: Annonce
             automatic_hashtags: Hashtags ajoutés à toutes les propositions
             comments_blocked: Bloquer la création de nouveaux commentaires
@@ -177,11 +189,15 @@ fr:
             email_outro: Vous avez reçu cette notification parce que vous êtes l'auteur de "%{resource_title}".
             email_subject: Votre proposition a été acceptée
             notification_title: Votre proposition <a href="%{resource_path}">%{resource_title}</a> a été acceptée.
+          email_intro: 'Пропозиція "%{resource_title}" була прийнята. Ви можете прочитати відповідь на сторінці:'
+          email_outro: Ви отримали це сповіщення, тому що ви стежите за "%{resource_title}". Ви можете припинити стежити за ним, перейшовши за наведеним вище посиланням.
+          email_subject: Пропозиція, за якою ви стежите, була прийнята
           follower:
             email_intro: 'La proposition "%{resource_title}" a été acceptée. Vous pouvez lire la réponse sur cette page :'
             email_outro: Vous venez de recevoir cette notification parce que vous suivez "%{resource_title}". Vous pouvez à tout moment arrêter de la suivre en cliquant sur ce dernier lien.
             email_subject: Une proposition que vous suivez a été acceptée
             notification_title: La proposition <a href="%{resource_path}">%{resource_title}</a> a été acceptée.
+          notification_title: Пропозицію <a href="%{resource_path}">%{resource_title}</a> було прийнято.
         proposal_endorsed:
           email_intro: "%{endorser_name} %{endorser_nickname}, que vous suivez, vient de soutenir une proposition qui pourrait vous intéresser, consultez-la et contribuez :"
           email_outro: Vous avez reçu cette notification parce que vous suivez %{endorser_nickname}. Vous pouvez arrêter de recevoir des notifications en cliquant sur ce dernier lien.
@@ -193,11 +209,15 @@ fr:
             email_outro: Vous avez reçu cette notification parce que vous êtes l'auteur de "%{resource_title}".
             email_subject: Votre proposition est en cours d'évaluation
             notification_title: Votre proposition <a href="%{resource_path}">%{resource_title}</a> est en cours d'évaluation.
+          email_intro: 'Пропозиція "%{resource_title}" зараз розглядається. Ви можете перевірити наявність відповіді на сторінці:'
+          email_outro: Ви отримали це сповіщення, тому що ви стежите за "%{resource_title}". Ви можете припинити стежити за ним, перейшовши за наведеним вище посиланням.
+          email_subject: Пропозиція, за якою ви стежите, зараз розглядається
           follower:
             email_intro: 'La proposition "%{resource_title}" est en cours d''évaluation. Vous pouvez consulter cette page pour voir si une réponse a été formulée :'
             email_outro: Vous venez de recevoir cette notification parce que vous suivez "%{resource_title}". Vous pouvez à tout moment arrêter de la suivre en cliquant sur ce dernier lien.
             email_subject: Une proposition que vous suivez est en cours d'évaluation
             notification_title: La proposition <a href="%{resource_path}">%{resource_title}</a> est en cours d'évaluation.
+          notification_title: Пропозиція <a href="%{resource_path}">%{resource_title}</a> розглядається.
         proposal_mentioned:
           email_intro: Votre proposition "%{mentioned_proposal_title}" a été mentionnée <a href="%{resource_path}">dans cet espace</a>, dans les commentaires.
           email_outro: Vous avez reçu cette notification parce que vous êtes l'auteur de "%{resource_title}".
@@ -219,11 +239,15 @@ fr:
             email_outro: Vous avez reçu cette notification parce que vous êtes l'auteur de "%{resource_title}".
             email_subject: Votre proposition a été rejetée
             notification_title: Votre proposition <a href="%{resource_path}">%{resource_title}</a> a été rejetée.
+          email_intro: 'Пропозиція "%{resource_title}" була відхилена. Ви можете прочитати відповідь на сторінці:'
+          email_outro: Ви отримали це сповіщення, тому що ви стежите за "%{resource_title}". Ви можете припинити стежити за ним, перейшовши за наведеним вище посиланням.
+          email_subject: Пропозиція, за якою ви стежите, була відхилена
           follower:
             email_intro: 'La proposition "%{resource_title}" n''a pas été retenue. Vous pouvez lire le commentaire ici :'
             email_outro: Vous venez de recevoir cette notification parce que vous suivez "%{resource_title}". Vous pouvez à tout moment arrêter de la suivre en cliquant sur ce dernier lien.
             email_subject: Une proposition que vous suivez n'a pas été retenue
             notification_title: La proposition <a href="%{resource_path}">%{resource_title}</a> n'a pas été retenue.
+          notification_title: Пропозицію <a href="%{resource_path}">%{resource_title}</a> було відхилено.
         proposal_update_category:
           email_intro: 'Un administrateur a mis à jour la catégorie de votre proposition "%{resource_title}". Vous pouvez y accéder ici :'
           email_outro: Vous avez reçu cette notification parce que vous êtes l'auteur de la proposition.
@@ -673,9 +697,13 @@ fr:
           title: Créer une proposition
         orders:
           label: 'Trier par :'
+          most_commented: Meeste reacties
+          most_endorsed: Meest goedgekeurd
+          most_followed: Meest gevolgd
           most_voted: Les plus votées
           random: Aléatoire
           recent: Les plus récentes
+          with_more_authors: Met meer auteurs
         participatory_texts:
           index:
             document_index: Index du document

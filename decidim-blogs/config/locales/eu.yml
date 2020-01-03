@@ -49,6 +49,7 @@ eu:
             title: Izenburua
       posts:
         show:
+          back: Back to list
           view: ikusi
         sidebar_blog:
           comments: iruzkinak
@@ -61,6 +62,7 @@ eu:
           global:
             announcement: Anuntzio
             comments_enabled: Iruzkinak gaituta
+            comments_max_length: Nombre de caractères maximum des commentaires (Mettre 0 pour laisser la valeur par défaut)
           step:
             announcement: Anuntzio
             comments_blocked: Iruzkinak blokeatuta

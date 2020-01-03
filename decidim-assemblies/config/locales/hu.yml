@@ -270,8 +270,10 @@ hu:
         executive: Végrehajtó
         government: Kormány
         help: 'Mutat:'
+        label: 'Show:'
         others: Egyéb
         participatory: Részvételi
+        placeholder: Filtrer par type
         working_group: Munkacsoport
       index:
         title: Gyűlések

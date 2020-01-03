@@ -4,6 +4,14 @@ es:
     attributes:
       account:
         delete_reason: Motivo de eliminar tu cuenta
+      group:
+        about: Over
+        avatar: Profielafbeelding
+        document_number: Documentnummer
+        email: E-mail
+        name: Naam
+        nickname: Roepnaam
+        phone: Telefoon
       report:
         details: Comentarios adicionales
       user:
@@ -16,6 +24,10 @@ es:
         personal_url: URL personal
         remove_avatar: Eliminar imagen de perfil
     models:
+      decidim/amendable/amendment_accepted_event: Amendment accepted
+      decidim/amendable/amendment_created_event: Amendment created
+      decidim/amendable/amendment_rejected_event: Amendment rejected
+      decidim/amendable/emendation_promoted_event: Amendment promoted
       decidim/attachment_created_event: Archivo adjunto
       decidim/component_published_event: Componente activo
       decidim/demoted_membership: Ya no eres una administradora de grupo
@@ -109,6 +121,7 @@ es:
         update: "%{user_name} actualizó la configuración de la organización"
       participatory_space_private_user:
         create: "%{user_name} ha invitado a %{resource_name} como participante privada"
+        create_via_csv: "%{user_name} heeft %{resource_name} uitgenodigd om een privé deelnemer te zijn"
         delete: "%{user_name} ha eliminado %{resource_name} como participante privada"
       scope:
         create: "%{user_name} creó el ámbito %{resource_name}"
@@ -154,6 +167,7 @@ es:
         announcement:
           accepted: Esta enmienda para el %{amendable_type} %{amendable_link} ha sido aceptada el <strong>%{announcement_date}</strong>.
           evaluating: Esta enmienda para el %{amendable_type} %{amendable_link} está siendo evaluada.
+          promoted: Gepromoveerd naar een %{amendable_type}.
           rejected: Esta enmienda para el %{amendable_type} %{amendable_link} ha sido rechazada el <strong>%{announcement_date}</strong>.
           withdrawn: Esta enmienda para el %{amendable_type} %{amendable_link} ha sido retirada por su autora.
       new:
@@ -261,14 +275,21 @@ es:
           global:
             amendments_enabled: Enmiendas habilitadas
             comments_enabled: Comentarios habilitados
+            comments_max_length: comments_max_length
             dummy_global_attribute_1: Atributo de prueba 1
             dummy_global_attribute_2: Atributo de prueba 2
+            dummy_global_translatable_text: Vertaalbare tekst Dummy
             enable_pads_creation: Habilitar la creación de pads
             resources_permissions_enabled: Permisos de recursos habilitados
           step:
+            amendment_creation_enabled: Aanmaken van amendementen ingeschakeld
+            amendment_promotion_enabled: Promoten van amendementen ingeschakeld
+            amendment_reaction_enabled: Reageren op amendementen ingeschakeld
+            amendments_visibility: Zichtbaarheid van amendement
             comments_blocked: Comentarios bloqueados
             dummy_step_attribute_1: Atributo de fase de prueba 1
             dummy_step_attribute_2: Atributo de fase de prueba 2
+            dummy_step_translatable_text: Dummy Stap Vertaalbare tekst
     contact: Contacto
     content_blocks:
       footer_sub_hero:
@@ -533,6 +554,9 @@ es:
       current_image: Imagen actual
       default_image: Imagen predeterminada
       errors:
+        decidim/user:
+          password: Het wachtwoord is te kort.
+          password_confirmation: Wachtwoordbevestiging moet overeenkomen met het wachtwoord.
         error: Hay un error en este campo.
       remove_this_file: Eliminar este archivo
     gamification:
@@ -771,6 +795,9 @@ es:
         greetings: Saludos,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Hola,
         subject: "¿Deseas seguir recibiendo información relevante sobre %{organization_name}?"
+    notification_mailer:
+      shared:
+        note: You received this message because you are subscribed to the email notification on %{organization_name}. You can change your settings on your notification page <a href="%{link}"></a>.
     notifications:
       no_notifications: Aún no hay notificaciones.
     notifications_settings:
@@ -872,6 +899,7 @@ es:
       deleted: Participante eliminada
       view: Ver
     profiles:
+      default_officialization_text: Verified
       default_officialization_text_for_user_groups: Este grupo está verificado públicamente, su nombre se ha verificado para que se corresponda con su nombre real
       default_officialization_text_for_users: Esta participante está verificada públicamente. Se ha verificado que su nombre o cargo corresponde con su nombre y función reales
       show:
@@ -985,6 +1013,10 @@ es:
         share_link: Compartir enlace
       version_author:
         deleted: Participante eliminada
+    translate:
+      original: Translate (*)
+      tooltip: Translated with Deepl
+      translated: Back to the original version
     user_activity:
       index:
         no_activities_warning: Esta participante no ha tenido ninguna actividad todavía.
@@ -1134,6 +1166,7 @@ es:
       minimum_password_length:
         one: "(%{count} caracteres como mínimo)"
         other: "(%{count} caracteres como mínimo)"
+      password_help: 'At least 8 characters, a capital letter and a special character (ex: !)'
     unlocks:
       new:
         resend_unlock_instructions: Reenviar las instrucciones de desbloqueo
@@ -1164,6 +1197,17 @@ es:
       too_short: Es demasiado corto (menos de 15 caracteres)
   forms:
     required: Obligatorio
+  instructions:
+    decidim:
+      system:
+        organizations:
+          smtp_settings:
+            address: Address
+            from_email: Sender's e-mail address
+            from_label: Shipper name
+            password: Password
+            port: Port
+            user_name: User Name
   invisible_captcha:
     sentence_for_humans: Si eres humano, ignora este campo
     timestamp_error_message: Lo siento, has sido demasiado rápido! Por favor, vuelve a enviar.
@@ -1232,12 +1276,15 @@ es:
     qq: Qzone
     reddit: Reddit
     share_to: Compartir a %{name}
+    telegram: Telegram
     tumblr: Tumblr
     twitter: Twitter
     vkontakte: Vkontakte
     wechat: WeChat
     wechat_footer: Abre WeChat, haz clic en el botón "Discover" y luego haz clic en el menú "Escanear código QR".
     weibo: Sina Weibo
+    whatsapp_app: WhatsApp
+    whatsapp_web: WhatsApp
     xing: Xing
   time:
     formats:
@@ -1247,10 +1294,13 @@ es:
       day_of_year: "%d/%m/%y"
       decidim_day_of_year: "%d %B %Y"
       decidim_short: "%d/%m/%Y %H:%M"
+      default: "%a, %d %b %Y %H:%M:%S %z"
       devise:
         mailer:
           invitation_instructions:
             accept_until_format: "%B %d, %Y %I:%M %p"
+      long: "%B %d, %Y %H:%M"
+      short: "%d/%m/%Y %H:%M"
       time_of_day: "%H:%M"
   versions:
     directions:

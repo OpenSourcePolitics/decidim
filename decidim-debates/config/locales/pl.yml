@@ -33,6 +33,7 @@ pl:
           global:
             announcement: Ogłoszenie
             comments_enabled: Komentarze włączone
+            comments_max_length: Comments max length
           step:
             announcement: Ogłoszenie
             comments_blocked: Komentarze zablokowane
@@ -104,10 +105,8 @@ pl:
           create: Stwórz
           select_a_category: Proszę wybierz kategorie
           title: Nowa debata
-        share:
-          close_window: Zamknij okno
-          share: Dzielić
-          share_link: Udostępnij link
+        show:
+          back: Back to list
       last_activity:
         new_debate_at_html: "<span>Nowa debata na %{link}</span>"
       models:

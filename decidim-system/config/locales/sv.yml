@@ -30,9 +30,14 @@ sv:
         placeholders:
           content: Lägg till relevant innehåll på den statiska sidan %{page} på administratörspanelen.
           title: Standardtitel för %{page}
+      logs:
+        index:
+          download_log: Download log
+          view_log: View %{line} lines
       menu:
         admins: Administratörer
         dashboard: Kontrollpanel
+        logs: Logs
         organizations: Organisationer
       models:
         admin:
@@ -62,6 +67,13 @@ sv:
           reference_prefix_hint: Referensprefixet används för att unikt identifiera resurser i alla organisationer
           secondary_hosts_hint: Ange var och en av dem på en ny rad
           title: Ny organisation
+        smtp_settings:
+          address: Server address
+          from_email: From email
+          from_label: From label
+          password: Password
+          port: Server port
+          user_name: Username
         update:
           error: Det gick inte att uppdatera organisationen.
           success: Organisationen har uppdaterats.

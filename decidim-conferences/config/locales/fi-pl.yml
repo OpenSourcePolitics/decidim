@@ -553,6 +553,7 @@ fi-pl:
           take_part: Osallistu
       conferences:
         conference:
+          more_info: More info
           take_part: Osallistu
         index:
           promoted_conferences: Korostetut konferenssit

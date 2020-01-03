@@ -270,8 +270,10 @@ fi:
         executive: Johtaja
         government: Hallinto
         help: 'Näytä:'
+        label: 'Show:'
         others: Muut
         participatory: Osallistava
+        placeholder: Filtrer par type
         working_group: Työryhmä
       index:
         title: Ryhmät

@@ -20,6 +20,9 @@ sv:
         hashtag: Hashtag
         hero_image: Hembild
         i_frame_url: URL till externt röstningssystem
+        instructions: Extra instructies voor stemmen
+        max_votes: Maximum aantal stemmen
+        min_votes: Minimaal aantal stemmen
         origin_scope: Omfång
         origin_title: Ursprung
         origin_url: Ursprungs-URL
@@ -33,7 +36,14 @@ sv:
         title: Titel
         vote: Externt omröstningssystem
         what_is_decided: Vad som bestäms
+      response:
+        decidim_consultations_response_group_id: Groep
     errors:
+      models:
+        question:
+          attributes:
+            max_votes:
+              lower_than_min: Maximum aantal stemmen moet hoger of gelijk zijn aan het minimum.
       vote:
         decidim_consultations_response_id:
           not_found: Hittade inte svar.
@@ -284,6 +294,10 @@ sv:
         confirm: Bekräfta
         contextual_help: Bekräfta det valda alternativet.
         title: 'Samråd: bekräfta röst'
+    resources:
+      consultations:
+        actions:
+          vote: Stem
   layouts:
     decidim:
       admin:

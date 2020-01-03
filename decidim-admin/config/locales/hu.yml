@@ -40,8 +40,10 @@ hu:
         address: SMTP host név
         alert_color: Figyelmeztetés
         badges_enabled: Jelvények engedélyezése
+        comments_max_length: Nombre de caractères maximum des commentaires (Mettre 0 pour laisser la valeur par défaut)
         cta_button_path: Felhívás gomb elérési útvonala
         cta_button_text: Felhívás gomb szövege
+        customize_welcome_notification: Pas welkomstmelding aan
         default_locale: Alapértelmezett hely
         description: Leírás
         enable_omnipresent_banner: Mindenhol megjelenő banner mutatása
@@ -71,6 +73,7 @@ hu:
         primary_color: Elsődleges
         reference_prefix: Hivatkozási előtag
         secondary_color: Másodlagos
+        send_welcome_notification: Stuur welkomstmelding
         show_statistics: Statisztikák megjelenítése
         success_color: Siker
         tos_version: Használati feltételek
@@ -78,7 +81,14 @@ hu:
         user_groups_enabled: Felhasználói csoportok engedélyezése
         user_name: Felhasználónév
         warning_color: Figyelem
+        welcome_notification_body: Tekst van de welkomstmelding
+        welcome_notification_subject: Welkomstmelding onderwerp
         youtube_handler: YouTube handler
+      participatory_process:
+        import_attachments: Importer les pièces jointes
+        import_categories: Importer les catégories
+        import_components: Importer les fonctionnalités
+        import_steps: Importer les étapes
       scope:
         code: Kód
         name: Név
@@ -162,6 +172,7 @@ hu:
           error: Hiba történt az új terület létrehozásakor.
           success: Terület létrehozása sikeres.
         destroy:
+          has_spaces: Area has dependent spaces, it must not have dependencies in order to be deleted.
           success: Terület eltávolítása sikeres
         edit:
           title: Terület szerkesztése
@@ -314,6 +325,11 @@ hu:
         logs_list:
           no_logs_yet: Még nincsenek naplók
       managed_users:
+        index:
+          impersonate: Impersonate
+          needs_authoriation_warning: Needs authoriation warning
+          promote: Promote
+          view_logs: View logs
         promotion:
           error: Hiba történt a felügyelt felhasználó előléptetése során.
           success: A felügyelt felhasználó előléptetése sikeres.
@@ -333,6 +349,7 @@ hu:
         help_sections: Súgó szakaszok
         homepage: Homepage
         impersonations: Felhatalmazások
+        navbar_links: Navbar links
         newsletters: Hírlevelek
         oauth_applications: OAuth alkalmazások
         participants: Résztvevők
@@ -370,6 +387,13 @@ hu:
             reason: Indok
             started_at: 'Kezdődik:'
             user: Felhasználó
+        managed_user:
+          name: Name
+        navbar_link:
+          fields:
+            link: Link
+            title: Title
+            weight: Weight
         newsletter:
           fields:
             created_at: 'Létrehozva:'
@@ -425,6 +449,28 @@ hu:
             does_not_belong: Nem tartozik hozzá
             offensive: Offenzív
             spam: Spam
+      navbar_links:
+        create:
+          error: There was an error when creating this link.
+          success: Link created successfully
+        destroy:
+          success: Link successfully destroyed
+        edit:
+          title: Edit navbar link
+          update: Update
+        form:
+          link: Link
+          new_tab: Open in a new tab
+          same_tab: Open in the same tab
+          title: Title
+          weight: Weight
+        new:
+          create: Create
+          title: New navbar link
+        no_links: No links created
+        update:
+          error: There was an error when updating this link.
+          success: Link updated successfully
       newsletters:
         create:
           error: Hiba történt a hírlevél létrehozása során.
@@ -481,6 +527,8 @@ hu:
         update:
           error: Hiba történt a hírlevél frissítése során.
           success: Hírlevél frissítse sikeres volt. Ellenőrizd le, mielőtt elküldenéd.
+      oauth_application:
+        new: New Oauth application
       oauth_applications:
         create:
           error: Hiba történt az alkalmazás létrehozása során.
@@ -661,12 +709,16 @@ hu:
         dashboard: Vezérlőpult
         impersonatable_users: Kezelhető felhasználók
         impersonations: Felhasználók kezelése
+        managed_users: Managed users
+        navbar_links: Navbar links
         participants: felhasználók
         scope_types: Hatáskör típusok
         scopes: Hatáskörök
         static_pages: Oldalak
         user_groups: Felhasználói csoportok
         users: Felhasználók
+      user:
+        new: New user
       user_group:
         csv_verify:
           invalid: Hiba történt a CSV fájl olvasásában.

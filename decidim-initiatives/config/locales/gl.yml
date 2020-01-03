@@ -34,6 +34,7 @@ gl:
         extra_fields_legal_information: Información legal sobre a recollida de datos persoais
         minimum_committee_members: Mínimo de membros da comisión
         online_signature_enabled: Sinatura en liña habilitada
+        promoting_committee_enabled: Inschakelen bevorderingscommissie
         title: Título
         undo_online_signatures_enabled: Habilita os usuarios para desfacer as súas sinaturas en liña
         validate_sms_code_on_votes: Engada o paso de validación do código SMS ao proceso de sinatura
@@ -112,11 +113,15 @@ gl:
             email_outro: Recibiches esta notificación porque es o autor da iniciativa %{resource_title}.
             email_subject: Novo fito rematado!
             notification_title: A túa iniciativa <a href="%{resource_path}">%{resource_title}</a> acadou o %{percentage}% das sinaturas.
+          email_intro: L'initiative %{resource_title} a atteint %{percentage}% des signatures requises !
+          email_outro: Vous avez reçu cette notification parce que vous suivez %{resource_title}. Vous pouvez arrêter de recevoir des notifications à partir du lien précédent.
+          email_subject: Nouvelle étape franchie !
           follower:
             email_intro: A iniciativa %{resource_title} alcanzou o %{percentage}% das sinaturas.
             email_outro: Recibiches esta notificación porque estás seguindo %{resource_title}. Podes deixar de recibir notificacións seguindo a ligazón anterior.
             email_subject: Novo fito rematado!
             notification_title: A iniciativa <a href="%{resource_path}">%{resource_title}</a> acadou o %{percentage}% das sinaturas.
+          notification_title: La pétition <a href="%{resource_path}">%{resource_title}</a> a atteint %{percentage}% des signatures requises.
     gamification:
       badges:
         initiatives:

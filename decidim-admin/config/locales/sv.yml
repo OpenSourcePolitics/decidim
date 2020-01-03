@@ -40,8 +40,10 @@ sv:
         address: SMTP-värdnamn
         alert_color: Larm
         badges_enabled: Aktivera märken
+        comments_max_length: Nombre de caractères maximum des commentaires (Mettre 0 pour laisser la valeur par défaut)
         cta_button_path: Uppmaningens knappsökväg
         cta_button_text: Uppmaningens knapptext
+        customize_welcome_notification: Pas welkomstmelding aan
         default_locale: Förvalt språk och region
         description: Beskrivning
         enable_omnipresent_banner: Visa banner på alla sidor
@@ -71,6 +73,7 @@ sv:
         primary_color: Primär
         reference_prefix: Referensprefix
         secondary_color: Sekundär
+        send_welcome_notification: Stuur welkomstmelding
         show_statistics: Visa statistik
         success_color: Färdigt
         tos_version: Version på användarvillkor
@@ -78,7 +81,14 @@ sv:
         user_groups_enabled: Aktivera grupper
         user_name: Användarnamn
         warning_color: Varning
+        welcome_notification_body: Tekst van de welkomstmelding
+        welcome_notification_subject: Welkomstmelding onderwerp
         youtube_handler: YouTube-hanterare
+      participatory_process:
+        import_attachments: Importer les pièces jointes
+        import_categories: Importer les catégories
+        import_components: Importer les fonctionnalités
+        import_steps: Importer les étapes
       scope:
         code: Kod
         name: Namn
@@ -247,6 +257,7 @@ sv:
         form:
           default_step_settings: Förvalda inställningar för steg
           global_settings: Globala inställningar
+          participatory_texts_enabled_help: Cannot interact with this setting if there are existing proposals. Please, create a new `Proposals component` if you want to enable this feature or discard all imported proposals in the `Participatory Texts` menu if you want to disable it.
           step_settings: Inställningar för steg
         index:
           add: Lägg till komponent
@@ -314,6 +325,11 @@ sv:
         logs_list:
           no_logs_yet: Det finns inga loggar än
       managed_users:
+        index:
+          impersonate: Impersonate
+          needs_authoriation_warning: Needs authoriation warning
+          promote: Promote
+          view_logs: View logs
         promotion:
           error: Det gick inte att befordra den hanterade användaren.
           success: Den hanterade användaren har befordrats.
@@ -333,6 +349,7 @@ sv:
         help_sections: Hjälpavsnitt
         homepage: Hemsida
         impersonations: Uppträd som
+        navbar_links: Navbar links
         newsletters: Nyhetsbrev
         oauth_applications: OAuth-tillämpningar
         participants: Deltagare
@@ -370,6 +387,13 @@ sv:
             reason: Anledning
             started_at: Började
             user: Deltagare
+        managed_user:
+          name: Name
+        navbar_link:
+          fields:
+            link: Link
+            title: Title
+            weight: Weight
         newsletter:
           fields:
             created_at: Skapad
@@ -425,6 +449,28 @@ sv:
             does_not_belong: Hör inte hemma
             offensive: Stötande
             spam: Skräp
+      navbar_links:
+        create:
+          error: There was an error when creating this link.
+          success: Link created successfully
+        destroy:
+          success: Link successfully destroyed
+        edit:
+          title: Edit navbar link
+          update: Update
+        form:
+          link: Link
+          new_tab: Open in a new tab
+          same_tab: Open in the same tab
+          title: Title
+          weight: Weight
+        new:
+          create: Create
+          title: New navbar link
+        no_links: No links created
+        update:
+          error: There was an error when updating this link.
+          success: Link updated successfully
       newsletters:
         create:
           error: Det gick inte att skapa nyhetsbrevet.
@@ -481,6 +527,8 @@ sv:
         update:
           error: Det gick inte att uppdatera nyhetsbrevet.
           success: Nyhetsbrevet har uppdaterats. Granska det gärna innan du skickar det.
+      oauth_application:
+        new: New Oauth application
       oauth_applications:
         create:
           error: Det gick inte att skapa tillämpningen.
@@ -661,12 +709,16 @@ sv:
         dashboard: Kontrollpanel
         impersonatable_users: Hanterbara deltagare
         impersonations: Deltagarhantering
+        managed_users: Managed users
+        navbar_links: Navbar links
         participants: Deltagare
         scope_types: Omfattningstyper
         scopes: Omfattningar
         static_pages: Sidor
         user_groups: Grupper
         users: Deltagare
+      user:
+        new: New user
       user_group:
         csv_verify:
           invalid: Det gick inte att läsa CSV-filen.

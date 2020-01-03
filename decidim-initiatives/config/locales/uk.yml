@@ -14,6 +14,7 @@ uk:
           any: Поєднаний
           offline: На особистих зустрічах
           online: Онлайн
+        state: Status
         title: Назва
       initiative_author:
         address: Адреса
@@ -27,8 +28,21 @@ uk:
         user: Член робочого гурту
       initiatives_type:
         banner_image: Банерне зображення
+        collect_user_extra_fields: Collect participant personal data on signature
         description: Опис
+        document_number_authorization_handler: Authorization to verify document number on signatures
+        extra_fields_legal_information: Legal information about the collection of personal data
+        minimum_committee_members: Minimum of committee members
+        online_signature_enabled: Online signature enabled
+        promoting_committee_enabled: Inschakelen bevorderingscommissie
         title: Назва
+        undo_online_signatures_enabled: Enable participants to undo their online signatures
+        validate_sms_code_on_votes: Add SMS code validation step to signature process
+      initiatives_vote:
+        date_of_birth: Date of birth
+        document_number: Document number
+        name_and_surname: Name and surname
+        postal_code: Postal code
       organization_data:
         address: Адреса
         id_document: Документ, що завідчує особу
@@ -61,6 +75,7 @@ uk:
         initiatives:
           fields:
             created_at: 'Створено:'
+            id: ID
             state: Стан
             supports_count: Підписів
             title: Почини
@@ -74,6 +89,20 @@ uk:
             created_at: 'Створено:'
             title: Різновиди починів
           name: Різновид почину
+        initiatives_votes:
+          fields:
+            date_of_birth: Date of birth
+            document_number: Document number
+            hash: Hash
+            initiative_end_date: End date
+            initiative_id: Initiative ID
+            initiative_signatures_count: Number of signatures
+            initiative_start_date: Start date
+            initiative_title: Initiative title
+            name_and_surname: Name and surname
+            postal_code: Postal code
+            time_and_date: Time and date
+            timestamp: Timestamp
       titles:
         initiatives: Почини
         initiatives_types: Різновиди починів
@@ -86,15 +115,49 @@ uk:
           notification_title: Строк збору підписів на підтримку почину <a href="%{resource_path}">%{resource_title}</a> продовжено.
         milestone_completed:
           affected_user:
+            email_intro: Your initiative %{resource_title} has achieved the %{percentage}% of signatures!
+            email_outro: You have received this notification because you are the author of the initiative %{resource_title}.
             email_subject: Досягнута нова віха!
+            notification_title: Your <a href="%{resource_path}">%{resource_title}</a> initiative has achieved the %{percentage}% of signatures.
+          email_intro: L'initiative %{resource_title} a atteint %{percentage}% des signatures requises !
+          email_outro: Vous avez reçu cette notification parce que vous suivez %{resource_title}. Vous pouvez arrêter de recevoir des notifications à partir du lien précédent.
+          email_subject: Nouvelle étape franchie !
           follower:
             email_intro: Почин %{resource_title} досяг %{percentage}% підписів!
+            email_outro: You have received this notification because you are following %{resource_title}. You can stop receiving notifications following the previous link.
             email_subject: Досягнута нова віха!
             notification_title: Почин <a href="%{resource_path}">%{resource_title}</a> досяг %{percentage}% підписів.
+          notification_title: La pétition <a href="%{resource_path}">%{resource_title}</a> a atteint %{percentage}% des signatures requises.
+    gamification:
+      badges:
+        initiatives:
+          conditions: '["Go to the participation space of Intiatives", "Follow the steps to create a new initiative"]'
+          description: This badge is granted when you launch new initiatives, partnering with others to carry them out.
+          description_another: This participant has gotten %{score} initiatives published.
+          description_own: You've got %{score} initiatives published.
+          name: Published initiatives
+          next_level_in: Get %{score} more initiatives published to reach the next level!
+          unearned_another: This participant hasn't gotten any initiatives published yet.
+          unearned_own: You got no initiatives published yet.
+    help:
+      participatory_spaces:
+        initiatives:
+          contextual: "<p>An <strong>initiative</strong> is a proposal that can be promoted by anyone on their own initiative (independently of other channels or participation spaces) through the collection of (digital) signatures for the organization to carry out a specific action (modify a regulation, initiate a project, change the name of a department or a street, etc.).</p> <p>The promoters of an initiative can define its objectives, gather support, debate, disseminate it and define meeting points where signatures can be collected from the attendees or debates open to other participants.</p> <p>Examples: An initiative can collect signatures to convene a consultation among all the people of an organization, or to create or convene an assembly, or to initiate a process of budget increase for a territory or area of the organization. During the process of collecting signatures, more people can add to this demand and carry it forward in the organization.</p>\n"
+          page: "<p>An <strong>initiative</strong> is a proposal that can be promoted by anyone on their own initiative (independently of other channels or participation spaces) through the collection of (digital) signatures for the organization to carry out a specific action (modify a regulation, initiate a project, change the name of a department or a street, etc.).</p> <p>The promoters of an initiative can define its objectives, gather support, debate, disseminate it and define meeting points where signatures can be collected from the attendees or debates open to other participants.</p> <p>Examples: An initiative can collect signatures to convene a consultation among all the people of an organization, or to create or convene an assembly, or to initiate a process of budget increase for a territory or area of the organization. During the process of collecting signatures, more people can add to this demand and carry it forward in the organization.</p>\n"
+          title: What are initiatives?
     initiatives:
+      actions:
+        answer: Answer
       admin:
         answers:
+          edit:
+            answer: Answer
+            title: Answer for %{title}
           info_initiative:
+            created_at: Created at
+            description: Description
+            initiative_votes_count: Votes count
+            initiatives: Initiatives
             state: Стан
         committee_requests:
           index:
@@ -104,11 +167,15 @@ uk:
             no_members_yet: У робочого гурту з просування нема жодного члена
             revoke: Відкликати
             title: Члени робочого гурту
+        content_blocks:
+          highlighted_initiatives:
+            max_results: Maximum amount of elements to show
         initiatives:
           edit:
             accept: Прийняти почин
             confirm: Ви впевнені?
             discard: Відкинути почин
+            export_pdf_signatures: Export PDF of signatures
             export_votes: Зберегти у вигляді файлу перелік тих, хто підтримує
             reject: Відхилити почин
             send_to_technical_validation: Надіслати на технічну перевірку
@@ -224,10 +291,13 @@ uk:
           more_information: "(Додаткові відомості)"
         promotal_committee:
           back: Повернутись
+          individual_help_text: This kind of citizen initiative requires a Promoting Commission consisting of at least %{committee_size} people (attestors). You must share the following link with the other people that are part of this initiative. When your contacts receive this link they will have to follow the indicated steps.
           more_information: "(Додаткові відомості)"
         select_initiative_type:
           back: Повернутись
+          choose_html: I want to create a <strong>%{title}</strong>
           more_information: "(Додаткові відомості)"
+          select: I want to promote this initiative
           select_initiative_type_help: Громадські почини - це засіб, за допомогою якого громадяни можуть втрутитися в те, щоб міська рада вжила заходів для забезпечення спільних потреб, які відносяться до сфери міських повноважень. Який почин ви бажаєте зробити?
         share_committee_link:
           continue: Продовжити
@@ -250,9 +320,33 @@ uk:
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> підтримав почин <a href="%{resource_path}">%{resource_title}</a>.
       index:
         title: Почини
+      initiative_signatures:
+        fill_personal_data:
+          continue: Continue
+          date_select:
+            day: Day
+            month: Month
+            year: Year
+          help: Please, fill the following fields with your personal data to sign the initiative
+        finish:
+          back_to_initiative: Back to initiative
+        sms_code:
+          continue: Check code and continue
+          help: Check the SMS received at your phone
+        sms_phone_number:
+          continue: Send me an SMS
+          help: Fill the form with your verified phone number to request your verification code
       initiative_votes:
         create:
           error: При підписанні цього почину сталися помилки.
+          invalid: The data provided to sign the initiative is not valid
+          success_html: Congratulations! The <strong> %{title}</strong> initiative has been successfully signed
+        personal_data:
+          invalid: Personal data is not consistent with data provided for authorization.
+        sms_code:
+          invalid: Your verification code doesn't match ours. Please double-check the SMS we sent you.
+        sms_phone:
+          invalid: The phone number is invalid or pending of authorization. Please, check your authorizations.
       initiatives:
         author:
           deleted: Видалено
@@ -285,6 +379,11 @@ uk:
           unfold: Розгорнути
         index_header:
           new_initiative: Започаткувати почин
+        interactions:
+          comments_count:
+            count:
+              one: Comment
+              other: Comment
         orders:
           label: 'Впорядкувати почини за ознакою:'
           most_commented: Найбільш коментовані
@@ -292,9 +391,17 @@ uk:
           random: Довільно
           recent: Найновіші
         result:
+          answer_title:
+            accepted: This proposal has been accepted because
+            created: This proposal has been created
+            discarded: This proposal has been discarded because
+            published: This proposal is published because
+            rejected: This proposal has been rejected because
+            validating: This proposal is being evaluated
           initiative_rejected_reason: Цей почин був відхилений через недостатню підтримку.
         show:
           any_vote_method: Цей громадський почин збирає онлайн-підтримку, а також підтримку на особистих зустрічах.
+          follow_description: Receive a notification when there are news in this initiative
           offline_method: Цей громадський почин збирає прояви підтримки лише на особистих зустрічах.
         signature_identities:
           select_identity: Виберіть псевдонім учасника
@@ -308,6 +415,7 @@ uk:
         vote_cabin:
           already_voted: Вже підписалися
           supports_required: Необхідно %{total_supports} підписів
+          verification_required: Verify your account to sign the initiative
           vote: Підписати
           votes_blocked: Підписування вимкнене
         votes_count:
@@ -316,6 +424,8 @@ uk:
             many: ПІДПИСІВ
             one: ПІДПИС
             other: ПІДПИСІВ
+          most_popular_initiative: Most popular initiative
+          need_more_votes: Need more signatures
       initiatives_mailer:
         creation_subject: Ваш громадський почин "%{title}" був доданий
         initiative_link:
@@ -329,6 +439,8 @@ uk:
         status_change_for: Стан почину %{title} змінився
         technical_validation_body_for: Почин %{title} подав запит на технічну перевірку.
         technical_validation_for: Почин %{title} подав запит на технічну перевірку.
+      last_activity:
+        new_initiative: New initiative
       pages:
         home:
           highlighted_initiatives:
@@ -337,8 +449,14 @@ uk:
       states:
         accepted: Прийняті
         expired: Строк дії яких закінчився
+      unavailable_scope: Unavailable scope
     menu:
       initiatives: Почини
+    resources:
+      initiatives_type:
+        actions:
+          title: Actions
+          vote: Sign
   layouts:
     decidim:
       admin:
@@ -348,14 +466,28 @@ uk:
           components: Складові
           information: Відомості
       initiative_creation_header:
+        back: Back
         fill_data: Внести
         finish: Завершити
         previous_form: Почати
         promotal_committee: Робочий гурт з просування
         select_initiative_type: Обрати
         show_similar_initiatives: Порівняти
+        step: Step %{current} of %{total}
+        title: Create new initiative
       initiative_header:
         initiative_menu_item: Почин
+      initiative_signature_creation_header:
+        back: Back
+        fill_personal_data: Complete your data
+        finish: Finish
+        finished: Initiative signature created
+        see_steps: see steps
+        select_identity: Select identity
+        sms_code: SMS code verification
+        sms_phone_number: Mobile phone number
+        step: Step %{current} of %{total}
+        title: Sign %{initiative_title}
       initiatives:
         initiative:
           check: Перевірте ще раз

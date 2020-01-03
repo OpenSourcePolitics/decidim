@@ -34,6 +34,7 @@ fi-pl:
         extra_fields_legal_information: Oikeudelliset tiedot koskien henkilötietojen keräämistä
         minimum_committee_members: Komitean jäsenten vähimmäismäärä
         online_signature_enabled: Online-allekirjoitus on käytössä
+        promoting_committee_enabled: Inschakelen bevorderingscommissie
         title: Otsikko
         undo_online_signatures_enabled: Salli käyttäjien peruuttaa verkossa tehdyt allekirjoitukset
         validate_sms_code_on_votes: Lisää tekstiviestikoodin validointivaihe allekirjoitusprosessiin
@@ -112,11 +113,15 @@ fi-pl:
             email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet luonut aloitteen %{resource_title}.
             email_subject: Uusi virstanpylväs saavutettu!
             notification_title: Aloitteesi <a href="%{resource_path}">%{resource_title}</a> on saavuttanut %{percentage}% allekirjoituksista.
+          email_intro: L'initiative %{resource_title} a atteint %{percentage}% des signatures requises !
+          email_outro: Vous avez reçu cette notification parce que vous suivez %{resource_title}. Vous pouvez arrêter de recevoir des notifications à partir du lien précédent.
+          email_subject: Nouvelle étape franchie !
           follower:
             email_intro: Aloite %{resource_title} on saavuttanut %{percentage}% tarvituista allekirjoituksista!
             email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat %{resource_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
             email_subject: Uusi virstanpylväs saavutettu!
             notification_title: Aloite <a href="%{resource_path}">%{resource_title}</a> on saavuttanut %{percentage}% tarvituista allekirjoituksista.
+          notification_title: La pétition <a href="%{resource_path}">%{resource_title}</a> a atteint %{percentage}% des signatures requises.
     gamification:
       badges:
         initiatives:

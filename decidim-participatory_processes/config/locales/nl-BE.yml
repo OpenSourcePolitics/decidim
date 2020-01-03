@@ -1,3 +1,4 @@
+---
 nl-BE:
   activemodel:
     attributes:
@@ -49,6 +50,12 @@ nl-BE:
         email: Email
         name: Name
         role: Role
+    errors:
+      models:
+        participatory_process:
+          attributes:
+            document:
+              invalid_document_type: 'Invalid document type. Accepted formats are: %{valid_mime_types}'
     models:
       decidim/participatory_process_step_activated_event: Step activated
       decidim/participatory_process_step_changed_event: Step changed
@@ -75,6 +82,7 @@ nl-BE:
         filter:
           all: Show all processes
           process_groups: Process Groups
+        import_process: Import
         new: New
         new_process: 1 proces
         new_process_group: New process group
@@ -148,6 +156,14 @@ nl-BE:
         update:
           error: There was en error updating this participatory process group.
           success: Participatory process group updated successfully.
+      participatory_process_imports:
+        create:
+          error: There was a problem importing this participatory process.
+          success: Participatory process successfully imported.
+        new:
+          import: Import
+          select: Select which data you would like to import
+          title: Import participatory process
       participatory_process_publications:
         create:
           error: There was an error publishing this participatory process.
@@ -209,8 +225,8 @@ nl-BE:
           not_published: Not published
           private: Private
           promoted:
-            'false': 'Fout'
-            'true': 'Juist'
+            'false': Fout
+            'true': Juist
           public: Public
           published: Published
         new:
@@ -240,6 +256,9 @@ nl-BE:
         publish: "%{user_name} published the %{resource_name} participatory process"
         unpublish: "%{user_name} unpublished the %{resource_name} participatory process"
         update: "%{user_name} updated the %{resource_name} participatory process"
+      participatory_process_group:
+        create: "%{user_name} heeft de burgerinspraak %{resource_name} aangemaakt"
+        update: "%{user_name} heeft de burgerinspraak %{resource_name} aangemaakt"
       participatory_process_step:
         activate: "%{user_name} heeft %{resource_name} fase in de %{space_name} het inspraakproces geactiveerd"
         create: "%{user_name} created the %{resource_name} step in the %{space_name} participatory process"
@@ -296,6 +315,10 @@ nl-BE:
             max_results: Maximaal aantal te tonen elementen
         participatory_process_copies:
           form:
+            slug_help: 'URL slugs are used to generate the URLs that point to this process. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
+        participatory_process_imports:
+          form:
+            document_legend: Add a document
             slug_help: 'URL slugs are used to generate the URLs that point to this process. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
         participatory_process_steps:
           form:

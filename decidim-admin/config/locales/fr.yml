@@ -43,6 +43,7 @@ fr:
         comments_max_length: Nombre de caractères maximum des commentaires (Mettre 0 pour laisser la valeur par défaut)
         cta_button_path: Chemin du bouton d'action
         cta_button_text: Texte du bouton d'action
+        customize_welcome_notification: Pas welkomstmelding aan
         default_locale: Langue par défaut
         description: Description
         enable_omnipresent_banner: Afficher une bannière d'actualités
@@ -72,6 +73,7 @@ fr:
         primary_color: Primaire
         reference_prefix: Préfixe de référence
         secondary_color: Secondaire
+        send_welcome_notification: Stuur welkomstmelding
         show_statistics: Montrer les statistiques
         success_color: Succès
         tos_version: Version des conditions d'utilisation
@@ -79,6 +81,8 @@ fr:
         user_groups_enabled: Activer les groupes d'utilisateurs
         user_name: Nom d'utilisateur
         warning_color: Attention
+        welcome_notification_body: Tekst van de welkomstmelding
+        welcome_notification_subject: Welkomstmelding onderwerp
         youtube_handler: Gestionnaire YouTube
       participatory_process:
         import_attachments: Importer les pièces jointes

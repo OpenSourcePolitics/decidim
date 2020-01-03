@@ -67,6 +67,13 @@ de:
           reference_prefix_hint: Das Referenzpräfix wird zur eindeutigen Identifizierung von Ressourcen in allen Organisationen verwendet
           secondary_hosts_hint: Geben Sie jede von ihnen in einer neuen Zeile ein
           title: Neue Organisation
+        smtp_settings:
+          address: Server address
+          from_email: From email
+          from_label: From label
+          password: Password
+          port: Server port
+          user_name: Username
         update:
           error: Beim Aktualisieren dieser Organisation ist ein Fehler aufgetreten.
           success: Die Organisation wurde erfolgreich aktualisiert.

@@ -33,6 +33,7 @@ ru:
           global:
             announcement: Объявление
             comments_enabled: Комментарии включены
+            comments_max_length: Comments max length
           step:
             announcement: Объявление
             comments_blocked: Комментарии отключены
@@ -104,10 +105,8 @@ ru:
           create: Создать
           select_a_category: Пожалуйста, выберите категорию
           title: Начать новое обсуждение
-        share:
-          close_window: Закрыть окно
-          share: Поделиться
-          share_link: Поделиться ссылкой
+        show:
+          back: Back to list
       last_activity:
         new_debate_at_html: "<span>New debate at %{link}</span>"
       models:

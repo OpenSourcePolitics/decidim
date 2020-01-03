@@ -71,6 +71,7 @@ uk:
       comment_thread:
         title: Бесіда з %{authorName}
       comments:
+        blocked_comments_for_user_warning: You are not able to comment at this moment, but you can read the previous ones.
         blocked_comments_warning: Коментарі зараз вимкнені, але ви можете прочитати попередні.
         loading: Завантаження коментарів...
         title: "%{count} коментарів"

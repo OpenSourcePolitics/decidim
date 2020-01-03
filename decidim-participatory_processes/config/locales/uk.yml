@@ -4,10 +4,12 @@ uk:
     attributes:
       participatory_process:
         announcement: Оголошення
+        area_id: Area
         banner_image: Банерне зображення
         copy_categories: Скопіювати категорії
         copy_components: Копіювати складові
         copy_steps: Скопіювати кроки
+        decidim_area_id: Area
         description: Опис
         developer_group: Робочий гурт з просування
         domain: Домен
@@ -48,6 +50,12 @@ uk:
         email: Адреса електронної пошти
         name: Ім'я
         role: Роль
+    errors:
+      models:
+        participatory_process:
+          attributes:
+            document:
+              invalid_document_type: 'Invalid document type. Accepted formats are: %{valid_mime_types}'
     models:
       decidim/participatory_process_step_activated_event: Крок започато
       decidim/participatory_process_step_changed_event: Крок змінено
@@ -77,7 +85,12 @@ uk:
         destroy: Видалити
         duplicate: Створити копію
         edit: Редагувати
+        filter:
+          all: Show all processes
+          process_groups: Process Groups
+        import_process: Import
         new: New
+        new_process: New process
         new_process_group: Створити сукупність рухів
         new_process_step: Додати крок
         new_process_user_role: Додати учасника руху
@@ -149,6 +162,14 @@ uk:
         update:
           error: При спробі оновити цю сукупність рухів співучасті сталася помилка.
           success: Сукупність рухів співучасті успішно оновлено.
+      participatory_process_imports:
+        create:
+          error: There was a problem importing this participatory process.
+          success: Participatory process successfully imported.
+        new:
+          import: Import
+          select: Select which data you would like to import
+          title: Import participatory process
       participatory_process_publications:
         create:
           error: При оприлюдненні цього руху співучасті сталася помилка.
@@ -241,6 +262,9 @@ uk:
         publish: "%{user_name} оприлюднив рух співучасті %{resource_name}"
         unpublish: "%{user_name} скасував оприлюднення руху співучасті %{resource_name}"
         update: "%{user_name} оновив рух співучасті %{resource_name}"
+      participatory_process_group:
+        create: "%{user_name} heeft de burgerinspraak %{resource_name} aangemaakt"
+        update: "%{user_name} heeft de burgerinspraak %{resource_name} aangemaakt"
       participatory_process_step:
         activate: "%{user_name} започаткував крок %{resource_name} у русі співучасті %{space_name}"
         create: "%{user_name} створив крок %{resource_name} у русі співучасті %{space_name}"
@@ -300,6 +324,10 @@ uk:
         participatory_process_copies:
           form:
             slug_help: 'Cкорочені веб-адреси використовуються для створення посилань на цей рух. В них припустимі лише букви, цифри та тире, і вони мають починатися з букви. Приклад: %{url}'
+        participatory_process_imports:
+          form:
+            document_legend: Add a document
+            slug_help: 'URL slugs are used to generate the URLs that point to this process. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
         participatory_process_steps:
           form:
             cta_path_help: 'Use partial paths, not full URLs here. Accepts letters, numbers, dashes and slashes, and must start with a letter. If not set, the button will not be shown. Example: %{url}'
@@ -307,8 +335,16 @@ uk:
         participatory_processes:
           form:
             announcement_help: Текст, який ви введете тут, буде показано учаснику трохи нижче опису руху.
+            duration: Duration
+            filters: Filters
+            images: Images
+            metadata: Metadata
+            other: Other
+            select_an_area: Select an Area
+            select_process_group: Select a process group
             slug_help: 'Cкорочені веб-адреси використовуються для створення посилань на цей рух. В них припустимі лише букви, цифри та тире, і вони мають починатися з букви. Приклад: %{url}'
             title: Загальні відомості
+            visbility: Visibility
       content_blocks:
         highlighted_processes:
           name: Висвітлені рухи
@@ -360,6 +396,7 @@ uk:
         index:
           loading: Завантаження результатів...
       show:
+        area: Area
         developer_group: Робочий гурт з просування
         end_date: Дата закінчення
         local_area: Дільниця організації
@@ -401,6 +438,7 @@ uk:
           promoted_processes: Висвітлені рухи
         participatory_process:
           active_step: 'Поточний крок:'
+          more_info: More info
           take_part: Взяти участь
         promoted_process:
           active_step: 'Поточний крок:'

@@ -21,6 +21,7 @@ de:
         participatory_process_group_id: Prozessgruppe
         participatory_scope: Was ist entschieden?
         participatory_structure: Wie ist es entschieden?
+        private_space: Concertation privée
         promoted: Gefördert
         published_at: Veröffentlicht unter
         scope_id: Umfang
@@ -49,6 +50,12 @@ de:
         email: Email
         name: Name
         role: Rolle
+    errors:
+      models:
+        participatory_process:
+          attributes:
+            document:
+              invalid_document_type: 'Invalid document type. Accepted formats are: %{valid_mime_types}'
     models:
       decidim/participatory_process_step_activated_event: Schritt aktiviert
       decidim/participatory_process_step_changed_event: Schritt geändert
@@ -75,6 +82,7 @@ de:
         filter:
           all: Alle Prozesse anzeigen
           process_groups: Prozessgruppen
+        import_process: Import
         new_process: Neuer Prozess
         new_process_group: Neue Prozessgruppe
         new_process_step: Neuer Schritt
@@ -147,6 +155,14 @@ de:
         update:
           error: Beim Aktualisieren dieser partizipativen Prozessgruppe ist ein Fehler aufgetreten.
           success: Partizipative Prozessgruppe wurde erfolgreich aktualisiert.
+      participatory_process_imports:
+        create:
+          error: There was a problem importing this participatory process.
+          success: Participatory process successfully imported.
+        new:
+          import: Import
+          select: Select which data you would like to import
+          title: Import participatory process
       participatory_process_publications:
         create:
           error: Bei der Veröffentlichung dieses partizipativen Prozesses ist ein Fehler aufgetreten.
@@ -207,6 +223,9 @@ de:
         index:
           not_published: Nicht veröffentlicht
           private: Privatgelände
+          promoted:
+            'false': 'False'
+            'true': 'True'
           public: Öffentlichkeit
           published: Veröffentlicht
         new:
@@ -236,6 +255,9 @@ de:
         publish: "%{user_name} veröffentlichte den %{resource_name} Partizipationsprozess"
         unpublish: "%{user_name} unveröffentlicht den %{resource_name} Partizipationsprozess"
         update: "%{user_name} hat den %{resource_name} Partizipationsprozess aktualisiert"
+      participatory_process_group:
+        create: "%{user_name} heeft de burgerinspraak %{resource_name} aangemaakt"
+        update: "%{user_name} heeft de burgerinspraak %{resource_name} aangemaakt"
       participatory_process_step:
         activate: "%{user_name} den %{resource_name} Schritt im %{space_name} Partizipationsprozess aktiviert"
         create: "%{user_name} erstellt den %{resource_name} Schritt in dem %{space_name} Partizipationsprozess"
@@ -288,6 +310,10 @@ de:
         participatory_process_copies:
           form:
             slug_help: 'URL-Slugs werden zum Generieren der URLs verwendet, die auf diesen Prozess verweisen. Akzeptiert nur Buchstaben, Zahlen und Bindestriche und muss mit einem Buchstaben beginnen. Beispiel: %{url}'
+        participatory_process_imports:
+          form:
+            document_legend: Add a document
+            slug_help: 'URL slugs are used to generate the URLs that point to this process. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
         participatory_process_steps:
           form:
             cta_path_help: 'Verwenden Sie hier Teilpfade, nicht vollständige URLs. Akzeptiert Buchstaben, Zahlen, Bindestriche und Schrägstriche und muss mit einem Buchstaben beginnen. Wenn nicht eingestellt, wird die Schaltfläche nicht angezeigt. Beispiel: %{url}'

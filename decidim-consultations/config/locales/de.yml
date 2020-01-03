@@ -20,6 +20,9 @@ de:
         hashtag: Hashtag
         hero_image: Hauptbild
         i_frame_url: URL des externen Abstimmungssystems
+        instructions: Extra instructies voor stemmen
+        max_votes: Maximum aantal stemmen
+        min_votes: Minimaal aantal stemmen
         origin_scope: Umfang
         origin_title: Ursprung
         origin_url: Ursprungs-URL
@@ -33,7 +36,14 @@ de:
         title: Titel
         vote: Externes Wahlsystem
         what_is_decided: Was ist entschieden?
+      response:
+        decidim_consultations_response_group_id: Groep
     errors:
+      models:
+        question:
+          attributes:
+            max_votes:
+              lower_than_min: Maximum aantal stemmen moet hoger of gelijk zijn aan het minimum.
       vote:
         decidim_consultations_response_id:
           not_found: Antwort nicht gefunden.
@@ -258,6 +268,8 @@ de:
         statistics:
           consultations_count: Konsultationen
     questions:
+      next_button: Next question
+      previous_button: Previous question
       results:
         title: Ergebnisse
       show:
@@ -282,6 +294,10 @@ de:
         confirm: Bestätigen
         contextual_help: Bitte bestätigen Sie die ausgewählte Option.
         title: 'Beratung: Bestätigung der Unterstützung'
+    resources:
+      consultations:
+        actions:
+          vote: Stem
   layouts:
     decidim:
       admin:

@@ -51,6 +51,7 @@ ru:
             title: заголовок
       posts:
         show:
+          back: Back to list
           view: Посмотреть
         sidebar_blog:
           comments: комментарии
@@ -63,6 +64,7 @@ ru:
           global:
             announcement: Объявление
             comments_enabled: Комментарии включены
+            comments_max_length: Nombre de caractères maximum des commentaires (Mettre 0 pour laisser la valeur par défaut)
           step:
             announcement: Объявление
             comments_blocked: Комментарии отключены

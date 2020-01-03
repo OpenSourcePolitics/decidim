@@ -30,9 +30,14 @@ ar:
         placeholders:
           content: يرجى إضافة محتوى ذي معنى إلى الصفحة الثابتة %{page} في لوحة تحكم المشرف.
           title: العنوان الافتراضي ل %{page}
+      logs:
+        index:
+          download_log: Download log
+          view_log: View %{line} lines
       menu:
         admins: مدراء
         dashboard: لوحة القيادة
+        logs: Logs
         organizations: المنظمات
       models:
         admin:
@@ -62,6 +67,13 @@ ar:
           reference_prefix_hint: يتم استخدام بادئة المرجع لتعريف الموارد بشكل فريد في كل المؤسسة
           secondary_hosts_hint: أدخل كل واحد منهم في سطر جديد
           title: منظمة جديدة
+        smtp_settings:
+          address: Server address
+          from_email: From email
+          from_label: From label
+          password: Password
+          port: Server port
+          user_name: Username
         update:
           error: حدثت مشكلة أثناء تحديث هذه المؤسسة.
           success: تم تحديث المنظمة بنجاح.

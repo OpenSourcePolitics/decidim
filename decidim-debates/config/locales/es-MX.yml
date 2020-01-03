@@ -31,6 +31,7 @@ es-MX:
           global:
             announcement: Anuncio
             comments_enabled: Comentarios habilitados
+            comments_max_length: Comments max length
           step:
             announcement: Anuncio
             comments_blocked: Comentarios bloqueados
@@ -60,6 +61,9 @@ es-MX:
           update:
             invalid: Ha habido un problema al actualizar este debate.
             success: Debate actualizado con éxito.
+        exports:
+          comments: comments
+          debates: debates
         models:
           debate:
             name: Debate
@@ -97,10 +101,8 @@ es-MX:
           create: Crear
           select_a_category: Por favor, selecciona una categoría
           title: Nuevo debate
-        share:
-          close_window: Cerrar ventana
-          share: Compartir
-          share_link: Compartir enlace
+        show:
+          back: Back to list
       last_activity:
         new_debate_at_html: "<span>Nuevo debate en %{link}</span>"
       models:

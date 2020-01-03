@@ -21,6 +21,7 @@ eu:
         participatory_process_group_id: Prozesu-multzoa
         participatory_scope: Zer erabaki
         participatory_structure: Nola erabakitzen da?
+        private_space: Concertation privée
         promoted: Nabarmendua
         published_at: Argitaratu at
         scope_id: Esparrua
@@ -49,6 +50,12 @@ eu:
         email: Helbide elektronikoa
         name: Izena
         role: Rola
+    errors:
+      models:
+        participatory_process:
+          attributes:
+            document:
+              invalid_document_type: 'Invalid document type. Accepted formats are: %{valid_mime_types}'
     models:
       decidim/participatory_process_step_activated_event: Urratsera aktibatuta
       decidim/participatory_process_step_changed_event: Pasartea aldatu da
@@ -75,6 +82,7 @@ eu:
         filter:
           all: Erakutsi prozesu guztiak
           process_groups: Prozesu taldeak
+        import_process: Import
         new_process: Prozesu berria
         new_process_group: Prozesu talde berria
         new_process_step: Urrats berria
@@ -147,6 +155,14 @@ eu:
         update:
           error: Errorea gertatu da multzo hau eguneratzean.
           success: Multzoa zuzen eguneratu da.
+      participatory_process_imports:
+        create:
+          error: There was a problem importing this participatory process.
+          success: Participatory process successfully imported.
+        new:
+          import: Import
+          select: Select which data you would like to import
+          title: Import participatory process
       participatory_process_publications:
         create:
           error: Errorea gertatu da prozesu partizipatibo hau argitaratzean.
@@ -207,6 +223,9 @@ eu:
         index:
           not_published: Argitaratu gabe
           private: Pribatua
+          promoted:
+            'false': 'False'
+            'true': 'True'
           public: Publiko
           published: Argitaratua
         new:
@@ -236,6 +255,9 @@ eu:
         publish: "%{user_name} argitaratu du %{resource_name} prozesu parte-hartzailea"
         unpublish: "%{user_name} argitaratu gabe %{resource_name} prozesu parte-hartzailea"
         update: "%{user_name} %{resource_name} partehartze prozesua eguneratu du"
+      participatory_process_group:
+        create: "%{user_name} heeft de burgerinspraak %{resource_name} aangemaakt"
+        update: "%{user_name} heeft de burgerinspraak %{resource_name} aangemaakt"
       participatory_process_step:
         activate: "%{user_name} %{resource_name} urratsa %{space_name} prozesu parte-hartzailean aktibatuta"
         create: "%{user_name} %{resource_name} urratsa %{space_name} partaidetzazko prozesuan sortu zen"
@@ -288,6 +310,10 @@ eu:
         participatory_process_copies:
           form:
             slug_help: 'URL slugs erabiltzen dira prozesu hau adierazten duten URLak sortzeko. Letrak, zenbakiak eta marratxoak soilik onartzen ditu eta letra batekin hasi behar duzu. Adibidea: %{url}'
+        participatory_process_imports:
+          form:
+            document_legend: Add a document
+            slug_help: 'URL slugs are used to generate the URLs that point to this process. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
         participatory_process_steps:
           form:
             cta_path_help: 'Erabili bideak partzialak, ez URL osoak hemen. Letrak, zenbakiak, marrak eta barrak onartzen ditu eta gutun batekin hasi behar duzu. Ezartzen bada, botoia ez da agertuko. Adibidea: %{url}'

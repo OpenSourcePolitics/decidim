@@ -49,6 +49,7 @@ pt-BR:
             title: título
       posts:
         show:
+          back: Back to list
           view: Visualizar
         sidebar_blog:
           comments: comentários
@@ -61,6 +62,7 @@ pt-BR:
           global:
             announcement: Anúncio
             comments_enabled: Comentários ativados
+            comments_max_length: Nombre de caractères maximum des commentaires (Mettre 0 pour laisser la valeur par défaut)
           step:
             announcement: Anúncio
             comments_blocked: Comentários bloqueados

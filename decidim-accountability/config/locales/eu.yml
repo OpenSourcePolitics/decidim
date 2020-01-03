@@ -189,6 +189,7 @@ eu:
           global:
             categories_label: '"Kategoriak" izena'
             comments_enabled: Iruzkinak gaituta
+            comments_max_length: Nombre de caractères maximum des commentaires (Mettre 0 pour laisser la valeur par défaut)
             display_progress_enabled: Bistaratze aurrerapena
             heading_leaf_level_results: '"Proiektuak" izena'
             heading_parent_level_results: '"Emaitzak" izena'

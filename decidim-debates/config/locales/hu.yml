@@ -31,6 +31,7 @@ hu:
           global:
             announcement: Közlemény
             comments_enabled: Megjegyzések engedélyezve
+            comments_max_length: Comments max length
           step:
             announcement: Közlemény
             comments_blocked: Megjegyzések letiltva
@@ -100,10 +101,8 @@ hu:
           create: Létrehozás
           select_a_category: Válassz kategóriát
           title: Új vita
-        share:
-          close_window: Ablak bezárása
-          share: Megosztás
-          share_link: Link megosztása
+        show:
+          back: Back to list
       last_activity:
         new_debate_at_html: "<span>Új vita %{link}</span>"
       models:

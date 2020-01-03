@@ -67,6 +67,13 @@ ru:
           reference_prefix_hint: Справочный префикс используется для однозначной идентификации ресурсов во всех организациях
           secondary_hosts_hint: Введите каждый из них в новой строке
           title: Добавить организацию
+        smtp_settings:
+          address: Server address
+          from_email: From email
+          from_label: From label
+          password: Password
+          port: Server port
+          user_name: Username
         update:
           error: При попытке обновить эту организацию произошла ошибка.
           success: Организация успешно обновлена.

@@ -49,6 +49,7 @@ ca:
             title: títol
       posts:
         show:
+          back: Back to list
           view: Veure
         sidebar_blog:
           comments: comentaris
@@ -61,6 +62,7 @@ ca:
           global:
             announcement: Avís
             comments_enabled: Comentaris habilitats
+            comments_max_length: Nombre de caractères maximum des commentaires (Mettre 0 pour laisser la valeur par défaut)
           step:
             announcement: Avís
             comments_blocked: Comentaris bloquejats

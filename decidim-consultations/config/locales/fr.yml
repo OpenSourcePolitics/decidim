@@ -20,6 +20,9 @@ fr:
         hashtag: Hashtag
         hero_image: Image de la page d'accueil
         i_frame_url: URL du système de vote externe
+        instructions: Extra instructies voor stemmen
+        max_votes: Maximum aantal stemmen
+        min_votes: Minimaal aantal stemmen
         origin_scope: Secteur
         origin_title: Origine
         origin_url: URL de l'origine
@@ -33,7 +36,14 @@ fr:
         title: Titre
         vote: Système de vote externe
         what_is_decided: Objectifs
+      response:
+        decidim_consultations_response_group_id: Groep
     errors:
+      models:
+        question:
+          attributes:
+            max_votes:
+              lower_than_min: Maximum aantal stemmen moet hoger of gelijk zijn aan het minimum.
       vote:
         decidim_consultations_response_id:
           not_found: Réponse introuvable.
@@ -284,6 +294,10 @@ fr:
         confirm: Confirmer
         contextual_help: Veuillez confirmer l'option sélectionnée.
         title: 'Consultation : confirmer le soutien'
+    resources:
+      consultations:
+        actions:
+          vote: Stem
   layouts:
     decidim:
       admin:

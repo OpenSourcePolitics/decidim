@@ -1,3 +1,4 @@
+---
 nl-BE:
   activemodel:
     attributes:
@@ -39,8 +40,10 @@ nl-BE:
         address: SMTP hostnaam
         alert_color: Waarschuwing
         badges_enabled: Badges inschakelen
+        comments_max_length: Nombre de caractères maximum des commentaires (Mettre 0 pour laisser la valeur par défaut)
         cta_button_path: Oproep naar actie knop pad
         cta_button_text: Oproep naar actie knop pad
+        customize_welcome_notification: Pas welkomstmelding aan
         default_locale: Standaard locale
         description: Beschrijving
         enable_omnipresent_banner: Toon omnipresent banner
@@ -57,7 +60,7 @@ nl-BE:
         highlighted_content_banner_short_description: Korte beschrijving
         highlighted_content_banner_title: Titel
         instagram_handler: Instagram handler
-        logo: '-'
+        logo: "-"
         name: Afbeelding van de startpagina
         official_img_footer: Officiële logo footer
         official_img_header: Officiële logo header
@@ -70,6 +73,7 @@ nl-BE:
         primary_color: Primaire
         reference_prefix: Referentievoorvoegsel
         secondary_color: Secundaire
+        send_welcome_notification: Stuur welkomstmelding
         show_statistics: Toon statistieken
         success_color: Succes
         tos_version: Algemene versie
@@ -77,7 +81,14 @@ nl-BE:
         user_groups_enabled: Enable user groups
         user_name: Gebruikersnaam
         warning_color: Waarschuwing
+        welcome_notification_body: Tekst van de welkomstmelding
+        welcome_notification_subject: Welkomstmelding onderwerp
         youtube_handler: YouTube-handler
+      participatory_process:
+        import_attachments: Importer les pièces jointes
+        import_categories: Importer les catégories
+        import_components: Importer les fonctionnalités
+        import_steps: Importer les étapes
       scope:
         code: Code
         name: Naam

@@ -16,6 +16,8 @@ ar:
             choices:
               missing: ليست كاملة
               too_many: كثير جدا
+        questionnaire:
+          request_invalid: There's been an error handling the request. Please try again
   decidim:
     forms:
       admin:
@@ -81,3 +83,7 @@ ar:
       user_answers_serializer:
         created_at: أجاب على
         id: معرف الإجابة
+        ip_hash: Ip Hash
+        registered: Registered
+        unregistered: Unregistered
+        user_status: User status

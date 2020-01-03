@@ -98,6 +98,7 @@ ar:
     components:
       proposals:
         actions:
+          amend: Pas aan
           create: إنشاء
           endorse: تأييد
           vote: الدعم
@@ -106,15 +107,19 @@ ar:
         settings:
           global:
             amendments_enabled: تم تمكين التعديلات
+            amendments_enabled_help: 'Indien actief: stel de amendementsfunctionaliteiten in voor elke stap.'
+            amendments_wizard_help_text: Hulptekst van de amendementen wizard
             announcement: إعلان
             attachments_allowed: السماح للمرفقات
             can_accumulate_supports_beyond_threshold: يمكن أن تتراكم الدعم وراء العتبة
             collaborative_drafts_enabled: تم تمكين المسودات التعاونية
             comments_enabled: تم تمكين التعليقات
+            comments_max_length: Comments max length
             geocoding_enabled: تم تمكين الترميز الجغرافي
             minimum_votes_per_user: الحد الأدنى من الدعم لكل مستخدم
             new_proposal_help_text: نص مساعدة اقتراح جديد
             official_proposals_enabled: تم تمكين المقترحات الرسمية
+            participatory_texts_disabled_help: Instelling niet aanpasbaar als er bestaande voorstellen zijn. Maak een nieuwe `Voorstellen component` aan als u deze functie wilt inschakelen of wijs alle geïmporteerde voorstellen in het `Participatieve Teksten` menu af, als u de instelling wilt uitschakelen.
             participatory_texts_enabled: تم تمكين النصوص التشاركية
             proposal_answering_enabled: تم تمكين الرد على الاقتراح
             proposal_edit_before_minutes: يمكن تحرير المقترحات من قبل المؤلفين قبل مرور عدة دقائق
@@ -128,6 +133,14 @@ ar:
             threshold_per_proposal: عتبة لكل اقتراح
             vote_limit: حد الدعم لكل مشارك
           step:
+            amendment_creation_enabled: Aanmaken van amendementen ingeschakeld
+            amendment_creation_enabled_help: Deelnemer kan voorstellen wijzigen.
+            amendment_promotion_enabled: Promoten van amendementen ingeschakeld
+            amendment_promotion_enabled_help: De auteurs van de Emandation kunnen de afgewezen emendatie voorstellen.
+            amendment_reaction_enabled: Reageren op amendementen ingeschakeld
+            amendment_reaction_enabled_help: De auteurs van het voorstel kunnen de amendementen van deelnemers accepteren of verwerpen.
+            amendments_visibility: Zichtbaarheid van amendement
+            amendments_visibility_help: Als de optie "alleen zichtbaar voor de auteurs" wordt geselecteerd, moet een deelnemer aangemeld zijn om de amendementen te zien.
             announcement: إعلان
             automatic_hashtags: علامات التصنيف المضافة إلى جميع المقترحات
             comments_blocked: تم حظر التعليقات
@@ -139,7 +152,16 @@ ar:
             votes_blocked: يدعم المحظورة
             votes_enabled: يدعم تمكين
             votes_hidden: يدعم مخفي (إذا تم تمكين الدعم ، سيؤدي تحديد هذا إلى إخفاء عدد الدعم)
+            votes_weight_enabled: Up / Down / Neutral votes enabled
     events:
+      proposal_created:
+        email_subject: Nouvelle proposition de %{author_name}.
+        moderation:
+          email_intro: Email intro
+          email_subject: Email subject
+          moderation_url: Moderation url
+        notification_title: Il y a une nouvelle proposition de %{author_name} dans <a href="%{resource_path}">%{resource_title}</a>a>a
+        url: 'url de commentaire : %{resource_url}'
       proposals:
         collaborative_draft_access_accepted:
           email_intro: تم قبول %{requester_name} للوصول كمساهم في المسودة التعاونية <a href="%{resource_path}">%{resource_title}</a>.
@@ -187,6 +209,15 @@ ar:
             email_outro: لقد تلقيت هذا الإشعار لأنك مؤلف "%{resource_title}".
             email_subject: تم قبول الاقتراح الخاص بك
             notification_title: تم قبول اقتراحك <a href="%{resource_path}">%{resource_title}</a>.
+          email_intro: 'Пропозиція "%{resource_title}" була прийнята. Ви можете прочитати відповідь на сторінці:'
+          email_outro: Ви отримали це сповіщення, тому що ви стежите за "%{resource_title}". Ви можете припинити стежити за ним, перейшовши за наведеним вище посиланням.
+          email_subject: Пропозиція, за якою ви стежите, була прийнята
+          follower:
+            email_intro: 'The proposal "%{resource_title}" has been accepted. You can read the answer in this page:'
+            email_outro: You have received this notification because you are following "%{resource_title}". You can unfollow it from the previous link.
+            email_subject: A proposal you're following has been accepted
+            notification_title: The <a href="%{resource_path}">%{resource_title}</a> proposal has been accepted.
+          notification_title: Пропозицію <a href="%{resource_path}">%{resource_title}</a> було прийнято.
         proposal_endorsed:
           email_intro: '%{endorser_name} %{endorser_nickname}، الذي تتابعه ، وافق للتو على الاقتراح "%{resource_title}" ونعتقد أنه قد يكون مثيرا للاهتمام بالنسبة لك. التحقق من ذلك والمساهمة:'
           email_outro: لقد تلقيت هذا الإشعار لأنك تتابع %{endorser_nickname}. يمكنك إيقاف تلقي الإخطارات باتباع الرابط السابق.
@@ -198,6 +229,15 @@ ar:
             email_outro: لقد تلقيت هذا الإشعار لأنك مؤلف "%{resource_title}".
             email_subject: يتم تقييم الاقتراح الخاص بك
             notification_title: يتم تقييم الاقتراح الخاص بك <a href="%{resource_path}">%{resource_title}</a>.
+          email_intro: 'Пропозиція "%{resource_title}" зараз розглядається. Ви можете перевірити наявність відповіді на сторінці:'
+          email_outro: Ви отримали це сповіщення, тому що ви стежите за "%{resource_title}". Ви можете припинити стежити за ним, перейшовши за наведеним вище посиланням.
+          email_subject: Пропозиція, за якою ви стежите, зараз розглядається
+          follower:
+            email_intro: 'The proposal "%{resource_title}" is currently being evaluated. You can check for an answer in this page:'
+            email_outro: You have received this notification because you are following "%{resource_title}". You can unfollow it from the previous link.
+            email_subject: A proposal you're following is being evaluated
+            notification_title: The <a href="%{resource_path}">%{resource_title}</a> proposal is being evaluated.
+          notification_title: Пропозиція <a href="%{resource_path}">%{resource_title}</a> розглядається.
         proposal_mentioned:
           email_intro: لقد تم ذكر اقتراحك "%{mentioned_proposal_title}" <a href="%{resource_path}">في هذه المساحة</a> في التعليقات.
           email_outro: لقد تلقيت هذا الإشعار لأنك مؤلف "%{resource_title}".
@@ -219,6 +259,15 @@ ar:
             email_outro: لقد تلقيت هذا الإشعار لأنك مؤلف "%{resource_title}".
             email_subject: تم رفض اقتراحك
             notification_title: تم رفض اقتراحك <a href="%{resource_path}">%{resource_title}</a>.
+          email_intro: 'Пропозиція "%{resource_title}" була відхилена. Ви можете прочитати відповідь на сторінці:'
+          email_outro: Ви отримали це сповіщення, тому що ви стежите за "%{resource_title}". Ви можете припинити стежити за ним, перейшовши за наведеним вище посиланням.
+          email_subject: Пропозиція, за якою ви стежите, була відхилена
+          follower:
+            email_intro: 'The proposal "%{resource_title}" has been rejected. You can read the answer in this page:'
+            email_outro: You have received this notification because you are following "%{resource_title}". You can unfollow it from the previous link.
+            email_subject: A proposal you're following has been rejected
+            notification_title: The <a href="%{resource_path}">%{resource_title}</a> proposal has been rejected.
+          notification_title: Пропозицію <a href="%{resource_path}">%{resource_title}</a> було відхилено.
         proposal_update_category:
           email_intro: 'قام المشرف بتحديث فئة اقتراحك "%{resource_title}" ، تحقق من ذلك في هذه الصفحة:'
           email_outro: لقد تلقيت هذا الإشعار لأنك مؤلف الاقتراح.
@@ -430,11 +479,13 @@ ar:
           all: الكل
           citizens: المواطنون
           meetings: اجتماعات
+          official: Official
           user_groups: المجموعات
         filter_state_values:
           accepted: وافقت
           all: الكل
           evaluating: تقييم
+          except_rejected: All except rejected
           rejected: مرفوض
         filter_type_values:
           all: الكل
@@ -629,9 +680,14 @@ ar:
             other: "%{count} مقترحات"
             two: "%{count} مقترحات"
             zero: "%{count} مقترحات"
+        dynamic_map_instructions:
+          primary: You can move the point on the map.
+          secondary: Don't forget to click on the "Update Position" button before publishing your proposal.
         edit:
+          address: Address (don't forget to specify the city)
           attachment_legend: "(اختياري) إضافة مرفق"
           back: الى الخلف
+          not_geocoded: Not geocoded
           select_a_category: الرجاء تحديد الفئة
           send: إرسال
           title: تعديل الاقتراح
@@ -677,16 +733,24 @@ ar:
           title: إنشاء اقتراحك
         orders:
           label: 'ترتيب المقترحات حسب:'
+          most_commented: Meeste reacties
+          most_endorsed: Meest goedgekeurd
+          most_followed: Meest gevolgd
           most_voted: التي تحصلت على أكبر دعم
           random: عشوائية
           recent: الأخيرة
+          with_more_authors: Met meer auteurs
         participatory_texts:
           index:
             document_index: فهرس الوثيقة
           view_index:
             see_index: انظر الفهرس
+        placeholder:
+          address: "[n°] [street] [postal] [city]"
         preview:
+          address: 'Address: %{address}'
           modify: تعديل الاقتراح
+          not_geocoded: Your address has not been geocoded, the preview is not available.
           proposal_edit_before_minutes:
             few: ستتمكن من تعديل هذا الاقتراح خلال الدقائق %{count} الأولى بعد نشر الاقتراح. بمجرد مرور هذه النافذة الزمنية ، لن تتمكن من تعديل الاقتراح.
             many: ستتمكن من تعديل هذا الاقتراح خلال الدقائق %{count} الأولى بعد نشر الاقتراح. بمجرد مرور هذه النافذة الزمنية ، لن تتمكن من تعديل الاقتراح.
@@ -696,10 +760,12 @@ ar:
             zero: ستتمكن من تعديل هذا الاقتراح خلال الدقائق %{count} الأولى بعد نشر الاقتراح. بمجرد مرور هذه النافذة الزمنية ، لن تتمكن من تعديل الاقتراح.
           publish: نشر
           title: نشر اقتراحك
+          update_pos: Update the position
         proposal:
           creation_date: 'الإنشاء: %{date}'
           view_proposal: عرض الاقتراح
         show:
+          back: Back to list
           back_to: ارجع الى
           edit_proposal: تعديل الاقتراح
           endorsements_list: قائمة المصادقة
@@ -729,6 +795,10 @@ ar:
           no_votes_remaining: لا يدعم المتبقية
           vote: الدعم
           votes_blocked: يدعم المعوقين
+        vote_weight:
+          maximum_votes_reached: Maximum votes reached
+          no_votes_remaining: No votes remaining
+          votes_blocked: Votes blocked
         votes_count:
           count:
             few: يدعم
@@ -739,6 +809,10 @@ ar:
             zero: يدعم
           most_popular_proposal: الاقتراح الأكثر شعبية
           need_more_votes: بحاجة الى مزيد من الدعم
+        votes_weight:
+          count: Count
+          most_popular_proposal: Proposition la plus populaire
+          need_more_votes: Besoin de plus de votes
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: كل اقتراح يمكن أن تتراكم أكثر من %{limit} يدعم

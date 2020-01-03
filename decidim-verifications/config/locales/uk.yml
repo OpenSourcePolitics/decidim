@@ -35,6 +35,8 @@ uk:
         grant_id_documents_offline_verification: "%{user_name} verified %{resource_name} using an offline Identity Documents verification"
     authorization_handlers:
       admin:
+        csv_census:
+          help: '["Admins upload a CSV with the emails of the accepted participants", "Only participants with an email in that CSV file can get verified"]'
         id_documents:
           help:
           - Учасники вводять свої особисті відомості та завантажують світлину свого документа.
@@ -47,6 +49,9 @@ uk:
           - Ви надсилаєте листа з перевірочним кодом на їх адресу.
           - Ви позначаєте лист як надісланий.
           - Після позначення вами листа як відправленого, учасник зможе ввести код та підтвердити свою особу.
+      csv_census:
+        explanation: Get verified using the organization's census
+        name: Organization's census
       direct: Пряме
       help: Допомога
       id_documents:
@@ -66,6 +71,7 @@ uk:
         first_login:
           actions:
             another_dummy_authorization_handler: Підтвердьте, порівнявши з іншим прикладом підтвердження своєї особи
+            csv_census: Verify against the organization's census
             dummy_authorization_handler: Підтвердьте, порівнявши з прикладом підтвердження своєї особи
             dummy_authorization_workflow: Підтвердьте, порівнявши з прикладом підтвердження своєї особи
             id_documents: Підтвердіть особу, завантаживши ваш документ
@@ -77,6 +83,33 @@ uk:
           authorize_with: Підтвердити особу за допомогою %{authorizer}
         skip_verification: Ви можете поки що пропустити це і %{link}
         start_exploring: почати досліджувати
+      csv_census:
+        admin:
+          census:
+            create:
+              error: There was an error importing census.
+              success: Successfully imported %{count} items (%{errors} errors)
+            destroy_all:
+              success: All census data have been deleted
+          destroy:
+            confirm: Delete all the census can not be undone. Are you sure you want to continue?
+            title: Delete all census data
+          index:
+            data: There are %{count} records loaded in total. Last upload date was on %{due_date}
+            empty: There are no census data. Use the form below to import it using a CSV file.
+            title: Current census data
+          instructions:
+            body: To do this you must enter system administration and add the csv_census authorizations to the organization
+            title: You need to activate the csv census for this organization
+          new:
+            file: ".csv file with emails data"
+            info: 'Must be a file with CSV format with one column: email'
+            submit: Upload file
+            title: Upload a new census
+        authorizations:
+          new:
+            error: We could not verify your account or you are not in the organization's census.
+            success: Your account has been successfully verified.
       dummy_authorization:
         extra_explanation:
           few: Участь обмежується лише учасниками з поштовими кодами %{postal_codes}.
@@ -177,7 +210,12 @@ uk:
           create:
             error: There was a problem with your request
             success: Thanks! We've sent an SMS to your phone.
+          destroy:
+            success: Verification code sucessfully reset. Please re-enter your phone number.
           edit:
+            confirm_destroy: Are you sure you want to reset the verification code?
+            destroy: Reset verification code
+            resend: Didn't receive the verification code?
             send: Confirm
             title: Introduce the verification code you received
           new:

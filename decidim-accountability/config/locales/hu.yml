@@ -189,6 +189,7 @@ hu:
           global:
             categories_label: '"Kategóriák" neve'
             comments_enabled: Megjegyzések engedélyezve
+            comments_max_length: Nombre de caractères maximum des commentaires (Mettre 0 pour laisser la valeur par défaut)
             display_progress_enabled: Állapot megjelenítése
             heading_leaf_level_results: '"Projektek" neve'
             heading_parent_level_results: '"Eredmények" neve'

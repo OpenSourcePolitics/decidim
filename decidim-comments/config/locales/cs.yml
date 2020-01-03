@@ -23,6 +23,8 @@ cs:
       comments: Komentáře
       last_activity:
         new_comment_at_html: "<span>Nový komentář v %{link}</span>"
+      translate: Translate
+      translated: Back to original version
       votes:
         create:
           error: Při hlasování se vyskytly chyby.
@@ -73,6 +75,8 @@ cs:
         blocked_comments_warning: Komentáře jsou v tuto chvíli zakázány, ale můžete si přečíst předchozí.
         loading: Načítání komentářů ...
         title: "%{count} komentářů"
+        title_0: There are no comments yet
+        title_1: "%{count} comment"
     events:
       comments:
         comment_by_followed_user:

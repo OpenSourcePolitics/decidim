@@ -33,6 +33,7 @@ uk:
           global:
             announcement: Оголошення
             comments_enabled: Коментарі увімкнено
+            comments_max_length: Comments max length
           step:
             announcement: Оголошення
             comments_blocked: Коментарі вимкнено
@@ -104,10 +105,8 @@ uk:
           create: Започаткувати
           select_a_category: Будь ласка, виберіть категорію
           title: Додати обговорення
-        share:
-          close_window: Закрити вікно
-          share: Поділитися
-          share_link: Поділитись посиланням
+        show:
+          back: Back to list
       last_activity:
         new_debate_at_html: "<span>New debate at %{link}</span>"
       models:

@@ -16,6 +16,8 @@ pl:
             choices:
               missing: nie są kompletne
               too_many: jest zbyt wiele
+        questionnaire:
+          request_invalid: There's been an error handling the request. Please try again
   decidim:
     forms:
       admin:
@@ -81,3 +83,7 @@ pl:
       user_answers_serializer:
         created_at: Odpowiedziałem na
         id: ID odpowiedzi
+        ip_hash: Ip Hash
+        registered: Registered
+        unregistered: Unregistered
+        user_status: User status

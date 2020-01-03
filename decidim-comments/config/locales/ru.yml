@@ -71,6 +71,7 @@ ru:
       comment_thread:
         title: Беседа с %{authorName}
       comments:
+        blocked_comments_for_user_warning: You are not able to comment at this moment, but you can read the previous ones.
         blocked_comments_warning: Комментарии сейчас отключены, но вы можете прочитать предыдущие.
         loading: Загрузка комментариев ...
         title: "%{count} комментариев"

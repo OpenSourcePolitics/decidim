@@ -82,6 +82,7 @@ sv:
           global:
             announcement: Meddelande
             comments_enabled: Kommentarer aktiverade
+            comments_max_length: Comments max length
             default_registration_terms: Villkor för standardregistrering
             enable_pads_creation: Aktivera skapande av memo
             resources_permissions_enabled: Åtgärdsbehörigheter kan ställas in för varje möte
@@ -96,11 +97,15 @@ sv:
             email_outro: Du har fått det här meddelandet eftersom du organiserade mötet "%{resource_title}".
             email_subject: Mötet "%{resource_title}" stängdes
             notification_title: Mötet <a href="%{resource_path}">%{resource_title}</a> stängdes.
+          email_intro: 'La rencontre "%{resource_title}" est terminée. Vous pouvez en lire le compte rendu sur sa page :'
+          email_outro: Vous avez reçu cette notification, car vous suivez la rencontre "%{resource_title}". Vous pouvez arrêter de la suivre à partir du lien précédent.
+          email_subject: La rencontre "%{resource_title}" est terminée
           follower:
             email_intro: 'Mötet "%{resource_title}" stängdes. Du kan läsa slutsatserna från dess sida:'
             email_outro: Du har fått det här meddelandet eftersom du följer mötet "%{resource_title}". Du kan sluta att följa det via föregående länk.
             email_subject: Mötet "%{resource_title}" stängdes
             notification_title: Mötet <a href="%{resource_path}">%{resource_title}</a> stängdes.
+          notification_title: La rencontre <a href="%{resource_path}">%{resource_title}</a> est terminée.
         meeting_created:
           email_intro: Mötet "%{resource_title}" har lagts till i "%{participatory_space_title}" som du följer.
           email_outro: Du har fått den här meddelandet eftersom du följer "%{participatory_space_title}". Du kan avfölja det vid föregående länk.
@@ -366,6 +371,7 @@ sv:
           confirm: Bekräfta
         show:
           attendees: Antal deltagare
+          back: Back to list
           contributions: Antal bidrag
           going: Jag kommer
           join: Gå med i mötet

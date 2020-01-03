@@ -4,6 +4,14 @@ de-DE:
     attributes:
       account:
         delete_reason: Reason to delete your account
+      group:
+        about: Over
+        avatar: Profielafbeelding
+        document_number: Documentnummer
+        email: E-mail
+        name: Naam
+        nickname: Roepnaam
+        phone: Telefoon
       report:
         details: Additional comments
       user:
@@ -113,6 +121,7 @@ de-DE:
         update: "%{user_name} updated the organization settings"
       participatory_space_private_user:
         create: "%{user_name} invited %{resource_name} to be a private user"
+        create_via_csv: "%{user_name} heeft %{resource_name} uitgenodigd om een privé deelnemer te zijn"
         delete: "%{user_name} removed the user %{resource_name} as a private user"
       scope:
         create: "%{user_name} created the %{resource_name} scope"
@@ -144,6 +153,7 @@ de-DE:
         error: There has been an error amending this resource.
         help_text: Improve this %{model_name} by modifying its %{amendable_fields}
         promote_button: Promote to %{model_name}
+        promote_confirm_text: Are you sure you want to promote this emendation?
         promote_help_text: You can promote this emendation and publish it as an independent %{model_name}
         section_heading: Amendments (%{count})
       created:
@@ -161,6 +171,7 @@ de-DE:
           evaluating: |-
             This amendment for the %{amendable_type} %{amendable_link}
             is being evaluated.
+          promoted: Gepromoveerd naar een %{amendable_type}.
           rejected: |-
             This emendation for the %{amendable_type} %{amendable_link}
             was rejected on <strong>%{announcement_date}</strong>.
@@ -226,6 +237,36 @@ de-DE:
         explanation: Submit your mobile phone number so we can check your identity.
         name: Code by SMS
       started_at: Started at %{timestamp}
+    authorization_modals:
+      content:
+        expired:
+          authorize: Reauthorize with "%{authorization}"
+          explanation: Your authorization has expired. In order to perform this action, you need to be reauthorized with "%{authorization}".
+          title: Authorization has expired
+        incomplete:
+          cancel: Cancel
+          explanation: 'Even though you''re currently authorized with "%{authorization}", we need you to reauthorize because we lack the following data:'
+          invalid_field: "%{field}"
+          reauthorize: Reauthorize
+          title: Please reauthorize
+        missing:
+          authorize: Authorize with "%{authorization}"
+          explanation: In order to perform this action, you need to be authorized with "%{authorization}".
+          title: Authorization required
+        pending:
+          explanation: In order to perform this action, you need to be authorized with "%{authorization}", but your authorization is still in progress
+          resume: Check your "%{authorization}" authorization progress
+          title: Authorization is still in progress
+        unauthorized:
+          explanation: Sorry, you can't perform this action as some of your authorization data doesn't match.
+          invalid_field: "%{field} value %{value} isn't valid."
+          ok: Ok
+          title: Not authorized
+        unconfirmed:
+          confirmation_instructions: 'If you haven''t received the confirmation instructions you can request them again:'
+          explanation_html: In order to perform this action you need to be authorized, before doing that you need to confirm your email <strong>%{email}</strong>.
+          request_confirmation_instructions: Request confirmation instructions
+          title: Confirm your email
     collapsible_list:
       hidden_elements_count:
         one: and %{count} more
@@ -242,14 +283,21 @@ de-DE:
           global:
             amendments_enabled: Amendments enabled
             comments_enabled: Comments enabled
+            comments_max_length: comments_max_length
             dummy_global_attribute_1: Dummy Attribute 1
             dummy_global_attribute_2: Dummy Attribute 2
+            dummy_global_translatable_text: Vertaalbare tekst Dummy
             enable_pads_creation: Enable pads creation
             resources_permissions_enabled: Resources permissions enabled
           step:
+            amendment_creation_enabled: Aanmaken van amendementen ingeschakeld
+            amendment_promotion_enabled: Promoten van amendementen ingeschakeld
+            amendment_reaction_enabled: Reageren op amendementen ingeschakeld
+            amendments_visibility: Zichtbaarheid van amendement
             comments_blocked: Comments blocked
             dummy_step_attribute_1: Dummy Step Attribute 1
             dummy_step_attribute_2: Dummy Step Attribute 2
+            dummy_step_translatable_text: Dummy Stap Vertaalbare tekst
     contact: Contact
     content_blocks:
       footer_sub_hero:
@@ -301,6 +349,7 @@ de-DE:
           newsletter: Receive an occasional newsletter with relevant information
           newsletter_title: Contact permission
           nickname_help: Your short, unique identifier in %{organization}
+          password_help: "%{minimun_characters} characters minimum, must not be too common (e.g. 123456) and must be different from your nickname and your email."
           sign_in: Log in
           sign_up: Sign up
           sign_up_as:
@@ -517,6 +566,9 @@ de-DE:
       current_image: Current image
       default_image: Default image
       errors:
+        decidim/user:
+          password: Het wachtwoord is te kort.
+          password_confirmation: Wachtwoordbevestiging moet overeenkomen met het wachtwoord.
         error: There's an error in this field.
       remove_this_file: Remove this file
     gamification:
@@ -947,8 +999,15 @@ de-DE:
       login_modal:
         please_sign_in: Please sign in
         sign_up: Sign up
+      participatory_space_filters:
+        filters:
+          areas: Areas
+          select_an_area: Select an area
       reference:
         reference: 'Reference: %{reference}'
+      represent_user_group:
+        represent_user_group: I represent a group
+        select_user_group: Select a group
       results_per_page:
         label: 'Results per page:'
       share_modal:
@@ -957,8 +1016,10 @@ de-DE:
         share_link: Share link
       version_author:
         deleted: Deleted user
-    translate: Translate
-    translated: Translated
+    translate:
+      original: Translate (*)
+      tooltip: Translated with Deepl
+      translated: Back to the original version
     user_activity:
       index:
         no_activities_warning: This user hasn't had any activity yet.
@@ -1064,6 +1125,7 @@ de-DE:
         change_your_password: Change your password
         confirm_new_password: Confirm new password
         new_password: New password
+        password_help: "%{minimun_characters} characters minimum, must not be too common (e.g. 123456) and must be different from your nickname and your email."
       new:
         forgot_your_password: Forgot your password?
         send_me_reset_password_instructions: Send me reset password instructions
@@ -1219,12 +1281,15 @@ de-DE:
     qq: Qzone
     reddit: Reddit
     share_to: Share to %{name}
+    telegram: Telegram
     tumblr: Tumblr
     twitter: Twitter
     vkontakte: Vkontakte
     wechat: WeChat
     wechat_footer: Open your WeChat, click "Discover" button then click the "Scan QR Code" menu.
     weibo: Sina Weibo
+    whatsapp_app: WhatsApp
+    whatsapp_web: WhatsApp
     xing: Xing
   time:
     formats:
@@ -1234,11 +1299,22 @@ de-DE:
       day_of_year: "%d.%m.%y"
       decidim_day_of_year: "%d %B %Y"
       decidim_short: "%d/%m/%Y %H:%M"
+      default: "%a, %d %b %Y %H:%M:%S %z"
       devise:
         mailer:
           invitation_instructions:
             accept_until_format: "%B %d, %Y %I:%M %p"
+      long: "%B %d, %Y %H:%M"
+      short: "%d/%m/%Y %H:%M"
       time_of_day: "%H:%M"
+  versions:
+    directions:
+      left: Deletions
+      right: Additions
+    dropdown:
+      choose_diff_view_mode: 'Compare view mode:'
+      option_split: Side-by-side
+      option_unified: Unified
   views:
     pagination:
       first: "&laquo; First"

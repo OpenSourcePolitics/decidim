@@ -4,6 +4,14 @@ ar:
     attributes:
       account:
         delete_reason: سبب حذف حسابك
+      group:
+        about: Over
+        avatar: Profielafbeelding
+        document_number: Documentnummer
+        email: E-mail
+        name: Naam
+        nickname: Roepnaam
+        phone: Telefoon
       report:
         details: تعليقات إضافية
       user:
@@ -16,6 +24,10 @@ ar:
         personal_url: العنوان الشبكي الشخصي
         remove_avatar: إزالة الصورة الرمزية
     models:
+      decidim/amendable/amendment_accepted_event: Amendment accepted
+      decidim/amendable/amendment_created_event: Amendment created
+      decidim/amendable/amendment_rejected_event: Amendment rejected
+      decidim/amendable/emendation_promoted_event: Amendment promoted
       decidim/attachment_created_event: المرفق
       decidim/component_published_event: العنصر النشط
       decidim/demoted_membership: لم يعد مشرف المجموعة
@@ -121,6 +133,7 @@ ar:
         update: قام %{user_name} بتحديث إعدادات المنظمة
       participatory_space_private_user:
         create: "%{user_name} مدعو %{resource_name} ليكون مشاركًا خاصًا"
+        create_via_csv: "%{user_name} heeft %{resource_name} uitgenodigd om een privé deelnemer te zijn"
         delete: "%{user_name} أزال المشارك %{resource_name} كمشارك خاص"
       scope:
         create: "%{user_name} خلق نطاق %{resource_name}"
@@ -149,8 +162,11 @@ ar:
       amendable:
         amended_by: عدلت من قبل
         button: تعديل %{model_name}
+        error: There has been an error amending this resource.
         help_text: تحسين هذا %{model_name} عن طريق تعديل %{amendable_fields}الخاص به
+        promote_button: Promote to %{model_name}
         promote_confirm_text: هل أنت متأكد من رغبتك في الترويج لهذا الإصدار؟
+        promote_help_text: You can promote this emendation and publish it as an independent %{model_name}
         section_heading: التعديلات (%{count})
       created:
         error: حدث خطأ أثناء إنشاء التعديل
@@ -167,6 +183,7 @@ ar:
           evaluating: |-
             هذا التعديل لل %{amendable_type} %{amendable_link}
             قيد التقييم.
+          promoted: Gepromoveerd naar een %{amendable_type}.
           rejected: تم رفض تعديل %{amendable_type} %{amendable_link} هذا في <strong>%{announcement_date}</strong>.
           withdrawn: |-
             تم سحب هذا التعديل على %{amendable_type} %{amendable_link}
@@ -240,12 +257,33 @@ ar:
       started_at: بدأت في %{timestamp}
     authorization_modals:
       content:
+        expired:
+          authorize: Reauthorize with "%{authorization}"
+          explanation: Your authorization has expired. In order to perform this action, you need to be reauthorized with "%{authorization}".
+          title: Authorization has expired
         incomplete:
           cancel: إلغاء
+          explanation: 'Even though you''re currently authorized with "%{authorization}", we need you to reauthorize because we lack the following data:'
+          invalid_field: "%{field}"
+          reauthorize: Reauthorize
+          title: Please reauthorize
+        missing:
+          authorize: Authorize with "%{authorization}"
+          explanation: In order to perform this action, you need to be authorized with "%{authorization}".
+          title: Authorization required
+        pending:
+          explanation: In order to perform this action, you need to be authorized with "%{authorization}", but your authorization is still in progress
+          resume: Check your "%{authorization}" authorization progress
+          title: Authorization is still in progress
         unauthorized:
+          explanation: Sorry, you can't perform this action as some of your authorization data doesn't match.
+          invalid_field: "%{field} value %{value} isn't valid."
           ok: موافق
           title: غير مخوّل
         unconfirmed:
+          confirmation_instructions: 'If you haven''t received the confirmation instructions you can request them again:'
+          explanation_html: In order to perform this action you need to be authorized, before doing that you need to confirm your email <strong>%{email}</strong>.
+          request_confirmation_instructions: Request confirmation instructions
           title: تأكيد البريد الإلكتروني
     collapsible_list:
       hidden_elements_count:
@@ -267,14 +305,21 @@ ar:
           global:
             amendments_enabled: تم تمكين التعديلات
             comments_enabled: تم تمكين التعليقات
+            comments_max_length: comments_max_length
             dummy_global_attribute_1: السمة الدمية 1
             dummy_global_attribute_2: السمة الدمية 2
+            dummy_global_translatable_text: Vertaalbare tekst Dummy
             enable_pads_creation: تمكين إنشاء منصات
             resources_permissions_enabled: تم تمكين أذونات الموارد
           step:
+            amendment_creation_enabled: Aanmaken van amendementen ingeschakeld
+            amendment_promotion_enabled: Promoten van amendementen ingeschakeld
+            amendment_reaction_enabled: Reageren op amendementen ingeschakeld
+            amendments_visibility: Zichtbaarheid van amendement
             comments_blocked: تم حظر التعليقات
             dummy_step_attribute_1: الخطوة الدمية السمة 1
             dummy_step_attribute_2: الخطوة الدمية السمة 2
+            dummy_step_translatable_text: Dummy Stap Vertaalbare tekst
     contact: اتصل
     content_blocks:
       footer_sub_hero:
@@ -326,6 +371,7 @@ ar:
           newsletter: تلقي رسالة إخبارية من حين لآخر مع المعلومات ذات الصلة
           newsletter_title: الاتصال إذن
           nickname_help: الاسم المستعار الخاص بك (@ كنية) في %{organization}
+          password_help: "%{minimun_characters} characters minimum, must not be too common (e.g. 123456) and must be different from your nickname and your email."
           sign_in: تسجيل الدخول
           sign_up: سجل
           sign_up_as:
@@ -542,6 +588,9 @@ ar:
       current_image: الصورة الحالية
       default_image: الصورة الافتراضية
       errors:
+        decidim/user:
+          password: Het wachtwoord is te kort.
+          password_confirmation: Wachtwoordbevestiging moet overeenkomen met het wachtwoord.
         error: يوجد خطأ في هذا المجال.
       remove_this_file: أزل هذا الملف
     gamification:
@@ -780,6 +829,9 @@ ar:
         greetings: تحية طيبة ،<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: مرحبا،
         subject: هل ترغب في الاستمرار في تلقي المعلومات ذات الصلة حول %{organization_name}؟
+    notification_mailer:
+      shared:
+        note: You received this message because you are subscribed to the email notification on %{organization_name}. You can change your settings on your notification page <a href="%{link}"></a>.
     notifications:
       no_notifications: لا إخطارات حتى الآن.
     notifications_settings:
@@ -881,6 +933,7 @@ ar:
       deleted: تم حذف المشارك
       view: رأي
     profiles:
+      default_officialization_text: Verified
       default_officialization_text_for_user_groups: تم التحقق من هذه المجموعة علنًا ، وتم التحقق من اسمها لتتوافق مع اسمه الحقيقي
       default_officialization_text_for_users: تم التحقق من هذا المشارك علنًا ، وتم التحقق من اسمه / دوره ليتوافق مع اسمه / دوره الحقيقي
       show:
@@ -998,6 +1051,10 @@ ar:
         share_link: مشاركة الرابط
       version_author:
         deleted: مشارك محذوف
+    translate:
+      original: Translate (*)
+      tooltip: Translated with Deepl
+      translated: Back to the original version
     user_activity:
       index:
         no_activities_warning: هذا المشارك لم يقم بأي نشاط حتى الآن.
@@ -1103,6 +1160,7 @@ ar:
         change_your_password: غير كلمة المرور الخاصة بك
         confirm_new_password: تأكيد كلمة المرور الجديدة
         new_password: كلمة السر الجديدة
+        password_help: "%{minimun_characters} characters minimum, must not be too common (e.g. 123456) and must be different from your nickname and your email."
       new:
         forgot_your_password: نسيت رقمك السري؟
         send_me_reset_password_instructions: أرسل لي إعادة تعيين تعليمات كلمة المرور
@@ -1152,6 +1210,7 @@ ar:
         other: "(%{count} حرف كحد أدنى)"
         two: "(%{count} حرف كحد أدنى)"
         zero: "(%{count} حرف كحد أدنى)"
+      password_help: 'At least 8 characters, a capital letter and a special character (ex: !)'
     unlocks:
       new:
         resend_unlock_instructions: إعادة إرسال تعليمات فتح
@@ -1186,6 +1245,17 @@ ar:
       too_short: قصير جدًا (أقل من 15 حرفًا)
   forms:
     required: مطلوب
+  instructions:
+    decidim:
+      system:
+        organizations:
+          smtp_settings:
+            address: Address
+            from_email: Sender's e-mail address
+            from_label: Shipper name
+            password: Password
+            port: Port
+            user_name: User Name
   invisible_captcha:
     sentence_for_humans: إذا كنت بشرًا ، فتجاهل هذا الحقل
     timestamp_error_message: آسف ، كان ذلك سريعًا جدًا! يرجى إعادة تقديم.
@@ -1254,12 +1324,15 @@ ar:
     qq: Qzone
     reddit: رديت
     share_to: شارك في %{name}
+    telegram: Telegram
     tumblr: نعرفكم
     twitter: تويتر
     vkontakte: فكونتاكتي
     wechat: WeChat
     wechat_footer: افتح WeChat الخاص بك ، وانقر فوق الزر "اكتشاف" ، ثم انقر فوق "مسح رمز الاستجابة السريعة" القائمة.
     weibo: سينا ويبو
+    whatsapp_app: WhatsApp
+    whatsapp_web: WhatsApp
     xing: شينغ
   time:
     formats:
@@ -1269,11 +1342,22 @@ ar:
       day_of_year: "%d.%m.%y"
       decidim_day_of_year: "%d %B %Y"
       decidim_short: "%d/%m/%Y %H:%M"
+      default: "%a, %d %b %Y %H:%M:%S %z"
       devise:
         mailer:
           invitation_instructions:
             accept_until_format: "%B %d، %Y %I:%M %p"
+      long: "%B %d, %Y %H:%M"
+      short: "%d/%m/%Y %H:%M"
       time_of_day: "%H:%M"
+  versions:
+    directions:
+      left: Deletions
+      right: Additions
+    dropdown:
+      choose_diff_view_mode: 'Compare view mode:'
+      option_split: Side-by-side
+      option_unified: Unified
   views:
     pagination:
       first: "&laquo; أولاً"

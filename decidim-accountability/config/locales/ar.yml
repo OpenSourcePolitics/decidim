@@ -197,6 +197,7 @@ ar:
           global:
             categories_label: اسم "الفئات"
             comments_enabled: تم تمكين التعليقات
+            comments_max_length: Nombre de caractères maximum des commentaires (Mettre 0 pour laisser la valeur par défaut)
             display_progress_enabled: عرض التقدم
             heading_leaf_level_results: اسم "المشاريع"
             heading_parent_level_results: اسم "النتائج"

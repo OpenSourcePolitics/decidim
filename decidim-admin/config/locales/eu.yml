@@ -37,15 +37,19 @@ eu:
         organization_url: Erakundearen URLa
         redirect_uri: Birbideratu URIa
       organization:
+        address: SMTP hostname
         alert_color: Alerta
         badges_enabled: Gaitu txapak
+        comments_max_length: Nombre de caractères maximum des commentaires (Mettre 0 pour laisser la valeur par défaut)
         cta_button_path: Deitu ekintza botoiaren bideora
         cta_button_text: Deitu ekintza botoiaren testura
+        customize_welcome_notification: Pas welkomstmelding aan
         default_locale: Eskualdeko ezarpen lehenetsiak
         description: deskribapena
         enable_omnipresent_banner: Erakutsi omnipresent banner
         facebook_handler: Facebook kudeatzailea
         favicon: Ikonoa
+        from: From email address
         github_handler: GitHub kudeatzailea
         header_snippets: Goiburuko mozkinak
         highlighted_content_banner_action_subtitle: Ekintza botoia azpititulua
@@ -64,16 +68,27 @@ eu:
         omnipresent_banner_short_description: Deskribapen laburra
         omnipresent_banner_title: Izenburua
         omnipresent_banner_url: URL
+        password: Password
+        port: Port
         primary_color: Lehen
         reference_prefix: Erreferentzia-aurrizkia
         secondary_color: Bigarren
+        send_welcome_notification: Stuur welkomstmelding
         show_statistics: Erakutsi estatistikak
         success_color: Arrakasta
         tos_version: Zerbitzu-baldintzak bertsioa
         twitter_handler: Twitter kudeatzailea
         user_groups_enabled: Gaitu erabiltzaileen taldeak
+        user_name: Username
         warning_color: Abisua
+        welcome_notification_body: Tekst van de welkomstmelding
+        welcome_notification_subject: Welkomstmelding onderwerp
         youtube_handler: YouTube kudeatzailea
+      participatory_process:
+        import_attachments: Importer les pièces jointes
+        import_categories: Importer les catégories
+        import_components: Importer les fonctionnalités
+        import_steps: Importer les étapes
       scope:
         code: Kodea
         name: Izena
@@ -157,6 +172,7 @@ eu:
           error: Errore bat gertatu da area berri bat sortzean.
           success: Area sortu da behar bezala.
         destroy:
+          has_spaces: Area has dependent spaces, it must not have dependencies in order to be deleted.
           success: Area behar bezala suntsitu da
         edit:
           title: Editatu eremua
@@ -241,6 +257,7 @@ eu:
         form:
           default_step_settings: Urratsen ezarpen lehenetsiak
           global_settings: Ezarpen globalak
+          participatory_texts_enabled_help: Cannot interact with this setting if there are existing proposals. Please, create a new `Proposals component` if you want to enable this feature or discard all imported proposals in the `Participatory Texts` menu if you want to disable it.
           step_settings: Ezarpenen urratsak
         index:
           add: Gehitu osagaia
@@ -308,6 +325,11 @@ eu:
         logs_list:
           no_logs_yet: Ez dago oraindik erregistroik
       managed_users:
+        index:
+          impersonate: Impersonate
+          needs_authoriation_warning: Needs authoriation warning
+          promote: Promote
+          view_logs: View logs
         promotion:
           error: Errorea gertatu da kudeatutako erabiltzailea mailaz igotzean.
           success: Kudeatutako erabiltzailea zuzen igo da mailaz.
@@ -327,6 +349,7 @@ eu:
         help_sections: Laguntza atalak
         homepage: Hasiera
         impersonations: impersonations
+        navbar_links: Navbar links
         newsletters: Buletinak
         oauth_applications: OAuth aplikazioak
         participants: Parte-hartzaileak
@@ -364,11 +387,19 @@ eu:
             reason: Arrazoia
             started_at: 'Hasiera-ordua:'
             user: Erabiltzailea
+        managed_user:
+          name: Name
+        navbar_link:
+          fields:
+            link: Link
+            title: Title
+            weight: Weight
         newsletter:
           fields:
             created_at: Sortze-data
             progress: " Aurrerapena "
             sent_at: " Bidalketa-data: "
+            sent_to: Sent to
             subject: Gaia
           name: Buletina
         oauth_application:
@@ -418,6 +449,28 @@ eu:
             does_not_belong: Ez du zer ikusirik
             offensive: Iraingarria
             spam: Spam
+      navbar_links:
+        create:
+          error: There was an error when creating this link.
+          success: Link created successfully
+        destroy:
+          success: Link successfully destroyed
+        edit:
+          title: Edit navbar link
+          update: Update
+        form:
+          link: Link
+          new_tab: Open in a new tab
+          same_tab: Open in the same tab
+          title: Title
+          weight: Weight
+        new:
+          create: Create
+          title: New navbar link
+        no_links: No links created
+        update:
+          error: There was an error when updating this link.
+          success: Link updated successfully
       newsletters:
         create:
           error: " Errorea gertatu da buletin hau sortzean."
@@ -434,20 +487,48 @@ eu:
         form:
           interpolations_hint: 'Iradokizuna: "%{name}" erabil dezakezu gaiaren edo testuaren edozein tokitan, eta horren ordez hartzailearen izena agertuko da.'
         index:
+          all: all
+          all_users: 'All users '
+          and: 'and '
           confirm_delete: Ziur zaude buletin hau deuseztatu nahi duzula?
+          followers: 'followers '
+          has_been_sent_to: 'Has been sent to: '
+          no_scopes: No scopes
+          not_sent: Not sent
+          participants: 'participants '
+          segmented_to: 'Segmented to %{subject}: '
           title: Buletinak
         new:
           save: Gorde
           title: Buletin berria
         select_recipients_to_deliver:
+          all_spaces: All
+          all_users_help: Sends newsletter to all confirmed users.
           confirm_deliver: Ziur zaude buletin hau bidali nahi duzula? Ekintza hau ezin da desegin.
           deliver: Bidali buletina
+          followers_help: Sends newsletter to all confirmed users that follow any selected participatory spaces in the list.
+          none: None
+          participants_help: Sends newsletter to all confirmed users that have participated in any of the selected participatory spaces in the list.
+          scopes_help: Sends newsletter to users that have any of the selected scope activated in their account's "My Interests" settings.
+          select_scopes: Filter for users having activated any selected scope in their account's My Interests settings.
+          select_spaces: Select spaces to segment the newsletter
+          select_users: Select which users you want to send the newsletter
+          send_to_all_users: Send to all users
+          send_to_followers: Send to followers
+          send_to_participants: Send to participants
+          title: Select recipients to deliver
+          warning: "<strong>Attention:</strong> This newsletter will only be send to users that have activated <em>I want to recieve newsletters</em> in their notifications settings."
+        send:
+          no_recipients: No recipients for this selection
         show:
           preview: Aurreikusi
+          select_recipients_to_deliver: Select recipients to deliver
           subject: Gaia
         update:
           error: Errorea gertatu da buletin hau eguneratzean.
           success: Buletina zuzen eguneratu da. Mesedez, berrikusi bidali baino lehen.
+      oauth_application:
+        new: New Oauth application
       oauth_applications:
         create:
           error: Errore bat gertatu da aplikazio hau sortzean.
@@ -606,6 +687,7 @@ eu:
           update: Eguneratu
         form:
           none: Bat ere ez
+          slug_help: 'Use partial paths, not full URLs here. Accepts letters, numbers, dashes and slashes, and must start with a letter. Example: %{url}'
         index:
           last_notable_change: Azken aldaketa nabaria
         new:
@@ -627,12 +709,16 @@ eu:
         dashboard: Kontrol-panela
         impersonatable_users: Erabiltzaile erabilgarriak
         impersonations: Erabiltzaileen kudeaketa
+        managed_users: Managed users
+        navbar_links: Navbar links
         participants: erabiltzaileak
         scope_types: Esparru motak
         scopes: Esparruak
         static_pages: Orriak
         user_groups: Erabiltzaile-taldeak
         users: Erabiltzaileak
+      user:
+        new: New user
       user_group:
         csv_verify:
           invalid: Errore bat gertatu da CSV fitxategia irakurtzean.

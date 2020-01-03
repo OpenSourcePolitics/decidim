@@ -7,6 +7,7 @@ fr:
         field: Champ
         start_date: Date de début
         title: Titre
+        translatable_text: Vertaal mijn tekst
         updated_at: Mis à jour à
   decidim:
     dummy:

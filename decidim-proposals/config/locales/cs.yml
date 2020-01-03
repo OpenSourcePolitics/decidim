@@ -88,6 +88,7 @@ cs:
     components:
       proposals:
         actions:
+          amend: Pas aan
           create: Vytvořit
           endorse: Potvrďte
           vote: Hlasování
@@ -96,15 +97,19 @@ cs:
         settings:
           global:
             amendments_enabled: Změny povoleny
+            amendments_enabled_help: 'Indien actief: stel de amendementsfunctionaliteiten in voor elke stap.'
+            amendments_wizard_help_text: Hulptekst van de amendementen wizard
             announcement: Oznámení
             attachments_allowed: Povolit přílohy
             can_accumulate_supports_beyond_threshold: Mohou hromadit podpěry za prahem
             collaborative_drafts_enabled: Schopnosti spolupráce jsou povoleny
             comments_enabled: Komentáře povoleny
+            comments_max_length: Comments max length
             geocoding_enabled: Geokódování povoleno
             minimum_votes_per_user: Minimální počet hlasů na uživatele
             new_proposal_help_text: Nový text nápovědy návrhu
             official_proposals_enabled: Byly povoleny oficiální návrhy
+            participatory_texts_disabled_help: Instelling niet aanpasbaar als er bestaande voorstellen zijn. Maak een nieuwe `Voorstellen component` aan als u deze functie wilt inschakelen of wijs alle geïmporteerde voorstellen in het `Participatieve Teksten` menu af, als u de instelling wilt uitschakelen.
             participatory_texts_enabled: Povolené účastnické texty
             proposal_answering_enabled: Odpovídání návrhu je povoleno
             proposal_edit_before_minutes: Návrhy mohou být editovány autory před tím, než projde hodně minut
@@ -118,6 +123,14 @@ cs:
             threshold_per_proposal: Prah na návrh
             vote_limit: Počet hlasů na uživatele
           step:
+            amendment_creation_enabled: Aanmaken van amendementen ingeschakeld
+            amendment_creation_enabled_help: Deelnemer kan voorstellen wijzigen.
+            amendment_promotion_enabled: Promoten van amendementen ingeschakeld
+            amendment_promotion_enabled_help: De auteurs van de Emandation kunnen de afgewezen emendatie voorstellen.
+            amendment_reaction_enabled: Reageren op amendementen ingeschakeld
+            amendment_reaction_enabled_help: De auteurs van het voorstel kunnen de amendementen van deelnemers accepteren of verwerpen.
+            amendments_visibility: Zichtbaarheid van amendement
+            amendments_visibility_help: Als de optie "alleen zichtbaar voor de auteurs" wordt geselecteerd, moet een deelnemer aangemeld zijn om de amendementen te zien.
             announcement: Oznámení
             automatic_hashtags: Do všech návrhů byly přidány značky Hashtags
             comments_blocked: Komentáře byly blokovány
@@ -129,7 +142,16 @@ cs:
             votes_blocked: Hlasování bylo blokováno
             votes_enabled: Hlasování povoleno
             votes_hidden: Hlasy skryté (pokud jsou povoleny hlasy, při kontrole se skryje počet hlasů)
+            votes_weight_enabled: Up / Down / Neutral votes enabled
     events:
+      proposal_created:
+        email_subject: Nouvelle proposition de %{author_name}.
+        moderation:
+          email_intro: Email intro
+          email_subject: Email subject
+          moderation_url: Moderation url
+        notification_title: Il y a une nouvelle proposition de %{author_name} dans <a href="%{resource_path}">%{resource_title}</a>a>a
+        url: 'url de commentaire : %{resource_url}'
       proposals:
         collaborative_draft_access_accepted:
           email_intro: '%{requester_name} byl přijat k přístupu jako přispěvatel k <a href="%{resource_path}">%{resource_title}</a> návrh spolupráce.'
@@ -177,11 +199,15 @@ cs:
             email_outro: Toto oznámení jste obdrželi, protože jste autorem položky "%{resource_title}".
             email_subject: Váš návrh byl přijat
             notification_title: Váš návrh <a href="%{resource_path}">%{resource_title}</a> byl přijat.
+          email_intro: 'Пропозиція "%{resource_title}" була прийнята. Ви можете прочитати відповідь на сторінці:'
+          email_outro: Ви отримали це сповіщення, тому що ви стежите за "%{resource_title}". Ви можете припинити стежити за ним, перейшовши за наведеним вище посиланням.
+          email_subject: Пропозиція, за якою ви стежите, була прийнята
           follower:
             email_intro: 'Návrh "%{resource_title}" byl přijat. Odpověď můžete číst na této stránce:'
             email_outro: Toto oznámení jste obdrželi, protože jste sledovali "%{resource_title}". Můžete jej odhlásit od předchozího odkazu.
             email_subject: Návrh, který sledujete, byl přijat
             notification_title: Návrh <a href="%{resource_path}">%{resource_title}</a> byl přijat.
+          notification_title: Пропозицію <a href="%{resource_path}">%{resource_title}</a> було прийнято.
         proposal_endorsed:
           email_intro: '%{endorser_name} %{endorser_nickname}, který sledujete, právě schválil návrh "%{resource_title}" a myslíme si, že by pro vás mohl být zajímavý. Vyzkoušejte to a přispějte:'
           email_outro: Toto oznámení jste obdrželi, protože jste sledovali %{endorser_nickname}. Po předchozím propojení můžete přestat přijímat oznámení.
@@ -193,11 +219,15 @@ cs:
             email_outro: Toto oznámení jste obdrželi, protože jste autorem položky "%{resource_title}".
             email_subject: Váš návrh je hodnocen
             notification_title: Váš návrh <a href="%{resource_path}">%{resource_title}</a> je hodnocen.
+          email_intro: 'Пропозиція "%{resource_title}" зараз розглядається. Ви можете перевірити наявність відповіді на сторінці:'
+          email_outro: Ви отримали це сповіщення, тому що ви стежите за "%{resource_title}". Ви можете припинити стежити за ним, перейшовши за наведеним вище посиланням.
+          email_subject: Пропозиція, за якою ви стежите, зараз розглядається
           follower:
             email_intro: 'V současné době se hodnotí návrh "%{resource_title}". V této stránce můžete zkontrolovat odpověď:'
             email_outro: Toto oznámení jste obdrželi, protože jste sledovali "%{resource_title}". Můžete jej odhlásit od předchozího odkazu.
             email_subject: Návrh, který sledujete, se hodnotí
             notification_title: Návrh <a href="%{resource_path}">%{resource_title}</a> se hodnotí.
+          notification_title: Пропозиція <a href="%{resource_path}">%{resource_title}</a> розглядається.
         proposal_mentioned:
           email_intro: Váš návrh "%{mentioned_proposal_title}" byl zmíněn <a href="%{resource_path}">v tomto prostoru</a> v komentářích.
           email_outro: Toto oznámení jste obdrželi, protože jste autorem položky "%{resource_title}".
@@ -219,11 +249,15 @@ cs:
             email_outro: Toto oznámení jste obdrželi, protože jste autorem položky "%{resource_title}".
             email_subject: Váš návrh byl zamítnut
             notification_title: Váš návrh <a href="%{resource_path}">%{resource_title}</a> byl zamítnut.
+          email_intro: 'Пропозиція "%{resource_title}" була відхилена. Ви можете прочитати відповідь на сторінці:'
+          email_outro: Ви отримали це сповіщення, тому що ви стежите за "%{resource_title}". Ви можете припинити стежити за ним, перейшовши за наведеним вище посиланням.
+          email_subject: Пропозиція, за якою ви стежите, була відхилена
           follower:
             email_intro: 'Návrh "%{resource_title}" byl zamítnut. Odpověď můžete číst na této stránce:'
             email_outro: Toto oznámení jste obdrželi, protože jste sledovali "%{resource_title}". Můžete jej odhlásit od předchozího odkazu.
             email_subject: Návrh, který sledujete, byl zamítnut
             notification_title: Návrh <a href="%{resource_path}">%{resource_title}</a> byl zamítnut.
+          notification_title: Пропозицію <a href="%{resource_path}">%{resource_title}</a> було відхилено.
         proposal_update_category:
           email_intro: 'Správce aktualizoval kategorii vašeho návrhu "%{resource_title}", podívejte se na něj:'
           email_outro: Toto oznámení jste obdrželi, protože jste autorem návrhu.
@@ -630,9 +664,14 @@ cs:
             many: "%{count} návrhů"
             one: "%{count} návrh"
             other: "%{count} návrhů"
+        dynamic_map_instructions:
+          primary: You can move the point on the map.
+          secondary: Don't forget to click on the "Update Position" button before publishing your proposal.
         edit:
+          address: Address (don't forget to specify the city)
           attachment_legend: "(Volitelné) Přidání přílohy"
           back: Zadní
+          not_geocoded: Not geocoded
           select_a_category: Vyberte kategorii
           send: Poslat
           title: Upravit návrh
@@ -676,16 +715,24 @@ cs:
           title: Vytvořte svůj návrh
         orders:
           label: 'Objednejte návrhy podle:'
+          most_commented: Meeste reacties
+          most_endorsed: Meest goedgekeurd
+          most_followed: Meest gevolgd
           most_voted: Nejvíce hlasovalo
           random: Náhodný
           recent: Nedávno
+          with_more_authors: Met meer auteurs
         participatory_texts:
           index:
             document_index: Index dokumentů
           view_index:
             see_index: Viz index
+        placeholder:
+          address: "[n°] [street] [postal] [city]"
         preview:
+          address: 'Address: %{address}'
           modify: Upravte návrh
+          not_geocoded: Your address has not been geocoded, the preview is not available.
           proposal_edit_before_minutes:
             few: Budete mít možnost upravit tento návrh během prvních %{count} minut po návrh zveřejněn. Po uplynutí tohoto časového okna nebudete moci návrh upravit.
             many: Budete mít možnost upravit tento návrh během prvních %{count} minut po návrh zveřejněn. Po uplynutí tohoto časového okna nebudete moci návrh upravit.
@@ -693,10 +740,12 @@ cs:
             other: Budete mít možnost upravit tento návrh během prvních %{count} minut po návrh zveřejněn. Po uplynutí tohoto časového okna nebudete moci návrh upravit.
           publish: Publikovat
           title: Publikujte svůj návrh
+          update_pos: Update the position
         proposal:
           creation_date: 'Tvorba: %{date}'
           view_proposal: Zobrazit návrh
         show:
+          back: Back to list
           back_to: Zpět k
           edit_proposal: Upravit návrh
           endorsements_list: Seznam doporučení
@@ -724,6 +773,10 @@ cs:
           no_votes_remaining: Žádné zbývající hlasy
           vote: Hlasování
           votes_blocked: Hlasování je zakázáno
+        vote_weight:
+          maximum_votes_reached: Maximum votes reached
+          no_votes_remaining: No votes remaining
+          votes_blocked: Votes blocked
         votes_count:
           count:
             few: HLASOVÁNÍ
@@ -732,6 +785,10 @@ cs:
             other: HLASOVÁNÍ
           most_popular_proposal: Nejoblíbenější návrh
           need_more_votes: Potřebujete více hlasů
+        votes_weight:
+          count: Count
+          most_popular_proposal: Proposition la plus populaire
+          need_more_votes: Besoin de plus de votes
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Každý návrh může akumulovat více než %{limit} podpor

@@ -7,6 +7,7 @@ gl:
         field: O meu campo
         start_date: Data de inicio
         title: Título
+        translatable_text: Vertaal mijn tekst
         updated_at: Actualizado en
   decidim:
     dummy:

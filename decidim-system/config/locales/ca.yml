@@ -30,9 +30,14 @@ ca:
         placeholders:
           content: Si us plau, afegeix contingut significatiu a la pàgina estàtica de %{page} dins el panell d'administració.
           title: Títol predeterminat per %{page}
+      logs:
+        index:
+          download_log: Download log
+          view_log: View %{line} lines
       menu:
         admins: Administradores
         dashboard: Tauler d'administració
+        logs: Logs
         organizations: Organitzacions
       models:
         admin:
@@ -62,6 +67,13 @@ ca:
           reference_prefix_hint: El prefix de la referència s'utilitza per identificar de forma única els recursos de tota la organització
           secondary_hosts_hint: Introdueix cada un d'ells en una nova línia
           title: Nova organització
+        smtp_settings:
+          address: Server address
+          from_email: From email
+          from_label: From label
+          password: Password
+          port: Server port
+          user_name: Username
         update:
           error: S'ha produït un error en actualitzar aquesta organització.
           success: L'organització s'ha actualitzat correctament.

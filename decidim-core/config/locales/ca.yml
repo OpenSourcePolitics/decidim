@@ -4,6 +4,14 @@ ca:
     attributes:
       account:
         delete_reason: Raó per eliminar el teu compte
+      group:
+        about: Over
+        avatar: Profielafbeelding
+        document_number: Documentnummer
+        email: E-mail
+        name: Naam
+        nickname: Roepnaam
+        phone: Telefoon
       report:
         details: Comentaris addicionals
       user:
@@ -16,6 +24,10 @@ ca:
         personal_url: URL personal
         remove_avatar: Elimina la imatge de perfil
     models:
+      decidim/amendable/amendment_accepted_event: Amendment accepted
+      decidim/amendable/amendment_created_event: Amendment created
+      decidim/amendable/amendment_rejected_event: Amendment rejected
+      decidim/amendable/emendation_promoted_event: Amendment promoted
       decidim/attachment_created_event: Arxiu adjunt
       decidim/component_published_event: Component actiu
       decidim/demoted_membership: Ja no ets una administradora del grup
@@ -109,6 +121,7 @@ ca:
         update: "%{user_name} ha actualitzat la configuració de l'organització"
       participatory_space_private_user:
         create: "%{user_name} ha convidat %{resource_name} com a participant privada"
+        create_via_csv: "%{user_name} heeft %{resource_name} uitgenodigd om een privé deelnemer te zijn"
         delete: "%{user_name} ha eliminat %{resource_name} com a participant privada"
       scope:
         create: "%{user_name} ha creat l'àmbit %{resource_name}"
@@ -154,6 +167,7 @@ ca:
         announcement:
           accepted: Aquesta esmena per al %{amendable_type} %{amendable_link} ha estat acceptada a <strong>%{announcement_date}</strong>.
           evaluating: Aquesta esmena per a %{amendable_type} %{amendable_link} está essent avaluada.
+          promoted: Gepromoveerd naar een %{amendable_type}.
           rejected: Aquesta esmena de la %{amendable_type} %{amendable_link} ha estat rebutjada el <strong>%{announcement_date}</strong>.
           withdrawn: Aquesta esmena de la %{amendable_type} %{amendable_link} ha estat retirada per l'autora.
       new:
@@ -261,14 +275,21 @@ ca:
           global:
             amendments_enabled: Esmenes habilitades
             comments_enabled: Comentaris habilitats
+            comments_max_length: comments_max_length
             dummy_global_attribute_1: Atribut de prova 1
             dummy_global_attribute_2: Atribut de prova 2
+            dummy_global_translatable_text: Vertaalbare tekst Dummy
             enable_pads_creation: Habilitar la creació de pads
             resources_permissions_enabled: Permisos de recursos habilitats
           step:
+            amendment_creation_enabled: Aanmaken van amendementen ingeschakeld
+            amendment_promotion_enabled: Promoten van amendementen ingeschakeld
+            amendment_reaction_enabled: Reageren op amendementen ingeschakeld
+            amendments_visibility: Zichtbaarheid van amendement
             comments_blocked: Comentaris bloquejats
             dummy_step_attribute_1: Atribut de fase de prova 1
             dummy_step_attribute_2: Atribut de fase de prova 2
+            dummy_step_translatable_text: Dummy Stap Vertaalbare tekst
     contact: Contacte
     content_blocks:
       footer_sub_hero:
@@ -533,6 +554,9 @@ ca:
       current_image: Imatge actual
       default_image: Imatge predeterminada
       errors:
+        decidim/user:
+          password: Het wachtwoord is te kort.
+          password_confirmation: Wachtwoordbevestiging moet overeenkomen met het wachtwoord.
         error: Hi ha un error en aquest camp.
       remove_this_file: Eliminar aquest arxiu
     gamification:
@@ -771,6 +795,9 @@ ca:
         greetings: Salutacions,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Hola,
         subject: Vols seguir rebent informació rellevant sobre %{organization_name}?
+    notification_mailer:
+      shared:
+        note: You received this message because you are subscribed to the email notification on %{organization_name}. You can change your settings on your notification page <a href="%{link}"></a>.
     notifications:
       no_notifications: Encara no hi ha notificacions.
     notifications_settings:
@@ -872,6 +899,7 @@ ca:
       deleted: Participant eliminada
       view: Veure
     profiles:
+      default_officialization_text: Verified
       default_officialization_text_for_user_groups: Aquest grup està verificat públicament, el seu nom s'ha verificat per correspondre amb el seu nom real
       default_officialization_text_for_users: Aquesta participant està verificada públicament. S'ha verificat que el seu nom o la seva funció es correspon amb el seu nom i funció reals
       show:
@@ -985,6 +1013,10 @@ ca:
         share_link: Compartir l'enllaç
       version_author:
         deleted: Participant eliminada
+    translate:
+      original: Translate (*)
+      tooltip: Translated with Deepl
+      translated: Back to the original version
     user_activity:
       index:
         no_activities_warning: Aquesta participant encara no ha tingut cap activitat.
@@ -1134,6 +1166,7 @@ ca:
       minimum_password_length:
         one: "(Mínim de%{count} caràcters)"
         other: "(Mínim de%{count} caràcters)"
+      password_help: 'At least 8 characters, a capital letter and a special character (ex: !)'
     unlocks:
       new:
         resend_unlock_instructions: Reenvia les instruccions de desbloqueig
@@ -1164,6 +1197,17 @@ ca:
       too_short: És massa curt (menys de 15 caràcters)
   forms:
     required: Obligatori
+  instructions:
+    decidim:
+      system:
+        organizations:
+          smtp_settings:
+            address: Address
+            from_email: Sender's e-mail address
+            from_label: Shipper name
+            password: Password
+            port: Port
+            user_name: User Name
   invisible_captcha:
     sentence_for_humans: Si ets un humà, ignora aquest camp
     timestamp_error_message: Ho sentim, has estat massa ràpid! Si us plau, torna a enviar-ho.
@@ -1232,12 +1276,15 @@ ca:
     qq: Qzone
     reddit: Reddit
     share_to: Compartir a %{name}
+    telegram: Telegram
     tumblr: Tumblr
     twitter: Twitter
     vkontakte: Vkontakte
     wechat: WeChat
     wechat_footer: Obre WeChat, fes clic al botó "Discover" i després fes clic al menú "Escanejar codi QR".
     weibo: Sina Weibo
+    whatsapp_app: WhatsApp
+    whatsapp_web: WhatsApp
     xing: Xing
   time:
     formats:
@@ -1247,10 +1294,13 @@ ca:
       day_of_year: "%d/%m/%y"
       decidim_day_of_year: "%d %B %Y"
       decidim_short: "%d/%m/%Y %H:%M"
+      default: "%a, %d %b %Y %H:%M:%S %z"
       devise:
         mailer:
           invitation_instructions:
             accept_until_format: "%B %d, %Y %I:%M %p"
+      long: "%B %d, %Y %H:%M"
+      short: "%d/%m/%Y %H:%M"
       time_of_day: "%H:%M"
   versions:
     directions:

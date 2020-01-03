@@ -21,6 +21,7 @@ hu:
         participatory_process_group_id: Folyamat csoport
         participatory_scope: Mi a döntés
         participatory_structure: Hogyan döntenek
+        private_space: Concertation privée
         promoted: Támogatott
         published_at: Közzétéve
         scope_id: Hatáskör
@@ -49,6 +50,12 @@ hu:
         email: Email
         name: Név
         role: Szerep
+    errors:
+      models:
+        participatory_process:
+          attributes:
+            document:
+              invalid_document_type: 'Invalid document type. Accepted formats are: %{valid_mime_types}'
     models:
       decidim/participatory_process_step_activated_event: Lépés aktiválva
       decidim/participatory_process_step_changed_event: Lépés megváltozott
@@ -75,6 +82,7 @@ hu:
         filter:
           all: Az összes folyamat megjelenítése
           process_groups: Folyamatcsoportok
+        import_process: Import
         new_process: Új folyamat
         new_process_group: Új folyamat csoport
         new_process_step: Új lépés
@@ -147,6 +155,14 @@ hu:
         update:
           error: Hiba történt a részvételi folyamat csoport frissítése során.
           success: Részvételi folyamat csoport frissítése sikeres.
+      participatory_process_imports:
+        create:
+          error: There was a problem importing this participatory process.
+          success: Participatory process successfully imported.
+        new:
+          import: Import
+          select: Select which data you would like to import
+          title: Import participatory process
       participatory_process_publications:
         create:
           error: Hiba történt a részvételi folyamat közzététele során.
@@ -207,6 +223,9 @@ hu:
         index:
           not_published: Nincs közzétéve
           private: Privát
+          promoted:
+            'false': 'False'
+            'true': 'True'
           public: Nyilvános
           published: Közzétéve
         new:
@@ -236,6 +255,9 @@ hu:
         publish: "%{user_name} közzétette a(z) %{resource_name} részvételi folyamatot"
         unpublish: "%{user_name} visszavonta a(z) %{resource_name} részvételi folyamatot közzétételét"
         update: "%{user_name} frissítette a(z) %{resource_name} részvételi folyamatot"
+      participatory_process_group:
+        create: "%{user_name} heeft de burgerinspraak %{resource_name} aangemaakt"
+        update: "%{user_name} heeft de burgerinspraak %{resource_name} aangemaakt"
       participatory_process_step:
         activate: "%{user_name} aktiválta a(z) %{resource_name} lépést a(z) %{space_name} részvételi folyamatban"
         create: "%{user_name} létrehozta a(z) %{resource_name} lépést a(z) %{space_name} részvételi folyamatban"
@@ -288,6 +310,10 @@ hu:
         participatory_process_copies:
           form:
             slug_help: 'Az URL slugok a folyamatok linkjeinek generáláshoz szükségesek. Csak betűket, számokat és kötőjeleket használhatsz. Betűvel kell kezdened. Példa: %{url}'
+        participatory_process_imports:
+          form:
+            document_legend: Add a document
+            slug_help: 'URL slugs are used to generate the URLs that point to this process. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
         participatory_process_steps:
           form:
             cta_path_help: 'Használjon részleges útvonalakat, nem teljes URL-eket itt. Betűk, számok, vonalak és vágások fogadhatók el, és betűvel kell kezdődniük. Ha nincs beállítva, a gomb nem jelenik meg. Példa: %{url}'

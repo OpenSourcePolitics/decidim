@@ -37,15 +37,19 @@ fi-pl:
         organization_url: Organisaation URL-osoite
         redirect_uri: Uudelleenohjauksen URI
       organization:
+        address: SMTP hostname
         alert_color: Ilmoitus
         badges_enabled: Ota kunniamerkit käyttöön
+        comments_max_length: Nombre de caractères maximum des commentaires (Mettre 0 pour laisser la valeur par défaut)
         cta_button_path: Call To Action -painikkeen polku
         cta_button_text: Call To Action -painikkeen teksti
+        customize_welcome_notification: Pas welkomstmelding aan
         default_locale: Oletuskieli
         description: Kuvaus
         enable_omnipresent_banner: Näytä kaikkialla näkyvä banneri
         facebook_handler: Facebook-käsittelijä
         favicon: ikoni
+        from: From email address
         github_handler: GitHub-käsittelijä
         header_snippets: Yläosion koodipätkät
         highlighted_content_banner_action_subtitle: Toimintapainikkeen alaotsikko
@@ -64,16 +68,27 @@ fi-pl:
         omnipresent_banner_short_description: Lyhyt kuvaus
         omnipresent_banner_title: Otsikko
         omnipresent_banner_url: URL
+        password: Password
+        port: Port
         primary_color: Ensisijainen
         reference_prefix: Viitteen etuliite
         secondary_color: Toissijainen
+        send_welcome_notification: Stuur welkomstmelding
         show_statistics: Näytä tilastot
         success_color: Onnistuminen
         tos_version: Käyttöehtojen versio
         twitter_handler: Twitter-käsittelijä
         user_groups_enabled: Ota käyttäjäryhmät käyttöön
+        user_name: Username
         warning_color: Varoitus
+        welcome_notification_body: Tekst van de welkomstmelding
+        welcome_notification_subject: Welkomstmelding onderwerp
         youtube_handler: YouTube-käsittelijä
+      participatory_process:
+        import_attachments: Importer les pièces jointes
+        import_categories: Importer les catégories
+        import_components: Importer les fonctionnalités
+        import_steps: Importer les étapes
       scope:
         code: Koodi
         name: Nimi
@@ -157,6 +172,7 @@ fi-pl:
           error: Uuden alueen luomisessa tapahtui virhe.
           success: Alue luotu onnistuneesti.
         destroy:
+          has_spaces: Area has dependent spaces, it must not have dependencies in order to be deleted.
           success: Alue tuhottu onnistuneesti
         edit:
           title: Muokkaa aluetta
@@ -241,6 +257,7 @@ fi-pl:
         form:
           default_step_settings: Vaiheiden oletusasetukset
           global_settings: Yleiset asetukset
+          participatory_texts_enabled_help: Cannot interact with this setting if there are existing proposals. Please, create a new `Proposals component` if you want to enable this feature or discard all imported proposals in the `Participatory Texts` menu if you want to disable it.
           step_settings: Vaiheiden asetukset
         index:
           add: Lisää komponentti
@@ -308,6 +325,11 @@ fi-pl:
         logs_list:
           no_logs_yet: Ei vielä lokitietoja
       managed_users:
+        index:
+          impersonate: Impersonate
+          needs_authoriation_warning: Needs authoriation warning
+          promote: Promote
+          view_logs: View logs
         promotion:
           error: Hallitun käyttäjän oikeuksien korotuksessa tapahtui virhe.
           success: Hallitun käyttäjän taso on onnistuneesti korotettu.
@@ -327,6 +349,7 @@ fi-pl:
         help_sections: Ohjeosiot
         homepage: Kotisivu
         impersonations: Esiintymiset toisena käyttäjänä
+        navbar_links: Navbar links
         newsletters: Uutiskirjeet
         oauth_applications: OAuth-sovellukset
         participants: Osallistujat
@@ -364,11 +387,19 @@ fi-pl:
             reason: Syy
             started_at: Aloitettu
             user: Käyttäjä
+        managed_user:
+          name: Name
+        navbar_link:
+          fields:
+            link: Link
+            title: Title
+            weight: Weight
         newsletter:
           fields:
             created_at: Luonnin ajankohta
             progress: Edistyminen
             sent_at: Lähetyksen ajankohta
+            sent_to: Sent to
             subject: Otsikko
           name: Uutiskirje
         oauth_application:
@@ -418,6 +449,28 @@ fi-pl:
             does_not_belong: Ei kuulu
             offensive: Loukkaava
             spam: Roskaposti
+      navbar_links:
+        create:
+          error: There was an error when creating this link.
+          success: Link created successfully
+        destroy:
+          success: Link successfully destroyed
+        edit:
+          title: Edit navbar link
+          update: Update
+        form:
+          link: Link
+          new_tab: Open in a new tab
+          same_tab: Open in the same tab
+          title: Title
+          weight: Weight
+        new:
+          create: Create
+          title: New navbar link
+        no_links: No links created
+        update:
+          error: There was an error when updating this link.
+          success: Link updated successfully
       newsletters:
         create:
           error: Tämän uutiskirjeen luonnissa tapahtui virhe.
@@ -434,17 +487,48 @@ fi-pl:
         form:
           interpolations_hint: 'Vihje: Voit käyttää "%{name}" -merkkijonoa missä tahansa viestin rungossa, mikä korvataan vastaanottajan nimellä.'
         index:
+          all: all
+          all_users: 'All users '
+          and: 'and '
           confirm_delete: Haluatko varmasti poistaa tämän uutiskirjeen?
+          followers: 'followers '
+          has_been_sent_to: 'Has been sent to: '
+          no_scopes: No scopes
+          not_sent: Not sent
+          participants: 'participants '
+          segmented_to: 'Segmented to %{subject}: '
           title: Uutiskirjeet
         new:
           save: Tallenna
           title: Uusi uutiskirje
+        select_recipients_to_deliver:
+          all_spaces: All
+          all_users_help: Sends newsletter to all confirmed users.
+          confirm_deliver: Are you sure you want to deliver this newsletter? This action cannot be undone.
+          deliver: Deliver newsletter
+          followers_help: Sends newsletter to all confirmed users that follow any selected participatory spaces in the list.
+          none: None
+          participants_help: Sends newsletter to all confirmed users that have participated in any of the selected participatory spaces in the list.
+          scopes_help: Sends newsletter to users that have any of the selected scope activated in their account's "My Interests" settings.
+          select_scopes: Filter for users having activated any selected scope in their account's My Interests settings.
+          select_spaces: Select spaces to segment the newsletter
+          select_users: Select which users you want to send the newsletter
+          send_to_all_users: Send to all users
+          send_to_followers: Send to followers
+          send_to_participants: Send to participants
+          title: Select recipients to deliver
+          warning: "<strong>Attention:</strong> This newsletter will only be send to users that have activated <em>I want to recieve newsletters</em> in their notifications settings."
+        send:
+          no_recipients: No recipients for this selection
         show:
           preview: Esikatsele
+          select_recipients_to_deliver: Select recipients to deliver
           subject: Otsikko
         update:
           error: Tämän uutiskirjeen päivityksessä tapahtui virhe.
           success: Uutiskirje päivitetty onnistuneesti. Tarkasta se läpi ennen lähetystä.
+      oauth_application:
+        new: New Oauth application
       oauth_applications:
         create:
           error: Sovelluksen luonnissa tapahtui virhe.
@@ -603,6 +687,7 @@ fi-pl:
           update: Päivitä
         form:
           none: Ei mitään
+          slug_help: 'Use partial paths, not full URLs here. Accepts letters, numbers, dashes and slashes, and must start with a letter. Example: %{url}'
         index:
           last_notable_change: Viimeinen huomattava muutos
         new:
@@ -624,12 +709,16 @@ fi-pl:
         dashboard: Hallintapaneeli
         impersonatable_users: Hallittavat käyttäjät
         impersonations: Käyttäjien hallinta
+        managed_users: Managed users
+        navbar_links: Navbar links
         participants: Käyttäjät
         scope_types: Teematyypit
         scopes: Teemat
         static_pages: Sivut
         user_groups: Käyttäjäryhmät
         users: Käyttäjät
+      user:
+        new: New user
       user_group:
         csv_verify:
           invalid: CSV-tiedoston käsittelyssä tapahtui virhe.

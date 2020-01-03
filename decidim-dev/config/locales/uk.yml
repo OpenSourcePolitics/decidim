@@ -7,6 +7,7 @@ uk:
         field: Моє поле
         start_date: Дата початку
         title: Назва
+        translatable_text: Vertaal mijn tekst
         updated_at: 'Оновлено:'
   decidim:
     dummy:

@@ -26,6 +26,7 @@ ru:
         settings:
           global:
             comments_enabled: Комментарии включены
+            comments_max_length: Nombre de caractères maximum des commentaires (Mettre 0 pour laisser la valeur par défaut)
     events:
       sortitions:
         sortition_created:
@@ -133,6 +134,7 @@ ru:
         show:
           algorithm: Код алгоритма жеребьевки
           any_category: из всех категорий
+          back: Back to list
           cancelled: Отмененная жеребьевка
           candidate_proposal_ids: Порядок и названия предложений для жеребьевки
           candidate_proposals_info: 'Жеребьевка была проведена среди следующих предложений (%{category_label}) со следующими названиями (выделены жирным шрифтом выбранные предложения)  '

@@ -7,6 +7,7 @@ sv:
         field: Mitt fält
         start_date: Startdatum
         title: Titel
+        translatable_text: Vertaal mijn tekst
         updated_at: Uppdaterad
   decidim:
     dummy:

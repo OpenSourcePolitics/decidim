@@ -34,6 +34,7 @@ de:
         extra_fields_legal_information: Rechtliche Informationen zur Erhebung personenbezogener Daten
         minimum_committee_members: Minimum der Ausschussmitglieder
         online_signature_enabled: Online-Signatur aktiviert
+        promoting_committee_enabled: Inschakelen bevorderingscommissie
         title: Titel
         undo_online_signatures_enabled: Ermöglichen Sie Benutzern, ihre Online-Signaturen rückgängig zu machen
         validate_sms_code_on_votes: Fügen Sie dem Signaturprozess einen SMS-Validierungsschritt hinzu
@@ -112,11 +113,15 @@ de:
             email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie der Autor der Initiative %{resource_title}.
             email_subject: Neuer Meilenstein abgeschlossen!
             notification_title: Ihre <a href="%{resource_path}">%{resource_title}</a> -Initiative hat die %{percentage}% der Unterschriften erreicht.
+          email_intro: L'initiative %{resource_title} a atteint %{percentage}% des signatures requises !
+          email_outro: Vous avez reçu cette notification parce que vous suivez %{resource_title}. Vous pouvez arrêter de recevoir des notifications à partir du lien précédent.
+          email_subject: Nouvelle étape franchie !
           follower:
             email_intro: Die Initiative %{resource_title} hat die %{percentage}% Unterschriften erreicht!
             email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{resource_title}. Sie können den Erhalt von Benachrichtigungen über den vorherigen Link beenden.
             email_subject: Neuer Meilenstein abgeschlossen!
             notification_title: Die <a href="%{resource_path}">%{resource_title}</a> Initiative hat die %{percentage}% der Unterschriften erreicht.
+          notification_title: La pétition <a href="%{resource_path}">%{resource_title}</a> a atteint %{percentage}% des signatures requises.
     gamification:
       badges:
         initiatives:

@@ -23,6 +23,8 @@ fi:
             announcement: Ilmoitus
           step:
             allow_answers: Salli vastaukset
+            allow_unregistered: Allow unregistered users to answer the survey
+            allow_unregistered_help: If active, no login will be required in order to answer the survey. This may lead to poor or unreliable data and it will be more vulnerable to automated attacks. Use with caution!
             announcement: Ilmoitus
     events:
       surveys:
@@ -54,4 +56,5 @@ fi:
       surveys:
         answer:
           invalid: Kyselyyn vastaaminen epäonnistui.
+          spam_detected: There was a problem answering the form. Maybe you've been too quick, can you try again?
           success: Kyselyyn vastaaminen onnistui.

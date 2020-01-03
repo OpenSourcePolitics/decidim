@@ -51,6 +51,7 @@ uk:
             title: заголовок
       posts:
         show:
+          back: Back to list
           view: Переглянути
         sidebar_blog:
           comments: коментарі
@@ -63,6 +64,7 @@ uk:
           global:
             announcement: Оголошення
             comments_enabled: Коментарі ввімкнено
+            comments_max_length: Nombre de caractères maximum des commentaires (Mettre 0 pour laisser la valeur par défaut)
           step:
             announcement: Оголошення
             comments_blocked: Коментарі вимкнено

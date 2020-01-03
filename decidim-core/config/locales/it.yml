@@ -4,6 +4,14 @@ it:
     attributes:
       account:
         delete_reason: Motivo per il quale vuoi eliminare il tuo account
+      group:
+        about: Over
+        avatar: Profielafbeelding
+        document_number: Documentnummer
+        email: E-mail
+        name: Naam
+        nickname: Roepnaam
+        phone: Telefoon
       report:
         details: Ulteriori commenti
       user:
@@ -16,6 +24,10 @@ it:
         personal_url: Pagina personale
         remove_avatar: Rimuovi avatar
     models:
+      decidim/amendable/amendment_accepted_event: Amendment accepted
+      decidim/amendable/amendment_created_event: Amendment created
+      decidim/amendable/amendment_rejected_event: Amendment rejected
+      decidim/amendable/emendation_promoted_event: Amendment promoted
       decidim/attachment_created_event: Allegato
       decidim/component_published_event: Componente attivo
       decidim/demoted_membership: Non è più un amministratore di gruppo
@@ -109,6 +121,7 @@ it:
         update: "%{user_name} aggiornato le impostazioni dell'organizzazione"
       participatory_space_private_user:
         create: "%{user_name} invitato %{resource_name} a essere un utente privato"
+        create_via_csv: "%{user_name} heeft %{resource_name} uitgenodigd om een privé deelnemer te zijn"
         delete: "%{user_name} rimosso l'utente %{resource_name} come utente privato"
       scope:
         create: "%{user_name} ha creato l'ambito %{resource_name}"
@@ -158,6 +171,7 @@ it:
           evaluating: |-
             Questo emendamento per lo %{amendable_type} %{amendable_link}
             è in fase di valutazione.
+          promoted: Gepromoveerd naar een %{amendable_type}.
           rejected: |-
             Questa emendazione per lo %{amendable_type} %{amendable_link}
             stata respinta su <strong>%{announcement_date}</strong>.
@@ -269,14 +283,21 @@ it:
           global:
             amendments_enabled: Emendamenti abilitati
             comments_enabled: Commenti abilitati
+            comments_max_length: comments_max_length
             dummy_global_attribute_1: Attributo fittizio 1
             dummy_global_attribute_2: Attributo fittizio 2
+            dummy_global_translatable_text: Vertaalbare tekst Dummy
             enable_pads_creation: Abilita la creazione di pad
             resources_permissions_enabled: Permessi di risorse abilitati
           step:
+            amendment_creation_enabled: Aanmaken van amendementen ingeschakeld
+            amendment_promotion_enabled: Promoten van amendementen ingeschakeld
+            amendment_reaction_enabled: Reageren op amendementen ingeschakeld
+            amendments_visibility: Zichtbaarheid van amendement
             comments_blocked: Commenti bloccati
             dummy_step_attribute_1: Attributo Dummy Step 1
             dummy_step_attribute_2: Attributo Dummy Step 2
+            dummy_step_translatable_text: Dummy Stap Vertaalbare tekst
     contact: Contatto
     content_blocks:
       footer_sub_hero:
@@ -541,6 +562,9 @@ it:
       current_image: Immagine attuale
       default_image: Immagine predefinita
       errors:
+        decidim/user:
+          password: Het wachtwoord is te kort.
+          password_confirmation: Wachtwoordbevestiging moet overeenkomen met het wachtwoord.
         error: Si è verificato un errore in questo campo.
       remove_this_file: Rimuovere questo file
     gamification:
@@ -779,6 +803,9 @@ it:
         greetings: Saluti,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Ciao,
         subject: Vuoi continuare a ricevere informazioni rilevanti su %{organization_name}?
+    notification_mailer:
+      shared:
+        note: You received this message because you are subscribed to the email notification on %{organization_name}. You can change your settings on your notification page <a href="%{link}"></a>.
     notifications:
       no_notifications: Nessuna notifica.
     notifications_settings:
@@ -880,6 +907,7 @@ it:
       deleted: Utente eliminato
       view: vista
     profiles:
+      default_officialization_text: Verified
       default_officialization_text_for_user_groups: Questo gruppo di utenti è verificato pubblicamente, il suo nome è stato verificato per corrispondere con il suo vero nome
       default_officialization_text_for_users: Questo partecipante è verificato pubblicamente, il suo nome o ruolo è stato verificato per corrispondere con il suo vero nome e ruolo
       show:
@@ -993,6 +1021,10 @@ it:
         share_link: Condividi link
       version_author:
         deleted: Utente eliminato
+    translate:
+      original: Translate (*)
+      tooltip: Translated with Deepl
+      translated: Back to the original version
     user_activity:
       index:
         no_activities_warning: Questo utente non ha ancora avuto alcuna attività.
@@ -1144,6 +1176,7 @@ it:
       minimum_password_length:
         one: "(Minimo%{count} caratteri)"
         other: "(Minimo%{count} caratteri)"
+      password_help: 'At least 8 characters, a capital letter and a special character (ex: !)'
     unlocks:
       new:
         resend_unlock_instructions: Inviami nuovamente le istruzioni di sblocco
@@ -1174,6 +1207,17 @@ it:
       too_short: è troppo corto (meno di 15 caratteri)
   forms:
     required: Richiesto
+  instructions:
+    decidim:
+      system:
+        organizations:
+          smtp_settings:
+            address: Address
+            from_email: Sender's e-mail address
+            from_label: Shipper name
+            password: Password
+            port: Port
+            user_name: User Name
   invisible_captcha:
     sentence_for_humans: Se sei una persona e non un computer, ignora questo campo
     timestamp_error_message: Mi dispiace, troppo veloce! Per favore, invia di nuovo.
@@ -1242,12 +1286,15 @@ it:
     qq: Qzone
     reddit: Reddit
     share_to: Condividi con %{name}
+    telegram: Telegram
     tumblr: Tumblr
     twitter: Twitter
     vkontakte: Vkontakte
     wechat: WeChat
     wechat_footer: Apri il tuo WeChat, clicca il pulsante "Discover", infine clicca sul menu "Scan QR Code".
     weibo: Sina Weibo
+    whatsapp_app: WhatsApp
+    whatsapp_web: WhatsApp
     xing: Xing
   time:
     formats:
@@ -1257,10 +1304,13 @@ it:
       day_of_year: "%d.%m.%y"
       decidim_day_of_year: "%d %B %Y"
       decidim_short: "%d/%m/%Y %H:%M"
+      default: "%a, %d %b %Y %H:%M:%S %z"
       devise:
         mailer:
           invitation_instructions:
             accept_until_format: "%B %d, %Y %I:%M %p"
+      long: "%B %d, %Y %H:%M"
+      short: "%d/%m/%Y %H:%M"
       time_of_day: "%H:%M"
   versions:
     directions:

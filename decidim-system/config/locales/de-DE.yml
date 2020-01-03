@@ -30,9 +30,14 @@ de-DE:
         placeholders:
           content: Please add meaningful content to the %{page} static page on the admin dashboard.
           title: Default title for %{page}
+      logs:
+        index:
+          download_log: Download log
+          view_log: View %{line} lines
       menu:
         admins: Admins
         dashboard: Dashboard
+        logs: Logs
         organizations: Organizations
       models:
         admin:
@@ -62,6 +67,13 @@ de-DE:
           reference_prefix_hint: The reference prefix is used to uniquely identify resources across all organizations
           secondary_hosts_hint: Enter each one of them in a new line
           title: New organization
+        smtp_settings:
+          address: Server address
+          from_email: From email
+          from_label: From label
+          password: Password
+          port: Server port
+          user_name: Username
         update:
           error: There was an error when updating this organization.
           success: Organization updated successfully.

@@ -189,6 +189,7 @@ gl:
           global:
             categories_label: Nome para "Categorías"
             comments_enabled: Comentarios habilitados
+            comments_max_length: Nombre de caractères maximum des commentaires (Mettre 0 pour laisser la valeur par défaut)
             display_progress_enabled: Mostrar o progreso
             heading_leaf_level_results: Nome para "Proxectos"
             heading_parent_level_results: Nome para "Resultados"

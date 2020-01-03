@@ -270,8 +270,10 @@ gl:
         executive: Executivo
         government: Goberno
         help: 'Amosar:'
+        label: 'Show:'
         others: Outros
         participatory: Participativa
+        placeholder: Filtrer par type
         working_group: Grupo de traballo
       index:
         title: Asembleas
@@ -360,6 +362,7 @@ gl:
           more_info: Máis información
           take_part: Tomar parte en
         index:
+          children: 'Assemblies: '
           organizational_chart: Organigrama
           promoted_assemblies: Asembleas destacadas
           reset_chart: Restablecer

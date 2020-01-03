@@ -270,8 +270,10 @@ it:
         executive: Esecutivo
         government: Governo
         help: 'Mostrare:'
+        label: 'Show:'
         others: Altri
         participatory: Participatory
+        placeholder: Filtrer par type
         working_group: Gruppo di lavoro
       index:
         title: assemblee

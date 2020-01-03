@@ -4,6 +4,14 @@ gl:
     attributes:
       account:
         delete_reason: Motivo para eliminar a túa conta
+      group:
+        about: Over
+        avatar: Profielafbeelding
+        document_number: Documentnummer
+        email: E-mail
+        name: Naam
+        nickname: Roepnaam
+        phone: Telefoon
       report:
         details: Comentarios adicionais
       user:
@@ -16,6 +24,10 @@ gl:
         personal_url: URL persoal
         remove_avatar: Eliminar avatar
     models:
+      decidim/amendable/amendment_accepted_event: Amendment accepted
+      decidim/amendable/amendment_created_event: Amendment created
+      decidim/amendable/amendment_rejected_event: Amendment rejected
+      decidim/amendable/emendation_promoted_event: Amendment promoted
       decidim/attachment_created_event: Anexo
       decidim/component_published_event: Compoñente activo
       decidim/demoted_membership: Xa non é un administrador de grupo
@@ -109,6 +121,7 @@ gl:
         update: "%{user_name} actualizou a configuración da organización"
       participatory_space_private_user:
         create: "%{user_name} invitados %{resource_name} para ser un usuario privado"
+        create_via_csv: "%{user_name} heeft %{resource_name} uitgenodigd om een privé deelnemer te zijn"
         delete: "%{user_name} eliminou o usuario %{resource_name} como usuario privado"
       scope:
         create: O %{user_name} creou o alcance %{resource_name}
@@ -158,6 +171,7 @@ gl:
           evaluating: |-
             Esta enquisa para o %{amendable_type} %{amendable_link}
             está sendo avaliada.
+          promoted: Gepromoveerd naar een %{amendable_type}.
           rejected: |-
             Esta modificación do %{amendable_type} %{amendable_link}
             foi rexeitada en <strong>%{announcement_date}</strong>.
@@ -269,14 +283,21 @@ gl:
           global:
             amendments_enabled: Modificacións habilitadas
             comments_enabled: Comentarios habilitados
+            comments_max_length: comments_max_length
             dummy_global_attribute_1: Atributo maniquí 1
             dummy_global_attribute_2: Atributo maniquí 2
+            dummy_global_translatable_text: Vertaalbare tekst Dummy
             enable_pads_creation: Habilita a creación de pastillas
             resources_permissions_enabled: Permisos de recursos habilitados
           step:
+            amendment_creation_enabled: Aanmaken van amendementen ingeschakeld
+            amendment_promotion_enabled: Promoten van amendementen ingeschakeld
+            amendment_reaction_enabled: Reageren op amendementen ingeschakeld
+            amendments_visibility: Zichtbaarheid van amendement
             comments_blocked: Comentarios bloqueados
             dummy_step_attribute_1: Dummy Step Attribute 1
             dummy_step_attribute_2: Dummy Step Attribute 2
+            dummy_step_translatable_text: Dummy Stap Vertaalbare tekst
     contact: Contacto
     content_blocks:
       footer_sub_hero:
@@ -328,6 +349,7 @@ gl:
           newsletter: Recibir un boletín ocasional con información relevante
           newsletter_title: Permiso de contacto
           nickname_help: O teu identificador breve e único en %{organization}
+          password_help: "%{minimun_characters} characters minimum, must not be too common (e.g. 123456) and must be different from your nickname and your email."
           sign_in: Iniciar sesión
           sign_up: Rexistrarse
           sign_up_as:
@@ -540,6 +562,9 @@ gl:
       current_image: Imaxe actual
       default_image: Imaxe predeterminada
       errors:
+        decidim/user:
+          password: Het wachtwoord is te kort.
+          password_confirmation: Wachtwoordbevestiging moet overeenkomen met het wachtwoord.
         error: Hai un erro neste campo.
       remove_this_file: Elimina este ficheiro
     gamification:
@@ -778,6 +803,9 @@ gl:
         greetings: Saúdos,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Ola,
         subject: Queres seguir recibindo información relevante sobre %{organization_name}?
+    notification_mailer:
+      shared:
+        note: You received this message because you are subscribed to the email notification on %{organization_name}. You can change your settings on your notification page <a href="%{link}"></a>.
     notifications:
       no_notifications: Aínda non hai notificacións.
     notifications_settings:
@@ -879,6 +907,7 @@ gl:
       deleted: Usuario eliminado
       view: Ver
     profiles:
+      default_officialization_text: Verified
       default_officialization_text_for_user_groups: Este grupo de usuarios está verificado públicamente, o seu nome verificouse para corresponder co seu nome real
       default_officialization_text_for_users: Este participante está verificado públicamente, verificouse o seu nome ou o seu papel para corresponder co seu nome e rol real
       show:
@@ -992,6 +1021,10 @@ gl:
         share_link: Compartir a ligazón
       version_author:
         deleted: Usuario eliminado
+    translate:
+      original: Translate (*)
+      tooltip: Translated with Deepl
+      translated: Back to the original version
     user_activity:
       index:
         no_activities_warning: Este usuario aínda non tivo ningunha actividade.
@@ -1097,6 +1130,7 @@ gl:
         change_your_password: Cambia o teu contrasinal
         confirm_new_password: Confirma o contrasinal novo
         new_password: Novo contrasinal
+        password_help: "%{minimun_characters} characters minimum, must not be too common (e.g. 123456) and must be different from your nickname and your email."
       new:
         forgot_your_password: Esqueceu o contrasinal?
         send_me_reset_password_instructions: Envíame a restablecer as instrucións do contrasinal
@@ -1142,6 +1176,7 @@ gl:
       minimum_password_length:
         one: "(Mínimo de%{count} caracteres)"
         other: "(Mínimo de%{count} caracteres)"
+      password_help: 'At least 8 characters, a capital letter and a special character (ex: !)'
     unlocks:
       new:
         resend_unlock_instructions: Reenvía instrucións de desbloqueo
@@ -1172,6 +1207,17 @@ gl:
       too_short: é demasiado curto (menos de 15 caracteres)
   forms:
     required: Requerido
+  instructions:
+    decidim:
+      system:
+        organizations:
+          smtp_settings:
+            address: Address
+            from_email: Sender's e-mail address
+            from_label: Shipper name
+            password: Password
+            port: Port
+            user_name: User Name
   invisible_captcha:
     sentence_for_humans: Se es humano, ignore este campo
     timestamp_error_message: Sentímolo, iso foi demasiado rápido. Reenvío de novo.
@@ -1240,12 +1286,15 @@ gl:
     qq: Qzone
     reddit: Reddit
     share_to: Compartir a %{name}
+    telegram: Telegram
     tumblr: Tumblr
     twitter: Twitter
     vkontakte: Vkontakte
     wechat: WeChat
     wechat_footer: Abre o noso WeChat, faga clic no botón "Descubrir" e prema no menú "Escanear código QR".
     weibo: Sina Weibo
+    whatsapp_app: WhatsApp
+    whatsapp_web: WhatsApp
     xing: Xing
   time:
     formats:
@@ -1255,11 +1304,22 @@ gl:
       day_of_year: "%d.%m.%y"
       decidim_day_of_year: 123_2_0_321 %B 123_2_2_321 |
       decidim_short: "%d/%m/%Y %H:%M"
+      default: "%a, %d %b %Y %H:%M:%S %z"
       devise:
         mailer:
           invitation_instructions:
             accept_until_format: "%B %d, %Y %I:%M %p"
+      long: "%B %d, %Y %H:%M"
+      short: "%d/%m/%Y %H:%M"
       time_of_day: "%H:%M"
+  versions:
+    directions:
+      left: Deletions
+      right: Additions
+    dropdown:
+      choose_diff_view_mode: 'Compare view mode:'
+      option_split: Side-by-side
+      option_unified: Unified
   views:
     pagination:
       first: "&laquo; Primeiro"

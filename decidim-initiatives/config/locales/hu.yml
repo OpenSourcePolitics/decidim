@@ -34,6 +34,7 @@ hu:
         extra_fields_legal_information: Jogi információk a személyes adatok gyűjtéséről
         minimum_committee_members: Bizottsági tagok minimális száma
         online_signature_enabled: Online aláírás engedélyezve
+        promoting_committee_enabled: Inschakelen bevorderingscommissie
         title: Cím
         undo_online_signatures_enabled: Engedélyezze a felhasználók számára az online aláírások visszavonását
         validate_sms_code_on_votes: SMS-kód érvényesítési lépés hozzáadása az aláíráshoz
@@ -112,11 +113,15 @@ hu:
             email_outro: Ezt az értesítést azért kaptad, mert Te vagy a %{resource_title} kezdeményezés szerzője.
             email_subject: Új mérföldkő kész áll!
             notification_title: A <a href="%{resource_path}">%{resource_title}</a> kezdeményezésed elérte az aláírások %{percentage}% -át.
+          email_intro: L'initiative %{resource_title} a atteint %{percentage}% des signatures requises !
+          email_outro: Vous avez reçu cette notification parce que vous suivez %{resource_title}. Vous pouvez arrêter de recevoir des notifications à partir du lien précédent.
+          email_subject: Nouvelle étape franchie !
           follower:
             email_intro: A(z) %{resource_title} kezdeményezést már %{percentage}% aláírta!
             email_outro: Ezt az értesítést azért kaptad, mert követed ezt %{resource_title}. Leállíthathatod az értesítések fogadását az előző linkkel.
             email_subject: Új mérföldkő kész áll!
             notification_title: A(z) <a href="%{resource_path}">%{resource_title}</a> kezdeményezést már %{percentage}% aláírta.
+          notification_title: La pétition <a href="%{resource_path}">%{resource_title}</a> a atteint %{percentage}% des signatures requises.
     gamification:
       badges:
         initiatives:

@@ -67,6 +67,13 @@ pt:
           reference_prefix_hint: O prefixo de referência é usado para identificar exclusivamente recursos em todas as organizações
           secondary_hosts_hint: Insira cada um deles em uma nova linha
           title: Nova organização
+        smtp_settings:
+          address: Server address
+          from_email: From email
+          from_label: From label
+          password: Password
+          port: Server port
+          user_name: Username
         update:
           error: Ocorreu um erro ao atualizar essa organização.
           success: Organização atualizada com sucesso.

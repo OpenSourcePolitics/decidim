@@ -31,6 +31,7 @@ de:
           global:
             announcement: Ankündigung
             comments_enabled: Kommentare aktiviert
+            comments_max_length: Comments max length
           step:
             announcement: Ankündigung
             comments_blocked: Kommentare blockiert
@@ -100,10 +101,8 @@ de:
           create: Erstellen
           select_a_category: Bitte wählen sie eine Kategorie
           title: Neue Debatte
-        share:
-          close_window: Fenster schließen
-          share: Aktie
-          share_link: Einen Link teilen
+        show:
+          back: Back to list
       last_activity:
         new_debate_at_html: "<span>Neue Debatte bei %{link}</span>"
       models:

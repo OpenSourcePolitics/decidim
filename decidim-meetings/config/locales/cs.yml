@@ -88,6 +88,7 @@ cs:
           global:
             announcement: Oznámení
             comments_enabled: Komentáře povoleny
+            comments_max_length: Comments max length
             default_registration_terms: Výchozí podmínky registrace
             enable_pads_creation: Povolit vytvoření podložky
             resources_permissions_enabled: Nastavení oprávnění lze nastavit pro každou schůzku
@@ -102,11 +103,15 @@ cs:
             email_outro: Toto oznámení jste obdrželi, protože jste uspořádali schůzku "%{resource_title}".
             email_subject: Schůzka "%{resource_title}" byla uzavřena
             notification_title: Schůzka <a href="%{resource_path}">%{resource_title}</a> byla uzavřena.
+          email_intro: 'La rencontre "%{resource_title}" est terminée. Vous pouvez en lire le compte rendu sur sa page :'
+          email_outro: Vous avez reçu cette notification, car vous suivez la rencontre "%{resource_title}". Vous pouvez arrêter de la suivre à partir du lien précédent.
+          email_subject: La rencontre "%{resource_title}" est terminée
           follower:
             email_intro: 'Schůzka "%{resource_title}" byla uzavřena. Závěry ze své stránky můžete přečíst:'
             email_outro: Toto upozornění jste obdrželi, protože postupujete po schůzce "%{resource_title}". Můžete jej odhlásit od předchozího odkazu.
             email_subject: Schůzka "%{resource_title}" byla uzavřena
             notification_title: Schůzka <a href="%{resource_path}">%{resource_title}</a> byla uzavřena.
+          notification_title: La rencontre <a href="%{resource_path}">%{resource_title}</a> est terminée.
         meeting_created:
           email_intro: Schůzka "%{resource_title}" byla přidána k "%{participatory_space_title}", kterou sledujete.
           email_outro: Toto oznámení jste obdrželi, protože jste sledovali "%{participatory_space_title}". Můžete jej odhlásit od předchozího odkazu.
@@ -295,6 +300,7 @@ cs:
               other: Bylo zde %{count} registrací.
             reserved_slots_help: Nechte ji na 0, pokud nemáte vyhrazené sloty
             reserved_slots_less_than: Musí být menší nebo rovno %{count}
+            title: Registrations
           update:
             invalid: Došlo k potížím při ukládání nastavení registrace.
             success: Nastavení úspěšných registrací bylo úspěšně uloženo.
@@ -373,6 +379,7 @@ cs:
           confirm: Potvrdit
         show:
           attendees: Účastníci se počítají
+          back: Back to list
           contributions: Počet příspěvků
           going: Chystáte se
           join: Připojte se k setkání

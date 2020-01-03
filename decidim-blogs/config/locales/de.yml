@@ -49,6 +49,7 @@ de:
             title: Titel
       posts:
         show:
+          back: Back to list
           view: Aussicht
         sidebar_blog:
           comments: Bemerkungen
@@ -61,6 +62,7 @@ de:
           global:
             announcement: Ankündigung
             comments_enabled: Kommentare aktiviert
+            comments_max_length: Nombre de caractères maximum des commentaires (Mettre 0 pour laisser la valeur par défaut)
           step:
             announcement: Ankündigung
             comments_blocked: Kommentare blockiert

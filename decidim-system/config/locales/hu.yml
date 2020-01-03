@@ -30,9 +30,14 @@ hu:
         placeholders:
           content: Adj hozzá értelmes tartalmat az admin irányítópult %{page} statikus oldalához.
           title: 'Alapértelmezett cím: %{page}'
+      logs:
+        index:
+          download_log: Download log
+          view_log: View %{line} lines
       menu:
         admins: Adminok
         dashboard: Irányítópult
+        logs: Logs
         organizations: Szervezetek
       models:
         admin:
@@ -62,6 +67,13 @@ hu:
           reference_prefix_hint: A hivatkozási előtag az erőforrások azonosítására szolgál a szervezetek esetében
           secondary_hosts_hint: Mindegyiket új sorba írd be
           title: Új szervezet
+        smtp_settings:
+          address: Server address
+          from_email: From email
+          from_label: From label
+          password: Password
+          port: Server port
+          user_name: Username
         update:
           error: Hiba történt a szervezet frissítése során.
           success: Szervezet frissítése sikeres.

@@ -33,6 +33,7 @@ cs:
           global:
             announcement: Oznámení
             comments_enabled: Komentáře povoleny
+            comments_max_length: Comments max length
           step:
             announcement: Oznámení
             comments_blocked: Komentáře byly blokovány
@@ -62,6 +63,9 @@ cs:
           update:
             invalid: Při aktualizaci této rozpravy došlo k problému.
             success: Debata byla úspěšně aktualizována.
+        exports:
+          comments: comments
+          debates: debates
         models:
           debate:
             name: Rozprava
@@ -101,10 +105,8 @@ cs:
           create: Vytvořit
           select_a_category: Vyberte kategorii
           title: Nová debata
-        share:
-          close_window: Zavřete okno
-          share: Podíl
-          share_link: Sdílet odkaz
+        show:
+          back: Back to list
       last_activity:
         new_debate_at_html: "<span>Nová diskuse na %{link}</span>"
       models:

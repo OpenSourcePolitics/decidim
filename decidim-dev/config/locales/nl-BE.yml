@@ -7,6 +7,7 @@ nl-BE:
         field: My field
         start_date: Start date
         title: Title
+        translatable_text: Vertaal mijn tekst
         updated_at: Updated at
   decidim:
     dummy:

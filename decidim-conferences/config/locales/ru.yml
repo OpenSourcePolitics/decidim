@@ -553,6 +553,7 @@ ru:
           take_part: Take part
       conferences:
         conference:
+          more_info: More info
           take_part: Take part
         index:
           promoted_conferences: Promoted conferences

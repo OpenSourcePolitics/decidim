@@ -9,7 +9,12 @@ cs:
         description: Popis
         proposal_ids: Související návrhy
         title: Titul
+    models:
+      decidim/budgets/decidim_events_budgets_reminder_order: Reminder order event
   activerecord:
+    errors:
+      messages:
+        equal_to: must be equal to %{count}
     models:
       decidim/budgets/project:
         few: Projekty
@@ -41,6 +46,9 @@ cs:
           edit:
             title: Upravit projekt
             update: Aktualizace
+          form:
+            fields:
+              address: Address
           index:
             finished_orders: Hotové hlasy
             pending_orders: Čeká na hlasování
@@ -67,6 +75,7 @@ cs:
       models:
         project:
           fields:
+            map: Map
             title: Titul
       projects:
         budget_confirm:
@@ -87,6 +96,8 @@ cs:
           checked_out:
             description: Už jste hlasovali pro rozpočet. Pokud jste změnili názor, můžete %{cancel_link}.
             title: Rozpočet byl dokončen
+          description_per_budget: What projects do you think we should allocate budget for? Assign at least %{minimum_budget} to the projects you want and vote with your preferences to define the budget.
+          description_per_project: To which projects do you think we should allocate a budget? Choose %{minimum_project} projects and validate your vote. Attention, all votes are irrevocable.
           title: Rozhodnete se pro rozpočet
         count:
           projects_count:
@@ -103,16 +114,36 @@ cs:
           filter: Filtr
           filter_by: Filtrovat podle
           unfold: Rozvinout
+        index:
+          view_project: View project
+        limit_excess:
+          close: Close
+          description_per_budget: This project exceeds the maximum budget and can not be added. If you want, you can delete a project you have already selected to add, or make your vote with your preferences.
+          description_per_project: You have reached the maximum number of projects allowed for this budget. If you wish, you can delete a project that you have already selected.
+          ok: OK
+          title_per_budget: Maximum budget exceeded
+          title_per_project: Maximum number of projects reached
         order_progress:
           vote: Hlasování
         order_selected_projects:
+          choose: Choisissez encore
+          per_project:
+            one: project selected out of a total of
+            other: projects selected out of a total of
+          remaining_projects:
+            one: 1 project to validate your vote.
+            other: "%{count} projects to validate your vote."
           remove: Odstranit
           selected_projects:
             few: vybraných projektů
             many: vybraných projektů
             one: vybraný projekt
             other: vybraných projektů
+          total_projects:
+            one: projet
+            other: projets
           view: Pohled
+          vote: Voter
         project:
           add: Přidat
           count:
@@ -137,15 +168,32 @@ cs:
           global:
             announcement: Oznámení
             comments_enabled: Komentáře povoleny
+            comments_max_length: Comments max length
+            geocoding_enabled: Geocoding enabled
             projects_per_page: Projekty na stránku
             resources_permissions_enabled: Nastavení oprávnění lze nastavit pro každou schůzku
             total_budget: Celkový rozpočet
+            total_projects: Total projects
+            vote_per_budget: budget sum enabled (default)
+            vote_per_project: project number enabled
             vote_threshold_percent: Hlasovací procentní podíl
           step:
             announcement: Oznámení
             comments_blocked: Komentáře byly blokovány
             show_votes: Zobrazit hlasy
             votes_enabled: Hlasování povoleno
+    events:
+      budgets:
+        order_checkout:
+          email_intro: 'Your vote has been validated. You can always edit it if you like by clicking here: <a href=''%{resource_url}''>%{participatory_space_title}'
+          email_outro: Thank you for your participation
+          email_subject: Your vote has been validated on %{participatory_space_title}
+          notification_title: Your vote has been validated on <a href='%{resource_url}'>%{participatory_space_title}</a> You can always edit it if you like.
+        reminder_order:
+          email_intro: 'A vote is still pending! You can always continue by clicking here: <a href=''%{resource_url}''>%{participatory_space_title}</a>'
+          email_outro: Thank you for your participation
+          email_subject: A vote is still pending on %{participatory_space_title}
+          notification_title: 'A vote is still pending! You can always continue by clicking here: <a href=''%{resource_url}''>%{participatory_space_title}</a>'
     orders:
       checkout:
         error: Při zpracování hlasu došlo k chybě

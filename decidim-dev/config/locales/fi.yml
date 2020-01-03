@@ -7,6 +7,7 @@ fi:
         field: Oma kenttä
         start_date: Alkamispäivä
         title: Otsikko
+        translatable_text: Vertaal mijn tekst
         updated_at: Päivitysaika
   decidim:
     dummy:

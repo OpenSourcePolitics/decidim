@@ -34,6 +34,7 @@ cs:
         extra_fields_legal_information: Právní informace o shromažďování osobních údajů
         minimum_committee_members: Minimální počet členů výboru
         online_signature_enabled: Online podpis povolen
+        promoting_committee_enabled: Inschakelen bevorderingscommissie
         title: Titul
         undo_online_signatures_enabled: Povolit uživatelům vrátit své podpisy online
         validate_sms_code_on_votes: Přidejte krok ověření SMS kódu do procesu podpisu
@@ -118,11 +119,15 @@ cs:
             email_outro: Toto oznámení jste obdrželi, protože jste autorem iniciativy %{resource_title}.
             email_subject: Nový milník dokončen!
             notification_title: Vaše iniciativa <a href="%{resource_path}">%{resource_title}</a> dosáhla %{percentage}% podpisů.
+          email_intro: L'initiative %{resource_title} a atteint %{percentage}% des signatures requises !
+          email_outro: Vous avez reçu cette notification parce que vous suivez %{resource_title}. Vous pouvez arrêter de recevoir des notifications à partir du lien précédent.
+          email_subject: Nouvelle étape franchie !
           follower:
             email_intro: Iniciativa %{resource_title} dosáhla %{percentage}% podpisů!
             email_outro: Toto oznámení jste obdrželi, protože jste sledovali %{resource_title}. Po předchozím propojení můžete přestat přijímat oznámení.
             email_subject: Nový milník dokončen!
             notification_title: Iniciativa <a href="%{resource_path}">%{resource_title}</a> dosáhla %{percentage}% podpisů.
+          notification_title: La pétition <a href="%{resource_path}">%{resource_title}</a> a atteint %{percentage}% des signatures requises.
     gamification:
       badges:
         initiatives:

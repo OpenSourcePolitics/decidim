@@ -40,8 +40,10 @@ en:
         address: SMTP hostname
         alert_color: Alert
         badges_enabled: Enable badges
+        comments_max_length: Nombre de caractères maximum des commentaires (Mettre 0 pour laisser la valeur par défaut)
         cta_button_path: Call To Action button path
         cta_button_text: Call To Action button text
+        customize_welcome_notification: Pas welkomstmelding aan
         default_locale: Default locale
         description: Description
         enable_omnipresent_banner: Show omnipresent banner
@@ -71,6 +73,7 @@ en:
         primary_color: Primary
         reference_prefix: Reference prefix
         secondary_color: Secondary
+        send_welcome_notification: Stuur welkomstmelding
         show_statistics: Show statistics
         success_color: Success
         tos_version: Terms of service version
@@ -78,7 +81,14 @@ en:
         user_groups_enabled: Enable groups
         user_name: Username
         warning_color: Warning
+        welcome_notification_body: Tekst van de welkomstmelding
+        welcome_notification_subject: Welkomstmelding onderwerp
         youtube_handler: YouTube handler
+      participatory_process:
+        import_attachments: Importer les pièces jointes
+        import_categories: Importer les catégories
+        import_components: Importer les fonctionnalités
+        import_steps: Importer les étapes
       scope:
         code: Code
         name: Name

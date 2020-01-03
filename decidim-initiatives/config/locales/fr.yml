@@ -34,6 +34,7 @@ fr:
         extra_fields_legal_information: Informations juridiques sur la collecte de données personnelles
         minimum_committee_members: Minimum de membres du comité
         online_signature_enabled: Signature en ligne activée
+        promoting_committee_enabled: Inschakelen bevorderingscommissie
         title: Titre
         undo_online_signatures_enabled: Autoriser les utilisateurs à annuler leurs signatures en ligne
         validate_sms_code_on_votes: Ajouter une étape de validation du code SMS au processus de signature

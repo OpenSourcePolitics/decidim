@@ -34,6 +34,7 @@ es-PY:
         extra_fields_legal_information: Información legal sobre la recogida de datos personales.
         minimum_committee_members: Mínimo de miembros del comité.
         online_signature_enabled: Firma en línea habilitada
+        promoting_committee_enabled: Inschakelen bevorderingscommissie
         title: Título
         undo_online_signatures_enabled: Permitir a los usuarios deshacer sus firmas en línea
         validate_sms_code_on_votes: Añadir paso de validación de código SMS al proceso de firma
@@ -112,11 +113,15 @@ es-PY:
             email_outro: Has recibido esta notificación porque eres el autor de la iniciativa %{resource_title}.
             email_subject: "¡Nuevo hito completado!"
             notification_title: Tu iniciativa <a href="%{resource_path}">%{resource_title}</a> ha conseguido el %{percentage}% de firmas.
+          email_intro: L'initiative %{resource_title} a atteint %{percentage}% des signatures requises !
+          email_outro: Vous avez reçu cette notification parce que vous suivez %{resource_title}. Vous pouvez arrêter de recevoir des notifications à partir du lien précédent.
+          email_subject: Nouvelle étape franchie !
           follower:
             email_intro: "¡La iniciativa %{resource_title} ha logrado el %{percentage}% de firmas!"
             email_outro: Has recibido esta notificación porque estás siguiendo a %{resource_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
             email_subject: "¡Nuevo hito completado!"
             notification_title: La iniciativa <a href="%{resource_path}">%{resource_title}</a> ha logrado el %{percentage}% de las firmas.
+          notification_title: La pétition <a href="%{resource_path}">%{resource_title}</a> a atteint %{percentage}% des signatures requises.
     gamification:
       badges:
         initiatives:

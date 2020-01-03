@@ -21,6 +21,7 @@ sv:
         participatory_process_group_id: Processgrupp
         participatory_scope: Vad som bestäms
         participatory_structure: Hur det bestäms
+        private_space: Concertation privée
         promoted: Annonserad
         published_at: Publicerad
         scope_id: Omfång
@@ -49,6 +50,12 @@ sv:
         email: E-post
         name: Namn
         role: Roll
+    errors:
+      models:
+        participatory_process:
+          attributes:
+            document:
+              invalid_document_type: 'Invalid document type. Accepted formats are: %{valid_mime_types}'
     models:
       decidim/participatory_process_step_activated_event: Steg aktiverat
       decidim/participatory_process_step_changed_event: Steget har ändrats
@@ -75,6 +82,7 @@ sv:
         filter:
           all: Visa alla processer
           process_groups: Processgrupper
+        import_process: Import
         new_process: Ny process
         new_process_group: Ny processgrupp
         new_process_step: Nytt steg
@@ -147,6 +155,14 @@ sv:
         update:
           error: Det gick inte att uppdatera deltagarprocessgruppen.
           success: Deltagarprocessgruppen har uppdaterats.
+      participatory_process_imports:
+        create:
+          error: There was a problem importing this participatory process.
+          success: Participatory process successfully imported.
+        new:
+          import: Import
+          select: Select which data you would like to import
+          title: Import participatory process
       participatory_process_publications:
         create:
           error: Det gick inte att publicera deltagarprocessen.
@@ -207,6 +223,9 @@ sv:
         index:
           not_published: Ej publicerad
           private: Privat
+          promoted:
+            'false': 'False'
+            'true': 'True'
           public: Offentlig
           published: Publicerad
         new:
@@ -236,6 +255,9 @@ sv:
         publish: "%{user_name} publicerade deltagarprocessen %{resource_name}"
         unpublish: "%{user_name} avpublicerade deltagarprocessen %{resource_name}"
         update: "%{user_name} uppdaterade deltagarprocessen %{resource_name}"
+      participatory_process_group:
+        create: "%{user_name} heeft de burgerinspraak %{resource_name} aangemaakt"
+        update: "%{user_name} heeft de burgerinspraak %{resource_name} aangemaakt"
       participatory_process_step:
         activate: "%{user_name} aktiverade steget %{resource_name} i deltagarprocessen %{space_name}"
         create: "%{user_name} skapade steget %{resource_name} i deltagarprocessen %{space_name}"
@@ -288,6 +310,10 @@ sv:
         participatory_process_copies:
           form:
             slug_help: 'URL-slugs används till att generera de URL:er som pekar på processen. Använd bara bokstäver, siffror och bindestreck, och de måste börja med en bokstav. Exempel: %{url}'
+        participatory_process_imports:
+          form:
+            document_legend: Add a document
+            slug_help: 'URL slugs are used to generate the URLs that point to this process. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
         participatory_process_steps:
           form:
             cta_path_help: 'Använd relativa sökvägar, inte fullständiga URL: er här. Tar emot bokstäver, siffror, streck och snedstreck, och måste börja med en bokstav. Om den inte anges visas inte knappen. Exempel: %{url}'

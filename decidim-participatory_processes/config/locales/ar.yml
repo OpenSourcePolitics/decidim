@@ -21,6 +21,7 @@ ar:
         participatory_process_group_id: مجموعة العمليات
         participatory_scope: ما الذي تقرر
         participatory_structure: كيف تقرر ذلك
+        private_space: Concertation privée
         promoted: رقية
         published_at: نشرت في
         scope_id: نطاق
@@ -49,6 +50,12 @@ ar:
         email: البريد الإلكتروني
         name: اسم
         role: وظيفة
+    errors:
+      models:
+        participatory_process:
+          attributes:
+            document:
+              invalid_document_type: 'Invalid document type. Accepted formats are: %{valid_mime_types}'
     models:
       decidim/participatory_process_step_activated_event: تم تنشيط المرحلة
       decidim/participatory_process_step_changed_event: تغيرت المرحلة
@@ -87,6 +94,7 @@ ar:
         filter:
           all: عرض جميع العمليات
           process_groups: مجموعات العملية
+        import_process: Import
         new_process: عملية جديدة
         new_process_group: مجموعة عملية جديدة
         new_process_step: مرحلة جديدة
@@ -159,6 +167,14 @@ ar:
         update:
           error: حدثت مشكلة أثناء تحديث مجموعة العملية التشاركية هذه.
           success: تم تحديث مجموعة العملية التشاركية بنجاح.
+      participatory_process_imports:
+        create:
+          error: There was a problem importing this participatory process.
+          success: Participatory process successfully imported.
+        new:
+          import: Import
+          select: Select which data you would like to import
+          title: Import participatory process
       participatory_process_publications:
         create:
           error: كانت هناك مشكلة في نشر هذه العملية التشاركية.
@@ -219,6 +235,9 @@ ar:
         index:
           not_published: غير منشور
           private: نشر
+          promoted:
+            'false': 'False'
+            'true': 'True'
           public: عامة
           published: نشرت
         new:
@@ -248,6 +267,9 @@ ar:
         publish: "%{user_name} نشر عملية المشاركة %{resource_name}"
         unpublish: "%{user_name} لم تنشر العملية التشاركية %{resource_name}"
         update: "%{user_name} تحديث العملية التشاركية %{resource_name}"
+      participatory_process_group:
+        create: "%{user_name} heeft de burgerinspraak %{resource_name} aangemaakt"
+        update: "%{user_name} heeft de burgerinspraak %{resource_name} aangemaakt"
       participatory_process_step:
         activate: "%{user_name} تفعيل المرحلة %{resource_name} في عملية المشاركة %{space_name}"
         create: "%{user_name} خلق المرحلة %{resource_name} في العملية التشاركية %{space_name}"
@@ -304,6 +326,10 @@ ar:
         participatory_process_copies:
           form:
             slug_help: 'يتم استخدام slugs URL لإنشاء عناوين URL التي تشير إلى هذه العملية. يقبل الحروف والأرقام والشرطات فقط ، ويجب أن يبدأ بحرف. مثال: %{url}'
+        participatory_process_imports:
+          form:
+            document_legend: Add a document
+            slug_help: 'URL slugs are used to generate the URLs that point to this process. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
         participatory_process_steps:
           form:
             cta_path_help: 'استخدم المسارات الجزئية ، وليس عناوين URL الكاملة هنا. يقبل الحروف والأرقام والشرطات والمائلة ، ويجب أن يبدأ بحرف. إذا لم يتم تعيينه ، فلن يظهر الزر. مثال: %{url}'
@@ -431,3 +457,5 @@ ar:
       process_header_steps:
         step: المرحلة %{current} من %{total}
         view_steps: عرض المراحل
+      process_navigation:
+        process_menu_item: The process

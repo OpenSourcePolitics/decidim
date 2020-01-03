@@ -31,6 +31,7 @@ pt:
           global:
             announcement: Anúncio
             comments_enabled: Comentários ativados
+            comments_max_length: Comments max length
           step:
             announcement: Anúncio
             comments_blocked: Comentários bloqueados
@@ -100,10 +101,8 @@ pt:
           create: Crio
           select_a_category: Por favor, selecione uma categoria
           title: Novo debate
-        share:
-          close_window: Janela fechada
-          share: Compartilhar
-          share_link: Compartilhar link
+        show:
+          back: Back to list
       last_activity:
         new_debate_at_html: "<span>Novo debate em %{link}</span>"
       models:

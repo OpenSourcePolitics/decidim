@@ -40,8 +40,10 @@ ar:
         address: خادم SMTP
         alert_color: تنبيه
         badges_enabled: تمكين الشارات
+        comments_max_length: Nombre de caractères maximum des commentaires (Mettre 0 pour laisser la valeur par défaut)
         cta_button_path: دعوة إلى العمل مسار زر
         cta_button_text: نص زر Call To Action
+        customize_welcome_notification: Pas welkomstmelding aan
         default_locale: اللغة الافتراضية
         description: الوصف
         enable_omnipresent_banner: عرض لافتة في كل مكان
@@ -71,6 +73,7 @@ ar:
         primary_color: ابتدائي
         reference_prefix: بادئة المرجع
         secondary_color: ثانوي
+        send_welcome_notification: Stuur welkomstmelding
         show_statistics: عرض الإحصائيات
         success_color: نجاح
         tos_version: شروط وأحكام الخدمة
@@ -78,7 +81,14 @@ ar:
         user_groups_enabled: تمكين المجموعات
         user_name: اسم المستخدم
         warning_color: تحذير
+        welcome_notification_body: Tekst van de welkomstmelding
+        welcome_notification_subject: Welkomstmelding onderwerp
         youtube_handler: مُعرّف حساب يوتيوب
+      participatory_process:
+        import_attachments: Importer les pièces jointes
+        import_categories: Importer les catégories
+        import_components: Importer les fonctionnalités
+        import_steps: Importer les étapes
       scope:
         code: الشفرة
         name: الاسم
@@ -162,6 +172,7 @@ ar:
           error: كانت هناك مشكلة في إنشاء منطقة جديدة.
           success: تم إنشاء المنطقة بنجاح.
         destroy:
+          has_spaces: Area has dependent spaces, it must not have dependencies in order to be deleted.
           success: تم تدمير المنطقة بنجاح
         edit:
           title: تحرير المنطقة
@@ -314,6 +325,11 @@ ar:
         logs_list:
           no_logs_yet: لا توجد سجلات حتى الآن
       managed_users:
+        index:
+          impersonate: Impersonate
+          needs_authoriation_warning: Needs authoriation warning
+          promote: Promote
+          view_logs: View logs
         promotion:
           error: كانت هناك مشكلة في تعزيز المشارك المُدار.
           success: تمت ترقية المشارك المُدار بنجاح.
@@ -333,6 +349,7 @@ ar:
         help_sections: أقسام المساعدة
         homepage: الصفحة الرئيسية
         impersonations: التقليد
+        navbar_links: Navbar links
         newsletters: الرسائل الإخبارية
         oauth_applications: تطبيقات OAuth
         participants: المشاركون
@@ -370,6 +387,13 @@ ar:
             reason: السبب
             started_at: بدأت في
             user: مشارك
+        managed_user:
+          name: Name
+        navbar_link:
+          fields:
+            link: Link
+            title: Title
+            weight: Weight
         newsletter:
           fields:
             created_at: أنشئت في
@@ -425,6 +449,28 @@ ar:
             does_not_belong: لا ينتمي
             offensive: هجومي
             spam: بريد مؤذي
+      navbar_links:
+        create:
+          error: There was an error when creating this link.
+          success: Link created successfully
+        destroy:
+          success: Link successfully destroyed
+        edit:
+          title: Edit navbar link
+          update: Update
+        form:
+          link: Link
+          new_tab: Open in a new tab
+          same_tab: Open in the same tab
+          title: Title
+          weight: Weight
+        new:
+          create: Create
+          title: New navbar link
+        no_links: No links created
+        update:
+          error: There was an error when updating this link.
+          success: Link updated successfully
       newsletters:
         create:
           error: كانت هناك مشكلة في إنشاء هذه الرسالة الإخبارية.
@@ -447,6 +493,7 @@ ar:
           confirm_delete: هل أنت متأكد من أنك تريد حذف هذه الرسالة الإخبارية؟
           followers: 'مُتابِعون '
           has_been_sent_to: 'تم إرسالها إلى: '
+          no_scopes: No scopes
           not_sent: غير مرسَلة
           participants: 'مشاركون '
           segmented_to: 'مقسمه إلى %{subject}: '
@@ -456,18 +503,32 @@ ar:
           title: رسالة إخبارية جديدة
         select_recipients_to_deliver:
           all_spaces: الكل
+          all_users_help: Sends newsletter to all confirmed users.
           confirm_deliver: هل أنت متأكد من أنك تريد تسليم هذه الرسالة الإخبارية؟ لا يمكن التراجع عن هذا الإجراء.
           deliver: تسليم النشرة الإخبارية
+          followers_help: Sends newsletter to all confirmed users that follow any selected participatory spaces in the list.
           none: لا شَيْء
+          participants_help: Sends newsletter to all confirmed users that have participated in any of the selected participatory spaces in the list.
+          scopes_help: Sends newsletter to users that have any of the selected scope activated in their account's "My Interests" settings.
+          select_scopes: Filter for users having activated any selected scope in their account's My Interests settings.
+          select_spaces: Select spaces to segment the newsletter
+          select_users: Select which users you want to send the newsletter
           send_to_all_users: إرسال إلى كافة المستخدمين
           send_to_followers: إرسال إلى المتابِعين
           send_to_participants: إرسال إلى المشاركين
+          title: Select recipients to deliver
+          warning: "<strong>Attention:</strong> This newsletter will only be send to users that have activated <em>I want to recieve newsletters</em> in their notifications settings."
+        send:
+          no_recipients: No recipients for this selection
         show:
           preview: معاينة
+          select_recipients_to_deliver: Select recipients to deliver
           subject: الموضوع
         update:
           error: حدثت مشكلة أثناء تحديث هذه الرسالة الإخبارية.
           success: تم تحديث النشرة الإخبارية بنجاح. يرجى مراجعته قبل الإرسال.
+      oauth_application:
+        new: New Oauth application
       oauth_applications:
         create:
           error: حدثت مشكلة أثناء إنشاء هذا التطبيق.
@@ -626,6 +687,7 @@ ar:
           update: تحديث
         form:
           none: لا شيء
+          slug_help: 'Use partial paths, not full URLs here. Accepts letters, numbers, dashes and slashes, and must start with a letter. Example: %{url}'
         index:
           last_notable_change: آخر تغيير ملحوظ
         new:
@@ -647,12 +709,16 @@ ar:
         dashboard: لوحة القيادة
         impersonatable_users: المشاركون في الإدارة
         impersonations: إدارة المشاركين
+        managed_users: Managed users
+        navbar_links: Navbar links
         participants: المشاركين
         scope_types: أنواع النطاق
         scopes: نطاقات
         static_pages: صفحات
         user_groups: المجموعات
         users: المشاركين
+      user:
+        new: New user
       user_group:
         csv_verify:
           invalid: حدثت مشكلة في قراءة ملف CSV.

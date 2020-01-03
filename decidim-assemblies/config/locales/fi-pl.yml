@@ -210,14 +210,21 @@ fi-pl:
       admin:
         assemblies:
           form:
+            duration: Duration
             duration_help: Jos ryhmän kesto on rajoitettu, valitse päättymispäivä. Muussa tapauksessa se näkyy määrittelemättömänä.
+            filters: Filters
+            images: Images
             included_at_help: Valitse päivämäärä, jolloin ryhmä lisättiin Decidimiin. Sen ei välttämättä tarvitse olla sama kuin luomispäivä.
+            metadata: Metadata
+            other: Other
             select_a_created_by: Valitse luoja
             select_an_area: Valitse alue
             select_an_assembly_type: Valitse ryhmän tyyppi
             select_parent_assembly: Valitse pääryhmä
             slug_help: 'URL-tunnisteita käytetään tähän ryhmään osoittavien URL-osoitteiden luonnissa. Hyväksyy kirjaimet, numerot ja viivat. Ensimmäinen merkki on oltava kirjain. Esimerkiksi: %{url}'
             social_handlers: Sosiaalinen media
+            title: General Information
+            visbility: Visibility
         assembly_copies:
           form:
             slug_help: 'URL-tunnisteita käytetään tähän ryhmään osoittavien URL-osoitteiden luonnissa. Hyväksyy kirjaimet, numerot ja viivat. Ensimmäinen merkki on oltava kirjain. Esimerkiksi: %{url}'
@@ -263,8 +270,10 @@ fi-pl:
         executive: Johtaja
         government: Hallinto
         help: 'Show:'
+        label: 'Show:'
         others: Muut
         participatory: Osallistava
+        placeholder: Filtrer par type
         working_group: Työryhmä
       index:
         title: Ryhmät
@@ -350,8 +359,10 @@ fi-pl:
     decidim:
       assemblies:
         assembly:
+          more_info: More info
           take_part: Osallistu
         index:
+          children: 'Assemblies: '
           organizational_chart: Organisaatiokaavio
           promoted_assemblies: Korostetut ryhmät
           reset_chart: Palauta

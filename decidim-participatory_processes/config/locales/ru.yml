@@ -4,10 +4,12 @@ ru:
     attributes:
       participatory_process:
         announcement: Объявление
+        area_id: Area
         banner_image: Изображение баннера
         copy_categories: Скопировать категории
         copy_components: Копировать составляющие
         copy_steps: Копировать шаги
+        decidim_area_id: Area
         description: Описание
         developer_group: Рабочая группа по продвижению
         domain: Домен
@@ -48,6 +50,12 @@ ru:
         email: Эл. адрес
         name: Имя
         role: Роль
+    errors:
+      models:
+        participatory_process:
+          attributes:
+            document:
+              invalid_document_type: 'Invalid document type. Accepted formats are: %{valid_mime_types}'
     models:
       decidim/participatory_process_step_activated_event: Шаг приведен в действие
       decidim/participatory_process_step_changed_event: Шаг изменен
@@ -77,7 +85,12 @@ ru:
         destroy: Удалить
         duplicate: Создать копию
         edit: Редактировать
+        filter:
+          all: Show all processes
+          process_groups: Process Groups
+        import_process: Import
         new: New
+        new_process: New process
         new_process_group: Создать группу движений
         new_process_step: Новый шаг
         new_process_user_role: Добавить участника движения
@@ -149,6 +162,14 @@ ru:
         update:
           error: При попытке обновить эту группу движений соучастия произошла ошибка.
           success: Группа движения соучастия успешно обновлена.
+      participatory_process_imports:
+        create:
+          error: There was a problem importing this participatory process.
+          success: Participatory process successfully imported.
+        new:
+          import: Import
+          select: Select which data you would like to import
+          title: Import participatory process
       participatory_process_publications:
         create:
           error: При обнародовании нового движения соучастия произошла ошибка.
@@ -241,6 +262,9 @@ ru:
         publish: "%{user_name} обнародовал движение соучастия %{resource_name}"
         unpublish: "%{user_name} отменил обнародование движения соучастия %{resource_name}"
         update: "%{user_name} обновил движение соучастия %{resource_name}"
+      participatory_process_group:
+        create: "%{user_name} heeft de burgerinspraak %{resource_name} aangemaakt"
+        update: "%{user_name} heeft de burgerinspraak %{resource_name} aangemaakt"
       participatory_process_step:
         activate: "%{user_name} привел в действие шаг %{resource_name} движения соучастия %{space_name}"
         create: "%{user_name} создал шаг %{resource_name} движения соучастия %{space_name}"
@@ -300,6 +324,10 @@ ru:
         participatory_process_copies:
           form:
             slug_help: 'Сокращенные веб-адреса используются для создания ссылок на это движение. В них допустимы только буквы, цифры и тире, и они должны начинаться с буквы. Пример: %{url}'
+        participatory_process_imports:
+          form:
+            document_legend: Add a document
+            slug_help: 'URL slugs are used to generate the URLs that point to this process. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
         participatory_process_steps:
           form:
             cta_path_help: 'Use partial paths, not full URLs here. Accepts letters, numbers, dashes and slashes, and must start with a letter. If not set, the button will not be shown. Example: %{url}'
@@ -307,8 +335,16 @@ ru:
         participatory_processes:
           form:
             announcement_help: Текст, который вы введете здесь, будет показан участнику прямо под описанием движения.
+            duration: Duration
+            filters: Filters
+            images: Images
+            metadata: Metadata
+            other: Other
+            select_an_area: Select an Area
+            select_process_group: Select a process group
             slug_help: 'Сокращенные веб-адреса используются для создания ссылок на это движение. В них допустимы только буквы, цифры и тире, и они должны начинаться с буквы. Пример: %{url}'
             title: Общие сведения
+            visbility: Visibility
       content_blocks:
         highlighted_processes:
           name: Рекомендуемые движения
@@ -360,6 +396,7 @@ ru:
         index:
           loading: Загрузка результатов...
       show:
+        area: Area
         developer_group: Рабочая группа по продвижению
         end_date: Дата окончания
         local_area: Участок организации
@@ -401,6 +438,7 @@ ru:
           promoted_processes: Рекомендуемые движения
         participatory_process:
           active_step: 'Текущий шаг:'
+          more_info: More info
           take_part: Принять участие
         promoted_process:
           active_step: 'Текущий шаг:'

@@ -282,8 +282,10 @@ ar:
         executive: تنفيذية
         government: الحكومية
         help: 'عرض:'
+        label: 'Show:'
         others: أخرى
         participatory: التشاركية
+        placeholder: Filtrer par type
         working_group: فريق العمل
       index:
         title: الجمعيات
@@ -376,6 +378,10 @@ ar:
           organizational_chart: الهيكل التنظيمي
           promoted_assemblies: المجالس البارزة
           reset_chart: إعادة تعيين
+        order_by_assemblies:
+          assemblies:
+            one: "%{count} assemblies"
+            other: "%{count} assemblies"
         promoted_assembly:
           more_info: مزيد من المعلومات
           take_part: خذ جزء

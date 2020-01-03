@@ -37,15 +37,19 @@ pt:
         organization_url: URL da organização
         redirect_uri: URI de redirecionamento
       organization:
+        address: SMTP hostname
         alert_color: Alerta
         badges_enabled: Ativar emblemas
+        comments_max_length: Nombre de caractères maximum des commentaires (Mettre 0 pour laisser la valeur par défaut)
         cta_button_path: Caminho do botão Chamar para Ação
         cta_button_text: Texto do botão Chamar para Ação
+        customize_welcome_notification: Pas welkomstmelding aan
         default_locale: Idioma por defeito
         description: Descrição
         enable_omnipresent_banner: Mostrar bandeira omnipresente
         facebook_handler: Manipulador do Facebook
         favicon: Ícone
+        from: From email address
         github_handler: GitHub handler
         header_snippets: Snippets de cabeçalho
         highlighted_content_banner_action_subtitle: Legenda do botão de ação
@@ -64,16 +68,27 @@ pt:
         omnipresent_banner_short_description: Pequena descrição
         omnipresent_banner_title: Título
         omnipresent_banner_url: URL
+        password: Password
+        port: Port
         primary_color: Primário
         reference_prefix: Prefixo de referência
         secondary_color: Secundário
+        send_welcome_notification: Stuur welkomstmelding
         show_statistics: Mostre estatisticas
         success_color: Sucesso
         tos_version: Termos de versão do serviço
         twitter_handler: Manipulador do Twitter
         user_groups_enabled: Ativar grupos de usuários
+        user_name: Username
         warning_color: Aviso
+        welcome_notification_body: Tekst van de welkomstmelding
+        welcome_notification_subject: Welkomstmelding onderwerp
         youtube_handler: Manipulador do YouTube
+      participatory_process:
+        import_attachments: Importer les pièces jointes
+        import_categories: Importer les catégories
+        import_components: Importer les fonctionnalités
+        import_steps: Importer les étapes
       scope:
         code: Código
         name: Nome
@@ -157,6 +172,7 @@ pt:
           error: Ocorreu um erro ao criar uma nova área.
           success: Área criada com sucesso.
         destroy:
+          has_spaces: Area has dependent spaces, it must not have dependencies in order to be deleted.
           success: Área destruída com sucesso
         edit:
           title: Editar área
@@ -241,6 +257,7 @@ pt:
         form:
           default_step_settings: Configurações de etapa padrão
           global_settings: Configurações globais
+          participatory_texts_enabled_help: Cannot interact with this setting if there are existing proposals. Please, create a new `Proposals component` if you want to enable this feature or discard all imported proposals in the `Participatory Texts` menu if you want to disable it.
           step_settings: Configurações de etapa
         index:
           add: Adicionar componente
@@ -308,6 +325,11 @@ pt:
         logs_list:
           no_logs_yet: Ainda não há logs
       managed_users:
+        index:
+          impersonate: Impersonate
+          needs_authoriation_warning: Needs authoriation warning
+          promote: Promote
+          view_logs: View logs
         promotion:
           error: Ocorreu um erro ao promover o usuário gerenciado.
           success: O usuário gerenciado foi promovido com sucesso.
@@ -327,6 +349,7 @@ pt:
         help_sections: Seções de ajuda
         homepage: Pagina inicial
         impersonations: Imitações
+        navbar_links: Navbar links
         newsletters: Boletins informativos
         oauth_applications: Aplicações OAuth
         participants: Participantes
@@ -364,11 +387,19 @@ pt:
             reason: Razão
             started_at: Começou em
             user: Do utilizador
+        managed_user:
+          name: Name
+        navbar_link:
+          fields:
+            link: Link
+            title: Title
+            weight: Weight
         newsletter:
           fields:
             created_at: Criado em
             progress: Progresso
             sent_at: Enviado em
+            sent_to: Sent to
             subject: Sujeito
           name: Boletim de Notícias
         oauth_application:
@@ -418,6 +449,28 @@ pt:
             does_not_belong: Não pertence
             offensive: Ofensiva
             spam: Spam
+      navbar_links:
+        create:
+          error: There was an error when creating this link.
+          success: Link created successfully
+        destroy:
+          success: Link successfully destroyed
+        edit:
+          title: Edit navbar link
+          update: Update
+        form:
+          link: Link
+          new_tab: Open in a new tab
+          same_tab: Open in the same tab
+          title: Title
+          weight: Weight
+        new:
+          create: Create
+          title: New navbar link
+        no_links: No links created
+        update:
+          error: There was an error when updating this link.
+          success: Link updated successfully
       newsletters:
         create:
           error: Ocorreu um erro ao criar este boletim informativo.
@@ -434,20 +487,48 @@ pt:
         form:
           interpolations_hint: 'Dica: você pode usar "%{name}" em qualquer parte do corpo ou assunto e será substituído pelo nome do destinatário.'
         index:
+          all: all
+          all_users: 'All users '
+          and: 'and '
           confirm_delete: Tem certeza de que deseja excluir esta newsletter?
+          followers: 'followers '
+          has_been_sent_to: 'Has been sent to: '
+          no_scopes: No scopes
+          not_sent: Not sent
+          participants: 'participants '
+          segmented_to: 'Segmented to %{subject}: '
           title: boletins informativos
         new:
           save: Salve 
           title: Novo boletim informativo
         select_recipients_to_deliver:
+          all_spaces: All
+          all_users_help: Sends newsletter to all confirmed users.
           confirm_deliver: Tem certeza de que deseja enviar este boletim informativo? Essa ação não pode ser desfeita.
           deliver: Entregar boletim informativo
+          followers_help: Sends newsletter to all confirmed users that follow any selected participatory spaces in the list.
+          none: None
+          participants_help: Sends newsletter to all confirmed users that have participated in any of the selected participatory spaces in the list.
+          scopes_help: Sends newsletter to users that have any of the selected scope activated in their account's "My Interests" settings.
+          select_scopes: Filter for users having activated any selected scope in their account's My Interests settings.
+          select_spaces: Select spaces to segment the newsletter
+          select_users: Select which users you want to send the newsletter
+          send_to_all_users: Send to all users
+          send_to_followers: Send to followers
+          send_to_participants: Send to participants
+          title: Select recipients to deliver
+          warning: "<strong>Attention:</strong> This newsletter will only be send to users that have activated <em>I want to recieve newsletters</em> in their notifications settings."
+        send:
+          no_recipients: No recipients for this selection
         show:
           preview: Visualização
+          select_recipients_to_deliver: Select recipients to deliver
           subject: Sujeito
         update:
           error: Ocorreu um erro ao atualizar este boletim informativo.
           success: Newsletter atualizada com sucesso. Por favor, reveja-o antes de enviar.
+      oauth_application:
+        new: New Oauth application
       oauth_applications:
         create:
           error: Houve um erro ao criar este aplicativo.
@@ -606,6 +687,7 @@ pt:
           update: Actualizar
         form:
           none: Nenhum
+          slug_help: 'Use partial paths, not full URLs here. Accepts letters, numbers, dashes and slashes, and must start with a letter. Example: %{url}'
         index:
           last_notable_change: Última alteração notável
         new:
@@ -627,12 +709,16 @@ pt:
         dashboard: painel de controle
         impersonatable_users: Usuários gerenciáveis
         impersonations: Gerenciamento de usuários
+        managed_users: Managed users
+        navbar_links: Navbar links
         participants: Comercial
         scope_types: Tipos de âmbito
         scopes: Âmbitos
         static_pages: Páginas
         user_groups: Grupos de usuários
         users: Utilizadores
+      user:
+        new: New user
       user_group:
         csv_verify:
           invalid: Ocorreu um erro ao ler o arquivo CSV.

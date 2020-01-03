@@ -4,6 +4,14 @@ fi-pl:
     attributes:
       account:
         delete_reason: Syy tilisi poistoon
+      group:
+        about: Over
+        avatar: Profielafbeelding
+        document_number: Documentnummer
+        email: E-mail
+        name: Naam
+        nickname: Roepnaam
+        phone: Telefoon
       report:
         details: Lisätiedot
       user:
@@ -16,6 +24,10 @@ fi-pl:
         personal_url: Henkilökohtainen URL-osoite
         remove_avatar: Poista profiilikuva
     models:
+      decidim/amendable/amendment_accepted_event: Amendment accepted
+      decidim/amendable/amendment_created_event: Amendment created
+      decidim/amendable/amendment_rejected_event: Amendment rejected
+      decidim/amendable/emendation_promoted_event: Amendment promoted
       decidim/attachment_created_event: Liite
       decidim/component_published_event: Aktiivinen komponentti
       decidim/demoted_membership: Ei enää ryhmän ylläpitäjä
@@ -109,6 +121,7 @@ fi-pl:
         update: "%{user_name} päivitti organisaation asetuksia"
       participatory_space_private_user:
         create: "%{user_name} kutsui %{resource_name} yksityiseksi käyttäjaksi"
+        create_via_csv: "%{user_name} heeft %{resource_name} uitgenodigd om een privé deelnemer te zijn"
         delete: "%{user_name} poisti yksityisen käyttäjän %{resource_name}"
       scope:
         create: "%{user_name} loi %{resource_name} teeman"
@@ -140,6 +153,7 @@ fi-pl:
         error: Tämän resurssin muuttamisessa tapahtui virhe.
         help_text: Paranna tätä %{model_name} kohdetta muuttamalla sen kenttiä %{amendable_fields}
         promote_button: Korosta kohteeksi %{model_name}
+        promote_confirm_text: Are you sure you want to promote this emendation?
         promote_help_text: Voit korostaa tämän muutoksen ja julkaista sen uutena %{model_name} -kohteena
         section_heading: Muutokset (%{count})
       created:
@@ -157,6 +171,7 @@ fi-pl:
           evaluating: |-
             Tätä muutosta kohteelle %{amendable_type} %{amendable_link}
             arvioidaan.
+          promoted: Gepromoveerd naar een %{amendable_type}.
           rejected: |-
             Tämä muutos kohteelle %{amendable_type} %{amendable_link}
             hylättiin ajankohtana <strong>%{announcement_date}</strong>.
@@ -222,6 +237,36 @@ fi-pl:
         explanation: Lähetä matkapuhelinnumerosi, jotta voimme tarkistaa henkilöllisyytesi.
         name: Koodi tekstiviestinä
       started_at: Aloitettu %{timestamp}
+    authorization_modals:
+      content:
+        expired:
+          authorize: Reauthorize with "%{authorization}"
+          explanation: Your authorization has expired. In order to perform this action, you need to be reauthorized with "%{authorization}".
+          title: Authorization has expired
+        incomplete:
+          cancel: Cancel
+          explanation: 'Even though you''re currently authorized with "%{authorization}", we need you to reauthorize because we lack the following data:'
+          invalid_field: "%{field}"
+          reauthorize: Reauthorize
+          title: Please reauthorize
+        missing:
+          authorize: Authorize with "%{authorization}"
+          explanation: In order to perform this action, you need to be authorized with "%{authorization}".
+          title: Authorization required
+        pending:
+          explanation: In order to perform this action, you need to be authorized with "%{authorization}", but your authorization is still in progress
+          resume: Check your "%{authorization}" authorization progress
+          title: Authorization is still in progress
+        unauthorized:
+          explanation: Sorry, you can't perform this action as some of your authorization data doesn't match.
+          invalid_field: "%{field} value %{value} isn't valid."
+          ok: Ok
+          title: Not authorized
+        unconfirmed:
+          confirmation_instructions: 'If you haven''t received the confirmation instructions you can request them again:'
+          explanation_html: In order to perform this action you need to be authorized, before doing that you need to confirm your email <strong>%{email}</strong>.
+          request_confirmation_instructions: Request confirmation instructions
+          title: Confirm your email
     collapsible_list:
       hidden_elements_count:
         one: ja %{count} lisää
@@ -238,14 +283,21 @@ fi-pl:
           global:
             amendments_enabled: Muutokset käytössä
             comments_enabled: Kommentit käytössä
+            comments_max_length: comments_max_length
             dummy_global_attribute_1: Esimerkkitietue 1
             dummy_global_attribute_2: Esimerkkitietue 2
+            dummy_global_translatable_text: Vertaalbare tekst Dummy
             enable_pads_creation: Ota käyttöön muistioiden luominen
             resources_permissions_enabled: Resurssien käyttöoikeudet ovat käytössä
           step:
+            amendment_creation_enabled: Aanmaken van amendementen ingeschakeld
+            amendment_promotion_enabled: Promoten van amendementen ingeschakeld
+            amendment_reaction_enabled: Reageren op amendementen ingeschakeld
+            amendments_visibility: Zichtbaarheid van amendement
             comments_blocked: Kommentit estetty
             dummy_step_attribute_1: Esimerkkivaiheen tietue 1
             dummy_step_attribute_2: Esimerkkivaiheen tietue 2
+            dummy_step_translatable_text: Dummy Stap Vertaalbare tekst
     contact: Ota yhteyttä
     content_blocks:
       footer_sub_hero:
@@ -297,6 +349,7 @@ fi-pl:
           newsletter: Vastaanota silloin tällöin olennaista tietoa sisältävä uutiskirje
           newsletter_title: Yhteydenottolupa
           nickname_help: Lyhyt, yksilöivä käyttäjätunnus organisaatiossa %{organization}
+          password_help: "%{minimun_characters} characters minimum, must not be too common (e.g. 123456) and must be different from your nickname and your email."
           sign_in: Kirjaudu sisään
           sign_up: Rekisteröidy
           sign_up_as:
@@ -509,6 +562,9 @@ fi-pl:
       current_image: Nykyinen kuva
       default_image: Oletuskuva
       errors:
+        decidim/user:
+          password: Het wachtwoord is te kort.
+          password_confirmation: Wachtwoordbevestiging moet overeenkomen met het wachtwoord.
         error: Tässä kentässä on virhe.
       remove_this_file: Poista tiedosto
     gamification:
@@ -747,6 +803,9 @@ fi-pl:
         greetings: Tervehdys,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Hei,
         subject: Haluatko jatkaa olennaisen tiedon vastaanottamista koskien %{organization_name} -palvelua?
+    notification_mailer:
+      shared:
+        note: You received this message because you are subscribed to the email notification on %{organization_name}. You can change your settings on your notification page <a href="%{link}"></a>.
     notifications:
       no_notifications: Ei vielä ilmoituksia.
     notifications_settings:
@@ -848,6 +907,7 @@ fi-pl:
       deleted: Poistettu käyttäjä
       view: Näytä
     profiles:
+      default_officialization_text: Verified
       default_officialization_text_for_user_groups: Tämä käyttäjäryhmä on julkisesti vahvistettu, sen nimi vastaa oikeaa nimeä
       default_officialization_text_for_users: Tämä osallistuja on julkisesti vahvistettu. Hänen nimensä tai roolinsa on varmistettu vastaamaan hänen oikeaa nimeään ja rooliaan
       show:
@@ -944,8 +1004,15 @@ fi-pl:
       login_modal:
         please_sign_in: Kirjaudu sisään
         sign_up: Rekisteröidy
+      participatory_space_filters:
+        filters:
+          areas: Areas
+          select_an_area: Select an area
       reference:
         reference: 'Viite: %{reference}'
+      represent_user_group:
+        represent_user_group: I represent a group
+        select_user_group: Select a group
       results_per_page:
         label: 'Tulosten määrä sivulla:'
       share_modal:
@@ -954,6 +1021,10 @@ fi-pl:
         share_link: Jaa linkki
       version_author:
         deleted: Käyttäjä poistettu
+    translate:
+      original: Translate (*)
+      tooltip: Translated with Deepl
+      translated: Back to the original version
     user_activity:
       index:
         no_activities_warning: Tämä käyttäjä ei ole vielä ollut aktiivinen.
@@ -1059,6 +1130,7 @@ fi-pl:
         change_your_password: Vaihda salasanasi
         confirm_new_password: Vahvista uusi salasana
         new_password: Uusi salasana
+        password_help: "%{minimun_characters} characters minimum, must not be too common (e.g. 123456) and must be different from your nickname and your email."
       new:
         forgot_your_password: Unohditko salasanasi?
         send_me_reset_password_instructions: Lähetä minulle ohjeet salasanan vaihtamiseen
@@ -1104,6 +1176,7 @@ fi-pl:
       minimum_password_length:
         one: "(vähintään %{count} merkki)"
         other: "(vähintään %{count} merkkiä)"
+      password_help: 'At least 8 characters, a capital letter and a special character (ex: !)'
     unlocks:
       new:
         resend_unlock_instructions: Lähetä uudelleen ohjeet tilin lukituksen poistoon
@@ -1134,6 +1207,17 @@ fi-pl:
       too_short: liian lyhyt (alle 15 merkkiä)
   forms:
     required: Vaadittu
+  instructions:
+    decidim:
+      system:
+        organizations:
+          smtp_settings:
+            address: Address
+            from_email: Sender's e-mail address
+            from_label: Shipper name
+            password: Password
+            port: Port
+            user_name: User Name
   invisible_captcha:
     sentence_for_humans: Jos olet ihminen, jätä tämä kenttä huomiotta
     timestamp_error_message: Pahoittelut, olit liian nopea! Lähetä lomake uudestaan.
@@ -1202,12 +1286,15 @@ fi-pl:
     qq: Qzone
     reddit: Reddit
     share_to: Jaa palvelussa %{name}
+    telegram: Telegram
     tumblr: Tumblr
     twitter: Twitter
     vkontakte: Vkontakte
     wechat: WeChat
     wechat_footer: Avaa WeChat, klikkaa "Discover" -nappia ja tämän jälkeen klikkaa "Scan QR Code" -valikkoa.
     weibo: Sina Weibo
+    whatsapp_app: WhatsApp
+    whatsapp_web: WhatsApp
     xing: Xing
   time:
     formats:
@@ -1217,11 +1304,22 @@ fi-pl:
       day_of_year: "%d.%m.%y"
       decidim_day_of_year: "%B %d. %Y"
       decidim_short: "%d.%m.%Y %H:%M"
+      default: "%a, %d %b %Y %H:%M:%S %z"
       devise:
         mailer:
           invitation_instructions:
             accept_until_format: "%B %d, %Y klo %k:%M"
+      long: "%B %d, %Y %H:%M"
+      short: "%d/%m/%Y %H:%M"
       time_of_day: "%H:%M"
+  versions:
+    directions:
+      left: Deletions
+      right: Additions
+    dropdown:
+      choose_diff_view_mode: 'Compare view mode:'
+      option_split: Side-by-side
+      option_unified: Unified
   views:
     pagination:
       first: "&laquo; Ensimmäinen"

@@ -49,6 +49,7 @@ fi-pl:
             title: otsikko
       posts:
         show:
+          back: Back to list
           view: Näytä
         sidebar_blog:
           comments: kommentit
@@ -61,6 +62,7 @@ fi-pl:
           global:
             announcement: Ilmoitus
             comments_enabled: Kommentointi käytössä
+            comments_max_length: Nombre de caractères maximum des commentaires (Mettre 0 pour laisser la valeur par défaut)
           step:
             announcement: Ilmoitus
             comments_blocked: Kommentointi estetty

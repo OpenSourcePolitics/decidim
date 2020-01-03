@@ -16,6 +16,8 @@ gl:
             choices:
               missing: non están completos
               too_many: son demasiados
+        questionnaire:
+          request_invalid: There's been an error handling the request. Please try again
   decidim:
     forms:
       admin:
@@ -81,3 +83,7 @@ gl:
       user_answers_serializer:
         created_at: Respondeu
         id: ID de resposta
+        ip_hash: Ip Hash
+        registered: Registered
+        unregistered: Unregistered
+        user_status: User status

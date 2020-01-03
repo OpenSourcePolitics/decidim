@@ -30,9 +30,14 @@ it:
         placeholders:
           content: Si prega di aggiungere contenuto significativo alla pagina statica %{page} sul pannello di amministrazione.
           title: Titolo predefinito per %{page}
+      logs:
+        index:
+          download_log: Download log
+          view_log: View %{line} lines
       menu:
         admins: Amministratori
         dashboard: Cruscotto
+        logs: Logs
         organizations: Organizzazioni
       models:
         admin:
@@ -62,6 +67,13 @@ it:
           reference_prefix_hint: Il prefisso di riferimento è utilizzato solamente per identificare le risorse in tutte le organizzazioni
           secondary_hosts_hint: Inserisci ciascun elemento in una nuova linea
           title: Nuova Organizzazione
+        smtp_settings:
+          address: Server address
+          from_email: From email
+          from_label: From label
+          password: Password
+          port: Server port
+          user_name: Username
         update:
           error: C'è stato un errore durante l'aggiornamento di questa organizzazione.
           success: OK, l'Organizzazione è stata aggiornata.

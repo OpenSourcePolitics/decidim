@@ -276,8 +276,10 @@ cs:
         executive: Výkonný
         government: Vláda
         help: 'Show:'
+        label: 'Show:'
         others: Ostatní
         participatory: Účastní se
+        placeholder: Filtrer par type
         working_group: Pracovní skupina
       index:
         title: Sestavy
@@ -366,6 +368,7 @@ cs:
           more_info: Více informací
           take_part: Zúčastnit se
         index:
+          children: 'Assemblies: '
           organizational_chart: Organizační schéma
           promoted_assemblies: Zvýrazněné sestavy
           reset_chart: Resetovat

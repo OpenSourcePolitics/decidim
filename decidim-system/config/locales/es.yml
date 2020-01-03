@@ -30,9 +30,14 @@ es:
         placeholders:
           content: Por favor, agrega contenido significativo a la página estática de %{page} en el panel de administración.
           title: Título predeterminado para %{page}
+      logs:
+        index:
+          download_log: Download log
+          view_log: View %{line} lines
       menu:
         admins: Administradoras
         dashboard: Panel de administración
+        logs: Logs
         organizations: Organizaciones
       models:
         admin:
@@ -62,6 +67,13 @@ es:
           reference_prefix_hint: El prefijo de referencia se utiliza para identificar de forma única los recursos de toda la organización
           secondary_hosts_hint: Introduce cada uno de ellos en una nueva línea
           title: Nueva organización
+        smtp_settings:
+          address: Server address
+          from_email: From email
+          from_label: From label
+          password: Password
+          port: Server port
+          user_name: Username
         update:
           error: Se ha producido un error al actualizar esta organización.
           success: Organización actualizada correctamente.

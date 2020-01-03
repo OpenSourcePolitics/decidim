@@ -72,8 +72,6 @@ fr:
           create: "%{user_name} a créé le débat %{resource_name} sur l'espace %{space_name}"
           update: "%{user_name} a mis à jour le débat %{resource_name} sur l'espace %{space_name}"
       debates:
-        show:
-          back: Retourner à la liste
         count:
           debates_count:
             one: "%{count} débat"
@@ -103,10 +101,8 @@ fr:
           create: Créer
           select_a_category: Veuillez sélectionner une catégorie
           title: Nouveau débat
-        share:
-          close_window: Fermer la fenêtre
-          share: Partager
-          share_link: Lien de partage
+        show:
+          back: Retourner à la liste
       last_activity:
         new_debate_at_html: "<span>Nouveau débat à %{link}</span>"
       models:

@@ -270,8 +270,10 @@ eu:
         executive: exekutiboa
         government: Gobernu
         help: 'Show:'
+        label: 'Show:'
         others: Beste batzuk
         participatory: partehartzailea
+        placeholder: Filtrer par type
         working_group: Lan taldea
       index:
         title: Biltzarrak
@@ -360,6 +362,7 @@ eu:
           more_info: Informazio gehiago
           take_part: Parte hartu
         index:
+          children: 'Assemblies: '
           organizational_chart: Organigrama
           promoted_assemblies: Batzar nabarmenduak
           reset_chart: Berrezarri

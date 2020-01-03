@@ -67,6 +67,13 @@ pl:
           reference_prefix_hint: Prefiks referencyjny służy do jednoznacznego identyfikowania zasobów we wszystkich organizacjach
           secondary_hosts_hint: Wpisz każdy z nich w nowej linii
           title: Nowa organizacja
+        smtp_settings:
+          address: Server address
+          from_email: From email
+          from_label: From label
+          password: Password
+          port: Server port
+          user_name: Username
         update:
           error: Podczas aktualizowania tej organizacji wystąpił błąd.
           success: Organizacja została zaktualizowana.

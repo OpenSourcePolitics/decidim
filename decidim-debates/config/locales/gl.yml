@@ -31,6 +31,7 @@ gl:
           global:
             announcement: Anuncio
             comments_enabled: Comentarios habilitados
+            comments_max_length: Comments max length
           step:
             announcement: Anuncio
             comments_blocked: Comentarios bloqueados
@@ -100,10 +101,8 @@ gl:
           create: Crear
           select_a_category: Selecciona unha categoría
           title: Novo debate
-        share:
-          close_window: Pechar ventá
-          share: Comparte
-          share_link: Compartir a ligazón
+        show:
+          back: Back to list
       last_activity:
         new_debate_at_html: "<span>Novo debate en %{link}</span>"
       models:

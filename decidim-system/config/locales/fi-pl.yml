@@ -30,9 +30,14 @@ fi-pl:
         placeholders:
           content: Lisää merkityksellistä sisältöä staattiselle sivulle %{page} hallintapaneelista.
           title: Oletusotsikko sivulle %{page}
+      logs:
+        index:
+          download_log: Download log
+          view_log: View %{line} lines
       menu:
         admins: Hallinnoijat
         dashboard: Hallintapaneeli
+        logs: Logs
         organizations: Organisaatiot
       models:
         admin:
@@ -48,6 +53,7 @@ fi-pl:
           fields:
             created_at: Luotu
             name: Nimi
+            smtp_settings: SMTP settings
           name: Organisaatio
       organizations:
         create:
@@ -61,6 +67,13 @@ fi-pl:
           reference_prefix_hint: Viitekoodin avulla tunnistetaan yksilöllisesti resursseja kaikissa organisaatioissa
           secondary_hosts_hint: Syötä jokainen niistä omalle rivilleen
           title: Uusi organisaatio
+        smtp_settings:
+          address: Server address
+          from_email: From email
+          from_label: From label
+          password: Password
+          port: Server port
+          user_name: Username
         update:
           error: Organisaation päivityksessä tapahtui virhe.
           success: Organisaatio päivitetty onnistuneesti.

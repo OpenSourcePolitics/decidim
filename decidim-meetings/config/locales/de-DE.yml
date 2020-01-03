@@ -82,6 +82,7 @@ de-DE:
           global:
             announcement: Announcement
             comments_enabled: Comments enabled
+            comments_max_length: Comments max length
             default_registration_terms: Default registration terms
             enable_pads_creation: Enable pads creation
             resources_permissions_enabled: Actions permissions can be set for each meeting
@@ -290,6 +291,7 @@ de-DE:
               other: There has been %{count} registrations.
             reserved_slots_help: Leave it to 0 if you don't have reserved slots
             reserved_slots_less_than: Must be less than or equal to %{count}
+            title: Registrations
           update:
             invalid: There's been a problem saving the registration settings.
             success: Meeting registrations settings successfully saved.
@@ -368,6 +370,7 @@ de-DE:
           confirm: Confirm
         show:
           attendees: Attendees count
+          back: Back to list
           contributions: Contributions count
           going: Going
           join: Join meeting

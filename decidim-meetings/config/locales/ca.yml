@@ -82,6 +82,7 @@ ca:
           global:
             announcement: Avís
             comments_enabled: Comentaris habilitats
+            comments_max_length: Comments max length
             default_registration_terms: Termes de registre per defecte
             enable_pads_creation: Habilitar la creació de pads
             resources_permissions_enabled: Es poden establir permisos d'accions per a cada trobada
@@ -96,11 +97,15 @@ ca:
             email_outro: Has rebut aquesta notificació perquè has organitzat la trobada "%{resource_title}".
             email_subject: S'ha tancat la trobada "%{resource_title}"
             notification_title: La trobada de <a href="%{resource_path}">%{resource_title}</a> s'ha tancat.
+          email_intro: 'La rencontre "%{resource_title}" est terminée. Vous pouvez en lire le compte rendu sur sa page :'
+          email_outro: Vous avez reçu cette notification, car vous suivez la rencontre "%{resource_title}". Vous pouvez arrêter de la suivre à partir du lien précédent.
+          email_subject: La rencontre "%{resource_title}" est terminée
           follower:
             email_intro: 'La trobada de "%{resource_title}" ha estat tancada. Pots llegir les conclusions a la seva pàgina:'
             email_outro: Has rebut aquesta notificació perquè estàs seguint la trobada "%{resource_title}". Pots deixar de seguir-la des de l'enllaç anterior.
             email_subject: S'ha tancat la trobada "%{resource_title}"
             notification_title: La trobada de <a href="%{resource_path}">%{resource_title}</a> s'ha tancat.
+          notification_title: La rencontre <a href="%{resource_path}">%{resource_title}</a> est terminée.
         meeting_created:
           email_intro: S'ha afegit la trobada "%{resource_title}" a l'espai "%{participatory_space_title}" que estàs seguint.
           email_outro: Has rebut aquesta notificació perquè estàs seguint "%{participatory_space_title}". Pots deixar de seguir-lo des de l'enllaç anterior.
@@ -366,6 +371,7 @@ ca:
           confirm: Confirmar
         show:
           attendees: Nombre d'assistents
+          back: Back to list
           contributions: Nombre d'aportacions
           going: Inscrit
           join: Inscriu-te a la trobada

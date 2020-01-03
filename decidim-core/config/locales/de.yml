@@ -4,6 +4,14 @@ de:
     attributes:
       account:
         delete_reason: Grund, dein Konto zu löschen
+      group:
+        about: Over
+        avatar: Profielafbeelding
+        document_number: Documentnummer
+        email: E-mail
+        name: Naam
+        nickname: Roepnaam
+        phone: Telefoon
       report:
         details: Zusätzliche Kommentare
       user:
@@ -16,6 +24,10 @@ de:
         personal_url: Persönliche URL
         remove_avatar: Avatar entfernen
     models:
+      decidim/amendable/amendment_accepted_event: Amendment accepted
+      decidim/amendable/amendment_created_event: Amendment created
+      decidim/amendable/amendment_rejected_event: Amendment rejected
+      decidim/amendable/emendation_promoted_event: Amendment promoted
       decidim/attachment_created_event: Anhang
       decidim/component_published_event: Aktive Komponente
       decidim/demoted_membership: Nicht mehr ein Gruppenadministrator
@@ -109,6 +121,7 @@ de:
         update: "%{user_name} aktualisiert die Organisationseinstellungen"
       participatory_space_private_user:
         create: "%{user_name} lud %{resource_name} , ein privater Benutzer zu sein"
+        create_via_csv: "%{user_name} heeft %{resource_name} uitgenodigd om een privé deelnemer te zijn"
         delete: "%{user_name} den Benutzer %{resource_name} als privaten Benutzer entfernt"
       scope:
         create: "%{user_name} hat den %{resource_name} Bereich erstellt"
@@ -158,6 +171,7 @@ de:
           evaluating: |-
             Diese Änderung für die %{amendable_type} %{amendable_link}
             wird bewertet.
+          promoted: Gepromoveerd naar een %{amendable_type}.
           rejected: |-
             Diese Änderung für die %{amendable_type} %{amendable_link}
             wurde am <strong>%{announcement_date}</strong>abgelehnt.
@@ -269,14 +283,21 @@ de:
           global:
             amendments_enabled: Änderungen aktiviert
             comments_enabled: Kommentare aktiviert
+            comments_max_length: comments_max_length
             dummy_global_attribute_1: Dummy-Attribut 1
             dummy_global_attribute_2: Dummy-Attribut 2
+            dummy_global_translatable_text: Vertaalbare tekst Dummy
             enable_pads_creation: Aktivieren Sie die Pads-Erstellung
             resources_permissions_enabled: Ressourcenberechtigungen aktiviert
           step:
+            amendment_creation_enabled: Aanmaken van amendementen ingeschakeld
+            amendment_promotion_enabled: Promoten van amendementen ingeschakeld
+            amendment_reaction_enabled: Reageren op amendementen ingeschakeld
+            amendments_visibility: Zichtbaarheid van amendement
             comments_blocked: Kommentare blockiert
             dummy_step_attribute_1: Dummy-Schritt-Attribut 1
             dummy_step_attribute_2: Dummy-Schritt-Attribut 2
+            dummy_step_translatable_text: Dummy Stap Vertaalbare tekst
     contact: Kontakt
     content_blocks:
       footer_sub_hero:
@@ -328,6 +349,7 @@ de:
           newsletter: Erhalten Sie einen gelegentlichen Newsletter mit relevanten Informationen
           newsletter_title: Kontakt Erlaubnis
           nickname_help: Ihre kurze, eindeutige ID in %{organization}
+          password_help: "%{minimun_characters} characters minimum, must not be too common (e.g. 123456) and must be different from your nickname and your email."
           sign_in: Anmelden
           sign_up: Registrieren
           sign_up_as:
@@ -540,6 +562,9 @@ de:
       current_image: Aktuelles Bild
       default_image: Standardbild
       errors:
+        decidim/user:
+          password: Het wachtwoord is te kort.
+          password_confirmation: Wachtwoordbevestiging moet overeenkomen met het wachtwoord.
         error: In diesem Feld ist ein Fehler aufgetreten.
       remove_this_file: Diese Datei entfernen
     gamification:
@@ -778,6 +803,9 @@ de:
         greetings: Grüße,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Hallo,
         subject: Möchten Sie weiterhin relevante Informationen über %{organization_name} erhalten?
+    notification_mailer:
+      shared:
+        note: You received this message because you are subscribed to the email notification on %{organization_name}. You can change your settings on your notification page <a href="%{link}"></a>.
     notifications:
       no_notifications: Noch keine Benachrichtigungen
     notifications_settings:
@@ -879,6 +907,7 @@ de:
       deleted: Teilnehmer gelöscht
       view: Anzeigen
     profiles:
+      default_officialization_text: Verified
       default_officialization_text_for_user_groups: Diese Benutzergruppe wurde öffentlich überprüft, ihr Name wurde mit dem tatsächlichen Namen verifiziert
       default_officialization_text_for_users: Dieser Teilnehmer wird öffentlich überprüft, sein Name oder seine Rolle wurde nachweislich seinem tatsächlichen Namen und seiner Rolle zugeordnet
       show:
@@ -992,6 +1021,10 @@ de:
         share_link: Einen Link teilen
       version_author:
         deleted: Gelöschter Benutzer
+    translate:
+      original: Translate (*)
+      tooltip: Translated with Deepl
+      translated: Back to the original version
     user_activity:
       index:
         no_activities_warning: Dieser Benutzer hat noch keine Aktivität gehabt.
@@ -1097,6 +1130,7 @@ de:
         change_your_password: Ändern Sie Ihr Passwort
         confirm_new_password: Bestätige neues Passwort
         new_password: Neues Passwort
+        password_help: "%{minimun_characters} characters minimum, must not be too common (e.g. 123456) and must be different from your nickname and your email."
       new:
         forgot_your_password: Haben Sie Ihr Passwort vergessen?
         send_me_reset_password_instructions: Senden Sie mir das Passwort zurück
@@ -1142,6 +1176,7 @@ de:
       minimum_password_length:
         one: "(%{count} Zeichen Minimum)"
         other: "(%{count} Zeichen Minimum)"
+      password_help: 'At least 8 characters, a capital letter and a special character (ex: !)'
     unlocks:
       new:
         resend_unlock_instructions: Erneute Anweisungen zum Entsperren senden
@@ -1172,6 +1207,17 @@ de:
       too_short: ist zu kurz (unter 15 Zeichen)
   forms:
     required: Erforderlich
+  instructions:
+    decidim:
+      system:
+        organizations:
+          smtp_settings:
+            address: Address
+            from_email: Sender's e-mail address
+            from_label: Shipper name
+            password: Password
+            port: Port
+            user_name: User Name
   invisible_captcha:
     sentence_for_humans: Wenn Sie ein Mensch sind, ignorieren Sie dieses Feld
     timestamp_error_message: Entschuldigung, das war zu schnell! Bitte erneut einreichen
@@ -1240,12 +1286,15 @@ de:
     qq: Qzone
     reddit: Reddit
     share_to: Teilen mit %{name}
+    telegram: Telegram
     tumblr: Tumblr
     twitter: Twitter
     vkontakte: Vkontakte
     wechat: WeChat
     wechat_footer: Öffnen Sie Ihr WeChat, klicken Sie auf "Discover" und dann auf das "Scan QR Code" Menü.
     weibo: Sina Weibo
+    whatsapp_app: WhatsApp
+    whatsapp_web: WhatsApp
     xing: Xing
   time:
     formats:
@@ -1255,11 +1304,22 @@ de:
       day_of_year: "%d.%m.%y"
       decidim_day_of_year: "%d %B %Y"
       decidim_short: "%d/%m/%Y %H:%M"
+      default: "%a, %d %b %Y %H:%M:%S %z"
       devise:
         mailer:
           invitation_instructions:
             accept_until_format: "%B %d, %Y %I:%M %p"
+      long: "%B %d, %Y %H:%M"
+      short: "%d/%m/%Y %H:%M"
       time_of_day: "%H:%M"
+  versions:
+    directions:
+      left: Deletions
+      right: Additions
+    dropdown:
+      choose_diff_view_mode: 'Compare view mode:'
+      option_split: Side-by-side
+      option_unified: Unified
   views:
     pagination:
       first: "&laquo; zuerst"

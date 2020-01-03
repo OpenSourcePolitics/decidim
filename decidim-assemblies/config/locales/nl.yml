@@ -1,3 +1,4 @@
+---
 nl:
   activemodel:
     attributes:
@@ -269,8 +270,10 @@ nl:
         executive: Uitvoerend
         government: Regering
         help: 'Toon:'
+        label: 'Show:'
         others: Overige
         participatory: Participatief
+        placeholder: Filtrer par type
         working_group: Werkgroep
       index:
         title: Groepen

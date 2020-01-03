@@ -26,6 +26,7 @@ pl:
         settings:
           global:
             comments_enabled: Komentarze włączone
+            comments_max_length: Nombre de caractères maximum des commentaires (Mettre 0 pour laisser la valeur par défaut)
     events:
       sortitions:
         sortition_created:
@@ -133,6 +134,7 @@ pl:
         show:
           algorithm: Kod algorytmu rozdziału
           any_category: ze wszystkich kategorii
+          back: Back to list
           cancelled: Anulowane sortowanie
           candidate_proposal_ids: Porządek i porządek sortowania
           candidate_proposals_info: 'Sortowanie zostało przeprowadzone wśród następujących propozycji (%{category_label}), z następującymi identyfikatorami (pogrubione wybrane propozycje)  '

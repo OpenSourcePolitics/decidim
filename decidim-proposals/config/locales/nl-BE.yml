@@ -1,3 +1,4 @@
+---
 nl-BE:
   activemodel:
     attributes:
@@ -77,6 +78,7 @@ nl-BE:
     components:
       proposals:
         actions:
+          amend: Pas aan
           create: Create
           endorse: Endorse
           vote: Vote
@@ -85,15 +87,19 @@ nl-BE:
         settings:
           global:
             amendments_enabled: Reacties ingeschakeld
+            amendments_enabled_help: 'Indien actief: stel de amendementsfunctionaliteiten in voor elke stap.'
+            amendments_wizard_help_text: Hulptekst van de amendementen wizard
             announcement: Announcement
             attachments_allowed: Allow attachments
             can_accumulate_supports_beyond_threshold: Can accumulate supports beyond threshold
             collaborative_drafts_enabled: Gezamenlijk ontwerp
             comments_enabled: Comments enabled
+            comments_max_length: Comments max length
             geocoding_enabled: Geocoding enabled
             minimum_votes_per_user: Minimum votes per user
             new_proposal_help_text: New proposal help text
             official_proposals_enabled: Official proposals enabled
+            participatory_texts_disabled_help: Instelling niet aanpasbaar als er bestaande voorstellen zijn. Maak een nieuwe `Voorstellen component` aan als u deze functie wilt inschakelen of wijs alle geïmporteerde voorstellen in het `Participatieve Teksten` menu af, als u de instelling wilt uitschakelen.
             participatory_texts_enabled: Participatieve scope
             proposal_answering_enabled: Proposal answering enabled
             proposal_edit_before_minutes: Proposals can be edited by authors before this many minutes passes
@@ -107,6 +113,14 @@ nl-BE:
             threshold_per_proposal: Threshold per proposal
             vote_limit: Vote limit per user
           step:
+            amendment_creation_enabled: Aanmaken van amendementen ingeschakeld
+            amendment_creation_enabled_help: Deelnemer kan voorstellen wijzigen.
+            amendment_promotion_enabled: Promoten van amendementen ingeschakeld
+            amendment_promotion_enabled_help: De auteurs van de Emandation kunnen de afgewezen emendatie voorstellen.
+            amendment_reaction_enabled: Reageren op amendementen ingeschakeld
+            amendment_reaction_enabled_help: De auteurs van het voorstel kunnen de amendementen van deelnemers accepteren of verwerpen.
+            amendments_visibility: Zichtbaarheid van amendement
+            amendments_visibility_help: Als de optie "alleen zichtbaar voor de auteurs" wordt geselecteerd, moet een deelnemer aangemeld zijn om de amendementen te zien.
             announcement: Announcement
             automatic_hashtags: Hashtags toegevoegd aan alle voorstellen
             comments_blocked: Comments blocked
@@ -191,7 +205,7 @@ nl-BE:
           notification_title: The <a href="%{resource_path}">%{resource_title}</a> proposal has been endorsed by <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>.
         proposal_evaluating:
           affected_user:
-            email_intro: '%{resource_title} is becommentarieerd. U kunt de reactie lezen op deze pagina:'
+            email_intro: "%{resource_title} is becommentarieerd. U kunt de reactie lezen op deze pagina:"
             email_outro: U heeft deze melding ontvangen omdat u auteur bent van "%{resource_title}".
             email_subject: Voorstel wordt geëvalueerd
             notification_title: Uw voorstel <a href="%{resource_path}">%{resource_title}</a> wordt geëvalueerd.
@@ -221,7 +235,7 @@ nl-BE:
           notification_title: The proposal <a href="%{resource_path}">%{resource_title}</a> has been added to %{participatory_space_title}
         proposal_rejected:
           affected_user:
-            email_intro: '%{resource_title} is becommentarieerd. U kunt de reactie lezen op deze pagina:'
+            email_intro: "%{resource_title} is becommentarieerd. U kunt de reactie lezen op deze pagina:"
             email_outro: U heeft deze melding ontvangen omdat u bent genoemd in %{resource_title}".
             email_subject: Uw voorstel is verworpen
             notification_title: Uw voorstel <a href="%{resource_path}">%{resource_title}</a> is afgewezen.
@@ -248,8 +262,8 @@ nl-BE:
       badges:
         accepted_proposals:
           conditions:
-            - Kies de deelnameruimte van uw interesse met indiening voor voorstellen ingeschakeld
-            - Probeer voorstellen te doen die kunnen worden gedaan, en op die manier zullen ze waarschijnlijk meer worden aanvaard.
+          - Kies de deelnameruimte van uw interesse met indiening voor voorstellen ingeschakeld
+          - Probeer voorstellen te doen die kunnen worden gedaan, en op die manier zullen ze waarschijnlijk meer worden aanvaard.
           description: Deze badge wordt toegekend wanneer u actief deelneemt aan nieuwe voorstellen.
           description_another: This user has gotten %{score} proposals accepted.
           description_own: Je hebt %{score} geaccepteerde voorstellen.
@@ -259,8 +273,8 @@ nl-BE:
           unearned_own: U hebt nog geen aanvaarde voorstellen geformuleerd.
         proposal_votes:
           conditions:
-            - Blader en neem de tijd om de voorstellen van anderen te lezen
-            - Geef steun aan de voorstellen die je goed of interessant vindt
+          - Blader en neem de tijd om de voorstellen van anderen te lezen
+          - Geef steun aan de voorstellen die je goed of interessant vindt
           description: Deze badge wordt toegekend wanneer u de voorstellen van anderen steunt.
           description_another: This user has given support to %{score} proposals.
           description_own: U heeft ondersteuning gegeven aan %{score} voorstellen.
@@ -270,8 +284,8 @@ nl-BE:
           unearned_own: U hebt nog geen voorstellen gesteund.
         proposals:
           conditions:
-            - Kies de deelnameruimte van uw interesse met indiening voor voorstellen ingeschakeld
-            - Maak een voorstel
+          - Kies de deelnameruimte van uw interesse met indiening voor voorstellen ingeschakeld
+          - Maak een voorstel
           description: Deze badge wordt toegekend wanneer u actief deelneemt aan nieuwe voorstellen.
           description_another: This user has created %{score} proposals.
           description_own: U heeft %{score} voorstellen aangemaakt.
@@ -632,7 +646,7 @@ nl-BE:
           title: Complete your proposal
         count:
           proposals_count:
-            one: "1 voorstel"
+            one: 1 voorstel
             other: "%{count} voorstellen"
         dynamic_map_instructions:
           primary: You can move the point on the map.
@@ -683,9 +697,13 @@ nl-BE:
           title: Create Your Proposal
         orders:
           label: 'Order proposals by:'
+          most_commented: Meeste reacties
+          most_endorsed: Meest goedgekeurd
+          most_followed: Meest gevolgd
           most_voted: Most voted
           random: Random
           recent: Recent
+          with_more_authors: Met meer auteurs
         participatory_texts:
           index:
             document_index: Document index
@@ -707,6 +725,7 @@ nl-BE:
           creation_date: 'Creation: %{date}'
           view_proposal: View proposal
         show:
+          back: Back to list
           back_to: Terug naar
           edit_proposal: Edit proposal
           endorsements_list: List of Endorsements

@@ -276,8 +276,10 @@ pl:
         executive: Wykonawczy
         government: Rząd
         help: 'Pokazać:'
+        label: 'Show:'
         others: Inni
         participatory: Uczestniczy
+        placeholder: Filtrer par type
         working_group: Grupa robocza
       index:
         title: Zespoły
@@ -366,6 +368,7 @@ pl:
           more_info: Więcej informacji
           take_part: Wziąć udział
         index:
+          children: 'Assemblies: '
           organizational_chart: Schemat organizacyjny
           promoted_assemblies: Podświetlone zespoły
           reset_chart: Nastawić

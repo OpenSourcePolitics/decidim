@@ -24,6 +24,7 @@ ca:
         settings:
           global:
             comments_enabled: Comentaris habilitats
+            comments_max_length: Nombre de caractères maximum des commentaires (Mettre 0 pour laisser la valeur par défaut)
     events:
       sortitions:
         sortition_created:
@@ -125,6 +126,7 @@ ca:
         show:
           algorithm: Codi d'algoritme del sorteig
           any_category: de totes les categories
+          back: Back to list
           cancelled: Sorteig cancel·lat
           candidate_proposal_ids: Ordre i IDs de les propostes del sorteig
           candidate_proposals_info: 'El sorteig es va dur a terme entre les següents propostes (%{category_label}), amb els següents IDs (en negreta, les propostes seleccionades) '

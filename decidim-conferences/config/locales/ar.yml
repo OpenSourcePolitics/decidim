@@ -162,6 +162,7 @@ ar:
           attachments: مرفقات
           categories: الاقسام
           components: المكونات
+          conference_admins: Conference admins
           conference_invites: تدعو
           conference_speakers: مكبرات الصوت
           diploma: شهادة حضور
@@ -396,6 +397,7 @@ ar:
         confirmation:
           confirmed_html: تم تأكيد تسجيلك للمؤتمر <a href="%{url}">%{title}</a>.
           details_1: 'أنت مسجل في المؤتمر مع %{registration_type} نوع. تبلغ تكلفتها %{price} ويمكنك حضور الأحداث التالية:'
+          details_2: You will find the conference's details in the attachment.
         pending_validation:
           confirmation_pending: سوف تتلقى التأكيد قريبا
           details: 'لقد قمت بالتسجيل إلى %{registration_type} نوع بتكلفة %{price} ويمكنك حضور الأحداث التالية:'
@@ -490,6 +492,7 @@ ar:
           title: أنواع التسجيل
       shared:
         conference_user_login:
+          already_account: Do you already have an account in decidim?
           new_user: مستخدم جديد؟
           sign_in: تسجيل الدخول للتسجيل في المؤتمر
           sign_up: إنشاء حساب في decidim للتسجيل في المؤتمر

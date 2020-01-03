@@ -28,6 +28,7 @@ ar:
         settings:
           global:
             comments_enabled: تم تمكين التعليقات
+            comments_max_length: Nombre de caractères maximum des commentaires (Mettre 0 pour laisser la valeur par défaut)
     events:
       sortitions:
         sortition_created:
@@ -141,6 +142,7 @@ ar:
         show:
           algorithm: رمز خوارزمية التصنيف
           any_category: من جميع الفئات
+          back: Back to list
           cancelled: فرز الملغاة
           candidate_proposal_ids: ترتيب المقترحات الترتيب ومعرفات
           candidate_proposals_info: 'تم تنفيذ التصنيف بين المقترحات التالية (%{category_label}) ، مع المعرفات التالية (بالخط العريض للمقترحات المختارة)  '

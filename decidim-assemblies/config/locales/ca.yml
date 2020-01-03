@@ -270,8 +270,10 @@ ca:
         executive: Executiu
         government: Govern
         help: 'Mostrar:'
+        label: 'Show:'
         others: Altres
         participatory: Participatiu
+        placeholder: Filtrer par type
         working_group: Grup de treball
       index:
         title: Assemblees

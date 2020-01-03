@@ -270,8 +270,10 @@ pt:
         executive: Executivo
         government: Governo
         help: 'Exposição:'
+        label: 'Show:'
         others: Outras
         participatory: Participativo
+        placeholder: Filtrer par type
         working_group: Grupo de trabalho
       index:
         title: Assembléias
@@ -360,6 +362,7 @@ pt:
           more_info: Mais informações
           take_part: Participar
         index:
+          children: 'Assemblies: '
           organizational_chart: Organograma
           promoted_assemblies: Montagens destacadas
           reset_chart: Restabelecer

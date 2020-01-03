@@ -16,6 +16,8 @@ de-DE:
             choices:
               missing: are not complete
               too_many: are too many
+        questionnaire:
+          request_invalid: There's been an error handling the request. Please try again
   decidim:
     forms:
       admin:
@@ -78,3 +80,10 @@ de-DE:
             title: Questionnaire closed
           submit: Submit
           tos_agreement: By participating you accept its Terms of Service
+      user_answers_serializer:
+        created_at: Answered on
+        id: Answer ID
+        ip_hash: Ip Hash
+        registered: Registered
+        unregistered: Unregistered
+        user_status: User status

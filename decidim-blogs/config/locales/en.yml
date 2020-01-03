@@ -62,6 +62,7 @@ en:
           global:
             announcement: Announcement
             comments_enabled: Comments enabled
+            comments_max_length: Nombre de caractères maximum des commentaires (Mettre 0 pour laisser la valeur par défaut)
           step:
             announcement: Announcement
             comments_blocked: Comments blocked

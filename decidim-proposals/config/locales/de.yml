@@ -78,6 +78,7 @@ de:
     components:
       proposals:
         actions:
+          amend: Pas aan
           create: Erstellen
           endorse: Unterstützung
           vote: Abstimmung
@@ -86,15 +87,19 @@ de:
         settings:
           global:
             amendments_enabled: Änderungen aktiviert
+            amendments_enabled_help: 'Indien actief: stel de amendementsfunctionaliteiten in voor elke stap.'
+            amendments_wizard_help_text: Hulptekst van de amendementen wizard
             announcement: Ankündigung
             attachments_allowed: Anhänge zulassen
             can_accumulate_supports_beyond_threshold: Kann Unterstützungen jenseits des Schwellenwerts ansammeln
             collaborative_drafts_enabled: Collaborative Entwürfe aktiviert
             comments_enabled: Kommentare aktiviert
+            comments_max_length: Comments max length
             geocoding_enabled: Geocodierung aktiviert
             minimum_votes_per_user: Mindeststimmen pro Nutzer
             new_proposal_help_text: Neuer Vorschlagstext
             official_proposals_enabled: Offizielle Vorschläge aktiviert
+            participatory_texts_disabled_help: Instelling niet aanpasbaar als er bestaande voorstellen zijn. Maak een nieuwe `Voorstellen component` aan als u deze functie wilt inschakelen of wijs alle geïmporteerde voorstellen in het `Participatieve Teksten` menu af, als u de instelling wilt uitschakelen.
             participatory_texts_enabled: Partizipative Texte aktiviert
             proposal_answering_enabled: Angebotsantworten aktiviert
             proposal_edit_before_minutes: Vorschläge können von Autoren bearbeitet werden, bevor diese vielen Minuten verstreichen
@@ -108,6 +113,14 @@ de:
             threshold_per_proposal: Schwellenwert pro Angebot
             vote_limit: Wahllimit pro Benutzer
           step:
+            amendment_creation_enabled: Aanmaken van amendementen ingeschakeld
+            amendment_creation_enabled_help: Deelnemer kan voorstellen wijzigen.
+            amendment_promotion_enabled: Promoten van amendementen ingeschakeld
+            amendment_promotion_enabled_help: De auteurs van de Emandation kunnen de afgewezen emendatie voorstellen.
+            amendment_reaction_enabled: Reageren op amendementen ingeschakeld
+            amendment_reaction_enabled_help: De auteurs van het voorstel kunnen de amendementen van deelnemers accepteren of verwerpen.
+            amendments_visibility: Zichtbaarheid van amendement
+            amendments_visibility_help: Als de optie "alleen zichtbaar voor de auteurs" wordt geselecteerd, moet een deelnemer aangemeld zijn om de amendementen te zien.
             announcement: Ankündigung
             automatic_hashtags: Hashtags wurden allen Vorschlägen hinzugefügt
             comments_blocked: Kommentare blockiert
@@ -119,7 +132,16 @@ de:
             votes_blocked: Abstimmung blockiert
             votes_enabled: Abstimmung aktiviert
             votes_hidden: Abstimmungen ausgeblendet (wenn Abstimmungen aktiviert sind, wird dies die Anzahl der Abstimmungen verbergen)
+            votes_weight_enabled: Up / Down / Neutral votes enabled
     events:
+      proposal_created:
+        email_subject: Nouvelle proposition de %{author_name}.
+        moderation:
+          email_intro: Email intro
+          email_subject: Email subject
+          moderation_url: Moderation url
+        notification_title: Il y a une nouvelle proposition de %{author_name} dans <a href="%{resource_path}">%{resource_title}</a>a>a
+        url: 'url de commentaire : %{resource_url}'
       proposals:
         collaborative_draft_access_accepted:
           email_intro: '%{requester_name} wurde als Beitrag zum <a href="%{resource_path}">%{resource_title}</a> Verbundentwurf akzeptiert.'
@@ -167,11 +189,15 @@ de:
             email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein Autor von "%{resource_title}" sind.
             email_subject: Ihr Vorschlag wurde angenommen
             notification_title: Ihr Vorschlag <a href="%{resource_path}">%{resource_title}</a> wurde angenommen.
+          email_intro: 'Пропозиція "%{resource_title}" була прийнята. Ви можете прочитати відповідь на сторінці:'
+          email_outro: Ви отримали це сповіщення, тому що ви стежите за "%{resource_title}". Ви можете припинити стежити за ним, перейшовши за наведеним вище посиланням.
+          email_subject: Пропозиція, за якою ви стежите, була прийнята
           follower:
             email_intro: 'Der Vorschlag "%{resource_title}" wurde akzeptiert. Sie können die Antwort auf dieser Seite lesen:'
             email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie "%{resource_title}" folgen. Sie können es aus dem vorherigen Link aufheben.
             email_subject: Ein Vorschlag, dem Sie folgen, wurde akzeptiert
             notification_title: Der <a href="%{resource_path}">%{resource_title}</a> Vorschlag wurde angenommen.
+          notification_title: Пропозицію <a href="%{resource_path}">%{resource_title}</a> було прийнято.
         proposal_endorsed:
           email_intro: '%{endorser_name} %{endorser_nickname}, dem Sie folgen, hat gerade den Vorschlag "%{resource_title}" befürwortet, und wir denken, er könnte für Sie interessant sein. Überprüfen Sie es und tragen Sie bei:'
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{endorser_nickname}. Sie können nach dem vorherigen Link keine Benachrichtigungen mehr erhalten.
@@ -183,11 +209,15 @@ de:
             email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein Autor von "%{resource_title}" sind.
             email_subject: Ihr Vorschlag wird geprüft
             notification_title: Ihr Vorschlag <a href="%{resource_path}">%{resource_title}</a> wird geprüft.
+          email_intro: 'Пропозиція "%{resource_title}" зараз розглядається. Ви можете перевірити наявність відповіді на сторінці:'
+          email_outro: Ви отримали це сповіщення, тому що ви стежите за "%{resource_title}". Ви можете припинити стежити за ним, перейшовши за наведеним вище посиланням.
+          email_subject: Пропозиція, за якою ви стежите, зараз розглядається
           follower:
             email_intro: 'Der Vorschlag "%{resource_title}" wird gerade ausgewertet. Sie können auf dieser Seite nach einer Antwort suchen:'
             email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie "%{resource_title}" folgen. Sie können es aus dem vorherigen Link aufheben.
             email_subject: Ein Vorschlag, dem Sie folgen, wird evaluiert
             notification_title: Der <a href="%{resource_path}">%{resource_title}</a> Vorschlag wird evaluiert.
+          notification_title: Пропозиція <a href="%{resource_path}">%{resource_title}</a> розглядається.
         proposal_mentioned:
           email_intro: Ihr Vorschlag „%{mentioned_proposal_title}“ erwähnt <a href="%{resource_path}">in diesem Raum</a> in den Kommentaren.
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein Autor von "%{resource_title}" sind.
@@ -209,11 +239,15 @@ de:
             email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein Autor von "%{resource_title}" sind.
             email_subject: Ihr Vorschlag wurde abgelehnt
             notification_title: Ihr Vorschlag <a href="%{resource_path}">%{resource_title}</a> wurde abgelehnt.
+          email_intro: 'Пропозиція "%{resource_title}" була відхилена. Ви можете прочитати відповідь на сторінці:'
+          email_outro: Ви отримали це сповіщення, тому що ви стежите за "%{resource_title}". Ви можете припинити стежити за ним, перейшовши за наведеним вище посиланням.
+          email_subject: Пропозиція, за якою ви стежите, була відхилена
           follower:
             email_intro: 'Der Vorschlag "%{resource_title}" wurde abgelehnt. Sie können die Antwort auf dieser Seite lesen:'
             email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie "%{resource_title}" folgen. Sie können es aus dem vorherigen Link aufheben.
             email_subject: Ein Vorschlag, dem Sie folgen, wurde abgelehnt
             notification_title: Der <a href="%{resource_path}">%{resource_title}</a> Vorschlag wurde abgelehnt.
+          notification_title: Пропозицію <a href="%{resource_path}">%{resource_title}</a> було відхилено.
         proposal_update_category:
           email_intro: 'Ein Administrator hat die Kategorie Ihres Angebots "%{resource_title}" aktualisiert, sehen Sie es sich an:'
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie der Autor des Angebots sind.
@@ -280,6 +314,9 @@ de:
       participatory_process_groups:
         highlighted_proposals:
           proposals: Vorschläge
+    participatory_spaces:
+      highlighted_proposals:
+        see_all: See all (%{count})
     proposals:
       actions:
         answer: Antworten
@@ -611,9 +648,14 @@ de:
           proposals_count:
             one: "%{count} Vorschlag"
             other: "%{count} Vorschläge"
+        dynamic_map_instructions:
+          primary: You can move the point on the map.
+          secondary: Don't forget to click on the "Update Position" button before publishing your proposal.
         edit:
+          address: Address (don't forget to specify the city)
           attachment_legend: "(Optional) Fügen Sie einen Anhang hinzu"
           back: Zurück
+          not_geocoded: Not geocoded
           select_a_category: Bitte wählen sie eine Kategorie
           send: Senden
           title: Angebot bearbeiten
@@ -655,25 +697,35 @@ de:
           title: Erstellen Sie Ihren Vorschlag
         orders:
           label: 'Bestellvorschläge von:'
+          most_commented: Meeste reacties
+          most_endorsed: Meest goedgekeurd
+          most_followed: Meest gevolgd
           most_voted: Die meisten haben gewählt
           random: Zufällig
           recent: Kürzlich
+          with_more_authors: Met meer auteurs
         participatory_texts:
           index:
             document_index: Dokumentenindex
           view_index:
             see_index: Siehe Index
+        placeholder:
+          address: "[n°] [street] [postal] [city]"
         preview:
+          address: 'Address: %{address}'
           modify: Ändern Sie den Vorschlag
+          not_geocoded: Your address has not been geocoded, the preview is not available.
           proposal_edit_before_minutes:
             one: Sie können diesen Vorschlag in der ersten Minute nach der Veröffentlichung des Vorschlags bearbeiten. Nach Ablauf dieses Zeitfensters können Sie das Angebot nicht mehr bearbeiten.
             other: Sie können dieses Angebot in den ersten %{count} Minuten nach der Veröffentlichung des Angebots bearbeiten. Nach Ablauf dieses Zeitfensters können Sie das Angebot nicht mehr bearbeiten.
           publish: Veröffentlichen
           title: Veröffentlichen Sie Ihren Vorschlag
+          update_pos: Update the position
         proposal:
           creation_date: 'Erstellung: %{date}'
           view_proposal: Angebot anzeigen
         show:
+          back: Back to list
           back_to: Zurück zu
           edit_proposal: Angebot bearbeiten
           endorsements_list: Liste der Empfehlungen
@@ -699,12 +751,20 @@ de:
           no_votes_remaining: Keine verbleibenden Stimmen
           vote: Abstimmung
           votes_blocked: Abstimmung deaktiviert
+        vote_weight:
+          maximum_votes_reached: Maximum votes reached
+          no_votes_remaining: No votes remaining
+          votes_blocked: Votes blocked
         votes_count:
           count:
             one: ABSTIMMUNG
             other: ABSTIMMUNGEN
           most_popular_proposal: Beliebtester Vorschlag
           need_more_votes: Brauche mehr Stimmen
+        votes_weight:
+          count: Count
+          most_popular_proposal: Proposition la plus populaire
+          need_more_votes: Besoin de plus de votes
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Jeder Vorschlag kann mehr als %{limit} Unterstützungen sammeln

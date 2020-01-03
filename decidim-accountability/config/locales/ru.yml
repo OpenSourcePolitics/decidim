@@ -193,6 +193,7 @@ ru:
           global:
             categories_label: Название для "Категории"
             comments_enabled: Комментарии включены
+            comments_max_length: Nombre de caractères maximum des commentaires (Mettre 0 pour laisser la valeur par défaut)
             display_progress_enabled: Показывать ход выполнения
             heading_leaf_level_results: Название для "Проекты"
             heading_parent_level_results: Название для "Итоги"

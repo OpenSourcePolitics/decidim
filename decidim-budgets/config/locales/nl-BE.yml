@@ -1,3 +1,4 @@
+---
 nl-BE:
   activemodel:
     attributes:
@@ -159,6 +160,7 @@ nl-BE:
           global:
             announcement: Bericht
             comments_enabled: Reacties ingeschakeld
+            comments_max_length: Comments max length
             geocoding_enabled: Stemmen uitgeschakeld
             projects_per_page: Projecten per pagina
             resources_permissions_enabled: Actierechten kunnen worden ingesteld voor elke vergadering

@@ -40,8 +40,10 @@ de-DE:
         address: SMTP hostname
         alert_color: Alert
         badges_enabled: Enable badges
+        comments_max_length: Nombre de caractères maximum des commentaires (Mettre 0 pour laisser la valeur par défaut)
         cta_button_path: Call To Action button path
         cta_button_text: Call To Action button text
+        customize_welcome_notification: Pas welkomstmelding aan
         default_locale: Default locale
         description: Description
         enable_omnipresent_banner: Show omnipresent banner
@@ -71,13 +73,22 @@ de-DE:
         primary_color: Primary
         reference_prefix: Reference prefix
         secondary_color: Secondary
+        send_welcome_notification: Stuur welkomstmelding
         show_statistics: Show statistics
         success_color: Success
         tos_version: Terms of service version
         twitter_handler: Twitter handler
         user_groups_enabled: Enable user groups
+        user_name: Username
         warning_color: Warning
+        welcome_notification_body: Tekst van de welkomstmelding
+        welcome_notification_subject: Welkomstmelding onderwerp
         youtube_handler: YouTube handler
+      participatory_process:
+        import_attachments: Importer les pièces jointes
+        import_categories: Importer les catégories
+        import_components: Importer les fonctionnalités
+        import_steps: Importer les étapes
       scope:
         code: Code
         name: Name
@@ -160,6 +171,7 @@ de-DE:
           error: There was an error creating a new area.
           success: Area created successfully.
         destroy:
+          has_spaces: Area has dependent spaces, it must not have dependencies in order to be deleted.
           success: Area successfully destroyed
         edit:
           title: Edit area
@@ -244,6 +256,7 @@ de-DE:
         form:
           default_step_settings: Default step settings
           global_settings: Global settings
+          participatory_texts_enabled_help: Cannot interact with this setting if there are existing proposals. Please, create a new `Proposals component` if you want to enable this feature or discard all imported proposals in the `Participatory Texts` menu if you want to disable it.
           step_settings: Step settings
         index:
           add: Add component
@@ -385,6 +398,7 @@ de-DE:
             created_at: Created at
             progress: Progress
             sent_at: Sent at
+            sent_to: Sent to
             subject: Subject
           name: Newsletter
         oauth_application:
@@ -472,13 +486,42 @@ de-DE:
         form:
           interpolations_hint: 'Hint: You can use "%{name}" anywhere in the body or subject and it will be replaced by the recipient''s name.'
         index:
+          all: all
+          all_users: 'All users '
+          and: 'and '
           confirm_delete: Are you sure you want to delete this newsletter?
+          followers: 'followers '
+          has_been_sent_to: 'Has been sent to: '
+          no_scopes: No scopes
+          not_sent: Not sent
+          participants: 'participants '
+          segmented_to: 'Segmented to %{subject}: '
           title: Newsletters
         new:
           save: Save
           title: New newsletter
+        select_recipients_to_deliver:
+          all_spaces: All
+          all_users_help: Sends newsletter to all confirmed users.
+          confirm_deliver: Are you sure you want to deliver this newsletter? This action cannot be undone.
+          deliver: Deliver newsletter
+          followers_help: Sends newsletter to all confirmed users that follow any selected participatory spaces in the list.
+          none: None
+          participants_help: Sends newsletter to all confirmed users that have participated in any of the selected participatory spaces in the list.
+          scopes_help: Sends newsletter to users that have any of the selected scope activated in their account's "My Interests" settings.
+          select_scopes: Filter for users having activated any selected scope in their account's My Interests settings.
+          select_spaces: Select spaces to segment the newsletter
+          select_users: Select which users you want to send the newsletter
+          send_to_all_users: Send to all users
+          send_to_followers: Send to followers
+          send_to_participants: Send to participants
+          title: Select recipients to deliver
+          warning: "<strong>Attention:</strong> This newsletter will only be send to users that have activated <em>I want to recieve newsletters</em> in their notifications settings."
+        send:
+          no_recipients: No recipients for this selection
         show:
           preview: Preview
+          select_recipients_to_deliver: Select recipients to deliver
           subject: Subject
         update:
           error: There's been an error updating this newsletter.
@@ -577,6 +620,12 @@ de-DE:
         new:
           create: Create
           title: New Participatory Space private user.
+      resource_permissions:
+        edit:
+          submit: Submit
+          title: Edit permissions
+        update:
+          success: Permissions updated successfully.
       scope_types:
         create:
           error: There was an error creating a new scope type.
@@ -637,6 +686,7 @@ de-DE:
           update: Update
         form:
           none: None
+          slug_help: 'Use partial paths, not full URLs here. Accepts letters, numbers, dashes and slashes, and must start with a letter. Example: %{url}'
         index:
           last_notable_change: Last notable change
         new:

@@ -1,3 +1,4 @@
+---
 nl:
   activemodel:
     attributes:
@@ -20,6 +21,7 @@ nl:
         participatory_process_group_id: Groep van processen
         participatory_scope: Wat wordt besloten
         participatory_structure: Hoe wordt er besloten
+        private_space: Concertation privée
         promoted: Gepromoveerd
         published_at: Gepubliceerd op
         scope_id: Scope
@@ -143,7 +145,6 @@ nl:
           title: Inspraakproces dupliceren
       participatory_process_groups:
         destroy:
-          error: Er is een fout opgetreden tijdens het vernietigen van de Participatory procesgroep.
           success: Participatieve procesgroep succesvol verwijderd.
         edit:
           title: Bewerk groep
@@ -222,6 +223,9 @@ nl:
         index:
           not_published: Niet gepubliceerd
           private: Privé
+          promoted:
+            'false': 'False'
+            'true': 'True'
           public: Openbaar
           published: Gepubliceerd
         new:

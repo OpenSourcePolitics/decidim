@@ -49,6 +49,7 @@ it:
             title: titolo
       posts:
         show:
+          back: Back to list
           view: vista
         sidebar_blog:
           comments: Commenti
@@ -61,6 +62,7 @@ it:
           global:
             announcement: Annuncio
             comments_enabled: Commenti abilitati
+            comments_max_length: Nombre de caractères maximum des commentaires (Mettre 0 pour laisser la valeur par défaut)
           step:
             announcement: Annuncio
             comments_blocked: Commenti bloccati

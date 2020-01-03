@@ -35,10 +35,15 @@ de-DE:
         grant_id_documents_offline_verification: "%{user_name} verified %{resource_name} using an offline Identity Documents verification"
     authorization_handlers:
       admin:
+        csv_census:
+          help: '["Admins upload a CSV with the emails of the accepted participants", "Only participants with an email in that CSV file can get verified"]'
         id_documents:
           help: '["Users fill in their identity information and upload a copy of their document.", "You fill in the information present in the uploaded image.", "The information should match whatever the user filled in.", "If you can''t clearly see the information or you can''t get it verified, you can reject the request and the user will be able to fix it."]'
         postal_letter:
           help: '["Users request a verification code to be sent to their address.", "You send the letter to their address with the verification code.", "You mark the letter as sent.", "Once you mark the letter as sent, the user will be able to introduce the code and get verified."]'
+      csv_census:
+        explanation: Get verified using the organization's census
+        name: Organization's census
       direct: Direct
       help: Help
       id_documents:
@@ -58,6 +63,7 @@ de-DE:
         first_login:
           actions:
             another_dummy_authorization_handler: Verify against another example of authorization handler
+            csv_census: Verify against the organization's census
             dummy_authorization_handler: Verify against the example authorization handler
             dummy_authorization_workflow: Verify against the example authorization workflow
             id_documents: Get verified by uploading your identity document
@@ -69,6 +75,33 @@ de-DE:
           authorize_with: Verify with %{authorizer}
         skip_verification: You can skip this for now and %{link}
         start_exploring: start exploring
+      csv_census:
+        admin:
+          census:
+            create:
+              error: There was an error importing census.
+              success: Successfully imported %{count} items (%{errors} errors)
+            destroy_all:
+              success: All census data have been deleted
+          destroy:
+            confirm: Delete all the census can not be undone. Are you sure you want to continue?
+            title: Delete all census data
+          index:
+            data: There are %{count} records loaded in total. Last upload date was on %{due_date}
+            empty: There are no census data. Use the form below to import it using a CSV file.
+            title: Current census data
+          instructions:
+            body: To do this you must enter system administration and add the csv_census authorizations to the organization
+            title: You need to activate the csv census for this organization
+          new:
+            file: ".csv file with emails data"
+            info: 'Must be a file with CSV format with one column: email'
+            submit: Upload file
+            title: Upload a new census
+        authorizations:
+          new:
+            error: We could not verify your account or you are not in the organization's census.
+            success: Your account has been successfully verified.
       dummy_authorization:
         extra_explanation:
           one: Participation is restricted to users with the postal code %{postal_codes}.
@@ -167,7 +200,12 @@ de-DE:
           create:
             error: There was a problem with your request
             success: Thanks! We've sent an SMS to your phone.
+          destroy:
+            success: Verification code sucessfully reset. Please re-enter your phone number.
           edit:
+            confirm_destroy: Are you sure you want to reset the verification code?
+            destroy: Reset verification code
+            resend: Didn't receive the verification code?
             send: Confirm
             title: Introduce the verification code you received
           new:

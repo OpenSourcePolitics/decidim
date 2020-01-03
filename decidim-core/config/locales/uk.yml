@@ -4,6 +4,14 @@ uk:
     attributes:
       account:
         delete_reason: Причина видалення вашого облікового запису
+      group:
+        about: Over
+        avatar: Profielafbeelding
+        document_number: Documentnummer
+        email: E-mail
+        name: Naam
+        nickname: Roepnaam
+        phone: Telefoon
       report:
         details: Додаткові коментарі
       user:
@@ -117,6 +125,7 @@ uk:
         update: "%{user_name} оновив налаштування організації"
       participatory_space_private_user:
         create: "%{user_name} invited %{resource_name} to be a private user"
+        create_via_csv: "%{user_name} heeft %{resource_name} uitgenodigd om een privé deelnemer te zijn"
         delete: "%{user_name} removed the user %{resource_name} as a private user"
       scope:
         create: "%{user_name} додав обсяг %{resource_name}"
@@ -148,6 +157,7 @@ uk:
         error: There has been an error amending this resource.
         help_text: Improve this %{model_name} by modifying its %{amendable_fields}
         promote_button: Promote to %{model_name}
+        promote_confirm_text: Are you sure you want to promote this emendation?
         promote_help_text: You can promote this emendation and publish it as an independent %{model_name}
         section_heading: Amendments (%{count})
       created:
@@ -165,6 +175,7 @@ uk:
           evaluating: |-
             This is an emendation for the %{amendable_type} %{amendable_link}
             is being evaluated.
+          promoted: Gepromoveerd naar een %{amendable_type}.
           rejected: |-
             This emendation for the %{amendable_type} %{amendable_link}
             was rejected on <strong>%{announcement_date}</strong>.
@@ -241,6 +252,7 @@ uk:
           explanation: Строк дії підтвердження вашої особи вичерпався. Щоб виконати цю дію, вам потрібно знову підтвердити свою особу за допомогою "%{authorization}".
           title: Строк дії підтвердження особи вичерпався
         incomplete:
+          cancel: Cancel
           explanation: 'Незважаючи на те, що ви наразі підтвердили свою особу за допомогою "%{authorization}", ми просимо вас знову підтвердити свою особу, оскільки нам не вистачає наступних даних:'
           invalid_field: Поле %{field}
           reauthorize: Заново підтвердити свою особу
@@ -281,14 +293,21 @@ uk:
           global:
             amendments_enabled: Amendments enabled
             comments_enabled: Коментарі увімкнено
+            comments_max_length: comments_max_length
             dummy_global_attribute_1: Приклад властивості 1
             dummy_global_attribute_2: Приклад властивості 2
+            dummy_global_translatable_text: Vertaalbare tekst Dummy
             enable_pads_creation: Enable pads creation
             resources_permissions_enabled: Дозволи ресурсів увімкнуто
           step:
+            amendment_creation_enabled: Aanmaken van amendementen ingeschakeld
+            amendment_promotion_enabled: Promoten van amendementen ingeschakeld
+            amendment_reaction_enabled: Reageren op amendementen ingeschakeld
+            amendments_visibility: Zichtbaarheid van amendement
             comments_blocked: Коментарі вимкнено
             dummy_step_attribute_1: Приклад 1 властивості кроку
             dummy_step_attribute_2: Приклад 2 властивості кроку
+            dummy_step_translatable_text: Dummy Stap Vertaalbare tekst
     contact: Зв'язатися
     content_blocks:
       footer_sub_hero:
@@ -340,6 +359,7 @@ uk:
           newsletter: Отримувати іноді розсилання зі свіжими новинами
           newsletter_title: Дозвіл на зв'язок
           nickname_help: Ваш короткий, унікальний псевдонім в %{organization}
+          password_help: "%{minimun_characters} characters minimum, must not be too common (e.g. 123456) and must be different from your nickname and your email."
           sign_in: Увійти
           sign_up: Зареєструватися
           sign_up_as:
@@ -546,6 +566,9 @@ uk:
       current_image: Поточне зображення
       default_image: Зображення за замовчуванням
       errors:
+        decidim/user:
+          password: Het wachtwoord is te kort.
+          password_confirmation: Wachtwoordbevestiging moet overeenkomen met het wachtwoord.
         error: У цьому полі є помилка.
       remove_this_file: Видалити цей файл
     gamification:
@@ -976,8 +999,15 @@ uk:
       login_modal:
         please_sign_in: Будь ласка, увійдіть
         sign_up: Зареєструватися
+      participatory_space_filters:
+        filters:
+          areas: Areas
+          select_an_area: Select an area
       reference:
         reference: 'Посилання на джерело: %{reference}'
+      represent_user_group:
+        represent_user_group: I represent a group
+        select_user_group: Select a group
       results_per_page:
         label: 'Результатів на сторінку:'
       share_modal:
@@ -986,8 +1016,10 @@ uk:
         share_link: Поділитись посиланням
       version_author:
         deleted: Видалений учасник
-    translate: Translate
-    translated: Translated
+    translate:
+      original: Translate (*)
+      tooltip: Translated with Deepl
+      translated: Back to the original version
     user_activity:
       index:
         no_activities_warning: This user hasn't had any activity yet.
@@ -1091,6 +1123,7 @@ uk:
         change_your_password: Change your password
         confirm_new_password: Confirm new password
         new_password: Пароль
+        password_help: "%{minimun_characters} characters minimum, must not be too common (e.g. 123456) and must be different from your nickname and your email."
       new:
         forgot_your_password: Forgot your password?
         send_me_reset_password_instructions: Send me reset password instructions
@@ -1246,12 +1279,15 @@ uk:
     qq: Qzone
     reddit: Reddit
     share_to: Поділитися на %{name}
+    telegram: Telegram
     tumblr: Tumblr
     twitter: Твіттер
     vkontakte: Вконтакте
     wechat: WeChat
     wechat_footer: Відкрийте WeChat, натисніть кнопку "Відкрити", а потім натисніть меню "Сканувати QR-код".
     weibo: Сіна Вайбо
+    whatsapp_app: WhatsApp
+    whatsapp_web: WhatsApp
     xing: Xing
   time:
     formats:
@@ -1261,11 +1297,22 @@ uk:
       day_of_year: "%d.%m.%y"
       decidim_day_of_year: "%d %B %Y"
       decidim_short: "%H:%M %d.%m.%Y"
+      default: "%a, %d %b %Y %H:%M:%S %z"
       devise:
         mailer:
           invitation_instructions:
             accept_until_format: "%B %d, %Y %I:%M %p"
+      long: "%B %d, %Y %H:%M"
+      short: "%d/%m/%Y %H:%M"
       time_of_day: "%H:%M"
+  versions:
+    directions:
+      left: Deletions
+      right: Additions
+    dropdown:
+      choose_diff_view_mode: 'Compare view mode:'
+      option_split: Side-by-side
+      option_unified: Unified
   views:
     pagination:
       first: "&laquo; Перша"

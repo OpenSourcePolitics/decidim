@@ -4,10 +4,12 @@ fi-pl:
     attributes:
       participatory_process:
         announcement: Ilmoitus
+        area_id: Area
         banner_image: Bannerikuva
         copy_categories: Kopioi aihepiirit
         copy_components: Kopioi komponentit
         copy_steps: Kopioi vaiheet
+        decidim_area_id: Area
         description: Kuvaus
         developer_group: Kehittäjäryhmä
         domain: Toimintaympäristö
@@ -19,6 +21,7 @@ fi-pl:
         participatory_process_group_id: Prosessiryhmä
         participatory_scope: Mitä päätetään
         participatory_structure: Miten päätetään
+        private_space: Concertation privée
         promoted: Korostettu
         published_at: Julkaisuaika
         scope_id: Teema
@@ -47,6 +50,12 @@ fi-pl:
         email: Sähköposti
         name: Nimi
         role: Rooli
+    errors:
+      models:
+        participatory_process:
+          attributes:
+            document:
+              invalid_document_type: 'Invalid document type. Accepted formats are: %{valid_mime_types}'
     models:
       decidim/participatory_process_step_activated_event: Vaihe aktivoidaan
       decidim/participatory_process_step_changed_event: Vaihe muutettu
@@ -70,6 +79,10 @@ fi-pl:
         destroy: Poista
         duplicate: Kopioi
         edit: Muokkaa
+        filter:
+          all: Show all processes
+          process_groups: Process Groups
+        import_process: Import
         new_process: Uusi prosessi
         new_process_group: Uusi prosessiryhmä
         new_process_step: Uusi vaihe
@@ -142,6 +155,14 @@ fi-pl:
         update:
           error: Tämän osallisuusprosessien ryhmän päivityksessä tapahtui virhe.
           success: Osallisuusprosessien ryhmä päivitetty onnistuneesti.
+      participatory_process_imports:
+        create:
+          error: There was a problem importing this participatory process.
+          success: Participatory process successfully imported.
+        new:
+          import: Import
+          select: Select which data you would like to import
+          title: Import participatory process
       participatory_process_publications:
         create:
           error: Tämän osallisuusprosessin julkaisussa tapahtui virhe.
@@ -202,6 +223,9 @@ fi-pl:
         index:
           not_published: Ei julkaistu
           private: Yksityinen
+          promoted:
+            'false': 'False'
+            'true': 'True'
           public: Julkinen
           published: Julkaistu
         new:
@@ -231,6 +255,9 @@ fi-pl:
         publish: "%{user_name} julkaisi osallisuusprosessin %{resource_name}"
         unpublish: "%{user_name} muutti osallisuusprosessin %{resource_name} julkaisemattomaksi"
         update: "%{user_name} päivitti osallisuusprosessin %{resource_name}"
+      participatory_process_group:
+        create: "%{user_name} heeft de burgerinspraak %{resource_name} aangemaakt"
+        update: "%{user_name} heeft de burgerinspraak %{resource_name} aangemaakt"
       participatory_process_step:
         activate: "%{user_name} aktivoi vaiheen %{resource_name} osallisuusprosessissa %{space_name}"
         create: "%{user_name} loi vaiheen %{resource_name} osallisuusprosessissa %{space_name}"
@@ -283,6 +310,10 @@ fi-pl:
         participatory_process_copies:
           form:
             slug_help: 'URL-tunnisteita käytetään tuottamaan URL-tunnisteet, jotka viittaavat tähän prosessiin. Hyväksyy vain kirjaimia, numeroita ja viivoja. Arvon on alettava kirjaimella. Esimerkki: %{url}'
+        participatory_process_imports:
+          form:
+            document_legend: Add a document
+            slug_help: 'URL slugs are used to generate the URLs that point to this process. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
         participatory_process_steps:
           form:
             cta_path_help: 'Käytä osittaisia ​​polkuja, ei kokonaisia URL-osoitteita. Hyväksyy kirjaimet, numerot, väliviivat ja kauttaviivat. Arvon täytyy alkaa kirjaimella. Jos asetusta ei ole asetettu, painiketta ei näytetä. Esimerkki: %{url}'
@@ -290,7 +321,16 @@ fi-pl:
         participatory_processes:
           form:
             announcement_help: Tähän kirjoitettu teksti näkyy käyttäjälle heti prosessitietojen alapuolella.
+            duration: Duration
+            filters: Filters
+            images: Images
+            metadata: Metadata
+            other: Other
+            select_an_area: Select an Area
+            select_process_group: Select a process group
             slug_help: 'URL-tunnisteita käytetään tuottamaan URL-tunnisteet, jotka viittaavat tähän prosessiin. Hyväksyy vain kirjaimia, numeroita ja viivoja. Arvon on alettava kirjaimella. Esimerkki: %{url}'
+            title: General Information
+            visbility: Visibility
       content_blocks:
         highlighted_processes:
           name: Tärkeimmät prosessit
@@ -334,6 +374,7 @@ fi-pl:
         index:
           loading: Ladataan tulokset...
       show:
+        area: Area
         developer_group: Kehittäjäryhmä
         end_date: Päättymispäivä
         local_area: Organisaatioalue
@@ -375,6 +416,7 @@ fi-pl:
           promoted_processes: Tärkeät prosessit
         participatory_process:
           active_step: 'Aktiivinen vaihe:'
+          more_info: More info
           take_part: Osallistu
         promoted_process:
           active_step: 'Aktiivinen vaihe:'

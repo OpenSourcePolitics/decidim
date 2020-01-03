@@ -193,6 +193,7 @@ pl:
           global:
             categories_label: Nazwa dla "kategorii"
             comments_enabled: Komentarze włączone
+            comments_max_length: Nombre de caractères maximum des commentaires (Mettre 0 pour laisser la valeur par défaut)
             display_progress_enabled: Wyświetl postęp
             heading_leaf_level_results: Nazwa dla "projektów"
             heading_parent_level_results: Nazwa dla "Wyniki"

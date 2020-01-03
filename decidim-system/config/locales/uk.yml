@@ -67,6 +67,13 @@ uk:
           reference_prefix_hint: Довідковий префікс використовується для унікального визначення ресурсів в усіх організаціях
           secondary_hosts_hint: Введіть кожен з них в новому рядку
           title: Додати організацію
+        smtp_settings:
+          address: Server address
+          from_email: From email
+          from_label: From label
+          password: Password
+          port: Server port
+          user_name: Username
         update:
           error: При спробі оновити цю організацію сталася помилка.
           success: Організацію успішно оновлено.

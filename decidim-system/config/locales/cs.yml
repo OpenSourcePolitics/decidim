@@ -30,9 +30,14 @@ cs:
         placeholders:
           content: Přidejte významný obsah na statickou stránku %{page} na řídicím panelu administrátora.
           title: Výchozí název pro %{page}
+      logs:
+        index:
+          download_log: Download log
+          view_log: View %{line} lines
       menu:
         admins: Správci
         dashboard: Přístrojová deska
+        logs: Logs
         organizations: Organizace
       models:
         admin:
@@ -48,6 +53,7 @@ cs:
           fields:
             created_at: Vytvořeno u
             name: název
+            smtp_settings: SMTP settings
           name: Organizace
       organizations:
         create:
@@ -61,6 +67,13 @@ cs:
           reference_prefix_hint: Předpona reference se používá k jednoznačné identifikaci zdrojů ve všech organizacích
           secondary_hosts_hint: Zadejte každý z nich do nového řádku
           title: Nová organizace
+        smtp_settings:
+          address: Server address
+          from_email: From email
+          from_label: From label
+          password: Password
+          port: Server port
+          user_name: Username
         update:
           error: Při aktualizaci této organizace došlo k chybě.
           success: Organizace byla úspěšně aktualizována.

@@ -273,6 +273,7 @@ en:
         label: 'Show:'
         others: Others
         participatory: Participatory
+        placeholder: Filtrer par type
         working_group: Working group
       index:
         title: Assemblies

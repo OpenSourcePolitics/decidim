@@ -67,6 +67,13 @@ eu:
           reference_prefix_hint: Erreferentzia-aurrizkia erabiltzen da erakunde guztien baliabideak modu bakarrean identifikatzeko
           secondary_hosts_hint: Sartu haietako bakoitza lerro batean
           title: Erakunde berria
+        smtp_settings:
+          address: Server address
+          from_email: From email
+          from_label: From label
+          password: Password
+          port: Server port
+          user_name: Username
         update:
           error: Errorea gertatu da erakunde hau eguneratzean.
           success: Erakundea zuzen eguneratu da.
