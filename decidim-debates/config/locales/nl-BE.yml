@@ -100,10 +100,6 @@ nl-BE:
           create: Creëren
           select_a_category: Selecteer een categorie
           title: Nieuw debat
-        share:
-          close_window: Sluit dit scherm
-          share: Deel
-          share_link: Link delen
         show:
           back: Back to list
       last_activity:
