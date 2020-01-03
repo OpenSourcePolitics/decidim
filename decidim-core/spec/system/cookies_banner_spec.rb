@@ -4,7 +4,6 @@ require "spec_helper"
 
 describe "Cookies", type: :system do
   let(:organization) { create(:organization) }
-  let(:last_user) { Decidim::User.last }
 
   before do
     switch_to_host(organization.host)
@@ -36,17 +35,11 @@ describe "Cookies", type: :system do
 
     it "opens a new modal" do
       expect(page).to have_content "Let us know you agree to cookies"
-      expect(page).to have_content "Activated"
+      expect(page).to have_content "Cookies statement"
     end
 
-    it "is possible to activate / deactivate cookie" do
-      input = find("input.switch-input", match: :first, visible: false)
-      check_inspect_script = "$(`#deactivate_cc_" + input["data-cc"] + "`).is(':checked')"
-      find("label.switch-paddle", match: :first).click
-      expect(evaluate_script(check_inspect_script)).to eq(false)
-
-      find("label.switch-paddle", match: :first).click
-      expect(evaluate_script(check_inspect_script)).to eq(true)
+    it "shows the matomo opt-out" do
+      expect(page).to have_css("iframe")
     end
   end
 end

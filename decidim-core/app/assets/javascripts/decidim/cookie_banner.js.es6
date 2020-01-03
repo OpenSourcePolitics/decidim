@@ -12,7 +12,6 @@ $(() => {
   $(document).on("click", "#cookie-banner__more-informations", (event) => {
     event.preventDefault();
 
-
     const $link = $(event.currentTarget);
 
     $.ajax({
@@ -25,17 +24,5 @@ $(() => {
         $("#cookie_banner-modal").attr("aria-hidden", "false");
       }
     });
-
-  });
-
-  $(document).on("change", ".switch-input", (event) => {
-    const switchInput = $(event.currentTarget);
-    const cookieName = switchInput.data("cc");
-
-    if ($(`#deactivate_cc_${cookieName}`).is(":checked")) {
-      $(`.activated_cc_message[data-cc="${cookieName}"]`).css("visibility", "visible");
-    } else {
-      $(`.activated_cc_message[data-cc="${cookieName}"]`).css("visibility", "hidden");
-    }
   });
 });
