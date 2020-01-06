@@ -5,8 +5,8 @@ en:
       account:
         delete_reason: Reason to delete your account
       group:
-        about: Over
-        avatar: Profielafbeelding
+        about: About
+        avatar: Avatar
         document_number: Documentnummer
         email: E-mail
         name: Naam
@@ -1308,7 +1308,7 @@ en:
           invitation_instructions:
             accept_until_format: "%B %d, %Y %I:%M %p"
       long: "%B %d, %Y %H:%M"
-      short: "%d/%m/%Y %H:%M"
+      short: "%d %b %H:%M"
       time_of_day: "%H:%M"
   versions:
     directions:

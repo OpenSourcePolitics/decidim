@@ -43,7 +43,7 @@ en:
         comments_max_length: Nombre de caractères maximum des commentaires (Mettre 0 pour laisser la valeur par défaut)
         cta_button_path: Call To Action button path
         cta_button_text: Call To Action button text
-        customize_welcome_notification: Pas welkomstmelding aan
+        customize_welcome_notification: Customize welcome notification
         default_locale: Default locale
         description: Description
         enable_omnipresent_banner: Show omnipresent banner
@@ -73,7 +73,7 @@ en:
         primary_color: Primary
         reference_prefix: Reference prefix
         secondary_color: Secondary
-        send_welcome_notification: Stuur welkomstmelding
+        send_welcome_notification: Send welcome notification
         show_statistics: Show statistics
         success_color: Success
         tos_version: Terms of service version
