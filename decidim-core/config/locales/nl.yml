@@ -1,3 +1,4 @@
+---
 nl:
   activemodel:
     attributes:
@@ -53,8 +54,8 @@ nl:
         one: Groep
         other: Groepen
   booleans:
-    'false': 'Nee'
-    'true': 'Ja'
+    'false': Nee
+    'true': Ja
   carrierwave:
     errors:
       image_too_big: De afbeelding is te groot
@@ -179,7 +180,9 @@ nl:
             Dit amendement voor de %{amendable_type} %{amendable_link}
             wordt geëvalueerd.
           promoted: Gepromoveerd naar een %{amendable_type}.
-          rejected: "Deze emendatie voor de %{amendable_type} %{amendable_link}\nwerd afgewezen op <strong>%{announcement_date}</strong>."
+          rejected: |-
+            Deze emendatie voor de %{amendable_type} %{amendable_link}
+            werd afgewezen op <strong>%{announcement_date}</strong>.
           withdrawn: |-
             Dit amendement voor de %{amendable_type} %{amendable_link}
             is door de auteur ingetrokken.
@@ -374,7 +377,7 @@ nl:
           newsletter: Ontvang af en toe een nieuwsbrief met relevante informatie
           newsletter_title: Contact toestemming
           nickname_help: Jouw bijnaam in %{organization}
-          password_help: "gebruik minimaal %{minimun_characters} tekens, deze mogen niet te algemeen zijn (bijv. 123456) en moeten anders zijn dan je alias en je e-mail."
+          password_help: gebruik minimaal %{minimun_characters} tekens, deze mogen niet te algemeen zijn (bijv. 123456) en moeten anders zijn dan je alias en je e-mail.
           sign_in: Aanmelden
           sign_up: Registratie
           sign_up_as:
@@ -597,7 +600,7 @@ nl:
       badges:
         continuity:
           conditions:
-            - Kijk hier regelmatig
+          - Kijk hier regelmatig
           description: Deze badge wordt toegekend wanneer u het platform regelmatig bezoekt. We vinden het leuk om je hier in de buurt te hebben!
           description_another: Deze gebruiker heeft zich %{score} opeenvolgende dagen aangemeld.
           description_own: Je hebt je %{score} opeenvolgende dagen aangemeld.
@@ -607,7 +610,7 @@ nl:
           unearned_own: Je hebt je niet meer dan één dag opeenvolgend aangemeld.
         followers:
           conditions:
-            - Actief zijn en andere mensen volgen, zal ervoor zorgen dat andere mensen je volgen.
+          - Actief zijn en andere mensen volgen, zal ervoor zorgen dat andere mensen je volgen.
           description: Deze badge wordt toegekend wanneer je een bepaald aantal volgers bereikt. %{organization_name} is een netwerk, weef je web om te communiceren met andere mensen op het platform.
           description_another: Deze deelnemer heeft %{score} volgers.
           description_own: "%{score} gebruikers volgen jou."
@@ -622,9 +625,9 @@ nl:
           title: Badges
         invitations:
           conditions:
-            - Gebruik de link "Vrienden uitnodigen" op uw gebruikerspagina om uw vrienden uit te nodigen
-            - Pas het bericht aan dat u stuurt, als u wilt
-            - Je komt op een niveau door uitnodigingen te versturen en ze te laten registreren.
+          - Gebruik de link "Vrienden uitnodigen" op uw gebruikerspagina om uw vrienden uit te nodigen
+          - Pas het bericht aan dat u stuurt, als u wilt
+          - Je komt op een niveau door uitnodigingen te versturen en ze te laten registreren.
           description: Deze badge wordt toegekend als je enkele mensen hebt uitgenodigd en ze hebben een beetje tijd besteed om in %{organization_name} te registreren en deelnemers te worden. Dank u om %{organization_name} bekend te maken bij anderen en om de community te helpen uit te breiden!
           description_another: Deze deelnemer heeft %{score} personen uitgenodigd.
           description_own: Je hebt %{score} mensen uitgenodigd.
@@ -664,7 +667,7 @@ nl:
     group_members:
       accept:
         error: Er is een fout opgetreden bij het accepteren van dit deelnameverzoek
-        success: Het deelnameverzoek is geaccepteerd 
+        success: Het deelnameverzoek is geaccepteerd
       actions:
         are_you_sure: Weet je het zeker?
         promote_to_admin: Beheerder maken
@@ -1153,7 +1156,7 @@ nl:
         change_your_password: Verander uw wachtwoord
         confirm_new_password: Bevestig nieuw wachtwoord
         new_password: Nieuw wachtwoord
-        password_help: "gebruik minimaal %{minimun_characters} tekens, deze mogen niet te algemeen zijn (bijv. 123456) en moeten anders zijn dan je alias en je e-mail."
+        password_help: gebruik minimaal %{minimun_characters} tekens, deze mogen niet te algemeen zijn (bijv. 123456) en moeten anders zijn dan je alias en je e-mail.
       new:
         forgot_your_password: Je wachtwoord vergeten?
         send_me_reset_password_instructions: Stuur mij opnieuw wachtwoordinstructies

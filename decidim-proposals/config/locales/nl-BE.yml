@@ -1,3 +1,4 @@
+---
 nl-BE:
   activemodel:
     attributes:
@@ -191,7 +192,7 @@ nl-BE:
           notification_title: The <a href="%{resource_path}">%{resource_title}</a> proposal has been endorsed by <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>.
         proposal_evaluating:
           affected_user:
-            email_intro: '%{resource_title} is becommentarieerd. U kunt de reactie lezen op deze pagina:'
+            email_intro: "%{resource_title} is becommentarieerd. U kunt de reactie lezen op deze pagina:"
             email_outro: U heeft deze melding ontvangen omdat u auteur bent van "%{resource_title}".
             email_subject: Voorstel wordt geëvalueerd
             notification_title: Uw voorstel <a href="%{resource_path}">%{resource_title}</a> wordt geëvalueerd.
@@ -221,7 +222,7 @@ nl-BE:
           notification_title: The proposal <a href="%{resource_path}">%{resource_title}</a> has been added to %{participatory_space_title}
         proposal_rejected:
           affected_user:
-            email_intro: '%{resource_title} is becommentarieerd. U kunt de reactie lezen op deze pagina:'
+            email_intro: "%{resource_title} is becommentarieerd. U kunt de reactie lezen op deze pagina:"
             email_outro: U heeft deze melding ontvangen omdat u bent genoemd in %{resource_title}".
             email_subject: Uw voorstel is verworpen
             notification_title: Uw voorstel <a href="%{resource_path}">%{resource_title}</a> is afgewezen.
@@ -248,8 +249,8 @@ nl-BE:
       badges:
         accepted_proposals:
           conditions:
-            - Kies de deelnameruimte van uw interesse met indiening voor voorstellen ingeschakeld
-            - Probeer voorstellen te doen die kunnen worden gedaan, en op die manier zullen ze waarschijnlijk meer worden aanvaard.
+          - Kies de deelnameruimte van uw interesse met indiening voor voorstellen ingeschakeld
+          - Probeer voorstellen te doen die kunnen worden gedaan, en op die manier zullen ze waarschijnlijk meer worden aanvaard.
           description: Deze badge wordt toegekend wanneer u actief deelneemt aan nieuwe voorstellen.
           description_another: This user has gotten %{score} proposals accepted.
           description_own: Je hebt %{score} geaccepteerde voorstellen.
@@ -259,8 +260,8 @@ nl-BE:
           unearned_own: U hebt nog geen aanvaarde voorstellen geformuleerd.
         proposal_votes:
           conditions:
-            - Blader en neem de tijd om de voorstellen van anderen te lezen
-            - Geef steun aan de voorstellen die je goed of interessant vindt
+          - Blader en neem de tijd om de voorstellen van anderen te lezen
+          - Geef steun aan de voorstellen die je goed of interessant vindt
           description: Deze badge wordt toegekend wanneer u de voorstellen van anderen steunt.
           description_another: This user has given support to %{score} proposals.
           description_own: U heeft ondersteuning gegeven aan %{score} voorstellen.
@@ -270,8 +271,8 @@ nl-BE:
           unearned_own: U hebt nog geen voorstellen gesteund.
         proposals:
           conditions:
-            - Kies de deelnameruimte van uw interesse met indiening voor voorstellen ingeschakeld
-            - Maak een voorstel
+          - Kies de deelnameruimte van uw interesse met indiening voor voorstellen ingeschakeld
+          - Maak een voorstel
           description: Deze badge wordt toegekend wanneer u actief deelneemt aan nieuwe voorstellen.
           description_another: This user has created %{score} proposals.
           description_own: U heeft %{score} voorstellen aangemaakt.
@@ -632,7 +633,7 @@ nl-BE:
           title: Complete your proposal
         count:
           proposals_count:
-            one: "1 voorstel"
+            one: 1 voorstel
             other: "%{count} voorstellen"
         dynamic_map_instructions:
           primary: You can move the point on the map.

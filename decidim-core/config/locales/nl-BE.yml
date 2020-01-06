@@ -1,3 +1,4 @@
+---
 nl-BE:
   activemodel:
     attributes:
@@ -49,8 +50,8 @@ nl-BE:
         one: User group
         other: User groups
   booleans:
-    'false': 'Nee'
-    'true': 'Ja'
+    'false': Nee
+    'true': Ja
   carrierwave:
     errors:
       image_too_big: De afbeelding is te groot
@@ -139,7 +140,7 @@ nl-BE:
         success: This emendation has been accepted successfully.
       amendable:
         amended_by: Gewijzigd door
-        button: '%{model_name} wijzigen'
+        button: "%{model_name} wijzigen"
         error: Er is een fout opgetreden bij het wijzigen van deze bron.
         help_text: Verbeter dit %{model_name} door het wijzigen van de %{amendable_fields}
         promote_button: Promoveer tot %{model_name}
@@ -161,7 +162,9 @@ nl-BE:
           evaluating: |-
             Dit amendement voor de %{amendable_type} %{amendable_link}
             wordt geëvalueerd.
-          rejected: "This emendation for the %{amendable_type} %{amendable_link}\nwas rejected on <strong>%{announcement_date}</strong>."
+          rejected: |-
+            This emendation for the %{amendable_type} %{amendable_link}
+            was rejected on <strong>%{announcement_date}</strong>.
           withdrawn: |-
             Dit amendement voor de %{amendable_type} %{amendable_link}
             is door de auteur ingetrokken.
@@ -329,7 +332,7 @@ nl-BE:
           newsletter: Ontvang een incidentele nieuwsbrief met relevante informatie
           newsletter_title: Contactrechten
           nickname_help: Your short, unique identifier in %{organization}
-          password_help: "gebruik minimaal %{minimun_characters} tekens, deze mogen niet te algemeen zijn (bijv. 123456) en moeten anders zijn dan je alias en je e-mail."
+          password_help: gebruik minimaal %{minimun_characters} tekens, deze mogen niet te algemeen zijn (bijv. 123456) en moeten anders zijn dan je alias en je e-mail.
           sign_in: Aanmelden
           sign_up: Registreren
           sign_up_as:
@@ -552,7 +555,7 @@ nl-BE:
       badges:
         continuity:
           conditions:
-            - Kom hier vaak
+          - Kom hier vaak
           description: Deze badge wordt toegekend wanneer je regelmatig het platform bezoekt. We houden van het hier rondlopen!
           description_another: This user has connected for %{score} consecutive days at some point.
           description_own: Je hebt %{score} opeenvolgende dagen op een gegeven moment verbonden.
@@ -562,7 +565,7 @@ nl-BE:
           unearned_own: Je hebt niet meer dan één opeenvolgende dag verbonden.
         followers:
           conditions:
-            - Als je actief bent en anderen volgt, zullen andere mensen jou ook sneller volgen.
+          - Als je actief bent en anderen volgt, zullen andere mensen jou ook sneller volgen.
           description: Deze badge wordt toegekend wanneer je een bepaald aantal volgers bereikt. %{organization_name} is een sociaal en politiek netwerk, draag je web om met andere mensen te communiceren in het platform.
           description_another: This user has %{score} followers.
           description_own: "%{score} users are following you."
@@ -577,9 +580,9 @@ nl-BE:
           title: Badges
         invitations:
           conditions:
-            - Gebruik de link "vrienden uitnodigen" op uw gebruikerspagina om uw vrienden uit te nodigen
-            - Pas het bericht aan, als u wilt, dat u verzendt
-            - Je zal omhoog gaan in niveau door uitnodigingen te verzenden en gebruikers zich te laten registreren.
+          - Gebruik de link "vrienden uitnodigen" op uw gebruikerspagina om uw vrienden uit te nodigen
+          - Pas het bericht aan, als u wilt, dat u verzendt
+          - Je zal omhoog gaan in niveau door uitnodigingen te verzenden en gebruikers zich te laten registreren.
           description: Deze badge wordt toegekend wanneer je sommige mensen hebt uitgenodigd en ze hebben een beetje tijd besteed om zich in %{organization_name} te registreren en deelnemers te worden. Bedankt voor het feit dat je %{organization_name} voor anderen bekend maakt en de gemeenschap helpt te vergroten!
           description_another: This user has invited %{score} users.
           description_own: You have invited %{score} users.
@@ -1063,8 +1066,7 @@ nl-BE:
         accept_until: This invitation will be due in %{due_date}.
         decline: Uitnodiging afwijzen
         hello: Hallo %{email},
-        ignore: |-
-          Negeer deze email als u de uitnodiging niet wilt accepteren.<br /> Uw account wordt niet aangemaakt totdat u via de link hierboven uw wachtwoord instelt.
+        ignore: Negeer deze email als u de uitnodiging niet wilt accepteren.<br /> Uw account wordt niet aangemaakt totdat u via de link hierboven uw wachtwoord instelt.
         invited_you_as_admin: "%{invited_by} heeft u uitgenodigd als beheerder van %{application}, u kunt deze uitnodiging accepteren via onderstaande link."
         invited_you_as_private_user: "%{invited_by} has invited you as a private user of %{application}. You can accept it through the link below."
         someone_invited_you: Iemand heeft u uitgenodigd bij %{application}, u kunt deze uitnodiging accepteren via onderstaande link.
@@ -1105,7 +1107,7 @@ nl-BE:
         change_your_password: Wijzig uw wachtwoord
         confirm_new_password: Nieuw wachtwoord bevestigen
         new_password: Nieuw wachtwoord
-        password_help: "gebruik minimaal %{minimun_characters} tekens, deze mogen niet te algemeen zijn (bijv. 123456) en moeten anders zijn dan je alias en je e-mail."
+        password_help: gebruik minimaal %{minimun_characters} tekens, deze mogen niet te algemeen zijn (bijv. 123456) en moeten anders zijn dan je alias en je e-mail.
       new:
         forgot_your_password: Wachtwoord vergeten?
         send_me_reset_password_instructions: Stuur me instructies om mijn wachtwoord te resetten
@@ -1121,7 +1123,7 @@ nl-BE:
         cancel_my_account: Mijn account annuleren
         currently_waiting_confirmation_for_email: 'Momenteel wachtende bevestiging voor: %{email}'
         leave_blank_if_you_don_t_want_to_change_it: laat leeg als u het niet wilt wijzigen
-        title: '%{resource} bewerken'
+        title: "%{resource} bewerken"
         unhappy: Ongelukkig?
         update: Bijwerken
         we_need_your_current_password_to_confirm_your_changes: we hebben je huidige wachtwoord nodig om je wijzigingen te bevestigen

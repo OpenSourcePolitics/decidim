@@ -1,3 +1,4 @@
+---
 nl-BE:
   activemodel:
     attributes:
@@ -57,7 +58,7 @@ nl-BE:
         highlighted_content_banner_short_description: Korte beschrijving
         highlighted_content_banner_title: Titel
         instagram_handler: Instagram handler
-        logo: '-'
+        logo: "-"
         name: Afbeelding van de startpagina
         official_img_footer: Officiële logo footer
         official_img_header: Officiële logo header

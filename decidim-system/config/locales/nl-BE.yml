@@ -1,3 +1,4 @@
+---
 nl-BE:
   decidim:
     system:
@@ -32,7 +33,7 @@ nl-BE:
       logs:
         index:
           download_log: Logboek downloaden
-          view_log: '%{line} regels bekijken'
+          view_log: "%{line} regels bekijken"
       menu:
         admins: Admins
         dashboard: Dashboard
