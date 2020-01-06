@@ -7,11 +7,11 @@ en:
       group:
         about: About
         avatar: Avatar
-        document_number: Documentnummer
+        document_number: Document number
         email: E-mail
-        name: Naam
-        nickname: Roepnaam
-        phone: Telefoon
+        name: Name
+        nickname: Nickname
+        phone: Phone
       report:
         details: Additional comments
       user:
