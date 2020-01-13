@@ -1021,6 +1021,10 @@ fr:
         share_link: Lien de partage
       version_author:
         deleted: Utilisateur ayant supprimé son compte
+    statutory_representative:
+      inform:
+        body: 'Un nouvel utilisateur mineur s''est inscrit sur %{organization} avec le nom : %{name} et le surnom : %{nickname}'
+        subject: Un nouvel utilisateur mineur a été créé
     translate:
       original: Translate (*)
       tooltip: Translated with Deepl

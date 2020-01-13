@@ -1032,6 +1032,10 @@ en:
         share_link: Share link
       version_author:
         deleted: Deleted participant
+    statutory_representative:
+      inform:
+        body: 'A new underage user has registered on %{organization} with name: %{name} and nickname: %{nickname}'
+        subject: A new underage user has been created
     translate:
       original: Translate (*)
       tooltip: Translated with Deepl

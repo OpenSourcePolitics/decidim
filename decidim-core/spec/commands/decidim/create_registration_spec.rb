@@ -114,6 +114,32 @@ module Decidim
             end.to change(User, :count).by(1)
           end
         end
+
+        describe "#send_email_to_statutory_representative" do
+          it "send an email to statutory representative" do
+            allow(StatutoryRepresentativeMailer).to receive(:inform).and_call_original
+            command.call
+            expect(StatutoryRepresentativeMailer)
+              .to have_received(:inform)
+              .with(User.last)
+          end
+
+          context "when underage is not checked" do
+            let(:underage) { "0" }
+
+            it "doesn't include statutory representative" do
+              command.call
+              expect(User.last.registration_metadata[:statutory_representative_email]).to eq(nil)
+            end
+
+            it "doesn't send an email to statutory representative" do
+              # rubocop:disable RSpec/AnyInstance
+              expect_any_instance_of(StatutoryRepresentativeMailer).not_to receive(:inform)
+              # rubocop:enable RSpec/AnyInstance
+              command.call
+            end
+          end
+        end
       end
     end
   end
