@@ -63,7 +63,7 @@ module Decidim
     end
 
     def send_email_to_statutory_representative
-      return unless registration_metadata[:statutory_representative_email].present?
+      return if registration_metadata[:statutory_representative_email].blank?
 
       Decidim::StatutoryRepresentativeMailer.inform(@user).deliver_later
     end
