@@ -6,21 +6,21 @@ module Decidim
   describe OmniauthProvider do
     let(:omniauth_secrets) do
       {
-          facebook: {
-              enabled: true,
-              app_id: "fake-facebook-app-id",
-              app_secret: "fake-facebook-app-secret"
-          },
-          twitter: {
-              enabled: true,
-              api_key: "fake-twitter-api-key",
-              api_secret: "fake-twitter-api-secret"
-          },
-          google_oauth2: {
-              enabled: false,
-              client_id: nil,
-              client_secret: nil
-          }
+        facebook: {
+          enabled: true,
+          app_id: "fake-facebook-app-id",
+          app_secret: "fake-facebook-app-secret"
+        },
+        twitter: {
+          enabled: true,
+          api_key: "fake-twitter-api-key",
+          api_secret: "fake-twitter-api-secret"
+        },
+        google_oauth2: {
+          enabled: false,
+          client_id: nil,
+          client_secret: nil
+        }
       }
     end
 

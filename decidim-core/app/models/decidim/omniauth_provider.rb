@@ -14,7 +14,7 @@ module Decidim
 
     def self.extract_provider_key(enabled_setting_key)
       enabled_setting_key.gsub("omniauth_settings_", "")
-          .gsub("_enabled", "").to_sym
+                         .gsub("_enabled", "").to_sym
     end
 
     def self.extract_setting_key(setting_key, provider)

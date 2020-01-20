@@ -19,31 +19,31 @@ Rails.application.config.middleware.use OmniAuth::Builder do
   if omniauth_config
     if omniauth_config[:developer].present?
       provider(
-          :developer,
-          fields: [:name, :nickname, :email]
+        :developer,
+        fields: [:name, :nickname, :email]
       )
     end
 
     if omniauth_config[:facebook].present?
       provider(
-          :facebook,
-          setup: setup_provider_proc(:facebook, client_id: :app_id, client_secret: :app_secret),
-          scope: :email,
-          info_fields: "name,email,verified"
+        :facebook,
+        setup: setup_provider_proc(:facebook, client_id: :app_id, client_secret: :app_secret),
+        scope: :email,
+        info_fields: "name,email,verified"
       )
     end
 
     if omniauth_config[:twitter].present?
       provider(
-          :twitter,
-          setup: setup_provider_proc(:twitter, consumer_key: :api_key, consumer_secret: :api_secret)
+        :twitter,
+        setup: setup_provider_proc(:twitter, consumer_key: :api_key, consumer_secret: :api_secret)
       )
     end
 
     if omniauth_config[:google_oauth2].present?
       provider(
-          :google_oauth2,
-          setup: setup_provider_proc(:google_oauth2, client_id: :client_id, client_secret: :client_secret)
+        :google_oauth2,
+        setup: setup_provider_proc(:google_oauth2, client_id: :client_id, client_secret: :client_secret)
       )
     end
   end

@@ -8,21 +8,21 @@ module Decidim
 
     let(:omniauth_secrets) do
       {
-          facebook: {
-              enabled: true,
-              app_id: "fake-facebook-app-id",
-              app_secret: "fake-facebook-app-secret"
-          },
-          twitter: {
-              enabled: true,
-              api_key: "fake-twitter-api-key",
-              api_secret: "fake-twitter-api-secret"
-          },
-          google_oauth2: {
-              enabled: true,
-              client_id: nil,
-              client_secret: nil
-          }
+        facebook: {
+          enabled: true,
+          app_id: "fake-facebook-app-id",
+          app_secret: "fake-facebook-app-secret"
+        },
+        twitter: {
+          enabled: true,
+          api_key: "fake-twitter-api-key",
+          api_secret: "fake-twitter-api-secret"
+        },
+        google_oauth2: {
+          enabled: true,
+          client_id: nil,
+          client_secret: nil
+        }
       }
     end
 
@@ -71,12 +71,12 @@ module Decidim
         let(:organization) { create(:organization) }
         let(:omniauth_settings) do
           {
-              "omniauth_settings_facebook_enabled" => true,
-              "omniauth_settings_facebook_app_id" => Decidim::AttributeEncryptor.encrypt("overriden-app-id"),
-              "omniauth_settings_facebook_app_secret" => Decidim::AttributeEncryptor.encrypt("overriden-app-secret"),
-              "omniauth_settings_google_oauth2_enabled" => true,
-              "omniauth_settings_google_oauth2_client_id" => Decidim::AttributeEncryptor.encrypt("overriden-client-id"),
-              "omniauth_settings_google_oauth2_client_secret" => Decidim::AttributeEncryptor.encrypt("overriden-client-secret")
+            "omniauth_settings_facebook_enabled" => true,
+            "omniauth_settings_facebook_app_id" => Decidim::AttributeEncryptor.encrypt("overriden-app-id"),
+            "omniauth_settings_facebook_app_secret" => Decidim::AttributeEncryptor.encrypt("overriden-app-secret"),
+            "omniauth_settings_google_oauth2_enabled" => true,
+            "omniauth_settings_google_oauth2_client_id" => Decidim::AttributeEncryptor.encrypt("overriden-client-id"),
+            "omniauth_settings_google_oauth2_client_secret" => Decidim::AttributeEncryptor.encrypt("overriden-client-secret")
           }
         end
 
