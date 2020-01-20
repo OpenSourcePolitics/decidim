@@ -19,15 +19,6 @@ module Decidim
       allow(Rails.application).to receive(:secrets).and_return(secrets)
     end
 
-    describe "#any_social_provider_enabled?" do
-      let(:facebook_enabled) { false }
-      let(:twitter_enabled) { false }
-
-      describe "when all providers are disabled" do
-        it { expect(helper).not_to be_any_social_provider_enabled }
-      end
-    end
-
     describe "#normalize_provider_name" do
       describe "when provider is google_oauth2" do
         it "returns just google" do
