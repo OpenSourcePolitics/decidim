@@ -325,6 +325,14 @@ FactoryBot.define do
     manifest_name { "dummy" }
     published_at { Time.current }
 
+    trait :with_one_step do
+      step_settings do
+        {
+            1 => { dummy_step_setting: true }
+        }
+      end
+    end
+
     trait :unpublished do
       published_at { nil }
     end
