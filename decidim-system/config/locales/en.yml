@@ -53,9 +53,23 @@ en:
           fields:
             created_at: Created at
             name: Name
+            omniauth_settings: Omniauth settings
             smtp_settings: SMTP settings
           name: Organization
       organizations:
+        omniauth_settings:
+          enabled: Enabled
+          facebook:
+            app_id: App ID
+            app_secret: App secret
+          google_oauth2:
+            client_id: Client ID
+            client_secret: Client secret
+          icon: Icon
+          icon_path: Icon path
+          twitter:
+            api_key: API key
+            api_secret: API secret
         create:
           error: There was a problem creating a new organization.
           success: Organization successfully created.
