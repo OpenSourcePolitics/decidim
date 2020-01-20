@@ -328,7 +328,7 @@ FactoryBot.define do
     trait :with_one_step do
       step_settings do
         {
-            1 => { dummy_step_setting: true }
+          1 => { dummy_step_setting: true }
         }
       end
     end

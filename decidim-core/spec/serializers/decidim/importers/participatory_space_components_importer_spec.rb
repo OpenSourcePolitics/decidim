@@ -11,40 +11,40 @@ module Decidim::Importers
 
       let(:settings) do
         {
-            "steps": {
-                "2": {
-                    "announcement": {
-                        "ca": "<p>ca</p>",
-                        "en": "<p>en</p>",
-                        "es": "<p>es</p>"
-                    },
-                    "announcement_ca": "<p>ca</p>",
-                    "announcement_en": "<p>en</p>",
-                    "announcement_es": "<p>es</p>",
-                    "comments_blocked": true,
-                    "creation_enabled": false
-                }
-            },
-            "global": {
-                "announcement": {
-                    "ca": "<p>ca</p>",
-                    "en": "<p>en</p>",
-                    "es": "<p>es</p>"
-                },
-                "announcement_ca": "<p>ca</p>",
-                "announcement_en": "<p>en</p>",
-                "announcement_es": "<p>es</p>",
-                "comments_enabled": true
-            },
-            "default_step": {
-                "announcement": {
-                },
-                "announcement_ca": "<p>ca</p>",
-                "announcement_en": "<p>en</p>",
-                "announcement_es": "<p>es</p>",
-                "comments_blocked": false,
-                "creation_enabled": false
+          "steps": {
+            "2": {
+              "announcement": {
+                "ca": "<p>ca</p>",
+                "en": "<p>en</p>",
+                "es": "<p>es</p>"
+              },
+              "announcement_ca": "<p>ca</p>",
+              "announcement_en": "<p>en</p>",
+              "announcement_es": "<p>es</p>",
+              "comments_blocked": true,
+              "creation_enabled": false
             }
+          },
+          "global": {
+            "announcement": {
+              "ca": "<p>ca</p>",
+              "en": "<p>en</p>",
+              "es": "<p>es</p>"
+            },
+            "announcement_ca": "<p>ca</p>",
+            "announcement_en": "<p>en</p>",
+            "announcement_es": "<p>es</p>",
+            "comments_enabled": true
+          },
+          "default_step": {
+            "announcement": {
+            },
+            "announcement_ca": "<p>ca</p>",
+            "announcement_en": "<p>en</p>",
+            "announcement_es": "<p>es</p>",
+            "comments_blocked": false,
+            "creation_enabled": false
+          }
         }
       end
 
