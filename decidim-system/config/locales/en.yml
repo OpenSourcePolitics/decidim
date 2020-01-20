@@ -57,6 +57,17 @@ en:
             smtp_settings: SMTP settings
           name: Organization
       organizations:
+        create:
+          error: There was a problem creating a new organization.
+          success: Organization successfully created.
+        edit:
+          secondary_hosts_hint: Enter each one of them in a new line
+        index:
+          title: Organizations
+        new:
+          reference_prefix_hint: The reference prefix is used to uniquely identify resources across all organization
+          secondary_hosts_hint: Enter each one of them in a new line
+          title: New organization
         omniauth_settings:
           enabled: Enabled
           facebook:
@@ -70,17 +81,6 @@ en:
           twitter:
             api_key: API key
             api_secret: API secret
-        create:
-          error: There was a problem creating a new organization.
-          success: Organization successfully created.
-        edit:
-          secondary_hosts_hint: Enter each one of them in a new line
-        index:
-          title: Organizations
-        new:
-          reference_prefix_hint: The reference prefix is used to uniquely identify resources across all organization
-          secondary_hosts_hint: Enter each one of them in a new line
-          title: New organization
         smtp_settings:
           address: Server address
           from_email: From email
