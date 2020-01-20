@@ -40,10 +40,10 @@ module Decidim
             expect(organization.users_registration_mode).to eq("existing")
             expect(organization.omniauth_settings["omniauth_settings_facebook_enabled"]).to eq(true)
             expect(
-                Decidim::AttributeEncryptor.decrypt(organization.omniauth_settings["omniauth_settings_facebook_app_id"])
+              Decidim::AttributeEncryptor.decrypt(organization.omniauth_settings["omniauth_settings_facebook_app_id"])
             ).to eq("facebook-app-id")
             expect(
-                Decidim::AttributeEncryptor.decrypt(organization.omniauth_settings["omniauth_settings_facebook_app_secret"])
+              Decidim::AttributeEncryptor.decrypt(organization.omniauth_settings["omniauth_settings_facebook_app_secret"])
             ).to eq("facebook-app-secret")
           end
         end

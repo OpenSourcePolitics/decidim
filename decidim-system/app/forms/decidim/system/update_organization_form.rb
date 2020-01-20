@@ -20,7 +20,7 @@ module Decidim
       attribute :available_authorizations, Array[String]
       attribute :users_registration_mode, String
 
-      OMNIATH_PROVIDERS_ATTRIBUTES = Decidim::User.omniauth_providers.map do |provider|
+      OMNIATH_PROVIDERS_ATTRIBUTES = Decidim::User.omniauth_providers.flat_map do |provider|
         Rails.application.secrets.dig(:omniauth, provider).keys.map do |setting|
           if setting == :enabled
             ["omniauth_settings_#{provider}_enabled".to_sym, Boolean]
@@ -28,7 +28,7 @@ module Decidim
             ["omniauth_settings_#{provider}_#{setting}".to_sym, String]
           end
         end
-      end.flatten(1)
+      end
 
       jsonb_attribute :omniauth_settings, OMNIATH_PROVIDERS_ATTRIBUTES
 
