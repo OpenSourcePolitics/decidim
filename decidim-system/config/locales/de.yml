@@ -52,6 +52,7 @@ de:
           fields:
             created_at: Created at
             name: Name
+            omniauth_settings: Omniauth settings
             smtp_settings: SMTP settings
           name: Organization
       organizations:
@@ -66,6 +67,19 @@ de:
           reference_prefix_hint: Das Referenzpräfix wird zur eindeutigen Identifizierung von Ressourcen in allen Organisationen verwendet
           secondary_hosts_hint: Enter each one of them in a new line
           title: New organization
+        omniauth_settings:
+          enabled: Enabled
+          facebook:
+            app_id: App ID
+            app_secret: App secret
+          google_oauth2:
+            client_id: Client ID
+            client_secret: Client secret
+          icon: Icon
+          icon_path: Icon path
+          twitter:
+            api_key: API key
+            api_secret: API secret
         smtp_settings:
           address: Server address
           from_email: From email
