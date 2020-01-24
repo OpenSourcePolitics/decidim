@@ -37,6 +37,20 @@ module Decidim
 
         it { is_expected.to be_invalid }
       end
+
+      context "when amendable title is not etiquette-compliant" do
+        let(:amendable) { create(:proposal, title: "A") }
+        let(:emendation_params) { { title: amendable.title, body: "A new body which is long enough" } }
+
+        it { is_expected.to be_valid }
+      end
+
+      context "when amendable body is not etiquette-compliant" do
+        let(:amendable) { create(:proposal, body: "A") }
+        let(:emendation_params) { { title: "A title which is long enough", body: amendable.body } }
+
+        it { is_expected.to be_valid }
+      end
     end
   end
 end

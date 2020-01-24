@@ -21,7 +21,12 @@ module Decidim
       def check_amendable_form_validations
         parse_hashtaggable_params
         run_validations
-        @errors = @amendable_form.errors
+
+        errors = (amendable_form.errors.messages.to_a - original_form.errors.messages.to_a).to_h
+        @amendable_form.errors.clear
+        errors.each { |field, message| amendable_form.errors.add(field, message) }
+
+        @errors = amendable_form.errors
       end
 
       def parse_hashtaggable_params
@@ -46,11 +51,22 @@ module Decidim
                             )
       end
 
+      def original_form
+        @original_form ||= amendable
+                           .amendable_form
+                           .from_model(amendable)
+                           .with_context(
+                             current_component: amendable.component,
+                             current_participatory_space: amendable.participatory_space
+                           )
+      end
+
       # Run validations only if `@amendable_form` is `nil`. This preserves
       # the artificial errors (:identical) added in `create_form.rb`
       def run_validations
         return if @amendable_form.present?
 
+        original_form.validate
         amendable_form.validate
       end
     end
