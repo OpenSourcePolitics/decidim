@@ -16,17 +16,17 @@ module Decidim
 
       let(:form_params) do
         {
-          amendable_gid: amendable.to_sgid.to_s,
-          emendation_params: emendation_params
+            amendable_gid: amendable.to_sgid.to_s,
+            emendation_params: emendation_params
         }
       end
 
       let(:form_context) do
         {
-          current_user: amender,
-          current_organization: amendable.organization,
-          current_participatory_space: amendable.participatory_space,
-          current_component: amendable.component
+            current_user: amender,
+            current_organization: amendable.organization,
+            current_participatory_space: amendable.participatory_space,
+            current_component: amendable.component
         }
       end
 
@@ -50,6 +50,26 @@ module Decidim
         let(:emendation_params) { { title: "A title which is long enough", body: amendable.body } }
 
         it { is_expected.to be_valid }
+      end
+
+      context "when emendation adds more errors than original" do
+        let(:amendable) { create(:proposal, title: "1 AAAAAAAAAAAAAAAAAAAAAAAA") }
+        let(:emendation_params) { { title: "1 A", body: amendable.body } }
+
+        it "is invalid" do
+          expect(form).to be_invalid
+          expect(form.errors.details.length).to eq(1)
+          expect(form.errors[:title]).to eq(["is too short (under 15 characters)"])
+        end
+      end
+
+      context "when emendation adds less errors than original" do
+        let(:amendable) { create(:proposal, title: "1 A!!#?", body: "#$^^ABC") }
+        let(:emendation_params) { { title: "A title which is long enough", body: "A new body which is long enough" } }
+
+        it "is invalid" do
+          expect(form).to be_valid
+        end
       end
     end
   end
