@@ -22,16 +22,24 @@ module Decidim
         parse_hashtaggable_params
         run_validations
 
-        errors_diff = (amendable_form.errors.details.to_a - original_form.errors.details.to_a).to_h
+        errors = flatten_errors(amendable_form.errors.details) - flatten_errors(original_form.errors.details)
         @amendable_form.errors.clear
-        add_errors(errors_diff)
+        add_errors(errors)
 
         @errors = amendable_form.errors
       end
 
-      def add_errors(errors_diff)
-        errors_diff.each do |attribute, value|
-          value.each { |error| amendable_form.errors.add(attribute, error[:error]) }
+      def flatten_errors(form_errors)
+        form_errors.flat_map do |attribute, errors|
+          errors.map do |error|
+            error.flat_map { |_, value| [attribute, value] }
+          end
+        end
+      end
+
+      def add_errors(errors)
+        errors.each do |attribute, error|
+          amendable_form.errors.add(attribute, error)
         end
       end
 

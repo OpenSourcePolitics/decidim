@@ -16,17 +16,17 @@ module Decidim
 
       let(:form_params) do
         {
-            amendable_gid: amendable.to_sgid.to_s,
-            emendation_params: emendation_params
+          amendable_gid: amendable.to_sgid.to_s,
+          emendation_params: emendation_params
         }
       end
 
       let(:form_context) do
         {
-            current_user: amender,
-            current_organization: amendable.organization,
-            current_participatory_space: amendable.participatory_space,
-            current_component: amendable.component
+          current_user: amender,
+          current_organization: amendable.organization,
+          current_participatory_space: amendable.participatory_space,
+          current_component: amendable.component
         }
       end
 
@@ -53,12 +53,11 @@ module Decidim
       end
 
       context "when emendation adds more errors than original" do
-        let(:amendable) { create(:proposal, title: "1 AAAAAAAAAAAAAAAAAAAAAAAA") }
-        let(:emendation_params) { { title: "1 A", body: amendable.body } }
+        let(:amendable) { create(:proposal, title: "AAAAAAAAAAAAAAAAAAAAAAAAAA") }
+        let(:emendation_params) { { title: "AA", body: amendable.body } }
 
         it "is invalid" do
           expect(form).to be_invalid
-          expect(form.errors.details.length).to eq(1)
           expect(form.errors[:title]).to eq(["is too short (under 15 characters)"])
         end
       end
