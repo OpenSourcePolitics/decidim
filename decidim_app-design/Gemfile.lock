@@ -84,7 +84,7 @@ PATH
       file_validators (~> 2.1)
       foundation-rails (~> 6.4, < 6.5)
       foundation_rails_helper (~> 3.0)
-      geocoder (~> 1.4)
+      geocoder (~> 1.6.1)
       hashdiff (~> 0.3.7)
       invisible_captcha (~> 0.10.0)
       jquery-rails (~> 4.3)
