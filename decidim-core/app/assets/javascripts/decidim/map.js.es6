@@ -62,7 +62,7 @@ const addMarkers = (markersData, markerClusters, map) => {
 
 const loadMap = (mapId, markersData) => {
   let markerClusters = L.markerClusterGroup();
-  const { hereAppId, hereAppCode } = window.Decidim.mapConfiguration;
+  const { hereApiKey } = window.Decidim.mapConfiguration;
 
   if (window.Decidim.currentMap) {
     window.Decidim.currentMap.remove();
@@ -72,8 +72,7 @@ const loadMap = (mapId, markersData) => {
   const map = L.map(mapId);
 
   L.tileLayer.here({
-    appId: hereAppId,
-    appCode: hereAppCode
+    apiKey: hereApiKey
   }).addTo(map);
 
   if (markersData.length > 0) {
@@ -99,10 +98,9 @@ $(() => {
   const $map = $(`#${mapId}`);
 
   const markersData = $map.data("markers-data");
-  const hereAppId = $map.data("here-app-id");
-  const hereAppCode = $map.data("here-app-code");
+  const hereApiKey = $map.data("here-api-key");
 
-  window.Decidim.mapConfiguration = { hereAppId, hereAppCode };
+  window.Decidim.mapConfiguration = { hereApiKey };
 
   if ($map.length > 0) {
     window.Decidim.currentMap = loadMap(mapId, markersData);
