@@ -33,6 +33,12 @@
 <% end %>
 <%= emendation_announcement_for @proposal %>
 <div class="row column view-header">
+
+  <%= link_to :proposals, class: "title-action__action button small hollow" do %>
+    <%= icon "chevron-left", class: "icon--small" %>
+    <%= t(".back") %>
+  <% end %>
+
   <h2 class="heading2" <%= "id=#{translate_helper_for(element: :title, model: @proposal)}" %>>
     <%= present(@proposal).title(links: true, html_escape: true) %></h2>
   <% unless component_settings.participatory_texts_enabled? %>
@@ -177,9 +183,6 @@
 <%= attachments_for @proposal %>
 
 <%= comments_for @proposal %>
-
-<%= javascript_include_tag "decidim/proposals/social_share" %>
-<%= stylesheet_link_tag "decidim/proposals/social_share" %>
 
 <%=
   render partial: "decidim/shared/flag_modal", locals: {

@@ -310,6 +310,8 @@ describe "Filter Proposals", type: :system do
 
       context "with 'amendments' type" do
         it "lists the filtered proposals" do
+          component.update!(settings: { amendment_enabled: true })
+
           within ".filters" do
             choose "Amendments"
           end
@@ -317,6 +319,39 @@ describe "Filter Proposals", type: :system do
           expect(page).to have_css(".card.card--proposal", count: 1)
           expect(page).to have_content("1 PROPOSAL")
           expect(page).to have_content("AMENDMENT", count: 1)
+        end
+      end
+    end
+
+    context "when 'amendments' is disabled but there were some amendments before" do
+      let!(:proposal) { create(:proposal, component: component, scope: scope) }
+      let!(:emendation) { create(:proposal, component: component, scope: scope) }
+      let!(:amendment) { create(:amendment, amendable: proposal, emendation: emendation) }
+
+      before do
+        component.update!(settings: { amendment_enabled: false })
+        visit_component
+      end
+
+      it "displays amendment filter" do
+        within "form.new_filter" do
+          expect(page).to have_content(/Amendments/i)
+        end
+      end
+    end
+
+    context "when 'amendments' is disabled and there is no amendments" do
+      let!(:proposal) { create(:proposal, component: component, scope: scope) }
+      let!(:emendation) { create(:proposal, component: component, scope: scope) }
+
+      before do
+        component.update!(settings: { amendment_enabled: false })
+        visit_component
+      end
+
+      it "does not display amendment filter" do
+        within "form.new_filter" do
+          expect(page).to have_no_content(/Amendments/i)
         end
       end
     end

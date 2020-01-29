@@ -26,11 +26,7 @@ L.TileLayer.HERE = L.TileLayer.extend({
 
 		// 🍂option appId: String = ''
 		// Required option. The `app_id` provided as part of the HERE credentials
-		appId: '',
-
-		// 🍂option appCode: String = ''
-		// Required option. The `app_code` provided as part of the HERE credentials
-		appCode: '',
+		apiKey: ''
 	},
 
 
@@ -50,17 +46,17 @@ L.TileLayer.HERE = L.TileLayer.extend({
 // 		&app_code={YOUR_APP_CODE}
 // 		&{param}={value}
 
-		var path = '/{resource}/2.1/{resource}/{mapId}/{scheme}/{z}/{x}/{y}/{tileResolution}/{format}?app_id={appId}&app_code={appCode}';
-		var attributionPath = '/maptile/2.1/copyright/{mapId}?app_id={appId}&app_code={appCode}';
+		var path = '/{resource}/2.1/{resource}/{mapId}/{scheme}/{z}/{x}/{y}/{tileResolution}/{format}?apiKey={apiKey}';
+		var attributionPath = '/maptile/2.1/copyright/{mapId}?apiKey={apiKey}';
 
-		var tileServer = 'base.maps.api.here.com';
+		var tileServer = 'base.maps.ls.hereapi.com';
 		if (schemeStart == 'satellite' ||
 				schemeStart == 'terrain' ||
 				schemeStart == 'hybrid') {
-			tileServer = 'aerial.maps.api.here.com';
+			tileServer = 'aerial.maps.ls.hereapi.com';
 		}
 		if (options.scheme.indexOf('.traffic.') !== -1) {
-			tileServer = 'traffic.maps.api.here.com';
+			tileServer = 'traffic.maps.ls.hereapi.com';
 		}
 
 		var tileUrl = 'https://{s}.' + tileServer + path;

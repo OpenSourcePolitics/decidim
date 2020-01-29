@@ -81,14 +81,22 @@ module Decidim
             let(:origin) { "citizens" }
             let(:another_user) { create(:user, organization: component.organization) }
 
+            let(:meeting_component) { create(:component, participatory_space: participatory_process, manifest_name: "meetings") }
+            let(:meeting) { create(:meeting, component: meeting_component) }
+            let(:meeting_proposal) { create(:proposal, component: component) }
+
             it "returns only citizen proposals" do
               create_list(:proposal, 3, :official, component: component)
               citizen_proposals = create_list(:proposal, 2, component: component)
               proposal.add_coauthor(another_user)
               citizen_proposals << proposal
 
-              expect(subject.size).to eq(3)
+              meeting_proposal.update(created_in_meeting: true)
+              meeting_proposal.coauthorships.clear
+              meeting_proposal.add_coauthor(meeting)
+
               expect(subject).to match_array(citizen_proposals)
+              expect(subject.size).to eq(3)
             end
           end
 

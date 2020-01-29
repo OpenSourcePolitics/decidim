@@ -10,8 +10,6 @@ module Decidim
     include Decidim::DataPortability
     include Decidim::Searchable
 
-    OMNIAUTH_PROVIDERS = [:facebook, :twitter, :google_oauth2, (:developer if Rails.env.development?)].compact
-
     class Roles
       def self.all
         Decidim.config.user_roles
@@ -21,7 +19,7 @@ module Decidim
     devise :invitable, :database_authenticatable, :registerable, :confirmable, :timeoutable,
            :recoverable, :rememberable, :trackable, :decidim_validatable,
            :decidim_newsletterable,
-           :omniauthable, omniauth_providers: OMNIAUTH_PROVIDERS,
+           :omniauthable, omniauth_providers: Decidim::OmniauthProvider.available.keys,
                           request_keys: [:env], reset_password_keys: [:decidim_organization_id, :email],
                           confirmation_keys: [:decidim_organization_id, :email]
 

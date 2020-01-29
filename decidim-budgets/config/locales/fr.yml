@@ -150,7 +150,7 @@ fr:
           added: Vous avez déjà voté
         show:
           budget: Budget
-          view_all_projects: Voir tous les projets
+          view_all_projects: Retourner à la liste
     components:
       budgets:
         actions:

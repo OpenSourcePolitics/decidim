@@ -7,6 +7,9 @@
       this.modal = this._createModalContainer();
       this.modal.appendTo($("body"));
       this.current = null;
+      this.choosenUrl = {
+        previous: String()
+      };
 
       elements.each((_index, element) => {
         this.activate(element);
@@ -78,7 +81,7 @@
 
     _openPicker($picker, div) {
       this._setCurrentPicker($picker, div);
-      this._load($("a", div).attr("href"));
+      this._loadOpenPicker($("a", div).attr("href"));
     }
 
     _setCurrentPicker($picker, div) {
@@ -97,6 +100,22 @@
     }
 
     _load(url) {
+      this.choosenUrl.previous = url;
+      $("a.button[data-picker-choose]").attr("disabled", "disabled");
+      $.ajax(url).done((resp) => {
+        if ($("#data_picker-modal").attr("aria-hidden") === "false") {
+          $("button[data-picker-choose]").removeAttr("disabled");
+          let modalContent = $(".data_picker-modal-content", this.modal);
+          modalContent.html(resp);
+          this._handleLinks(modalContent);
+          this.modal.foundation("open");
+        }
+      });
+    }
+
+    _loadOpenPicker(url) {
+      // clone _load() function to make difference between Ajax from picker select and picker option
+      this.choosenUrl.previous = url;
       $.ajax(url).done((resp) => {
         let modalContent = $(".data_picker-modal-content", this.modal);
         modalContent.html(resp);
@@ -117,7 +136,9 @@
           let chooseUrl = $link.attr("href");
           if (chooseUrl) {
             if (typeof $link.data("picker-choose") === "undefined") {
-              this._load(chooseUrl);
+              if (chooseUrl !== this.choosenUrl.previous) {
+                this._load(chooseUrl);
+              }
             } else {
               this._choose({ url: chooseUrl, value: $link.data("picker-value") || "", text: $link.data("picker-text") || "" });
             }
