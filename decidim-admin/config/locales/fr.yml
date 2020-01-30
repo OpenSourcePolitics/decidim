@@ -91,7 +91,7 @@ fr:
         organization: Organisation
         parent_id: Parent
         scope_type: Type de secteurs
-        scope_type_id: Type de secteur
+        scope_type_id: Type de secteurs
       scope_type:
         name: Titre
         organization: Organisation
@@ -149,6 +149,7 @@ fr:
         export: Exporter
         import_process: Importer un processus
         manage: Modifier
+        new: Nouvelle %{name}
         permissions: Autorisations
         reject: Rejeter
         verify: Vérifier
@@ -742,13 +743,13 @@ fr:
           filter:
             all: Tous
             pending: En attente
-            rejected: Non retenu
+            rejected: Non validés
             verified: Vérifié
           filter_by: Filtrer par
           search: Rechercher
           state:
             pending: En attente
-            rejected: Non retenu
+            rejected: Non validés
             verified: Vérifié
           verify_via_csv: Vérifier via CSV
       user_groups_csv_verifications:

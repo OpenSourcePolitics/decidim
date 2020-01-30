@@ -29,6 +29,7 @@ module Decidim
     def after_sign_in_path_for(user)
       stored_location = stored_location_for(user)
       return signed_in_root_path(user) if stored_location == tos_path
+
       stored_location || signed_in_root_path(user)
     end
   end

@@ -19,6 +19,17 @@ module Decidim
       attribute :secondary_hosts, String
       attribute :available_authorizations, Array[String]
       attribute :users_registration_mode, String
+      jsonb_attribute :smtp_settings, [
+        [:from, String],
+        [:user_name, String],
+        [:encrypted_password, String],
+        [:address, String],
+        [:port, Integer],
+        [:authentication, String],
+        [:enable_starttls_auto, Boolean]
+      ]
+
+      attr_writer :password
 
       OMNIATH_PROVIDERS_ATTRIBUTES = Decidim::User.omniauth_providers.flat_map do |provider|
         Rails.application.secrets.dig(:omniauth, provider).keys.map do |setting|
@@ -31,8 +42,6 @@ module Decidim
       end
 
       jsonb_attribute :omniauth_settings, OMNIATH_PROVIDERS_ATTRIBUTES
-
-      attr_writer :password
 
       validates :name, :host, :users_registration_mode, presence: true
       validate :validate_organization_uniqueness
@@ -65,6 +74,10 @@ module Decidim
         Hash[omniauth_settings.map do |k, v|
           [k, Decidim::OmniauthProvider.value_defined?(v) ? Decidim::AttributeEncryptor.encrypt(v) : v]
         end]
+      end
+
+      def encrypted_smtp_settings
+        smtp_settings.merge(encrypted_password: Decidim::AttributeEncryptor.encrypt(@password))
       end
 
       private

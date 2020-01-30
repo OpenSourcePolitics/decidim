@@ -4,6 +4,7 @@ require "spec_helper"
 
 describe "Explore Collaborative Drafts", versioning: true, type: :system do
   include ActionView::Helpers::TextHelper
+  include Decidim::SanitizeHelper
 
   include_context "with a component"
 
@@ -265,11 +266,13 @@ describe "Explore Collaborative Drafts", versioning: true, type: :system do
                 expect(page).to have_css("#request_#{user.id}")
               end
             end
+
             it "shows the button to accept the request" do
               within ".card.extra" do
                 expect(page).to have_css(".button.hollow.secondary.small", text: "Accept")
               end
             end
+
             it "shows the button to reject the request" do
               within ".card.extra" do
                 expect(page).to have_css(".icon--x")

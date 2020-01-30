@@ -10,7 +10,7 @@ module Decidim
     # @see BaseRenderer Examples of how to use a content renderer
     class ResultRenderer < BaseRenderer
       # Matches a global id representing a Decidim::User
-      GLOBAL_ID_REGEX = %r{gid:\/\/([\w-]*\/Decidim::Accountability::Result\/(\d+))}i
+      GLOBAL_ID_REGEX = %r{gid:\/\/([\w-]*\/Decidim::Accountability::Result\/(\d+))}i.freeze
 
       # Replaces found Global IDs matching an existing result with
       # a link to its show page. The Global IDs representing an

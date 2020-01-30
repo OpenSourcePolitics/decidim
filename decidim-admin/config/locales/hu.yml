@@ -1,4 +1,3 @@
----
 hu:
   activemodel:
     attributes:
@@ -75,9 +74,9 @@ hu:
         success_color: Siker
         tos_version: Használati feltételek
         twitter_handler: Twitter handler
-        user_groups_enabled: Felhasználói csoportok engedélyezése
+        user_groups_enabled: Csoportok engedélyezése
         user_name: Felhasználónév
-        warning_color: Figyelem
+        warning_color: Figyelmeztetés
         youtube_handler: YouTube handler
       scope:
         code: Kód
@@ -162,6 +161,7 @@ hu:
           error: Hiba történt az új terület létrehozásakor.
           success: Terület létrehozása sikeres.
         destroy:
+          has_spaces: A terület függő terekkel rendelkezik, a törléshez meg kell szüntetni ezen függőségeket.
           success: Terület eltávolítása sikeres
         edit:
           title: Terület szerkesztése
@@ -171,7 +171,7 @@ hu:
           title: Új terület
         no_areas: Nincs terület
         update:
-          error: Hiba történt ezen terület frissítése során.
+          error: Hiba történt a terület frissítésekor.
           success: Terület frissítése sikeres
       attachment_collections:
         create:
@@ -256,7 +256,7 @@ hu:
             type: Elem típusa
         new:
           add: Elem hozzáadása
-          title: "%{name} nevű elem hozzáadása"
+          title: '%{name} nevű elem hozzáadása'
         publish:
           success: Az elem közzététele sikeres volt.
         title: Elemek
@@ -285,7 +285,7 @@ hu:
             not_managed: Nem felügyelt
           filter_by: 'Szűrés ez alapján:'
           impersonate: Megszemélyesítés
-          impersonate_new_managed_user: Új felügyelt felhasználó felhatalmazása
+          impersonate_new_managed_user: Új résztvevő kezelése
           managed: Felügyelt
           name: Név
           needs_authorization_warning: Ennek a szervezetnek legalább egy engedélyre lesz szüksége.
@@ -442,7 +442,7 @@ hu:
           interpolations_hint: 'Tipp: a(z) "%{name}" nevet a tárgyban és a szövegben is használhatod, az helyettesítve lesz a címzett nevével.'
         index:
           all: mind
-          all_users: Minden felhasználó
+          all_users: 'Minden felhasználó'
           and: 'és '
           confirm_delete: Biztosan törölni szeretnéd ezt a hírlevelet?
           followers: 'követők '

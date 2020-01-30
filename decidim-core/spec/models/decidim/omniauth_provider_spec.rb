@@ -25,7 +25,7 @@ module Decidim
     end
 
     describe "available" do
-      subject(:available_providers) { Decidim::OmniauthProvider.available }
+      subject(:available_providers) { described_class.available }
 
       it "returns all providers" do
         expect(available_providers.size).to eq(3)
@@ -35,7 +35,7 @@ module Decidim
 
     describe "extract_provider_key" do
       subject(:provider_key) do
-        Decidim::OmniauthProvider.extract_provider_key("omniauth_settings_facebook_enabled")
+        described_class.extract_provider_key("omniauth_settings_facebook_enabled")
       end
 
       it "returns provider key" do
@@ -45,7 +45,7 @@ module Decidim
 
     describe "extract_setting_key" do
       subject do
-        Decidim::OmniauthProvider.extract_setting_key(setting_key, provider)
+        described_class.extract_setting_key(setting_key, provider)
       end
 
       let(:setting_key) { "omniauth_settings_facebook_app_id" }

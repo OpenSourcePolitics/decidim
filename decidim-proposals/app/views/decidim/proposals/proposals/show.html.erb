@@ -22,6 +22,15 @@
   )
 %>
 
+<%
+edit_link(
+  resource_locator(@proposal).edit,
+  :edit,
+  :proposal,
+  proposal: @proposal
+)
+%>
+
 <%= render partial: "voting_rules" %>
 <% if component_settings.participatory_texts_enabled? %>
   <div class="row column">
@@ -109,7 +118,7 @@
               <%= render partial: "vote_button", locals: { proposal: @proposal, from_proposals_list: false } %>
             <% end %>
             <%= render partial: "endorsements_card_row", locals: { proposal: @proposal } %>
-            <br>
+            <br />
             <%= follow_button_for(@proposal) %>
           </div>
         </div>

@@ -70,6 +70,7 @@ module Decidim
         return unless permission_action.subject == :newsletter
         return allow! if user.admin?
         return unless space_allows_admin_access?
+
         newsletter = context.fetch(:newsletter, nil)
 
         case permission_action.action

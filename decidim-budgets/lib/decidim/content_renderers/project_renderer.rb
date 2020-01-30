@@ -10,7 +10,7 @@ module Decidim
     # @see BaseRenderer Examples of how to use a content renderer
     class ProjectRenderer < BaseRenderer
       # Matches a global id representing a Decidim::User
-      GLOBAL_ID_REGEX = %r{gid:\/\/([\w-]*\/Decidim::Budgets::Project\/(\d+))}i
+      GLOBAL_ID_REGEX = %r{gid:\/\/([\w-]*\/Decidim::Budgets::Project\/(\d+))}i.freeze
 
       # Replaces found Global IDs matching an existing project with
       # a link to its show page. The Global IDs representing an

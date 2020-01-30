@@ -12,7 +12,7 @@ end
 
 describe "available locales", type: :system do
   let(:languages) do
-    %w(en ar ca de es es-MX es-PY eu fi-pl fi fr gl hu id it nl pl pt pt-BR ru sv tr uk)
+    %w(en ar ca de es es-MX es-PY eu fi-pl fi fr gl hu id it nl no pl pt pt-BR ru sv tr uk)
   end
   let(:datepicker_file) do
     lambda { |lang|
@@ -28,6 +28,7 @@ describe "available locales", type: :system do
     LocaleTest::Decidim.available_locales.each do |l|
       # english is not necessary for datepicker
       next if l == "en"
+
       expect(File).to exist(datepicker_file[l])
     end
   end

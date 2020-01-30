@@ -17,9 +17,11 @@ module Decidim::Exporters
       end
       let(:previous_conf) { {} }
 
-      class DummySpecificDataSerializer < Decidim::Exporters::Serializer
-        def serialize
-          { specific: :data }
+      let(:dummy_specific_data_serializer) do
+        Class.new(described_class) do
+          def serialize
+            { specific: :data }
+          end
         end
       end
 
@@ -28,7 +30,7 @@ module Decidim::Exporters
         previous_conf[:serializes_specific_data] = manifest.serializes_specific_data
         manifest.serializes_specific_data = true
         previous_conf[:specific_data_serializer_class_name] = manifest.specific_data_serializer_class_name
-        manifest.specific_data_serializer_class_name = DummySpecificDataSerializer.name
+        manifest.specific_data_serializer_class_name = dummy_specific_data_serializer.name
       end
 
       after do

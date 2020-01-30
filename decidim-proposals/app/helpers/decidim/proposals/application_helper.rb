@@ -153,7 +153,8 @@ module Decidim
       def filter_type_values
         base = [
           ["all", t("decidim.proposals.application_helper.filter_type_values.all")],
-          ["proposals", t("decidim.proposals.application_helper.filter_type_values.proposals")]
+          ["proposals", t("decidim.proposals.application_helper.filter_type_values.proposals")],
+          ["amendments", t("decidim.proposals.application_helper.filter_type_values.amendments")]
         ]
         if component_settings.amendments_enabled || Proposal.where(component: current_component).only_emendations.any?
           base <<

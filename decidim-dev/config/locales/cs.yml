@@ -1,4 +1,3 @@
----
 cs:
   activemodel:
     attributes:
@@ -7,6 +6,7 @@ cs:
         field: Moje pole
         start_date: Počáteční datum
         title: Titul
+        translatable_text: Přeložitelný text
         updated_at: Aktualizováno na
   decidim:
     dummy:
@@ -17,7 +17,7 @@ cs:
       badges:
         test:
           conditions:
-          - Použijte testovací prostředí pro decidim.
+            - Použijte testovací prostředí pro decidim.
           description: Uživatelé získají tento odznak vytvořením testů.
           description_another: Tento uživatel vytvořil %{score} testů.
           description_own: Vytvořili jste %{score} testů.

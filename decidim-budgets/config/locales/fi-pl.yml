@@ -1,4 +1,3 @@
----
 fi-pl:
   activemodel:
     attributes:
@@ -85,6 +84,7 @@ fi-pl:
           checked_out:
             description: Olet jo äänestänyt tätä budjettia. Jos muutit mieltäsi, voit %{cancel_link}.
             title: Budjetin äänestys suoritettu
+          description: Mitä suunnitelmia varten sinun mielestäsi budjettia tulisi varata? Varaa vähintään %{minimum_budget} suunnitelmille, jotka haluat toteutettavan ja äänestä mieltymystesi mukaisesti määrittääksesi budjetin.
           title: Voit päättää budjetin
         count:
           projects_count:

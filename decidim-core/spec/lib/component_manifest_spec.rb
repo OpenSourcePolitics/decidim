@@ -109,8 +109,8 @@ module Decidim
     describe "permissions_class" do
       context "when permissions_class_name is set" do
         it "finds the permissions class from its name" do
-          class ::TestPermissions
-          end
+          stub_const("TestPermissions", Class.new)
+
           subject.permissions_class_name = "TestPermissions"
 
           expect(subject.permissions_class).to eq(TestPermissions)
@@ -137,8 +137,8 @@ module Decidim
     describe "serializes_specific_data" do
       context "when specific_data_serializer_class_name is set" do
         it "finds the serializer class from its name" do
-          class ::TestSerializer
-          end
+          stub_const("TestSerializer", Class.new)
+
           subject.specific_data_serializer_class_name = "TestSerializer"
 
           expect(subject.specific_data_serializer_class).to eq(TestSerializer)
@@ -163,8 +163,8 @@ module Decidim
 
       context "when specific_data_importer_class_name is set" do
         it "finds the serializer class from its name" do
-          class ::TestImporter
-          end
+          stub_const("TestImporter", Class.new)
+
           subject.specific_data_importer_class_name = "TestImporter"
 
           expect(subject.specific_data_importer_class).to eq(TestImporter)

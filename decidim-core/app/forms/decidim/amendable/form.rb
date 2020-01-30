@@ -46,6 +46,7 @@ module Decidim
       def parse_hashtaggable_params
         emendation_params.each do |key, value|
           next unless [:title, :body].include?(key)
+
           emendation_params[key] = Decidim::ContentProcessor
                                    .parse_with_processor(
                                      :hashtag,

@@ -153,6 +153,7 @@ describe "Participatory Processes", type: :system do
           end
         end
       end
+
       context "when promoted and highlighted processes" do
         let!(:promoted_process) do
           create(:participatory_process,

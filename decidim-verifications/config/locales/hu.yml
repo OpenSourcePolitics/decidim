@@ -1,4 +1,3 @@
----
 hu:
   activemodel:
     attributes:
@@ -32,25 +31,25 @@ hu:
       organization:
         update_id_documents_config: "%{user_name} frissítette az azonosító dokumentumok ellenőrzési konfigurációját"
       user:
-        grant_id_documents_offline_verification: "%{user_name} ellenőrzött %{resource_name} egy offline azonosító dokumentum ellenőrzésével"
+        grant_id_documents_offline_verification: "%{user_name} hitelesítve %{resource_name} egy offline azonosító dokumentum ellenőrzésével"
     authorization_handlers:
       admin:
         csv_census:
           help:
-          - Az adminisztrátorok CSV-t töltenek be az elfogadott résztvevők e-mailjeivel
-          - Csak azok a résztvevők kaphatnak igazolást, akik e CSV-fájlban e-mailt tartalmaznak
+            - Az adminisztrátorok CSV-t töltenek fel az elfogadott résztvevők emailcímeivel
+            - Csak azok a résztvevők kaphatnak igazolást, akiknek az emailje megtalálható a CSV-fájlban
         id_documents:
           help:
-          - A felhasználók kitölthetik az adatlapjukat és feltölthetik dokumentumaikat.
-          - Töltsd ki a feltöltött képen található információkkal.
-          - Az információknak meg kell egyeznie a kitöltött adatokkal.
-          - Ha nem láthatók tisztán az információk vagy nem tudod ellenőrizni, akkor elutasíthatod és visszaküldheted javításra a kérelmet.
+            - A felhasználók kitölthetik az adatlapjukat és feltölthetik dokumentumaikat.
+            - Töltsd ki a feltöltött képen található információkkal.
+            - Az információknak meg kell egyeznie a kitöltött adatokkal.
+            - Ha nem láthatók tisztán az információk vagy nem tudod ellenőrizni, akkor elutasíthatod és visszaküldheted javításra a kérelmet.
         postal_letter:
           help:
-          - A felhasználók a lakcímükre kérik az ellenőrző kódot.
-          - A kódot tartalmazó levelet a lakcímükre küldöd el.
-          - Levél elküldöttként megjelölve.
-          - Miután a levelet megjelölted elküldöttként, a felhasználó a kód segítségével ellenőrizhető lesz.
+            - Felhasználók a lakcímükre kérik az ellenőrző kódot.
+            - A kódot tartalmazó levelet a lakcímükre küldöd el.
+            - Levél elküldöttként megjelölve.
+            - Miután a levelet megjelölted elküldöttként, a felhasználó a kód segítségével ellenőrizhető lesz.
       csv_census:
         explanation: Ellenőrizze a szervezet népszámlálásával
         name: A szervezet népszámlálása
@@ -97,7 +96,7 @@ hu:
             confirm: Az összes népszámlálás törlése nem vonható vissza. Biztos vagy benne, hogy folytatni akarod?
             title: Törölje az összes népszámlálási adatot
           index:
-            data: "%{count} bejegyzés van feltöltve. Az utolsó feltöltés dátuma %{due_date}"
+            data: '%{count} bejegyzés van feltöltve. Az utolsó feltöltés dátuma %{due_date}'
             empty: Nincsenek népszámlálási adatok. Az alábbi űrlap segítségével importálhatja a CSV-fájlt.
             title: Jelenlegi népszámlálási adatok
           instructions:
@@ -115,7 +114,7 @@ hu:
       dummy_authorization:
         extra_explanation:
           one: A részvétel %{postal_codes} irányítószámú felhasználókra korlátozódik.
-          other: A részvétel %{postal_codes} irányítószámú felhasználókra korlátozódik.
+          other: 'A részvétel %{postal_codes} irányítószámú felhasználókra korlátozódik.'
       id_documents:
         admin:
           config:

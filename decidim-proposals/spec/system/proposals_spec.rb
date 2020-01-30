@@ -4,6 +4,7 @@ require "spec_helper"
 
 describe "Proposals", type: :system do
   include ActionView::Helpers::TextHelper
+  include Decidim::SanitizeHelper
   include_context "with a component"
   let(:manifest_name) { "proposals" }
 

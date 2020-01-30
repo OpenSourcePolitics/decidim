@@ -41,6 +41,7 @@ namespace :decidim do
       end
       begin
         raise ArgumentError if day.blank?
+
         (Date.parse(day)..Time.zone.today).each do |d|
           Decidim::Organization.find_each do |organization|
             if metric

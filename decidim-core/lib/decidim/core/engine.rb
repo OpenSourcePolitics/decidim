@@ -40,6 +40,7 @@ require "kaminari"
 require "batch-loader"
 require "etherpad-lite"
 require "diffy"
+require "anchored"
 
 require "decidim/api"
 
@@ -105,9 +106,9 @@ module Decidim
             # IP address geocoding service (see below for supported options):
             # :ip_lookup => :maxmind,
             # to use an API key:
-            api_key: Decidim.geocoder&.fetch(:here_api_key),
+            api_key: [Decidim.geocoder&.fetch(:here_app_id), Decidim.geocoder&.fetch(:here_app_code)]
             # geocoding service request timeout, in seconds (default 3):
-            timeout: 15,
+            # :timeout => 5,
             # set default units to kilometers:
             # :units => :km,
             # caching (see below for details):
@@ -141,13 +142,6 @@ module Decidim
                     decidim.pages_path,
                     position: 7,
                     active: :inclusive
-          current_organization.navbar_links.each do |navbar_link|
-            menu.item translated_attribute(navbar_link.title),
-                      navbar_link.link,
-                      position: 5,
-                      active: :exact,
-                      target: navbar_link.target
-          end
         end
       end
 

@@ -105,6 +105,17 @@ module Decidim
             Decidim::CreateFollow.new(form, admin).call
           end
         end
+
+        def create_participatory_process_users(process)
+          return unless form.private_process
+
+          form.users.each do |user|
+            ParticipatoryProcessUser.create!(
+              participatory_process: process,
+              user: user
+            )
+          end
+        end
       end
     end
   end

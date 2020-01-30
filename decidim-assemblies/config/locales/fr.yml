@@ -19,7 +19,7 @@ fr:
         decidim_area_id: Périmètre d'assemblée
         decidim_scope_id: Secteur
         description: Description
-        developer_group: Groupe initiateur
+        developer_group: Organisateur
         domain: Domaine
         duration: Durée
         facebook: Facebook
@@ -47,7 +47,7 @@ fr:
         slug: Identifiant
         special_features: Particularités
         subtitle: Sous-titre
-        target: Qui participe
+        target: Participants
         title: Titre
         twitter: Twitter
         youtube: Youtube
@@ -250,11 +250,11 @@ fr:
           members: Membres
       assembly_types:
         commission: Commission
-        consultative_advisory: Consultatif
-        executive: Exécutif
-        government: Gouvernement
+        consultative_advisory: Organe consultatif
+        executive: Organe exécutif
+        government: Comité de pilotage
         others: Autres
-        participatory: Participatif
+        participatory: Organe participatif
         working_group: Groupe de travail
       content_blocks:
         highlighted_assemblies:
@@ -290,15 +290,15 @@ fr:
       show:
         area: Périmètre d'assemblée
         assembly_type: Type d'assemblée
-        children: Assemblées
+        children: Sous-assemblées
         closing_date: Date de clôture
         composition: Composition
         created_by: Créée par
         creation_date: Date de création
-        developer_group: Groupe initiateur
+        developer_group: Organisateur
         duration: Durée
         included_at: Inclus à
-        indefinite_duration: Indéfini
+        indefinite_duration: Indéfinie
         internal_organisation: Organisation interne
         is_transparent:
           'false': non-visible par les non-membres
@@ -313,7 +313,7 @@ fr:
         related_participatory_processes: Concertations associées
         scope: Secteur
         social_networks: Réseaux sociaux
-        target: Qui participe
+        target: Participants
       statistics:
         answers_count: Réponses
         assemblies_count: Assemblées

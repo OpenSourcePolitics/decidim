@@ -1,4 +1,3 @@
----
 fi-pl:
   activemodel:
     attributes:
@@ -85,6 +84,8 @@ fi-pl:
           success: Ryhmän luonti onnistui.
         edit:
           update: Päivitä
+        form:
+          title: Yleiset tiedot
         index:
           not_published: Ei julkaistu
           private: Yksityinen

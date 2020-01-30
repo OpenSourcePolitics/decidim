@@ -30,7 +30,7 @@ fr:
         copy_proposals: Je comprends que cela va importer toutes les propositions de la fonctionnalité sélectionnée vers la fonctionnalité actuelle et que cette action ne peut pas être inversée.
         origin_component_id: Fonctionnalité dont on veut copier les propositions
       proposals_import:
-        import_proposals: Propositions d'importation
+        import_proposals: Importer les propositions
         keep_authors: Gardez les auteurs originaux
     errors:
       models:
@@ -254,7 +254,7 @@ fr:
           description: Ce badge est attribué lorsque vous soutenez les propositions d'autres personnes.
           description_another: Cet utilisateur a soutenu %{score} propositions.
           description_own: Vous avez soutenu %{score} propositions.
-          name: Supports de proposition
+          name: Soutiens de proposition
           next_level_in: Soutenir %{score} propositions supplémentaires pour atteindre le niveau supérieur!
           unearned_another: Cet utilisateur n'a soutenu aucun proposition pour le moment.
           unearned_own: Vous n'avez soutenu aucune proposition pour le moment.
@@ -272,7 +272,7 @@ fr:
     metrics:
       accepted_proposals:
         description: Nombre de propositions acceptées par les utilisateurs
-        object: les propositions
+        object: propositions
         title: Propositions Acceptées
       endorsements:
         description: Nombre de soutien générés dans les propositions
@@ -280,8 +280,8 @@ fr:
         title: Soutiens
       proposals:
         description: Nombre de propositions générées
-        object: les propositions
-        title: Les propositions
+        object: propositions
+        title: Propositions
       votes:
         description: Nombre de votes générés dans les propositions des utilisateurs
         object: votes
@@ -383,7 +383,7 @@ fr:
             select_component: Sélectionnez un composant
             selected: choisi
             split: Fractionner la proposition
-            split_button: Diviser
+            split_button: Scinder
             title: Propositions
             update: Mettre à jour
           new:
@@ -775,7 +775,7 @@ fr:
       versions:
         changes_at_title: Changements à "%{title}"
         index:
-          title: Des versions
+          title: Versions
         stats:
           back_to_collaborative_draft: Revenir au brouillon collaboratif
           back_to_proposal: Revenir à la proposition

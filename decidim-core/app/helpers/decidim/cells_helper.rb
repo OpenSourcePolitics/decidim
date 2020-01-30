@@ -42,6 +42,7 @@ module Decidim
       return unless from_context
       return unless proposals_controller? || collaborative_drafts_controller?
       return if index_action?
+
       # Uncomment for admins dictatorship
       # return if from_context.try(:official?)
       true

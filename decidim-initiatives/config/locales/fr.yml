@@ -76,7 +76,7 @@ fr:
           fields:
             scope: Secteur
             supports_required: Nombre de soutiens requis
-          name: Type d'initiative
+          name: Secteur du type d'initiative
         initiatives_types:
           fields:
             created_at: Créé à
@@ -119,8 +119,8 @@ fr:
             email_intro: L'initiative %{resource_title} a atteint %{percentage}% des signatures requises !
             email_outro: Vous avez reçu cette notification parce que vous suivez %{resource_title}. Vous pouvez cesser de recevoir des notifications en suivant le lien précédent.
             email_subject: Nouvelle étape franchie !
-            notification_title: La pétition <a href="%{resource_path}">%{resource_title}</a> a atteint %{percentage}% des signatures requises.
-          notification_title: La pétition <a href="%{resource_path}">%{resource_title}</a> a> a atteint %{percentage}%des signatures requises.
+            notification_title: L'initiative <a href="%{resource_path}">%{resource_title}</a> a atteint %{percentage}% des signatures requises.
+          notification_title: L'initiative <a href="%{resource_path}">%{resource_title}</a> a> a atteint %{percentage}% des signatures requises.
     gamification:
       badges:
         initiatives:
@@ -139,7 +139,7 @@ fr:
         initiatives:
           contextual: "<p>Une <strong>initiative</strong> est une proposition qui peut être favorisée par toute personne de leur propre initiative (indépendamment des autres canaux ou espaces de participation) grâce à la collecte de signatures (numériques) pour l'organisation de mener une action spécifique (modifier un règlement, initier un projet, changer le nom d’un département ou d’une rue, etc.).</p> <p>Les promoteurs d'une initiative peuvent définir ses objectifs, rassembler un soutien, débattre, la diffuser et définir des points de rencontre où des signatures peuvent être collectées auprès des participants ou des débats ouverts à d'autres participants.</p> <p>Exemples: Une initiative peut collecter des signatures pour organiser une consultation de toutes les personnes d'une organisation, pour créer ou réunir une assemblée, ou pour lancer un processus d'augmentation budgétaire pour un territoire ou une zone de l'organisation. Au cours du processus de collecte des signatures, davantage de personnes peuvent ajouter à cette demande et la transmettre à l’organisation.</p>\n"
           page: "<p>Une initiative est une proposition qui peut être promue par n'importe qui de sa propre initiative (indépendamment des autres canaux ou espaces de participation) grâce à la collecte de signatures (numériques) permettant à l'organisation de réaliser une action spécifique (modifier un règlement, initier un projet , changez le nom d’un département ou d’une rue, etc.).</p> <p>Les promoteurs d'une initiative peuvent définir ses objectifs, rassembler un soutien, débattre, la diffuser et définir des points de rencontre où des signatures peuvent être collectées auprès des participants ou des débats ouverts à d'autres participants.</p> <p>Exemples: Une initiative peut collecter des signatures pour organiser une consultation de toutes les personnes d'une organisation, pour créer ou réunir une assemblée, ou pour lancer un processus d'augmentation budgétaire pour un territoire ou une zone de l'organisation. Au cours du processus de collecte de signatures, davantage de personnes peuvent ajouter à cette demande et la transmettre à l’organisation.</p>\n"
-          title: Quelles sont les initiatives?
+          title: Comment fonctionnent les initiatives ?
     initiatives:
       actions:
         answer: Réponse
@@ -150,9 +150,9 @@ fr:
             title: Répondez pour %{title}
           info_initiative:
             created_at: Créé à
-            description: La description
-            initiative_votes_count: Les votes comptent
-            initiatives: Les initiatives
+            description: Description
+            initiative_votes_count: Nombre de votes
+            initiatives: Initiatives
             state: Etat
         committee_requests:
           index:
@@ -167,12 +167,12 @@ fr:
             max_results: Quantité maximale d'éléments à afficher
         initiatives:
           edit:
-            accept: Signer la pétition
+            accept: Accepter l'initiative
             confirm: Êtes-vous certain ?
-            discard: Dépublier la pétition
+            discard: Dépublier l'initiative
             export_pdf_signatures: Exporter les signatures au format PDF
             export_votes: Exporter la liste des votes
-            reject: Rejeter la pétition
+            reject: Rejeter l'initiative
             send_to_technical_validation: Envoyer à la validation technique
             success: L'initiative a été envoyée à la validation technique
             update: Mettre à jour
@@ -257,7 +257,7 @@ fr:
           success: Votre demande a été envoyée à l'auteur de l'initiative.
       content_blocks:
         highlighted_initiatives:
-          name: Initiatives soulignées
+          name: Initiatives mises en avant
       create_initiative:
         fill_data:
           back: Retour
@@ -276,7 +276,7 @@ fr:
           access_reminder: Rappelez-vous que vous serez toujours en mesure d'accéder à vos initiatives via le menu utilisateur.
           help_for_organizations: Si vous êtes une association, vous devrez télécharger les procès-verbaux du conseil d'administration de toutes les organisations qui constituent le Comité de promotion
           help_in_person_signatures: Si vous avez choisi de recueillir les signatures en présentiel ou de façon combinée, vous devrez télécharger les informations requises.
-          help_text: N'oubliez pas que pour valider correctement l'initiative, vous devez accéder au panneau d'administration dans lequel vous trouverez le menu utilisateur, télécharger les informations requises et l'envoyer pour traitement.
+          help_text: N'oubliez pas que pour valider correctement l'initiative, vous devez accéder au panneau d'administration dans lequel vous trouverez le menu utilisateur, télécharger les informations requises et l'envoyer pour validation technique.
           initiatives_page_link: Vous pouvez consulter toutes ces informations sur le %{link} dédié à l'information sur les initiatives.
           page: page
         previous_form:

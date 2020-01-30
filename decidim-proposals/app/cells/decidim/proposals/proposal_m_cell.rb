@@ -14,10 +14,6 @@ module Decidim
 
       private
 
-      def translatable?
-        true
-      end
-
       def title
         decidim_html_escape(present(model).title)
       end
@@ -57,6 +53,7 @@ module Decidim
       def statuses
         return [:endorsements_count, :comments_count] if model.draft?
         return [:creation_date, :endorsements_count, :comments_count] if !has_link_to_resource? || !can_be_followed?
+
         [:creation_date, :follow, :endorsements_count, :comments_count]
       end
 

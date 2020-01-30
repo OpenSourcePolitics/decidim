@@ -1,4 +1,3 @@
----
 fi-pl:
   activemodel:
     attributes:
@@ -140,7 +139,7 @@ fi-pl:
           random_seed: Satunnainen jako
           selected_proposals:
             one: ehdotus valittu
-            other: "%{count} ehdotusta valittu"
+            other: '%{count} ehdotusta valittu'
           view: Näytä
         sortition_author:
           deleted: Poistettu käyttäjä

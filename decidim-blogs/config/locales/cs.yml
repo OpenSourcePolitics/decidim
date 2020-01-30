@@ -1,4 +1,3 @@
----
 cs:
   activemodel:
     models:
@@ -6,9 +5,9 @@ cs:
   activerecord:
     models:
       decidim/blogs/post:
+        one: Pošta
         few: Příspěvky
         many: Příspěvky
-        one: Pošta
         other: Příspěvky
   decidim:
     blogs:

@@ -37,6 +37,69 @@ Decidim::Organization.find_each do |organization|
 end
 ```
 
+### Upgrade notes
+
+After many trial and error 0.18-stable will use 0.18.1 docker image. This 
+required to update Ruby to 2.6.5 and some gems, like rubocop and sprockets.
+Rubocop had to be upgraded as the version in 0.18-stable did not support Ruby
+2.6. In turn the new version of Rubocop has new defaults that had been applied
+extensively. But in some cases cops had been disabled as this branch won't
+have further developments. In master, for the upcoming 0.20, all defaults had
+been respected and applied instead of disabled.
+
+**Added**:
+
+**Changed**:
+
+**Fixed**:
+
+- **decidim-core**: Fix: Duplicate results in Decidim::HasPrivateUsers::visible_for(user) [\#5475](https://github.com/decidim/decidim/pull/5475)
+- **decidim-participatory_processes**: Fix: flaky test when mapping Rails timezone names to PostgreSQL. [\#5483](https://github.com/decidim/decidim/pull/5483)
+
+**Removed**:
+
+## [0.18.1](https://github.com/decidim/decidim/tree/v0.18.1)
+
+**Added**:
+
+- **decidim-core**: Adds new language: Norwegian [#5334](https://github.com/decidim/decidim/pull/5334)
+
+**Changed**:
+
+- **decidim-core**: Promote URLs in plain text to HTML anchors after strip_tags. [\#5355](https://github.com/decidim/decidim/pull/5355)
+
+**Fixed**:
+
+- **decidim-core**: Fix: Add uniq index to `decidim_metrics` table [#5362](https://github.com/decidim/decidim/pull/5362)
+- **decidim-accountability**, **decidim-core**, **decidim-proposals**, **decidim-dev**: Fix: diffing empty versions of translatable attributes [\#5343](https://github.com/decidim/decidim/pull/5343)
+- **decidim-participatory_processes**: BACKPORT Fix: ParticipatoryProcessSearch#search_date [#5326](https://github.com/decidim/decidim/pull/5326)
+- **decidim-proposals**: Fix: prevent ransack gem to upgrade to 2.3 as breaks searches with amendments. [#5303](https://github.com/decidim/decidim/pull/5303)
+- **decidim-admin**, **decidim-forms**: Fix adding answer options to a new form [#5283](https://github.com/decidim/decidim/pull/5283)
+- **decidim-core**, **decidim-proposals**: When rendering the admin log for a Proposal, use the title from extras instead of crashing, when proposal has been deleted. [#5277](https://github.com/decidim/decidim/pull/5277)
+- **decidim-core**: Fix CVE-2015-9284 Omniauth issue [#5287](https://github.com/decidim/decidim/pull/5287)
+
+## [0.18.0](https://github.com/decidim/decidim/tree/v0.18.0)
+
+### Upgrade notes
+
+#### Participants metrics
+
+After running the migrations, you can run the following code from the console to recalculate participants metrics (they should increase). It may take a while to complete.
+
+```ruby
+days = (Date.parse(2.months.ago.to_s)..Date.yesterday).map(&:to_s)
+Decidim::Organization.find_each do |organization|
+  old_metrics = Decidim::Metric.where(organization: organization, metric_type: "participants")
+  days.each do |day|
+    new_metric = Decidim::Metrics::ParticipantsMetricManage.new(day, organization)
+    ActiveRecord::Base.transaction do
+      old_metrics.where(day: day).delete_all
+      new_metric.save
+    end
+  end
+end
+```
+
 **Added**:
 
 - **decidim-consultations**, Add buttons fot better Questions navigation. [#5112](https://github.com/decidim/decidim/pull/5112)
@@ -71,6 +134,10 @@ end
 
 **Fixed**:
 
+
+**Fixed**:
+
+- **decidim-core**: Apply security fix for rubyzip, https://nvd.nist.gov/vuln/detail/CVE-2019-16892. [\#5393](https://github.com/decidim/decidim/pull/5393)
 - **decidim-admin**: Fix: Proposals component form introduced regression [\#5180](https://github.com/decidim/decidim/pull/5180)
 - **decidim-admin**: Fix: Link `form.js` in `assets/config/decidim_admin_manifest.js` [\#5165](https://github.com/decidim/decidim/pull/5165)
 - **decidim-core**: Fix: potential loop redirection when accepting TOS agreement on multi-languages sites [\#5162](https://github.com/decidim/decidim/pull/5162)

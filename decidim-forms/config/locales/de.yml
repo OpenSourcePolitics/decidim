@@ -30,7 +30,7 @@ de:
             remove: Löschen
             statement: Aussage
           edit:
-            save: sparen
+            save: Speichern
             title: Titel
           form:
             add_question: Frage hinzufügen

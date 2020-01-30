@@ -9,18 +9,18 @@ module Decidim
 
     let(:organization) { build(:organization) }
     let(:user) { build(:user, organization: organization) }
-    let(:uploader) { ImageUploader.new(user, :avatar) }
+    let(:uploader) { described_class.new(user, :avatar) }
 
     context "when avatar is jpg type" do
       let(:avatar) { Decidim::Dev.test_file("avatar.jpg", "image/jpeg") }
 
       before do
-        ImageUploader.enable_processing = true
+        described_class.enable_processing = true
         File.open(avatar) { |f| uploader.store!(f) }
       end
 
       after do
-        ImageUploader.enable_processing = false
+        described_class.enable_processing = false
         uploader.remove!
       end
 
@@ -41,12 +41,12 @@ module Decidim
       let(:avatar) { Decidim::Dev.test_file("avatar.svg", "image/svg+xml") }
 
       before do
-        ImageUploader.enable_processing = true
+        described_class.enable_processing = true
         File.open(avatar) { |f| uploader.store!(f) }
       end
 
       after do
-        ImageUploader.enable_processing = false
+        described_class.enable_processing = false
         uploader.remove!
       end
 

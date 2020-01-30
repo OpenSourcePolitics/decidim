@@ -103,6 +103,7 @@ module Decidim
 
     def closed?
       return false if end_date.blank?
+
       end_date < Date.current
     end
   end

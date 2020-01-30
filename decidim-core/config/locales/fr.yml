@@ -44,8 +44,8 @@ fr:
         one: Amendement
         other: Amendements
       decidim/user:
-        one: Aucun utilisateur
-        other: Utilisateurs
+        one: Participant
+        other: Participants
       decidim/user_group:
         one: Groupe d'utilisateurs
         other: Groupes d'utilisateurs
@@ -723,7 +723,7 @@ fr:
           error: La conversation n'a pas commencé. Réessayez plus tard
         index:
           no_conversations: Vous n'avez encore aucune conversation
-          title: Les conversations
+          title: Conversations
         reply:
           send: Envoyer
           title: Répondre
@@ -757,7 +757,7 @@ fr:
     newsletters:
       unsubscribe:
         check_subscription: Si vous souhaitez modifier vos préférences, vous pouvez le faire dans la page des <a href="%{link}" target="_blank">paramètres des notifications</a>
-        error: Il y a eu une erreur lors de votre désabonnement
+        error: Un problème est survenu lors de la désinscription
         success: Vous vous êtes désabonné avec succès.
         token_error: Le lien a expiré.
         unsubscribe: Se désabonner
@@ -803,7 +803,7 @@ fr:
     pad_iframe:
       disclaimer: Le contenu de ce bloc-notes est écrit par les utilisateurs enregistrés et exprime leurs opinions. %{organization} ne peut être tenu responsable de son contenu.
       explanation: Utilisez ce pavé numérique pour prendre des notes en collaboration pendant la réunion afin de faciliter la rédaction minute après minute.
-      pad: Tampon
+      pad: Pad
     pages:
       home:
         extended:
@@ -851,6 +851,10 @@ fr:
         subheading: Naviguer à travers les pages d'aide de %{name}
         title: Aide
         topics: Thématiques
+      participatory_space:
+        metrics:
+          headline: Participation en chiffres
+          link: Afficher toutes les statistiques
       terms_and_conditions:
         accept:
           error: Une erreur s'est produite lorsque vous avez accepté les conditions d'utilisation.
@@ -898,7 +902,7 @@ fr:
         edit_user_group: Modifier le profil du groupe
         fill_in_email_to_confirm_it: S'il vous plaît, remplissez l'email de votre groupe pour le confirmer
         invite_user: Inviter un utilisateur
-        join_user_group: Demande de rejoindre un groupe
+        join_user_group: Demander à rejoindre ce groupe
         leave_user_group: Quitter le groupe
         manage_user_group_admins: Gérer les administrateurs
         manage_user_group_users: Gérer les membres
@@ -932,10 +936,10 @@ fr:
     searches:
       filters:
         back: Retour aux résultats
-        jump_to: 'Sauter à:'
+        jump_to: 'Aller à:'
         state:
           active: actif
-          all: Tout
+          all: Tous
           future: Futur
           past: Passé
       filters_small_view:
@@ -955,7 +959,7 @@ fr:
         embed_link: Intégrer
       extended_navigation_bar:
         more: Plus
-        unfold: Se dérouler
+        unfold: Afficher
       flag_modal:
         already_reported: Ce contenu a déjà été signalé et il sera examiné par un administrateur.
         close: Fermer
@@ -1111,11 +1115,11 @@ fr:
       destroyed: Au revoir! Votre compte a été annulé avec succès. Nous espérons te revoir bientôt.
       edit:
         are_you_sure: Êtes-vous sûr?
-        cancel_my_account: Annuler mon compte
-        currently_waiting_confirmation_for_email: 'En attente de confirmation pour : %{email}'
+        cancel_my_account: Supprimer mon compte
+        currently_waiting_confirmation_for_email: 'En attente de confirmation pour: %{email}'
         leave_blank_if_you_don_t_want_to_change_it: laisser vide si vous ne voulez pas le changer
         title: Modifier %{resource}
-        unhappy: Malheureux?
+        unhappy: Pas satisfait ?
         update: Mettre à jour
         we_need_your_current_password_to_confirm_your_changes: nous avons besoin de votre mot de passe actuel pour confirmer vos modifications
       new:
@@ -1134,9 +1138,9 @@ fr:
       signed_out: Déconnecté(e) avec succès.
     shared:
       links:
-        back: Arrière
+        back: Retour
         didn_t_receive_confirmation_instructions: Vous n'avez pas reçu d'instructions de confirmation?
-        didn_t_receive_unlock_instructions: Vous n'avez pas reçu d'instructions de déverrouillage?
+        didn_t_receive_unlock_instructions: Vous n'avez pas reçu d'instructions de confirmation?
         forgot_your_password: Mot de passe oublié?
         sign_in: S'identifier
         sign_in_with_provider: Se connecter avec %{provider}
@@ -1279,7 +1283,7 @@ fr:
       left: Suppressions
       right: Ajouts
     dropdown:
-      choose_diff_view_mode: 'Comparer le mode d''affichage :'
+      choose_diff_view_mode: 'Sélectionner le mode de vue :'
       option_split: Côte à côte
       option_unified: Unifié
   views:

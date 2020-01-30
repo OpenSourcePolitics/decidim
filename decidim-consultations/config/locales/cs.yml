@@ -1,4 +1,3 @@
----
 cs:
   activemodel:
     attributes:
@@ -40,24 +39,24 @@ cs:
   activerecord:
     models:
       decidim/consultation:
+        one: Konzultace
         few: Konzultace
         many: Konzultace
-        one: Konzultace
         other: Konzultace
       decidim/consultations/question:
+        one: Otázka
         few: Otázky
         many: Otázky
-        one: Otázka
         other: Otázky
       decidim/consultations/response:
+        one: Odezva
         few: Odpovědi
         many: Odpovědi
-        one: Odezva
         other: Odpovědi
       decidim/consultations/vote:
+        one: Hlasování
         few: Hlasy
         many: Hlasy
-        one: Hlasování
         other: Hlasy
   decidim:
     admin:
@@ -116,9 +115,9 @@ cs:
             published: Publikováno
             title: Titul
           name:
+            one: Konzultace
             few: Konzultace
             many: Konzultace
-            one: Konzultace
             other: Konzultace
         question:
           fields:
@@ -126,18 +125,18 @@ cs:
             published: Publikováno
             title: Titul
           name:
+            one: Otázka
             few: Otázky
             many: Otázky
-            one: Otázka
             other: Otázky
         response:
           fields:
             created_at: Vytvořeno u
             title: Titul
           name:
+            one: Odezva
             few: Odpovědi
             many: Odpovědi
-            one: Odezva
             other: Odpovědi
       question_publications:
         create:
@@ -206,9 +205,9 @@ cs:
           name: Zvýrazněné konzultace
       count:
         title:
+          one: "%{count} konzultace"
           few: "%{count} konzultací"
           many: "%{count} konzultací"
-          one: "%{count} konzultace"
           other: "%{count} konzultací"
       filters:
         active: Aktivní
@@ -235,18 +234,18 @@ cs:
             active_consultations: Aktivní konzultace
             see_all_consultations: Podívejte se na všechny konzultace
             voting_ends_in:
+              one: Hlasování končí <strong>zítra</strong>
               few: Hlasování končí <strong>%{count} dny</strong>
               many: Hlasování končí <strong>%{count} dny</strong>
-              one: Hlasování končí <strong>zítra</strong>
               other: Hlasování končí <strong>%{count} dny</strong>
             voting_ends_today: Hlasování končí <strong>dnes</strong>
       question:
         take_part: Zúčastnit se
         view_results: Zobrazit výsledky
         votes_out_of:
+          one: hlasovat z
           few: hlasy z
           many: hlasy z
-          one: hlasovat z
           other: hlasy z
       question_votes:
         create:
@@ -278,6 +277,8 @@ cs:
         statistics:
           consultations_count: Konzultace
     questions:
+      next_button: Další otázka
+      previous_button: Předchozí otázka
       results:
         title: Výsledek
       show:

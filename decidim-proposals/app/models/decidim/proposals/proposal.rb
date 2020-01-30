@@ -28,7 +28,6 @@ module Decidim
 
       amendable(
         fields: [:title, :body],
-        # ignore: [:published_at, :reference, :state, :answered_at, :answer],
         form: "Decidim::Proposals::ProposalForm"
       )
 
@@ -56,7 +55,6 @@ module Decidim
       scope :except_rejected, -> { where.not(state: "rejected").or(where(state: nil)) }
       scope :except_withdrawn, -> { where.not(state: "withdrawn").or(where(state: nil)) }
       scope :drafts, -> { where(published_at: nil) }
-      scope :except_drafts, -> { where.not(published_at: nil) }
       scope :published, -> { where.not(published_at: nil) }
 
       acts_as_list scope: :decidim_component_id

@@ -38,12 +38,13 @@ fr:
         admins: Administrateurs
         dashboard: Journal d'administration
         logs: Logs
+        dashboard: Tableau de bord
         organizations: Organisations
       models:
         admin:
           fields:
             created_at: Créé le
-            email: email
+            email: Courriel
           name: Administrateur
           validations:
             email_uniqueness: un autre administrateur avec la même adresse email existe déjà
@@ -100,4 +101,4 @@ fr:
           no_organization_warning_html: Vous devez créer une organisation pour démarrer. Assurez-vous de lire %{guide} avant de continuer.
           our_getting_started_guide: Notre guide de démarrage
       titles:
-        dashboard: Journal d'administration
+        dashboard: Tableau de bord

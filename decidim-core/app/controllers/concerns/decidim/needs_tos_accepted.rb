@@ -41,6 +41,7 @@ module Decidim
 
     def tos_path_redirected
       return tos_path if request.path == decidim.root_path
+
       value = params[:redirect_url] || request.url
       decidim.page_path terms_and_conditions_page, redirect_url: value
     end

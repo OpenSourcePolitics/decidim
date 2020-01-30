@@ -98,6 +98,7 @@ module Decidim
 
     def active?
       return false if start_date.blank?
+
       start_date < Date.current && (end_date.blank? || end_date > Date.current)
     end
 
@@ -109,6 +110,7 @@ module Decidim
 
     def upcoming?
       return false if start_date.blank?
+
       start_date > Date.current
     end
 

@@ -38,7 +38,7 @@ module Decidim
               data: {
                 tooltip: true,
                 "disable-hover": false
-              }
+              }, rel: "noopener"
             )
           end
 

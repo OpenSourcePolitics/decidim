@@ -23,9 +23,9 @@ module Decidim
       URL_REGEX_SCHEME = '(?:http(s)?:\/\/)'
       URL_REGEX_CONTENT = '[\w.-]+[\w\-\._~:\/?#\[\]@!\$&\'\(\)\*\+,;=.]+\/(Result|results)\/'
       URL_REGEX_END_CHAR = '[\w]'
-      URL_REGEX = /#{URL_REGEX_SCHEME}#{URL_REGEX_CONTENT}#{URL_REGEX_END_CHAR}/i
+      URL_REGEX = /#{URL_REGEX_SCHEME}#{URL_REGEX_CONTENT}#{URL_REGEX_END_CHAR}/i.freeze
       # Matches a mentioned Result ID (~(d)+ expression)
-      ID_REGEX = /~(\d+)/
+      ID_REGEX = /~(\d+)/.freeze
 
       def initialize(content, context)
         super
