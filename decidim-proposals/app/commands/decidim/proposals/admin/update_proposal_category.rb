@@ -37,7 +37,6 @@ module Decidim
             else
               transaction do
                 update_proposal_category proposal
-                notify_author proposal if proposal.coauthorships.any?
               end
               @response[:successful] << proposal.title
             end
@@ -51,15 +50,6 @@ module Decidim
         def update_proposal_category(proposal)
           proposal.update!(
             category: @category
-          )
-        end
-
-        def notify_author(proposal)
-          Decidim::EventsManager.publish(
-            event: "decidim.events.proposals.proposal_update_category",
-            event_class: Decidim::Proposals::Admin::UpdateProposalCategoryEvent,
-            resource: proposal,
-            affected_users: proposal.notifiable_identities
           )
         end
       end
