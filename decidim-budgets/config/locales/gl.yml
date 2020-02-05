@@ -171,6 +171,13 @@ gl:
             comments_blocked: Comentarios bloqueados
             show_votes: Mostrar votos
             votes_enabled: Votación habilitada
+    events:
+      budgets:
+        order_checkout:
+          email_intro: 'Your vote has been validated. You can always edit it if you like by clicking here:'
+          email_outro: Thank you for your participation
+          email_subject: Your vote has been validated
+          notification_title: Your vote has been validated
     orders:
       checkout:
         error: Produciuse un erro ao procesar o teu voto

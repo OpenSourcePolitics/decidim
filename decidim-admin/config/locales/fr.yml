@@ -37,14 +37,18 @@ fr:
         organization_url: URL de l'organisation
         redirect_uri: Rediriger l'URI
       organization:
-        badges_enabled: Activer les Badges
-        cta_button_path: Chemin du bouton d'appel à l'action
-        cta_button_text: Texte du bouton d'appel à l'action
+        address: Nom de l'hôte SMTP
+        alert_color: Alerte
+        badges_enabled: Activer les badges
+        comments_max_length: Nombre de caractères maximum des commentaires (Mettre 0 pour laisser la valeur par défaut)
+        cta_button_path: Chemin du bouton d'action
+        cta_button_text: Texte du bouton d'action
         default_locale: Langue par défaut
         description: Description
         enable_omnipresent_banner: Afficher une bannière d'actualités
         facebook_handler: Gestionnaire Facebook
-        favicon: Favicon
+        favicon: Icône
+        from: Adresse e-mail de l’expéditeur
         github_handler: Gestionnaire GitHub
         header_snippets: Éléments à ajouter entre les balises HTML
         highlighted_content_banner_action_subtitle: Sous-titre du bouton d'appel à l'action
@@ -63,14 +67,24 @@ fr:
         omnipresent_banner_short_description: Brève description
         omnipresent_banner_title: Titre
         omnipresent_banner_url: URL
+        password: Mot de passe
+        port: Port
+        primary_color: Primaire
         reference_prefix: Préfixe de référence
-        show_statistics: Afficher les statistiques
+        secondary_color: Secondaire
+        show_statistics: Montrer les statistiques
+        success_color: Succès
         tos_version: Version des conditions d'utilisation
         twitter_handler: Gestionnaire Twitter
-        customize_welcome_notification: Personnaliser la notification d'accueil
-        send_welcome_notification: Envoyer la notification d'accueil
         user_groups_enabled: Activer les groupes d'utilisateurs
+        user_name: Nom d'utilisateur
+        warning_color: Attention
         youtube_handler: Gestionnaire YouTube
+      participatory_process:
+        import_attachments: Importer les pièces jointes
+        import_categories: Importer les catégories
+        import_components: Importer les fonctionnalités
+        import_steps: Importer les étapes
       scope:
         code: Code
         name: Titre
@@ -109,6 +123,10 @@ fr:
               allowed_file_content_types: Fichier image invalide
             official_img_header:
               allowed_file_content_types: Fichier image invalide
+        participatory_process:
+          attributes:
+            document:
+              invalid_document_type: Le format de fichier est invalide. Assurez vous que le document sélectionné est bien au format JSON (extension .json).
   activerecord:
     attributes:
       decidim/static_page:
@@ -129,6 +147,7 @@ fr:
         add: Ajouter
         browse: Parcourir
         export: Exporter
+        import_process: Importer un processus
         manage: Modifier
         permissions: Autorisations
         reject: Rejeter
@@ -153,6 +172,7 @@ fr:
           error: Une erreur s'est produite lors de la création d'un nouveau périmètre d'assemblée.
           success: Périmètre d'assemblée créé avec succès.
         destroy:
+          has_spaces: Le périmètre d'assemblée n'est pas vide, il ne doit pas avoir de dépendances pour être supprimé.
           success: Le périmètre d'assemblée a bien été supprimé
         edit:
           title: Modifier le périmètre d'assemblée
@@ -222,10 +242,6 @@ fr:
           error: Une erreur s'est produite lors de la mise à jour de cette catégorie.
           success: Catégorie mise à jour avec succès.
       component_permissions:
-        edit:
-          everyone: Tout le monde
-          submit: Enregistrer les autorisations
-          title: Modifier les autorisations
         update:
           success: Autorisations mises à jour avec succès.
       components:
@@ -241,6 +257,7 @@ fr:
         form:
           default_step_settings: Paramètres d'étape par défaut
           global_settings: Paramètres globaux
+          participatory_texts_enabled_help: Ce paramètre n'est pas disponible s'il existe des propositions existantes. Veuillez créer un nouveau composant 'Propositions' si vous voulez activer cette fonctionnalité ou supprimer toutes les propositions importées dans le menu'Textes participatifs' si vous voulez le désactiver.
           step_settings: Paramètres de l'étape
         index:
           add: Ajouter une fonctionnalité
@@ -261,7 +278,7 @@ fr:
           success: La fonctionnalité a été mise à jour avec succès.
       dashboard:
         show:
-          view_more_logs: Afficher plus
+          view_more_logs: Logs
           welcome: Bienvenue dans l'espace d'administration de Decidim.
       exports:
         export_as: "%{name} en format %{export_format}"
@@ -381,13 +398,15 @@ fr:
           fields:
             created_at: Créée le
             progress: Avancement
-            sent_at: Envoyée à
+            sent_at: Envoyée le
+            sent_to: Envoyée à
             subject: Objet
           name: Newsletter
         oauth_application:
           fields:
             created_at: Créée le
             name: Titre
+          name: Nom
         participatory_space_private_user:
           name: Utilisateur de l'espace participatif
         scope:
@@ -412,6 +431,7 @@ fr:
             roles:
               admin: Administrateur
               user_manager: Représentant de l'utilisateur
+          name: utilisateurs
         user_group:
           fields:
             actions: Actions
@@ -467,15 +487,42 @@ fr:
         form:
           interpolations_hint: 'Astuce : Vous pouvez utiliser "%{name}" (sans les guillemets) n''importe où dans le corps ou le sujet et il sera remplacé par le nom du destinataire.'
         index:
+          all: tous
+          all_users: Tous les utilisateurs
+          and: et
           confirm_delete: Êtes-vous sûr de vouloir supprimer cette newsletter ?
+          followers: abonnés
+          has_been_sent_to: 'A été envoyé à '
+          no_scopes: Pas de périmètre
+          not_sent: Non envoyé
+          participants: participants
+          segmented_to: 'Limité à %{subject} '
           title: Newsletters
         new:
           save: Enregistrer
           title: Nouvelle newsletter
-        show:
+        select_recipients_to_deliver:
+          all_spaces: Tous
+          all_users_help: Envoie d'une newsletter à tous les utilisateurs confirmés.
           confirm_deliver: Êtes-vous sûr de vouloir envoyer cette newsletter ? Cette action ne peut pas être annulée.
           deliver: Envoyer la newsletter
+          followers_help: Envoie la newsletter à tous les utilisateurs confirmés qui suivent les espaces participatifs sélectionnés dans la liste.
+          none: Aucun
+          participants_help: Envoi d'une newsletter à tous les utilisateurs confirmés qui ont participé à l'un des espaces participatifs sélectionnés dans la liste.
+          scopes_help: Envoi d' la newsletter aux utilisateurs dont l'un des champs d'application sélectionnés est activé dans les paramètres "Mes centres d'intérêt" de leur compte.
+          select_scopes: Filtre pour les utilisateurs ayant activé une portée sélectionnée dans les paramètres de leur compte Mes Intérêts.
+          select_spaces: Sélectionner les espaces concernés par la newsletter
+          select_users: Sélectionnez les utilisateurs à qui vous souhaitez envoyer la newsletter
+          send_to_all_users: Envoyer à tous les utilisateurs
+          send_to_followers: Envoyer aux abonnés
+          send_to_participants: Envoyer aux participants
+          title: Sélectionner les destinataires
+          warning: "<strong>Attention:</strong> Cette newsletter ne sera envoyée qu'aux utilisateurs qui ont activé <em>Je veux recevoir les newsletters</em> dans leurs paramètres de notification."
+        send:
+          no_recipients: Aucun destinataire pour cette sélection
+        show:
           preview: Aperçu
+          select_recipients_to_deliver: Sélectionner les destinataires
           subject: Objet
         update:
           error: Erreur lors de la mise à jour de la newsletter.
@@ -547,6 +594,7 @@ fr:
         edit:
           update: Mettre à jour
         form:
+          colors_title: Couleurs de l'organisation
           cta_button_path_help: 'Vous pouvez remplacer le lien vers lequel renvoie le bouton de la page d''accueil. Utilisez ici des chemins partiels et non des URL complets. Il accepte les lettres, les chiffres, les tirets et les barres obliques, et doit commencer par une lettre. Le bouton apparaît sur la page d''accueil entre le texte de bienvenue et la description. Exemple : %{url}'
           cta_button_text_help: Vous pouvez remplacer le texte du bouton dans la page d'accueil pour chaque langue disponible dans votre organisation. Si elle n'est pas définie, la valeur par défaut sera utilisée. Le bouton apparaît sur la page d'accueil entre le texte de bienvenue et la description.
           header_snippets_help: Utilisez ce champ pour ajouter des éléments entre les balises HTML <head> </head>. L'utilisation la plus courante de champs consiste à intégrer des services tiers nécessitant du JavaScript ou du CSS supplémentaire. Vous pouvez aussi l'utiliser pour ajouter des méta-tags supplémentaires au code HTML. Notez que cela ne fonctionnera que dans sur les pages publiques, et non dans la section admin.
@@ -561,6 +609,14 @@ fr:
       organization_homepage_content_blocks:
         edit:
           update: Mettre à jour
+      participatory_process_imports:
+        create:
+          error: Une erreur s'est produite lors de l'import de l'espace participatif.
+          success: L'espace participatif a été importé avec succès.
+        new:
+          import: Importer
+          select: Selectionner les éléments à importer
+          title: Importer un processus participatif
       participatory_space_private_users:
         create:
           error: Une erreur s'est produite lors de l'ajout d'un utilisateur pour cet espace participatif.
@@ -573,6 +629,12 @@ fr:
         new:
           create: Créer
           title: Nouvel utilisateur privé de l'espace participatif.
+      resource_permissions:
+        edit:
+          submit: Soumettre
+          title: Modifier les autorisations
+        update:
+          success: Autorisations mises à jour avec succès.
       scope_types:
         create:
           error: Une erreur s'est produite lors de la création d'un nouveau type de secteurs.
@@ -633,6 +695,7 @@ fr:
           update: Mettre à jour
         form:
           none: Aucun
+          slug_help: 'Utilisez des chemins partiels, pas des URLs complètes ici. Accepte les lettres, les chiffres, les tirets et les barres obliques, et doit commencer par une lettre. Exemple : %{url}>%{url}N'
         index:
           last_notable_change: Dernier changement notable
         new:
@@ -651,12 +714,12 @@ fr:
         area_types: Types de périmètre d'assemblée
         areas: Périmètres d'assemblée
         authorization_workflows: Méthodes de vérification
-        dashboard: Journal d'administration
+        dashboard: Tableau de bord
         impersonatable_users: Utilisateurs représentés
-        impersonations: Représentations d'utilisateurs
+        impersonations: Gestion des utilisateurs
         managed_users: Utilisateurs gérés
         navbar_links: Barre de navigation secondaire
-        participants: Participants
+        participants: Utilisateurs
         scope_types: Types de secteurs
         scopes: Secteurs
         static_pages: Pages
@@ -666,8 +729,8 @@ fr:
         new: Nouvel utilisateur
       user_group:
         csv_verify:
-          invalid: Il y a eu une erreur dans la lecture du fichier CSV.
-          success: CSV téléchargé avec succès, nous vérifions que les groupes d'utilisateurs correspondent aux critères. Ça pourrait prendre du temps.
+          invalid: Une erreur s'est produite lors de la lecture du fichier CSV.
+          success: Le fichier CSV a été chargé avec succès, nous vérifions les groupes d'utilisateurs correspondant aux critères. Cela pourrait prendre un moment.
         reject:
           invalid: Une erreur s'est produite lors du refus de ce groupe d'utilisateurs.
           success: Groupe d'utilisateurs refusé avec succès
@@ -690,7 +753,7 @@ fr:
           verify_via_csv: Vérifier via CSV
       user_groups_csv_verifications:
         new:
-          explanation: Téléchargez votre fichier CSV. Il doit contenir les emails officiels des groupes d'utilisateurs de votre organisation dans la première colonne du fichier, sans en-tête. Seuls les groupes d'utilisateurs qui ont confirmé leur email et qui ont un email apparaissant dans le fichier CSV seront validés.
+          explanation: Téléchargez votre fichier CSV. Les courriels officiels des groupes d'utilisateurs de votre organisation doivent figurer dans la première colonne du fichier, sans en-tête. Seuls les groupes d'utilisateurs ayant confirmé leur courrier électronique et ayant un courrier électronique dans le fichier CSV seront validés.
           title: Téléchargez votre fichier CSV
           upload: Télécharger
       users:
@@ -718,7 +781,7 @@ fr:
         hide: Masquer
         not_hidden: Visibles
         title: Actions
-        unhide: Unhide
+        unhide: Afficher
         unreport: Annuler le signalement
       admin:
         reportable:
@@ -726,10 +789,10 @@ fr:
             invalid: Il y a eu un problème au moment de masquer le contenu.
             success: Contenu masqué avec succès.
           unhide:
-            invalid: There's been a problem unhiding the resource.
-            success: Resource successfully unhidden.
+            invalid: Il y a eu un problème au moment de publier le contenu.
+            success: Contenu publié avec succès.
           unreport:
-            invalid: Il y a eu un problème lors de l'annulation du signalement du contenu.
+            invalid: Il y a eu un problème lors de l'annulation du signalement.
             success: Le contenu n'est plus signalé.
       models:
         moderation:
@@ -740,6 +803,12 @@ fr:
             reported_content_url: URL
             reports: Motif
             visit_url: Visitez l'URL
+    participatory_processes:
+      admin:
+        participatory_process_imports:
+          form:
+            document_legend: Ajouter un document d'export de processus participatif au format JSON
+            slug_help: 'Les slugs d''URL sont utilisés pour générer les URL qui pointent vers ce processus. N''accepte que les lettres, les chiffres et les tirets et doit commencer par une lettre. Exemple : %{url}.'
   errors:
     messages:
       invalid_json: JSON non valide

@@ -31,17 +31,24 @@ module Decidim
                          decidim.data_portability_path,
                          decidim.export_data_portability_path,
                          decidim.download_file_data_portability_path]
-      permitted_paths.include?(request.path)
+      # ensure that path with or without query string pass
+      permitted_paths.find { |el| el.split("?").first == request.path }
     end
 
     def tos_path
       decidim.page_path terms_and_conditions_page
     end
 
+    def tos_path_redirected
+      return tos_path if request.path == decidim.root_path
+      value = params[:redirect_url] || request.url
+      decidim.page_path terms_and_conditions_page, redirect_url: value
+    end
+
     def redirect_to_tos
       flash[:notice] = flash[:notice] if flash[:notice]
       flash[:secondary] = t("required_review.alert", scope: "decidim.pages.terms_and_conditions")
-      redirect_to tos_path
+      redirect_to tos_path_redirected
     end
   end
 end

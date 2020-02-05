@@ -179,6 +179,13 @@ uk:
             comments_blocked: Коментарі вимкнено
             show_votes: Показати голоси
             votes_enabled: Голосування увімкнене
+    events:
+      budgets:
+        order_checkout:
+          email_intro: 'Your vote has been validated. You can always edit it if you like by clicking here:'
+          email_outro: Thank you for your participation
+          email_subject: Your vote has been validated
+          notification_title: Your vote has been validated
     orders:
       checkout:
         error: При обробці вашого голосу сталася помилка

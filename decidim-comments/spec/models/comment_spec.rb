@@ -134,6 +134,57 @@ module Decidim
           expect(comment.formatted_body).to eq("<p>bold text <em>neque dicta enim quasi</em> link</p>")
         end
       end
+
+      describe "#comment_threads count" do
+        let!(:parent) { create(:comment, commentable: commentable) }
+        let!(:comments) { create_list(:comment, 3, commentable: parent, root_commentable: commentable) }
+
+        it "return 3" do
+          expect(parent.comment_threads.count).to eq 3
+        end
+
+        it "returns 2 when a comment has been moderated" do
+          Decidim::Moderation.create!(reportable: comments.last, participatory_space: comments.last.participatory_space, hidden_at: 1.day.ago)
+
+          expect(parent.comment_threads.count).to eq 2
+        end
+
+        describe "#body_length" do
+          context "when no default comments length specified" do
+            let!(:body) { ::Faker::Lorem.sentence(1000) }
+
+            it "is invalid" do
+              comment.body = body
+              expect(subject).to be_invalid
+              expect(subject.errors[:body]).to eq ["is too long (maximum is 1000 characters)"]
+            end
+          end
+
+          context "when organization has a default comments length params" do
+            let!(:body) { ::Faker::Lorem.sentence(1600) }
+            let(:organization) { create(:organization, comments_max_length: 1500) }
+            let(:component) { create(:component, organization: organization, manifest_name: "dummy") }
+            let!(:commentable) { create(:dummy_resource, component: component) }
+
+            it "is invalid" do
+              comment.body = body
+              expect(subject).to be_invalid
+              expect(subject.errors[:body]).to eq ["is too long (maximum is 1500 characters)"]
+            end
+
+            context "when component has a default comments length params" do
+              let!(:body) { ::Faker::Lorem.sentence(2500) }
+
+              it "is invalid" do
+                component.update!(settings: { comments_max_length: 2000 })
+                comment.body = body
+                expect(subject).to be_invalid
+                expect(subject.errors[:body]).to eq ["is too long (maximum is 2000 characters)"]
+              end
+            end
+          end
+        end
+      end
     end
   end
 end

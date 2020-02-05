@@ -1,3 +1,4 @@
+---
 pt:
   activemodel:
     attributes:
@@ -149,7 +150,7 @@ pt:
           attachments: Anexos
           categories: Categorias
           components: Componentes
-          conference_admins: Usuários da conferência
+          conference_admins: Administradores da conferência
           conference_invites: Convites
           conference_speakers: caixas de som
           diploma: Certificado de participação
@@ -356,8 +357,8 @@ pt:
             certificate_of_attendance: Certificado de participação
             certificate_of_attendance_description: Certifica-se que <strong>%{user}</strong> participou e participou nos <strong>%{title}</strong> realizados em <strong>%{location}</strong> em <strong>%{start} - %{end}</strong>
         send_diploma:
-          error: Houve um problema ao enviar os diplomas da conferência.
-          success: Diplomas da Conferência enviados corretamente
+          error: Houve um problema ao enviar os certificados de participação da conferência.
+          success: Certificados de atendimento da conferência enviados corretamente
       conference:
         registration_confirm:
           cancel: Cancelar
@@ -505,10 +506,10 @@ pt:
         votes_count: Votos
     events:
       conferences:
-        conference_registration_validation_pending:
-          notification_title: Seu registro para a conferência <a href="%{resource_url}">%{resource_title}</a> está pendente de ser confirmado.
         conference_registration_confirmed:
           notification_title: Sua inscrição para a conferência <a href="%{resource_url}">%{resource_title}</a> foi confirmada.
+        conference_registration_validation_pending:
+          notification_title: Seu registro para a conferência <a href="%{resource_url}">%{resource_title}</a> está pendente de ser confirmado.
         conference_registrations_over_percentage:
           email_intro: Os espaços ocupados pela conferência "%{resource_title}" são superiores a %{percentage}%.
           email_outro: Você recebeu esta notificação porque é um administrador do espaço participativo da conferência.
@@ -552,6 +553,7 @@ pt:
           take_part: Participar
       conferences:
         conference:
+          more_info: Mais informações
           take_part: Participar
         index:
           promoted_conferences: Conferências promovidas

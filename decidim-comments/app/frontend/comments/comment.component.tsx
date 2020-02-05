@@ -25,10 +25,15 @@ interface CommentProps {
   votable?: boolean;
   rootCommentable: AddCommentFormCommentableFragment;
   orderBy: string;
+  commentsMaxLength: number;
 }
 
 interface CommentState {
   showReplyForm: boolean;
+  commentBody: string;
+  translatable: boolean;
+  translatableLabel: string;
+  translated: boolean;
 }
 
 /**
@@ -50,7 +55,11 @@ class Comment extends React.Component<CommentProps, CommentState> {
     super(props);
 
     this.state = {
-      showReplyForm: false
+      showReplyForm: false,
+      commentBody: props.comment.formattedBody,
+      translatable: window.Decidim.translatable,
+      translatableLabel: I18n.t("comments.translate", {target: window.Decidim.locale_name}),
+      translated: false
     };
   }
 
@@ -87,7 +96,8 @@ class Comment extends React.Component<CommentProps, CommentState> {
   public getNodeReference = (commentNode: HTMLElement) => this.commentNode = commentNode;
 
   public render(): JSX.Element {
-    const { session, comment: { id, author, formattedBody, createdAt, formattedCreatedAt }, articleClassName } = this.props;
+    const { session, comment: { id, author, createdAt, formattedCreatedAt }, articleClassName } = this.props;
+    const { commentBody } = this.state;
     let modalName = "loginModal";
 
     if (session && session.user) {
@@ -110,11 +120,12 @@ class Comment extends React.Component<CommentProps, CommentState> {
             </div>
           </div>
         </div>
-        <div className="comment__content">
+        <div className="comment__content" data-translatable-parent="true">
           <div>
             {this._renderAlignmentBadge()}
-            <div dangerouslySetInnerHTML={{__html: formattedBody}} />
+            <div data-translatable-body="true" dangerouslySetInnerHTML={{__html: commentBody}} />
           </div>
+          {this._renderTranslateButton()}
         </div>
         <div className="comment__footer">
           {this._renderReplyButton()}
@@ -130,6 +141,57 @@ class Comment extends React.Component<CommentProps, CommentState> {
   private toggleReplyForm = () => {
     const { showReplyForm } = this.state;
     this.setState({ showReplyForm: !showReplyForm });
+  }
+
+  private toggleTranslation = () => {
+    if (this.state.translated) {
+      this.setState({
+        commentBody: this.props.comment.formattedBody,
+        translatableLabel: I18n.t("comments.translate", {target: window.Decidim.locale_name}),
+        translated: false
+      });
+    } else {
+      fetch("/api/translate", {
+        method: "POST",
+        body: JSON.stringify({
+          target: I18n.locale,
+          original: this.props.comment.formattedBody,
+          authenticity_token: this._getAuthenticityToken()
+        }),
+        headers: {
+          "Content-Type": "application/json"
+        },
+        credentials: "same-origin"
+      })
+      .then(res => res.json())
+      .then(
+        (result) => {
+
+          // Deepl API Result :
+          // {
+          //   translations [
+          //     {
+          //       detected_source_language: "EN"
+          //       text: "..."
+          //     }
+          //   ]
+          // }
+
+          if ( result.translations && result.translations[0] ) {
+            this.setState({
+              commentBody: result.translations[0].text,
+              translatableLabel: I18n.t("comments.translated"),
+              translated: true
+            });
+          } else {
+            throw new Error(`API returns empty result : ${JSON.stringify(result)}`);
+          }
+        },
+        (error) => {
+          throw error;
+        }
+      );
+    }
   }
 
   /**
@@ -214,9 +276,9 @@ class Comment extends React.Component<CommentProps, CommentState> {
    * @returns {Void|DOMElement} - Render the reply button or not if user can reply
    */
   private _renderReplyButton() {
-    const { comment: { acceptsNewComments }, session } = this.props;
+    const { comment: { acceptsNewComments, userAllowedToComment }, session } = this.props;
 
-    if (session && acceptsNewComments) {
+    if (session && acceptsNewComments && userAllowedToComment) {
       return (
         <button
           className="comment__reply muted-link"
@@ -237,9 +299,9 @@ class Comment extends React.Component<CommentProps, CommentState> {
    * @returns {Void|DOMElement} - Render the reply button or not if user can reply
    */
   private _renderAdditionalReplyButton() {
-    const { comment: { acceptsNewComments, hasComments }, session, isRootComment } = this.props;
+    const { comment: { acceptsNewComments, hasComments, userAllowedToComment  }, session, isRootComment } = this.props;
 
-    if (session && acceptsNewComments) {
+    if (session && acceptsNewComments && userAllowedToComment) {
       if (hasComments && isRootComment) {
         return (
           <div className="comment__additionalreply">
@@ -264,8 +326,9 @@ class Comment extends React.Component<CommentProps, CommentState> {
    */
   private _renderVoteButtons() {
     const { session, comment, votable, rootCommentable, orderBy } = this.props;
+    const { comment: { userAllowedToComment  } } = this.props;
 
-    if (votable) {
+    if (votable && userAllowedToComment) {
       return (
         <div className="comment__votes">
           <UpVoteButton session={session} comment={comment} rootCommentable={rootCommentable} orderBy={orderBy} />
@@ -283,7 +346,7 @@ class Comment extends React.Component<CommentProps, CommentState> {
    * @returns {Void|DomElement} - A wrapper element with comment's comments inside
    */
   private _renderReplies() {
-    const { comment: { id, hasComments, comments }, session, votable, articleClassName, rootCommentable, orderBy } = this.props;
+    const { comment: { id, hasComments, comments }, session, votable, articleClassName, rootCommentable, orderBy, commentsMaxLength } = this.props;
     let replyArticleClassName = "comment comment--nested";
 
     if (articleClassName === "comment comment--nested") {
@@ -303,6 +366,7 @@ class Comment extends React.Component<CommentProps, CommentState> {
                 articleClassName={replyArticleClassName}
                 rootCommentable={rootCommentable}
                 orderBy={orderBy}
+                commentsMaxLength={commentsMaxLength}
               />
             ))
           }
@@ -319,10 +383,11 @@ class Comment extends React.Component<CommentProps, CommentState> {
    * @returns {Void|ReactElement} - Render the AddCommentForm component or not
    */
   private _renderReplyForm() {
-    const { session, comment, rootCommentable, orderBy } = this.props;
+    const { session, comment, rootCommentable, orderBy, commentsMaxLength } = this.props;
     const { showReplyForm } = this.state;
+    const { comment: { userAllowedToComment  } } = this.props;
 
-    if (session && showReplyForm) {
+    if (session && showReplyForm && userAllowedToComment) {
       return (
         <AddCommentForm
           session={session}
@@ -333,6 +398,7 @@ class Comment extends React.Component<CommentProps, CommentState> {
           autoFocus={true}
           rootCommentable={rootCommentable}
           orderBy={orderBy}
+          commentsMaxLength={commentsMaxLength}
         />
       );
     }
@@ -378,14 +444,14 @@ class Comment extends React.Component<CommentProps, CommentState> {
    * @return {Void|DOMElement} - The comment's report modal or not.
    */
   private _renderFlagModal() {
-    const { session, comment: { id, sgid, alreadyReported } } = this.props;
+    const { session, comment: { id, sgid, alreadyReported, userAllowedToComment } } = this.props;
     const authenticityToken = this._getAuthenticityToken();
 
     const closeModal = () => {
       window.$(`#flagModalComment${id}`).foundation("close");
     };
 
-    if (session && session.user) {
+    if (session && session.user && userAllowedToComment) {
       return (
         <div className="reveal flag-modal" id={`flagModalComment${id}`} data-reveal={true}>
           <div className="reveal__header">
@@ -434,6 +500,33 @@ class Comment extends React.Component<CommentProps, CommentState> {
             })()
           }
         </div>
+      );
+    }
+
+    return null;
+  }
+
+  /**
+   * Render translate button
+   * @private
+   * @returns {Void|DOMElement} - Render the reply button or not if user can reply
+   */
+  private _renderTranslateButton() {
+    const { translatable, translatableLabel } = this.state;
+
+    if (translatable) {
+      return (
+        <div className="card__translate">
+          <button
+            className="btn comment__translate link"
+            aria-controls="comment-translate"
+            onClick={this.toggleTranslation}
+          >
+            <Icon name="icon-globe" iconExtraClassName="" />
+            {translatableLabel}
+          </button>
+        </div>
+
       );
     }
 

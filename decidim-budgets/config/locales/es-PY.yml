@@ -171,6 +171,13 @@ es-PY:
             comments_blocked: Comentarios bloqueados
             show_votes: Mostrar los votos
             votes_enabled: Votación habilitada
+    events:
+      budgets:
+        order_checkout:
+          email_intro: 'Your vote has been validated. You can always edit it if you like by clicking here:'
+          email_outro: Thank you for your participation
+          email_subject: Your vote has been validated
+          notification_title: Your vote has been validated
     orders:
       checkout:
         error: Se ha producido un error al procesar tu voto

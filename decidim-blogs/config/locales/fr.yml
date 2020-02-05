@@ -49,6 +49,7 @@ fr:
             title: titre
       posts:
         show:
+          back: Retourner à la liste
           view: Voir
         sidebar_blog:
           comments: Commentaires
@@ -61,6 +62,7 @@ fr:
           global:
             announcement: Annonce
             comments_enabled: Activer le module de commentaire
+            comments_max_length: Nombre de caractères maximum des commentaires (Mettre 0 pour laisser la valeur par défaut)
           step:
             announcement: Annonce
             comments_blocked: Commentaires désactivés
@@ -68,7 +70,7 @@ fr:
       blogs:
         post_created:
           email_intro: L'article "%{resource_title}" a été publié dans "%{participatory_space_title}" que vous suivez.
-          email_outro: Vous avez reçu cette notification parce que vous suivez "%{participatory_space_title}". Vous pouvez cesser de le suivre sur cette <a href="%{participatory_space_url}">page</a>.
+          email_outro: Vous avez reçu cette notification parce que vous suivez "%{participatory_space_title}". Vous pouvez cesser de le suivre en cliquant sur le lien précédent.
           email_subject: Nouvel article publié dans %{participatory_space_title}
           notification_title: L'article <a href="%{resource_path}">%{resource_title}</a> a été publié dans %{participatory_space_title}
     pages:

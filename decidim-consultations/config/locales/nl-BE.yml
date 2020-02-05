@@ -1,0 +1,298 @@
+nl-BE:
+  activemodel:
+    attributes:
+      consultation:
+        banner_image: Bannerafbeelding
+        decidim_highlighted_scope_id: Gemarkeerde scope
+        description: Beschrijving
+        end_voting_date: Stemmen eindigt
+        introductory_image: Introductieve afbeelding
+        introductory_video_url: Introductieve video URL
+        questions: Vragen
+        slug: URL slak
+        start_voting_date: Stemmen begint
+        subtitle: Subtitel
+        title: Titel
+      question:
+        banner_image: Bannerafbeelding
+        decidim_scope_id: München gebied
+        hashtag: Hashtag
+        hero_image: Afbeelding van de startpagina
+        i_frame_url: Externe stemsysteem URL
+        origin_scope: Scope
+        origin_title: Oorsprong
+        origin_url: Originele URL
+        participatory_scope: Participatieve scope
+        promoter_group: Promotorgroep
+        question_context: Context
+        reference: Referentie
+        scope: München gebied
+        slug: URL slak
+        subtitle: Subtitel
+        title: Titel
+        vote: Externe stemsysteem Url
+        what_is_decided: Participatief toepassingsgebied
+    errors:
+      vote:
+        decidim_consultations_response_id:
+          not_found: Antwoord niet gevonden.
+  activerecord:
+    models:
+      decidim/consultation:
+        one: Raadpleging
+        other: Raadplegingen
+      decidim/consultations/question:
+        one: Vraag
+        other: Vragen
+      decidim/consultations/response:
+        one: Antwoord
+        other: Antwoorden
+      decidim/consultations/vote:
+        one: Stem
+        other: Stemmen
+  decidim:
+    admin:
+      actions:
+        new_consultation: Nieuwe raadpleging
+        new_question: Creëren
+        new_response: Nieuwe reactie
+        publish_results: Publiceer resultaten
+        unpublish_results: Publiceer resultaten
+      consultation_publications:
+        create:
+          error: Er was een probleem bij het publiceren van deze raadpleging.
+          success: Raadpleging succesvol gepubliceerd.
+        destroy:
+          error: Er was een probleem bij het depubliceren van deze raadpleging.
+          success: Raadpleging succesvol gedepubliceerd.
+      consultation_results_publications:
+        create:
+          error: There was an error publishing the results for this consultation.
+          success: Resultaten van raadpleging met succes gepubliceerd.
+        destroy:
+          error: Er is een fout opgetreden bij het depubliceren van de resultaten van deze raadpleging.
+          success: Resultaten van raadpleging met succes gedepubliceerd.
+      consultations:
+        create:
+          error: Er was een probleem bij het creëren van een nieuwe raadpleging.
+          success: Resultaat met succes gemaakt.
+        edit:
+          update: Bijwerken
+        form:
+          slug_help: 'URL-slugs worden gebruikt om de URL''s te genereren die naar deze vergadering verwijzen. Accepteer alleen letters, cijfers en streepjes, en moet beginnen met een letter. Voorbeeld: %{url}'
+          title: Algemene informatie
+        index:
+          not_published: Niet gepubliceerd
+          published: Gepubliceerd
+        new:
+          create: Creëren
+          title: Nieuwe raadpleging
+        update:
+          error: There was an error when updating this consultation.
+          success: Consultatie met succes gepubliceerd.
+      menu:
+        consultations: Raadpleging
+        consultations_submenu:
+          info: Informatie
+          questions: Vragen
+        questions_submenu:
+          components: Componenten
+          consultation: Raadpleging
+          info: Informatie
+          responses: Reactie
+      models:
+        consultation:
+          fields:
+            created_at: Gemaakt bij
+            published: Gepubliceerd
+            title: Titel
+          name:
+            one: Raadpleging
+            other: Raadplegingen
+        question:
+          fields:
+            created_at: Gemaakt bij
+            published: Gepubliceerd
+            title: Titel
+          name:
+            one: Vraag
+            other: Vragen
+        response:
+          fields:
+            created_at: Gemaakt bij
+            title: Titel
+          name:
+            one: Antwoord
+            other: Antwoorden
+      question_publications:
+        create:
+          error: There was an error publishing this question.
+          success: Question published successfully.
+        destroy:
+          error: There was an error unpublishing this question.
+          success: Question unpublished successfully.
+      questions:
+        create:
+          error: There was an error creating a new question.
+          success: Vergadering met succes gemaakt.
+        destroy:
+          success: Vergadering met succes gemaakt.
+        edit:
+          update: Bijwerken
+        form:
+          title: Algemene informatie
+        index:
+          not_published: Niet gepubliceerd
+          published: Niet gepubliceerd
+        new:
+          create: Gepubliceerd
+          title: Creëren
+        update:
+          error: There was an error when updating this question.
+          success: Question updated successfully.
+      responses:
+        create:
+          error: There was an error creating a new response.
+          success: Resultaat met succes gemaakt.
+        destroy:
+          error: There was an error when removing the response.
+          success: Antwoord met succes gemaakt.
+        edit:
+          update: Bijwerken
+        form:
+          title: Algemene informatie
+        new:
+          create: Creëren
+          title: Nieuwe reactie
+        update:
+          error: There was an error when updating this response.
+          success: Response updated successfully.
+      titles:
+        consultations: Raadpleging
+        questions: Vragen
+        responses: Reactie
+    consultations:
+      admin:
+        content_blocks:
+          highlighted_consultations:
+            max_results: Maximaal aantal te tonen elementen
+      consultation:
+        start_voting_date: Stemmen begint
+        view_results: Resultaten tonen
+      consultation_card:
+        view_results: Resultaten tonen
+      consultations:
+        orders:
+          label: 'Sorteer raadplegingen op:'
+          random: Willekeurig
+          recent: Meest recent
+      content_blocks:
+        highlighted_consultations:
+          name: Gemarkeerde raadplegingen
+      count:
+        title:
+          one: "%{count} raadpleging"
+          other: "%{count} raadplegingen"
+      filters:
+        active: Actief
+        all: Alle
+        finished: Afgerond
+        search: Zoeken
+        state: State
+        upcoming: Aankomend
+      filters_small_view:
+        close_modal: Sluit dit scherm
+        filter: Filter
+        filter_by: Filteren op
+        unfold: Ontvouwen
+      highlighted_questions:
+        title: Vragen van %{scope_name}
+      index:
+        title: Raadpleging
+      last_activity:
+        new_consultation: Nieuwe raadpleging
+        new_question_at_html: "<span>Nieuwe post op %{link}</span>"
+      pages:
+        home:
+          highlighted_consultations:
+            active_consultations: Actieve raadplegingen
+            see_all_consultations: Alle raadplegingen bekijken
+            voting_ends_in:
+              one: Stemmen eindigt <strong>morgen</strong>
+              other: Stemmen eindigt over <strong>%{count} dagen</strong>
+            voting_ends_today: Stemmen eindigt <strong>vandaag</strong>
+      question:
+        take_part: Deelnemen
+        view_results: Resultaten tonen
+        votes_out_of:
+          one: stem uit
+          other: stemmen uit
+      question_votes:
+        create:
+          error: There have been errors when voting the question
+      regular_questions:
+        title: Vragen voor deze raadpleging
+      show:
+        badge_name:
+          finished: Voltooid
+          open: Open
+          open_votes: Open stemmen
+          published_results: Resultaten gepubliceerd
+        footer_button_text:
+          debate: Debatten
+          view: Bekijk
+          view_results: Resultaten tonen
+          vote: Stemmen
+        unspecified: Niet Gespecificeerd
+    help:
+      participatory_spaces:
+        consultations:
+          contextual: "<p>Consultations are a space that allows you to ask a clear question to all the people who form an organization, make a call to participate in the consultation, spark and order the debate for or against a response. When the consultation date arrives, you can vote and publish the results of the votes.</p> <p>Examples: The consultations can be about almost any aspect that affects an organization: some examples are changing the name or logo of the organization offering several alternatives, deciding Yes or No to become part of a larger organization, validating or rejecting a new strategic plan or the result of a working group, or defining whether the positions should remain a maximum of 1, 2 or 3 mandates.</p>\n"
+          page: "<p>Consultations are a space that allows you to ask a clear question to all the people who form an organization, make a call to participate in the consultation, spark and order the debate for or against a response. When the consultation date arrives, you can vote and publish the results of the votes.</p> <p>Examples: The consultations can be about almost any aspect that affects an organization: some examples are changing the name or logo of the organization offering several alternatives, deciding Yes or No to become part of a larger organization, validating or rejecting a new strategic plan or the result of a working group, or defining whether the positions should remain a maximum of 1, 2 or 3 mandates in the organization.</p>\n"
+          title: Wat zijn raadplegingen?
+    menu:
+      consultations: Raadpleging
+    pages:
+      home:
+        statistics:
+          consultations_count: Raadplegingen
+    questions:
+      next_button: Volgende vraag
+      previous_button: Vorige vraag
+      results:
+        title: Resultaten
+      show:
+        read_more: Lees verder
+      statistics:
+        assistants_count_title: Assistenten
+        comments_count_title: Reacties
+        meetings_count_title: Vergaderingen
+        supports_count_title: Stemmen
+      technical_info:
+        technical_data: Technische hulp
+      vote_button:
+        already_voted: Al gestemd
+        already_voted_hover: Revoke support
+        starting_from: Begint vanaf %{date}
+        vote: Stemmen
+      vote_modal:
+        contextual_help: Kies een optie.
+        title: 'Raadpleging: vraag stemming'
+      vote_modal_confirm:
+        change: Wijzig
+        confirm: Bevestigen
+        contextual_help: Bevestig de geselecteerde optie.
+        title: 'Consultation: confirm support'
+  layouts:
+    decidim:
+      admin:
+        question:
+          attachments: Toebehoren
+          categories: Categorieën
+      consultation_voting_data:
+        start_voting_date: Stemmen begint
+      question_components:
+        question_menu_item: Creëren
+        unfold: Ontvouwen
+      question_header:
+        back_to_consultation: Alle raadplegingen bekijken

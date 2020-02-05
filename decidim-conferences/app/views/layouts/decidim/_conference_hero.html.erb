@@ -20,10 +20,15 @@
       <div class="row column medium-8 text-left mt-m">
         <div class="column medium-6">
           <button type="button" class="button hollow light expanded">
-            <%= render_date(current_participatory_space) %>
+            <%= participatory_space_helpers.render_date(current_participatory_space) %>
             <%= current_participatory_space.location %>
           </button>
         </div>
+        <% if current_participatory_space.custom_link_enabled? %>
+          <div class="column medium-3 end">
+            <%= link_to translated_attribute(current_participatory_space.custom_link_name), current_participatory_space.custom_link_url, class: "button button--sc light expanded" %>
+          </div>
+        <% end %>
         <% if current_participatory_space.registrations_enabled? %>
           <div class="column medium-3 end">
             <%= link_to decidim_conferences.conference_registration_types_path(current_participatory_space) do %>

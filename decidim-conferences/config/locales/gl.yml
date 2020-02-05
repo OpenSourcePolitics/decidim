@@ -1,3 +1,4 @@
+---
 gl:
   activemodel:
     attributes:
@@ -149,7 +150,7 @@ gl:
           attachments: Anexos
           categories: Categorías
           components: Compoñentes
-          conference_admins: Usuarios da conferencia
+          conference_admins: Administradores de conferencias
           conference_invites: Invitacións
           conference_speakers: Ponentes
           diploma: Certificado de asistencia
@@ -356,8 +357,8 @@ gl:
             certificate_of_attendance: Certificado de asistencia
             certificate_of_attendance_description: Isto acredita que <strong>%{user}</strong> asistiu e participou no <strong>%{title}</strong> realizado no <strong>%{location}</strong> do <strong>%{start} - %{end}</strong>
         send_diploma:
-          error: Houbo un problema ao enviar os diplomas da conferencia.
-          success: Diplomas de conferencia enviados correctamente
+          error: Produciuse un problema ao enviar os certificados de asistencia da conferencia.
+          success: Certificados de asistencia de conferencia enviados correctamente
       conference:
         registration_confirm:
           cancel: Cancelar
@@ -505,10 +506,10 @@ gl:
         votes_count: Votos
     events:
       conferences:
-        conference_registration_validation_pending:
-          notification_title: O teu rexistro para a conferencia <a href="%{resource_url}">%{resource_title}</a> está pendente de ser confirmado.
         conference_registration_confirmed:
           notification_title: Inscríbase o rexistro da conferencia <a href="%{resource_url}">%{resource_title}</a>.
+        conference_registration_validation_pending:
+          notification_title: O teu rexistro para a conferencia <a href="%{resource_url}">%{resource_title}</a> está pendente de ser confirmado.
         conference_registrations_over_percentage:
           email_intro: Os slots ocupados por "%{resource_title}" ocupan máis do %{percentage}%.
           email_outro: Recibiches esta notificación porque es administrador do espazo participativo da conferencia.
@@ -552,6 +553,7 @@ gl:
           take_part: Tomar parte en
       conferences:
         conference:
+          more_info: Máis información
           take_part: Tomar parte en
         index:
           promoted_conferences: Conferencias promocionadas

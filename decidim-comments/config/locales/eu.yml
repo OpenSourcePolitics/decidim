@@ -19,6 +19,8 @@ eu:
       comments: Oharrak
       last_activity:
         new_comment_at_html: "<span>Iruzkin berria %{link}</span>"
+      translate: Translate
+      translated: Back to original version
       votes:
         create:
           error: Erroreak gertatu dira iruzkina bozkatzean.
@@ -65,6 +67,7 @@ eu:
       comment_thread:
         title: 'Solasaldia honekin: %{authorName}'
       comments:
+        blocked_comments_for_user_warning: Oraindik ez duzu iruzkinik egin, baina aurrekoak irakurri ditzakezu.
         blocked_comments_warning: Iruzkinak desgaituta daude une honetan, baina aurrekoak irakur ditzakezu.
         loading: Iruzkinak kargatzen...
         title: "%{count} iruzkin"

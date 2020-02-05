@@ -23,6 +23,8 @@ pl:
       comments: Komentarze
       last_activity:
         new_comment_at_html: "<span>Nowy komentarz na %{link}</span>"
+      translate: Translate
+      translated: Back to original version
       votes:
         create:
           error: Podczas głosowania komentarza wystąpiły błędy.
@@ -69,6 +71,7 @@ pl:
       comment_thread:
         title: Rozmowa z %{authorName}
       comments:
+        blocked_comments_for_user_warning: Nie możesz teraz komentować, ale możesz przeczytać poprzednie.
         blocked_comments_warning: Komentarze są w tej chwili wyłączone, ale możesz przeczytać poprzednie.
         loading: Ładowanie komentarzy ...
         title: "%{count} komentarzy"

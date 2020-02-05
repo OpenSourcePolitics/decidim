@@ -16,6 +16,10 @@ uk:
         personal_url: Особиста веб-адреса
         remove_avatar: Видалити аватар
     models:
+      decidim/amendable/amendment_accepted_event: Amendmen accepted
+      decidim/amendable/amendment_created_event: Amendmen created
+      decidim/amendable/amendment_rejected_event: Amendmen rejected
+      decidim/amendable/emendation_promoted_event: Amendmen promoted
       decidim/attachment_created_event: Вкладений файл
       decidim/component_published_event: Діюча складова
       decidim/demoted_membership: No longer a group admin
@@ -143,8 +147,6 @@ uk:
         button: Amend %{model_name}
         error: There has been an error amending this resource.
         help_text: Improve this %{model_name} by modifying its %{amendable_fields}
-        no_amenders: There are no amenders
-        no_amendments: There are no amendments
         promote_button: Promote to %{model_name}
         promote_help_text: You can promote this emendation and publish it as an independent %{model_name}
         section_heading: Amendments (%{count})
@@ -233,13 +235,12 @@ uk:
         name: Code by SMS
       started_at: 'Розпочато: %{timestamp}'
     authorization_modals:
-      show:
+      content:
         expired:
           authorize: Знову підтвердити свою особу за допомогою "%{authorization}"
           explanation: Строк дії підтвердження вашої особи вичерпався. Щоб виконати цю дію, вам потрібно знову підтвердити свою особу за допомогою "%{authorization}".
           title: Строк дії підтвердження особи вичерпався
         incomplete:
-          cancel: Скасувати
           explanation: 'Незважаючи на те, що ви наразі підтвердили свою особу за допомогою "%{authorization}", ми просимо вас знову підтвердити свою особу, оскільки нам не вистачає наступних даних:'
           invalid_field: Поле %{field}
           reauthorize: Заново підтвердити свою особу
@@ -985,6 +986,8 @@ uk:
         share_link: Поділитись посиланням
       version_author:
         deleted: Видалений учасник
+    translate: Translate
+    translated: Translated
     user_activity:
       index:
         no_activities_warning: This user hasn't had any activity yet.
@@ -1133,6 +1136,7 @@ uk:
       minimum_password_length:
         one: "(%{count} character minimum)"
         other: "(%{count} characters minimum)"
+      password_help: 'At least 8 characters, a capital letter and a special character (eg: !)'
     unlocks:
       new:
         resend_unlock_instructions: Resend unlock instructions
@@ -1163,6 +1167,17 @@ uk:
       too_short: is too short (under 15 characters)
   forms:
     required: Обов'язкове поле
+  instructions:
+    decidim:
+      system:
+        organizations:
+          smtp_settings:
+            address: Address
+            from_email: From email
+            from_label: From label
+            password: Password
+            port: Port
+            user_name: User name
   invisible_captcha:
     sentence_for_humans: Якщо ви людина, ігноруйте це поле
     timestamp_error_message: Вибачте, це було занадто швидко! Будь ласка, подайте повідомлення знову.

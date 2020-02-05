@@ -1,3 +1,4 @@
+---
 fi-pl:
   activemodel:
     attributes:
@@ -84,8 +85,6 @@ fi-pl:
           success: Ryhmän luonti onnistui.
         edit:
           update: Päivitä
-        form:
-          title: Yleiset tiedot
         index:
           not_published: Ei julkaistu
           private: Yksityinen
@@ -258,16 +257,14 @@ fi-pl:
         others: Muut
         public: Julkinen
       filter:
-        all: Kaikki
+        all: Kaikentyyppiset ryhmät
         commission: Komitea
         consultative_advisory: Konsultti/neuvonantaja
         executive: Johtaja
         government: Hallinto
         help: 'Show:'
-        label: 'Näytä:'
         others: Muut
         participatory: Osallistava
-        placeholder: Suodata tyypin mukaan
         working_group: Työryhmä
       index:
         title: Ryhmät

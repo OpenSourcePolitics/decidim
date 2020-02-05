@@ -19,6 +19,8 @@ de:
       comments: Bemerkungen
       last_activity:
         new_comment_at_html: "<span>Neuer Kommentar unter %{link}</span>"
+      translate: Translate
+      translated: Back to original version
       votes:
         create:
           error: Beim Abstimmen des Kommentars sind Fehler aufgetreten.
@@ -65,6 +67,7 @@ de:
       comment_thread:
         title: Konversation mit %{authorName}
       comments:
+        blocked_comments_for_user_warning: Sie können momentan nichts kommentieren, aber Sie können die vorherigen lesen.
         blocked_comments_warning: Kommentare sind zu diesem Zeitpunkt deaktiviert, aber Sie können die vorherigen lesen.
         loading: Kommentare werden geladen ...
         title: "%{count} Kommentare"

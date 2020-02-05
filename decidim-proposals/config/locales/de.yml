@@ -1,7 +1,9 @@
+---
 de:
   activemodel:
     attributes:
       collaborative_draft:
+        address: Adresse
         body: Karosserie
         category_id: Kategorie
         decidim_scope_id: Umfang
@@ -10,6 +12,7 @@ de:
         title: Titel
         user_group_id: Erstellen Sie einen gemeinsamen Entwurf als
       proposal:
+        address: Adresse
         answer: Antworten
         answered_at: Beantwortet bei
         automatic_hashtags: Hashtags werden automatisch hinzugefügt
@@ -26,12 +29,23 @@ de:
       proposals_copy:
         copy_proposals: Ich verstehe, dass dies alle Vorschläge von der ausgewählten Komponente in die aktuelle Komponente importiert und dass diese Aktion nicht rückgängig gemacht werden kann.
         origin_component_id: Komponente zum Kopieren der Vorschläge aus
+      proposals_import:
+        import_proposals: Vorschläge importieren
+        keep_authors: Behalten Sie die ursprünglichen Autoren
     errors:
       models:
+        participatory_text:
+          attributes:
+            document:
+              invalid_document_type: 'Ungültiger Dokumenttyp Zulässige Formate sind: %{valid_mime_types}'
         proposal:
           attributes:
             attachment:
               needs_to_be_reattached: Muss wieder angebracht werden
+            body:
+              identical: UND Titel dürfen nicht identisch sein
+            title:
+              identical: Der UND-Körper kann nicht identisch sein
     models:
       decidim/proposals/accepted_proposal_event: Vorschlag angenommen
       decidim/proposals/admin/update_proposal_category_event: Angebotskategorie geändert
@@ -214,8 +228,8 @@ de:
       badges:
         accepted_proposals:
           conditions:
-            - Wählen Sie den Bereich für die Teilnahme Ihrer Interessen mit der Einreichung von Vorschlägen aktiviert
-            - Versuchen Sie Vorschläge zu machen, die ausgeführt werden können. Auf diese Weise werden sie eher akzeptiert.
+          - Wählen Sie den Bereich für die Teilnahme Ihrer Interessen mit der Einreichung von Vorschlägen aktiviert
+          - Versuchen Sie Vorschläge zu machen, die ausgeführt werden können. Auf diese Weise werden sie eher akzeptiert.
           description: Dieses Abzeichen wird gewährt, wenn Sie aktiv an neuen Angeboten teilnehmen und diese angenommen werden.
           description_another: Dieser Benutzer hat %{score} Vorschläge akzeptiert.
           description_own: Sie haben %{score} Vorschläge angenommen.
@@ -225,8 +239,8 @@ de:
           unearned_own: Sie haben noch keine Vorschläge erhalten.
         proposal_votes:
           conditions:
-            - Stöbern Sie und verbringen Sie etwas Zeit, die Vorschläge anderer Leute zu lesen
-            - Unterstützen Sie die Vorschläge, die Sie mögen oder interessant finden
+          - Stöbern Sie und verbringen Sie etwas Zeit, die Vorschläge anderer Leute zu lesen
+          - Unterstützen Sie die Vorschläge, die Sie mögen oder interessant finden
           description: Dieses Abzeichen wird gewährt, wenn Sie Vorschläge anderer Personen unterstützen.
           description_another: Dieser Benutzer hat %{score} Vorschläge unterstützt.
           description_own: Sie haben %{score} Vorschläge unterstützt.
@@ -236,8 +250,8 @@ de:
           unearned_own: Sie haben noch keine Vorschläge unterstützt.
         proposals:
           conditions:
-            - Wählen Sie den Bereich für die Teilnahme Ihrer Interessen mit der Einreichung von Vorschlägen aktiviert
-            - Erstellen Sie einen neuen Vorschlag
+          - Wählen Sie den Bereich für die Teilnahme Ihrer Interessen mit der Einreichung von Vorschlägen aktiviert
+          - Erstellen Sie einen neuen Vorschlag
           description: Dieses Abzeichen wird gewährt, wenn Sie aktiv an neuen Vorschlägen teilnehmen.
           description_another: Dieser Benutzer hat %{score} Vorschläge erstellt.
           description_own: Sie haben %{score} Vorschläge erstellt.
@@ -287,8 +301,10 @@ de:
         participatory_texts:
           bulk-actions:
             are_you_sure: Sind Sie sicher, den gesamten Entwurf des partizipativen Textes zu verwerfen?
-            import_doc: Dokument importieren
             discard_all: Alle verwerfen
+            import_doc: Dokument importieren
+          discard:
+            success: Alle Mitentscheidungsentwürfe wurden verworfen.
           import:
             invalid: Das Formular ist ungültig!
             success: Herzlichen Glückwunsch, die folgenden Abschnitte wurden aus dem importierten Dokument analysiert, sie wurden in Vorschläge konvertiert. Jetzt können Sie alles überprüfen und anpassen, bevor Sie es veröffentlichen.
@@ -298,15 +314,16 @@ de:
             save_draft: Entwurf speichern
             title: VORSCHAU TEILNEHMERTEXT
           new_import:
+            accepted_mime_types:
+              md: Markdown
+              odt: Odt
             bottom_hint: "(Sie können Dokumentabschnitte in der Vorschau anzeigen und sortieren.)"
-            document_legend: 'Fügen Sie ein Dokument mit weniger als 2 MB hinzu, wobei jeder Abschnitt bis zu 3 Ebenen tief in Vorschläge zerlegt wird. Unterstützte Formate sind: Markdown'
+            document_legend: 'Fügen Sie ein Dokument hinzu, das kleiner als 2 MB ist. Jeder Abschnitt wird so lange in 3 bis 3 Ebenen tief in die Vorschläge geparst. Unterstützte Formate sind: %{valid_mime_types}'
             title: DOKUMENT HINZUFÜGEN
             upload_document: Dokument hochladen
           publish:
             invalid: Vorschläge konnten nicht veröffentlicht werden
             success: Alle Vorschläge wurden veröffentlicht
-          discard:
-            success: Alle Mitentscheidungsentwürfe wurden verworfen.
           sections:
             article: "<em>Artikel</em>"
             section: "<em>Abschnitt:</em> <strong>%{title}</strong>"
@@ -584,7 +601,7 @@ de:
           error: Es gab Fehler bei der Abstimmung des Vorschlags.
       proposals:
         compare:
-          mine_is_different: Mein Vorschlag ist anders
+          continue: Fortsetzen
           no_similars_found: Gut gemacht! Keine ähnlichen Vorschläge gefunden
           title: Ähnliche Vorschläge
         complete:
@@ -611,6 +628,7 @@ de:
           comments: Bemerkungen
         filters:
           activity: Aktivität
+          amendment_type: Art
           category: Kategorie
           category_prompt: Wählen Sie eine Kategorie
           origin: Ursprung
@@ -618,7 +636,6 @@ de:
           search: Suche
           state: Zustand
           voted: Gewählt
-          amendment_type: Art
         filters_small_view:
           close_modal: Modal schließen
           filter: Filter
@@ -738,6 +755,9 @@ de:
           version_number_out_of_total: "%{current_version} von %{total_count}"
         version:
           version_index: Version %{index}
+      withdraw:
+        errors:
+          has_supports: Dieser Vorschlag kann nicht zurückgezogen werden, da er bereits Unterstützung hat.
     resource_links:
       copied_from_component:
         proposal_proposal: Ähnliche Vorschläge

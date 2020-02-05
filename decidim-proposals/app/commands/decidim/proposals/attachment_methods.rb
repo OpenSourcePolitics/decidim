@@ -9,21 +9,21 @@ module Decidim
 
       def build_attachment
         @attachment = Attachment.new(
-          title: @form.attachment.title,
-          file: @form.attachment.file,
+          title: @form.attachment&.title,
+          file: @form.attachment&.file,
           attached_to: @attached_to
         )
       end
 
       def attachment_invalid?
-        if attachment.invalid? && attachment.errors.has_key?(:file)
+        if attachment&.invalid? && attachment&.errors.has_key?(:file)
           @form.attachment.errors.add :file, attachment.errors[:file]
           true
         end
       end
 
       def attachment_present?
-        @form.attachment.file.present?
+        @form.attachment&.file.present?
       end
 
       def create_attachment

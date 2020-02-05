@@ -13,8 +13,8 @@ describe "Explore posts", type: :system do
     it "shows all posts for the given process" do
       visit_component
       expect(page).to have_selector("article.card", count: 2)
-      expect(page).to have_selector(".card--post", text: translated(new_post.title).upcase)
-      expect(page).to have_selector(".card--post", text: translated(old_post.title).upcase)
+      expect(page).to have_selector(".card--post", text: translated(new_post.title))
+      expect(page).to have_selector(".card--post", text: translated(old_post.title))
     end
 
     context "when paginating" do
@@ -46,6 +46,9 @@ describe "Explore posts", type: :system do
       expect(page).to have_i18n_content(post.body)
       expect(page).to have_content(post.author.name)
       expect(page).to have_content(post.created_at.day)
+    end
+    it "shows the back button" do
+      expect(page).to have_link(href: "#{main_component_path(component)}posts")
     end
   end
 

@@ -31,7 +31,7 @@ module Decidim
       validates :depth, numericality: { greater_than_or_equal_to: 0 }
       validates :alignment, inclusion: { in: [0, 1, -1] }
 
-      validates :body, length: { maximum: 1000 }
+      validate :body_length
 
       validate :commentable_can_have_comments
 
@@ -52,6 +52,13 @@ module Decidim
       # Public: Override Commentable concern method `accepts_new_comments?`
       def accepts_new_comments?
         root_commentable.accepts_new_comments? && depth < MAX_DEPTH
+      end
+
+      # Public: Override comment threads to exclude hidden ones.
+      #
+      # Returns comment.
+      def comment_threads
+        super.reject(&:hidden?)
       end
 
       # Public: Override Commentable concern method `users_to_notify_on_comment_created`.
@@ -92,7 +99,38 @@ module Decidim
         Decidim::Comments::CommentSerializer
       end
 
+      def self.newsletter_participant_ids(space)
+        Decidim::Comments::Comment.includes(:root_commentable).not_hidden
+                                  .where("decidim_comments_comments.decidim_author_id IN (?)", Decidim::User.where(organization: space.organization).pluck(:id))
+                                  .where("decidim_comments_comments.decidim_author_type IN (?)", "Decidim::UserBaseEntity")
+                                  .map(&:author).pluck(:id).flatten.compact.uniq
+      end
+
+      def can_participate?(user)
+        return true unless root_commentable&.respond_to?(:can_participate?)
+
+        root_commentable.can_participate?(user)
+      end
+
       private
+
+      def body_length
+        errors.add(:body, :too_long, count: comment_maximum_length) unless body.length <= comment_maximum_length
+      end
+
+      def comment_maximum_length
+        return unless commentable.commentable?
+        return component.settings.comments_max_length if component_settings_comments_max_length?
+        return organization.comments_max_length if organization.comments_max_length.positive?
+
+        1000
+      end
+
+      def component_settings_comments_max_length?
+        return unless component&.settings.respond_to?(:comments_max_length)
+
+        component.settings.comments_max_length.positive?
+      end
 
       # Private: Check if commentable can have comments and if not adds
       # a validation error to the model

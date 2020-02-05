@@ -1,7 +1,9 @@
+---
 hu:
   activemodel:
     attributes:
       collaborative_draft:
+        address: Cím
         body: Szöveg
         category_id: Kategória
         decidim_scope_id: Hatáskör
@@ -10,6 +12,7 @@ hu:
         title: Cím
         user_group_id: Közösen szerkesztett vázlat
       proposal:
+        address: Cím
         answer: Válasz
         answered_at: 'Megválaszolva:'
         automatic_hashtags: Hashtagek automatikusan hozzáadva
@@ -26,12 +29,23 @@ hu:
       proposals_copy:
         copy_proposals: Tudomásul veszem, hogy a kiválasztott elem összes javaslata importálva lesz a jelenlegibe, és ezt a műveletet nem lehet visszavonni.
         origin_component_id: Javaslatok másolásához szükséges elem
+      proposals_import:
+        import_proposals: Import-javaslatok
+        keep_authors: Tartsa meg az eredeti szerzőket
     errors:
       models:
+        participatory_text:
+          attributes:
+            document:
+              invalid_document_type: 'Érvénytelen dokumentumtípus. Az elfogadott formátumok: %{valid_mime_types}'
         proposal:
           attributes:
             attachment:
               needs_to_be_reattached: Újra kell csatolni
+            body:
+              identical: A cím nem lehet azonos
+            title:
+              identical: A test nem lehet azonos
     models:
       decidim/proposals/accepted_proposal_event: Javaslat elfogadva
       decidim/proposals/admin/update_proposal_category_event: Javaslat kategória megváltozott
@@ -214,19 +228,19 @@ hu:
       badges:
         accepted_proposals:
           conditions:
-            - Válassza ki az Ön érdeklődési körének részvételi területét a beküldött pályázati ajánlatokkal
-            - Próbáljon javaslatokat tenni, amelyeket végre lehet hajtani. Így nagyobb valószínűséggel fogadják el őket.
+          - Válassza ki az Ön érdeklődési körének részvételi területét a beküldött pályázati ajánlatokkal
+          - Próbáljon javaslatokat tenni, amelyeket végre lehet hajtani. Így nagyobb valószínűséggel fogadják el őket.
           description: Ezt a jelvényt akkor kapja meg, ha aktívan részt vesz új javaslatokkal, és ezeket elfogadják.
           description_another: A felhasználó %{score} javaslatait elfogadták.
-          description_own: '%{score} ajánlatodat fogadták el.'
+          description_own: "%{score} ajánlatodat fogadták el."
           name: Elfogadott javaslatok
           next_level_in: Szerezz még több %{score} elfogadott ajánlatot, hogy eljuss a következő szintre!
           unearned_another: A felhasználónak még nincsenek elfogadott javaslatai.
           unearned_own: Még nincs elfogadott javaslatod.
         proposal_votes:
           conditions:
-            - Böngésszen és töltsön el egy ideig mások javaslatainak olvasását
-            - Támogatja a kedvelt javaslatokat, vagy érdekesnek találja azokat
+          - Böngésszen és töltsön el egy ideig mások javaslatainak olvasását
+          - Támogatja a kedvelt javaslatokat, vagy érdekesnek találja azokat
           description: Ezt a jelvényt akkor kapja meg, ha más emberek javaslatait támogatja.
           description_another: A felhasználó %{score} javaslatot támogatott.
           description_own: Eddig %{score} javaslatot támogattál.
@@ -236,8 +250,8 @@ hu:
           unearned_own: Még nem támogattál egyetlen javaslatot sem.
         proposals:
           conditions:
-            - Válassza ki az Ön érdeklődési körének részvételi területét a beküldött pályázati ajánlatokkal
-            - Hozzon létre egy új javaslatot
+          - Válassza ki az Ön érdeklődési körének részvételi területét a beküldött pályázati ajánlatokkal
+          - Hozzon létre egy új javaslatot
           description: Ezt a jelvényt akkor kapja meg, ha aktívan részt vesz új javaslatokkal.
           description_another: A felhasználó %{score} javaslatot hozott létre.
           description_own: Eddig %{score} javaslatot hoztál létre.
@@ -261,7 +275,7 @@ hu:
       votes:
         description: A felhasználók által benyújtott szavazatok száma
         object: szavazat
-        title: Szavazatok
+        title: szavazatok
     participatory_processes:
       participatory_process_groups:
         highlighted_proposals:
@@ -290,8 +304,10 @@ hu:
         participatory_texts:
           bulk-actions:
             are_you_sure: Biztos, hogy elveti az egész részvételi szöveg tervezet?
-            import_doc: Dokumentum importálása
             discard_all: Összes elvetése
+            import_doc: Dokumentum importálása
+          discard:
+            success: Az összes résztvevő szövegtervezetet elvetették.
           import:
             invalid: Az űrlap érvénytelen!
             success: Gratulálunk, az alábbi szakaszokat elemeztük az importált dokumentumból, és átkerültek javaslatokká. Mostantól megtekintheti és módosíthatja, amire szüksége van a közzététel előtt.
@@ -301,15 +317,16 @@ hu:
             save_draft: Vázlat mentése
             title: RÉSZTVEVŐ SZÖVEG előnézete
           new_import:
+            accepted_mime_types:
+              md: Árleszállítás
+              odt: ODT
             bottom_hint: "(Megtekintheted és rendezheted a dokumentumokat)"
-            document_legend: 'Adj hozzá egy dokumentumot, amely kisebb, mint 2 MB -minden egyes szakasz 3 szint mélységig javaslattá lesz alakítva. A támogatott formátum a szöveghez: Markdown'
+            document_legend: 'Adjon hozzá egy 2 MB-nál kisebb dokumentumot, mindegyik szekciót addig, amíg a 3 szint mélyen meg nem jelenik a Javaslatokba. A választott formátumok: %{valid_mime_types}'
             title: DOKUMENTUM hozzáadása
             upload_document: Dokumentum feltöltése
           publish:
             invalid: Nem sikerült közzé tenni a javaslatokat
             success: Minden pályázat megjelent
-          discard:
-            success: Az összes résztvevő szövegtervezetet elvetették.
           sections:
             article: "<em>Cikk</em>"
             section: "<em>szakasz:</em> <strong>%{title}</strong>"
@@ -515,7 +532,7 @@ hu:
           request_access: Hozzáférés kérése
           requested_access: Hozzáférés megkérve
           see_other_versions: más verziók
-          version: '%{number} verzió'
+          version: "%{number} verzió"
           version_history: nézd meg a javaslat verziótörténetét
           withdraw: tervezet visszavonása
         states:
@@ -533,7 +550,7 @@ hu:
           step_1: Hozd létre a közös vázlatod
           step_2: Összehasonlítás közös vázlatokkal
           step_3: Fejezd be a közös vázlatodat
-          step_of: '%{current_step_num}. lépés ennyiből: %{total_steps}'
+          step_of: "%{current_step_num}. lépés ennyiből: %{total_steps}"
       create:
         error: Hiba történt a javaslat mentése során.
         success: Javaslat létrehozása sikeres. Vázlatként mentve.
@@ -587,7 +604,7 @@ hu:
           error: Hiba történt a javaslatra való szavazás során.
       proposals:
         compare:
-          mine_is_different: Javaslatom más jellegű
+          continue: Folytatni
           no_similars_found: Szép munka! Nincsen hasonló javaslat
           title: Hasonló javaslatok
         complete:
@@ -614,6 +631,7 @@ hu:
           comments: Hozzászólások
         filters:
           activity: Tevékenység
+          amendment_type: Típus
           category: Kategória
           category_prompt: Válassz kategóriát
           origin: Kiindulópont
@@ -621,7 +639,6 @@ hu:
           search: Keresés
           state: Állapot
           voted: Szavazott
-          amendment_type: Típus
         filters_small_view:
           close_modal: Modal bezárása
           filter: Szűrés
@@ -716,7 +733,7 @@ hu:
           step_2: Összehasonlítás
           step_3: Befejez
           step_4: Javaslatod közzététele
-          step_of: '%{current_step_num}. lépés ennyiből: %{total_steps}'
+          step_of: "%{current_step_num}. lépés ennyiből: %{total_steps}"
       publish:
         error: Hiba történt a javaslat közzététele során.
         success: Javaslat közzététele sikeres.
@@ -740,7 +757,10 @@ hu:
           version_number: Verziószám
           version_number_out_of_total: "%{current_version} ennyiből: %{total_count}"
         version:
-          version_index: '%{index} verzió'
+          version_index: "%{index} verzió"
+      withdraw:
+        errors:
+          has_supports: Ez a javaslat nem vonható vissza, mert már rendelkezik támogatással.
     resource_links:
       copied_from_component:
         proposal_proposal: Kapcsolódó javaslatok

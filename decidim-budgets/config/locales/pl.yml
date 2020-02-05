@@ -179,6 +179,13 @@ pl:
             comments_blocked: Komentarze zablokowane
             show_votes: Pokaż głosy
             votes_enabled: Włączone głosowanie
+    events:
+      budgets:
+        order_checkout:
+          email_intro: 'Your vote has been validated. You can always edit it if you like by clicking here:'
+          email_outro: Thank you for your participation
+          email_subject: Your vote has been validated
+          notification_title: Your vote has been validated
     orders:
       checkout:
         error: Podczas przetwarzania Twojego głosu wystąpił błąd

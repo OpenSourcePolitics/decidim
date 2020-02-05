@@ -82,6 +82,7 @@ fr:
           global:
             announcement: Annonce
             comments_enabled: Activer le module de commentaire
+            comments_max_length: Nombre de caractères maximum des commentaires (Mettre 0 pour laisser la valeur par défaut)
             default_registration_terms: Conditions d'inscription par défaut
             enable_pads_creation: Activer la création de pads
             resources_permissions_enabled: Les autorisations d'actions peuvent être définies pour chaque réunion
@@ -92,26 +93,22 @@ fr:
       meetings:
         meeting_closed:
           affected_user:
-            email_intro: 'Votre réunion "%{resource_title}" était terminée. Vous pouvez lire les conclusions sur sa page :'
-            email_outro: Vous avez reçu cette notification parce que vous avez organisé la réunion "%{resource_title}".
-            email_subject: La réunion "%{resource_title}" est close
-            notification_title: La réunion <a href="%{resource_path}">%{resource_title}</a> était close.
-          email_intro: 'La rencontre "%{resource_title}" est terminée. Vous pouvez en lire le compte rendu sur sa page :'
-          email_outro: Vous avez reçu cette notification, car vous suivez la rencontre "%{resource_title}". Vous pouvez arrêter de la suivre à partir du lien précédent.
-          email_subject: La rencontre "%{resource_title}" est terminée
+            email_intro: 'La rencontre "%{resource_title}" est terminée. Vous pouvez en lire le compte rendu sur sa page :'
+            email_outro: Vous avez reçu cette notification, car vous suivez la rencontre "%{resource_title}". Vous pouvez arrêter de la suivre à partir du lien précédent.
+            email_subject: La rencontre "%{resource_title}" est terminée
+            notification_title: La rencontre <a href="%{resource_path}">%{resource_title}</a> est terminée.
           follower:
-            email_intro: 'La rencontre "%{resource_title}" est close. Vous pouvez lire les conclusions sur sa page :'
-            email_outro: Vous avez reçu cette notification parce que vous suivez la rencontre "%{resource_title}". Vous pouvez le déplier à partir du lien précédent.
-            email_subject: La rencontre "%{resource_title}" est close
-            notification_title: La rencontre <a href="%{resource_path}">%{resource_title}</a> était close.
-          notification_title: La rencontre <a href="%{resource_path}">%{resource_title}</a> est terminée.
+            email_intro: 'La rencontre "%{resource_title}" est terminée. Vous pouvez en lire le compte rendu sur sa page :'
+            email_outro: Vous avez reçu cette notification parce que vous suivez la rencontre "%{resource_title}". Vous pouvez arrêter de la suivre à partir du lien précédent.
+            email_subject: La rencontre "%{resource_title}" est terminée
+            notification_title: La rencontre <a href="%{resource_path}">%{resource_title}</a> est terminée.
         meeting_created:
           email_intro: La rencontre "%{resource_title}" a été ajoutée à "%{participatory_space_title}" que vous suivez.
-          email_outro: Vous avez reçu cette notification parce que vous suivez "%{participatory_space_title}". Vous pouvez cesser de le suivre sur cette <a href="%{participatory_space_url}">page</a>.
+          email_outro: Vous avez reçu cette notification parce que vous suivez "%{participatory_space_title}". Vous pouvez arrêter le suivi à partir du lien précédent.
           email_subject: Nouvelle rencontre ajoutée à %{participatory_space_title}
           notification_title: La rencontre <a href="%{resource_path}">%{resource_title}</a> a été ajoutée à %{participatory_space_title}
         meeting_registration_confirmed:
-          notification_title: Votre inscription à la rencontre <a href="%{resource_url}">%{resource_title}</a> a> a été confirmée. Votre code d'enregistrement est %{registration_code}.
+          notification_title: Votre inscription à la rencontre <a href="%{resource_url}">%{resource_title}</a> a> est confirmée. Votre code d'enregistrement est %{registration_code}.
         meeting_registrations_over_percentage:
           email_intro: Le nombre de places occupées par la rencontre "%{resource_title}" est supérieur à %{percentage}%.
           email_outro: Vous avez reçu cette notification parce que vous êtes administrateur de la concertation à laquelle est associée la rencontre.
@@ -141,12 +138,12 @@ fr:
       badges:
         attended_meetings:
           conditions:
-          - Inscrivez-vous aux réunions auxquelles vous souhaitez participer
-          description: Ce badge est attribué lorsque vous participez à plusieurs réunions en face à face.
-          description_another: Cet utilisateur a participé à %{score} réunions.
-          description_own: Vous avez assisté à %{score} réunions.
-          name: Assister aux réunions
-          next_level_in: Assister à %{score} plus de réunions pour atteindre le prochain niveau!
+          - Inscrivez-vous aux rencontres auxquelles vous souhaitez participer
+          description: Ce badge est attribué lorsque vous participez à plusieurs rencontres en face à face.
+          description_another: Cet utilisateur a participé à %{score} rencontres.
+          description_own: Vous avez assisté à %{score} rencontres.
+          name: Assister aux rencontres
+          next_level_in: Assister à %{score} plus de rencontres pour atteindre le prochain niveau!
           unearned_another: Cet utilisateur n'a encore assisté à aucune réunion.
           unearned_own: Vous n'avez encore assisté à aucune réunion.
     meetings:
@@ -195,7 +192,7 @@ fr:
             invalid: Un problème est survenu lors de la mise à jour de cet ordre du jour
             success: Ordre du jour mis à jour avec succès
         exports:
-          meetings: Réunions
+          meetings: Rencontres
           registrations: Inscriptions
         invite_join_meeting_mailer:
           invite:
@@ -291,6 +288,7 @@ fr:
               other: Il y a eu %{count} inscriptions.
             reserved_slots_help: Laissez à 0 si vous n'avez pas de places réservées
             reserved_slots_less_than: Doit être inférieur ou égal à %{count}
+            title: Inscriptions
           update:
             invalid: Il y a eu un problème lors de l'enregistrement des paramètres d'inscription.
             success: Les paramètres d'inscription ont été enregistrés avec succès.
@@ -328,7 +326,7 @@ fr:
         meetings:
           index:
             all: Tout
-            date: Date
+            date: Rendez-vous amoureux
             meetings: Rencontres
             past: Passées
             search: Rechercher
@@ -369,6 +367,7 @@ fr:
           confirm: Confirmer
         show:
           attendees: Nombre de participants
+          back: Retourner à la liste
           contributions: Décompte des contributions
           going: J'y vais
           join: Participer à la rencontre
@@ -380,7 +379,7 @@ fr:
             validated: VALIDÉE
             validation_pending: VALIDATION EN ATTENTE
           remaining_slots:
-            one: Dernière place disponible
+            one: "%{count} emplacement disponible"
             other: "%{count} places disponibles"
           view: Voir
       meetings_map:
@@ -424,9 +423,9 @@ fr:
         transparent: Visible par les non-membres
     metrics:
       meetings:
-        description: Nombre de réunions créées
-        object: des réunions
-        title: Des réunions
+        description: Nombre de rencontres créées
+        object: rencontres
+        title: Rencontres
     participatory_processes:
       participatory_process_groups:
         highlighted_meetings:

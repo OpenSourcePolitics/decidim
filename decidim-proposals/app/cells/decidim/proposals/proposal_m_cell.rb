@@ -14,8 +14,12 @@ module Decidim
 
       private
 
+      def translatable?
+        true
+      end
+
       def title
-        present(model).title
+        decidim_html_escape(present(model).title)
       end
 
       def body
@@ -41,7 +45,7 @@ module Decidim
       end
 
       def description
-        truncate(present(model).body, length: 100)
+        strip_tags(body).truncate(100, separator: /\s/)
       end
 
       def badge_classes
@@ -52,8 +56,7 @@ module Decidim
 
       def statuses
         return [:endorsements_count, :comments_count] if model.draft?
-        return [:creation_date, :endorsements_count, :comments_count] unless has_link_to_resource?
-
+        return [:creation_date, :endorsements_count, :comments_count] if !has_link_to_resource? || !can_be_followed?
         [:creation_date, :follow, :endorsements_count, :comments_count]
       end
 
@@ -89,6 +92,10 @@ module Decidim
         else
           t("decidim.proposals.proposals.votes_count.need_more_votes")
         end
+      end
+
+      def can_be_followed?
+        !model.withdrawn?
       end
     end
   end

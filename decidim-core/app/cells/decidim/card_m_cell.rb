@@ -7,16 +7,30 @@ module Decidim
     include Cell::ViewModel::Partial
     include Decidim::ApplicationHelper
     include Decidim::TooltipHelper
+    include Decidim::DeeplHelper
     include Decidim::SanitizeHelper
     include Decidim::CardHelper
     include Decidim::LayoutHelper
     include Decidim::SearchesHelper
+    include Decidim::LanguageChooserHelper
 
     def show
       render
     end
 
     private
+
+    def default_locale
+      current_organization.default_locale
+    end
+
+    def current_locale
+      I18n.locale.to_s
+    end
+
+    def translatable?
+      false
+    end
 
     def resource_path
       resource_locator(model).path
@@ -27,6 +41,10 @@ module Decidim
     end
 
     def has_image?
+      false
+    end
+
+    def has_children?
       false
     end
 
@@ -85,6 +103,7 @@ module Decidim
 
     def card_classes
       classes = [base_card_class]
+      classes = classes.concat(["card--stack"]).join(" ") if has_children?
       return classes unless has_state?
 
       classes.concat(state_classes).join(" ")

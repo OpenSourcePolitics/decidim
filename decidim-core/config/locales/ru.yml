@@ -16,6 +16,10 @@ ru:
         personal_url: Личный веб-адрес
         remove_avatar: Удалить аватар
     models:
+      decidim/amendable/amendment_accepted_event: Amendmen accepted
+      decidim/amendable/amendment_created_event: Amendmen created
+      decidim/amendable/amendment_rejected_event: Amendmen rejected
+      decidim/amendable/emendation_promoted_event: Amendmen promoted
       decidim/attachment_created_event: Прикрепленный файл
       decidim/component_published_event: Действующая составляющая
       decidim/demoted_membership: No longer a group admin
@@ -143,8 +147,6 @@ ru:
         button: Amend %{model_name}
         error: There has been an error amending this resource.
         help_text: Improve this %{model_name} by modifying its %{amendable_fields}
-        no_amenders: There are no amenders
-        no_amendments: There are no amendments
         promote_button: Promote to %{model_name}
         promote_help_text: You can promote this emendation and publish it as an independent %{model_name}
         section_heading: Amendments (%{count})
@@ -233,13 +235,12 @@ ru:
         name: Code by SMS
       started_at: 'Начато: %{timestamp}'
     authorization_modals:
-      show:
+      content:
         expired:
           authorize: Снова подтвердить свою личность с помощью "%{authorization}"
           explanation: Срок действия подтверждения вашей личности истек. Чтобы выполнить это действие, вам необходимо снова подтвердить свою личность с помощью «%{authorization}».
           title: Срок действия подтверждения личности истек
         incomplete:
-          cancel: Отменить
           explanation: 'Несмотря на то, что вы подтвердили свою личность с помощью «%{authorization}», мы просим вас заново подтвердить свою личность, потому что нам не хватает следующих данных:'
           invalid_field: "%{field}"
           reauthorize: Заново подтвердить свою личность
@@ -985,6 +986,8 @@ ru:
         share_link: Поделиться ссылкой
       version_author:
         deleted: Удаленный участник
+    translate: Translate
+    translated: Translated
     user_activity:
       index:
         no_activities_warning: This user hasn't had any activity yet.
@@ -1133,6 +1136,7 @@ ru:
       minimum_password_length:
         one: "(%{count} character minimum)"
         other: "(%{count} characters minimum)"
+      password_help: 'At least 8 characters, a capital letter and a special character (eg: !)'
     unlocks:
       new:
         resend_unlock_instructions: Resend unlock instructions
@@ -1163,6 +1167,17 @@ ru:
       too_short: is too short (under 15 characters)
   forms:
     required: Обязательно
+  instructions:
+    decidim:
+      system:
+        organizations:
+          smtp_settings:
+            address: Address
+            from_email: From email
+            from_label: From label
+            password: Password
+            port: Port
+            user_name: User name
   invisible_captcha:
     sentence_for_humans: Если вы человек, не заполняйте это поле
     timestamp_error_message: Извините, это было слишком быстро! Отправьте, пожалуйста, еще раз.

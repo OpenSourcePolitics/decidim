@@ -21,7 +21,6 @@ module Decidim
       # Returns nothing.
       def call
         return broadcast(:invalid) if form.invalid?
-
         @organization = nil
         invite_form = nil
 
@@ -56,6 +55,7 @@ module Decidim
           badges_enabled: true,
           user_groups_enabled: true,
           default_locale: form.default_locale,
+          smtp_settings: form.encrypted_smtp_settings,
           send_welcome_notification: true
         )
       end

@@ -8,8 +8,11 @@ module Decidim
     #
     class UpdateOrganizationForm < Form
       include TranslatableAttributes
+      include JsonbAttributes
 
       mimic :organization
+
+      include HasSmtpSettings
 
       attribute :name, String
       attribute :host, String
@@ -17,12 +20,29 @@ module Decidim
       attribute :available_authorizations, Array[String]
       attribute :users_registration_mode, String
 
+      OMNIATH_PROVIDERS_ATTRIBUTES = Decidim::User.omniauth_providers.flat_map do |provider|
+        Rails.application.secrets.dig(:omniauth, provider).keys.map do |setting|
+          if setting == :enabled
+            ["omniauth_settings_#{provider}_enabled".to_sym, Boolean]
+          else
+            ["omniauth_settings_#{provider}_#{setting}".to_sym, String]
+          end
+        end
+      end
+
+      jsonb_attribute :omniauth_settings, OMNIATH_PROVIDERS_ATTRIBUTES
+
+      attr_writer :password
+
       validates :name, :host, :users_registration_mode, presence: true
       validate :validate_organization_uniqueness
       validates :users_registration_mode, inclusion: { in: Decidim::Organization.users_registration_modes }
 
       def map_model(model)
         self.secondary_hosts = model.secondary_hosts.join("\n")
+        self.omniauth_settings = Hash[(model.omniauth_settings || []).map do |k, v|
+          [k, Decidim::OmniauthProvider.value_defined?(v) ? Decidim::AttributeEncryptor.decrypt(v) : v]
+        end]
       end
 
       def clean_secondary_hosts
@@ -35,6 +55,16 @@ module Decidim
         return unless available_authorizations
 
         available_authorizations.select(&:present?)
+      end
+
+      def password
+        Decidim::AttributeEncryptor.decrypt(encrypted_password) unless encrypted_password.nil?
+      end
+
+      def encrypted_omniauth_settings
+        Hash[omniauth_settings.map do |k, v|
+          [k, Decidim::OmniauthProvider.value_defined?(v) ? Decidim::AttributeEncryptor.encrypt(v) : v]
+        end]
       end
 
       private

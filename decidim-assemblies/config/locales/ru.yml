@@ -1,3 +1,4 @@
+---
 ru:
   activemodel:
     attributes:
@@ -65,19 +66,19 @@ ru:
   activerecord:
     models:
       decidim/assembly:
-        one: Собрание
         few: Собрания
         many: Собраний
+        one: Собрание
         other: Собраний
       decidim/assembly_member:
-        one: Член президиума собрания
         few: Члена президиума собрания
         many: Членов президиума собрания
+        one: Член президиума собрания
         other: Членов президиума собрания
       decidim/assembly_user_role:
-        one: Роль участника собрания
         few: Роли участников собрания
         many: Ролей участников собрания
+        one: Роль участника собрания
         other: Ролей участников собрания
   decidim:
     admin:
@@ -89,8 +90,6 @@ ru:
           success: Собрание успешно добавлено.
         edit:
           update: Обновить
-        form:
-          title: Общие сведения
         index:
           not_published: Не обнародовано
           private: Частное
@@ -223,6 +222,7 @@ ru:
             select_an_assembly_type: Выберите вид собрания
             slug_help: 'Сокращенные веб-адреса используются для создания ссылок на это собрание. В них допустимы только буквы, цифры и тире, и они должны начинаться с буквы. Пример: %{url}'
             social_handlers: Социальные сети
+            title: Общие сведения
         assembly_copies:
           form:
             slug_help: 'Сокращенные веб-адреса используются для создания ссылок на это собрание. В них допустимы только буквы, цифры и тире, и они должны начинаться с буквы. Пример: %{url}'
@@ -258,8 +258,6 @@ ru:
         city_council: Городской Совет
         others: Другие
         public: Граждане
-      filter:
-        all: Все
       index:
         title: Собрания
       pages:
@@ -336,9 +334,9 @@ ru:
           promoted_assemblies: Рекомендуемые собрания
         order_by_assemblies:
           assemblies:
-            one: "%{count} собрание"
             few: "%{count} собрания"
             many: "%{count} собраний"
+            one: "%{count} собрание"
             other: "%{count} собраний"
         promoted_assembly:
           more_info: Дополнительные сведения

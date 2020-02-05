@@ -10,13 +10,16 @@ module Decidim
     include Decidim::DataPortability
     include Decidim::Searchable
 
-    OMNIAUTH_PROVIDERS = [:facebook, :twitter, :google_oauth2, (:developer if Rails.env.development?)].compact
-    ROLES = %w(admin user_manager).freeze
+    class Roles
+      def self.all
+        Decidim.config.user_roles
+      end
+    end
 
     devise :invitable, :database_authenticatable, :registerable, :confirmable, :timeoutable,
            :recoverable, :rememberable, :trackable, :decidim_validatable,
            :decidim_newsletterable,
-           :omniauthable, omniauth_providers: OMNIAUTH_PROVIDERS,
+           :omniauthable, omniauth_providers: Decidim::OmniauthProvider.available.keys,
                           request_keys: [:env], reset_password_keys: [:decidim_organization_id, :email],
                           confirmation_keys: [:decidim_organization_id, :email]
 
@@ -48,6 +51,11 @@ module Decidim
     scope :confirmed, -> { where.not(confirmed_at: nil) }
     scope :not_confirmed, -> { where(confirmed_at: nil) }
 
+    scope :interested_in_scopes, lambda { |scope_ids|
+      ids = scope_ids.map { |i| "%#{i}%" }.join(",")
+      where("extended_data->>'interested_scopes' ~~ ANY('{#{ids}}')")
+    }
+
     attr_accessor :newsletter_notifications
 
     searchable_fields({
@@ -58,6 +66,8 @@ module Decidim
                       },
                       index_on_create: ->(user) { !user.deleted? },
                       index_on_update: ->(user) { !user.deleted? })
+
+    before_save :ensure_encrypted_password
 
     def user_invited?
       invitation_token_changed? && invitation_accepted_at_changed?
@@ -201,11 +211,15 @@ module Decidim
     end
 
     def all_roles_are_valid
-      errors.add(:roles, :invalid) unless roles.compact.all? { |role| ROLES.include?(role) }
+      errors.add(:roles, :invalid) unless roles.compact.all? { |role| Roles.all.include?(role) }
     end
 
     def available_locales
       Decidim.available_locales.map(&:to_s)
+    end
+
+    def ensure_encrypted_password
+      restore_encrypted_password! if will_save_change_to_encrypted_password? && encrypted_password.blank?
     end
   end
 end

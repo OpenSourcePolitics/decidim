@@ -8,7 +8,7 @@ fr:
         decidim_scope_id: Secteur (concertation)
         description: Description
         end_date: Date de fin
-        progress: Avancement
+        progress: Progression
         project_ids: Projets inclus
         proposals: Propositions incluses
         start_date: Date de début
@@ -18,7 +18,7 @@ fr:
         description: Description
         key: Clé
         name: Nom
-        progress: Avancement
+        progress: Progression
       timeline_entry:
         description: Description
         entry_date: Date
@@ -36,7 +36,7 @@ fr:
         confirm_destroy: Êtes-vous sûr de vouloir supprimer ce %{name}?
         destroy: Supprimer
         edit: Modifier
-        new: Nouvelle %{name}
+        new: Nouveau %{name}
         preview: Aperçu
         timeline_entries: Évolution du projet
         title: Actions
@@ -75,7 +75,7 @@ fr:
             success: Réalisation mise à jour avec succès
         shared:
           subnav:
-            statuses: Etats d'avancement
+            statuses: Progrès
         statuses:
           create:
             invalid: Un problème est survenu lors de la création de cet état
@@ -86,7 +86,7 @@ fr:
             title: Modifier l'état
             update: Mettre à jour l'état
           index:
-            title: Etats d'avancement
+            title: Progrès
           new:
             create: Créer un statut
             title: Nouveau statut
@@ -124,16 +124,16 @@ fr:
         result:
           fields:
             end_date: Date de fin
-            progress: Pourcentage d'avancement
+            progress: Progression
             start_date: Date de début
-            status: Etat d'avancement
+            status: Progression
             title: Titre
         status:
           fields:
             description: Description
             key: Clé
-            name: Etat d'avancement
-            progress: Avancement
+            name: Progression
+            progress: Progression
         timeline_entry:
           fields:
             description: Description
@@ -164,7 +164,7 @@ fr:
             last_edited_by: Dernière édition par
             last_updated_at: Dernière mise à jour à
             meetings: Réunions
-            number_of_versions: Nombre de versions
+            number_of_versions: Versions
             proposals: Propositions
             show_all_versions: Afficher toutes les versions
             version_author: Auteur de la version
@@ -189,7 +189,8 @@ fr:
           global:
             categories_label: Intitulé pour "Catégories"
             comments_enabled: Activer le module de Commentaires
-            display_progress_enabled: Afficher l'état d'avancement
+            comments_max_length: Nombre de caractères maximum des commentaires (Mettre 0 pour laisser la valeur par défaut)
+            display_progress_enabled: Afficher la progression
             heading_leaf_level_results: Intitulé pour "Projets"
             heading_parent_level_results: Intitulé pour "Réalisations"
             intro: Introduction
@@ -206,13 +207,13 @@ fr:
         result_progress_updated:
           email_intro: 'La réalisation "%{resource_title}", qui inclut la proposition "%{proposal_title}", est maintenant terminée à %{progress}%. Vous pouvez la voir sur cette page:'
           email_outro: Vous avez reçu cette notification car vous suivez "%{proposal_title}" et cette proposition est incluse dans le résultat "%{resource_title}". Vous pouvez cesser de recevoir des notifications en suivant le lien précédent.
-          email_subject: Mise à jour de l'avancement de %{resource_title}
+          email_subject: Mise à jour de la progression de %{resource_title}
           notification_title: La réalisation <a href="%{resource_path}">%{resource_title}</a>, qui inclut la proposition <a href="%{proposal_path}">%{proposal_title}</a>, est désormais achevée à %{progress}%.
     metrics:
       results:
-        description: Nombre de réalisations générées
-        object: réalisations
-        title: Réalisations
+        description: Nombre de résultats générés
+        object: résultats
+        title: Résultats
     participatory_processes:
       participatory_process_groups:
         highlighted_results:

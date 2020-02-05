@@ -51,8 +51,8 @@ module Decidim
           .merge(omnipresent_banner_attributes)
           .merge(colors_attributes)
           .tap do |attributes|
-            attributes[:header_snippets] = form.header_snippets if Decidim.enable_html_header_snippets
-          end
+          attributes[:header_snippets] = form.header_snippets if Decidim.enable_html_header_snippets
+        end
       end
 
       def appearance_attributes
@@ -96,15 +96,19 @@ module Decidim
       end
 
       def colors_attributes
-        {
-          colors: {
-            primary: form.primary_color,
-            secondary: form.secondary_color,
-            success: form.success_color,
-            warning: form.warning_color,
-            alert: form.alert_color
+        if form.enable_custom_colors
+          {
+            colors: {
+              primary: form.primary_color,
+              secondary: form.secondary_color,
+              success: form.success_color,
+              warning: form.warning_color,
+              alert: form.alert_color
+            }
           }
-        }
+        else
+          { colors: {} }
+        end
       end
     end
   end

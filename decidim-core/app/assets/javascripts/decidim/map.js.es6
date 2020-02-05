@@ -60,12 +60,11 @@ const addMarkers = (markersData, markerClusters, map) => {
   });
 
   map.addLayer(markerClusters);
-  // map.fitBounds(bounds, { padding: [100, 100] });
 };
 
 const loadMap = (mapId, markersData) => {
   let markerClusters = L.markerClusterGroup();
-  const { hereAppId, hereAppCode } = window.Decidim.mapConfiguration;
+  const { hereApiKey } = window.Decidim.mapConfiguration;
 
   if (window.Decidim.currentMap) {
     window.Decidim.currentMap.remove();
@@ -75,8 +74,7 @@ const loadMap = (mapId, markersData) => {
   const map = L.map(mapId);
 
   L.tileLayer.here({
-    appId: hereAppId,
-    appCode: hereAppCode
+    apiKey: hereApiKey
   }).addTo(map);
 
   const geojsonLayer = L.geoJSON(window.Decidim.geojson, {
@@ -91,11 +89,15 @@ const loadMap = (mapId, markersData) => {
 
   if (markersData.length > 0) {
     addMarkers(markersData, markerClusters, map);
+    if (markersData.length == 1) {
+      map.fitBounds(markerClusters.getBounds(), { padding: [100, 100] });
+    } else {
+      map.fitBounds(markerClusters.getBounds(), { padding: [10, 10] });
+    }
   } else {
-    map.fitWorld();
+    map.fitBounds(geojsonLayer.getBounds());
   }
 
-  map.fitBounds(geojsonLayer.getBounds());
 
   map.scrollWheelZoom.disable();
 
@@ -114,10 +116,9 @@ $(() => {
   const $map = $(`#${mapId}`);
 
   const markersData = $map.data("markers-data");
-  const hereAppId = $map.data("here-app-id");
-  const hereAppCode = $map.data("here-app-code");
+  const hereApiKey = $map.data("here-api-key");
 
-  window.Decidim.mapConfiguration = { hereAppId, hereAppCode };
+  window.Decidim.mapConfiguration = { hereApiKey };
 
   if ($map.length > 0) {
     window.Decidim.currentMap = loadMap(mapId, markersData);

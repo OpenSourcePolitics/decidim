@@ -5,14 +5,21 @@
     <%= render :image if has_image? %>
     <div class="card__content">
       <%= render :header %>
-
       <div class="card__text">
         <div class="card__text--paragraph">
           <%= render :badge if has_badge? %>
-          <%= description %>
+          <span <%= "id=#{translate_helper_for(element: :body, model: model)}" %>>
+            <%= description %>
+          </span>
         </div>
       </div>
-
+      <% if translatable? %>
+        <%= translate_button_helper_for(
+              title: title,
+              body: description,
+              model: model
+            ) %>
+      <% end %>
       <%= render :tags %>
     </div>
 

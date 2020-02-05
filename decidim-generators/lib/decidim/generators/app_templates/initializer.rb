@@ -10,9 +10,8 @@ Decidim.configure do |config|
 
   # Geocoder configuration
   # config.geocoder = {
-  #   static_map_url: "https://image.maps.cit.api.here.com/mia/1.6/mapview",
-  #   here_app_id: Rails.application.secrets.geocoder[:here_app_id],
-  #   here_app_code: Rails.application.secrets.geocoder[:here_app_code]
+  #   static_map_url: "https://image.maps.ls.hereapi.com/mia/1.6/mapview",
+  #   here_api_key: Rails.application.secrets.geocoder[:here_api_key]
   # }
 
   # Custom resource reference generator method
@@ -64,6 +63,53 @@ Decidim.configure do |config|
   # end
   #
   # config.sms_gateway_service = "MySMSGatewayService"
+
+  # Timestamp service configuration
+  #
+  # Provide a class to generate a timestamp for a document. The instances of
+  # this class are initialized with a hash containing the :document key with
+  # the document to be timestamped as value. The istances respond to a
+  # timestamp public method with the timestamp
+  #
+  # An example class would be something like:
+  #
+  # class MyTimestampService
+  #   attr_accessor :document
+  #
+  #   def initialize(args = {})
+  #     @document = args.fetch(:document)
+  #   end
+  #
+  #   def timestamp
+  #     # Code to generate timestamp
+  #     "My timestamp"
+  #   end
+  # end
+  #
+  # config.timestamp_service = "MyTimestampService"
+
+  # PDF signature service configuration
+  #
+  # Provide a class to process a pdf and return the document including a
+  # digital signature. The instances of this class are initialized with a hash
+  # containing the :pdf key with the pdf file content as value. The instances
+  # respond to a signed_pdf method containing the pdf with the signature
+  #
+  # An example class would be something like:
+  #
+  # class MyPDFSignatureService
+  #   attr_accessor :pdf
+  #
+  #   def initialize(args = {})
+  #     @pdf = args.fetch(:pdf)
+  #   end
+  #
+  #   def signed_pdf
+  #     # Code to return the pdf signed
+  #   end
+  # end
+  #
+  # config.pdf_signature_service = "MyPDFSignatureService"
 
   # Etherpad configuration
   #

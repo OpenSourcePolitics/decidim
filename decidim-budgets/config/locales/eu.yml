@@ -171,6 +171,13 @@ eu:
             comments_blocked: Iruzkinak blokeatuta
             show_votes: Erakutsi botoak
             votes_enabled: Botoak gaituta
+    events:
+      budgets:
+        order_checkout:
+          email_intro: 'Your vote has been validated. You can always edit it if you like by clicking here:'
+          email_outro: Thank you for your participation
+          email_subject: Your vote has been validated
+          notification_title: Your vote has been validated
     orders:
       checkout:
         error: Errorea gertatu da zure botoa prozesatzean

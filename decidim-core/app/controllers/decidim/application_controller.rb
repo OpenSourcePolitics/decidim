@@ -23,6 +23,12 @@ module Decidim
     helper Decidim::ComponentPathHelper
     helper Decidim::ViewHooksHelper
     helper Decidim::CardHelper
+    helper Decidim::SanitizeHelper
+    helper Decidim::DeeplHelper
+
+    register_permissions(::Decidim::ApplicationController,
+                         ::Decidim::Admin::Permissions,
+                         ::Decidim::Permissions)
 
     # Saves the location before loading each page so we can return to the
     # right page.
@@ -56,10 +62,7 @@ module Decidim
     end
 
     def permission_class_chain
-      [
-        Decidim::Admin::Permissions,
-        Decidim::Permissions
-      ]
+      ::Decidim.permissions_registry.chain_for(::Decidim::ApplicationController)
     end
 
     def permission_scope
@@ -75,7 +78,6 @@ module Decidim
 
     def track_continuity_badge
       return unless current_user
-
       Decidim::ContinuityBadgeTracker.new(current_user).track!(Time.zone.today)
     end
   end

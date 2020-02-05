@@ -10,9 +10,13 @@ shared_examples_for "has questionnaire" do
       expect(page).to have_i18n_content(questionnaire.title, upcase: true)
       expect(page).to have_i18n_content(questionnaire.description)
 
-      expect(page).to have_no_i18n_content(question.body)
+      expect(page).not_to have_css(".form.answer-questionnaire")
 
-      expect(page).to have_content("Sign in with your account or sign up to answer the questionnaire.")
+      within ".questionnaire-question_readonly" do
+        expect(page).to have_i18n_content(question.body)
+      end
+
+      expect(page).to have_content("Sign in with your account or sign up to answer the form.")
     end
   end
 
@@ -39,7 +43,7 @@ shared_examples_for "has questionnaire" do
 
       visit questionnaire_public_path
 
-      expect(page).to have_content("You have already answered this questionnaire.")
+      expect(page).to have_content("You have already answered this form.")
       expect(page).to have_no_i18n_content(question.body)
     end
 
@@ -50,7 +54,7 @@ shared_examples_for "has questionnaire" do
           questionnaire: questionnaire,
           question_type: "single_option",
           position: 0,
-          answer_options: [
+          options: [
             { "body" => Decidim::Faker::Localized.sentence },
             { "body" => Decidim::Faker::Localized.sentence }
           ]
@@ -130,7 +134,7 @@ shared_examples_for "has questionnaire" do
 
       it "submits the form and shows errors" do
         within ".alert.flash" do
-          expect(page).to have_content("error")
+          expect(page).to have_content("problem")
         end
 
         expect(page).to have_content("can't be blank")
@@ -159,7 +163,7 @@ shared_examples_for "has questionnaire" do
           question_type: "single_option",
           position: 0,
           mandatory: true,
-          answer_options: [
+          options: [
             { "body" => Decidim::Faker::Localized.sentence },
             { "body" => Decidim::Faker::Localized.sentence }
           ]
@@ -176,7 +180,7 @@ shared_examples_for "has questionnaire" do
 
       it "submits the form and shows errors" do
         within ".alert.flash" do
-          expect(page).to have_content("error")
+          expect(page).to have_content("problem")
         end
 
         expect(page).to have_content("can't be blank")
@@ -201,7 +205,7 @@ shared_examples_for "has questionnaire" do
           :questionnaire_question,
           questionnaire: questionnaire,
           question_type: question_type,
-          answer_options: [
+          options: [
             { "body" => answer_option_bodies[0] },
             { "body" => answer_option_bodies[1] },
             { "body" => answer_option_bodies[2], "free_text" => true }
@@ -215,7 +219,7 @@ shared_examples_for "has questionnaire" do
           questionnaire: questionnaire,
           question_type: "multiple_option",
           max_choices: 2,
-          answer_options: [
+          options: [
             { "body" => Decidim::Faker::Localized.sentence },
             { "body" => Decidim::Faker::Localized.sentence },
             { "body" => Decidim::Faker::Localized.sentence }
@@ -266,7 +270,7 @@ shared_examples_for "has questionnaire" do
           accept_confirm { click_button "Submit" }
 
           within ".alert.flash" do
-            expect(page).to have_content("There's been errors when answering")
+            expect(page).to have_content("There was a problem answering")
           end
 
           expect(page).to have_field("questionnaire_answers_0_choices_2_custom_body", with: "Cacatua")
@@ -312,7 +316,7 @@ shared_examples_for "has questionnaire" do
           accept_confirm { click_button "Submit" }
 
           within ".alert.flash" do
-            expect(page).to have_content("There's been errors when answering")
+            expect(page).to have_content("There was a problem answering")
           end
 
           expect(page).to have_field("questionnaire_answers_0_choices_2_custom_body", with: "Cacatua")
@@ -342,7 +346,7 @@ shared_examples_for "has questionnaire" do
 
     context "when question type is single option" do
       let(:answer_options) { Array.new(2) { { "body" => Decidim::Faker::Localized.sentence } } }
-      let!(:question) { create(:questionnaire_question, questionnaire: questionnaire, question_type: "single_option", answer_options: answer_options) }
+      let!(:question) { create(:questionnaire_question, questionnaire: questionnaire, question_type: "single_option", options: answer_options) }
 
       it "renders answers as a collection of radio buttons" do
         visit questionnaire_public_path
@@ -361,14 +365,14 @@ shared_examples_for "has questionnaire" do
 
         visit questionnaire_public_path
 
-        expect(page).to have_content("You have already answered this questionnaire.")
+        expect(page).to have_content("You have already answered this form.")
         expect(page).to have_no_i18n_content(question.body)
       end
     end
 
     context "when question type is multiple option" do
       let(:answer_options) { Array.new(3) { { "body" => Decidim::Faker::Localized.sentence } } }
-      let!(:question) { create(:questionnaire_question, questionnaire: questionnaire, question_type: "multiple_option", answer_options: answer_options) }
+      let!(:question) { create(:questionnaire_question, questionnaire: questionnaire, question_type: "multiple_option", options: answer_options) }
 
       it "renders answers as a collection of radio buttons" do
         visit questionnaire_public_path
@@ -390,7 +394,7 @@ shared_examples_for "has questionnaire" do
 
         visit questionnaire_public_path
 
-        expect(page).to have_content("You have already answered this questionnaire.")
+        expect(page).to have_content("You have already answered this form.")
         expect(page).to have_no_i18n_content(question.body)
       end
 
@@ -410,7 +414,7 @@ shared_examples_for "has questionnaire" do
         accept_confirm { click_button "Submit" }
 
         within ".alert.flash" do
-          expect(page).to have_content("There's been errors")
+          expect(page).to have_content("There was a problem answering")
         end
 
         expect(page).to have_content("are too many")
@@ -427,7 +431,7 @@ shared_examples_for "has questionnaire" do
 
     context "when question type is multiple option" do
       let(:answer_options) { Array.new(2) { { "body" => Decidim::Faker::Localized.sentence } } }
-      let!(:question) { create(:questionnaire_question, questionnaire: questionnaire, question_type: "multiple_option", answer_options: answer_options) }
+      let!(:question) { create(:questionnaire_question, questionnaire: questionnaire, question_type: "multiple_option", options: answer_options) }
 
       it "renders the question answers as a collection of radio buttons" do
         visit questionnaire_public_path
@@ -447,7 +451,7 @@ shared_examples_for "has questionnaire" do
 
         visit questionnaire_public_path
 
-        expect(page).to have_content("You have already answered this questionnaire.")
+        expect(page).to have_content("You have already answered this form.")
         expect(page).to have_no_i18n_content(question.body)
       end
     end
@@ -458,7 +462,7 @@ shared_examples_for "has questionnaire" do
           :questionnaire_question,
           questionnaire: questionnaire,
           question_type: "sorting",
-          answer_options: [
+          options: [
             { "body" => "idiotas" },
             { "body" => "trates" },
             { "body" => "No" },
@@ -514,7 +518,7 @@ shared_examples_for "has questionnaire" do
         accept_confirm { click_button "Submit" }
 
         within ".alert.flash" do
-          expect(page).to have_content("error")
+          expect(page).to have_content("problem")
         end
 
         expect(page).to have_content("are not complete")

@@ -17,7 +17,7 @@ FactoryBot.define do
   end
 
   sequence(:name) do |n|
-    "#{Faker::Name.name} #{n}"
+    "#{Faker::Name.name} #{n}".delete("'")
   end
 
   sequence(:nickname) do |n|
@@ -87,6 +87,16 @@ FactoryBot.define do
     badges_enabled { true }
     user_groups_enabled { true }
     send_welcome_notification { true }
+    comments_max_length { 1000 }
+    smtp_settings do
+      {
+        "from" => "test@example.org",
+        "user_name" => "test",
+        "encrypted_password" => Decidim::AttributeEncryptor.encrypt("demo"),
+        "port" => "25",
+        "address" => "smtp.example.org"
+      }
+    end
 
     after(:create) do |organization|
       tos_page = Decidim::StaticPage.find_by(slug: "terms-and-conditions", organization: organization)
@@ -105,13 +115,17 @@ FactoryBot.define do
     tos_agreement { "1" }
     avatar { Decidim::Dev.test_file("avatar.jpg", "image/jpeg") }
     personal_url { Faker::Internet.url }
-    about { Faker::Lorem.paragraph(2) }
+    about { "<script>alert(\"ABOUT\");</script>" + Faker::Lorem.paragraph(2) }
     confirmation_sent_at { Time.current }
     accepted_tos_version { organization.tos_version }
     email_on_notification { true }
 
     trait :confirmed do
       confirmed_at { Time.current }
+    end
+
+    trait :newsletter_notifications do
+      newsletter_notifications_at { Time.current }
     end
 
     trait :deleted do
@@ -131,6 +145,7 @@ FactoryBot.define do
       email { "" }
       password { "" }
       password_confirmation { "" }
+      encrypted_password { "" }
       managed { true }
     end
 
@@ -170,6 +185,7 @@ FactoryBot.define do
     email { generate(:user_group_email) }
     nickname { generate(:nickname) }
     avatar { Decidim::Dev.test_file("avatar.jpg", "image/jpeg") }
+    about { "<script>alert(\"ABOUT\");</script>" + Faker::Lorem.paragraph(2) }
     organization
 
     transient do
@@ -309,12 +325,24 @@ FactoryBot.define do
     manifest_name { "dummy" }
     published_at { Time.current }
 
+    trait :with_one_step do
+      step_settings do
+        {
+          1 => { dummy_step_setting: true }
+        }
+      end
+    end
+
     trait :unpublished do
       published_at { nil }
     end
 
     trait :published do
       published_at { Time.current }
+    end
+
+    trait :with_permissions do
+      settings { { Random.rand => Random.new.bytes(5) } }
     end
   end
 

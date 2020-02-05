@@ -19,8 +19,8 @@
     <div class="card">
       <div class="card__content">
         <% if allow_answers? %>
-          <% if current_user %>
-            <% if questionnaire.answered_by?(current_user) %>
+          <% if visitor_can_answer? %>
+            <% if visitor_already_answered? %>
               <div class="section">
                 <div class="callout success">
                   <h5><%= t(".questionnaire_answered.title") %></h5>
@@ -39,11 +39,18 @@
                 <% end %>
 
                 <%= decidim_form_for(@form, url: update_url, method: :post, html: { class: "form answer-questionnaire" }) do |form| %>
+                  <%= invisible_captcha %>
                   <% @form.answers.each_with_index do |answer, answer_idx| %>
                     <div class="row column">
                       <%= fields_for "questionnaire[answers][#{answer_idx}]", answer do |answer_form| %>
                         <%= render "decidim/forms/questionnaires/answer", answer_form: answer_form, answer: answer, answer_idx: answer_idx, disabled: !current_participatory_space.can_participate?(current_user) %>
                       <% end %>
+                    </div>
+                  <% end %>
+
+                  <% if show_represent_user_group? %>
+                    <div class="row column represent-user-group">
+                      <%= cell("decidim/represent_user_group", form) %>
                     </div>
                   <% end %>
 
@@ -66,6 +73,10 @@
               <p>
                 <%= t(".answer_questionnaire.anonymous_user_message", sign_in_link: decidim.new_user_session_path, sign_up_link: decidim.new_user_registration_path).html_safe %>
               </p>
+
+              <ol>
+                <%= cell("decidim/forms/question_readonly", collection: @questionnaire.questions) %>
+              </ol>
             </div>
           <% end %>
         <% else %>

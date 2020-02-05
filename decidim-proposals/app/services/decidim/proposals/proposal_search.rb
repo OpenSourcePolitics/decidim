@@ -33,6 +33,7 @@ module Decidim
             .where.not(coauthorships_count: 0)
             .joins(:coauthorships)
             .where.not(decidim_coauthorships: { decidim_author_type: "Decidim::Organization" })
+            .where.not(decidim_coauthorships: { decidim_author_type: "Decidim::Meetings::Meeting" })
         when "user_group"
           query
             .where.not(coauthorships_count: 0)
@@ -84,9 +85,9 @@ module Decidim
       def search_type
         case type
         when "proposals"
-          query.where.not(id: query.joins(:amendable).pluck(:id))
+          query.only_amendables
         when "amendments"
-          query.where(id: query.joins(:amendable).pluck(:id))
+          query.only_emendations
         else
           query
         end
