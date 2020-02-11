@@ -96,15 +96,11 @@ es-PY:
             email_outro: Ha recibido esta notificación porque organizó la reunión "%{resource_title}".
             email_subject: Se ha cerrado el encuentro "%{resource_title}"
             notification_title: El encuentro <a href="%{resource_path}">%{resource_title}</a> ha sido cerrada.
-          email_intro: 'La rencontre "%{resource_title}" est terminée. Vous pouvez en lire le compte rendu sur sa page :'
-          email_outro: Vous avez reçu cette notification, car vous suivez la rencontre "%{resource_title}". Vous pouvez arrêter de la suivre à partir du lien précédent.
-          email_subject: La rencontre "%{resource_title}" est terminée
           follower:
             email_intro: 'Se ha cerrado la reunión "%{resource_title}". Puedes leer las conclusiones en su página:'
             email_outro: Ha recibido esta notificación porque está siguiendo la reunión "%{resource_title}". Puedes dejar de seguirlo desde el enlace anterior.
             email_subject: Se ha cerrado el encuentro "%{resource_title}"
             notification_title: El encuentro <a href="%{resource_path}">%{resource_title}</a> ha sido cerrada.
-          notification_title: La rencontre <a href="%{resource_path}">%{resource_title}</a> est terminée.
         meeting_created:
           email_intro: Se ha añadido el encuentro "%{resource_title}" al espacio "%{participatory_space_title}" que estás siguiendo.
           email_outro: Has recibido esta notificación porque sigues "%{participatory_space_title}". Puedes dejar de seguirlo en el enlace anterior.
@@ -291,6 +287,7 @@ es-PY:
               other: Ha habido %{count} registros.
             reserved_slots_help: Déjalo en 0 si no tienes espacios reservados
             reserved_slots_less_than: Debe ser menor que o igual a %{count}
+            title: Registros
           update:
             invalid: Se ha producido un problema al guardar la configuración de la inscripción.
             success: Se han guardado correctamente las configuraciones de inscripciones de encuentros.

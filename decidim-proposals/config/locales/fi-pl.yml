@@ -3,6 +3,7 @@ fi-pl:
   activemodel:
     attributes:
       collaborative_draft:
+        address: Osoite
         body: Ehdotuksen kuvaus
         category_id: Aihepiiri
         decidim_scope_id: Teema
@@ -11,7 +12,7 @@ fi-pl:
         title: Ehdotuksen nimi
         user_group_id: Luo yhteistyöluonnos nimellä
       proposal:
-        address: Address
+        address: Osoite
         answer: Vastaus
         answered_at: Vastattu osoitteessa
         automatic_hashtags: Hashtagit lisätty automaattisesti
@@ -28,8 +29,15 @@ fi-pl:
       proposals_copy:
         copy_proposals: Ymmärrän, että tämä tuo kaikki valitun komponentin ehdotukset nykyiseen komponenttiin ja että tätä toimenpidettä ei voi peruuttaa.
         origin_component_id: Osio josta ehdotukset kopioidaan
+      proposals_import:
+        import_proposals: Tuo ehdotuksia
+        keep_authors: Säilytä alkuperäiset laatijat
     errors:
       models:
+        participatory_text:
+          attributes:
+            document:
+              invalid_document_type: 'Virheellinen asiakirjan tyyppi. Hyväksytyt tiedostomuodot ovat: %{valid_mime_types}'
         proposal:
           attributes:
             attachment:
@@ -107,16 +115,7 @@ fi-pl:
             votes_blocked: Äänestys estetty
             votes_enabled: Äänestys käytössä
             votes_hidden: Piilotetut äänet (jos äänet ovat käytössä, tämä valitseminen piilottaa äänimäärän)
-            votes_weight_enabled: Up / Down / Neutral votes enabled
     events:
-      proposal_created:
-        email_subject: Nouvelle proposition de %{author_name}.
-        moderation:
-          email_intro: Email intro
-          email_subject: Email subject
-          moderation_url: Moderation url
-        notification_title: Il y a une nouvelle proposition de %{author_name} dans <a href="%{resource_path}">%{resource_title}</a>a>a
-        url: 'url de commentaire : %{resource_url}'
       proposals:
         collaborative_draft_access_accepted:
           email_intro: '%{requester_name} on annettu käyttöoikeus yhteistyöluonnokseen <a href="%{resource_path}">%{resource_title}</a> osallistujana.'
@@ -164,15 +163,11 @@ fi-pl:
             email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet luonut kohteen "%{resource_title}".
             email_subject: Ehdotuksesi on hyväksytty
             notification_title: Ehdotuksesi <a href="%{resource_path}">%{resource_title}</a> on hyväksytty.
-          email_intro: 'Пропозиція "%{resource_title}" була прийнята. Ви можете прочитати відповідь на сторінці:'
-          email_outro: Ви отримали це сповіщення, тому що ви стежите за "%{resource_title}". Ви можете припинити стежити за ним, перейшовши за наведеним вище посиланням.
-          email_subject: Пропозиція, за якою ви стежите, була прийнята
           follower:
             email_intro: 'Ehdotus "%{resource_title}" on hyväksytty. Voit lukea vastauksen täältä:'
             email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat "%{resource_title}". Voit lopettaa sen seuraamisen edellä esitetyn linkin kautta.
             email_subject: Seuraamasi ehdotus on hyväksytty
             notification_title: Ehdotus <a href="%{resource_path}">%{resource_title}</a> on hyväksytty.
-          notification_title: Пропозицію <a href="%{resource_path}">%{resource_title}</a> було прийнято.
         proposal_endorsed:
           email_intro: '%{endorser_name} %{endorser_nickname}, jota seuraat, on juuri suositellut ehdotusta "%{resource_title}" ja uskomme, että tämä voi kiinnostaa sinua. Tutustu ehdotukseen ja osallistu:'
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet seuraat %{endorser_nickname}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
@@ -184,15 +179,11 @@ fi-pl:
             email_outro: Saat tämän ilmoituksen, koska olet luonut kohteen "%{resource_title}".
             email_subject: Ehdotuksesi arvioidaan
             notification_title: Ehdotuksesi <a href="%{resource_path}">%{resource_title}</a> arvioidaan.
-          email_intro: 'Пропозиція "%{resource_title}" зараз розглядається. Ви можете перевірити наявність відповіді на сторінці:'
-          email_outro: Ви отримали це сповіщення, тому що ви стежите за "%{resource_title}". Ви можете припинити стежити за ним, перейшовши за наведеним вище посиланням.
-          email_subject: Пропозиція, за якою ви стежите, зараз розглядається
           follower:
             email_intro: 'Ehdotusta "%{resource_title}" arvioidaan parhaillaan. Voit tarkistaa vastauksen tältä sivulla:'
             email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat "%{resource_title}". Voit lopettaa sen seuraamisen edellä esitetyn linkin kautta.
             email_subject: Seuraamasi ehdotus on arvioitavana
             notification_title: Ehdotus <a href="%{resource_path}">%{resource_title}</a> on arvioitavana.
-          notification_title: Пропозиція <a href="%{resource_path}">%{resource_title}</a> розглядається.
         proposal_mentioned:
           email_intro: Ehdotuksesi "%{mentioned_proposal_title}" on mainittu <a href="%{resource_path}">tässä tilassa</a> kommentissa.
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet luonut kohteen "%{resource_title}".
@@ -214,15 +205,11 @@ fi-pl:
             email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet luonut kohteen "%{resource_title}".
             email_subject: Ehdotuksesi hylättiin
             notification_title: Ehdotuksesi <a href="%{resource_path}">%{resource_title}</a> on hylätty.
-          email_intro: 'Пропозиція "%{resource_title}" була відхилена. Ви можете прочитати відповідь на сторінці:'
-          email_outro: Ви отримали це сповіщення, тому що ви стежите за "%{resource_title}". Ви можете припинити стежити за ним, перейшовши за наведеним вище посиланням.
-          email_subject: Пропозиція, за якою ви стежите, була відхилена
           follower:
             email_intro: 'Ehdotus "%{resource_title}" on hylätty. Voit lukea vastauksen tällä sivulla:'
             email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat "%{resource_title}". Voit lopettaa sen seuraamisen edellä esitetyn linkin kautta.
             email_subject: Seuraamasi ehdotus on hylätty
             notification_title: Ehdotus <a href="%{resource_path}">%{resource_title}</a> on hylätty.
-          notification_title: Пропозицію <a href="%{resource_path}">%{resource_title}</a> було відхилено.
         proposal_update_category:
           email_intro: 'Järjestelmänvalvoja on päivittänyt ehdotuksesi aihepiiriin "%{resource_title}", tarkista se:'
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet ehdotuksen tekijä.
@@ -326,8 +313,11 @@ fi-pl:
             save_draft: Tallenna luonnos
             title: ESIKATSELE EHDOTUSAINEISTOA
           new_import:
+            accepted_mime_types:
+              md: Markdown
+              odt: Odt
             bottom_hint: "(Voit esikatsella ja lajitella aineiston osioita)"
-            document_legend: 'Lisää tiedosto, joka on pienempi kuin 2 MB. Jokaisesta osiosta aineiston kolmannelle tasolle asti luodaan uusi ehdotus. Tuetut tiedostomuodot ovat: Markdown'
+            document_legend: 'Lisää alle 2 Mt:n kokoinen tiedosto, josta jokainen osio kolmannelle tasolle saakka lisätään uusiksi ehdotuksiksi. Tuetut tiedostomuodot ovat: %{valid_mime_types}'
             title: LISÄÄ AINEISTO
             upload_document: Lataa aineisto
           publish:
@@ -338,7 +328,7 @@ fi-pl:
             section: "<em>Osio:</em> <strong>%{title}</strong>"
             sub-section: "<em>Alaosio:</em> %{title}"
           update:
-            success: Ehdotusaineistojen päivitys onnistui.
+            success: Ehdotusaineisto päivitettiin onnistuneesti.
         proposal_answers:
           edit:
             accepted: Hyväksytty
@@ -610,7 +600,6 @@ fi-pl:
           error: Äänestettäessä ehdotusta tapahtui virhe.
       proposals:
         compare:
-          continue: Continue
           no_similars_found: Hyvin tehty! Vastaavia ehdotuksia ei löytynyt
           title: Vastaavat ehdotukset
         complete:
@@ -620,14 +609,9 @@ fi-pl:
           proposals_count:
             one: "%{count} ehdotus"
             other: "%{count} ehdotusta"
-        dynamic_map_instructions:
-          primary: You can move the point on the map.
-          secondary: Don't forget to click on the "Update Position" button before publishing your proposal.
         edit:
-          address: Address (don't forget to specify the city)
           attachment_legend: "(Valinnainen) Lisää liite"
           back: Takaisin
-          not_geocoded: Not geocoded
           select_a_category: Valitse aihepiiri
           send: Lähetä
           title: Muokkaa ehdotusta
@@ -677,18 +661,13 @@ fi-pl:
             document_index: Asiakirjan hakemisto
           view_index:
             see_index: Näytä hakemisto
-        placeholder:
-          address: "[n°] [street] [postal] [city]"
         preview:
-          address: 'Address: %{address}'
           modify: Muokkaa ehdotusta
-          not_geocoded: Your address has not been geocoded, the preview is not available.
           proposal_edit_before_minutes:
             one: Voit muokata tätä ehdotusta ensimmäisen minuutin kuluttua ehdotuksen julkaisemisesta. Kun tämä aikaikkuna sulkeutuu, et pysty muokkaamaan ehdotusta.
             other: Voit muokata tätä ehdotusta ensimmäisten %{count} minuutin aikana ehdotuksen julkaisemisesta. Kun tämä aikaikkuna sulkeutuu, et pysty muokkaamaan ehdotusta.
           publish: Julkaise
           title: Julkaise ehdotuksesi
-          update_pos: Update the position
         proposal:
           creation_date: 'Luontiaika: %{date}'
           view_proposal: Näytä ehdotus
@@ -718,20 +697,12 @@ fi-pl:
           no_votes_remaining: Ei ääniä jäljellä
           vote: Äänestä
           votes_blocked: Äänestys estetty
-        vote_weight:
-          maximum_votes_reached: Maximum votes reached
-          no_votes_remaining: No votes remaining
-          votes_blocked: Votes blocked
         votes_count:
           count:
             one: ÄÄNI
             other: ÄÄNTÄ
           most_popular_proposal: Suosituin ehdotus
           need_more_votes: Tarvitsee enemmän ääniä
-        votes_weight:
-          count: Count
-          most_popular_proposal: Proposition la plus populaire
-          need_more_votes: Besoin de plus de votes
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Jokainen ehdotus voi kerätä yli %{limit} kannatusta
@@ -747,7 +718,7 @@ fi-pl:
           vote_limit:
             description: Voit äänestää enintään %{limit} ehdotusta.
             left: Jäljellä
-            votes: Äänet
+            votes: Ääntä
         wizard_aside:
           back: Takaisin
           info: Olet luomassa <strong>ehdotusta</strong>.

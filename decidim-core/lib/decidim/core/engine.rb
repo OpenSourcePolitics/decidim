@@ -39,6 +39,7 @@ require "nobspw"
 require "kaminari"
 require "batch-loader"
 require "etherpad-lite"
+require "diffy"
 
 require "decidim/api"
 
@@ -104,7 +105,7 @@ module Decidim
             # IP address geocoding service (see below for supported options):
             # :ip_lookup => :maxmind,
             # to use an API key:
-            api_key: [Decidim.geocoder&.fetch(:here_app_id), Decidim.geocoder&.fetch(:here_app_code)],
+            api_key: Decidim.geocoder&.fetch(:here_api_key),
             # geocoding service request timeout, in seconds (default 3):
             timeout: 15,
             # set default units to kilometers:
@@ -414,6 +415,10 @@ module Decidim
         Decidim::Gamification.register_badge(:continuity) do |badge|
           badge.levels = [2, 10, 30, 60, 180, 365]
         end
+      end
+
+      initializer "nbspw" do
+        NOBSPW.configuration.use_ruby_grep = true
       end
     end
   end

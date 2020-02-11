@@ -29,20 +29,20 @@ module Decidim
 
         return common unless resource.upstream_moderation_activated?
 
-        common.merge({
+        common.merge(
           upstream_status: upstream_status
-        })
+        )
       end
 
       private
 
       def upstream_status
         if resource.upstream_pending?
-          I18n.t('pending_moderation', scope: 'decidim.upstream_moderations.actions')
+          I18n.t("pending_moderation", scope: "decidim.upstream_moderations.actions")
         elsif resource.upstream_hidden?
-          I18n.t('not_visible', scope: 'decidim.upstream_moderations.actions')
+          I18n.t("not_visible", scope: "decidim.upstream_moderations.actions")
         else
-          I18n.t('visible', scope: 'decidim.upstream_moderations.actions')
+          I18n.t("visible", scope: "decidim.upstream_moderations.actions")
         end
       end
 

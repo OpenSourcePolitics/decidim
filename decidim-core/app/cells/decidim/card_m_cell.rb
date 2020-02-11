@@ -7,6 +7,7 @@ module Decidim
     include Cell::ViewModel::Partial
     include Decidim::ApplicationHelper
     include Decidim::TooltipHelper
+    include Decidim::DeeplHelper
     include Decidim::SanitizeHelper
     include Decidim::CardHelper
     include Decidim::LayoutHelper
@@ -20,7 +21,7 @@ module Decidim
     private
 
     def default_locale
-      current_component.organization.default_locale
+      current_organization.default_locale
     end
 
     def current_locale
@@ -40,6 +41,10 @@ module Decidim
     end
 
     def has_image?
+      false
+    end
+
+    def has_children?
       false
     end
 
@@ -98,6 +103,7 @@ module Decidim
 
     def card_classes
       classes = [base_card_class]
+      classes = classes.concat(["card--stack"]).join(" ") if has_children?
       return classes unless has_state?
 
       classes.concat(state_classes).join(" ")

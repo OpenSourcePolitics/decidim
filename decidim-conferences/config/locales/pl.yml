@@ -156,7 +156,7 @@ pl:
           attachments: Załączniki
           categories: Kategorie
           components: składniki
-          conference_admins: Użytkownicy konferencji
+          conference_admins: Administratorzy konferencji
           conference_invites: Zaprasza
           conference_speakers: Głośniki
           diploma: Certyfikat uczestnictwa
@@ -365,8 +365,8 @@ pl:
             certificate_of_attendance: Certyfikat uczestnictwa
             certificate_of_attendance_description: Zaświadcza się, że <strong>%{user}</strong> wzięło udział i uczestniczyło w <strong>%{title}</strong> które odbyło się w <strong>%{location}</strong> na <strong>%{start} - %{end}</strong>
         send_diploma:
-          error: Wystąpił problem podczas wysyłania dyplomów konferencji.
-          success: Dyplomy konferencji przesłane poprawnie
+          error: Wystąpił problem podczas wysyłania certyfikatów uczestnictwa w konferencji.
+          success: Konferencyjne certyfikaty uczestnictwa wysłane poprawnie
       conference:
         registration_confirm:
           cancel: Anuluj
@@ -536,7 +536,6 @@ pl:
         upcoming_conference:
           email_intro: 'Konferencja "%{resource_title}" odbywa się za 2 dni. Możesz przeczytać opis na swojej stronie:'
           email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz konferencję "%{resource_title}". Możesz przestać go obserwować z poprzedniego linku.
-          email_subject: The "%{resource_title}" conference is coming!
           notification_title: Konferencja <a href="%{resource_path}">%{resource_title}</a> nadchodzi za 2 dni.
     log:
       value_types:
@@ -561,6 +560,7 @@ pl:
           take_part: Wziąć udział
       conferences:
         conference:
+          more_info: Więcej informacji
           take_part: Wziąć udział
         index:
           promoted_conferences: Promowane konferencje

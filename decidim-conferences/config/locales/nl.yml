@@ -1,4 +1,3 @@
----
 nl:
   activemodel:
     attributes:
@@ -150,13 +149,13 @@ nl:
           attachments: Bijlagen
           categories: Categorieën
           components: Components
-          conference_admins: Conferentie gebruikers
+          conference_admins: Conferentiebeheerders
           conference_invites: Uitnodigingen
           conference_speakers: sprekers
           diploma: Certificaat van aanwezigheid
           info: info
           media_links: Media links
-          moderations: matigingen
+          moderations: Moderaties
           partners: partners
           registration_types: Registratie Types
           registrations: registraties
@@ -357,8 +356,8 @@ nl:
             certificate_of_attendance: Certificaat van aanwezigheid
             certificate_of_attendance_description: Dit is om te verklaren dat <strong>%{user}</strong> heeft deelgenomen en heeft deelgenomen aan de <strong>%{title}</strong> gehouden op de <strong>%{location}</strong> op <strong>%{start} - %{end}</strong>
         send_diploma:
-          error: Er is een probleem opgetreden tijdens het verzenden van de conferentiediploma's.
-          success: Conferentiediploma's correct verzonden
+          error: Er is een probleem opgetreden tijdens het verzenden van de aanwezigheidsvergaderingscertificaten.
+          success: Conference certificaten van aanwezigheid correct verzonden
       conference:
         registration_confirm:
           cancel: Annuleer
@@ -512,7 +511,7 @@ nl:
           notification_title: Uw registratie voor de conferentie <a href="%{resource_url}">%{resource_title}</a> is in afwachting van bevestiging.
         conference_registrations_over_percentage:
           email_intro: De door de '%{resource_title}conferentie ingenomen slots zijn meer dan %{percentage}%.
-          email_outro: U hebt deze melding ontvangen omdat u een beheerder bent van de participatieruimte van de conferentie.
+          email_outro: U hebt deze melding ontvangen omdat u een beheerder bent van de inspraakruimte van de conferentie.
           email_subject: De "%{resource_title}" -bezette slots zijn meer dan %{percentage}%
           notification_title: De <a href="%{resource_path}">%{resource_title}</a> conferentie bezet slots zijn meer dan %{percentage}%.
         conference_updated:
@@ -553,6 +552,7 @@ nl:
           take_part: Deelnemen
       conferences:
         conference:
+          more_info: Meer informatie
           take_part: Deelnemen
         index:
           promoted_conferences: Gepromoveerde conferenties

@@ -1,0 +1,151 @@
+nl-BE:
+  activemodel:
+    attributes:
+      sortition:
+        additional_info: Sortition information
+        decidim_category_id: Categories of the set of proposals in which you want to apply the draw
+        decidim_proposals_component_id: Proposals set
+        dice: Result of die roll. Roll a 6-sided die, or look for another random way to generate a number from 1 to 6, and enter here the resulting number in front of some witnesses. This contributes to the quality and guarantees of the randomness of the result
+        target_items: Number of proposals to be selected (indicates the number of proposals you want to be selected by drawing lots of the group of proposals you have previously chosen)
+        title: Title
+        witnesses: Witnesses
+    models:
+      decidim/sortitions/create_sortition_event: Loting
+  activerecord:
+    models:
+      decidim/sortitions/sortition:
+        one: Loting
+        other: Lotings
+  decidim:
+    components:
+      sortitions:
+        name: Loting
+        settings:
+          global:
+            comments_enabled: Comments enabled
+    events:
+      sortitions:
+        sortition_created:
+          email_intro: The sortition "%{resource_title}" has been added to "%{participatory_space_title}" that you are following.
+          email_outro: You have received this notification because you are following "%{participatory_space_title}". You can unfollow it from the previous link.
+          email_subject: New sortition added to %{participatory_space_title}
+          notification_title: The sortition <a href="%{resource_path}">%{resource_title}</a> has been added to %{participatory_space_title}
+    pages:
+      home:
+        statistics:
+          sortitions_count: Sortitions
+    participatory_processes:
+      statistics:
+        sortitions_count: Sortitions
+    sortitions:
+      admin:
+        actions:
+          destroy: Cancel the sortition
+          edit: Edit
+          new: New sortition
+          show: Sortition details
+        models:
+          sortition:
+            fields:
+              category: Category
+              created_at: Creation date
+              decidim_proposals_component: Proposals component
+              dice: Dice
+              reference: Reference
+              request_timestamp: Draw time
+              seed: Seed
+              target_items: Items to select
+              title: Title
+            name:
+              one: Sortition
+              other: Sortitions
+        sortitions:
+          confirm_destroy:
+            confirm_destroy: Are you sure you want to cancel this sortition?
+            destroy: Cancel sortition
+            title: Cancellation of the sortition
+          create:
+            error: Er is een fout opgetreden bij het maken van een nieuw loting.
+            success: Sortition successfully created
+          destroy:
+            error: Can not cancel the sortition.
+            success: Sortition successfully cancelled
+          edit:
+            title: Update the information about the sortition
+            update: Update
+          form:
+            all_categories: All categories
+            select_proposal_component: Select the proposals set
+            title: New sortition for proposals
+          index:
+            title: Sortitions
+          new:
+            confirm: By pressing the next button Decidim will record the date and time (with precision of seconds) and together with the dice roll, this information will be used to generate a random selection. The action will be irreversible, once the button is clicked the result of this draw will be published, together with the data entered in this form and can not be modified, please check the content carefully
+            create: Create
+            title: New sortition
+          show:
+            selected_proposals: Proposals selected for draw
+          update:
+            error: Er is een fout opgetreden bij het bijwerken van de loting.
+            success: Sortition successfully updated
+      admin_log:
+        sortition:
+          create: "%{user_name} created the %{resource_name} sortition in %{space_name}"
+          delete: "%{user_name} cancelled the %{resource_name} sortition in %{space_name}"
+          update: "%{user_name} updated the %{resource_name} sortition in %{space_name}"
+      sortitions:
+        count:
+          proposals_count:
+            one: 1 proposal
+            other: "%{count} proposals"
+        filters:
+          active: Active
+          all: All
+          cancelled: Cancelled
+          category: Category
+          category_prompt: Select a category
+          search: Search
+          state: State
+        filters_small_view:
+          close_modal: Close modal
+          filter: Filter
+          filter_by: Filter by
+          unfold: Unfold
+        linked_sortitions:
+          selected_proposals: Selected proposals
+        orders:
+          label: 'Order sortitions by:'
+          random: Random
+          recent: Recent
+        results_count:
+          count:
+            one: selected proposal
+            other: selected proposals
+        show:
+          algorithm: De algoritme-code van de loting
+          any_category: from all categories
+          cancelled: Cancelled sortition
+          candidate_proposal_ids: Sortition proposals order and IDs
+          candidate_proposals_info: 'De loting is uitgevoerd onder de volgende voorstellen (%{category_label}), met de volgende IDs (in vet de geselecteerde voorstellen)  '
+          category: from the %{category} category
+          dice_result: "(1) Dice result"
+          introduction: 'Deze pagina bevat de resultaten van de loting %{reference}. Door deze loting zijn %{target_items} aantal resultaten willekeurig geselecteerd en uit de set van hieronder weergegeven voorstellen. Samen met de resultaten biedt de informatie die op deze pagina wordt weergegeven alle informatie die nodig is om garanties te maximaliseren en de resultaten te reproduceren. De sleutel tot de kwaliteit van deze loting is de dubbele willekeurigheid die wordt geboden door het rollen van een dobbelsteen (geverifieerd door getuigen) en de exacte tijd van de loting die input biedt voor een algoritme dat een willekeurige selectie genereert. Het tijdstip van de loting is zo nauwkeurig (seconden) dat het onmogelijk is om door mensen te controleren en zo een dubbele "oncontroleerbare" input levert om een eerlijk resultaat te garanderen.  '
+          mathematical_result: Result (1) x (2)
+          proposals_selected_by_sortition: Proposals selected by sortition
+          sortition_reproducibility_details: Sortition reproducibility details
+          time_seed: "(2) Time seed"
+          witnesses: Witnesses
+        sortition:
+          random_seed: Random seed
+          selected_proposals:
+            one: proposal selected
+            other: proposals selected
+          view: View
+        sortition_author:
+          deleted: Deleted user
+        sortition_cancel_author:
+          deleted: Deleted user
+        sortitions_count:
+          count:
+            one: 1 sortition
+            other: "%{count} sortitions"

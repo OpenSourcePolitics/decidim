@@ -147,8 +147,6 @@ ru:
         button: Amend %{model_name}
         error: There has been an error amending this resource.
         help_text: Improve this %{model_name} by modifying its %{amendable_fields}
-        no_amenders: There are no amenders
-        no_amendments: There are no amendments
         promote_button: Promote to %{model_name}
         promote_help_text: You can promote this emendation and publish it as an independent %{model_name}
         section_heading: Amendments (%{count})
@@ -237,13 +235,12 @@ ru:
         name: Code by SMS
       started_at: 'Начато: %{timestamp}'
     authorization_modals:
-      show:
+      content:
         expired:
           authorize: Снова подтвердить свою личность с помощью "%{authorization}"
           explanation: Срок действия подтверждения вашей личности истек. Чтобы выполнить это действие, вам необходимо снова подтвердить свою личность с помощью «%{authorization}».
           title: Срок действия подтверждения личности истек
         incomplete:
-          cancel: Отменить
           explanation: 'Несмотря на то, что вы подтвердили свою личность с помощью «%{authorization}», мы просим вас заново подтвердить свою личность, потому что нам не хватает следующих данных:'
           invalid_field: "%{field}"
           reauthorize: Заново подтвердить свою личность

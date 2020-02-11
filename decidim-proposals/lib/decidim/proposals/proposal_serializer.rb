@@ -36,6 +36,7 @@ module Decidim
           body: present(proposal).body,
           state: proposal.state.to_s,
           reference: proposal.reference,
+          answer: ensure_translatable(proposal.answer),
           supports: proposal.proposal_votes_count,
           endorsements: proposal.endorsements.count,
           comments: proposal.comments.count,
@@ -46,8 +47,7 @@ module Decidim
           published_at: proposal.published_at,
           url: url,
           meeting_urls: meetings,
-          related_proposals: related_proposals,
-          authors_url: authors_url
+          related_proposals: related_proposals
         }
       end
 
@@ -73,10 +73,6 @@ module Decidim
 
       def url
         Decidim::ResourceLocatorPresenter.new(proposal).url
-      end
-
-      def authors_url
-        proposal.authors.map { |author| Decidim::UserPresenter.new(author).profile_url }
       end
 
       def attachments_url

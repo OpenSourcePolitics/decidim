@@ -1,10 +1,9 @@
----
 nl:
   activemodel:
     attributes:
       agenda:
         description: Beschrijving
-        duration: Looptijd
+        duration: Duur
         title: Titel
       close_meeting:
         attendees_count: Aantal deelnemers
@@ -23,7 +22,7 @@ nl:
         location_hints: Locatie hints
         organizer_id: Organisator
         private_meeting: Privé vergadering
-        registration_form_enabled: Registratieformulier ingeschakeld
+        registration_form_enabled: Inschrijvingsformulier ingeschakeld
         registration_terms: Registratievoorwaarden
         registrations_enabled: Registraties geactiveerd
         start_time: Starttijd
@@ -83,7 +82,7 @@ nl:
             announcement: Aankondiging
             comments_enabled: Reacties ingeschakeld
             default_registration_terms: Standaard registratievoorwaarden
-            enable_pads_creation: Schakel het maken van pads in
+            enable_pads_creation: Schakel het maken van notitieblokken in
             resources_permissions_enabled: Actiemachtigingen kunnen voor elke vergadering worden ingesteld
           step:
             announcement: Aankondiging
@@ -96,15 +95,11 @@ nl:
             email_outro: U hebt deze melding ontvangen omdat u de vergadering "%{resource_title}" hebt georganiseerd.
             email_subject: Het event "%{resource_title}" is afgelopen
             notification_title: Het <a href="%{resource_path}">%{resource_title}</a> event is afgelopen.
-          email_intro: 'La rencontre "%{resource_title}" est terminée. Vous pouvez en lire le compte rendu sur sa page :'
-          email_outro: Vous avez reçu cette notification, car vous suivez la rencontre "%{resource_title}". Vous pouvez arrêter de la suivre à partir du lien précédent.
-          email_subject: La rencontre "%{resource_title}" est terminée
           follower:
             email_intro: 'Het event "%{resource_title}" is afgelopen. Je kan het besluit hier lezen:'
-            email_outro: U hebt deze melding ontvangen omdat u de vergadering "%{resource_title}" volgt. Je kunt het niet meer volgen vanaf de vorige link.
+            email_outro: Je hebt deze melding ontvangen omdat je de bijeenkomst "%{resource_title}" volgt. Je kan stoppen met deze te volgen via vorige link.
             email_subject: Het event "%{resource_title}" is afgelopen
             notification_title: Het <a href="%{resource_path}">%{resource_title}</a> event is afgelopen.
-          notification_title: La rencontre <a href="%{resource_path}">%{resource_title}</a> est terminée.
         meeting_created:
           email_intro: Het event "%{resource_title}" is toegevoegd aan "%{participatory_space_title}" dat je volgt.
           email_outro: Je ontvangt deze melding omdat je "%{participatory_space_title}" volgt. Je kan dit ontvolgen door te klikken op de voorgaande link.
@@ -141,7 +136,7 @@ nl:
       badges:
         attended_meetings:
           conditions:
-          - Registreer u in de vergaderingen die u wilt bijwonen
+            - Registreer u in de vergaderingen die u wilt bijwonen
           description: Deze badge wordt toegekend wanneer u verschillende persoonlijke vergaderingen bijwoont.
           description_another: Deze gebruiker heeft %{score} vergaderingen bijgewoond.
           description_own: U hebt %{score} vergaderingen bijgewoond.
@@ -243,6 +238,9 @@ nl:
           edit:
             update: Bijwerken
           form:
+            address_help: 'Adres: gebruikt door Geocoder om de locatie te vinden'
+            location_help: 'Locatie: bericht gericht aan de gebruikers die de locatie op een vergadering plaatsen'
+            location_hints_help: 'Locatie hint: extra info. Voorbeeld: de vloer van het gebouw'
             select_organizer: Selecteer de organisator
           index:
             title: Events
@@ -250,7 +248,7 @@ nl:
             create: Creëren
             title: Creëer vergadering
           service:
-            description: Omschrijving
+            description: Beschrijving
             down: Omlaag
             remove: Verwijderen
             service: Dienst
@@ -291,6 +289,7 @@ nl:
               other: Er zijn %{count} registraties geweest.
             reserved_slots_help: Laat het op 0 staan ​​als je geen plaatsen gereserveerd hebt
             reserved_slots_less_than: Moet kleiner of gelijk zijn aan %{count}
+            title: Inschrijvingen
           update:
             invalid: Er is een probleem opgetreden bij het opslaan van de registratie-instellingen.
             success: Instellingen bijeenkomst registraties succesvol opgeslagen.
@@ -322,7 +321,7 @@ nl:
       content_blocks:
         upcoming_events:
           name: Aankomende evenementen
-          upcoming_events: Komende vergaderingen
+          upcoming_events: Aankomende vergaderingen
           view_all_events: Bekijk alles
       directory:
         meetings:
@@ -382,7 +381,7 @@ nl:
           remaining_slots:
             one: "%{count} slot over"
             other: "%{count} slots over"
-          view: Uitzicht
+          view: Bekijk
       meetings_map:
         view_meeting: Bekijk vergadering
       models:
@@ -431,12 +430,12 @@ nl:
       participatory_process_groups:
         highlighted_meetings:
           past_meetings: Vorige events
-          upcoming_meetings: Toekomstige events
+          upcoming_meetings: Aankomende vergaderingen
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Vorige events
         see_all: Alles zien (%{count})
-        upcoming_meetings: Toekomstige events
+        upcoming_meetings: Aankomende vergaderingen
       upcoming_meeting_for_card:
         upcoming_meeting: Aankomende vergadering
     resource_links:

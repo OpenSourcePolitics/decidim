@@ -1,3 +1,4 @@
+---
 fr:
   decidim:
     system:
@@ -52,6 +53,7 @@ fr:
           fields:
             created_at: Créé le
             name: Nom
+            omniauth_settings: Omniauth settings
             smtp_settings: Paramètres SMTP
           name: Organisation
       organizations:
@@ -66,6 +68,26 @@ fr:
           reference_prefix_hint: Le préfixe de référence est utilisé pour identifier de manière unique les ressources pour toutes les organisations
           secondary_hosts_hint: Entrez chacun d'eux dans une nouvelle ligne
           title: Nouvelle organisation
+        omniauth_settings:
+          enabled: Enabled
+          facebook:
+            app_id: App ID
+            app_secret: App secret
+          google_oauth2:
+            client_id: Client ID
+            client_secret: Client secret
+          icon: Icon
+          icon_path: Icon path
+          twitter:
+            api_key: API key
+            api_secret: API secret
+        smtp_settings:
+          address: Adresse du serveur
+          from_email: De l'email
+          from_label: De l'étiquette
+          password: Mot de passe
+          port: Port serveur
+          user_name: Nom d'utilisateur
         update:
           error: Une erreur s'est produite lors de la mise à jour de cette organisation.
           success: Organisation mise à jour avec succès.

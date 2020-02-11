@@ -7,6 +7,9 @@
       this.modal = this._createModalContainer();
       this.modal.appendTo($("body"));
       this.current = null;
+      this.choosenUrl = {
+        previous: String()
+      };
 
       elements.each((_index, element) => {
         this.activate(element);
@@ -15,9 +18,9 @@
 
     activate(picker) {
       let $element = $(picker);
-      let input    = "hidden",
-          name     = $element.data("picker-name"),
-          values   = $(".picker-values", $element);
+      let input = "hidden",
+          name = $element.data("picker-name"),
+          values = $(".picker-values", $element);
 
       if ($element.hasClass("picker-multiple")) {
         input = "checkbox";
@@ -78,7 +81,7 @@
 
     _openPicker($picker, div) {
       this._setCurrentPicker($picker, div);
-      this._load($("a", div).attr("href"));
+      this._loadOpenPicker($("a", div).attr("href"));
     }
 
     _setCurrentPicker($picker, div) {
@@ -97,6 +100,22 @@
     }
 
     _load(url) {
+      this.choosenUrl.previous = url;
+      $("a.button[data-picker-choose]").attr("disabled", "disabled");
+      $.ajax(url).done((resp) => {
+        if ($("#data_picker-modal").attr("aria-hidden") === "false") {
+          $("button[data-picker-choose]").removeAttr("disabled");
+          let modalContent = $(".data_picker-modal-content", this.modal);
+          modalContent.html(resp);
+          this._handleLinks(modalContent);
+          this.modal.foundation("open");
+        }
+      });
+    }
+
+    _loadOpenPicker(url) {
+      // clone _load() function to make difference between Ajax from picker select and picker option
+      this.choosenUrl.previous = url;
       $.ajax(url).done((resp) => {
         let modalContent = $(".data_picker-modal-content", this.modal);
         modalContent.html(resp);
@@ -117,9 +136,11 @@
           let chooseUrl = $link.attr("href");
           if (chooseUrl) {
             if (typeof $link.data("picker-choose") === "undefined") {
-              this._load(chooseUrl);
+              if (chooseUrl !== this.choosenUrl.previous) {
+                this._load(chooseUrl);
+              }
             } else {
-              this._choose({url: chooseUrl, value: $link.data("picker-value") || "", text: $link.data("picker-text") || ""});
+              this._choose({ url: chooseUrl, value: $link.data("picker-value") || "", text: $link.data("picker-text") || "" });
             }
           }
         });
@@ -127,21 +148,29 @@
     }
 
     _choose(data, user = true) {
+      // Prevent choosing is nothing has been selected. This would otherwise
+      // cause an empty checkbox to appear in the selected values list.
+      if (!data.value || data.value.length < 1) {
+        return;
+      }
+
+      let dataText = this._escape(data.text);
+
       // Add or update value appearance
       if (this.current.div) {
         let link = $("a", this.current.div);
         link.data("picker-value", data.value);
         link.attr("href", data.url);
-        link.text(data.text);
+        link.text(dataText);
       } else {
         let input = "hidden",
-            name  = this.current.name;
+            name = this.current.name;
 
         if (this.current.multiple) {
           input = "checkbox";
           name += "[]";
         }
-        this.current.div = $(`<div><input type="${input}" checked name="${name}"/><a href="${data.url}" data-picker-value="${data.value}">${data.text}</a></div>`);
+        this.current.div = $(`<div><input type="${input}" checked name="${name}"/><a href="${data.url}" data-picker-value="${data.value}">${dataText}</a></div>`);
         this.current.div.appendTo(this.current.values);
       }
 
@@ -173,6 +202,12 @@
       $(".is-invalid-input", parent).removeClass("is-invalid-input");
       $(".is-invalid-label", parent).removeClass("is-invalid-label");
       $(".form-error.is-visible", parent).removeClass("is-visible");
+    }
+
+    _escape(str) {
+      return str.replace(/[\u00A0-\u9999<>&]/gim, function (char) {
+        return `&#${char.charCodeAt(0)};`;
+      });
     }
   }
 

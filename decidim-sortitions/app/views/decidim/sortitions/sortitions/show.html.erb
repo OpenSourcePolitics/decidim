@@ -11,6 +11,10 @@
 </div>
 
 <div class="row column view-header">
+  <%= link_to :sortitions, class: "title-action__action button small hollow" do %>
+    <%= icon "chevron-left", class: "icon--small" %>
+    <%= t(".back") %>
+  <% end %>
   <h2 class="heading2"><%= translated_attribute sortition.title %></h2>
   <div class="author-data">
     <%= render partial: "sortition_author", locals: { sortition: sortition } %>
@@ -101,7 +105,7 @@
         </div>
 
         <div class="sortition-details-item">
-          <span class="sortition-details-title sortition-details-text"><%= t ".algorithm" %></span><br />
+          <span class="sortition-details-title sortition-details-text"><%= t ".algorithm" %></span><br>
           <span class=sortition-details-text>
             <%= link_to Decidim::Sortitions.sortition_algorithm,
                         Decidim::Sortitions.sortition_algorithm,
@@ -129,6 +133,3 @@
 </div>
 
 <%= comments_for sortition %>
-
-<%= javascript_include_tag "decidim/sortitions/social_share" %>
-<%= stylesheet_link_tag "decidim/sortitions/social_share" %>

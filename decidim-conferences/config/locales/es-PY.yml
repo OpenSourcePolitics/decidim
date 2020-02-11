@@ -150,7 +150,7 @@ es-PY:
           attachments: Archivos adjuntos
           categories: Categorías
           components: Componentes
-          conference_admins: Usuarios de la conferencia
+          conference_admins: Administradores de conferencia
           conference_invites: Invita
           conference_speakers: Ponentes
           diploma: Certificado de asistencia
@@ -193,7 +193,7 @@ es-PY:
         partner:
           fields:
             link: Enlazar
-            logo: Logo
+            logo: Logotipo
             name: Nombre
             partner_type: Tipo
           name: Compañero
@@ -268,7 +268,7 @@ es-PY:
           confirm: "%{user_name} ha confirmado su inscripción a la conferencia %{resource_name}"
         partner:
           create: "%{user_name} ha creado %{resource_name} en la conferencia %{space_name}"
-          delete: "%{user_name} quitó el usuario %{resource_name} de la %{space_name} conferencia"
+          delete: "%{user_name} ha eliminado al usuario %{resource_name} de la conferencia %{space_name}"
           update: "%{user_name} ha actualizado %{resource_name} en la conferencia %{space_name}"
         registration_type:
           create: "%{user_name} ha creado el tipo de inscripción %{resource_name} en la conferencia %{space_name}"
@@ -357,8 +357,8 @@ es-PY:
             certificate_of_attendance: Certificado de asistencia
             certificate_of_attendance_description: Esto es para certificar que <strong>%{user}</strong> ha asistido y participado en los <strong>%{title}</strong> celebrados en el <strong>%{location}</strong> del <strong>%{start} - %{end}</strong>
         send_diploma:
-          error: Ha habido un problema al enviar los diplomas de la conferencia.
-          success: Diplomas de Conferencia enviados correctamente
+          error: Ha habido un problema al enviar los certificados de asistencia a la conferencia.
+          success: Certificados de asistencia a conferencias enviados correctamente.
       conference:
         registration_confirm:
           cancel: Cancelar
@@ -553,6 +553,7 @@ es-PY:
           take_part: Participar
       conferences:
         conference:
+          more_info: Más información
           take_part: Participar
         index:
           promoted_conferences: Conferencias promovidas

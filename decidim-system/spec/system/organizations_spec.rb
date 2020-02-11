@@ -26,7 +26,7 @@ describe "Organizations", type: :system do
         fill_in "Organization admin email", with: "mayor@citizen.corp"
         check "organization_available_locales_en"
         choose "organization_default_locale_en"
-        choose "Allow users to register and login"
+        choose "Allow participants to register and login"
         check "Example authorization (Direct)"
         click_button "Create organization & invite admin"
 
@@ -76,8 +76,13 @@ describe "Organizations", type: :system do
         fill_in "Name", with: "Citizens Rule!"
         fill_in "Host", with: "www.foo.org"
         fill_in "Secondary hosts", with: "foobar.citizen.corp\n\rbar.citizen.corp"
-        choose "Don't allow users to register, but allow existing users to login"
+        choose "Don't allow participants to register, but allow existing participants to login"
         check "Example authorization (Direct)"
+
+        check "organization_omniauth_settings_facebook_enabled"
+        fill_in "organization_omniauth_settings_facebook_app_id", with: "facebook-app-id"
+        fill_in "organization_omniauth_settings_facebook_app_secret", with: "facebook-app-secret"
+
         click_button "Save"
 
         expect(page).to have_css("div.flash.success")

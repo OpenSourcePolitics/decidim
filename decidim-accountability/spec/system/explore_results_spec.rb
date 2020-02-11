@@ -95,6 +95,7 @@ describe "Explore results", versioning: true, type: :system do
 
   describe "show" do
     let(:path) { decidim_participatory_process_accountability.result_path(id: result.id, participatory_process_slug: participatory_process.slug, component_id: component.id) }
+
     let(:results_count) { 1 }
     let(:result) { results.first }
 

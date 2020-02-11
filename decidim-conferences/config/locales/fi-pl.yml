@@ -150,7 +150,7 @@ fi-pl:
           attachments: Liitteet
           categories: Aihepiirit
           components: Komponentit
-          conference_admins: Konferenssin käyttäjät
+          conference_admins: Konferenssin ylläpitäjät
           conference_invites: Kutsut
           conference_speakers: Puhujat
           diploma: Läsnäolotodistus
@@ -357,8 +357,8 @@ fi-pl:
             certificate_of_attendance: Läsnäolotodistus
             certificate_of_attendance_description: Tämä todistaa, että <strong>%{user}</strong> on osallistunut konferenssiin <strong>%{title}</strong>, joka pidettiin paikassa <strong>%{location}</strong> ajankohtana <strong>%{start} - %{end}</strong>
         send_diploma:
-          error: Konferenssin diplomeiden lähettämisessä esiintyi ongelma.
-          success: Konferenssin diplomit on lähetetty onnistuneesti
+          error: Konferenssin läsnäolotodistuksien lähetys epäonnistui.
+          success: Konferenssin läsnäolotodistukset lähetetty onnistuneesti
       conference:
         registration_confirm:
           cancel: Peruuta

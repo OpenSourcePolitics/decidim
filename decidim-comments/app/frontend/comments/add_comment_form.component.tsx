@@ -27,9 +27,11 @@ interface AddCommentFormProps {
   autoFocus?: boolean;
   arguable?: boolean;
   upstream?: boolean;
+  userAllowedToComment?: boolean;
   addComment?: (data: { body: string, alignment: number, userGroupId?: string }) => void;
   onCommentAdded?: () => void;
   orderBy: string;
+  commentsMaxLength: number;
 }
 
 interface AddCommentFormState {
@@ -38,8 +40,6 @@ interface AddCommentFormState {
   alignment: number;
   remainingCharacterCount: number;
 }
-
-export const MAX_LENGTH = 1000;
 
 /**
  * Renders a form to create new comments.
@@ -65,7 +65,7 @@ export class AddCommentForm extends React.Component<AddCommentFormProps, AddComm
       disabled: true,
       error: false,
       alignment: 0,
-      remainingCharacterCount: MAX_LENGTH
+      remainingCharacterCount: props.commentsMaxLength
     };
   }
 
@@ -169,7 +169,7 @@ export class AddCommentForm extends React.Component<AddCommentFormProps, AddComm
    * @returns {Void|DOMElement} - The heading or an empty element
    */
   private _renderTextArea() {
-    const { commentable: { id, type }, autoFocus } = this.props;
+    const { commentable: { id, type }, autoFocus, commentsMaxLength } = this.props;
     const { error } = this.state;
     const className = classnames({ "is-invalid-input": error });
 
@@ -178,11 +178,11 @@ export class AddCommentForm extends React.Component<AddCommentFormProps, AddComm
       id: `add-comment-${type}-${id}`,
       className,
       rows: "4",
-      maxLength: MAX_LENGTH,
+      maxLength: commentsMaxLength,
       required: "required",
-      pattern: `^(.){0,${MAX_LENGTH}}$`,
+      pattern: `^(.){0,${commentsMaxLength}}$`,
       placeholder: I18n.t("components.add_comment_form.form.body.placeholder"),
-      onChange: (evt: React.ChangeEvent<HTMLTextAreaElement>) => this._checkCommentBody(evt.target.value)
+      onChange: (evt: React.ChangeEvent<HTMLTextAreaElement>) => this._checkCommentBody(evt.target.value, commentsMaxLength as number)
     };
 
     if (autoFocus) {
@@ -200,12 +200,13 @@ export class AddCommentForm extends React.Component<AddCommentFormProps, AddComm
    * @returns {Void|DOMElement} - The error or an empty element
    */
   private _renderTextAreaError() {
+    const { commentsMaxLength } = this.props;
     const { error } = this.state;
 
     if (error) {
       return (
         <span className="form-error is-visible">
-          {I18n.t("components.add_comment_form.form.form_error", { length: MAX_LENGTH })}
+          {I18n.t("components.add_comment_form.form.form_error", { length: commentsMaxLength })}
         </span>
       );
     }
@@ -310,10 +311,10 @@ export class AddCommentForm extends React.Component<AddCommentFormProps, AddComm
    * @param {string} body - The comment's body
    * @returns {Void} - Returns nothing
    */
-  private _checkCommentBody(body: string) {
+  private _checkCommentBody(body: string, commentsMaxLength: number) {
     this.setState({
-      disabled: body === "", error: body === "" || body.length > MAX_LENGTH,
-      remainingCharacterCount: MAX_LENGTH - body.length
+      disabled: body === "", error: body === "" || body.length > commentsMaxLength,
+      remainingCharacterCount: commentsMaxLength - body.length
     });
   }
 
@@ -326,7 +327,7 @@ export class AddCommentForm extends React.Component<AddCommentFormProps, AddComm
    */
   private addComment = (evt: React.FormEvent<HTMLFormElement>) => {
     const { alignment } = this.state;
-    const { addComment, onCommentAdded } = this.props;
+    const { addComment, onCommentAdded, commentsMaxLength } = this.props;
     const addCommentParams: { body: string, alignment: number, userGroupId?: string } = { body: this.bodyTextArea.value, alignment };
 
     evt.preventDefault();
@@ -342,7 +343,7 @@ export class AddCommentForm extends React.Component<AddCommentFormProps, AddComm
     this.bodyTextArea.value = "";
     this.setState({
       alignment: 0,
-      remainingCharacterCount: MAX_LENGTH
+      remainingCharacterCount: commentsMaxLength
     });
 
     if (onCommentAdded) {
@@ -387,6 +388,7 @@ const AddCommentFormWithMutation = graphql<addCommentMutation, AddCommentFormPro
                 comments: [],
                 hasComments: false,
                 acceptsNewComments: false,
+                userAllowedToComment: false,
                 upVotes: 0,
                 upVoted: false,
                 downVotes: 0,

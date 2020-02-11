@@ -30,14 +30,9 @@ es-PY:
         placeholders:
           content: Agrega contenido significativo a la página estática de %{page} en el panel de admin.
           title: Título predeterminado para %{page}
-      logs:
-        index:
-          download_log: Download log
-          view_log: View %{line} lines
       menu:
         admins: Administradores
         dashboard: Panel de control
-        logs: Logs
         organizations: Organizaciones
       models:
         admin:
@@ -53,7 +48,7 @@ es-PY:
           fields:
             created_at: Fecha de creación
             name: Nombre
-            smtp_settings: SMTP settings
+            smtp_settings: Configuración de SMTP
           name: Organización
       organizations:
         create:

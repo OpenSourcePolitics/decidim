@@ -147,8 +147,6 @@ uk:
         button: Amend %{model_name}
         error: There has been an error amending this resource.
         help_text: Improve this %{model_name} by modifying its %{amendable_fields}
-        no_amenders: There are no amenders
-        no_amendments: There are no amendments
         promote_button: Promote to %{model_name}
         promote_help_text: You can promote this emendation and publish it as an independent %{model_name}
         section_heading: Amendments (%{count})
@@ -237,13 +235,12 @@ uk:
         name: Code by SMS
       started_at: 'Розпочато: %{timestamp}'
     authorization_modals:
-      show:
+      content:
         expired:
           authorize: Знову підтвердити свою особу за допомогою "%{authorization}"
           explanation: Строк дії підтвердження вашої особи вичерпався. Щоб виконати цю дію, вам потрібно знову підтвердити свою особу за допомогою "%{authorization}".
           title: Строк дії підтвердження особи вичерпався
         incomplete:
-          cancel: Скасувати
           explanation: 'Незважаючи на те, що ви наразі підтвердили свою особу за допомогою "%{authorization}", ми просимо вас знову підтвердити свою особу, оскільки нам не вистачає наступних даних:'
           invalid_field: Поле %{field}
           reauthorize: Заново підтвердити свою особу

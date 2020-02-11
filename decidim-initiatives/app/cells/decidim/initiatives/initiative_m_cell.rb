@@ -11,6 +11,18 @@ module Decidim
 
       private
 
+      def translatable?
+        true
+      end
+
+      def title
+        decidim_html_escape(translated_attribute(model.title))
+      end
+
+      def hashtag
+        decidim_html_escape(model.hashtag)
+      end
+
       def has_state?
         true
       end
@@ -38,7 +50,7 @@ module Decidim
 
       def authors
         [present(model).author] +
-          model.committee_members.approved.non_deleted.map { |member| present(member.user) }
+          model.committee_members.approved.non_deleted.excluding_author.map { |member| present(member.user) }
       end
     end
   end

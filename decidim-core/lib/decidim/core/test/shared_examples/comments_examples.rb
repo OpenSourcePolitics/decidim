@@ -55,6 +55,35 @@ shared_examples "comments" do
       expect(page).to have_selector(".add-comment form")
     end
 
+    context "when no default comments length specified" do
+      it "displays the numbers of characters left" do
+        within ".add-comment form" do
+          expect(page).to have_content("1000 characters left")
+        end
+      end
+    end
+
+    context "when organization has a default comments length params" do
+      let!(:organization) { create(:organization, comments_max_length: 2000) }
+
+      it "displays the numbers of characters left" do
+        within ".add-comment form" do
+          expect(page).to have_content("2000 characters left")
+        end
+      end
+
+      context "when component has a default comments length params" do
+        it "displays the numbers of characters left" do
+          component.update!(settings: { comments_max_length: 3000 })
+          visit current_path
+
+          within ".add-comment form" do
+            expect(page).to have_content("3000 characters left")
+          end
+        end
+      end
+    end
+
     context "when user adds a new comment" do
       before do
         within ".add-comment form" do
@@ -98,6 +127,7 @@ shared_examples "comments" do
         visit resource_path
 
         expect(page).to have_selector(".comment__reply")
+        expect(page).not_to have_selector(".comment__additionalreply")
 
         within "#comments #comment_#{comment.id}" do
           click_button "Reply"
@@ -110,7 +140,24 @@ shared_examples "comments" do
         end
 
         expect(page).to have_selector(".comment-thread .comment--nested")
+        expect(page).to have_selector(".comment__additionalreply")
         expect(page).to have_reply_to(comment, "This is a reply")
+      end
+    end
+
+    context "when a comment has been moderated" do
+      let!(:parent) { create(:comment, commentable: commentable) }
+      let!(:reply) { create(:comment, commentable: parent, root_commentable: commentable) }
+
+      it "doesn't show additional reply" do
+        Decidim::Moderation.create!(reportable: reply, participatory_space: reply.participatory_space, hidden_at: 1.day.ago)
+
+        visit current_path
+
+        within "#comments #comment_#{parent.id}" do
+          expect(page).to have_selector(".comment__reply")
+          expect(page).not_to have_selector(".comment__additionalreply")
+        end
       end
     end
 

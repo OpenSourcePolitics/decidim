@@ -5,7 +5,6 @@ require "decidim/components/namer"
 Decidim.register_component(:proposals) do |component|
   component.engine = Decidim::Proposals::Engine
   component.admin_engine = Decidim::Proposals::AdminEngine
-  component.stylesheet = "decidim/proposals/proposals"
   component.icon = "decidim/proposals/icon.svg"
 
   component.on(:before_destroy) do |instance|
@@ -13,6 +12,8 @@ Decidim.register_component(:proposals) do |component|
   end
 
   component.data_portable_entities = ["Decidim::Proposals::Proposal"]
+
+  component.newsletter_participant_entities = ["Decidim::Proposals::Proposal"]
 
   component.actions = %w(endorse vote create withdraw)
 
@@ -32,6 +33,7 @@ Decidim.register_component(:proposals) do |component|
     settings.attribute :official_proposals_enabled, type: :boolean, default: true
     settings.attribute :upstream_moderation, type: :boolean, default: false
     settings.attribute :comments_enabled, type: :boolean, default: true
+    settings.attribute :comments_max_length, type: :integer, required: false
     settings.attribute :geocoding_enabled, type: :boolean, default: false
     settings.attribute :attachments_allowed, type: :boolean, default: false
     settings.attribute :resources_permissions_enabled, type: :boolean, default: true
@@ -227,9 +229,10 @@ Decidim.register_component(:proposals) do |component|
             phone: Faker::PhoneNumber.phone_number,
             verified_at: Time.current
           },
-          decidim_organization_id: component.organization.id
+          decidim_organization_id: component.organization.id,
+          confirmed_at: Time.current
         )
-        group.confirm
+
         Decidim::UserGroupMembership.create!(
           user: author,
           role: "creator",
@@ -314,9 +317,10 @@ Decidim.register_component(:proposals) do |component|
                 phone: Faker::PhoneNumber.phone_number,
                 verified_at: Time.current
               },
-              decidim_organization_id: component.organization.id
+              decidim_organization_id: component.organization.id,
+              confirmed_at: Time.current
             )
-            group.confirm
+
             Decidim::UserGroupMembership.create!(
               user: author,
               role: "creator",

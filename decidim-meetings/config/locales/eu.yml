@@ -96,15 +96,11 @@ eu:
             email_outro: Jakinarazpen hori jaso duzu "%{resource_title}" bilera antolatu duzulako.
             email_subject: '"%{resource_title}" bilera itxita zegoen'
             notification_title: <a href="%{resource_path}">%{resource_title}</a> bilera itxita zegoen.
-          email_intro: 'La rencontre "%{resource_title}" est terminée. Vous pouvez en lire le compte rendu sur sa page :'
-          email_outro: Vous avez reçu cette notification, car vous suivez la rencontre "%{resource_title}". Vous pouvez arrêter de la suivre à partir du lien précédent.
-          email_subject: La rencontre "%{resource_title}" est terminée
           follower:
             email_intro: '"%{resource_title}" bilera itxita zegoen. Bere orriko ondorioak irakur ditzakezu:'
             email_outro: Jakinarazpen hau jaso duzu "%{resource_title}" bilera jarraitzen ari zarelako. Aurreko esteka estekan jarrai dezakezu.
             email_subject: '"%{resource_title}" bilera itxita zegoen'
             notification_title: <a href="%{resource_path}">%{resource_title}</a> bilera itxita zegoen.
-          notification_title: La rencontre <a href="%{resource_path}">%{resource_title}</a> est terminée.
         meeting_created:
           email_intro: Bilera "%{resource_title}" | gehitu da "%{participatory_space_title}" " jarraitzen ari zarela.
           email_outro: Jakinarazpena jaso duzu "%{participatory_space_title}" jarraitzen ari zarenagatik. Aurreko esteka estekan jarrai dezakezu.

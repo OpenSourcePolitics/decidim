@@ -1,3 +1,4 @@
+---
 fr:
   activemodel:
     attributes:
@@ -23,6 +24,7 @@ fr:
         settings:
           global:
             comments_enabled: Commentaires activés
+            comments_max_length: Nombre de caractères maximum des commentaires (Mettre 0 pour laisser la valeur par défaut)
     events:
       sortitions:
         sortition_created:
@@ -96,7 +98,7 @@ fr:
       sortitions:
         count:
           proposals_count:
-            one: 1 proposition
+            one: "%{count} proposition"
             other: "%{count} propositions"
         filters:
           active: Actif
@@ -139,7 +141,7 @@ fr:
           random_seed: Valeur aléatoire
           selected_proposals:
             one: proposition sélectionnée
-            other: '%{count} propositions sélectionnées'
+            other: "%{count} propositions sélectionnées"
           view: Voir
         sortition_author:
           deleted: Utilisateur supprimé
@@ -147,5 +149,5 @@ fr:
           deleted: Utilisateur supprimé
         sortitions_count:
           count:
-            one: 1 tirage au sort
+            one: "%{count} tirage au sort"
             other: "%{count} tirages au sort"
