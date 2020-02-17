@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 Decidim::Api::Engine.routes.draw do
-  mount GraphiQL::Rails::Engine, at: "/graphiql", graphql_path: "/api", as: :graphiql
+  mount GraphiQL::Rails::Engine, at: "/graphiql", graphql_path: "/api", as: :graphiql, constraints: ->(_) { Decidim.config.expose_graphiql }
   post "/translate", to: "translation#translate"
   get "/docs", to: "documentation#show", as: :documentation
   get "/", to: redirect("/api/docs")
