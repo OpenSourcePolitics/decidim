@@ -13,12 +13,16 @@ module Decidim
       include NeedsInitiative
 
       def show
-        redirect_to "/404" unless current_initiative.published?
+        redirect_to "/404" unless visible?
 
         super
       end
 
       private
+
+      def visible?
+        current_initiative.published? || current_initiative.accepted? || current_initiative.rejected?
+      end
 
       def model
         @model ||= current_initiative
