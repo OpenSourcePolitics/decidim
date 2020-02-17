@@ -89,7 +89,7 @@ const loadMap = (mapId, markersData) => {
 
   if (markersData.length > 0) {
     addMarkers(markersData, markerClusters, map);
-    if (markersData.length == 1) {
+    if (markersData.length === 1) {
       map.fitBounds(markerClusters.getBounds(), { padding: [100, 100] });
     } else {
       map.fitBounds(markerClusters.getBounds(), { padding: [10, 10] });
