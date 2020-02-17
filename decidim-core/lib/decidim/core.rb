@@ -245,6 +245,16 @@ module Decidim
     7.days
   end
 
+  # Whether to expose the GraphiQL playground, by default true
+  config_accessor :expose_graphiql do
+    true
+  end
+
+  # How long can a user remained logged in before the session expires
+  config_accessor :expire_session_after do
+    1.day
+  end
+
   # Max requests in a time period to prevent DoS attacks. Only applied on production.
   config_accessor :throttling_max_requests do
     100

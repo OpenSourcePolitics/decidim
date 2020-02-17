@@ -269,7 +269,7 @@ module Decidim
           #
           # force_ssl_in_redirect_uri !Rails.env.development?
           #
-          force_ssl_in_redirect_uri false
+          force_ssl_in_redirect_uri true
 
           # WWW-Authenticate Realm (default "Doorkeeper").
           realm "Decidim"
@@ -280,6 +280,22 @@ module Decidim
         ActiveSupport::Inflector.inflections do |inflect|
           inflect.acronym "OAuth"
         end
+      end
+
+      initializer "SSL and HSTS" do
+        Rails.application.configure do
+          config.force_ssl = Rails.env.production?
+        end
+      end
+
+      initializer "Disable Rack::Runtime" do
+        Rails.application.configure do
+          config.middleware.delete Rack::Runtime
+        end
+      end
+
+      initializer "Expire sessions" do
+        Rails.application.config.session_store :cookie_store, expire_after: Decidim.config.expire_session_after
       end
 
       initializer "decidim.core.register_resources" do

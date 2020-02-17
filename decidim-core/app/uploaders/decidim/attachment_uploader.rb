@@ -34,6 +34,10 @@ module Decidim
       ]
     end
 
+    def extension_whitelist
+      %w(jpg jpeg gif png bmp pdf doc docx xls xlsx ppt ppx rtf txt odt ott odf otg ods ots)
+    end
+
     # Checks if the file is an image based on the content type. We need this so
     # we only create different versions of the file when it's an image.
     #
