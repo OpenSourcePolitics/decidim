@@ -200,7 +200,8 @@ ignore_unused:
   - decidim.proposals.admin.participatory_texts.new_import.accepted_mime_types.*
   # OSP CUSTO START HERE
   - decidim.admin.participatory_processes.index.promoted.*
-  - decidim.admin.actions.filters.*
+  - decidim.admin.actions.filters.all
+  - decidim.admin.actions.filters.process_groups
   - decidim.proposals.proposals.edit.address
   - decidim.proposals.proposals.edit.not_geocoded
   - decidim.proposals.proposals.placeholder.address
