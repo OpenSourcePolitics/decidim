@@ -95,5 +95,15 @@ describe Decidim::Verifications::ConfirmUserAuthorization do
       subject.call
       expect(session[:failed_attempts]).to eq(0)
     end
+
+    context "when there's a problem with the SMS service" do
+      before do
+        expect(authorization).to receive(:grant!).and_raise(StandardError, "Somewthing went wrong")
+      end
+
+      it "is not valid" do
+        expect { subject.call }.to broadcast(:invalid)
+      end
+    end
   end
 end

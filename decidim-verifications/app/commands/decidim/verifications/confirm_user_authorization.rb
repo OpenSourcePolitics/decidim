@@ -27,6 +27,8 @@ module Decidim
         return already_confirmed! if authorization.granted?
         return invalid! unless form.valid?
 
+        throttle! if too_many_failed_attempts?
+
         if confirmation_successful?
           valid!
         else
