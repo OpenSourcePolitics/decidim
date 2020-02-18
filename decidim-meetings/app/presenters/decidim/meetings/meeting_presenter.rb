@@ -8,6 +8,7 @@ module Decidim
     class MeetingPresenter < SimpleDelegator
       include Decidim::TranslationsHelper
       include Decidim::ResourceHelper
+      include Decidim::SanitizeHelper
 
       def meeting
         __getobj__
