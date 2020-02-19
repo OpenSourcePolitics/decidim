@@ -57,6 +57,7 @@ PATH
     decidim-comments (0.18.0)
       decidim-core (= 0.18.0)
       jquery-rails (~> 4.0)
+      kaminari (~> 1.1)
     decidim-conferences (0.18.0)
       decidim-core (= 0.18.0)
       decidim-meetings (= 0.18.0)
