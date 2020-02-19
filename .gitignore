@@ -22,3 +22,4 @@ schema.json
 .rbenv-vars
 # Sublime Text 3 indexing file: .tags
 .tags
+.nova
