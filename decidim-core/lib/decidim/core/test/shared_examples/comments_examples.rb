@@ -93,7 +93,7 @@ shared_examples "comments" do
       end
 
       it "shows comment to the user" do
-        expect(page).to have_comment_from(user, "This is a new comment")
+        expect(page).to have_comment_from(user, "This is a new comment", wait: 20)
       end
     end
 
@@ -115,7 +115,7 @@ shared_examples "comments" do
           click_button "Send"
         end
 
-        expect(page).to have_comment_from(user_group, "This is a new comment")
+        expect(page).to have_comment_from(user_group, "This is a new comment", wait: 20)
       end
     end
 
@@ -139,7 +139,7 @@ shared_examples "comments" do
           click_button "Send"
         end
 
-        expect(page).to have_selector(".comment-thread .comment--nested")
+        expect(page).to have_selector(".comment-thread .comment--nested", wait: 20)
         expect(page).to have_selector(".comment__additionalreply")
         expect(page).to have_reply_to(comment, "This is a reply")
       end
@@ -179,7 +179,7 @@ shared_examples "comments" do
             end
 
             within "#comments" do
-              expect(page).to have_selector "span.success.label", text: "In favor"
+              expect(page).to have_selector "span.success.label", text: "In favor", wait: 20
             end
           else
             expect(page).to have_no_selector(".opinion-toggle--ok")
@@ -237,7 +237,7 @@ shared_examples "comments" do
         let(:content) { "A valid user mention: @#{mentioned_user.nickname}" }
 
         it "replaces the mention with a link to the user's profile" do
-          expect(page).to have_comment_from(user, "A valid user mention: @#{mentioned_user.nickname}")
+          expect(page).to have_comment_from(user, "A valid user mention: @#{mentioned_user.nickname}", wait: 20)
           expect(page).to have_link "@#{mentioned_user.nickname}", href: "/profiles/#{mentioned_user.nickname}"
         end
       end
@@ -247,7 +247,7 @@ shared_examples "comments" do
         let(:content) { "This text mentions a user outside current organization: @#{mentioned_user.nickname}" }
 
         it "ignores the mention" do
-          expect(page).to have_comment_from(user, "This text mentions a user outside current organization: @#{mentioned_user.nickname}")
+          expect(page).to have_comment_from(user, "This text mentions a user outside current organization: @#{mentioned_user.nickname}", wait: 20)
           expect(page).not_to have_link "@#{mentioned_user.nickname}"
         end
       end
@@ -256,7 +256,7 @@ shared_examples "comments" do
         let(:content) { "This text mentions a @nonexistent user" }
 
         it "ignores the mention" do
-          expect(page).to have_comment_from(user, "This text mentions a @nonexistent user")
+          expect(page).to have_comment_from(user, "This text mentions a @nonexistent user", wait: 20)
           expect(page).not_to have_link "@nonexistent"
         end
       end

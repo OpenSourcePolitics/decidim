@@ -796,6 +796,7 @@ export interface GetCommentsQueryVariables {
   commentableId: string,
   commentableType: string,
   orderBy?: string | null,
+  singleCommentId?: string | null,
 };
 
 export interface GetCommentsQuery {

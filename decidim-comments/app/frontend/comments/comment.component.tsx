@@ -104,6 +104,12 @@ class Comment extends React.Component<CommentProps, CommentState> {
       modalName = `flagModalComment${id}`;
     }
 
+    let singleCommentUrl = `${window.location.pathname}?commentId=${id}`;
+
+    if (window.location.search && window.location.search !== "") {
+      singleCommentUrl = `${window.location.pathname}${window.location.search.replace(/commentId=\d*/gi, `commentId=${id}`)}`;
+    }
+
     return (
       <article id={`comment_${id}`} className={articleClassName} ref={this.getNodeReference}>
         <div className="comment__header">
@@ -117,6 +123,9 @@ class Comment extends React.Component<CommentProps, CommentState> {
                 <Icon name="icon-flag" iconExtraClassName="icon--small" />
               </button>
               {this._renderFlagModal()}
+              <a href={singleCommentUrl} title={I18n.t("components.comment.single_comment_link_title")}>
+                <Icon name="icon-link-intact" iconExtraClassName="icon--small" />
+              </a>
             </div>
           </div>
         </div>
@@ -299,7 +308,7 @@ class Comment extends React.Component<CommentProps, CommentState> {
    * @returns {Void|DOMElement} - Render the reply button or not if user can reply
    */
   private _renderAdditionalReplyButton() {
-    const { comment: { acceptsNewComments, hasComments, userAllowedToComment  }, session, isRootComment } = this.props;
+    const { comment: { acceptsNewComments, hasComments, userAllowedToComment }, session, isRootComment } = this.props;
 
     if (session && acceptsNewComments && userAllowedToComment) {
       if (hasComments && isRootComment) {
@@ -326,7 +335,7 @@ class Comment extends React.Component<CommentProps, CommentState> {
    */
   private _renderVoteButtons() {
     const { session, comment, votable, rootCommentable, orderBy } = this.props;
-    const { comment: { userAllowedToComment  } } = this.props;
+    const { comment: { userAllowedToComment } } = this.props;
 
     if (votable && userAllowedToComment) {
       return (
@@ -385,7 +394,7 @@ class Comment extends React.Component<CommentProps, CommentState> {
   private _renderReplyForm() {
     const { session, comment, rootCommentable, orderBy, commentsMaxLength } = this.props;
     const { showReplyForm } = this.state;
-    const { comment: { userAllowedToComment  } } = this.props;
+    const { comment: { userAllowedToComment } } = this.props;
 
     if (session && showReplyForm && userAllowedToComment) {
       return (

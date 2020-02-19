@@ -12,11 +12,12 @@ import {
   GetCommentsQueryVariables
 } from "../support/schema";
 
-const { I18n } = require("react-i18nify");
+const { I18n, Translate } = require("react-i18nify");
 
 interface CommentsProps extends GetCommentsQuery {
   loading?: boolean;
   orderBy: string;
+  singleCommentId?: string;
   reorderComments: (orderBy: string) => void;
   commentsMaxLength: number;
 }
@@ -38,9 +39,12 @@ export class Comments extends React.Component<CommentsProps> {
   };
 
   public render() {
-    const { commentable: { comments, totalCommentsCount = 0, userAllowedToComment }, reorderComments, orderBy, loading, commentsMaxLength } = this.props;
+    const { commentable: { totalCommentsCount = 0 }, singleCommentId, loading } = this.props;
     let commentClasses = "comments";
     let commentHeader = I18n.t("components.comments.title", { count: totalCommentsCount });
+    if (singleCommentId && singleCommentId !== "") {
+      commentHeader = I18n.t("components.comments.comment_details_title");
+    }
 
     if (loading) {
       commentClasses += " loading-comments";
@@ -54,11 +58,9 @@ export class Comments extends React.Component<CommentsProps> {
             <h2 className="order-by__text section-heading">
               {commentHeader}
             </h2>
-            <CommentOrderSelector
-              reorderComments={reorderComments}
-              defaultOrderBy={orderBy}
-            />
+            {this._renderCommentOrderSelector()}
           </div>
+          {this._renderSingleCommentWarning()}
           {this._renderBlockedCommentsWarning()}
           {this._renderCommentThreads()}
           {this._renderAddCommentForm()}
@@ -107,6 +109,54 @@ export class Comments extends React.Component<CommentsProps> {
     }
 
     return null;
+  }
+
+  /**
+   * Renders warning message when viewing a single comment.
+   * @private
+   * @returns {Void|DOMElement} - A warning message or nothing.
+   */
+  private _renderSingleCommentWarning() {
+    const { singleCommentId, reorderComments, orderBy } = this.props;
+
+    if (singleCommentId && singleCommentId !== "") {
+      const newUrl = `${window.location.pathname}${window.location.search.replace(`commentId=${singleCommentId}`, "")}`;
+
+      return (
+        <div className="callout secondary">
+          <h5>{I18n.t("components.comments.single_comment_warning_title")}</h5>
+          <p>
+            <Translate
+              value="components.comments.single_comment_warning"
+              url={newUrl}
+              dangerousHTML={true}
+            />
+          </p>
+        </div>
+      );
+    }
+
+    return null;
+  }
+
+  /**
+   * Renders an order selector.
+   * @private
+   * @returns {Void|DOMElement} - A warning message or nothing.
+   */
+  private _renderCommentOrderSelector() {
+    const { singleCommentId, reorderComments, orderBy } = this.props;
+
+    if (singleCommentId && singleCommentId !== "") {
+      return null;
+    }
+
+    return (
+      <CommentOrderSelector
+        reorderComments={reorderComments}
+        defaultOrderBy={orderBy}
+      />
+    );
   }
 
   /**
