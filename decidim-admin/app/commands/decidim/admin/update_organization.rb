@@ -56,6 +56,13 @@ module Decidim
           admin_terms_of_use_body: form.admin_terms_of_use_body,
           rich_text_editor_in_public_views: form.rich_text_editor_in_public_views
         }.merge(welcome_notification_attributes)
+        .merge(translation_settings)
+      end
+
+      def translation_settings
+        {
+          deepl_api_key: form.deepl_api_key
+        }
       end
 
       def welcome_notification_attributes

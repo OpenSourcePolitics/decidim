@@ -10,6 +10,8 @@ module Decidim
 
       mimic :organization
 
+      DEEPL_LOCALES = %w(EN DE FR ES PT IT NL PL RU).freeze
+
       attribute :logo
       attribute :remove_logo
       attribute :favicon

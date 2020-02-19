@@ -11,6 +11,10 @@ module Decidim
 
       private
 
+      def translatable?
+        true
+      end
+
       def title
         decidim_html_escape(translated_attribute(model.title))
       end

@@ -85,6 +85,48 @@ $datetime-bg: var(--primary);
   }
 }
 
+.debug {
+  background-color: red;
+}
+
+.card__translate {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: .7rem;
+
+  .btn {
+    font-size: 90%;
+    font-weight: bold;
+    vertical-align: middle;
+    text-transform: lowercase;
+    font-variant: small-caps;
+
+    .icon {
+      vertical-align: middle;
+      // position: relative;
+      // top: -1px;
+      margin-right: .25rem;
+    }
+
+    .loading-spinner {
+      display: inline-block;
+      margin: 5px !important;
+      height: 5px;
+
+      &--hidden {
+        visibility: hidden;
+      }
+
+      &::before {
+        width: 15px;
+        height: 15px;
+        border: 3px solid #e8e8e8;
+        border-right-color: var(--secondary);
+      }
+    }
+  }
+}
+
 .card__button{
   margin-bottom: 0;
   cursor: pointer;

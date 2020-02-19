@@ -59,15 +59,29 @@ edit_link(
   <div class="columns mediumlarge-8 mediumlarge-pull-4">
     <div class="section">
       <div class="row column">
-        <h2 class="heading2">
+        <h2 class="heading2" <%= "id=#{translate_helper_for(element: :title, model: current_initiative)}" %>>
           <%= translated_attribute(current_initiative.title) %>
         </h2>
         <%= render partial: "author", locals: { initiative: current_initiative } %>
+        <%= translate_button_helper_for(
+              title: translated_attribute(current_initiative.title),
+              body: translated_attribute(current_initiative.description),
+              model: current_initiative,
+              options: { class: "hide-for-small-only" }
+            ) %>
       </div>
       <br>
       <div class="row column">
         <%= render partial: "initiative_badge", locals: { initiative: current_initiative } %>
-        <%= decidim_sanitize translated_attribute(current_initiative.description) %>
+        <div id="<%= translate_helper_for(element: :body, model: current_initiative) %>">
+          <%= decidim_sanitize simple_format(translated_attribute(current_initiative.description)) %>
+          <%= translate_button_helper_for(
+                title: translated_attribute(current_initiative.title),
+                body: translated_attribute(current_initiative.description),
+                model: current_initiative,
+                options: { class: "show-for-small-only" }
+              ) %>
+        </div>
         <%= render partial: "tags", locals: { resource: current_initiative } %>
       </div>
 

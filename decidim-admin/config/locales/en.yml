@@ -558,12 +558,18 @@ en:
           actions: Actions
           badge: Badge
           created_at: Created At
+          filter:
+            all: All
+            not_officialized: Not validated
+            officialized: Validated
+          filter_by: Filter by
           name: Name
           nickname: Nickname
           not_officialized: Not officialized
           officialize: Officialize
           officialized: Officialized
           reofficialize: Reofficialize
+          search: Search
           status: Status
           unofficialize: Unofficialize
         new:

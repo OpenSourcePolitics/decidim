@@ -14,11 +14,21 @@ edit_link(
 %>
 
 <div class="row column view-header">
-  <h2 class="heading2">
+  <%= link_to :debates, class: "title-action__action button small hollow" do %>
+    <%= icon "chevron-left", class: "icon--small" %>
+    <%= t(".back") %>
+  <% end %>
+  <h2 class="heading2" <%= "id=#{translate_helper_for(element: :title, model: debate)}" %>>
     <%== present(debate).title %>
   </h2>
 
   <%= cell "decidim/author", Decidim::Debates::DebatePresenter.new(debate).author, context: { extra_classes: ["author-data--small"] } %>
+  <%= translate_button_helper_for(
+        title: Decidim::Debates::DebatePresenter.new(debate).title,
+        body: Decidim::Debates::DebatePresenter.new(debate).description,
+        model: debate,
+        options: { class: "hide-for-small-only" }
+      ) %>
 
 </div>
 <div class="row">
@@ -42,7 +52,17 @@ edit_link(
   </div>
   <div class="columns mediumlarge-8 mediumlarge-pull-4">
     <div class="section">
-      <%= render_debate_description(debate) %>
+      <div id="<%= translate_helper_for(element: :body, model: debate) %>">
+        <%= render_debate_description(debate) %>
+      </div>
+      <%= translate_button_helper_for(
+            title: Decidim::Debates::DebatePresenter.new(debate).title,
+            body: Decidim::Debates::DebatePresenter.new(debate).description,
+            model: debate,
+            options: { class: "show-for-small-only" }
+          ) %>
+
+
       <% if translated_attribute(debate.instructions).present? %>
         <div class="callout secondary">
           <%= decidim_sanitize(simple_format(translated_attribute(debate.instructions))) %>

@@ -103,6 +103,10 @@ module Decidim
       "#{host}-open-data.zip"
     end
 
+    def translatable_locales
+      available_locales & Decidim.config.translatable_locales
+    end
+
     def enabled_omniauth_providers
       return Decidim::OmniauthProvider.enabled if omniauth_settings.nil?
 

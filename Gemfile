@@ -18,7 +18,8 @@ gem "faker", "~> 1.9"
 
 group :development, :test do
   gem "byebug", "~> 11.0", platform: :mri
-
+  gem "deepl-rb", require: "deepl"
+  
   gem "decidim-dev", path: "."
 end
 

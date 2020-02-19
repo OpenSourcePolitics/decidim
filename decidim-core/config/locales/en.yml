@@ -1042,6 +1042,10 @@ en:
         share_link: Share link
       version_author:
         deleted: Deleted participant
+    translate:
+      original: Translate text
+      tooltip: Translated with Deepl
+      translated: Back to the original version
     user_activity:
       index:
         no_activities_warning: This participant hasn't had any activity yet.

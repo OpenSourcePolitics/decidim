@@ -29,6 +29,7 @@ module Decidim
     helper Decidim::ViewHooksHelper
     helper Decidim::CardHelper
     helper Decidim::SanitizeHelper
+    helper Decidim::DeeplHelper
 
     register_permissions(::Decidim::ApplicationController,
                          ::Decidim::Admin::Permissions,

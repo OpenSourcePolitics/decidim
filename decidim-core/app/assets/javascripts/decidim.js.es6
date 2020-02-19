@@ -28,6 +28,7 @@
 
 // = require_self
 // = require decidim/floating_help
+// = require decidim/translation
 
 /* globals svg4everybody */
 
