@@ -796,8 +796,8 @@ export interface GetCommentsQueryVariables {
   commentableId: string,
   commentableType: string,
   orderBy?: string | null,
-  singleCommentId?: string | null,
   page?: number | null,
+  singleCommentId?: string | null,
 };
 
 export interface GetCommentsQuery {
@@ -833,6 +833,7 @@ export interface GetCommentsQuery {
     commentsHaveVotes: boolean,
     // The number of comments in all levels this resource holds
     totalCommentsCount: number,
+    // The number of pages of comments
     totalPages: number,
     comments:  Array< {
       // The Comment's unique ID
