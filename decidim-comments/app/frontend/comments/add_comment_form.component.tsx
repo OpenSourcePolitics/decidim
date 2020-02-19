@@ -17,9 +17,11 @@ import {
 } from "../support/schema";
 
 interface AddCommentFormProps {
-  session: AddCommentFormSessionFragment & {
+  session:
+    | (AddCommentFormSessionFragment & {
     user: any;
-  } | null;
+  })
+    | null;
   commentable: AddCommentFormCommentableFragment;
   rootCommentable: AddCommentFormCommentableFragment;
   showTitle?: boolean;
@@ -27,7 +29,11 @@ interface AddCommentFormProps {
   autoFocus?: boolean;
   arguable?: boolean;
   userAllowedToComment?: boolean;
-  addComment?: (data: { body: string, alignment: number, userGroupId?: string }) => void;
+  addComment?: (data: {
+    body: string;
+    alignment: number;
+    userGroupId?: string;
+  }) => void;
   onCommentAdded?: () => void;
   orderBy: string;
   commentsMaxLength: number;
@@ -45,7 +51,10 @@ interface AddCommentFormState {
  * @class
  * @augments Component
  */
-export class AddCommentForm extends React.Component<AddCommentFormProps, AddCommentFormState> {
+export class AddCommentForm extends React.Component<
+  AddCommentFormProps,
+  AddCommentFormState
+  > {
   public static defaultProps = {
     showTitle: true,
     submitButtonClassName: "button button--sc",
@@ -127,7 +136,11 @@ export class AddCommentForm extends React.Component<AddCommentFormProps, AddComm
    * @returns {Void|DOMElement} - The add comment form on an empty element.
    */
   private _renderForm() {
-    const { session, submitButtonClassName, commentable: { id, type } } = this.props;
+    const {
+      session,
+      submitButtonClassName,
+      commentable: { id, type }
+    } = this.props;
     const { disabled, remainingCharacterCount } = this.state;
 
     if (session) {
@@ -135,8 +148,13 @@ export class AddCommentForm extends React.Component<AddCommentFormProps, AddComm
         <form onSubmit={this.addComment}>
           {this._renderCommentAs()}
           <div className="field">
-            <label className="show-for-sr" htmlFor={`add-comment-${type}-${id}`}>{I18n.t("components.add_comment_form.form.body.label")}</label>
-            {this._renderTextArea()}
+            <label
+              className="show-for-sr"
+              htmlFor={`add-comment-${type}-${id}`}
+            >
+              {I18n.t("components.add_comment_form.form.body.label")}
+            </label>
+            <div className="hashtags__container">{this._renderTextArea()}</div>
             {this._renderTextAreaError()}
             <button
               type="submit"
@@ -146,7 +164,9 @@ export class AddCommentForm extends React.Component<AddCommentFormProps, AddComm
               {I18n.t("components.add_comment_form.form.submit")}
             </button>
             <span className="remaining-character-count">
-              {I18n.t("components.add_comment_form.remaining_characters", { count:  remainingCharacterCount })}
+              {I18n.t("components.add_comment_form.remaining_characters", {
+                count: remainingCharacterCount
+              })}
             </span>
           </div>
         </form>
@@ -162,12 +182,18 @@ export class AddCommentForm extends React.Component<AddCommentFormProps, AddComm
    * @returns {Void|DOMElement} - The heading or an empty element
    */
   private _renderTextArea() {
-    const { commentable: { id, type }, autoFocus, commentsMaxLength } = this.props;
+    const {
+      commentable: { id, type },
+      autoFocus,
+      commentsMaxLength
+    } = this.props;
     const { error } = this.state;
     const className = classnames({ "is-invalid-input": error });
 
     const textAreaProps: any = {
-      ref: (textarea: HTMLTextAreaElement) => {this.bodyTextArea = textarea; },
+      ref: (textarea: HTMLTextAreaElement) => {
+        this.bodyTextArea = textarea;
+      },
       id: `add-comment-${type}-${id}`,
       className,
       rows: "4",
@@ -182,9 +208,7 @@ export class AddCommentForm extends React.Component<AddCommentFormProps, AddComm
       textAreaProps.autoFocus = "autoFocus";
     }
 
-    return (
-      <textarea {...textAreaProps} />
-    );
+    return <textarea {...textAreaProps} />;
   }
 
   /**
@@ -222,35 +246,38 @@ export class AddCommentForm extends React.Component<AddCommentFormProps, AddComm
     const { session, arguable } = this.props;
     const { alignment } = this.state;
     const buttonClassName = classnames("button", "tiny", "button--muted");
-    const okButtonClassName = classnames(buttonClassName, "opinion-toggle--ok", {
-      "is-active": alignment === 1
-    });
-    const koButtonClassName = classnames(buttonClassName, "opinion-toggle--ko", {
-      "is-active": alignment === -1
-    });
-    const neutralButtonClassName = classnames(buttonClassName, "opinion-toggle--meh", {
-      "is-active": alignment === 0
-    });
+    const okButtonClassName = classnames(
+      buttonClassName,
+      "opinion-toggle--ok",
+      {
+        "is-active": alignment === 1
+      }
+    );
+    const koButtonClassName = classnames(
+      buttonClassName,
+      "opinion-toggle--ko",
+      {
+        "is-active": alignment === -1
+      }
+    );
+    const neutralButtonClassName = classnames(
+      buttonClassName,
+      "opinion-toggle--meh",
+      {
+        "is-active": alignment === 0
+      }
+    );
 
     if (session && arguable) {
       return (
         <div className="opinion-toggle button-group">
-          <button
-            className={okButtonClassName}
-            onClick={this.setAlignment(1)}
-          >
+          <button className={okButtonClassName} onClick={this.setAlignment(1)}>
             <Icon iconExtraClassName="" name="icon-thumb-up" />
           </button>
-          <button
-            className={neutralButtonClassName}
-            onClick={this.setAlignment(0)}
-          >
+          <button className={neutralButtonClassName} onClick={this.setAlignment(0)}>
             {I18n.t("components.add_comment_form.opinion.neutral")}
           </button>
-          <button
-            className={koButtonClassName}
-            onClick={this.setAlignment(-1)}
-          >
+          <button className={koButtonClassName} onClick={this.setAlignment(-1)}>
             <Icon iconExtraClassName="" name="icon-thumb-down" />
           </button>
         </div>
@@ -260,7 +287,9 @@ export class AddCommentForm extends React.Component<AddCommentFormProps, AddComm
     return null;
   }
 
-  private setUserGroupIdSelect = (select: HTMLSelectElement) => {this.userGroupIdSelect = select; };
+  private setUserGroupIdSelect = (select: HTMLSelectElement) => {
+    this.userGroupIdSelect = select;
+  }
 
   /**
    * Render a select with an option for each user's verified group
@@ -268,7 +297,10 @@ export class AddCommentForm extends React.Component<AddCommentFormProps, AddComm
    * @returns {Void|DOMElement} - Returns nothing or a form field.
    */
   private _renderCommentAs() {
-    const { session, commentable: { id, type } } = this.props;
+    const {
+      session,
+      commentable: { id, type }
+    } = this.props;
 
     if (session) {
       const { user, verifiedUserGroups } = session;
@@ -284,11 +316,11 @@ export class AddCommentForm extends React.Component<AddCommentFormProps, AddComm
               id={`add-comment-${type}-${id}-user-group-id`}
             >
               <option value="">{user.name}</option>
-              {
-                verifiedUserGroups.map((userGroup) => (
-                  <option key={userGroup.id} value={userGroup.id}>{userGroup.name}</option>
-                ))
-              }
+              {verifiedUserGroups.map(userGroup => (
+                <option key={userGroup.id} value={userGroup.id}>
+                  {userGroup.name}
+                </option>
+              ))}
             </select>
           </div>
         );
@@ -306,7 +338,8 @@ export class AddCommentForm extends React.Component<AddCommentFormProps, AddComm
    */
   private _checkCommentBody(body: string, commentsMaxLength: number) {
     this.setState({
-      disabled: body === "", error: body === "" || body.length > commentsMaxLength,
+      disabled: body === "",
+      error: body === "" || body.length > commentsMaxLength,
       remainingCharacterCount: commentsMaxLength - body.length
     });
   }
@@ -321,7 +354,11 @@ export class AddCommentForm extends React.Component<AddCommentFormProps, AddComm
   private addComment = (evt: React.FormEvent<HTMLFormElement>) => {
     const { alignment } = this.state;
     const { addComment, onCommentAdded } = this.props;
-    const addCommentParams: { body: string, alignment: number, userGroupId?: string } = { body: this.bodyTextArea.value, alignment };
+    const addCommentParams: {
+      body: string;
+      alignment: number;
+      userGroupId?: string;
+    } = { body: this.bodyTextArea.value, alignment };
 
     evt.preventDefault();
 
@@ -345,9 +382,20 @@ export class AddCommentForm extends React.Component<AddCommentFormProps, AddComm
 const addCommentMutation = require("../mutations/add_comment.mutation.graphql");
 const getCommentsQuery = require("../queries/comments.query.graphql");
 
-const AddCommentFormWithMutation = graphql<addCommentMutation, AddCommentFormProps>(addCommentMutation, {
+const AddCommentFormWithMutation = graphql<
+  addCommentMutation,
+  AddCommentFormProps
+  >(addCommentMutation, {
   props: ({ ownProps, mutate }) => ({
-    addComment: ({ body, alignment, userGroupId }: { body: string, alignment: number, userGroupId: string }) => {
+    addComment: ({
+                   body,
+                   alignment,
+                   userGroupId
+                 }: {
+      body: string;
+      alignment: number;
+      userGroupId: string;
+    }) => {
       if (mutate) {
         mutate({
           variables: {
@@ -365,25 +413,30 @@ const AddCommentFormWithMutation = graphql<addCommentMutation, AddCommentFormPro
                 id: uuid(),
                 sgid: uuid(),
                 type: "Decidim::Comments::Comment",
-                createdAt: new Date().toISOString(),
                 body,
                 formattedBody: body,
-                alignment,
+                createdAt: new Date().toISOString(),
+                formattedCreatedAt: new Date().toLocaleTimeString(),
                 author: {
                   __typename: "User",
                   name: ownProps.session && ownProps.session.user.name,
-                  avatarUrl: ownProps.session && ownProps.session.user.avatarUrl,
-                  deleted: false
+                  nickname: ownProps.session && ownProps.session.user.nickname,
+                  avatarUrl:
+                    ownProps.session && ownProps.session.user.avatarUrl,
+                  profilePath: "profilePath",
+                  deleted: false,
+                  badge: null
                 },
-                comments: [],
                 hasComments: false,
                 acceptsNewComments: false,
                 userAllowedToComment: false,
+                alignment,
+                alreadyReported: false,
                 upVotes: 0,
                 upVoted: false,
                 downVotes: 0,
                 downVoted: false,
-                alreadyReported: false
+                comments: []
               }
             }
           },
@@ -391,7 +444,8 @@ const AddCommentFormWithMutation = graphql<addCommentMutation, AddCommentFormPro
             const variables = {
               commentableId: ownProps.rootCommentable.id,
               commentableType: ownProps.rootCommentable.type,
-              orderBy: ownProps.orderBy
+              orderBy: ownProps.orderBy,
+              page: null
             };
             const prev = store.readQuery<GetCommentsQuery>({
               query: getCommentsQuery,
@@ -401,17 +455,16 @@ const AddCommentFormWithMutation = graphql<addCommentMutation, AddCommentFormPro
             const newComment = data.commentable && data.commentable.addComment;
             let comments = [];
 
-            const commentReducer = (comment: CommentFragment): CommentFragment => {
+            const commentReducer = (
+              comment: CommentFragment
+            ): CommentFragment => {
               const replies = comment.comments || [];
 
               if (newComment && comment.id === id) {
                 return {
                   ...comment,
                   hasComments: true,
-                  comments: [
-                    ...replies,
-                    newComment
-                  ]
+                  comments: [...replies, newComment]
                 };
               }
               return {
@@ -422,13 +475,10 @@ const AddCommentFormWithMutation = graphql<addCommentMutation, AddCommentFormPro
 
             if (prev) {
               if (type === "Decidim::Comments::Comment") {
-                  comments = prev.commentable.comments.map(commentReducer);
-                } else {
-                  comments = [
-                    ...prev.commentable.comments,
-                    newComment
-                  ];
-                }
+                comments = prev.commentable.comments.map(commentReducer);
+              } else {
+                comments = [newComment, ...prev.commentable.comments];
+              }
 
               store.writeQuery({
                 query: getCommentsQuery,
