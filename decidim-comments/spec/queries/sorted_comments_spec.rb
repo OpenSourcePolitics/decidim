@@ -67,7 +67,7 @@ module Decidim::Comments
       let!(:page) { 2 }
 
       it "fetches a specific page of 10 comments" do
-        comments = [comment] + 29.times.map { create(:comment, commentable: commentable, author: author) }
+        comments = [comment] + Array.new(29).map { create(:comment, commentable: commentable, author: author) }
         expect(subject.query).to eq(comments[10..19])
       end
     end
