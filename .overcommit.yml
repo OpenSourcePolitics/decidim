@@ -33,12 +33,18 @@
 #    enabled: true # Generate a tags file with `ctags` each time HEAD changes
 
 PostCheckout:
+  ALL:
+    concurrency: '%{processors} - 1'
+    parallelize: true
   BundleInstall:
     enabled: true
   NpmCheck:
     enabled: true
 
 PreCommit:
+  ALL:
+    concurrency: '%{processors} - 1'
+    parallelize: true
   BundleCheck:
     enabled: true
   YamlSyntax:
