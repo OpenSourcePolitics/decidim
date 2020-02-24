@@ -60,6 +60,12 @@ module Decidim
         end
       end
 
+      it "supports hashes" do
+        attribute = SettingsManifest::Attribute.new(type: :hash)
+        expect(attribute.type_class).to eq(Hash)
+        expect(attribute.default_value).to eq({})
+      end
+
       it "only allows valid types" do
         expect { subject.attribute :something, type: :fake_type }.to(
           raise_error(ActiveModel::ValidationError)

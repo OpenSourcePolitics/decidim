@@ -20,7 +20,8 @@ FactoryBot.define do
 
       settings do
         {
-          total_budget: total_budget,
+          vote_per_budget: true,
+          vote_per_project: false,
           vote_threshold_percent: vote_threshold_percent
         }
       end
@@ -29,13 +30,13 @@ FactoryBot.define do
     trait :with_vote_per_project do
       transient do
         total_projects { 5 }
-        vote_per_project { true }
       end
 
       settings do
         {
-          total_projects: total_projects,
-          vote_per_project: vote_per_project
+          vote_per_project: true,
+          vote_per_budget: false,
+          total_projects: total_projects
         }
       end
     end

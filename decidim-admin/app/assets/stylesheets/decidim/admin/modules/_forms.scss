@@ -116,6 +116,10 @@ textarea{
   flex-wrap: wrap;
   justify-content: space-between;
 
+  .disabled{
+    opacity: .5;
+  }
+
   &::after{ /* Align last row to left */
     min-width: $checkboxes-minimum-width;
     content: "";

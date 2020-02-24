@@ -18,3 +18,16 @@
   padding-left: 1rem;
   padding-right: .5rem;
 }
+
+#order-selected-projects{
+  [data-toggle="budget-confirm"]{
+    margin-top: 20px;
+  }
+
+  .budget-summary__list{
+    margin-left: 0;
+    li{
+      list-style-type: none;
+    }
+  }
+}

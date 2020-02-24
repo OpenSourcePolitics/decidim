@@ -23,7 +23,9 @@ module Decidim
       #
       # Returns a rendered form field.
       def settings_attribute_input(form, attribute, name, options = {})
-        if attribute.translated?
+        if name == :projects_per_category_treshold
+          form.projects_per_category_treshold_fields(current_participatory_space.categories.first_class, component_projects_count)
+        elsif attribute.translated?
           form.send(:translated, form_method_for_attribute(attribute), name, options.merge(tabs_id: "#{options[:tabs_prefix]}-#{name}-tabs"))
         else
           form.send(form_method_for_attribute(attribute), name, options.merge(extra_options_for(name)))
@@ -38,21 +40,47 @@ module Decidim
         TYPES[attribute.type.to_sym]
       end
 
-      # Marks :participatory_texts_enabled checkbox with a unique class if
-      # the Proposals component has existing proposals, and stores the help text
-      # that will be added in a new div via JavaScript in "decidim/admin/form".
-      #
-      # field_name - The name of the field to disable.
-      #
-      # Returns an empty Hash or a Hash with extra HTML options.
-      def extra_options_for(field_name)
-        return {} unless field_name == :participatory_texts_enabled &&
-                         Decidim::Proposals::Proposal.where(component: @component).any?
+      # Counts how many Decidim::Budgets::Project belong to the Decidim::Budgets component.
+      def component_projects_count
+        @component_projects_count ||= Decidim::Budgets::Project.where(component: @component).size
+      end
 
-        {
-          class: "participatory_texts_disabled",
-          data: { text: t("decidim.admin.components.form.participatory_texts_enabled_help") }
-        }
+      # Adds extra HTML options to `budget_voting_rules_settings` fields.
+      #
+      # Used in the following script:
+      # assets/javascripts/decidim/admin/form.js.es6
+      #
+      # Returns a Hash.
+      def extra_options_for(field_name)
+        case field_name
+        when :vote_per_budget, :vote_threshold_percent
+          { class: "per-budget-rule" }
+        when :vote_per_project
+          { class: "per-project-rule" }
+        when :total_projects
+          { min: 1, max: component_projects_count, class: "per-project-rule" }
+        else
+          {}
+        end
+      end
+
+      # Decidim::Budgets component's global settings related to "voting rules".
+      # The order is important, as it is maintained by Hash#slice.
+      #
+      # Used in the following partials:
+      # views/decidim/admin/components/_settings_fields.html.erb
+      # views/decidim/admin/components/_budget_voting_rules_settings_fields.html.erb
+      #
+      # Returns an Array.
+      def budget_voting_rules_settings
+        [
+          :vote_per_budget,
+          :vote_threshold_percent,
+          :vote_per_project,
+          :total_projects,
+          :vote_per_category,
+          :projects_per_category_treshold
+        ]
       end
     end
   end
