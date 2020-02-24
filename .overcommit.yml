@@ -32,8 +32,25 @@
 #  IndexTags:
 #    enabled: true # Generate a tags file with `ctags` each time HEAD changes
 
+PostCheckout:
+  BundleInstall:
+    enabled: true
+  NpmCheck:
+    enabled: true
+
 PreCommit:
+  BundleCheck:
+    enabled: true
+  YamlSyntax:
+    enabled: true
+    exclude:
+      - '**/config/i18n-tasks.yml'
+  NpmCheck:
+    enabled: true
   RuboCop:
     enabled: true
     command: ['bundle', 'exec', 'rubocop']
+  ErbLint:
+    enabled: true
+    command: ['bundle', 'exec', 'erblint', 'decidim-/app/{cells,views}//*.erb']
 
