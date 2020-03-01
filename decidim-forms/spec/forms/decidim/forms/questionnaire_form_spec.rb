@@ -21,7 +21,7 @@ module Decidim
       let(:session_token) { "some-token" }
       let(:context) do
         {
-            session_token: session_token
+          session_token: session_token
         }
       end
 
