@@ -126,6 +126,50 @@ module Decidim
             expect(serialized).to include(answer: expected_answer)
           end
         end
+
+        it "doesn't serialize author's data" do
+          expect(serialized).not_to include(:author)
+        end
+
+        context "when data is exported from backoffice" do
+
+          it "serializes author's data" do
+            expect(serialized).to include(:author)
+          end
+
+          it "serializes author's group data" do
+            expect(serialized).to include(:author_group)
+          end
+
+          context "when author is not a group" do
+            it "data in author are not empty" do
+              expect(serialized[:author][:name]).not_to be_empty
+              expect(serialized[:author][:id]).not_to be_empty
+            end
+
+            it "data in author group are empty" do
+              expect(serialized[:author_group][:name]).to be_empty
+              expect(serialized[:author_group][:id]).to be_empty
+            end
+          end
+
+          context "when author is a group" do
+            it "data in author are not empty" do
+              expect(serialized[:author][:name]).to be_empty
+              expect(serialized[:author][:id]).to be_empty
+            end
+
+            it "data in author group are empty" do
+              expect(serialized[:author_group][:name]).not_to be_empty
+              expect(serialized[:author_group][:id]).not_to be_empty
+            end
+          end
+
+          it "ID field is numeric" do
+            expect(serialized[:author][:id]).to match(/^[0-9]+$/)
+            expect(serialized[:author_group][:id]).to match(/^[0-9]+$/)
+          end
+        end
       end
     end
   end
