@@ -124,6 +124,11 @@ de:
         create: "%{user_name} created the %{resource_name} static page"
         delete: "%{user_name} deleted the %{resource_name} static page"
         update: "%{user_name} updated the %{resource_name} static page"
+      upstream_moderation:
+        accept: "%{user_name} validated a resource of type %{resource_type} in the %{space_name} space"
+        hide: "%{user_name} hid a resource of type %{resource_type} in the %{space_name} space"
+        pending: A resource of type %{resource_type} in the %{space_name} space is awaiting moderation
+        unreport: "%{user_name} validated a resource of type %{resource_type} in the %{space_name} space"
       user:
         invite: "%{user_name} den Benutzer %{resource_name} mit der Rolle %{role}eingeladen"
         officialize: "%{user_name} den Benutzer %{resource_name}offiziell anerkannt"
@@ -993,6 +998,8 @@ de:
         close_window: Close window
         share: Share
         share_link: Share link
+      upstream_moderation:
+        pending_info: This content will be visible once it has been moderated
       version_author:
         deleted: Gelöschter Benutzer
     translate:
