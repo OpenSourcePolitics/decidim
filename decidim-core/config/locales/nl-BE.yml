@@ -124,6 +124,11 @@ nl-BE:
         create: "%{user_name} heeft de %{resource_name} -vergadering aangemaakt"
         delete: "%{user_name} heeft de %{resource_name} -vergadering aangemaakt"
         update: "%{user_name} heeft de %{resource_name} -vergadering aangemaakt"
+      upstream_moderation:
+        accept: "%{user_name} validated a resource of type %{resource_type} in the %{space_name} space"
+        hide: "%{user_name} heeft een bron van type %{resource_type} niet gemeld in de %{space_name} ruimte"
+        pending: A resource of type %{resource_type} in the %{space_name} space is awaiting moderation
+        unreport: "%{user_name} validated a resource of type %{resource_type} in the %{space_name} space"
       user:
         invite: "%{user_name} invited the user %{resource_name} with role: %{role}"
         officialize: "%{user_name} officialized the user %{resource_name}"
@@ -996,6 +1001,8 @@ nl-BE:
         close_window: Close window
         share: Share
         share_link: Share link
+      upstream_moderation:
+        pending_info: This content will be visible once it has been moderated
       version_author:
         deleted: Deleted user
     translate:
