@@ -46,7 +46,7 @@ nl-BE:
         enable_omnipresent_banner: Toon omnipresent banner
         facebook_handler: Facebook handler
         favicon: Icoon
-        from: Van e-mailadres
+        from: Afzender van de e-mail
         github_handler: GitHub handler
         header_snippets: Koptekstjes
         highlighted_content_banner_action_subtitle: Ondertitel van de actieknop
@@ -116,6 +116,10 @@ nl-BE:
               allowed_file_content_types: Ongeldig afbeeldingsbestand
             official_img_header:
               allowed_file_content_types: Ongeldig afbeeldingsbestand
+    models:
+      decidim/upstream_accepted_event: Moderation
+      decidim/upstream_hidden_event: Moderation
+      decidim/upstream_pending_event: Moderation
   activerecord:
     attributes:
       decidim/static_page:
@@ -135,6 +139,7 @@ nl-BE:
       actions:
         add: Toevoegen
         browse: Browsen
+        cancel: Cancel
         export: Exporteren
         manage: Beheer
         permissions: Toelatingen
@@ -705,6 +710,14 @@ nl-BE:
         static_pages: Pagina's
         user_groups: User groups
         users: Deelnemers
+      upstream_moderation_mailer:
+        notify_moderator:
+          hello: Hello
+          manage_moderations: Manage moderations
+          report_html: <p>The following <a href="%{url}">content</a> is awaiting moderation.</p>
+      upstream_moderations:
+        index:
+          title: Upstream moderations
       user:
         new: Nieuwe gebruiker
       user_group:
@@ -751,6 +764,24 @@ nl-BE:
           create: Nodig uit
           title: Invite user as administrator
       view_public_page: Bekijk de openbare pagina
+    events:
+      admin:
+        upstream_accepted:
+          email_intro: Your contribution "%{resource_title}" was accepted.
+          email_outro: It is now visible for the other participatory space users.
+          email_subject: Your contribution was accepted.
+          notification_title: '"<a href="%{resource_path}">%{resource_title}</a>" was accepted.'
+        upstream_hidden:
+          email_intro: Your contribution "%{resource_title}" was rejected.
+          email_outro: It will not be visible to the other participatory space users.
+          email_subject: Your contribution was rejected.
+          notification_title: '"<a href="%{resource_path}">%{resource_title}</a>" was rejected.'
+        upstream_pending:
+          email_intro: Your contribution "%{resource_title}" is awaiting moderation.
+          email_outro: You will receive another notification once it has been moderated.
+          email_subject: Your contribution is awaiting moderation.
+          moderator_subject: A contribution is awaiting moderation.
+          notification_title: '"<a href="%{resource_path}">%{resource_title}</a>" is awaiting moderation.'
     forms:
       errors:
         impersonate_user:
@@ -780,9 +811,35 @@ nl-BE:
             hidden_at: Verborgen bij
             report_count: Tellen
             reportable: Rapporterbaar
+            reported_at: Reported at
             reported_content_url: Gerapporteerde inhouds-URL
             reports: Rapporten
             visit_url: Bezoek URL
+    upstream_moderations:
+      actions:
+        accept: Make visible
+        change_visibility: Change visibility
+        hide: Verbergen
+        not_visible: Not visible
+        pending_moderation: Pending moderation
+        visible: Visible
+      admin:
+        reportable:
+          accept:
+            invalid: There's been a problem unhidding the resource.
+            success: Ressource is now visible.
+          hide:
+            invalid: Er is een probleem geweest om de bron te verbergen.
+            success: Ressource has been successfully hidden in the dashboard.
+      models:
+        upstream_moderation:
+          fields:
+            created_at: Gemaakt bij
+            reportable: Rapporterbaar
+            reportable_title: Reportable title
+            reported_content_url: Reported content url
+            user: Gebruiker
+            visit_url: Visit url
   errors:
     messages:
       invalid_json: Ongeldige JSON
