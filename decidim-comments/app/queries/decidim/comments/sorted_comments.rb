@@ -33,6 +33,7 @@ module Decidim
         scope = Comment
                 .where(commentable: commentable)
                 .not_hidden
+                .upstream_not_hidden
                 .includes(:author, :user_group, :up_votes, :down_votes)
 
         scope = case @options[:order_by]

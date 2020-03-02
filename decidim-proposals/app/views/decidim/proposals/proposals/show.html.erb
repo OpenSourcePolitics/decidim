@@ -126,6 +126,11 @@
   </div>
   <div class="columns mediumlarge-8 mediumlarge-pull-4">
     <div class="section">
+      <% if component_settings.upstream_moderation && @proposal.upstream_pending? %>
+        <div class="callout warning">
+          <%= t("decidim.shared.upstream_moderation.pending_info") %>
+        </div>
+      <% end %>
       <%== cell("decidim/proposals/proposal_m", @proposal, full_badge: true).badge %>
       <% unless @proposal.participatory_text_level == "section" || @proposal.participatory_text_level == "subsection" %>
         <span <%= "id=#{translate_helper_for(element: :body, model: @proposal)}" %>>

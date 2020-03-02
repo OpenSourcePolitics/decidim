@@ -28,6 +28,7 @@ module Decidim
                        .where(component: current_component)
                        .published
                        .not_hidden
+                       .upstream_not_hidden
                        .only_amendables
                        .includes(:category, :scope)
                        .order(position: :asc)
@@ -36,6 +37,7 @@ module Decidim
           @proposals = search
                        .results
                        .published
+                       .upstream_not_hidden
                        .not_hidden
                        .includes(:category)
                        .includes(:scope)
@@ -54,6 +56,7 @@ module Decidim
       end
 
       def show
+        enforce_permission_to :read, :proposal, proposal: @proposal
         raise ActionController::RoutingError, "Not Found" unless set_proposal
         @report_form = form(Decidim::ReportForm).from_params(reason: "spam")
       end
@@ -115,7 +118,8 @@ module Decidim
 
       def publish
         @step = :step_4
-        PublishProposal.call(@proposal, current_user) do
+        caller = component_settings.upstream_moderation ? AddToUpstreamProposal : PublishProposal
+        caller.call(@proposal, current_user) do
           on(:ok) do
             flash[:notice] = I18n.t("proposals.publish.success", scope: "decidim")
             redirect_to proposal_path(@proposal)

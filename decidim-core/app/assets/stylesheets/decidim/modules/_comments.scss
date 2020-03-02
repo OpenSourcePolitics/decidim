@@ -17,6 +17,11 @@ $comment-form-bg: $light-gray;
 
 .comment-thread{
   @extend .card;
+
+  &.highlighted{
+    border-color: $muted;
+    box-shadow: 5px 5px 25px 0 rgba(0, 0, 0, .25);
+  }
 }
 
 .comment-thread__title{
@@ -130,6 +135,10 @@ $comment-form-bg: $light-gray;
 
   .button{
     margin-bottom: 0;
+  }
+
+  .opinion-toggle{
+    margin: 1rem 0;
   }
 }
 

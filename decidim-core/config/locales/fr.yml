@@ -125,6 +125,11 @@ fr:
         create: "%{user_name} a créé la page statique %{resource_name}"
         delete: "%{user_name} a supprimé la page statique %{resource_name}"
         update: "%{user_name} a mis à jour la page statique %{resource_name}"
+      upstream_moderation:
+        accept: "%{user_name} a validé une ressource de type %{resource_type} dans l'espace participatif %{space_name}"
+        hide: "%{user_name} a caché une ressource de type %{resource_type} dans l'espace participatif %{space_name}"
+        pending: "Une ressource de type %{resource_type} est en attente de modération dans l'espace participatif %{space_name}"
+        unreport: "%{user_name} a validé une ressource de type %{resource_type} dans l'espace participatif %{space_name}"
       user:
         invite: "%{user_name} a invité l'utilisateur %{resource_name} avec le rôle : %{role}"
         officialize: "%{user_name} a officialisé l'utilisateur %{resource_name}"
@@ -987,6 +992,8 @@ fr:
         close_window: Fermer la fenêtre
         share: Partager
         share_link: Lien de partage
+      upstream_moderation:
+        pending_info: Ce contenu sera visible une fois qu'il aura été modéré.
       version_author:
         deleted: Utilisateur ayant supprimé son compte
     translate:

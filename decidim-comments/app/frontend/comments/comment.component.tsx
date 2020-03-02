@@ -68,24 +68,12 @@ class Comment extends React.Component<CommentProps, CommentState> {
     const hash = document.location.hash;
     const regex = new RegExp(`#comment_${id}`);
 
-    function scrollTo(element: Element, to: number, duration: number) {
-      if (duration <= 0) {
-        return;
-      }
-      const difference = to - element.scrollTop;
-      const perTick = difference / duration * 10;
-
-      setTimeout(() => {
-          element.scrollTop = element.scrollTop + perTick;
-          if (element.scrollTop === to) {
-            return;
-          }
-          scrollTo(element, to, duration - 10);
-      }, 10);
-    }
-
     if (regex.test(hash)) {
-      scrollTo(document.body, this.commentNode.offsetTop, 200);
+      const elt = document.getElementById(`comment_${id}`);
+      if (elt) {
+        elt.parentElement!.classList.add("highlighted");
+        elt.scrollIntoView();
+      }
     }
 
     if (window.$(document).foundation) {

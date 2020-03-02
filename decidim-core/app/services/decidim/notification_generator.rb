@@ -37,11 +37,11 @@ module Decidim
       return unless event_class.types.include?(:notification)
 
       followers.each do |recipient|
-        generate_notification_for(recipient, user_role: :follower) if ["all", "followed-only"].include?(recipient.notification_types)
+        generate_notification_for(recipient, user_role: :follower) if ["all", "followed-only"].include?(recipient.try(:notification_types))
       end
 
       affected_users.each do |recipient|
-        generate_notification_for(recipient, user_role: :affected_user) if ["all", "own-only"].include?(recipient.notification_types)
+        generate_notification_for(recipient, user_role: :affected_user) if ["all", "own-only"].include?(recipient.try(:notification_types))
       end
     end
 

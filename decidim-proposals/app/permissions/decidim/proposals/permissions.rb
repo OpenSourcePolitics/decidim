@@ -4,6 +4,7 @@ module Decidim
   module Proposals
     class Permissions < Decidim::DefaultPermissions
       def permissions
+        can_read_proposal? if permission_action.subject == :proposal && permission_action.action == :read
         return permission_action unless user
 
         # Delegate the admin permission checks to the admin permissions class
@@ -72,6 +73,18 @@ module Decidim
 
       def can_edit_proposal?
         toggle_allow(proposal && proposal.editable_by?(user))
+      end
+
+      def can_read_proposal?
+        return toggle_allow(proposal) unless proposal.upstream_moderation_activated?
+
+        return toggle_allow(proposal) unless proposal.upstream_hidden?
+
+        return unless user
+
+        return toggle_allow(proposal) if proposal.upstream_not_hidden_for?(user)
+
+        toggle_allow(proposal) if Decidim::ParticipatoryProcessesWithUserRole.for(user, role: :moderation).include? @proposal.component.participatory_space
       end
 
       def can_withdraw_proposal?

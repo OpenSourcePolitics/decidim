@@ -6,9 +6,10 @@ module Decidim
     # comment on them. The will be able to create conversations between users
     # to discuss or share their thoughts about the resource.
     class Comment < ApplicationRecord
-      include Decidim::Reportable
       include Decidim::Authorable
       include Decidim::Comments::Commentable
+      include Decidim::Reportable
+      include Decidim::UpstreamReportable
       include Decidim::FriendlyDates
       include Decidim::DataPortability
       include Decidim::Traceable
@@ -104,6 +105,11 @@ module Decidim
                                   .where("decidim_comments_comments.decidim_author_id IN (?)", Decidim::User.where(organization: space.organization).pluck(:id))
                                   .where("decidim_comments_comments.decidim_author_type IN (?)", "Decidim::UserBaseEntity")
                                   .map(&:author).pluck(:id).flatten.compact.uniq
+      end
+
+      def search_body
+        renderer = Decidim::ContentRenderers::HashtagRenderer.new(body)
+        renderer.render(links: false).html_safe
       end
 
       def can_participate?(user)

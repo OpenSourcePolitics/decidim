@@ -127,6 +127,10 @@ fr:
           attributes:
             document:
               invalid_document_type: Le format de fichier est invalide. Assurez vous que le document sélectionné est bien au format JSON (extension .json).
+    models:
+      decidim/upstream_accepted_event: Modération
+      decidim/upstream_pending_event: Modération
+      decidim/upstream_hidden_event: Modération
   activerecord:
     attributes:
       decidim/static_page:
@@ -146,9 +150,12 @@ fr:
       actions:
         add: Ajouter
         browse: Parcourir
+        cancel: Annuler
         export: Exporter
+        filter: Filtrer
         import_process: Importer un processus
         manage: Modifier
+        new: Nouveau %{name}
         permissions: Autorisations
         reject: Rejeter
         verify: Vérifier
@@ -725,6 +732,14 @@ fr:
         static_pages: Pages
         user_groups: Groupes d'utilisateurs
         users: Utilisateurs
+      upstream_moderation_mailer:
+        notify_moderator:
+          hello: Bonjour,
+          manage_moderations: Gérer les modérations
+          report_html: <p>Le <a href="%{url}">contenu</a> suivant est en attente de modération.</p>
+      upstream_moderations:
+        index:
+          title: Modérations à priori
       user:
         new: Nouvel utilisateur
       user_group:
@@ -771,6 +786,33 @@ fr:
           create: Inviter
           title: Inviter l'utilisateur en tant qu'administrateur
       view_public_page: Voir la page
+    events:
+      admin:
+        upstream_accepted:
+          email_intro: Nous venons de procéder à la publication de votre contribution. Vous pouvez le consulter en vous rendant sur <a href="%{resource_url}">cette page</a>.
+          email_outro: Cordialement,
+          email_subject: Votre contribution est en ligne sur le site du débat "%{participatory_space_title}"
+          notification_title: Votre <a href="%{resource_url}">contribution</a> est en ligne sur le site du débat <a href="%{participatory_space_url}">"%{participatory_space_title}"</a>
+        upstream_pending:
+          affected_user:
+            email_intro: >-
+              Nous avons bien reçu votre message et nous vous en remercions. Avant de procéder à sa publication,
+              nous souhaitons nous assurer dans un premier temps que son contenu respecte notre charte de modération.
+              Vous serez informé(e) par e-mail des suites données dans les plus brefs délais.
+              Nous vous remercions de votre participation au débat.
+            email_outro: Cordialement,
+            email_subject: Accusé réception de votre message sur le site du débat "%{participatory_space_title}"
+            notification_title: Accusé réception de votre message sur le site du débat <a href="%{participatory_space_url}">"%{participatory_space_title}"</a>
+          follower:
+            email_intro: Un nouveau message a été soumis par un internaute et requiert votre validation.
+            email_outro: <a href="%{manage_resource_url}">Gérér les modérations</a>
+            email_subject: "[%{participatory_space_slug}] Nouveau message sur %{resource_title} à valider et à publier"
+            notification_title: '"<a href="%{resource_path}">%{resource_title}</a>" est en attente de modération.'
+        upstream_hidden:
+          email_intro: Nous n’avons pas pu procéder à la publication de votre contribution car son contenu ne respecte pas notre charte de modération.
+          email_outro: Cordialement,
+          email_subject: Rejet de votre contribution sur le site du débat "%{participatory_space_title}"
+          notification_title: Rejet de votre <a href="%{resource_url}">contribution</a> sur le site du débat <a href="%{participatory_space_url}">"%{participatory_space_title}"</a>
     forms:
       errors:
         impersonate_user:
@@ -797,6 +839,7 @@ fr:
       models:
         moderation:
           fields:
+            reported_at: Reporté à
             hidden_at: Masqué le
             report_count: Compteur
             reportable: Contenu
@@ -809,6 +852,31 @@ fr:
           form:
             document_legend: Ajouter un document d'export de processus participatif au format JSON
             slug_help: 'Les slugs d''URL sont utilisés pour générer les URL qui pointent vers ce processus. N''accepte que les lettres, les chiffres et les tirets et doit commencer par une lettre. Exemple : %{url}.'
+    upstream_moderations:
+      actions:
+        accept: Rendre visible
+        change_visibility: Changer la visibilité
+        hide: Masquer
+        not_visible: Non visible
+        pending_moderation: À traiter
+        visible: Visible
+      admin:
+        reportable:
+          hide:
+            invalid: Il y a eu un problème au moment de masquer le contenu.
+            success: Contenu masqué avec succès.
+          accept:
+            invalid: Il y a eu un problème lors de la publication du contenu.
+            success: Le contenu est maintenant visible.
+      models:
+        upstream_moderation:
+          fields:
+            created_at: Crée à
+            user: Utilisateur
+            reportable: Signalements
+            reportable_title: Titre
+            reported_content_url: URL du contenu
+            visit_url: Visitez l'url
   errors:
     messages:
       invalid_json: JSON non valide

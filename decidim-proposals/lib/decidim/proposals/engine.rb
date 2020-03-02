@@ -68,7 +68,7 @@ module Decidim
         if defined? Decidim::ParticipatoryProcesses
           Decidim::ParticipatoryProcesses.view_hooks.register(:process_group_highlighted_elements, priority: Decidim::ViewHooks::MEDIUM_PRIORITY) do |view_context|
             published_components = Decidim::Component.where(participatory_space: view_context.participatory_processes).published
-            proposals = Decidim::Proposals::Proposal.published.not_hidden.except_withdrawn
+            proposals = Decidim::Proposals::Proposal.published.not_hidden.upstream_not_hidden.except_withdrawn
                                                     .where(component: published_components)
                                                     .order_randomly(rand * 2 - 1)
                                                     .limit(Decidim::Proposals.config.process_group_highlighted_proposals_limit)

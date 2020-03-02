@@ -117,6 +117,10 @@ en:
               allowed_file_content_types: Invalid image file
             official_img_header:
               allowed_file_content_types: Invalid image file
+    models:
+      decidim/upstream_accepted_event: Moderation
+      decidim/upstream_hidden_event: Moderation
+      decidim/upstream_pending_event: Moderation
   activerecord:
     attributes:
       decidim/static_page:
@@ -136,6 +140,7 @@ en:
       actions:
         add: Add
         browse: Browse
+        cancel: Cancel
         export: Export
         manage: Manage
         permissions: Permissions
@@ -706,6 +711,14 @@ en:
         static_pages: Pages
         user_groups: Groups
         users: Participants
+      upstream_moderation_mailer:
+        notify_moderator:
+          hello: Hello
+          manage_moderations: Manage moderations
+          report_html: <p>The following <a href="%{url}">content</a> is awaiting moderation.</p>
+      upstream_moderations:
+        index:
+          title: Upstream moderations
       user:
         new: New user
       user_group:
@@ -752,6 +765,24 @@ en:
           create: Invite
           title: Invite participant as administrator
       view_public_page: View public page
+    events:
+      admin:
+        upstream_accepted:
+          email_intro: Your contribution "%{resource_title}" was accepted.
+          email_outro: It is now visible for the other participatory space users.
+          email_subject: Your contribution was accepted.
+          notification_title: '"<a href="%{resource_path}">%{resource_title}</a>" was accepted.'
+        upstream_hidden:
+          email_intro: Your contribution "%{resource_title}" was rejected.
+          email_outro: It will not be visible to the other participatory space users.
+          email_subject: Your contribution was rejected.
+          notification_title: '"<a href="%{resource_path}">%{resource_title}</a>" was rejected.'
+        upstream_pending:
+          email_intro: Your contribution "%{resource_title}" is awaiting moderation.
+          email_outro: You will receive another notification once it has been moderated.
+          email_subject: Your contribution is awaiting moderation.
+          moderator_subject: A contribution is awaiting moderation.
+          notification_title: '"<a href="%{resource_path}">%{resource_title}</a>" is awaiting moderation.'
     forms:
       errors:
         impersonate_user:
@@ -781,9 +812,35 @@ en:
             hidden_at: Hidden at
             report_count: Count
             reportable: Reportable
+            reported_at: Reported at
             reported_content_url: Reported content URL
             reports: Reports
             visit_url: Visit URL
+    upstream_moderations:
+      actions:
+        accept: Make visible
+        change_visibility: Change visibility
+        hide: Hide
+        not_visible: Not visible
+        pending_moderation: Pending moderation
+        visible: Visible
+      admin:
+        reportable:
+          accept:
+            invalid: There's been a problem unhidding the resource.
+            success: Ressource is now visible.
+          hide:
+            invalid: There's been a problem hiding the resource.
+            success: Ressource has been successfully hidden in the dashboard.
+      models:
+        upstream_moderation:
+          fields:
+            created_at: Created at
+            reportable: Reportable
+            reportable_title: Reportable title
+            reported_content_url: Reported content url
+            user: User
+            visit_url: Visit url
   errors:
     messages:
       invalid_json: Invalid JSON

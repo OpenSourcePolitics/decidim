@@ -17,7 +17,7 @@ module Decidim
       private
 
       def proposals
-        @proposals ||= Decidim::Proposals::Proposal.published.not_hidden.except_withdrawn
+        @proposals ||= Decidim::Proposals::Proposal.published.not_hidden.upstream_not_hidden.except_withdrawn
                                                    .where(component: model)
                                                    .order_randomly(rand * 2 - 1)
       end

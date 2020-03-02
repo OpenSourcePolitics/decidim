@@ -24,3 +24,4 @@ yarn-error.log
 # Sublime Text 3 indexing file: .tags
 .tags
 .rakeTasks
+.nova

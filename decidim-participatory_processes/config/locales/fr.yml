@@ -99,6 +99,7 @@ fr:
           private_users: Utilisateurs privés
           process_admins: Administrateurs de la concertation
           steps: Étapes
+          upstream_moderations: Modérations à priori
       models:
         participatory_process:
           fields:

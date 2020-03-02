@@ -39,7 +39,7 @@ module Decidim
         def process_users
           Decidim::ParticipatoryProcessUserRole
             .where(participatory_process: process)
-            .where.not(role: :collaborator)
+            .where(role: [:admin, :moderator])
             .pluck(:decidim_user_id)
             .uniq
         end

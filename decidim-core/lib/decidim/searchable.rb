@@ -2,6 +2,7 @@
 
 require "active_support/concern"
 require "decidim/search_resource_fields_mapper"
+require "ransack"
 
 module Decidim
   # A concern with the features needed when you want a model to be searchable.
@@ -36,6 +37,13 @@ module Decidim
         def by_organization(org_id)
           where(decidim_organization_id: org_id)
         end
+      end
+
+      ransacker :id do
+        Arel.sql(
+          "regexp_replace(
+            to_char(\"#{table_name}\".\"id\", '9999999'), ' ', '', 'g')"
+        )
       end
 
       after_destroy do |searchable|

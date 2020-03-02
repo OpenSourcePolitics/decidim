@@ -16,6 +16,7 @@ const { I18n } = require("react-i18nify");
 
 interface CommentsProps extends GetCommentsQuery {
   loading?: boolean;
+  scrollTo?: string;
   orderBy: string;
   reorderComments: (orderBy: string) => void;
   commentsMaxLength: number;
@@ -31,6 +32,7 @@ interface CommentsProps extends GetCommentsQuery {
 export class Comments extends React.Component<CommentsProps> {
   public static defaultProps: any = {
     loading: false,
+    scrollTo: window.location.hash.replace("#", ""),
     session: null,
     commentable: {
       comments: []
@@ -38,7 +40,7 @@ export class Comments extends React.Component<CommentsProps> {
   };
 
   public render() {
-    const { commentable: { comments, totalCommentsCount = 0, userAllowedToComment }, reorderComments, orderBy, loading, commentsMaxLength } = this.props;
+    const { commentable: { comments, totalCommentsCount = 0, userAllowedToComment }, reorderComments, orderBy, loading, commentsMaxLength, scrollTo } = this.props;
     let commentClasses = "comments";
     let commentHeader = I18n.t("components.comments.title", { count: totalCommentsCount });
 
@@ -138,7 +140,7 @@ export class Comments extends React.Component<CommentsProps> {
    */
   private _renderAddCommentForm() {
     const { session, commentable, orderBy, commentsMaxLength } = this.props;
-    const { acceptsNewComments, commentsHaveAlignment, userAllowedToComment } = commentable;
+    const { acceptsNewComments, commentsHaveAlignment, userAllowedToComment, commentsHaveUpstreamModeration } = commentable;
 
     if (acceptsNewComments && userAllowedToComment) {
       return (
@@ -146,6 +148,7 @@ export class Comments extends React.Component<CommentsProps> {
           session={session}
           commentable={commentable}
           arguable={commentsHaveAlignment}
+          upstream={commentsHaveUpstreamModeration}
           rootCommentable={commentable}
           orderBy={orderBy}
           commentsMaxLength={commentsMaxLength}

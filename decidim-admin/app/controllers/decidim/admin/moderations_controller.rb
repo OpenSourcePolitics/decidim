@@ -4,7 +4,7 @@ module Decidim
   module Admin
     # This controller allows admins to manage moderations in a participatory process.
     class ModerationsController < Decidim::Admin::ApplicationController
-      helper_method :moderations, :allowed_to?
+      helper_method :moderations, :allowed_to?, :query
 
       def index
         enforce_permission_to :read, :moderation
@@ -60,14 +60,16 @@ module Decidim
 
       private
 
+      def query
+        @query ||= if params[:hidden]
+                     participatory_space_moderations.where.not(hidden_at: nil)
+                   else
+                     participatory_space_moderations.where(hidden_at: nil)
+                   end.ransack(params[:q])
+      end
+
       def moderations
-        @moderations ||= begin
-          if params[:hidden]
-            participatory_space_moderations.where.not(hidden_at: nil)
-          else
-            participatory_space_moderations.where(hidden_at: nil)
-          end
-        end
+        @moderations ||= query.result
       end
 
       def reportable
@@ -75,7 +77,7 @@ module Decidim
       end
 
       def participatory_space_moderations
-        @participatory_space_moderations ||= Decidim::Moderation.where(participatory_space: current_participatory_space)
+        @participatory_space_moderations ||= Decidim::Moderation.where(participatory_space: current_participatory_space).default_order
       end
     end
   end

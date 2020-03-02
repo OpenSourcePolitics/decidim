@@ -107,6 +107,7 @@ fr:
             proposal_wizard_step_4_help_text: Texte d'aide à l'étape "Publier" de la création de proposition
             resources_permissions_enabled: Les autorisations d'actions peuvent être définies pour chaque proposition
             threshold_per_proposal: Seuil par proposition
+            upstream_moderation: Modération à priori
             vote_limit: Limite de votes par utilisateur
           step:
             announcement: Annonce
@@ -433,18 +434,18 @@ fr:
       application_helper:
         filter_origin_values:
           all: Toutes
-          citizens: Utilisateurs
-          meetings: Elaborées en réunion publique
-          official: Administrateurs
+          citizens: Propositions citoyennes
+          meetings: Des réunions
+          official: Propositions officielles
           user_groups: Groupes d'utilisateurs
         filter_state_values:
-          accepted: Acceptée
+          accepted: Acceptées
           all: Toutes
           evaluating: En cours d'évaluation
-          except_rejected: Toutes sauf les propositions rejetées
-          rejected: Rejetée
+          except_rejected: Toutes sauf les propositions non retenues
+          rejected: Rejetées
         filter_type_values:
-          all: Toutes
+          all: Tous
           amendments: Amendements
           proposals: Les propositions
       collaborative_drafts:
@@ -646,6 +647,7 @@ fr:
           comments: Commentaires
         filters:
           activity: Activité
+          type: Type
           amendment_type: Type
           category: Catégorie
           category_prompt: Sélectionner une catégorie

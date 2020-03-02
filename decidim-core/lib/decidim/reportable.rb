@@ -22,6 +22,10 @@ module Decidim
         reports.where(user: user).any?
       end
 
+      def comment_threads
+        super.reject(&:hidden?)
+      end
+
       # Public: Checks if the reportable is hidden or not.
       #
       # Returns Boolean.

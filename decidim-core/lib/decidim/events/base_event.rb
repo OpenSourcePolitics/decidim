@@ -102,12 +102,13 @@ module Decidim
 
       def component
         return resource.component if resource.is_a?(Decidim::HasComponent)
+        return resource.component if resource.is_a?(Decidim::Comments::Comment)
         return resource if resource.is_a?(Decidim::Component)
       end
 
       def participatory_space
         return resource if resource.is_a?(Decidim::ParticipatorySpaceResourceable)
-
+        return resource.participatory_space if resource.is_a?(Decidim::Comments::Comment)
         component&.participatory_space
       end
     end

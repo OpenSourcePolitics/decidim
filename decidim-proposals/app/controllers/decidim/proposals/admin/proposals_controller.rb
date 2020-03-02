@@ -8,7 +8,9 @@ module Decidim
         include Decidim::ApplicationHelper
 
         helper Proposals::ApplicationHelper
-        helper_method :proposals, :query, :form_presenter
+        helper_method :proposals, :categories, :query, :form_presenter
+
+        delegate :categories, to: :current_component
 
         def new
           enforce_permission_to :create, :proposal
@@ -90,9 +92,9 @@ module Decidim
 
         def query
           @query ||= if current_component.settings.participatory_texts_enabled?
-                       Proposal.where(component: current_component).published.order(:position).ransack(params[:q])
+                       Proposal.where(component: current_component).published.not_hidden.upstream_not_hidden.order(:position).ransack(params[:q])
                      else
-                       Proposal.where(component: current_component).published.ransack(params[:q])
+                       Proposal.where(component: current_component).published.not_hidden.upstream_not_hidden.ransack(params[:q])
                      end
         end
 

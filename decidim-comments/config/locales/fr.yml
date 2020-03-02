@@ -33,6 +33,7 @@ fr:
             placeholder: Que pensez-vous de cela ?
           form_error: Le texte est requis et ne peut pas dépasser %{length} caractères.
           submit: Publier
+          upstream_moderation: Votre commentaire sera visible une fois qu'il aura été modéré
           user_group_id:
             label: Commenter en tant que
         opinion:

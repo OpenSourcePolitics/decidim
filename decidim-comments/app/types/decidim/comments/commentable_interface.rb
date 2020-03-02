@@ -25,6 +25,10 @@ module Decidim
         property :comments_have_votes?
       end
 
+      field :commentsHaveUpstreamModeration, !types.Boolean, "Whether the comments are moderated before publishing" do
+        property :comments_have_upstream_moderation?
+      end
+
       field :comments do
         type !types[!CommentType]
 
@@ -40,7 +44,7 @@ module Decidim
         description "The number of comments in all levels this resource holds"
 
         resolve lambda { |obj, _args, _ctx|
-          obj.comments.not_hidden.count
+          obj.comments.not_hidden.upstream_not_hidden.count
         }
       end
 

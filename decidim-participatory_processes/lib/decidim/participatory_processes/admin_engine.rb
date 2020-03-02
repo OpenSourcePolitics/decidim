@@ -60,6 +60,14 @@ module Decidim
               put :unhide
             end
           end
+
+          resources :upstream_moderations do
+            member do
+              put :accept
+              put :hide
+            end
+          end
+
           resources :participatory_space_private_users, controller: "participatory_space_private_users" do
             member do
               post :resend_invitation, to: "participatory_space_private_users#resend_invitation"

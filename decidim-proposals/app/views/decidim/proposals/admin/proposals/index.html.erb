@@ -1,4 +1,4 @@
-<div class="card">
+<div class="card with-overflow">
   <div class="card-divider">
     <h2 class="card-title flex--sbc">
       <div>
@@ -8,6 +8,9 @@
       <%= render partial: "bulk-actions" %>
     </h2>
   </div>
+  <div class="filters__section">
+    <%= render partial: "filters" %>
+  </div>
   <div class="card-section">
     <div class="table-scroll">
       <table class="table-list">
@@ -16,15 +19,26 @@
             <th>
               <%= check_box_tag "proposals_bulk", "all", false, class: "js-check-all" %>
             </th>
+
+            <% if component_settings.amendments_enabled && !(params[:q] && params[:q][:is_emendation_true].present?) %>
+              <th>
+                <%= sort_link(query, :id, t("proposals.filters.type", scope: "decidim.proposals") ) %>
+              </th>
+              <th></th>
+            <% end %>
+
             <th>
               <%= sort_link(query, :id, t("models.proposal.fields.id", scope: "decidim.proposals"), default_order: :desc ) %>
             </th>
             <th>
               <%= sort_link(query, :title, t("models.proposal.fields.title", scope: "decidim.proposals") ) %>
             </th>
-            <th>
-              <%= sort_link(query, :category_name, t("models.proposal.fields.category", scope: "decidim.proposals") ) %>
-            </th>
+
+            <% unless params[:q] && params[:q][:category_id_eq] %>
+              <th>
+                <%= sort_link(query, :category_name, t("models.proposal.fields.category", scope: "decidim.proposals") ) %>
+              </th>
+            <% end %>
 
             <% if current_participatory_space.scopes_enabled? %>
               <th>
@@ -32,9 +46,11 @@
               </th>
             <% end %>
 
-            <th>
-              <%= sort_link(query, :state, t("models.proposal.fields.state", scope: "decidim.proposals") ) %>
-            </th>
+            <% unless params[:q] && params[:q][:state_eq] %>
+              <th>
+                <%= sort_link(query, :state, t("models.proposal.fields.state", scope: "decidim.proposals") ) %>
+              </th>
+            <% end %>
 
             <% if current_settings.votes_enabled? %>
               <th>

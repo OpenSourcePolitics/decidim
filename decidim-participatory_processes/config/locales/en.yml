@@ -106,6 +106,7 @@ en:
           private_users: Private participants
           process_admins: Process admins
           steps: Phases
+          upstream_moderations: Upstream moderations
       models:
         participatory_process:
           fields:

@@ -4,6 +4,7 @@ module Decidim
   module Proposals
     # The data store for a Proposal in the Decidim::Proposals component.
     class Proposal < Proposals::ApplicationRecord
+      include Decidim::UpstreamReportable
       include Decidim::Resourceable
       include Decidim::Coauthorable
       include Decidim::HasComponent
@@ -253,6 +254,19 @@ module Decidim
          AND decidim_comments_comments.decidim_commentable_type = 'Decidim::Proposals::Proposal'
          GROUP BY decidim_comments_comments.decidim_commentable_id
          )
+        SQL
+        Arel.sql(query)
+      end
+
+      ransacker :is_emendation do |_parent|
+        query = <<-SQL
+        (
+          SELECT EXISTS (
+            SELECT 1 FROM decidim_amendments
+            WHERE decidim_amendments.decidim_emendation_type = 'Decidim::Proposals::Proposal'
+            AND decidim_amendments.decidim_emendation_id = decidim_proposals_proposals.id
+          )
+        )
         SQL
         Arel.sql(query)
       end
