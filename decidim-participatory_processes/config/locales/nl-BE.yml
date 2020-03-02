@@ -105,6 +105,7 @@ nl-BE:
           private_users: Private Users
           process_admins: Admins van het proces
           steps: Steps
+          upstream_moderations: Upstream moderations
       models:
         participatory_process:
           fields:
