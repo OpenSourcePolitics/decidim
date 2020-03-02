@@ -32,6 +32,7 @@ de:
             placeholder: What do you think about this?
           form_error: The text is required and it can't be longer than %{length} characters.
           submit: Send
+          upstream_moderation: Your comment will be visible once it has been moderated
           user_group_id:
             label: Comment as
         opinion:
