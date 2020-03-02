@@ -2,227 +2,227 @@ nl-BE:
   activemodel:
     attributes:
       area:
-        area_type: Area type
-        name: Name
-        organization: Organization
+        area_type: Onderwerp
+        name: Beheerde gebruiker
+        organization: Organisatie
       area_type:
-        name: Name
-        organization: Organization
-        plural: Plural
+        name: Beheerde gebruiker
+        organization: Organisatie
+        plural: Meervoud
       attachment:
-        attachment_collection_id: Collection
-        description: Description
-        file: File
-        title: Title
+        attachment_collection_id: Collectie
+        description: Beschrijving
+        file: Het dossier
+        title: Titel
       attachment_collection:
-        description: Description
-        name: Name
+        description: Beschrijving
+        name: Beheerde gebruiker
       category:
-        description: Description
-        name: Name
-        parent_id: Parent
+        description: Beschrijving
+        name: Beheerde gebruiker
+        parent_id: Ouder
       feature:
-        name: Name
-        published_at: Published at
-        weight: Weight
-      id: ID
+        name: Beheerde gebruiker
+        published_at: Gepubliceerd op
+        weight: Gewicht
+      id: ID kaart
       newsletter:
-        body: Body
-        subject: Subject
+        body: Lichaam
+        subject: Onderwerpen
       organization:
-        cta_button_path: Call To Action button path
-        cta_button_text: Call To Action button text
-        default_locale: Default locale
-        description: Description
-        enable_omnipresent_banner: Show omnipresent banner
+        cta_button_path: Oproep naar actie knop pad
+        cta_button_text: Oproep naar actie knop pad
+        default_locale: Standaard locale
+        description: Beschrijving
+        enable_omnipresent_banner: Toon omnipresent banner
         facebook_handler: Facebook handler
-        favicon: Icon
+        favicon: Icoon
         github_handler: GitHub handler
-        header_snippets: Header snippets
-        highlighted_content_banner_action_subtitle: Action button subtitle
-        highlighted_content_banner_action_title: Action button title
-        highlighted_content_banner_action_url: Action button URL
-        highlighted_content_banner_enabled: Show the highlighted content banner
-        highlighted_content_banner_image: Image
-        highlighted_content_banner_short_description: Short description
-        highlighted_content_banner_title: Title
-        homepage_image: Homepage image
+        header_snippets: Koptekstjes
+        highlighted_content_banner_action_subtitle: Ondertitels van de actieknop
+        highlighted_content_banner_action_title: Ondertitels van de actieknop
+        highlighted_content_banner_action_url: Ondertitels van de actieknop
+        highlighted_content_banner_enabled: Toon de gemarkeerde inhoudsbanner
+        highlighted_content_banner_image: Beeld
+        highlighted_content_banner_short_description: Korte beschrijving
+        highlighted_content_banner_title: Titel
+        homepage_image: Afbeelding van de startpagina
         instagram_handler: Instagram handler
-        logo: Logo
-        name: Name
-        official_img_footer: Official logo footer
-        official_img_header: Official logo header
-        official_url: Official organization URL
-        omnipresent_banner_short_description: Short description
-        omnipresent_banner_title: Title
+        logo: '-'
+        name: Afbeelding van de startpagina
+        official_img_footer: Officiële logo footer
+        official_img_header: Officiële logo header
+        official_url: Officiële organisatie url
+        omnipresent_banner_short_description: Korte beschrijving
+        omnipresent_banner_title: Titel
         omnipresent_banner_url: URL
-        reference_prefix: Reference prefix
-        show_statistics: Show statistics
+        reference_prefix: Referentievoorvoegsel
+        show_statistics: Toon statistieken
         twitter_handler: Twitter handler
-        welcome_text: Welcome text
-        youtube_handler: YouTube handler
+        welcome_text: Welkomsttekst
+        youtube_handler: YouTube-handler
       scope:
         code: Code
-        name: Name
-        organization: Organization
-        parent_id: Parent
+        name: Naam
+        organization: Organisatie
+        parent_id: Ouder
         scope_type: Scope type
         scope_type_id: Scope type
       scope_type:
-        name: Name
-        organization: Organization
-        plural: Plural
+        name: Naam
+        organization: Organisatie
+        plural: Meervoud
       static_page:
-        content: Content
-        organization: Organization
-        slug: URL slug
-        title: Title
+        content: Inhoud
+        organization: Organisatie
+        slug: URL slak
+        title: Titel
   activerecord:
     attributes:
       decidim/participatory_process:
-        banner_image: Banner image
-        description: Description
-        developer_group: Developer group
-        domain: Domain
-        end_date: End date
+        banner_image: Banner afbeelding
+        description: Beschrijving
+        developer_group: Ontwikkelaarsgroep
+        domain: Domein
+        end_date: Einddatum
         hashtag: Hashtag
-        hero_image: Home image
-        local_area: Local area
-        meta_scope: Scope metadata
-        participatory_scope: Participatory scope
-        participatory_structure: Participatory structure
-        promoted: Promoted
-        scope: Scope
-        short_description: Short description
-        slug: URL slug
-        start_date: Start date
-        subtitle: Subtitle
-        target: Target
-        title: Title
+        hero_image: Afbeelding van de startpagina
+        local_area: Lokale buurt
+        meta_scope: Omvang metadata
+        participatory_scope: Participatieve scope
+        participatory_structure: Participatieve structuur
+        promoted: Gepromoveerd
+        scope: Reikwijdte
+        short_description: Korte beschrijving
+        slug: URL slak
+        start_date: Begin datum
+        subtitle: Subtitel
+        target: Doelstelling
+        title: Titel
       decidim/participatory_process_group:
-        description: Description
-        hero_image: Home image
-        name: Name
-        participatory_processes: Participatory processes
+        description: Beschrijving
+        hero_image: Afbeelding van de startpagina
+        name: Afbeelding van de startpagina
+        participatory_processes: Beheerde gebruiker
       decidim/participatory_process_step:
-        end_date: End date
-        start_date: Start date
+        end_date: Participatieve processen
+        start_date: Einddatum
       decidim/static_page:
-        content: Content
-        slug: URL slug
-        title: Title
+        content: Inhoud
+        slug: URL slak
+        title: Titel
   date:
     formats:
       datepicker: "%m/%d/%Y"
   decidim:
     admin:
       actions:
-        add: Add
-        browse: Browse
-        export: Export
-        manage: Manage
-        permissions: Permissions
-        reject: Reject
-        verify: Verify
+        add: Toevoegen
+        browse: Browsen
+        export: Exporteren
+        manage: Beheer
+        permissions: Toelatingen
+        reject: Afwijzen
+        verify: Verifiëren
       area_types:
         create:
-          error: There was an error creating a new area type.
-          success: Area type created successfully.
+          error: Er is een fout opgetreden bij het maken van een nieuwe pagina.
+          success: Pagina met succes gemaakt.
         destroy:
-          success: Area type successfully destroyed
+          success: Pagina met succes verwijderd
         edit:
-          title: Edit area type
-          update: Update
+          title: Onderwerp bewerken
+          update: Bijwerken
         new:
-          create: Create area type
-          title: New area type
+          create: Maak een pagina
+          title: Onderwerp bewerken
         update:
-          error: There was an error when updating this area type.
-          success: Area type updated successfully
+          error: Er is een fout opgetreden bij het bijwerken van dit scope type.
+          success: Pagina met succes gemaakt
       areas:
         create:
-          error: There was an error creating a new area.
-          success: Area created successfully.
+          error: Er is een fout opgetreden bij het maken van een nieuwe pagina.
+          success: Admin is succesvol gemaakt.
         destroy:
-          success: Area successfully destroyed
+          success: Pagina succesvol vernietigd
         edit:
-          title: Edit area
-          update: Update
+          title: Bewerk gebied
+          update: Bijwerken
         new:
-          create: Create area
-          title: New area
-        no_areas: No Areas
+          create: Nieuwe
+          title: Nieuw gebied
+        no_areas: Geen gebieden
         update:
-          error: There was an error when updating this area.
-          success: Area updated successfully
+          error: Er is een fout opgetreden bij het bijwerken van deze pagina.
+          success: Admin is succesvol gemaakt
       attachment_collections:
         create:
-          error: There was an error creating a new collection.
-          success: Collection created successfully.
+          error: Er is een fout opgetreden bij het maken van een nieuw bereik type.
+          success: Organisatie is succesvol gemaakt.
         destroy:
-          success: Collection destroyed successfully.
+          success: Organisatie is succesvol gemaakt.
         edit:
-          title: Edit collection
-          update: Update
+          title: Bewerk groep
+          update: Bijwerken
         index:
-          attachment_collection_used: This collection cannot be removed because it is in use.
-          attachment_collections_title: Attachment collections
+          attachment_collection_used: Deze categorie kan niet worden verwijderd omdat het in gebruik is.
+          attachment_collections_title: Bijlagenpakkingen
         new:
-          create: Create
-          title: New collection
+          create: Creëren
+          title: Bewerk groep
         update:
-          error: There was an error when updating this collection.
-          success: Collection updated successfully.
+          error: Er is een fout opgetreden bij het bijwerken van deze organisatie.
+          success: Organisatie is succesvol gemaakt.
       attachments:
         create:
-          error: There was an error creating a new attachment.
-          success: Attachment created successfully.
+          error: Er is een fout opgetreden bij het maken van een nieuwe bijlage.
+          success: Bijlage is succesvol gemaakt.
         destroy:
-          success: Attachment destroyed successfully.
+          success: Bijlage is succesvol vernietigd.
         edit:
-          title: Edit attachment
-          update: Update
+          title: Bewerk bijlage
+          update: Bijwerken
         index:
-          attachments_title: Attachments
+          attachments_title: Bijlagen
         new:
-          create: Create attachment
-          title: New attachment
+          create: Nieuwe bijlage
+          title: Nieuwe bijlage
         update:
-          error: There was an error when updating this attachment.
-          success: Attachment updated successfully.
+          error: Er is een fout opgetreden bij het bijwerken van deze bijlage.
+          success: Bijlage is succesvol bijgewerkt.
       categories:
         create:
-          error: There was an error creating this category.
-          success: Category created successfully.
+          error: Er is een fout opgetreden bij het maken van deze categorie.
+          success: Categorie succesvol gemaakt.
         destroy:
-          error: There was an error deleting this category. Please delete any subcategory first, make sure no other entity belongs to this category and try again.
-          success: Category deleted successfully.
+          error: Er is een fout opgetreden bij het verwijderen van deze categorie. Verwijder eerst een subcategorie, zorg ervoor dat er geen andere entiteit in deze categorie hoort en probeer het opnieuw.
+          success: Categorie is succesvol verwijderd.
         edit:
-          title: Edit category
-          update: Update
+          title: Categorie bewerken
+          update: Bijwerken
         index:
-          categories_title: Categories
-          category_used: This category cannot be removed because it is in use.
+          categories_title: Categorieën
+          category_used: Deze categorie kan niet worden verwijderd omdat het in gebruik is.
         new:
-          create: Create category
-          title: New category
+          create: Categorie creëren
+          title: Nieuwe categorie
         update:
-          error: There was an error updating this category.
-          success: Category updated successfully.
+          error: Er is een fout opgetreden bij het bijwerken van deze categorie.
+          success: Categorie is succesvol bijgewerkt.
       dashboard:
         show:
-          view_more_logs: View more logs
-          welcome: Welcome to the Decidim Admin Panel.
+          view_more_logs: Bekijk meer logs
+          welcome: Welkom bij de nieuwe Decidim Panel Admin.
       exports:
-        export_as: "%{name} as %{export_format}"
-        notice: Your export is currently in progress. You'll receive an email when it's complete.
+        export_as: "%{name} als %{export_format}"
+        notice: Uw export is momenteel aan de gang. U ontvangt een email wanneer het klaar is.
       feature_permissions:
         edit:
-          everyone: Everyone
-          submit: Save permissions
-          title: Edit permissions
+          everyone: Iedereen
+          submit: Permissies opslaan
+          title: Bewerken van machtigingen
         update:
-          success: Permissions updated successfully.
+          success: Admin succesvol bijgewerkt.
       features:
         create:
           error: There was an error creating this feature.
@@ -232,15 +232,15 @@ nl-BE:
           success: Feature deleted successfully.
         edit:
           title: Edit feature
-          update: Update
+          update: Bijwerken
         form:
-          default_step_settings: Default step settings
-          global_settings: Global settings
-          step_settings: Step settings
+          default_step_settings: Standaard instellingen stappen
+          global_settings: Algemene instellingen
+          step_settings: Instellingen van de stappen
         index:
           add: Add feature
           headers:
-            actions: Actions
+            actions: Acties
             name: Feature name
             type: Feature type
         new:
@@ -256,132 +256,132 @@ nl-BE:
           success: The feature was updated successfully.
       logs:
         logs_list:
-          no_logs_yet: There are no logs yet
+          no_logs_yet: Er zijn nog geen opmerkingen
       managed_users:
         close_session:
-          error: There has been an error closing the current impersonation session.
-          success: The current impersonation session has been successfully ended.
+          error: Er is een fout opgetreden bij het sluiten van de impersonatie-sessie.
+          success: De huidige impersonatie-sessie is succesvol beëindigd.
         create:
           error: There has been an error creating the managed user.
-          success: The managed user has been successfully created.
+          success: De beheerde gebruiker is succesvol aangemaakt.
         form:
-          name: Name
+          name: Beheerde gebruiker
         impersonate:
           error: There has been an error impersonating the managed user.
         impersonations:
           new:
-            impersonate: Impersonate
+            impersonate: Verpersoonlijken
             new_managed_user_impersonation: New managed user impersonation
         index:
-          impersonate: Impersonate
-          needs_authoriation_warning: You need at least one authorization enabled for this organization.
-          promote: Promote
-          view_logs: View logs
+          impersonate: Verpersoonlijken
+          needs_authoriation_warning: U heeft minstens één geactiveerde autorisatie nodig voor deze organisatie.
+          promote: Promoten
+          view_logs: Bekijk logboeken
         new:
-          create: Create
+          create: Creëren
           new_managed_user: New managed user
           no_authorization_handlers: There are no available authorization handlers to manage users. Please contact your system administrator.
           select_authorization_method: Select an authorization method
           step: Step %{current} of %{total}
         promotion:
-          error: There has been an error promoting the managed user.
-          success: The managed user has been successfully promoted.
+          error: Er is een fout opgetreden bij het promoten van de beheerde gebruiker.
+          success: De beheerde gebruiker is succesvol gepromoveerd.
         promotions:
           new:
-            explanation: Managed users can be promoted to standard users. It means they will be invited to the application and you will not be able to impersonate them again. The invited user will receive an email to accept your invitation.
-            new_managed_user_promotion: New managed user promotion
-            promote: Promote
+            explanation: Beheerde gebruikers kunnen worden bevorderd tot standaardgebruikers. Het betekent dat ze worden uitgenodigd voor de aanvraag en u kunt ze niet opnieuw voorstellen. De uitgenodigde gebruiker ontvangt een email om uw uitnodiging te accepteren.
+            new_managed_user_promotion: Nieuwe beheerde gebruikersbevordering
+            promote: Promoten
       menu:
-        admin_log: Admin activity log
-        admins: Admins
-        appearance: Appearance
-        area_types: Area types
-        areas: Areas
-        configuration: Configuration
+        admin_log: Admin activiteit log
+        admins: Beheerder
+        appearance: Uiterlijk
+        area_types: Onderwerp
+        areas: Gebied
+        configuration: Configuratie
         dashboard: Dashboard
-        managed_users: Managed users
-        newsletters: Newsletters
-        officializations: Officializations
-        scope_types: Scope types
-        scopes: Scopes
-        settings: Settings
-        static_pages: Pages
-        user_groups: User groups
-        users: Users
+        managed_users: Beheerde gebruikers
+        newsletters: Nieuwsbrieven
+        officializations: Officialisaties
+        scope_types: Scope type
+        scopes: Beschrijving
+        settings: Instellingen
+        static_pages: Pagina's
+        user_groups: Gebruikersgroepen
+        users: Gebruikers
         navbar_links: Navbar links
       models:
         area:
           fields:
-            area_type: Area type
-            name: Name
+            area_type: Onderwerp
+            name: Beheerde gebruiker
         area_type:
           fields:
-            name: Name
-            plural: Plural
+            name: Naam
+            plural: Meervoud
         attachment:
           fields:
-            collection: Collection
+            collection: Collectie
             content_type: Type
-            file_size: Size
-            title: Title
-          name: Attachment
+            file_size: Grootte
+            title: Titel
+          name: Bijlage
         attachment_collection:
-          name: Collection
+          name: Collectie
         category:
-          name: Category
+          name: Categorie
         impersonation_log:
           fields:
-            admin: Admin
-            ended_at: Ended at
-            expired_at: Expired at
-            started_at: Started at
-            user: User
+            admin: Beheerder
+            ended_at: Eindigde op
+            expired_at: Verlopen op
+            started_at: Gestart op
+            user: Gebruiker
         managed_user:
           name: Managed user
         newsletter:
           fields:
-            created_at: Created at
-            progress: Progress
-            sent_at: Sent at
-            subject: Subject
-          name: Newsletter
+            created_at: Gemaakt bij
+            progress: Vooruitgang
+            sent_at: Verzonden bij
+            subject: Onderwerpen
+          name: Nieuwsbrief
         scope:
           fields:
-            name: Name
+            name: Naam
             scope_type: Scope type
         scope_type:
           fields:
-            name: Name
-            plural: Plural
+            name: Naam
+            plural: Meervoud
         static_page:
           fields:
-            created_at: Created at
-            title: Title
+            created_at: Gemaakt bij
+            title: Titel
         user:
           fields:
-            created_at: Creation date
-            email: Email
-            last_sign_in_at: Last sign in date
-            name: Name
-            role: Role
+            created_at: Aanmaakdatum
+            email: E-mail
+            last_sign_in_at: Laatste inloggen datum
+            name: Naam
+            role: Rol
             roles:
-              admin: Admin
-              user_manager: User manager
-          name: User
+              admin: Beheerder
+              user_manager: Gebruikersbeheerder
+          name: Gebruiker
         user_group:
           fields:
-            actions: Actions
-            created_at: Created at
-            document_number: Document number
-            name: Name
-            phone: Phone
-            state: State
-            users_count: Users count
+            actions: Acties
+            created_at: Gemaakt bij
+            document_number: Documentnummer
+            name: Naam
+            phone: Telefoon
+            state: Staat
+            users_count: Aantal gebruikers
         navbar_link:
           fields:
-            title: Title
+            title: Titel
             link: Link
-            weight: Weight
+            weight: Gewicht
       moderations:
         index:
           title:
@@ -391,217 +391,217 @@ nl-BE:
           unmoderated: Unmoderated
         report:
           reasons:
-            does_not_belong: Does not belong
-            offensive: Offensive
+            does_not_belong: Hoort niet
+            offensive: Aanvallend
             spam: Spam
       newsletters:
         create:
-          error: There's been an error creating this newsletter.
-          success: Newsletter created successfully. Please, review it before sending.
+          error: Er is een fout opgetreden bij het maken van deze nieuwsbrief.
+          success: Nieuwsbrief is succesvol gemaakt. Controleer het alstublieft voordat u verzendt.
         deliver:
-          error: There's been an error delivering this newsletter.
-          success: Newsletter delivered successfully.
+          error: Er is een fout opgetreden bij het leveren van deze nieuwsbrief.
+          success: Nieuwsbrief is succesvol geleverd.
         destroy:
-          error_already_sent: 'Can''t destroy newsletter: It has already been sent.'
-          success: Newsletter destroyed successfully.
+          error_already_sent: 'Kan de nieuwsbrief niet vernietigen: het is al verstuurd.'
+          success: Nieuwsbrief is succesvol vernietigd.
         edit:
-          save_and_preview: Save and preview
-          title: Edit newsletter
+          save_and_preview: Opslaan en previewen
+          title: Bewerk nieuwsbrief
         form:
-          interpolations_hint: 'Hint: You can use "%{name}" anywhere in the body or subject and it will be replaced by the recipient''s name.'
+          interpolations_hint: 'Hint: U kunt "%{name}" overal in het lichaam of onderwerp gebruiken en het wordt vervangen door de naam van de ontvanger.'
         index:
-          confirm_delete: Are you sure you want to delete this newsletter?
-          title: Newsletters
+          confirm_delete: Weet u zeker dat u deze nieuwsbrief wilt verwijderen?
+          title: Nieuwsbrieven
         new:
-          save: Save
-          title: New newsletter
+          save: Opslaan
+          title: Nieuwe nieuwsbrief
         show:
-          confirm_deliver: Are you sure you want to deliver this newsletter? This action cannot be undone.
-          deliver: Deliver newsletter
-          preview: Preview
-          subject: Subject
+          confirm_deliver: Weet u zeker dat u deze nieuwsbrief wilt bezorgen? Deze actie kan niet ongedaan gemaakt worden.
+          deliver: Stuur nieuwsbrief
+          preview: Voorbeeld
+          subject: Onderwerpen
         update:
-          error: There's been an error updating this newsletter.
-          success: Newsletter updated successfully. Please review it before sending.
+          error: Er is een fout opgetreden bij het bijwerken van deze nieuwsbrief.
+          success: Nieuwsbrief is succesvol bijgewerkt. Controleer het voordat u verzendt.
       officializations:
         create:
-          success: User officialized successfully
+          success: Gebruiker heeft succesvol uitgenodigd
         destroy:
-          success: User unofficialized successfully
+          success: Gebruiker heeft succesvol uitgenodigd
         index:
-          actions: Actions
-          badge: Badge
-          created_at: Created At
+          actions: Acties
+          badge: Symbool
+          created_at: Aangemaakt Op
           filter:
-            all: All
-            not_officialized: Not officialized
-            officialized: Officialized
-          filter_by: Filter by
-          name: Name
-          nickname: Nickname
-          not_officialized: Not officialized
-          officialize: Officialize
-          officialized: Officialized
-          reofficialize: Reofficialize
-          search: Search
+            all: Alle
+            not_officialized: Niet officized
+            officialized: Officieel
+          filter_by: Filteren op
+          name: Naam
+          nickname: Gebruikesnaam
+          not_officialized: Niet officized
+          officialize: Officieel
+          officialized: Officieel
+          reofficialize: Herzettelijk
+          search: Zoeken
           status: Status
-          unofficialize: Unofficialize
+          unofficialize: Onvofficialiseren
         new:
-          badge: Officialization badge
-          officialize: Officialize
-          title: Officialize user "%{name}"
+          badge: Officialisaties
+          officialize: Officieel
+          title: Officieer gebruiker "%{name}"
       organization:
         edit:
-          title: Edit organization
-          update: Update
+          title: Organisatie bewerken
+          update: Bijwerken
         form:
           facebook: Facebook
           github: GitHub
           instagram: Instagram
-          social_handlers: Social
+          social_handlers: Sociaal
           twitter: Twitter
           url: Url
-          youtube: YouTube
+          youtube: Youtube
         update:
-          error: There was an error when updating this organization.
-          success: Organization updated successfully.
+          error: Er is een fout opgetreden bij het bijwerken van deze organisatie.
+          success: Organisatie is succesvol bijgewerkt.
       organization_appearance:
         edit:
-          update: Update
+          update: Bijwerken
         form:
-          cta_button_path_help: 'You can overwrite where the Call To Action button in the homepage links to. Use partial paths, not full URLs here. Accepts letters, numbers, dashes and slashes, and must start with a letter. The Call To Action button is shown in the homepage between the welcome text and the description. Example: %{url}'
-          cta_button_text_help: You can overwrite the Call To Action button text in the homepage for each available language in your organization. If not set, the default value will be used. The Call To Action button is shown in the homepage between the welcome text and the description.
-          header_snippets_help: Use this field to add things to the HTML head. The most common use is to integrate third-party services that require some extra JavaScript or CSS. Also, you can use it to add extra meta tags to the HTML. Note that this will only be rendered in public pages, not in the admin section.
-          homepage_appearance_title: Edit homepage appearance
-          homepage_highlighted_content_banner_title: Highligted content banner
-          layout_appearance_title: Edit layout appearance
-          omnipresent_banner_appearance_title: Edit omnipresent
+          cta_button_path_help: 'U kunt de verwijzing van de knop "Call to Action" overschrijven. Gebruik hier gedeeltelijke paden, niet volledige URL''s. Aanvaardt letters, cijfers, streepjes en streepjes en moet beginnen met een brief. De knop "Call to Action" wordt weergegeven op de homepage tussen de welkomsttekst en de omschrijving. Voorbeeld: %{url}'
+          cta_button_text_help: U kunt de tekst voor "Call To Action" overschrijven op de homepage voor elke beschikbare taal in uw organisatie. Indien niet ingesteld, wordt de standaardwaarde gebruikt. De knop Call to Action wordt weergegeven op de homepage tussen de welkomsttekst en de omschrijving.
+          header_snippets_help: Gebruik dit veld om dingen toe te voegen aan de HTML-kop. Het meest voorkomende gebruik is het integreren van diensten van derden die extra JavaScript of CSS nodig hebben. U kunt het ook gebruiken om extra metatags toe te voegen aan de HTML. Houd er rekening mee dat dit alleen op openbare pagina's wordt weergegeven, niet in de beheerdersafdeling.
+          homepage_appearance_title: Bewerk de startpagina-weergave
+          homepage_highlighted_content_banner_title: Uitgelichte inhoudsbanner
+          layout_appearance_title: Weergave van de lay-out bewerken
+          omnipresent_banner_appearance_title: Header bewerken
       scope_types:
         create:
-          error: There was an error creating a new scope type.
-          success: Scope type created successfully.
+          error: Er is een fout opgetreden bij het maken van een nieuw bereik type.
+          success: Scope type is succesvol gemaakt.
         destroy:
-          success: Scope type successfully destroyed
+          success: Omvangstype is succesvol vernietigd
         edit:
-          title: Edit scope type
-          update: Update
+          title: Bewerk type type
+          update: Bijwerken
         new:
-          create: Create scope type
-          title: New scope
+          create: Maak een draagstype aan
+          title: Nieuw bereik
         update:
-          error: There was an error when updating this scope type.
-          success: Scope type updated successfully
+          error: Er is een fout opgetreden bij het bijwerken van dit scope type.
+          success: Scope type is succesvol bijgewerkt
       scopes:
         create:
-          error: There was an error creating a new scope.
-          success: Scope created successfully.
+          error: Er is een fout opgetreden bij het maken van een nieuwe reikwijdte.
+          success: Scope is succesvol gemaakt.
         destroy:
-          success: Scope successfully destroyed
+          success: Scope succesvol vernietigd
         edit:
-          title: Edit scope
-          update: Update
+          title: Bewerk de scope
+          update: Bijwerken
         new:
-          create: Create scope
-          title: New scope
-        no_scopes: No scopes at this level.
+          create: Maak ruimte
+          title: Nieuw bereik
+        no_scopes: Geen scopes op dit niveau.
         update:
-          error: There was an error when updating this scope.
-          success: Scope updated successfully
+          error: Er is een fout opgetreden bij het bijwerken van dit bereik.
+          success: Scope is succesvol bijgewerkt
       static_pages:
         actions:
-          view: View public page
+          view: Bekijk de openbare pagina
         create:
-          error: There was an error creating a new page.
-          success: Page created successfully.
+          error: Er is een fout opgetreden bij het maken van een nieuwe pagina.
+          success: Pagina is succesvol gemaakt.
         destroy:
-          success: Page successfully destroyed
+          success: Pagina succesvol vernietigd
         edit:
-          title: Edit page
-          update: Update
+          title: Pagina bewerken
+          update: Bijwerken
         new:
-          create: Create
-          title: New page
+          create: Creëren
+          title: Nieuwe pagina
         update:
-          error: There was an error when updating this page.
-          success: Page updated successfully
+          error: Er is een fout opgetreden bij het bijwerken van deze pagina.
+          success: Pagina is succesvol bijgewerkt
       titles:
         admin_log: Admin log
-        area_types: Area types
-        areas: Areas
-        authorization_workflows: Verification methods
+        area_types: Onderwerp
+        areas: Gebied
+        authorization_workflows: Verificatiemethoden
         dashboard: Dashboard
-        impersonations: Impersonations
-        managed_users: Managed users
-        officializations: Officializations
-        scope_types: Scope types
-        scopes: Scopes
-        static_pages: Pages
-        user_groups: User groups
-        users: Users
+        impersonations: Verpersoonlijken
+        managed_users: Beheerde gebruikers
+        officializations: Officialisaties
+        scope_types: Scope type
+        scopes: Scope
+        static_pages: Pagina's
+        user_groups: Gebruikersgroepen
+        users: Gebruikers
         navbar_links: Navbar links
       user_group:
         reject:
-          invalid: There was an error when rejecting this user group.
-          success: User group rejected successfully
+          invalid: Er is een fout opgetreden bij het afwijzen van deze gebruikersgroep.
+          success: Gebruikersgroep is succesvol afgewezen
         verify:
-          invalid: There was an error when verifying this user group.
-          success: User group verified successfully
+          invalid: Er is een fout opgetreden bij het verifiëren van deze gebruikersgroep.
+          success: Gebruikersgroep is succesvol geverifieerd
       user_groups:
         index:
           filter:
-            all: All
-            pending: Pending
-            rejected: Rejected
-            verified: Verified
-          filter_by: Filter by
-          search: Search
+            all: Alle
+            pending: In afwachting
+            rejected: Verworpen
+            verified: Geverifieerd
+          filter_by: Filteren op
+          search: Zoeken
           state:
-            pending: Pending
-            rejected: Rejected
-            verified: Verified
+            pending: In afwachting
+            rejected: Verworpen
+            verified: Geverifieerd
       users:
         create:
-          error: There was an error when inviting this user.
-          success: User invited successfully.
+          error: Er is een fout opgetreden bij het uitnodigen van deze gebruiker.
+          success: Gebruiker heeft succesvol uitgenodigd.
         destroy:
-          error: There was an error when trying to delete this user.
-          success: User is no longer an administrator.
+          error: Er is een fout opgetreden bij het proberen om deze gebruiker te verwijderen.
+          success: Gebruiker is niet meer een beheerder.
         form:
-          email: Email
-          name: Name
-          role: Role
+          email: E-mail
+          name: Naam
+          role: Rol
         new:
-          create: Invite
-          title: Invite user as administrator
+          create: Nodig uit
+          title: Inviteer gebruiker als beheerder
       navbar_links:
-        no_links: No links created
+        no_links: Geen links aangemaakt
         form:
-          title: Title
+          title: Titel
           link: Link
-          weight: Weight
-          new_tab: Open in a new tab
-          same_tab: Open in the same tab
+          weight: Gewicht
+          new_tab: Open in een nieuw tabblad
+          same_tab: Open in hetzelfde tabblad
         new:
-          title: New navbar link
-          create: Create
+          title: Bewerk navigatiebalk link
+          create: Creëren
         edit:
-          title: Edit navbar link
-          update: Update
+          title: Bewerk navigatiebalk link
+          update: Bijwerken
         create:
-          error: There was an error when creating this link.
-          success: Link created successfully
+          error: Er is een fout opgetreden bij het bijwerken van deze admin.
+          success: Admin is succesvol gemaakt
         update:
-          error: There was an error when updating this link.
-          success: Link updated successfully
+          error: Er is een fout opgetreden bij het bijwerken van deze admin.
+          success: Admin is succesvol gemaakt
         destroy:
-          success: Link successfully destroyed
+          success: Admin succesvol vernietigd
     moderations:
       actions:
-        hidden: Hidden
-        hide: Hide
-        not_hidden: Not hidden
-        title: Actions
-        unreport: Unreport
+        hidden: Verborgen
+        hide: Verbergen
+        not_hidden: Niet verborgen
+        title: Acties
+        unreport: Onreporteren
         moderated: Moderated
         unmoderated: Unmoderated
         authorize: Authorize
@@ -609,35 +609,35 @@ nl-BE:
       admin:
         reportable:
           hide:
-            invalid: There's been a problem hiding the resource.
-            success: Resource successfully hidden.
+            invalid: Er is een probleem geweest om de bron te verbergen.
+            success: Resource succesvol verborgen.
           unreport:
-            invalid: There's been a problem unreporting the resource.
-            success: Resource successfully unreported.
+            invalid: Er is een probleem geweest om de bron niet te rapporteren.
+            success: Resource succesvol ongemeld.
       models:
         moderation:
           fields:
-            hidden_at: Hidden at
-            report_count: Count
-            reportable: Reportable
-            reported_content_url: Reported content URL
-            reports: Reports
-            visit_url: Visit URL
+            hidden_at: Verborgen bij
+            report_count: Tellen
+            reportable: Rapporterbaar
+            reported_content_url: Gerapporteerde inhouds-URL
+            reports: Rapporten
+            visit_url: Bezoek URL
             date: Date
             type: Type
             status: Status
   errors:
     messages:
-      invalid_json: Invalid JSON
+      invalid_json: Ongeldige JSON
   layouts:
     decidim:
       admin:
         newsletters:
-          title: Newsletters
+          title: Nieuwsbrieven
         settings:
-          title: Settings
+          title: Instellingen
         users:
-          title: Users
+          title: Gebruikers
   time:
     formats:
       datepicker: "%m/%d/%Y"
