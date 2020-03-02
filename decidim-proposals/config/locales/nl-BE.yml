@@ -106,6 +106,7 @@ nl-BE:
             proposal_wizard_step_4_help_text: Proposal wizard "Publish" step help text
             resources_permissions_enabled: Actierechten kunnen voor elk voorstel worden ingesteld
             threshold_per_proposal: Threshold per proposal
+            upstream_moderation: Upstream moderation
             vote_limit: Vote limit per user
           step:
             announcement: Announcement
@@ -176,15 +177,11 @@ nl-BE:
             email_outro: U heeft deze melding ontvangen omdat u auteur bent van "%{resource_title}".
             email_subject: Uw voorstel is geaccepteerd
             notification_title: Uw voorstel <a href="%{resource_path}">%{resource_title}</a> is geaccepteerd.
-          email_intro: 'Пропозизицих "%{resource_title}" була прийнята. Ви можете прочитати вппов дов дов дь нирнит:'
-          email_outro: Ви отримали за сповання, тому ви стежите за "%{resource_title}". Вимете припринити стежим, зим ния, пререййшивиза наведенименимеденимизизизя.
-          email_subject: Пропозизизих, за яколи ви стежите, була прийнята
           follower:
             email_intro: 'The proposal "%{resource_title}" has been accepted. You can read the answer in this page:'
             email_outro: You have received this notification because you are following "%{resource_title}". You can unfollow it from the previous link.
             email_subject: A proposal you're following has been accepted
             notification_title: The <a href="%{resource_path}">%{resource_title}</a> proposal has been accepted.
-          notification_title: Пропозицель <a href="%{resource_path}">%{resource_title}</a> було прийнято.
         proposal_endorsed:
           email_intro: '%{endorser_name} %{endorser_nickname}, wie je volgt, heeft zojuist het "%{resource_title}" voorstel goedgekeurd en we denken dat het interessant voor je kan zijn. Bekijk het en voeg bij:'
           email_outro: You have received this notification because you are following %{endorser_nickname}. You can stop receiving notifications following the previous link.
@@ -196,15 +193,11 @@ nl-BE:
             email_outro: U heeft deze melding ontvangen omdat u auteur bent van "%{resource_title}".
             email_subject: Voorstel wordt geëvalueerd
             notification_title: Uw voorstel <a href="%{resource_path}">%{resource_title}</a> wordt geëvalueerd.
-          email_intro: 'La proposition "%{resource_title}" est en cours d''évaluation. Vous pouvez consulter cette page pour voir si une réponse a été formulée:'
-          email_outro: U heeft deze melding ontvangen omdat u "%{resource_title}" volgt. U kunt stoppen met het volgen ervan door naar de vorige link te gaan.
-          email_subject: Een voorstel dat u volgt, wordt geëvalueerd
           follower:
             email_intro: 'The proposal "%{resource_title}" is currently being evaluated. You can check for an answer in this page:'
             email_outro: You have received this notification because you are following "%{resource_title}". You can unfollow it from the previous link.
             email_subject: A proposal you're following is being evaluated
             notification_title: The <a href="%{resource_path}">%{resource_title}</a> proposal is being evaluated.
-          notification_title: Het voorstel <a href="%{resource_path}">%{resource_title}</a> wordt momenteel geëvalueerd.
         proposal_mentioned:
           email_intro: Your proposal "%{mentioned_proposal_title}" has been mentioned <a href="%{resource_path}">in this space</a> in the comments.
           email_outro: U heeft deze melding ontvangen omdat u bent genoemd in %{resource_title}".
@@ -226,15 +219,11 @@ nl-BE:
             email_outro: U heeft deze melding ontvangen omdat u bent genoemd in %{resource_title}".
             email_subject: Uw voorstel is verworpen
             notification_title: Uw voorstel <a href="%{resource_path}">%{resource_title}</a> is afgewezen.
-          email_intro: 'Het voorstel "%{resource_title}" werd niet overgenomen. U kunt het commentaar hier lezen:'
-          email_outro: U heeft deze melding ontvangen omdat u "%{resource_title}" volgt. U kunt stoppen met het volgen ervan door naar de vorige link te gaan.
-          email_subject: Een voorstel dat u volgt is niet geselecteerd
           follower:
             email_intro: 'The proposal "%{resource_title}" has been rejected. You can read the answer in this page:'
             email_outro: You have received this notification because you are following "%{resource_title}". You can unfollow it from the previous link.
             email_subject: A proposal you're following has been rejected
             notification_title: The <a href="%{resource_path}">%{resource_title}</a> proposal has been rejected.
-          notification_title: Het voorstel <a href="%{resource_path}">%{resource_title}</a> werd niet behouden.
         proposal_update_category:
           email_intro: 'An admin has updated the category of your proposal "%{resource_title}", check it out:'
           email_outro: You have received this notification because you are the author of the proposal.
@@ -664,6 +653,7 @@ nl-BE:
           related_to: Related to
           search: Search
           state: State
+          type: Type
           voted: Voted
         filters_small_view:
           close_modal: Close modal
