@@ -44,6 +44,37 @@ module Decidim
 
         ExportData.new(output.string, "xls")
       end
+
+      # Public: Exports a file in an Excel readable format.
+      #
+      # Returns an ExportData instance.
+      def admin_export
+        book = Spreadsheet::Workbook.new
+        sheet = book.create_worksheet
+        sheet.name = "Export"
+
+        sheet.row(0).default_format = Spreadsheet::Format.new(
+          weight: :bold,
+          pattern: 1,
+          pattern_fg_color: :xls_color_14,
+          horizontal_align: :center
+        )
+
+        sheet.row(0).replace admin_headers
+
+        admin_headers.length.times.each do |index|
+          sheet.column(index).width = 20
+        end
+
+        admin_processed_collection.each_with_index do |resource, index|
+          sheet.row(index + 1).replace(admin_headers.map { |header| resource[header] })
+        end
+
+        output = StringIO.new
+        book.write output
+
+        ExportData.new(output.string, "xls")
+      end
     end
   end
 end
