@@ -8,8 +8,9 @@ module Decidim
 
     let(:serializer) do
       Class.new do
-        def initialize(resource)
+        def initialize(resource, public_scope = true)
           @resource = resource
+          @public_scope = public_scope
         end
 
         def serialize
@@ -28,6 +29,14 @@ module Decidim
     describe "export" do
       it "exports the collection using the right serializer" do
         json = JSON.parse(subject.export.read)
+        expect(json[0]).to eq("id" => 1, "serialized_name" => "foo")
+        expect(json[1]).to eq("id" => 2, "serialized_name" => "bar")
+      end
+    end
+
+    describe "admin export" do
+      it "exports the collection using the right serializer" do
+        json = JSON.parse(subject.admin_export.read)
         expect(json[0]).to eq("id" => 1, "serialized_name" => "foo")
         expect(json[1]).to eq("id" => 2, "serialized_name" => "bar")
       end
