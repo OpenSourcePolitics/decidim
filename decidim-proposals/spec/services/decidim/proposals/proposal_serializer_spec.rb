@@ -139,6 +139,7 @@ module Decidim
           subject do
             described_class.new(proposal, false)
           end
+
           let(:serialized) { subject.serialize }
 
           it "serializes author's data" do
@@ -194,7 +195,6 @@ module Decidim
               expect(serialized[:author_group][:id]).to be_empty
             end
           end
-
         end
       end
     end
