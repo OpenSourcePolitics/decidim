@@ -181,6 +181,20 @@ module Decidim
             end
           end
 
+          context "when author is the organization" do
+            let(:proposal) { create(:proposal, :accepted, :official) }
+
+            it "data in author are empty" do
+              expect(serialized[:author][:name]).to be_empty
+              expect(serialized[:author][:id]).to be_empty
+            end
+
+            it "data in author group are not empty" do
+              expect(serialized[:author_group][:name]).to be_empty
+              expect(serialized[:author_group][:id]).to be_empty
+            end
+          end
+
         end
       end
     end
