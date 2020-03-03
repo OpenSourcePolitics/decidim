@@ -152,7 +152,7 @@ module Decidim
           context "when author is not a group" do
             it "data in author are not empty" do
               expect(serialized[:author][:name]).not_to be_empty
-              expect(serialized[:author][:id]).to eq(proposal.creator_author.id)
+              expect(serialized[:author][:id]).to eq(proposal.creator_identity.id)
             end
 
             it "data in author group are empty" do
@@ -162,8 +162,13 @@ module Decidim
           end
 
           context "when author is a group" do
-            let(:user_group) { create(:user_group) }
-            let!(:proposal) { create(:proposal, :accepted, user_groups: user_group) }
+            let(:author) { create(:user, :confirmed, organization: proposal.organization) }
+            let(:user_group) { create(:user_group, :verified, users: [author], organization: proposal.organization) }
+
+            before do
+              proposal.coauthorships.clear
+              proposal.add_coauthor(author, user_group: user_group)
+            end
 
             it "data in author are empty" do
               expect(serialized[:author][:name]).to be_empty
@@ -172,8 +177,7 @@ module Decidim
 
             it "data in author group are not empty" do
               expect(serialized[:author_group][:name]).not_to be_empty
-              expect(serialized[:author_group][:id]).not_to be_empty
-              expect(serialized[:author_group][:id]).to match(/^[0-9]+$/)
+              expect(serialized[:author_group][:id]).to eq(proposal.creator_identity.id)
             end
           end
 
