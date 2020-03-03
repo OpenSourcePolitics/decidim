@@ -10,8 +10,9 @@ module Decidim
       include Decidim::TranslationsHelper
 
       # Public: Initializes the serializer with a proposal.
-      def initialize(proposal)
+      def initialize(proposal, public_scope = true)
         @proposal = proposal
+        @public_scope = public_scope
       end
 
       # Public: Exports a hash with the serialized data for this proposal.
@@ -48,12 +49,47 @@ module Decidim
           url: url,
           meeting_urls: meetings,
           related_proposals: related_proposals
-        }
+        }.merge(options_merge(author_metadata))
       end
 
       private
 
       attr_reader :proposal
+
+      def options_merge(options_hash)
+        @public_scope ? {} : options_hash
+      end
+
+      def author_metadata
+        author_metadata = {
+          author: {
+            id: "",
+            name: ""
+          },
+          author_group: {
+            id: "",
+            name: ""
+          }
+        }
+
+        if proposal.creator.decidim_author_type == "Decidim::UserBaseEntity"
+          if proposal.creator_identity.is_a? Decidim::UserGroup
+            user_group = Decidim::UserGroup.find proposal.creator_identity.id
+            author_metadata[:author_group] = {
+              id: user_group.try(:id),
+              name: user_group.try(:name)
+            }
+          else
+            user = Decidim::User.find proposal.creator_identity.id
+            author_metadata[:author] = {
+              id: user.try(:id),
+              name: user.try(:name)
+            }
+          end
+        end
+
+        author_metadata
+      end
 
       def component
         proposal.component
