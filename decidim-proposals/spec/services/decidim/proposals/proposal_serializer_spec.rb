@@ -126,6 +126,76 @@ module Decidim
             expect(serialized).to include(answer: expected_answer)
           end
         end
+
+        it "doesn't serialize author's data" do
+          expect(serialized).not_to include(:author)
+        end
+
+        it "doesn't serialize author's group data" do
+          expect(serialized).not_to include(:author_group)
+        end
+
+        context "when data is exported from backoffice" do
+          subject do
+            described_class.new(proposal, false)
+          end
+
+          let(:serialized) { subject.serialize }
+
+          it "serializes author's data" do
+            expect(serialized).to include(:author)
+          end
+
+          it "serializes author's group data" do
+            expect(serialized).to include(:author_group)
+          end
+
+          context "when author is not a group" do
+            it "data in author are not empty" do
+              expect(serialized[:author][:name]).not_to be_empty
+              expect(serialized[:author][:id]).to eq(proposal.creator_identity.id)
+            end
+
+            it "data in author group are empty" do
+              expect(serialized[:author_group][:name]).to eq("")
+              expect(serialized[:author_group][:id]).to be_empty
+            end
+          end
+
+          context "when author is a group" do
+            let(:author) { create(:user, :confirmed, organization: proposal.organization) }
+            let(:user_group) { create(:user_group, :verified, users: [author], organization: proposal.organization) }
+
+            before do
+              proposal.coauthorships.clear
+              proposal.add_coauthor(author, user_group: user_group)
+            end
+
+            it "data in author are empty" do
+              expect(serialized[:author][:name]).to be_empty
+              expect(serialized[:author][:id]).to be_empty
+            end
+
+            it "data in author group are not empty" do
+              expect(serialized[:author_group][:name]).not_to be_empty
+              expect(serialized[:author_group][:id]).to eq(proposal.creator_identity.id)
+            end
+          end
+
+          context "when author is the organization" do
+            let(:proposal) { create(:proposal, :accepted, :official) }
+
+            it "data in author are empty" do
+              expect(serialized[:author][:name]).to be_empty
+              expect(serialized[:author][:id]).to be_empty
+            end
+
+            it "data in author group are empty" do
+              expect(serialized[:author_group][:name]).to be_empty
+              expect(serialized[:author_group][:id]).to be_empty
+            end
+          end
+        end
       end
     end
   end

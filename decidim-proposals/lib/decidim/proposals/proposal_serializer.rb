@@ -10,8 +10,9 @@ module Decidim
       include Decidim::TranslationsHelper
 
       # Public: Initializes the serializer with a proposal.
-      def initialize(proposal)
+      def initialize(proposal, public_scope = true)
         @proposal = proposal
+        @public_scope = public_scope
       end
 
       # Public: Exports a hash with the serialized data for this proposal.
@@ -28,7 +29,7 @@ module Decidim
           },
           participatory_space: {
             id: proposal.participatory_space.id,
-            url: Decidim::ResourceLocatorPresenter.new(proposal.participatory_space).url
+            url: url(proposal.participatory_space)
           },
           collaborative_draft_origin: proposal.collaborative_draft_origin,
           component: { id: component.id },
@@ -48,12 +49,49 @@ module Decidim
           url: url,
           meeting_urls: meetings,
           related_proposals: related_proposals
-        }
+        }.merge(options_merge(
+                  author: author_metadata,
+                  author_group: author_group_metadata
+                ))
       end
 
       private
 
       attr_reader :proposal
+
+      def options_merge(options_hash)
+        @public_scope ? {} : options_hash
+      end
+
+      def author_metadata
+        author = {
+          id: "",
+          name: ""
+        }
+
+        if proposal.creator.decidim_author_type == "Decidim::UserBaseEntity" && proposal.creator_identity.is_a?(Decidim::User)
+          user = Decidim::User.find proposal.creator_identity.id
+          author[:id] = user.try(:id) || ""
+          author[:name] = user.try(:name) || ""
+        end
+
+        author
+      end
+
+      def author_group_metadata
+        author_group = {
+          id: "",
+          name: ""
+        }
+
+        if proposal.creator.decidim_author_type == "Decidim::UserBaseEntity" && proposal.creator_identity.is_a?(Decidim::UserGroup)
+          user_group = Decidim::UserGroup.find proposal.creator_identity.id
+          author_group[:id] = user_group.try(:id) || ""
+          author_group[:name] = user_group.try(:name) || ""
+        end
+
+        author_group
+      end
 
       def component
         proposal.component
@@ -71,8 +109,8 @@ module Decidim
         end
       end
 
-      def url
-        Decidim::ResourceLocatorPresenter.new(proposal).url
+      def url(object = proposal)
+        Decidim::ResourceLocatorPresenter.new(object).url
       end
 
       def attachments_url
