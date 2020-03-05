@@ -9,7 +9,6 @@ module Decidim
     let(:admin_extra_fields) { OpenStruct.new(age: 30, city: "London") }
 
     it { expect(subject).respond_to? :resource }
-    it { expect(subject).respond_to? :admin_extra_fields }
 
     describe "#serialize" do
       context "when export is public" do
@@ -26,10 +25,10 @@ module Decidim
       end
 
       context "when export is made by administrator" do
-        let(:subject) { described_class.new(resource, false) }
+        let(:subject) { described_class.new(resource, true) }
 
         before do
-          subject.admin_extra_fields = admin_extra_fields.to_h
+          allow(subject).to receive(:admin_extra_fields).and_return(admin_extra_fields.to_h)
         end
 
         it "serializer merges the admin_extra_fields" do
@@ -58,7 +57,7 @@ module Decidim
       end
 
       context "when export is made by administrator" do
-        let(:subject) { described_class.new(resource, false) }
+        let(:subject) { described_class.new(resource, true) }
 
         it "returns the options parameter" do
           expect(subject.send(:options_merge, admin_extra_fields.to_h)).to eq(age: admin_extra_fields.age, city: admin_extra_fields.city)

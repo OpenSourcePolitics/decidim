@@ -11,25 +11,21 @@ module Decidim
     # own serializer or this default will be used.
     class Serializer
       attr_reader :resource
-      attr_accessor :admin_extra_fields
 
       # Initializes the serializer with a resource.
       #
       # resource - The Object to serialize.
-      # public_scope - Boolean to differentiate open data export and administrator export. By default the export is done by open data.
-      def initialize(resource, public_scope = true)
+      # private_scope - Boolean to differentiate open data export and administrator export. By default scope is public.
+      def initialize(resource, private_scope = false)
         @resource = resource
-        @public_scope = public_scope
+        @private_scope = private_scope
       end
 
       # Public: Returns a serialized view of the provided resource.
       #
       # Returns a nested Hash with the fields.
       def serialize
-        @resource.to_h
-                 .merge(
-                   options_merge(admin_extra_fields)
-                 )
+        @resource.to_h.merge options_merge(admin_extra_fields)
       end
 
       private
@@ -38,8 +34,15 @@ module Decidim
       #
       # Returns a empty hash or Hash with some other fields
       def options_merge(options = {})
-        return {} unless options.is_a?(Hash) && !@public_scope
+        return {} unless options.is_a?(Hash) && @private_scope
         options
+      end
+
+      # Private: Returns a Hash with additional fields that administrator want to see in export
+      #
+      # Returns a Hash
+      def admin_extra_fields
+        {}
       end
     end
   end
