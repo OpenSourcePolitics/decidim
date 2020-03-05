@@ -10,9 +10,11 @@ module Decidim
       #
       # collection - An Array with the collection to be exported.
       # serializer - A Serializer to be used during the export.
-      def initialize(collection, serializer = Serializer)
+      # private_scope - A boolean to manage admin_extra_fields export. By default, it doesn't exports admin_extra_fields
+      def initialize(collection, serializer = Serializer, private_scope = false)
         @collection = collection
         @serializer = serializer
+        @private_scope = private_scope
       end
 
       # Public: Should generate an `ExportData` with the result of the export.
@@ -23,7 +25,7 @@ module Decidim
 
       private
 
-      attr_reader :collection, :serializer
+      attr_reader :collection, :serializer, :private_scope
     end
   end
 end
