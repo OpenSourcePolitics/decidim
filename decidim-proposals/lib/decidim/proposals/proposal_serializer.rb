@@ -10,8 +10,9 @@ module Decidim
       include Decidim::TranslationsHelper
 
       # Public: Initializes the serializer with a proposal.
-      def initialize(proposal)
+      def initialize(proposal, private_scope = false)
         @proposal = proposal
+        @private_scope = private_scope
       end
 
       # Public: Exports a hash with the serialized data for this proposal.
@@ -47,14 +48,42 @@ module Decidim
           published_at: proposal.published_at,
           url: url,
           meeting_urls: meetings,
-          related_proposals: related_proposals,
-          authors_registration_metadata: authors_registration_metadata
-        }
+          related_proposals: related_proposals
+        }.merge(options_merge(admin_extra_fields))
       end
 
       private
 
       attr_reader :proposal
+
+      def admin_extra_fields
+        {
+          authors: extract_author_data do
+            {
+              names: proposal.authors.collect(&:name).join(","),
+              nicknames: proposal.authors.collect(&:nickname).join(","),
+              emails: proposal.authors.collect(&:email).join(","),
+              authors_registration_metadata: authors_registration_metadata
+            }
+          end
+        }
+      end
+
+      # Private: Returns the Hash block given if the proposal creator is a User
+      #
+      # Returns: Hash block or Hash with keys / empty values
+      def extract_author_data
+        if proposal.creator.decidim_author_type == "Decidim::Organization" && proposal.creator_identity.is_a?(Decidim::Organization) || !block_given?
+          {
+            names: "",
+            nicknames: "",
+            emails: "",
+            authors_registration_metadata: ""
+          }
+        else
+          yield
+        end
+      end
 
       def component
         proposal.component

@@ -119,9 +119,86 @@ module Decidim
           expect(serialized[:related_proposals].first).to match(%r{http.*/proposals})
         end
 
-        it "serializes authors metadata" do
-          expect(serialized[:authors_registration_metadata].length).to eq(1)
-          expect(serialized[:authors_registration_metadata].first).to eq(proposal.authors.first.registration_metadata)
+        it "doesn't serializes authors data" do
+          expect(serialized).not_to include(:authors)
+        end
+
+        context "when export is made by administrator on backoffice" do
+          subject do
+            described_class.new(proposal, true)
+          end
+
+          it "serializes authors" do
+            expect(serialized).to include(:authors)
+          end
+
+          context "when creator is a unique user" do
+            it "serializes author data" do
+              expect(serialized[:authors]).to include(names: proposal.authors.collect(&:name).join(","))
+              expect(serialized[:authors]).to include(nicknames: proposal.authors.collect(&:nickname).join(","))
+              expect(serialized[:authors]).to include(emails: proposal.authors.collect(&:email).join(","))
+              expect(serialized[:authors]).to include(authors_registration_metadata: proposal.authors.collect(&:registration_metadata))
+            end
+          end
+
+          context "when there is several creators" do
+            let(:another_creator) { create(:user, :confirmed, organization: proposal.organization) }
+
+            before do
+              proposal.add_coauthor(another_creator)
+            end
+
+            it "serializes authors data" do
+              expect(serialized[:authors]).to include(names: proposal.authors.collect(&:name).join(","))
+              expect(serialized[:authors]).to include(nicknames: proposal.authors.collect(&:nickname).join(","))
+              expect(serialized[:authors]).to include(emails: proposal.authors.collect(&:email).join(","))
+              expect(serialized[:authors]).to include(authors_registration_metadata: proposal.authors.collect(&:registration_metadata))
+            end
+
+            it "serializes the two authors names" do
+              expect(serialized[:authors][:names]).not_to be_empty
+              expect(serialized[:authors][:names]).to include(proposal.authors.collect(&:name).join(","))
+            end
+          end
+
+          context "when creator is a user group" do
+            let(:author) { create(:user, :confirmed, organization: proposal.organization) }
+            let(:user_group) { create(:user_group, :verified, users: [author], organization: proposal.organization) }
+
+            before do
+              proposal.coauthorships.clear
+              proposal.add_coauthor(author, user_group: user_group)
+            end
+
+            it "serializes authors data" do
+              expect(serialized[:authors]).to include(names: proposal.authors.collect(&:name).join(","))
+              expect(serialized[:authors]).to include(nicknames: proposal.authors.collect(&:nickname).join(","))
+              expect(serialized[:authors]).to include(emails: proposal.authors.collect(&:email).join(","))
+              expect(serialized[:authors]).to include(authors_registration_metadata: proposal.authors.collect(&:registration_metadata))
+            end
+          end
+
+          context "when creator is the organization" do
+            before do
+              proposal.coauthorships.clear
+              proposal.add_coauthor(proposal.organization)
+            end
+
+            it "serializes authors metadata" do
+              expect(serialized).to include(:authors)
+              expect(serialized[:authors]).to include(:names)
+              expect(serialized[:authors]).to include(:nicknames)
+              expect(serialized[:authors]).to include(:emails)
+              expect(serialized[:authors]).to include(:authors_registration_metadata)
+            end
+
+            it "leaves empty each values" do
+              expect(serialized[:authors][:names]).to be_empty
+              expect(serialized[:authors][:nicknames]).to be_empty
+              expect(serialized[:authors][:emails]).to be_empty
+              expect(serialized[:authors][:authors_registration_metadata]).to be_empty
+            end
+          end
         end
 
         context "with proposal having an answer" do
