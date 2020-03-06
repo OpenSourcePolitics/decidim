@@ -8,7 +8,7 @@ module Decidim::Meetings
       let!(:registration) { create(:registration) }
       let!(:subject) { described_class.new(registration) }
 
-      context "when there are not a questionnaire" do
+      context "when there is no questionnaire" do
         it "includes the id" do
           expect(subject.serialize).to include(id: registration.id)
         end
@@ -18,16 +18,16 @@ module Decidim::Meetings
         end
 
         it "includes the user" do
-          expect(subject.serialize[:user]).to(
-            include(name: registration.user.name)
-          )
-          expect(subject.serialize[:user]).to(
-            include(email: registration.user.email)
-          )
+          expect(subject.serialize).to include(:user)
+          expect(subject.serialize[:user]).to include(name: registration.user.name)
+          expect(subject.serialize[:user]).to include(nickname: registration.user.nickname)
+          expect(subject.serialize[:user]).to include(email: registration.user.email)
+          expect(subject.serialize[:user]).to include(registration_metadata: registration.user.registration_metadata)
+          expect(subject.serialize[:user]).to include(user_group: registration.user_group&.name)
         end
       end
 
-      context "when questtionaire enabled" do
+      context "when questionnaire enabled" do
         let(:meeting) { create :meeting, :with_registrations_enabled }
         let!(:user) { create(:user, organization: meeting.organization) }
         let!(:registration) { create(:registration, meeting: meeting, user: user) }

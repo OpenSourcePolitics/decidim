@@ -9,8 +9,9 @@ module Decidim
       include Decidim::ResourceHelper
 
       # Public: Initializes the serializer with a meeting.
-      def initialize(meeting)
+      def initialize(meeting, private_scope = false)
         @meeting = meeting
+        @private_scope = private_scope
       end
 
       # Public: Exports a hash with the serialized data for this meeting.

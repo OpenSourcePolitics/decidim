@@ -4,14 +4,17 @@ module Decidim
   module Meetings
     class RegistrationSerializer < Decidim::Exporters::Serializer
       include Decidim::TranslationsHelper
+
       # Serializes a registration
       def serialize
         {
           id: resource.id,
           code: resource.code,
           user: {
-            name: resource.user.name,
-            email: resource.user.email,
+            name: resource.user.try(:name),
+            nickname: resource.user.try(:nickname),
+            email: resource.user.try(:email),
+            registration_metadata: resource.user.try(:registration_metadata) || "",
             user_group: resource.user_group&.name || ""
           },
           registration_form_answers: serialize_answers
