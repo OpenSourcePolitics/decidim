@@ -10,8 +10,9 @@ module Decidim
       include Decidim::TranslationsHelper
 
       # Public: Initializes the serializer with a debate.
-      def initialize(debate)
+      def initialize(debate, private_scope = false)
         @debate = debate
+        @private_scope = private_scope
       end
 
       # Public: Exports a hash with the serialized data for this debate.
@@ -35,12 +36,41 @@ module Decidim
           start_time: debate.start_time,
           end_time: debate.end_time,
           author_url: Decidim::UserPresenter.new(debate.author).try(:profile_url)
-        }
+        }.merge(options_merge(admin_extra_fields))
       end
 
       private
 
       attr_reader :debate
+
+      def admin_extra_fields
+        {
+          user: extract_author_data do
+            {
+              name: debate.author.try(:name),
+              nickname: debate.author.try(:nickname),
+              email: debate.author.try(:email),
+              registration_metadata: debate.author.try(:registration_metadata)
+            }
+          end
+        }
+      end
+
+      # Private: Returns the Hash block given if the proposal creator is a User
+      #
+      # Returns: Hash block or Hash with keys / empty values
+      def extract_author_data
+        if debate.author.is_a?(Decidim::Organization) || debate.author.is_a?(Decidim::UserGroup) || !block_given?
+          {
+            name: "",
+            nickname: "",
+            email: "",
+            registration_metadata: ""
+          }
+        else
+          yield
+        end
+      end
 
       def component
         debate.component
