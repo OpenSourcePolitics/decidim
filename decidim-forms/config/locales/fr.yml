@@ -81,4 +81,11 @@ fr:
       user_answers_serializer:
         created_at: Répondu le
         id: ID de réponse
+        ip_hash: Ip Hash
+        registered: Enregistré
         registration_metadata: Registration metadata
+        unregistered: Non enregistré
+        user_email: Email
+        user_name: Nom
+        user_nickname: Prénom
+        user_status: Statut

@@ -87,4 +87,7 @@ en:
         registered: Registered
         registration_metadata: Registration metadata
         unregistered: Unregistered
+        user_email: User email
+        user_name: User name
+        user_nickname: User nickname
         user_status: User status
