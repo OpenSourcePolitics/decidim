@@ -12,7 +12,6 @@ module Decidim
       let!(:debate) { create(:debate, :with_author) }
       let(:participatory_process) { debate.component.participatory_space }
 
-
       describe "#serialize" do
         let(:serialized) { subject.serialize }
 
