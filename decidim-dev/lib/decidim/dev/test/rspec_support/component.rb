@@ -96,8 +96,9 @@ module Decidim
 end
 
 class DummySerializer
-  def initialize(id)
+  def initialize(id, private_scope = false)
     @id = id
+    @private_scope = private_scope
   end
 
   def serialize

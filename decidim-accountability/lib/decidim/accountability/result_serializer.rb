@@ -9,8 +9,9 @@ module Decidim
       include Decidim::TranslationsHelper
 
       # Public: Initializes the serializer with a result.
-      def initialize(result)
+      def initialize(result, private_scope = false)
         @result = result
+        @private_scope = private_scope
       end
 
       # Public: Exports a hash with the serialized data for this result.
