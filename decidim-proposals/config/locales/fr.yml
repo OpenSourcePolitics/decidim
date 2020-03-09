@@ -306,48 +306,48 @@ fr:
         actions:
           preview: Aperçu
         exports:
-          comments: Commentaires
           column_name:
             proposals:
-              id: ID
+              amendments: Amendements
+              answer: Réponse
+              attachments: Nombre de pièces-jointes
+              attachments_url: URL de l'amendement
+              authors:
+                authors: Auteurs
+                authors_registration_metadata: Informations complémentaires
+                emails: Emails
+                names: Noms
+                nicknames: Prénoms
+              body: Contenu
               category:
                 category: Catégorie
                 id: ID
                 name: Nom
-              scope:
-                scope: Quartier
-                id: ID
-                name: Nom
-              participatory_space:
-                participatory_space: Concertation
-                id: ID
-                url: URL
               collaborative_draft_origin: Brouillon collaboratif
+              comments: Commentaires
               component:
                 component: Fonctionnalité
                 id: ID
-              title: Titre
-              body: Contenu
-              state: État de la proposition
-              reference: Référence
-              answer: Réponse
-              supports: Soutiens
               endorsements: Supports
-              comments: Commentaires
-              amendments: Amendements
-              attachments_url: URL de l'amendement
-              attachments: Nombre de pièces-jointes
               followers: Followers
-              published_at: Date de publication
-              url: Url
+              id: ID
               meeting_urls: Url de la rencontre
+              participatory_space:
+                id: ID
+                participatory_space: Concertation
+                url: URL
+              published_at: Date de publication
+              reference: Référence
               related_proposals: Propositions liées
-              authors:
-                authors: Auteurs
-                names: Noms
-                nicknames: Prénoms
-                emails: Emails
-                authors_registration_metadata: Informations complémentaires
+              scope:
+                id: ID
+                name: Nom
+                scope: Quartier
+              state: État de la proposition
+              supports: Soutiens
+              title: Titre
+              url: Url
+          comments: Commentaires
           proposals: Propositions
         models:
           proposal:

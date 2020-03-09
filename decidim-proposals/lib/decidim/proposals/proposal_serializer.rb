@@ -29,16 +29,19 @@ module Decidim
           },
           translated_column_name(:participatory_space, "decidim.proposals.admin.exports.column_name.proposals.participatory_space") => {
             translated_column_name(:id, "decidim.proposals.admin.exports.column_name.proposals.participatory_space") => proposal.participatory_space.id,
-            translated_column_name(:url, "decidim.proposals.admin.exports.column_name.proposals.participatory_space") => Decidim::ResourceLocatorPresenter.new(proposal.participatory_space).url
+            translated_column_name(:url, "decidim.proposals.admin.exports.column_name.proposals.participatory_space") =>
+              Decidim::ResourceLocatorPresenter.new(proposal.participatory_space).url
           },
           translated_column_name(:collaborative_draft_origin, "decidim.proposals.admin.exports.column_name.proposals") => proposal.collaborative_draft_origin,
-          translated_column_name(:component, "decidim.proposals.admin.exports.column_name.proposals.component") => { translated_column_name(:id, "decidim.proposals.admin.exports.column_name.proposals.component") => component.id },
+          translated_column_name(:component, "decidim.proposals.admin.exports.column_name.proposals.component") => {
+            translated_column_name(:id, "decidim.proposals.admin.exports.column_name.proposals.component") => component.id
+          },
           translated_column_name(:title, "decidim.proposals.admin.exports.column_name.proposals") => present(proposal).title,
           translated_column_name(:body, "decidim.proposals.admin.exports.column_name.proposals") => present(proposal).body,
-          translated_column_name(:state, "decidim.proposals.admin.exports.column_name.proposals") =>  proposal.state.to_s,
-          translated_column_name(:reference, "decidim.proposals.admin.exports.column_name.proposals") =>  proposal.reference,
-          translated_column_name(:answer, "decidim.proposals.admin.exports.column_name.proposals") =>  ensure_translatable(proposal.answer),
-          translated_column_name(:supports, "decidim.proposals.admin.exports.column_name.proposals") =>  proposal.proposal_votes_count,
+          translated_column_name(:state, "decidim.proposals.admin.exports.column_name.proposals") => proposal.state.to_s,
+          translated_column_name(:reference, "decidim.proposals.admin.exports.column_name.proposals") => proposal.reference,
+          translated_column_name(:answer, "decidim.proposals.admin.exports.column_name.proposals") => ensure_translatable(proposal.answer),
+          translated_column_name(:supports, "decidim.proposals.admin.exports.column_name.proposals") => proposal.proposal_votes_count,
           translated_column_name(:endorsements, "decidim.proposals.admin.exports.column_name.proposals") => proposal.endorsements.count,
           translated_column_name(:comments, "decidim.proposals.admin.exports.column_name.proposals") => proposal.comments.count,
           translated_column_name(:amendments, "decidim.proposals.admin.exports.column_name.proposals") => proposal.amendments.count,
