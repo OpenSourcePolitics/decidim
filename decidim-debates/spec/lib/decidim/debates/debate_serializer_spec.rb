@@ -16,41 +16,41 @@ module Decidim
         let(:serialized) { subject.serialize }
 
         it "serializes the id" do
-          expect(serialized).to include(id: debate.id)
+          expect(serialized).to include("ID" => debate.id)
         end
 
         it "serializes the comments count" do
-          expect(serialized).to include(comments: debate.comments.count)
+          expect(serialized).to include("Comments" => debate.comments.count)
         end
 
         it "serializes the component" do
-          expect(serialized).to include(:component)
-          expect(serialized[:component]).to include(id: debate.component.id)
+          expect(serialized).to include("Component")
+          expect(serialized["Component"]).to include("ID" => debate.component.id)
         end
 
         it "serializes the participatory space" do
-          expect(serialized[:participatory_space]).to include(id: participatory_process.id)
-          expect(serialized[:participatory_space][:url]).to include("http", participatory_process.slug)
+          expect(serialized["Participatory space"]).to include("ID" => participatory_process.id)
+          expect(serialized["Participatory space"]["URL"]).to include("http", participatory_process.slug)
         end
 
         it "serializes the creation date" do
-          expect(serialized).to include(created_at: debate.created_at)
+          expect(serialized).to include("Creation date" => debate.created_at)
         end
 
         it "serializes the start time" do
-          expect(serialized).to include(start_time: debate.start_time)
+          expect(serialized).to include("Start time" => debate.start_time)
         end
 
         it "serializes the end time" do
-          expect(serialized).to include(end_time: debate.end_time)
+          expect(serialized).to include("End time" => debate.end_time)
         end
 
         it "serializes the author url" do
-          expect(serialized).to include(:author_url)
+          expect(serialized).to include("Author url")
         end
 
         it "doesn't serializes the user data" do
-          expect(serialized).not_to include(:user)
+          expect(serialized).not_to include("User")
         end
 
         context "when export is made by administrator on backoffice" do
@@ -59,41 +59,41 @@ module Decidim
           end
 
           it "serializes user data" do
-            expect(serialized).to include(:user)
-            expect(serialized[:user]).to include(name: debate.author.try(:name))
-            expect(serialized[:user]).to include(nickname: debate.author.try(:nickname))
-            expect(serialized[:user]).to include(email: debate.author.try(:email))
-            expect(serialized[:user]).to include(birth_date: debate.author.registration_metadata[:birth_date.to_s].to_s)
-            expect(serialized[:user]).to include(gender: debate.author.registration_metadata[:gender.to_s])
-            expect(serialized[:user]).to include(work_area: debate.author.registration_metadata[:work_area.to_s])
-            expect(serialized[:user]).to include(residential_area: debate.author.registration_metadata[:residential_area.to_s])
-            expect(serialized[:user]).to include(statutory_representative_email: debate.author.registration_metadata[:statutory_representative_email.to_s])
+            expect(serialized).to include("User")
+            expect(serialized["User"]).to include("Name" => debate.author.try(:name))
+            expect(serialized["User"]).to include("Nickname" => debate.author.try(:nickname))
+            expect(serialized["User"]).to include("Email" => debate.author.try(:email))
+            expect(serialized["User"]).to include("Birth date" => debate.author.registration_metadata[:birth_date.to_s].to_s)
+            expect(serialized["User"]).to include("Gender" => debate.author.registration_metadata[:gender.to_s])
+            expect(serialized["User"]).to include("Work area" => debate.author.registration_metadata[:work_area.to_s])
+            expect(serialized["User"]).to include("Residential area" => debate.author.registration_metadata[:residential_area.to_s])
+            expect(serialized["User"]).to include("Statutory representative email" => debate.author.registration_metadata[:statutory_representative_email.to_s])
           end
 
           context "when creator is the organization" do
             let!(:debate) { create(:debate) }
 
             it "serializes user data" do
-              expect(serialized).to include(:user)
-              expect(serialized[:user]).to include(:name)
-              expect(serialized[:user]).to include(:nickname)
-              expect(serialized[:user]).to include(:email)
-              expect(serialized[:user]).to include(:birth_date)
-              expect(serialized[:user]).to include(:gender)
-              expect(serialized[:user]).to include(:work_area)
-              expect(serialized[:user]).to include(:residential_area)
-              expect(serialized[:user]).to include(:statutory_representative_email)
+              expect(serialized).to include("User")
+              expect(serialized["User"]).to include("Name")
+              expect(serialized["User"]).to include("Nickname")
+              expect(serialized["User"]).to include("Email")
+              expect(serialized["User"]).to include("Birth date")
+              expect(serialized["User"]).to include("Gender")
+              expect(serialized["User"]).to include("Work area")
+              expect(serialized["User"]).to include("Residential area")
+              expect(serialized["User"]).to include("Statutory representative email")
             end
 
             it "leaves empty each values" do
-              expect(serialized[:user][:name]).to be_empty
-              expect(serialized[:user][:nickname]).to be_empty
-              expect(serialized[:user][:email]).to be_empty
-              expect(serialized[:user][:birth_date]).to be_empty
-              expect(serialized[:user][:gender]).to be_empty
-              expect(serialized[:user][:work_area]).to be_empty
-              expect(serialized[:user][:residential_area]).to be_empty
-              expect(serialized[:user][:statutory_representative_email]).to be_empty
+              expect(serialized["User"]["Name"]).to be_empty
+              expect(serialized["User"]["Nickname"]).to be_empty
+              expect(serialized["User"]["Email"]).to be_empty
+              expect(serialized["User"]["Birth date"]).to be_empty
+              expect(serialized["User"]["Gender"]).to be_empty
+              expect(serialized["User"]["Work area"]).to be_empty
+              expect(serialized["User"]["Residential area"]).to be_empty
+              expect(serialized["User"]["Statutory representative email"]).to be_empty
             end
           end
         end

@@ -62,6 +62,38 @@ fr:
             invalid: Il y a eu un problème lors de la mise à jour de ce débat.
             success: Débat mis à jour avec succès.
         exports:
+          column_name:
+            debates:
+              author_url: Url auteur
+              category:
+                category: Catégorie
+                id: ID
+                name: Nom
+              comments: Commentaires
+              component:
+                component: Fonctionnalité
+                id: ID
+              created_at: Date de création
+              description: Description
+              end_time: Date de fin
+              id: ID
+              participatory_space:
+                id: ID
+                participatory_space: Concertation
+                url: URL
+              start_time: Date de début
+              title: Titre
+              url: Url
+              user:
+                email: Email
+                name: Nome
+                nickname: Prénom
+                gender: Genre
+                birth_date: Date de naissance
+                work_area: Lieu de travail
+                residential_area: Lieu de résidence
+                statutory_representative_email: Email representatif
+                user: Utilisateur
           comments: Commentaires
           debates: débats
         models:
