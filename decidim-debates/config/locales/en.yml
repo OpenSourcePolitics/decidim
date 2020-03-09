@@ -62,6 +62,34 @@ en:
             invalid: There has been a problem while updating this debate.
             success: Debate updated successfully.
         exports:
+          column_name:
+            debates:
+              author_url: Author url
+              category:
+                category: Category
+                id: ID
+                name: Name
+              comments: Comments
+              component:
+                component: Component
+                id: ID
+              created_at: Creation date
+              description: Description
+              end_time: End time
+              id: ID
+              participatory_space:
+                id: ID
+                participatory_space: Participatory space
+                url: URL
+              start_time: Start time
+              title: Title
+              url: Url
+              user:
+                email: Email
+                name: Name
+                nickname: Nickname
+                registration_metadata: Registration metadata
+                user: User
           comments: comments
           debates: debates
         models:

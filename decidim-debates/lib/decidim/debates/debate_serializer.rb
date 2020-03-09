@@ -18,24 +18,27 @@ module Decidim
       # Public: Exports a hash with the serialized data for this debate.
       def serialize
         {
-          id: debate.id,
-          title: present(debate).title,
-          description: present(debate).description,
-          comments: debate.comments.count,
-          url: url,
-          category: {
-            id: debate.category.try(:id),
-            name: debate.category.try(:name) || empty_translatable
+          translated_column_name(:id, "decidim.debates.admin.exports.column_name.debates") => debate.id,
+          translated_column_name(:title, "decidim.debates.admin.exports.column_name.debates") => present(debate).title,
+          translated_column_name(:description, "decidim.debates.admin.exports.column_name.debates") => present(debate).description,
+          translated_column_name(:comments, "decidim.debates.admin.exports.column_name.debates") => debate.comments.count,
+          translated_column_name(:url, "decidim.debates.admin.exports.column_name.debates") => url,
+          translated_column_name(:category, "decidim.debates.admin.exports.column_name.debates.category") => {
+            translated_column_name(:id, "decidim.debates.admin.exports.column_name.debates.category") => debate.category.try(:id),
+            translated_column_name(:name, "decidim.debates.admin.exports.column_name.debates.category") => debate.category.try(:name) || empty_translatable
           },
-          component: { id: component.id },
-          participatory_space: {
-            id: debate.participatory_space.id,
-            url: Decidim::ResourceLocatorPresenter.new(debate.participatory_space).url
+          translated_column_name(:component, "decidim.debates.admin.exports.column_name.debates.component") => {
+            translated_column_name(:id, "decidim.debates.admin.exports.column_name.debates.component") => component.id
           },
-          created_at: debate.created_at,
-          start_time: debate.start_time,
-          end_time: debate.end_time,
-          author_url: Decidim::UserPresenter.new(debate.author).try(:profile_url)
+          translated_column_name(:participatory_space, "decidim.debates.admin.exports.column_name.debates.participatory_space") => {
+            translated_column_name(:id, "decidim.debates.admin.exports.column_name.debates.participatory_space") => debate.participatory_space.id,
+            translated_column_name(:url, "decidim.debates.admin.exports.column_name.debates.participatory_space") =>
+              Decidim::ResourceLocatorPresenter.new(debate.participatory_space).url
+          },
+          translated_column_name(:created_at, "decidim.debates.admin.exports.column_name.debates") => debate.created_at,
+          translated_column_name(:start_time, "decidim.debates.admin.exports.column_name.debates") => debate.start_time,
+          translated_column_name(:end_time, "decidim.debates.admin.exports.column_name.debates") => debate.end_time,
+          translated_column_name(:author_url, "decidim.debates.admin.exports.column_name.debates") => Decidim::UserPresenter.new(debate.author).try(:profile_url)
         }.merge(options_merge(admin_extra_fields))
       end
 
@@ -45,12 +48,12 @@ module Decidim
 
       def admin_extra_fields
         {
-          user: extract_author_data do
+          translated_column_name(:user, "decidim.debates.admin.exports.column_name.debates.user") => extract_author_data do
             {
-              name: debate.author.try(:name),
-              nickname: debate.author.try(:nickname),
-              email: debate.author.try(:email),
-              registration_metadata: debate.author.try(:registration_metadata)
+              translated_column_name(:name, "decidim.debates.admin.exports.column_name.debates.user") => debate.author.try(:name),
+              translated_column_name(:nickname, "decidim.debates.admin.exports.column_name.debates.user") => debate.author.try(:nickname),
+              translated_column_name(:email, "decidim.debates.admin.exports.column_name.debates.user") => debate.author.try(:email),
+              translated_column_name(:registration_metadata, "decidim.debates.admin.exports.column_name.debates.user") => debate.author.try(:registration_metadata)
             }
           end
         }
@@ -62,10 +65,10 @@ module Decidim
       def extract_author_data
         if debate.author.is_a?(Decidim::Organization) || debate.author.is_a?(Decidim::UserGroup) || !block_given?
           {
-            name: "",
-            nickname: "",
-            email: "",
-            registration_metadata: ""
+            translated_column_name(:name, "decidim.debates.admin.exports.column_name.debates.user") => "",
+            translated_column_name(:nickname, "decidim.debates.admin.exports.column_name.debates.user") => "",
+            translated_column_name(:email, "decidim.debates.admin.exports.column_name.debates.user") => "",
+            translated_column_name(:registration_metadata, "decidim.debates.admin.exports.column_name.debates.user") => ""
           }
         else
           yield
