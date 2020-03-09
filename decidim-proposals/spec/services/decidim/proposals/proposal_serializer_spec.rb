@@ -43,84 +43,84 @@ module Decidim
         let(:serialized) { subject.serialize }
 
         it "serializes the id" do
-          expect(serialized).to include(id: proposal.id)
+          expect(serialized).to include(t("decidim.proposals.admin.exports.column_name.proposals.id") => proposal.id)
         end
 
         it "serializes the category" do
-          expect(serialized[:category]).to include(id: category.id)
-          expect(serialized[:category]).to include(name: category.name)
+          expect(serialized[t("decidim.proposals.admin.exports.column_name.proposals.category.category")]).to include(t("decidim.proposals.admin.exports.column_name.proposals.category.id") => category.id)
+          expect(serialized[t("decidim.proposals.admin.exports.column_name.proposals.category.category")]).to include(t("decidim.proposals.admin.exports.column_name.proposals.category.name") => category.name)
         end
 
         it "serializes the scope" do
-          expect(serialized[:scope]).to include(id: scope.id)
-          expect(serialized[:scope]).to include(name: scope.name)
+          expect(serialized[t("decidim.proposals.admin.exports.column_name.proposals.scope.scope")]).to include(t("decidim.proposals.admin.exports.column_name.proposals.scope.id") => scope.id)
+          expect(serialized[t("decidim.proposals.admin.exports.column_name.proposals.scope.scope")]).to include(t("decidim.proposals.admin.exports.column_name.proposals.scope.name") => scope.name)
         end
 
         it "serializes the title" do
-          expect(serialized).to include(title: proposal.title)
+          expect(serialized).to include(t("decidim.proposals.admin.exports.column_name.proposals.title") => proposal.title)
         end
 
         it "serializes the body" do
-          expect(serialized).to include(body: proposal.body)
+          expect(serialized).to include(t("decidim.proposals.admin.exports.column_name.proposals.body") => proposal.body)
         end
 
         it "serializes the amount of supports" do
-          expect(serialized).to include(supports: proposal.proposal_votes_count)
+          expect(serialized).to include(t("decidim.proposals.admin.exports.column_name.proposals.supports") => proposal.proposal_votes_count)
         end
 
         it "serializes the amount of comments" do
-          expect(serialized).to include(comments: proposal.comments.count)
+          expect(serialized).to include(t("decidim.proposals.admin.exports.column_name.proposals.comments") => proposal.comments.count)
         end
 
         it "serializes the date of creation" do
-          expect(serialized).to include(published_at: proposal.published_at)
+          expect(serialized).to include(t("decidim.proposals.admin.exports.column_name.proposals.published_at") => proposal.published_at)
         end
 
         it "serializes the url" do
-          expect(serialized[:url]).to include("http", proposal.id.to_s)
+          expect(serialized[t("decidim.proposals.admin.exports.column_name.proposals.url")]).to include("http", proposal.id.to_s)
         end
 
         it "serializes the component" do
-          expect(serialized[:component]).to include(id: proposal.component.id)
+          expect(serialized[t("decidim.proposals.admin.exports.column_name.proposals.component.component")]).to include(t("decidim.proposals.admin.exports.column_name.proposals.component.id") => proposal.component.id)
         end
 
         it "serializes the meetings" do
-          expect(serialized[:meeting_urls].length).to eq(2)
-          expect(serialized[:meeting_urls].first).to match(%r{http.*/meetings})
+          expect(serialized[t("decidim.proposals.admin.exports.column_name.proposals.meeting_urls")].length).to eq(2)
+          expect(serialized[t("decidim.proposals.admin.exports.column_name.proposals.meeting_urls")].first).to match(%r{http.*/meetings})
         end
 
         it "serializes the participatory space" do
-          expect(serialized[:participatory_space]).to include(id: participatory_process.id)
-          expect(serialized[:participatory_space][:url]).to include("http", participatory_process.slug)
+          expect(serialized[t("decidim.proposals.admin.exports.column_name.proposals.participatory_space.participatory_space")]).to include(t("decidim.proposals.admin.exports.column_name.proposals.participatory_space.id") => participatory_process.id)
+          expect(serialized[t("decidim.proposals.admin.exports.column_name.proposals.participatory_space.participatory_space")][t("decidim.proposals.admin.exports.column_name.proposals.participatory_space.url")]).to include("http", participatory_process.slug)
         end
 
         it "serializes the state" do
-          expect(serialized).to include(state: proposal.state)
+          expect(serialized).to include(t("decidim.proposals.admin.exports.column_name.proposals.state") => proposal.state)
         end
 
         it "serializes the reference" do
-          expect(serialized).to include(reference: proposal.reference)
+          expect(serialized).to include(t("decidim.proposals.admin.exports.column_name.proposals.reference") => proposal.reference)
         end
 
         it "serializes the answer" do
-          expect(serialized).to include(answer: expected_answer)
+          expect(serialized).to include(t("decidim.proposals.admin.exports.column_name.proposals.answer") => expected_answer)
         end
 
         it "serializes the amount of attachments" do
-          expect(serialized).to include(attachments: proposal.attachments.count)
+          expect(serialized).to include(t("decidim.proposals.admin.exports.column_name.proposals.attachments") => proposal.attachments.count)
         end
 
         it "serializes the amount of endorsements" do
-          expect(serialized).to include(endorsements: proposal.endorsements.count)
+          expect(serialized).to include(t("decidim.proposals.admin.exports.column_name.proposals.endorsements") => proposal.endorsements.count)
         end
 
         it "serializes related proposals" do
-          expect(serialized[:related_proposals].length).to eq(2)
-          expect(serialized[:related_proposals].first).to match(%r{http.*/proposals})
+          expect(serialized[t("decidim.proposals.admin.exports.column_name.proposals.related_proposals")].length).to eq(2)
+          expect(serialized[t("decidim.proposals.admin.exports.column_name.proposals.related_proposals")].first).to match(%r{http.*/proposals})
         end
 
         it "doesn't serializes authors data" do
-          expect(serialized).not_to include(:authors)
+          expect(serialized).not_to include(t("decidim.proposals.admin.exports.column_name.proposals.authors.authors"))
         end
 
         context "when export is made by administrator on backoffice" do
@@ -129,15 +129,15 @@ module Decidim
           end
 
           it "serializes authors" do
-            expect(serialized).to include(:authors)
+            expect(serialized).to include(t("decidim.proposals.admin.exports.column_name.proposals.authors.authors"))
           end
 
           context "when creator is a unique user" do
             it "serializes author data" do
-              expect(serialized[:authors]).to include(names: proposal.authors.collect(&:name).join(","))
-              expect(serialized[:authors]).to include(nicknames: proposal.authors.collect(&:nickname).join(","))
-              expect(serialized[:authors]).to include(emails: proposal.authors.collect(&:email).join(","))
-              expect(serialized[:authors]).to include(authors_registration_metadata: proposal.authors.collect(&:registration_metadata))
+              expect(serialized[t("decidim.proposals.admin.exports.column_name.proposals.authors.authors")]).to include(t("decidim.proposals.admin.exports.column_name.proposals.authors.names") => proposal.authors.collect(&:name).join(","))
+              expect(serialized[t("decidim.proposals.admin.exports.column_name.proposals.authors.authors")]).to include(t("decidim.proposals.admin.exports.column_name.proposals.authors.nicknames") => proposal.authors.collect(&:nickname).join(","))
+              expect(serialized[t("decidim.proposals.admin.exports.column_name.proposals.authors.authors")]).to include(t("decidim.proposals.admin.exports.column_name.proposals.authors.emails") => proposal.authors.collect(&:email).join(","))
+              expect(serialized[t("decidim.proposals.admin.exports.column_name.proposals.authors.authors")]).to include( t("decidim.proposals.admin.exports.column_name.proposals.authors.authors_registration_metadata") => proposal.authors.collect(&:registration_metadata))
             end
           end
 
@@ -149,15 +149,15 @@ module Decidim
             end
 
             it "serializes authors data" do
-              expect(serialized[:authors]).to include(names: proposal.authors.collect(&:name).join(","))
-              expect(serialized[:authors]).to include(nicknames: proposal.authors.collect(&:nickname).join(","))
-              expect(serialized[:authors]).to include(emails: proposal.authors.collect(&:email).join(","))
-              expect(serialized[:authors]).to include(authors_registration_metadata: proposal.authors.collect(&:registration_metadata))
+              expect(serialized[t("decidim.proposals.admin.exports.column_name.proposals.authors.authors")]).to include(t("decidim.proposals.admin.exports.column_name.proposals.authors.names") => proposal.authors.collect(&:name).join(","))
+              expect(serialized[t("decidim.proposals.admin.exports.column_name.proposals.authors.authors")]).to include(t("decidim.proposals.admin.exports.column_name.proposals.authors.nicknames") => proposal.authors.collect(&:nickname).join(","))
+              expect(serialized[t("decidim.proposals.admin.exports.column_name.proposals.authors.authors")]).to include(t("decidim.proposals.admin.exports.column_name.proposals.authors.emails") => proposal.authors.collect(&:email).join(","))
+              expect(serialized[t("decidim.proposals.admin.exports.column_name.proposals.authors.authors")]).to include( t("decidim.proposals.admin.exports.column_name.proposals.authors.authors_registration_metadata") => proposal.authors.collect(&:registration_metadata))
             end
 
             it "serializes the two authors names" do
-              expect(serialized[:authors][:names]).not_to be_empty
-              expect(serialized[:authors][:names]).to include(proposal.authors.collect(&:name).join(","))
+              expect(serialized[t("decidim.proposals.admin.exports.column_name.proposals.authors.authors")][t("decidim.proposals.admin.exports.column_name.proposals.authors.names")]).not_to be_empty
+              expect(serialized[t("decidim.proposals.admin.exports.column_name.proposals.authors.authors")][t("decidim.proposals.admin.exports.column_name.proposals.authors.names")]).to include(proposal.authors.collect(&:name).join(","))
             end
           end
 
@@ -171,10 +171,10 @@ module Decidim
             end
 
             it "serializes authors data" do
-              expect(serialized[:authors]).to include(names: proposal.authors.collect(&:name).join(","))
-              expect(serialized[:authors]).to include(nicknames: proposal.authors.collect(&:nickname).join(","))
-              expect(serialized[:authors]).to include(emails: proposal.authors.collect(&:email).join(","))
-              expect(serialized[:authors]).to include(authors_registration_metadata: proposal.authors.collect(&:registration_metadata))
+              expect(serialized[t("decidim.proposals.admin.exports.column_name.proposals.authors.authors")]).to include(t("decidim.proposals.admin.exports.column_name.proposals.authors.names") => proposal.authors.collect(&:name).join(","))
+              expect(serialized[t("decidim.proposals.admin.exports.column_name.proposals.authors.authors")]).to include(t("decidim.proposals.admin.exports.column_name.proposals.authors.nicknames") => proposal.authors.collect(&:nickname).join(","))
+              expect(serialized[t("decidim.proposals.admin.exports.column_name.proposals.authors.authors")]).to include(t("decidim.proposals.admin.exports.column_name.proposals.authors.emails") => proposal.authors.collect(&:email).join(","))
+              expect(serialized[t("decidim.proposals.admin.exports.column_name.proposals.authors.authors")]).to include( t("decidim.proposals.admin.exports.column_name.proposals.authors.authors_registration_metadata") => proposal.authors.collect(&:registration_metadata))
             end
           end
 
@@ -185,18 +185,18 @@ module Decidim
             end
 
             it "serializes authors metadata" do
-              expect(serialized).to include(:authors)
-              expect(serialized[:authors]).to include(:names)
-              expect(serialized[:authors]).to include(:nicknames)
-              expect(serialized[:authors]).to include(:emails)
-              expect(serialized[:authors]).to include(:authors_registration_metadata)
+              expect(serialized).to include(t("decidim.proposals.admin.exports.column_name.proposals.authors.authors"))
+              expect(serialized[t("decidim.proposals.admin.exports.column_name.proposals.authors.authors")]).to include(t("decidim.proposals.admin.exports.column_name.proposals.authors.names"))
+              expect(serialized[t("decidim.proposals.admin.exports.column_name.proposals.authors.authors")]).to include(t("decidim.proposals.admin.exports.column_name.proposals.authors.nicknames"))
+              expect(serialized[t("decidim.proposals.admin.exports.column_name.proposals.authors.authors")]).to include(t("decidim.proposals.admin.exports.column_name.proposals.authors.emails"))
+              expect(serialized[t("decidim.proposals.admin.exports.column_name.proposals.authors.authors")]).to include(t("decidim.proposals.admin.exports.column_name.proposals.authors.authors_registration_metadata"))
             end
 
             it "leaves empty each values" do
-              expect(serialized[:authors][:names]).to be_empty
-              expect(serialized[:authors][:nicknames]).to be_empty
-              expect(serialized[:authors][:emails]).to be_empty
-              expect(serialized[:authors][:authors_registration_metadata]).to be_empty
+              expect(serialized[t("decidim.proposals.admin.exports.column_name.proposals.authors.authors")][t("decidim.proposals.admin.exports.column_name.proposals.authors.names")]).to be_empty
+              expect(serialized[t("decidim.proposals.admin.exports.column_name.proposals.authors.authors")][t("decidim.proposals.admin.exports.column_name.proposals.authors.nicknames")]).to be_empty
+              expect(serialized[t("decidim.proposals.admin.exports.column_name.proposals.authors.authors")][t("decidim.proposals.admin.exports.column_name.proposals.authors.emails")]).to be_empty
+              expect(serialized[t("decidim.proposals.admin.exports.column_name.proposals.authors.authors")][t("decidim.proposals.admin.exports.column_name.proposals.authors.authors_registration_metadata")]).to be_empty
             end
           end
         end
@@ -205,7 +205,7 @@ module Decidim
           let!(:proposal) { create(:proposal, :with_answer) }
 
           it "serializes the answer" do
-            expect(serialized).to include(answer: expected_answer)
+            expect(serialized).to include(t("decidim.proposals.admin.exports.column_name.proposals.answer") => expected_answer)
           end
         end
       end

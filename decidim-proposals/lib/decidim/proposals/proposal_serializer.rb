@@ -18,37 +18,37 @@ module Decidim
       # Public: Exports a hash with the serialized data for this proposal.
       def serialize
         {
-          id: proposal.id,
-          category: {
-            id: proposal.category.try(:id),
-            name: proposal.category.try(:name) || empty_translatable
+          translated_column_name(:id, "decidim.proposals.admin.exports.column_name.proposals") => proposal.id,
+          translated_column_name(:category, "decidim.proposals.admin.exports.column_name.proposals.category") => {
+            translated_column_name(:id, "decidim.proposals.admin.exports.column_name.proposals.category") => proposal.category.try(:id),
+            translated_column_name(:name, "decidim.proposals.admin.exports.column_name.proposals.category") => proposal.category.try(:name) || empty_translatable
           },
-          scope: {
-            id: proposal.scope.try(:id),
-            name: proposal.scope.try(:name) || empty_translatable
+          translated_column_name(:scope, "decidim.proposals.admin.exports.column_name.proposals.scope") => {
+            translated_column_name(:id, "decidim.proposals.admin.exports.column_name.proposals.scope") => proposal.scope.try(:id),
+            translated_column_name(:name, "decidim.proposals.admin.exports.column_name.proposals.scope") => proposal.scope.try(:name) || empty_translatable
           },
-          participatory_space: {
-            id: proposal.participatory_space.id,
-            url: Decidim::ResourceLocatorPresenter.new(proposal.participatory_space).url
+          translated_column_name(:participatory_space, "decidim.proposals.admin.exports.column_name.proposals.participatory_space") => {
+            translated_column_name(:id, "decidim.proposals.admin.exports.column_name.proposals.participatory_space") => proposal.participatory_space.id,
+            translated_column_name(:url, "decidim.proposals.admin.exports.column_name.proposals.participatory_space") => Decidim::ResourceLocatorPresenter.new(proposal.participatory_space).url
           },
-          collaborative_draft_origin: proposal.collaborative_draft_origin,
-          component: { id: component.id },
-          title: present(proposal).title,
-          body: present(proposal).body,
-          state: proposal.state.to_s,
-          reference: proposal.reference,
-          answer: ensure_translatable(proposal.answer),
-          supports: proposal.proposal_votes_count,
-          endorsements: proposal.endorsements.count,
-          comments: proposal.comments.count,
-          amendments: proposal.amendments.count,
-          attachments_url: attachments_url,
-          attachments: proposal.attachments.count,
-          followers: proposal.followers.count,
-          published_at: proposal.published_at,
-          url: url,
-          meeting_urls: meetings,
-          related_proposals: related_proposals
+          translated_column_name(:collaborative_draft_origin, "decidim.proposals.admin.exports.column_name.proposals") => proposal.collaborative_draft_origin,
+          translated_column_name(:component, "decidim.proposals.admin.exports.column_name.proposals.component") => { translated_column_name(:id, "decidim.proposals.admin.exports.column_name.proposals.component") => component.id },
+          translated_column_name(:title, "decidim.proposals.admin.exports.column_name.proposals") => present(proposal).title,
+          translated_column_name(:body, "decidim.proposals.admin.exports.column_name.proposals") => present(proposal).body,
+          translated_column_name(:state, "decidim.proposals.admin.exports.column_name.proposals") =>  proposal.state.to_s,
+          translated_column_name(:reference, "decidim.proposals.admin.exports.column_name.proposals") =>  proposal.reference,
+          translated_column_name(:answer, "decidim.proposals.admin.exports.column_name.proposals") =>  ensure_translatable(proposal.answer),
+          translated_column_name(:supports, "decidim.proposals.admin.exports.column_name.proposals") =>  proposal.proposal_votes_count,
+          translated_column_name(:endorsements, "decidim.proposals.admin.exports.column_name.proposals") => proposal.endorsements.count,
+          translated_column_name(:comments, "decidim.proposals.admin.exports.column_name.proposals") => proposal.comments.count,
+          translated_column_name(:amendments, "decidim.proposals.admin.exports.column_name.proposals") => proposal.amendments.count,
+          translated_column_name(:attachments_url, "decidim.proposals.admin.exports.column_name.proposals") => attachments_url,
+          translated_column_name(:attachments, "decidim.proposals.admin.exports.column_name.proposals") => proposal.attachments.count,
+          translated_column_name(:followers, "decidim.proposals.admin.exports.column_name.proposals") => proposal.followers.count,
+          translated_column_name(:published_at, "decidim.proposals.admin.exports.column_name.proposals") => proposal.published_at,
+          translated_column_name(:url, "decidim.proposals.admin.exports.column_name.proposals") => url,
+          translated_column_name(:meeting_urls, "decidim.proposals.admin.exports.column_name.proposals") => meetings,
+          translated_column_name(:related_proposals, "decidim.proposals.admin.exports.column_name.proposals") => related_proposals
         }.merge(options_merge(admin_extra_fields))
       end
 
@@ -58,12 +58,12 @@ module Decidim
 
       def admin_extra_fields
         {
-          authors: extract_author_data do
+          translated_column_name(:authors, "decidim.proposals.admin.exports.column_name.proposals.authors") => extract_author_data do
             {
-              names: proposal.authors.collect(&:name).join(","),
-              nicknames: proposal.authors.collect(&:nickname).join(","),
-              emails: proposal.authors.collect(&:email).join(","),
-              authors_registration_metadata: authors_registration_metadata
+              translated_column_name(:names, "decidim.proposals.admin.exports.column_name.proposals.authors") => proposal.authors.collect(&:name).join(","),
+              translated_column_name(:nicknames, "decidim.proposals.admin.exports.column_name.proposals.authors") => proposal.authors.collect(&:nickname).join(","),
+              translated_column_name(:emails, "decidim.proposals.admin.exports.column_name.proposals.authors") => proposal.authors.collect(&:email).join(","),
+              translated_column_name(:authors_registration_metadata, "decidim.proposals.admin.exports.column_name.proposals.authors") => authors_registration_metadata
             }
           end
         }
@@ -75,10 +75,10 @@ module Decidim
       def extract_author_data
         if proposal.creator.decidim_author_type == "Decidim::Organization" && proposal.creator_identity.is_a?(Decidim::Organization) || !block_given?
           {
-            names: "",
-            nicknames: "",
-            emails: "",
-            authors_registration_metadata: ""
+            translated_column_name(:names, "decidim.proposals.admin.exports.column_name.proposals.authors") => "",
+            translated_column_name(:nicknames, "decidim.proposals.admin.exports.column_name.proposals.authors") => "",
+            translated_column_name(:emails, "decidim.proposals.admin.exports.column_name.proposals.authors") => "",
+            translated_column_name(:authors_registration_metadata, "decidim.proposals.admin.exports.column_name.proposals.authors") => ""
           }
         else
           yield

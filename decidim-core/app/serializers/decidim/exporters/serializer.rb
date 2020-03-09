@@ -44,6 +44,10 @@ module Decidim
       def admin_extra_fields
         {}
       end
+
+      def translated_column_name(attribute, scope)
+        I18n.t(attribute.to_sym, scope: scope)
+      end
     end
   end
 end
