@@ -65,6 +65,14 @@ module Decidim
           user.try(:registration_metadata)[sym_target.to_s] || ""
         end
       end
+
+      def t_column_name(attribute, scope_extension = "")
+        I18n.t(attribute.to_sym, scope: i18n_scope + scope_extension)
+      end
+
+      def i18n_scope
+        ""
+      end
     end
   end
 end
