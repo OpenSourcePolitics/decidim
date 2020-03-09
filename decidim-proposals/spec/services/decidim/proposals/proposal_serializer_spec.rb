@@ -43,84 +43,84 @@ module Decidim
         let(:serialized) { subject.serialize }
 
         it "serializes the id" do
-          expect(serialized).to include(t("decidim.proposals.admin.exports.column_name.proposals.id") => proposal.id)
+          expect(serialized).to include("ID" => proposal.id)
         end
 
         it "serializes the category" do
-          expect(serialized[t("decidim.proposals.admin.exports.column_name.proposals.category.category")]).to include(t("decidim.proposals.admin.exports.column_name.proposals.category.id") => category.id)
-          expect(serialized[t("decidim.proposals.admin.exports.column_name.proposals.category.category")]).to include(t("decidim.proposals.admin.exports.column_name.proposals.category.name") => category.name)
+          expect(serialized["Category"]).to include("ID" => category.id)
+          expect(serialized["Category"]).to include("Name" => category.name)
         end
 
         it "serializes the scope" do
-          expect(serialized[t("decidim.proposals.admin.exports.column_name.proposals.scope.scope")]).to include(t("decidim.proposals.admin.exports.column_name.proposals.scope.id") => scope.id)
-          expect(serialized[t("decidim.proposals.admin.exports.column_name.proposals.scope.scope")]).to include(t("decidim.proposals.admin.exports.column_name.proposals.scope.name") => scope.name)
+          expect(serialized["Scope"]).to include("ID" => scope.id)
+          expect(serialized["Scope"]).to include("Name" => scope.name)
         end
 
         it "serializes the title" do
-          expect(serialized).to include(t("decidim.proposals.admin.exports.column_name.proposals.title") => proposal.title)
+          expect(serialized).to include("Title" => proposal.title)
         end
 
         it "serializes the body" do
-          expect(serialized).to include(t("decidim.proposals.admin.exports.column_name.proposals.body") => proposal.body)
+          expect(serialized).to include("Content" => proposal.body)
         end
 
         it "serializes the amount of supports" do
-          expect(serialized).to include(t("decidim.proposals.admin.exports.column_name.proposals.supports") => proposal.proposal_votes_count)
+          expect(serialized).to include("Supports" => proposal.proposal_votes_count)
         end
 
         it "serializes the amount of comments" do
-          expect(serialized).to include(t("decidim.proposals.admin.exports.column_name.proposals.comments") => proposal.comments.count)
+          expect(serialized).to include("Comments" => proposal.comments.count)
         end
 
         it "serializes the date of creation" do
-          expect(serialized).to include(t("decidim.proposals.admin.exports.column_name.proposals.published_at") => proposal.published_at)
+          expect(serialized).to include("Publication date" => proposal.published_at)
         end
 
         it "serializes the url" do
-          expect(serialized[t("decidim.proposals.admin.exports.column_name.proposals.url")]).to include("http", proposal.id.to_s)
+          expect(serialized["Url"]).to include("http", proposal.id.to_s)
         end
 
         it "serializes the component" do
-          expect(serialized[t("decidim.proposals.admin.exports.column_name.proposals.component.component")]).to include(t("decidim.proposals.admin.exports.column_name.proposals.component.id") => proposal.component.id)
+          expect(serialized["Component"]).to include("ID" => proposal.component.id)
         end
 
         it "serializes the meetings" do
-          expect(serialized[t("decidim.proposals.admin.exports.column_name.proposals.meeting_urls")].length).to eq(2)
-          expect(serialized[t("decidim.proposals.admin.exports.column_name.proposals.meeting_urls")].first).to match(%r{http.*/meetings})
+          expect(serialized["Meeting url"].length).to eq(2)
+          expect(serialized["Meeting url"].first).to match(%r{http.*/meetings})
         end
 
         it "serializes the participatory space" do
-          expect(serialized[t("decidim.proposals.admin.exports.column_name.proposals.participatory_space.participatory_space")]).to include(t("decidim.proposals.admin.exports.column_name.proposals.participatory_space.id") => participatory_process.id)
-          expect(serialized[t("decidim.proposals.admin.exports.column_name.proposals.participatory_space.participatory_space")][t("decidim.proposals.admin.exports.column_name.proposals.participatory_space.url")]).to include("http", participatory_process.slug)
+          expect(serialized["Participatory space"]).to include("ID" => participatory_process.id)
+          expect(serialized["Participatory space"]["URL"]).to include("http", participatory_process.slug)
         end
 
         it "serializes the state" do
-          expect(serialized).to include(t("decidim.proposals.admin.exports.column_name.proposals.state") => proposal.state)
+          expect(serialized).to include("State" => proposal.state)
         end
 
         it "serializes the reference" do
-          expect(serialized).to include(t("decidim.proposals.admin.exports.column_name.proposals.reference") => proposal.reference)
+          expect(serialized).to include("Reference" => proposal.reference)
         end
 
         it "serializes the answer" do
-          expect(serialized).to include(t("decidim.proposals.admin.exports.column_name.proposals.answer") => expected_answer)
+          expect(serialized).to include("Answer" => expected_answer)
         end
 
         it "serializes the amount of attachments" do
-          expect(serialized).to include(t("decidim.proposals.admin.exports.column_name.proposals.attachments") => proposal.attachments.count)
+          expect(serialized).to include("Attachments" => proposal.attachments.count)
         end
 
         it "serializes the amount of endorsements" do
-          expect(serialized).to include(t("decidim.proposals.admin.exports.column_name.proposals.endorsements") => proposal.endorsements.count)
+          expect(serialized).to include("Endorsements" => proposal.endorsements.count)
         end
 
         it "serializes related proposals" do
-          expect(serialized[t("decidim.proposals.admin.exports.column_name.proposals.related_proposals")].length).to eq(2)
-          expect(serialized[t("decidim.proposals.admin.exports.column_name.proposals.related_proposals")].first).to match(%r{http.*/proposals})
+          expect(serialized["Related proposals"].length).to eq(2)
+          expect(serialized["Related proposals"].first).to match(%r{http.*/proposals})
         end
 
         it "doesn't serializes authors data" do
-          expect(serialized).not_to include(t("decidim.proposals.admin.exports.column_name.proposals.authors.authors"))
+          expect(serialized).not_to include("Authors")
         end
 
         context "when export is made by administrator on backoffice" do
@@ -130,7 +130,7 @@ module Decidim
 
           let(:registration_metadata) { { birth_date: [], gender: [], work_area: [], residential_area: [], statutory_representative_email: [] } }
 
-          it "serializes the authors" do
+          it "serializes authors" do
             expect(serialized).to include("Authors")
           end
 
