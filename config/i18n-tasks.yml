@@ -213,6 +213,7 @@ ignore_unused:
   - decidim.proposals.admin.exports.column_name.*
   - decidim.meetings.admin.exports.column_name.*
   - decidim.debates.admin.exports.column_name.*
+  - decidim.comments.exports.column_name.*
   # OSP CUSTO END HERE
 
 ## Exclude these keys from the `i18n-tasks eq-base' report:
