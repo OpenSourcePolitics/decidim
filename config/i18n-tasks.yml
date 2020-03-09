@@ -211,6 +211,7 @@ ignore_unused:
   - decidim.devise.registrations.new.gender.*
   - decidim.devise.registrations.new.month_name.*
   - decidim.proposals.admin.exports.column_name.*
+  - decidim.meetings.admin.exports.column_name.*
   # OSP CUSTO END HERE
 
 ## Exclude these keys from the `i18n-tasks eq-base' report:

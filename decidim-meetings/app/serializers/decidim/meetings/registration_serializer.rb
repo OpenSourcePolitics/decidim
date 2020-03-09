@@ -8,16 +8,16 @@ module Decidim
       # Serializes a registration
       def serialize
         {
-          id: resource.id,
-          code: resource.code,
-          user: {
-            name: resource.user.try(:name),
-            nickname: resource.user.try(:nickname),
-            email: resource.user.try(:email),
-            registration_metadata: resource.user.try(:registration_metadata) || "",
-            user_group: resource.user_group&.name || ""
+          translated_column_name(:id, "decidim.meetings.admin.exports.column_name.registrations") => resource.id,
+          translated_column_name(:code, "decidim.meetings.admin.exports.column_name.registrations") => resource.code,
+          translated_column_name(:user, "decidim.meetings.admin.exports.column_name.registrations.user") => {
+            translated_column_name(:name, "decidim.meetings.admin.exports.column_name.registrations.user") => resource.user.try(:name),
+            translated_column_name(:nickname, "decidim.meetings.admin.exports.column_name.registrations.user") => resource.user.try(:nickname),
+            translated_column_name(:email, "decidim.meetings.admin.exports.column_name.registrations.user") => resource.user.try(:email),
+            translated_column_name(:registration_metadata, "decidim.meetings.admin.exports.column_name.registrations.user") => resource.user.try(:registration_metadata) || "",
+            translated_column_name(:user_group, "decidim.meetings.admin.exports.column_name.registrations.user") => resource.user_group&.name || ""
           },
-          registration_form_answers: serialize_answers
+          translated_column_name(:registration_form_answers, "decidim.meetings.admin.exports.column_name.registrations.user") => serialize_answers
         }
       end
 

@@ -10,20 +10,20 @@ module Decidim::Meetings
 
       context "when there is no questionnaire" do
         it "includes the id" do
-          expect(subject.serialize).to include(id: registration.id)
+          expect(subject.serialize).to include("ID" => registration.id)
         end
 
         it "includes the registration code" do
-          expect(subject.serialize).to include(code: registration.code)
+          expect(subject.serialize).to include("Code" => registration.code)
         end
 
         it "includes the user" do
-          expect(subject.serialize).to include(:user)
-          expect(subject.serialize[:user]).to include(name: registration.user.name)
-          expect(subject.serialize[:user]).to include(nickname: registration.user.nickname)
-          expect(subject.serialize[:user]).to include(email: registration.user.email)
-          expect(subject.serialize[:user]).to include(registration_metadata: registration.user.registration_metadata)
-          expect(subject.serialize[:user]).to include(user_group: registration.user_group&.name)
+          expect(subject.serialize).to include("User")
+          expect(subject.serialize["User"]).to include("Name" => registration.user.name)
+          expect(subject.serialize["User"]).to include("Nickname" => registration.user.nickname)
+          expect(subject.serialize["User"]).to include("Email" => registration.user.email)
+          expect(subject.serialize["User"]).to include("Registration metadata" => registration.user.registration_metadata)
+          expect(subject.serialize["User"]).to include("User group" => registration.user_group&.name)
         end
       end
 
@@ -64,17 +64,17 @@ module Decidim::Meetings
         let(:serialized) { subject.serialize }
 
         it "includes the answer for each question" do
-          expect(serialized[:registration_form_answers]).to include(
+          expect(serialized["Registration form answers"]).to include(
             "1. #{translated(questions.first.body, locale: I18n.locale)}" => answers.first.body
           )
-          expect(serialized[:registration_form_answers]).to include(
+          expect(serialized["Registration form answers"]).to include(
             "3. #{translated(questions.last.body, locale: I18n.locale)}" => answers.last.body
           )
-          expect(serialized[:registration_form_answers]).to include(
+          expect(serialized["Registration form answers"]).to include(
             "4. #{translated(multichoice_question.body, locale: I18n.locale)}" => multichoice_answer_choices.map(&:body)
           )
 
-          expect(serialized[:registration_form_answers]).to include(
+          expect(serialized["Registration form answers"]).to include(
             "5. #{translated(singlechoice_question.body, locale: I18n.locale)}" => [singlechoice_answer_choice.body]
           )
         end

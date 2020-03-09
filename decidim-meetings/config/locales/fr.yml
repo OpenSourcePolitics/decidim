@@ -192,6 +192,18 @@ fr:
             invalid: Un problème est survenu lors de la mise à jour de cet ordre du jour
             success: Ordre du jour mis à jour avec succès
         exports:
+          column_name:
+            registrations:
+              code: Code
+              id: ID
+              user:
+                email: Email
+                name: Nom
+                nickname: Prénom
+                registration_form_answers: Réponses formulaire
+                registration_metadata: Informations complémentaires
+                user: Utilisateur
+                user_group: Groupe utilisateur
           meetings: Rencontres
           registrations: Inscriptions
         invite_join_meeting_mailer:
