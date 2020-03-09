@@ -86,7 +86,7 @@ fr:
               url: Url
               user:
                 email: Email
-                name: Nome
+                name: Nom
                 nickname: Prénom
                 registration_metadata: Informations complémentaires
                 user: Utilisateur

@@ -83,7 +83,7 @@ fr:
         id: ID de réponse
         ip_hash: Ip Hash
         registered: Enregistré
-        registration_metadata: Registration metadata
+        registration_metadata: Informations complémentaires
         unregistered: Non enregistré
         user_email: Email
         user_name: Nom

@@ -20,19 +20,19 @@ fr:
       exports:
         column_name:
           comments:
-            alignment: Alignement
+            alignment: Positionnement
             author:
               author: Auteur
               id: ID
               name: Nom
               registration_metadata: Informations complémentaires
             body: Contenu
-            commentable_id: Commentable ID
-            commentable_type: Commentable type
+            commentable_id: ID de l'élément commenté
+            commentable_type: Type de l'élément commenté
             created_at: Date de création
-            depth: Profondeur
+            depth: Niveau de réponse
             id: ID
-            root_commentable_url: URL commentable
+            root_commentable_url: URL de la proposition commentée
             user_group:
               id: ID
               name: Nom
