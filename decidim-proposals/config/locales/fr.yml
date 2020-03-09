@@ -314,7 +314,11 @@ fr:
               attachments_url: URL de l'amendement
               authors:
                 authors: Auteurs
-                authors_registration_metadata: Informations complémentaires
+                gender: Genre
+                birth_date: Date de naissance
+                work_area: Lieu de travail
+                residential_area: Lieu de résidence
+                statutory_representative_email: Email representatif
                 emails: Emails
                 names: Noms
                 nicknames: Prénoms
