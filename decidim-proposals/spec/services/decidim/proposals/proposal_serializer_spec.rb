@@ -128,16 +128,48 @@ module Decidim
             described_class.new(proposal, true)
           end
 
-          it "serializes authors" do
+          let(:registration_metadata) { { birth_date: [], gender: [], work_area: [], residential_area: [], statutory_representative_email: [] } }
+
+          it "serializes the authors" do
             expect(serialized).to include(:authors)
           end
 
           context "when creator is a unique user" do
+            before do
+              registration_metadata.each_pair { |k, _v| registration_metadata[k].clear }
+              proposal.authors.collect(&:registration_metadata).each do |hash|
+                hash.each_key do |k|
+                  registration_metadata[k.to_sym] << if hash[k].is_a?(Hash)
+                                                       hash[k].transform_keys(&:to_sym)
+                                                     else
+                                                       hash[k]
+                                                     end
+                end
+              end
+            end
+
             it "serializes author data" do
-              expect(serialized[:authors]).to include(names: proposal.authors.collect(&:name).join(","))
-              expect(serialized[:authors]).to include(nicknames: proposal.authors.collect(&:nickname).join(","))
-              expect(serialized[:authors]).to include(emails: proposal.authors.collect(&:email).join(","))
-              expect(serialized[:authors]).to include(authors_registration_metadata: proposal.authors.collect(&:registration_metadata))
+              expect(serialized[:authors]).to include(names: proposal.authors.first.try(:name))
+              expect(serialized[:authors]).to include(nicknames: proposal.authors.first.try(:nickname))
+              expect(serialized[:authors]).to include(emails: proposal.authors.first.try(:email))
+              expect(serialized[:authors]).to include(gender: proposal.authors.first.try(:registration_metadata)[:gender.to_s])
+              expect(serialized[:authors]).to include(work_area: proposal.authors.first.try(:registration_metadata)[:work_area.to_s])
+              expect(serialized[:authors]).to include(residential_area: proposal.authors.first.try(:registration_metadata)[:residential_area.to_s])
+              expect(serialized[:authors]).to include(statutory_representative_email: proposal.authors.first.try(:registration_metadata)[:statutory_representative_email.to_s])
+              expect(serialized[:authors][:birth_date]).to eq(registration_metadata[:birth_date].join(","))
+            end
+            context "when unique user doesn't have registration metadata" do
+              before do
+                proposal.authors.first[:registration_metadata].clear
+              end
+
+              it "leaves empty each fields" do
+                expect(serialized[:authors][:birth_date]).to be_empty
+                expect(serialized[:authors][:gender]).to be_empty
+                expect(serialized[:authors][:work_area]).to be_empty
+                expect(serialized[:authors][:residential_area]).to be_empty
+                expect(serialized[:authors][:statutory_representative_email]).to be_empty
+              end
             end
           end
 
@@ -145,19 +177,44 @@ module Decidim
             let(:another_creator) { create(:user, :confirmed, organization: proposal.organization) }
 
             before do
+              another_creator[:registration_metadata][:work_area] = "Lorem"
+              another_creator[:registration_metadata][:residential_area] = "Lorem"
+              registration_metadata.each_pair { |k, _v| registration_metadata[k].clear }
               proposal.add_coauthor(another_creator)
+              proposal.authors.collect(&:registration_metadata).each do |hash|
+                hash.each_key do |k|
+                  registration_metadata[k.to_sym] << if hash[k].is_a?(Hash)
+                                                       hash[k].transform_keys(&:to_sym)
+                                                     else
+                                                       hash[k]
+                                                     end
+                end
+              end
             end
 
             it "serializes authors data" do
               expect(serialized[:authors]).to include(names: proposal.authors.collect(&:name).join(","))
               expect(serialized[:authors]).to include(nicknames: proposal.authors.collect(&:nickname).join(","))
               expect(serialized[:authors]).to include(emails: proposal.authors.collect(&:email).join(","))
-              expect(serialized[:authors]).to include(authors_registration_metadata: proposal.authors.collect(&:registration_metadata))
+              expect(serialized[:authors]).to include(gender: registration_metadata[:gender].join(","))
+              expect(serialized[:authors]).to include(:work_area)
+              expect(serialized[:authors]).to include(:residential_area)
+              expect(serialized[:authors]).to include(statutory_representative_email: registration_metadata[:statutory_representative_email].join(","))
+              expect(serialized[:authors][:birth_date]).to eq(registration_metadata[:birth_date].join(","))
             end
 
             it "serializes the two authors names" do
               expect(serialized[:authors][:names]).not_to be_empty
               expect(serialized[:authors][:names]).to include(proposal.authors.collect(&:name).join(","))
+            end
+
+            context "when a field is empty" do
+              it "replaces empty value by dash" do
+                expect(serialized[:authors][:work_area]).not_to eq(",Lorem")
+                expect(serialized[:authors][:residential_area]).not_to eq(",Lorem")
+                expect(serialized[:authors][:work_area]).to eq("-,Lorem")
+                expect(serialized[:authors][:residential_area]).to eq("-,Lorem")
+              end
             end
           end
 
@@ -168,13 +225,27 @@ module Decidim
             before do
               proposal.coauthorships.clear
               proposal.add_coauthor(author, user_group: user_group)
+              registration_metadata.each_pair { |k, _v| registration_metadata[k].clear }
+              proposal.authors.collect(&:registration_metadata).each do |hash|
+                hash.each_key do |k|
+                  registration_metadata[k.to_sym] << if hash[k].is_a?(Hash)
+                                                       hash[k].transform_keys(&:to_sym)
+                                                     else
+                                                       hash[k]
+                                                     end
+                end
+              end
             end
 
             it "serializes authors data" do
               expect(serialized[:authors]).to include(names: proposal.authors.collect(&:name).join(","))
               expect(serialized[:authors]).to include(nicknames: proposal.authors.collect(&:nickname).join(","))
               expect(serialized[:authors]).to include(emails: proposal.authors.collect(&:email).join(","))
-              expect(serialized[:authors]).to include(authors_registration_metadata: proposal.authors.collect(&:registration_metadata))
+              expect(serialized[:authors]).to include(gender: registration_metadata[:gender].join(","))
+              expect(serialized[:authors]).to include(:work_area)
+              expect(serialized[:authors]).to include(:residential_area)
+              expect(serialized[:authors]).to include(statutory_representative_email: registration_metadata[:statutory_representative_email].join(","))
+              expect(serialized[:authors][:birth_date]).to eq(registration_metadata[:birth_date].join(","))
             end
           end
 
@@ -189,14 +260,22 @@ module Decidim
               expect(serialized[:authors]).to include(:names)
               expect(serialized[:authors]).to include(:nicknames)
               expect(serialized[:authors]).to include(:emails)
-              expect(serialized[:authors]).to include(:authors_registration_metadata)
+              expect(serialized[:authors]).to include(:birth_date)
+              expect(serialized[:authors]).to include(:gender)
+              expect(serialized[:authors]).to include(:work_area)
+              expect(serialized[:authors]).to include(:residential_area)
+              expect(serialized[:authors]).to include(:statutory_representative_email)
             end
 
             it "leaves empty each values" do
               expect(serialized[:authors][:names]).to be_empty
               expect(serialized[:authors][:nicknames]).to be_empty
               expect(serialized[:authors][:emails]).to be_empty
-              expect(serialized[:authors][:authors_registration_metadata]).to be_empty
+              expect(serialized[:authors][:birth_date]).to be_empty
+              expect(serialized[:authors][:gender]).to be_empty
+              expect(serialized[:authors][:work_area]).to be_empty
+              expect(serialized[:authors][:residential_area]).to be_empty
+              expect(serialized[:authors][:statutory_representative_email]).to be_empty
             end
           end
         end

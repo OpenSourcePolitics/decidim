@@ -44,6 +44,13 @@ module Decidim
       def admin_extra_fields
         {}
       end
+
+      # Private: Find a scope area and returns the translated name
+      def scope_area_name(id)
+        translated_attribute(Decidim::Scope.find(id)[:name])
+      rescue ActiveRecord::RecordNotFound
+        ""
+      end
     end
   end
 end

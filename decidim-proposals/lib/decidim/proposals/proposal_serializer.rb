@@ -63,10 +63,46 @@ module Decidim
               names: proposal.authors.collect(&:name).join(","),
               nicknames: proposal.authors.collect(&:nickname).join(","),
               emails: proposal.authors.collect(&:email).join(","),
-              authors_registration_metadata: authors_registration_metadata
+              birth_date: collect_registration_metadata(:birth_date).join(","),
+              gender: collect_registration_metadata(:gender).join(","),
+              work_area: collect_registration_metadata(:work_area).join(","),
+              residential_area: collect_registration_metadata(:residential_area).join(","),
+              statutory_representative_email: collect_registration_metadata(:statutory_representative_email).join(",")
             }
           end
         }
+      end
+
+      # Private: Returns an array of registration_metadata of all authors for a specific sym_target key given
+      #
+      # Aim: Collect specific key from array of hash
+      def collect_registration_metadata(target_key)
+        "" unless target_key.is_a?(Symbol)
+        default_empty_value = multiple_authors? ? "-" : ""
+        array = []
+        registration_metadata = proposal.authors.collect(&:registration_metadata)
+
+        if registration_metadata.first.nil?
+          array << default_empty_value
+        else
+          registration_metadata.each { |hash| array << replace_empty_value(hash, default_empty_value)[target_key] }
+        end
+
+        array
+      end
+
+      # Private: Take a hash as parameter and returns this hash with sym keys and allows to replace empty values
+      def replace_empty_value(hash, replaced_by = "-")
+        return unless hash.is_a? Hash
+        refactored_hash = {}
+        hash.each_pair do |k, v|
+          refactored_hash[k.to_sym] = if v.is_a? Hash
+                                        replace_empty_value(v, replaced_by)
+                                      else
+                                        v.presence ? check_specific_key(k, v) : replaced_by
+                                      end
+        end
+        refactored_hash
       end
 
       # Private: Returns the Hash block given if the proposal creator is a User
@@ -78,7 +114,11 @@ module Decidim
             names: "",
             nicknames: "",
             emails: "",
-            authors_registration_metadata: ""
+            birth_date: "",
+            gender: "",
+            work_area: "",
+            residential_area: "",
+            statutory_representative_email: ""
           }
         else
           yield
@@ -111,6 +151,17 @@ module Decidim
 
       def authors_registration_metadata
         proposal.authors.collect(&:registration_metadata)
+      end
+
+      def multiple_authors?
+        proposal.authors.size > 1
+      end
+
+      # Private: Define a specific process for a given key
+      def check_specific_key(key, value)
+        return scope_area_name(value) if key == "work_area"
+        return scope_area_name(value) if key == "residential_area"
+        value
       end
     end
   end
