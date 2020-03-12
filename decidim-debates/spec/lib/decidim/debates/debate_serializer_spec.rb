@@ -63,7 +63,7 @@ module Decidim
             expect(serialized[:user]).to include(name: debate.author.try(:name))
             expect(serialized[:user]).to include(nickname: debate.author.try(:nickname))
             expect(serialized[:user]).to include(email: debate.author.try(:email))
-            expect(serialized[:user]).to include(birth_date: debate.author.registration_metadata[:birth_date.to_s])
+            expect(serialized[:user]).to include(birth_date: debate.author.registration_metadata[:birth_date.to_s].to_s)
             expect(serialized[:user]).to include(gender: debate.author.registration_metadata[:gender.to_s])
             expect(serialized[:user]).to include(work_area: debate.author.registration_metadata[:work_area.to_s])
             expect(serialized[:user]).to include(residential_area: debate.author.registration_metadata[:residential_area.to_s])

@@ -23,7 +23,7 @@ module Decidim
               answer_translated_attribute_name(:user_name) => user.try(:name) || "",
               answer_translated_attribute_name(:user_nickname) => user.try(:nickname) || "",
               answer_translated_attribute_name(:user_email) => user.try(:email) || "",
-              answer_translated_attribute_name(:user_birth_date) => key_from_registration_metadata(user, :birth_date),
+              answer_translated_attribute_name(:user_birth_date) => key_from_registration_metadata(user, :birth_date).to_s,
               answer_translated_attribute_name(:user_gender) => key_from_registration_metadata(user, :gender),
               answer_translated_attribute_name(:user_work_area) => key_from_registration_metadata(user, :work_area),
               answer_translated_attribute_name(:user_residential_area) => key_from_registration_metadata(user, :residential_area),

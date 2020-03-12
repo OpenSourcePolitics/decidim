@@ -95,11 +95,12 @@ module Decidim
             expect(serialized[t("decidim.forms.user_answers_serializer.user_name")]).to eq(user.name)
             expect(serialized[t("decidim.forms.user_answers_serializer.user_nickname")]).to eq(user.nickname)
             expect(serialized[t("decidim.forms.user_answers_serializer.user_email")]).to eq(user.email)
-            expect(serialized[t("decidim.forms.user_answers_serializer.user_birth_date")]).to eq(user.registration_metadata[:birth_date.to_s])
             expect(serialized[t("decidim.forms.user_answers_serializer.user_gender")]).to eq(user.registration_metadata[:gender.to_s])
             expect(serialized[t("decidim.forms.user_answers_serializer.user_work_area")]).to eq(user.registration_metadata[:work_area.to_s])
             expect(serialized[t("decidim.forms.user_answers_serializer.user_residential_area")]).to eq(user.registration_metadata[:residential_area.to_s])
             expect(serialized[t("decidim.forms.user_answers_serializer.user_statutory_representative_email")]).to eq(user.registration_metadata[:statutory_representative_email.to_s])
+            expect(serialized[t("decidim.forms.user_answers_serializer.user_birth_date")]).to match(/year/)
+            expect(serialized[t("decidim.forms.user_answers_serializer.user_birth_date")]).to match(/month/)
           end
 
           context "when there is no user" do

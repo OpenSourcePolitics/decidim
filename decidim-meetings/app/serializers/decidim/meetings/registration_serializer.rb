@@ -14,7 +14,7 @@ module Decidim
             name: resource.user.try(:name),
             nickname: resource.user.try(:nickname),
             email: resource.user.try(:email),
-            birth_date: key_from_registration_metadata(resource.user, :birth_date),
+            birth_date: key_from_registration_metadata(resource.user, :birth_date).to_s,
             gender: key_from_registration_metadata(resource.user, :gender),
             work_area: key_from_registration_metadata(resource.user, :work_area),
             residential_area: key_from_registration_metadata(resource.user, :residential_area),

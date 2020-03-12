@@ -50,7 +50,7 @@ module Decidim
               name: debate.author.try(:name),
               nickname: debate.author.try(:nickname),
               email: debate.author.try(:email),
-              birth_date: key_from_registration_metadata(debate.author, :birth_date),
+              birth_date: key_from_registration_metadata(debate.author, :birth_date).to_s,
               gender: key_from_registration_metadata(debate.author, :gender),
               work_area: key_from_registration_metadata(debate.author, :work_area),
               residential_area: key_from_registration_metadata(debate.author, :residential_area),
