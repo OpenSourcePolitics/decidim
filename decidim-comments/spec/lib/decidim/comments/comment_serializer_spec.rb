@@ -40,7 +40,11 @@ module Decidim
         end
 
         it "includes authors metadata" do
-          expect(subject.serialize[:author]).to include(registration_metadata: comment.author.registration_metadata)
+          expect(subject.serialize[:author]).to include(birth_date: comment.author.registration_metadata[:birth_date.to_s].to_s)
+          expect(subject.serialize[:author]).to include(gender: comment.author.registration_metadata[:gender.to_s])
+          expect(subject.serialize[:author]).to include(work_area: comment.author.registration_metadata[:work_area.to_s])
+          expect(subject.serialize[:author]).to include(residential_area: comment.author.registration_metadata[:residential_area.to_s])
+          expect(subject.serialize[:author]).to include(statutory_representative_email: comment.author.registration_metadata[:statutory_representative_email.to_s])
         end
       end
     end

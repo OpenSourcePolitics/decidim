@@ -15,7 +15,11 @@ module Decidim
           author: {
             id: resource.author.id,
             name: resource.author.name,
-            registration_metadata: resource.author.registration_metadata
+            birth_date: key_from_registration_metadata(resource.author, :birth_date).to_s,
+            gender: key_from_registration_metadata(resource.author, :gender),
+            work_area: key_from_registration_metadata(resource.author, :work_area),
+            residential_area: key_from_registration_metadata(resource.author, :residential_area),
+            statutory_representative_email: key_from_registration_metadata(resource.author, :statutory_representative_email)
           },
           alignment: resource.alignment,
           depth: resource.depth,
