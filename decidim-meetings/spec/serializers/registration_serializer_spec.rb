@@ -22,8 +22,11 @@ module Decidim::Meetings
           expect(subject.serialize[:user]).to include(name: registration.user.name)
           expect(subject.serialize[:user]).to include(nickname: registration.user.nickname)
           expect(subject.serialize[:user]).to include(email: registration.user.email)
-          expect(subject.serialize[:user]).to include(registration_metadata: registration.user.registration_metadata)
-          expect(subject.serialize[:user]).to include(user_group: registration.user_group&.name)
+          expect(subject.serialize[:user]).to include(birth_date: registration.user.registration_metadata[:birth_date.to_s])
+          expect(subject.serialize[:user]).to include(gender: registration.user.registration_metadata[:gender.to_s])
+          expect(subject.serialize[:user]).to include(work_area: registration.user.registration_metadata[:work_area.to_s])
+          expect(subject.serialize[:user]).to include(residential_area: registration.user.registration_metadata[:residential_area.to_s])
+          expect(subject.serialize[:user]).to include(statutory_representative_email: registration.user.registration_metadata[:statutory_representative_email.to_s])
         end
       end
 
