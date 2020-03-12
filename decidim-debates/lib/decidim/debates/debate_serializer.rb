@@ -50,7 +50,11 @@ module Decidim
               name: debate.author.try(:name),
               nickname: debate.author.try(:nickname),
               email: debate.author.try(:email),
-              registration_metadata: debate.author.try(:registration_metadata)
+              birth_date: key_from_registration_metadata(debate.author, :birth_date),
+              gender: key_from_registration_metadata(debate.author, :gender),
+              work_area: key_from_registration_metadata(debate.author, :work_area),
+              residential_area: key_from_registration_metadata(debate.author, :residential_area),
+              statutory_representative_email: key_from_registration_metadata(debate.author, :statutory_representative_email)
             }
           end
         }
@@ -65,7 +69,11 @@ module Decidim
             name: "",
             nickname: "",
             email: "",
-            registration_metadata: ""
+            birth_date: "",
+            gender: "",
+            work_area: "",
+            residential_area: "",
+            statutory_representative_email: ""
           }
         else
           yield

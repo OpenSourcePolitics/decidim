@@ -63,7 +63,11 @@ module Decidim
             expect(serialized[:user]).to include(name: debate.author.try(:name))
             expect(serialized[:user]).to include(nickname: debate.author.try(:nickname))
             expect(serialized[:user]).to include(email: debate.author.try(:email))
-            expect(serialized[:user]).to include(registration_metadata: debate.author.try(:registration_metadata))
+            expect(serialized[:user]).to include(birth_date: debate.author.registration_metadata[:birth_date.to_s])
+            expect(serialized[:user]).to include(gender: debate.author.registration_metadata[:gender.to_s])
+            expect(serialized[:user]).to include(work_area: debate.author.registration_metadata[:work_area.to_s])
+            expect(serialized[:user]).to include(residential_area: debate.author.registration_metadata[:residential_area.to_s])
+            expect(serialized[:user]).to include(statutory_representative_email: debate.author.registration_metadata[:statutory_representative_email.to_s])
           end
 
           context "when creator is the organization" do
@@ -74,14 +78,22 @@ module Decidim
               expect(serialized[:user]).to include(:name)
               expect(serialized[:user]).to include(:nickname)
               expect(serialized[:user]).to include(:email)
-              expect(serialized[:user]).to include(:registration_metadata)
+              expect(serialized[:user]).to include(:birth_date)
+              expect(serialized[:user]).to include(:gender)
+              expect(serialized[:user]).to include(:work_area)
+              expect(serialized[:user]).to include(:residential_area)
+              expect(serialized[:user]).to include(:statutory_representative_email)
             end
 
             it "leaves empty each values" do
               expect(serialized[:user][:name]).to be_empty
               expect(serialized[:user][:nickname]).to be_empty
               expect(serialized[:user][:email]).to be_empty
-              expect(serialized[:user][:registration_metadata]).to be_empty
+              expect(serialized[:user][:birth_date]).to be_empty
+              expect(serialized[:user][:gender]).to be_empty
+              expect(serialized[:user][:work_area]).to be_empty
+              expect(serialized[:user][:residential_area]).to be_empty
+              expect(serialized[:user][:statutory_representative_email]).to be_empty
             end
           end
         end
