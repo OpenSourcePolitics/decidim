@@ -23,7 +23,11 @@ module Decidim
               answer_translated_attribute_name(:user_name) => user.try(:name) || "",
               answer_translated_attribute_name(:user_nickname) => user.try(:nickname) || "",
               answer_translated_attribute_name(:user_email) => user.try(:email) || "",
-              answer_translated_attribute_name(:registration_metadata) => user.try(:registration_metadata) || ""
+              answer_translated_attribute_name(:user_birth_date) => registration_metadata(user, :birth_date),
+              answer_translated_attribute_name(:user_gender) => registration_metadata(user, :gender),
+              answer_translated_attribute_name(:user_work_area) => registration_metadata(user, :work_area),
+              answer_translated_attribute_name(:user_residential_area) => registration_metadata(user, :residential_area),
+              answer_translated_attribute_name(:user_statutory_representative_email) => registration_metadata(user, :statutory_representative_email)
             )
           end
 
@@ -38,6 +42,22 @@ module Decidim
       end
 
       private
+
+      # Private: Returns an array of registration_metadata of all authors for a specific sym_target key given
+      #
+      # Aim: Collect specific key from array of hash
+      def registration_metadata(user, sym_target)
+        registration_metadata = user.try(:registration_metadata)
+        return "" if registration_metadata.nil?
+
+        if sym_target == :work_area
+          scope_area_name(user.try(:registration_metadata)[sym_target.to_s])
+        elsif sym_target == :residential_area
+          scope_area_name(user.try(:registration_metadata)[sym_target.to_s])
+        else
+          user.try(:registration_metadata)[sym_target.to_s] || ""
+        end
+      end
 
       def answer_user(answer)
         return nil if answer.decidim_user_id.blank?

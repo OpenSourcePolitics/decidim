@@ -83,9 +83,13 @@ fr:
         id: ID de réponse
         ip_hash: Ip Hash
         registered: Enregistré
-        registration_metadata: Registration metadata
         unregistered: Non enregistré
+        user_birth_date: Date de naissance
         user_email: Email
+        user_gender: Genre
         user_name: Nom
         user_nickname: Prénom
+        user_residential_area: Lieu de résidence
         user_status: Statut
+        user_statutory_representative_email: Email de représentation
+        user_work_area: Lieu de travail

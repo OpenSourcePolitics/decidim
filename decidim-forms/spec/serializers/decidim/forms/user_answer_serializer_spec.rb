@@ -77,7 +77,11 @@ module Decidim
           expect(serialized).not_to include(:user_name)
           expect(serialized).not_to include(:user_nickname)
           expect(serialized).not_to include(:user_email)
-          expect(serialized).not_to include(:registration_metadata)
+          expect(serialized).not_to include(:user_birth_date)
+          expect(serialized).not_to include(:user_gender)
+          expect(serialized).not_to include(:user_work_area)
+          expect(serialized).not_to include(:user_residential_area)
+          expect(serialized).not_to include(:user_statutory_representative_email)
         end
 
         context "when export is made by administrator" do
@@ -91,7 +95,11 @@ module Decidim
             expect(serialized[t("decidim.forms.user_answers_serializer.user_name")]).to eq(user.name)
             expect(serialized[t("decidim.forms.user_answers_serializer.user_nickname")]).to eq(user.nickname)
             expect(serialized[t("decidim.forms.user_answers_serializer.user_email")]).to eq(user.email)
-            expect(serialized[t("decidim.forms.user_answers_serializer.registration_metadata")]).to eq(user.registration_metadata)
+            expect(serialized[t("decidim.forms.user_answers_serializer.user_birth_date")]).to eq(user.registration_metadata[:birth_date.to_s])
+            expect(serialized[t("decidim.forms.user_answers_serializer.user_gender")]).to eq(user.registration_metadata[:gender.to_s])
+            expect(serialized[t("decidim.forms.user_answers_serializer.user_work_area")]).to eq(user.registration_metadata[:work_area.to_s])
+            expect(serialized[t("decidim.forms.user_answers_serializer.user_residential_area")]).to eq(user.registration_metadata[:residential_area.to_s])
+            expect(serialized[t("decidim.forms.user_answers_serializer.user_statutory_representative_email")]).to eq(user.registration_metadata[:statutory_representative_email.to_s])
           end
 
           context "when there is no user" do
@@ -101,15 +109,25 @@ module Decidim
               expect(serialized[t("decidim.forms.user_answers_serializer.user_name")]).to be_empty
               expect(serialized[t("decidim.forms.user_answers_serializer.user_nickname")]).to be_empty
               expect(serialized[t("decidim.forms.user_answers_serializer.user_email")]).to be_empty
-              expect(serialized[t("decidim.forms.user_answers_serializer.registration_metadata")]).to be_empty
+              expect(serialized[t("decidim.forms.user_answers_serializer.user_birth_date")]).to be_empty
+              expect(serialized[t("decidim.forms.user_answers_serializer.user_gender")]).to be_empty
+              expect(serialized[t("decidim.forms.user_answers_serializer.user_work_area")]).to be_empty
+              expect(serialized[t("decidim.forms.user_answers_serializer.user_residential_area")]).to be_empty
+              expect(serialized[t("decidim.forms.user_answers_serializer.user_statutory_representative_email")]).to be_empty
             end
           end
 
           context "when user has no registration metadata" do
-            it "doesn't includes user registration metadata" do
+            before do
               user.update!(registration_metadata: nil)
+            end
 
-              expect(serialized[t("decidim.forms.user_answers_serializer.registration_metadata")]).to be_empty
+            it "doesn't includes user registration metadata" do
+              expect(serialized[t("decidim.forms.user_answers_serializer.user_birth_date")]).to be_empty
+              expect(serialized[t("decidim.forms.user_answers_serializer.user_gender")]).to be_empty
+              expect(serialized[t("decidim.forms.user_answers_serializer.user_work_area")]).to be_empty
+              expect(serialized[t("decidim.forms.user_answers_serializer.user_residential_area")]).to be_empty
+              expect(serialized[t("decidim.forms.user_answers_serializer.user_statutory_representative_email")]).to be_empty
             end
           end
 
@@ -117,7 +135,11 @@ module Decidim
             expect(serialized).to include(t("decidim.forms.user_answers_serializer.user_name"))
             expect(serialized).to include(t("decidim.forms.user_answers_serializer.user_nickname"))
             expect(serialized).to include(t("decidim.forms.user_answers_serializer.user_email"))
-            expect(serialized).to include(t("decidim.forms.user_answers_serializer.registration_metadata"))
+            expect(serialized).to include(t("decidim.forms.user_answers_serializer.user_birth_date"))
+            expect(serialized).to include(t("decidim.forms.user_answers_serializer.user_gender"))
+            expect(serialized).to include(t("decidim.forms.user_answers_serializer.user_work_area"))
+            expect(serialized).to include(t("decidim.forms.user_answers_serializer.user_residential_area"))
+            expect(serialized).to include(t("decidim.forms.user_answers_serializer.user_statutory_representative_email"))
           end
         end
       end

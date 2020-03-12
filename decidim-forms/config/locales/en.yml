@@ -85,9 +85,13 @@ en:
         id: Answer ID
         ip_hash: Ip Hash
         registered: Registered
-        registration_metadata: Registration metadata
         unregistered: Unregistered
+        user_birth_date: Birth date
         user_email: User email
+        user_gender: Gender
         user_name: User name
         user_nickname: User nickname
+        user_residential_area: Residential area
         user_status: User status
+        user_statutory_representative_email: Representative email
+        user_work_area: Work area
