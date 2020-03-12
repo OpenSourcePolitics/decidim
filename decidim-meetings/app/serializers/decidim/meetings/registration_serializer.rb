@@ -14,11 +14,11 @@ module Decidim
             name: resource.user.try(:name),
             nickname: resource.user.try(:nickname),
             email: resource.user.try(:email),
-            birth_date: registration_metadata(resource.user, :birth_date),
-            gender: registration_metadata(resource.user, :gender),
-            work_area: registration_metadata(resource.user, :work_area),
-            residential_area: registration_metadata(resource.user, :residential_area),
-            statutory_representative_email: registration_metadata(resource.user, :statutory_representative_email),
+            birth_date: key_from_registration_metadata(resource.user, :birth_date),
+            gender: key_from_registration_metadata(resource.user, :gender),
+            work_area: key_from_registration_metadata(resource.user, :work_area),
+            residential_area: key_from_registration_metadata(resource.user, :residential_area),
+            statutory_representative_email: key_from_registration_metadata(resource.user, :statutory_representative_email),
             user_group: resource.user_group&.name || ""
           },
           registration_form_answers: serialize_answers
@@ -26,22 +26,6 @@ module Decidim
       end
 
       private
-
-      # Private: Returns an array of registration_metadata of all authors for a specific sym_target key given
-      #
-      # Aim: Collect specific key from array of hash
-      def registration_metadata(user, sym_target)
-        registration_metadata = user.try(:registration_metadata)
-        return "" if registration_metadata.nil?
-
-        if sym_target == :work_area
-          scope_area_name(user.try(:registration_metadata)[sym_target.to_s])
-        elsif sym_target == :residential_area
-          scope_area_name(user.try(:registration_metadata)[sym_target.to_s])
-        else
-          user.try(:registration_metadata)[sym_target.to_s] || ""
-        end
-      end
 
       def serialize_answers
         questions = resource.meeting.questionnaire.questions

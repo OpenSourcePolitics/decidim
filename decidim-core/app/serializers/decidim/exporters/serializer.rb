@@ -51,6 +51,20 @@ module Decidim
       rescue ActiveRecord::RecordNotFound
         ""
       end
+
+      # Private: Returns a specific value from registration_metadata hash
+      def key_from_registration_metadata(user, sym_target)
+        registration_metadata = user.try(:registration_metadata)
+        return "" if registration_metadata.nil?
+
+        if sym_target == :work_area
+          scope_area_name(user.try(:registration_metadata)[sym_target.to_s])
+        elsif sym_target == :residential_area
+          scope_area_name(user.try(:registration_metadata)[sym_target.to_s])
+        else
+          user.try(:registration_metadata)[sym_target.to_s] || ""
+        end
+      end
     end
   end
 end
