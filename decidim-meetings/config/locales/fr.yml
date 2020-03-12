@@ -197,17 +197,17 @@ fr:
               code: Code
               id: ID
               user:
+                birth_date: Date de naissance
                 email: Email
+                gender: Genre
                 name: Nom
                 nickname: Prénom
                 registration_form_answers: Réponses formulaire
-                gender: Genre
-                birth_date: Date de naissance
-                work_area: Lieu de travail
                 residential_area: Lieu de résidence
                 statutory_representative_email: Email representatif
                 user: Utilisateur
                 user_group: Groupe utilisateur
+                work_area: Lieu de travail
           meetings: Rencontres
           registrations: Inscriptions
         invite_join_meeting_mailer:

@@ -318,52 +318,52 @@ en:
         actions:
           preview: Preview
         exports:
-          comments: Comments
           column_name:
             proposals:
-              id: ID
+              amendments: Amendments
+              answer: Answer
+              attachments: Attachments
+              attachments_url: Amendment url
+              authors:
+                authors: Authors
+                birth_date: Birth date
+                emails: Emails
+                gender: Gender
+                names: Names
+                nicknames: Nicknames
+                residential_area: Residential area
+                statutory_representative_email: Statutory representative email
+                work_area: Work area
+              body: Content
               category:
                 category: Category
                 id: ID
                 name: Name
-              scope:
-                scope: Scope
-                id: ID
-                name: Name
-              participatory_space:
-                participatory_space: Participatory space
-                id: ID
-                url: URL
               collaborative_draft_origin: Collaborative draft
+              comments: Comments
               component:
                 component: Component
                 id: ID
-              title: Title
-              body: Content
-              state: State
-              reference: Reference
-              answer: Answer
-              supports: Supports
               endorsements: Endorsements
-              comments: Comments
-              amendments: Amendments
-              attachments_url: Amendment url
-              attachments: Attachments
               followers: Followers
-              published_at: Publication date
-              url: Url
+              id: ID
               meeting_urls: Meeting url
+              participatory_space:
+                id: ID
+                participatory_space: Participatory space
+                url: URL
+              published_at: Publication date
+              reference: Reference
               related_proposals: Related proposals
-              authors:
-                authors: Authors
-                names: Names
-                nicknames: Nicknames
-                emails: Emails
-                gender: Gender
-                birth_date: Birth date
-                work_area: Work area
-                residential_area: Residential area
-                statutory_representative_email: Statutory representative email
+              scope:
+                id: ID
+                name: Name
+                scope: Scope
+              state: State
+              supports: Supports
+              title: Title
+              url: Url
+          comments: Comments
           proposals: Proposals
         models:
           proposal:

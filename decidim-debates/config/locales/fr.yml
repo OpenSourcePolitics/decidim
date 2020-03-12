@@ -85,15 +85,15 @@ fr:
               title: Titre
               url: Url
               user:
+                birth_date: Date de naissance
                 email: Email
+                gender: Genre
                 name: Nom
                 nickname: Prénom
-                gender: Genre
-                birth_date: Date de naissance
-                work_area: Lieu de travail
                 residential_area: Lieu de résidence
                 statutory_representative_email: Email representatif
                 user: Utilisateur
+                work_area: Lieu de travail
           comments: Commentaires
           debates: débats
         models:

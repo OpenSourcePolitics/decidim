@@ -23,13 +23,13 @@ en:
             alignment: Alignment
             author:
               author: Author
+              birth_date: Birth date
+              gender: Gender
               id: ID
               name: Name
-              gender: Gender
-              birth_date: Birth date
-              work_area: Work area
               residential_area: Residential area
               statutory_representative_email: Statutory representative email
+              work_area: Work area
             body: Content
             commentable_id: Commentable ID
             commentable_type: Commentable type

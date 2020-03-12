@@ -23,13 +23,13 @@ fr:
             alignment: Positionnement
             author:
               author: Auteur
+              birth_date: Date de naissance
+              gender: Genre
               id: ID
               name: Nom
-              gender: Genre
-              birth_date: Date de naissance
-              work_area: Lieu de travail
               residential_area: Lieu de résidence
               statutory_representative_email: Email representatif
+              work_area: Lieu de travail
             body: Contenu
             commentable_id: ID de l'élément commenté
             commentable_type: Type de l'élément commenté

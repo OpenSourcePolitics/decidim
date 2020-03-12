@@ -57,7 +57,7 @@ module Decidim
               t_column_name(:gender, ".user") => key_from_registration_metadata(debate.author, :gender),
               t_column_name(:work_area, ".user") => key_from_registration_metadata(debate.author, :work_area),
               t_column_name(:residential_area, ".user") => key_from_registration_metadata(debate.author, :residential_area),
-              t_column_name(:statutory_representative_email, ".user") => key_from_registration_metadata(debate.author, :statutory_representative_email),
+              t_column_name(:statutory_representative_email, ".user") => key_from_registration_metadata(debate.author, :statutory_representative_email)
             }
           end
         }

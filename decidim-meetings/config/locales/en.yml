@@ -197,17 +197,17 @@ en:
               code: Code
               id: ID
               user:
+                birth_date: Birth date
                 email: Email
+                gender: Gender
                 name: Name
                 nickname: Nickname
                 registration_form_answers: Registration form answers
-                gender: Gender
-                birth_date: Birth date
-                work_area: Work area
                 residential_area: Residential area
                 statutory_representative_email: Statutory representative email
                 user: User
                 user_group: User group
+                work_area: Work area
           meetings: Meetings
           registrations: Registrations
         invite_join_meeting_mailer:
