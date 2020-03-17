@@ -40,9 +40,15 @@ module Decidim
       private
 
       def select_initiative_type_step(_parameters)
-        @form = form(Decidim::Initiatives::SelectInitiativeTypeForm).instance
         session[:initiative] = {}
-        render_wizard
+
+        if single_initiative?
+          redirect_to next_wizard_path
+          return
+        end
+
+        @form = form(Decidim::Initiatives::SelectInitiativeTypeForm).instance
+        render_wizard unless performed?
       end
 
       def previous_form_step(parameters)
@@ -116,7 +122,12 @@ module Decidim
       end
 
       def build_form(klass, parameters)
-        @form = form(klass).from_params(parameters)
+        @form = if single_initiative?
+                  form(klass).from_params(parameters.merge(type_id: current_organization_initiatives.first.id))
+                else
+                  form(klass).from_params(parameters)
+                end
+
         attributes = @form.attributes_with_values
         attributes[:description] = Decidim::ApplicationController.helpers.strip_tags(attributes[:description])
         session[:initiative] = session_initiative.merge(attributes)
@@ -131,6 +142,14 @@ module Decidim
 
       def current_initiative
         Initiative.find(session_initiative[:id]) if session_initiative.has_key?(:id)
+      end
+
+      def current_organization_initiatives
+        Decidim::InitiativesType.where(organization: current_organization)
+      end
+
+      def single_initiative?
+        current_organization_initiatives.count == 1
       end
 
       def initiative_type
