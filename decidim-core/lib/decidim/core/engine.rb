@@ -103,11 +103,11 @@ module Decidim
         if Decidim.geocoder.present?
           config = {
             # geocoding service (see below for supported options):
-            lookup: :here
+            lookup: :here,
             # IP address geocoding service (see below for supported options):
             # :ip_lookup => :maxmind,
             # to use an API key:
-            api_key: Decidim.geocoder&.fetch(:here_api_key),
+            api_key: Decidim.geocoder&.fetch(:here_api_key)
             # geocoding service request timeout, in seconds (default 3):
             # :timeout => 5,
             # set default units to kilometers:
@@ -116,12 +116,6 @@ module Decidim
             # :cache => Redis.new,
             # :cache_prefix => "..."
           }
-          # to use an API key:
-          config[:api_key] = if Decidim.geocoder[:here_api_key].present?
-                               Decidim.geocoder.fetch(:here_api_key)
-                             else
-                               [Decidim.geocoder.fetch(:here_app_id), Decidim.geocoder.fetch(:here_app_code)]
-                             end
           Geocoder.configure(config)
         end
       end
