@@ -33,6 +33,29 @@ describe "Registration", type: :system do
     end
   end
 
+  context "when name or nickname contains special chars" do
+    before do
+      fill_in :user_name, with: "#& Nikola Tesla"
+      fill_in :user_nickname, with: "#& the-greatest-genius-in-history"
+      fill_in :user_email, with: "nikola.tesla@example.org"
+      fill_in :user_password, with: "sekritpass123"
+      fill_in :user_password_confirmation, with: "sekritpass123"
+    end
+
+    it "fill name and nickname fields" do
+      click_button "Sign up"
+      click_button "Keep uncheck"
+
+      within "label[for='user_name']" do
+        expect(page).to have_content "Please avoid special characters"
+      end
+
+      within "label[for='user_nickname']" do
+        expect(page).to have_content "Please avoid special characters"
+      end
+    end
+  end
+
   context "when newsletter checkbox is unchecked" do
     it "opens modal on submit" do
       within "form.new_user" do

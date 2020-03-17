@@ -14,7 +14,9 @@ module Decidim
     attribute :tos_agreement, Boolean
 
     validates :name, presence: true
+    validates :name, format: { with: /\A(?!.*[<>?%&\^*#@\(\)\[\]\=\+\:\;\"\{\}\\\|])/, message: I18n.t("decidim.forms.errors.special_characters") }
     validates :nickname, presence: true, length: { maximum: Decidim::User.nickname_max_length }
+    validates :nickname, format: { with: /\A(?!.*[<>?%&\^*#@\(\)\[\]\=\+\:\;\"\{\}\\\|])/, message: I18n.t("decidim.forms.errors.special_characters") }
     validates :email, presence: true, 'valid_email_2/email': { disposable: true }
     validates :password, confirmation: true
     validates :password, password: { name: :name, email: :email, username: :nickname }

@@ -543,6 +543,7 @@ fr:
       default_image: Image par défaut
       errors:
         error: Ce champ contient une erreur.
+        special_characters: Veillez à ne pas renseigner de caractères spéciaux
       remove_this_file: Supprimer ce fichier
     gamification:
       all_badges_link: Voir tous les badges disponibles.
