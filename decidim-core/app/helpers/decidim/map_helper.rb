@@ -32,6 +32,15 @@ module Decidim
         "data-markers-data" => markers_data.to_json,
         "data-here-api-key" => Decidim.geocoder[:here_api_key]
       }
+
+      if Decidim.geocoder[:here_api_key]
+        map_html_options["data-here-api-key"] = Decidim.geocoder[:here_api_key]
+      else
+        # Compatibility mode for old api_id/app_code configurations
+        map_html_options["data-here-app-id"] = Decidim.geocoder[:here_app_id]
+        map_html_options["data-here-app-code"] = Decidim.geocoder[:here_app_code]
+      end
+
       content = capture { yield }.html_safe
       content_tag :div, class: "row column" do
         content_tag(:div, "", map_html_options) + content

@@ -35,6 +35,13 @@ module Decidim
         apiKey: Decidim.geocoder.fetch(:here_api_key)
       }
 
+      if Decidim.geocoder[:here_api_key].present?
+        params[:apiKey] = Decidim.geocoder.fetch(:here_api_key)
+      else
+        params[:app_id] = Decidim.geocoder.fetch(:here_app_id)
+        params[:app_code] = Decidim.geocoder.fetch(:here_app_code)
+      end
+
       URI.parse(Decidim.geocoder.fetch(:static_map_url)).tap do |uri|
         uri.query = URI.encode_www_form params
       end

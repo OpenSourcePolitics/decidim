@@ -64,7 +64,8 @@ module Decidim
 
       initializer "decidim.assets" do |app|
         app.config.assets.paths << File.expand_path("../../../app/assets/stylesheets", __dir__)
-        app.config.assets.precompile += %w(decidim_core_manifest.js)
+        app.config.assets.precompile += %w(decidim_core_manifest.js
+                                           decidim/identity_selector_dialog)
 
         Decidim.component_manifests.each do |component|
           app.config.assets.precompile += [component.icon]
@@ -100,9 +101,9 @@ module Decidim
 
       initializer "decidim.geocoding" do
         if Decidim.geocoder.present?
-          Geocoder.configure(
+          config = {
             # geocoding service (see below for supported options):
-            lookup: :here,
+            lookup: :here
             # IP address geocoding service (see below for supported options):
             # :ip_lookup => :maxmind,
             # to use an API key:
@@ -114,7 +115,14 @@ module Decidim
             # caching (see below for details):
             # :cache => Redis.new,
             # :cache_prefix => "..."
-          )
+          }
+          # to use an API key:
+          config[:api_key] = if Decidim.geocoder[:here_api_key].present?
+                               Decidim.geocoder.fetch(:here_api_key)
+                             else
+                               [Decidim.geocoder.fetch(:here_app_id), Decidim.geocoder.fetch(:here_app_code)]
+                             end
+          Geocoder.configure(config)
         end
       end
 
@@ -191,7 +199,7 @@ module Decidim
 
       initializer "decidim.content_processors" do |_app|
         Decidim.configure do |config|
-          config.content_processors += [:user, :hashtag, :link]
+          config.content_processors += [:user, :user_group, :hashtag, :link]
         end
       end
 

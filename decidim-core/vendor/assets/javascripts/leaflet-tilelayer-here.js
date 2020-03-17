@@ -157,5 +157,5 @@ L.TileLayer.HERE = L.TileLayer.extend({
 
 
 L.tileLayer.here = function(opts){
-	return new L.TileLayer.HERE(opts);
+  return new L.TileLayer.HERE(opts);
 }
