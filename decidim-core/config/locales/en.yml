@@ -1260,6 +1260,7 @@ en:
     password_too_common: is too common
     password_too_long: is too long
     password_too_short: is too short
+    username_included_in_password: is too similar to your username
   social_share_button:
     delicious: Delicious
     douban: Douban

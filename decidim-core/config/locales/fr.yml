@@ -1249,6 +1249,7 @@ fr:
     password_too_common: est trop commun
     password_too_long: est trop long
     password_too_short: est trop court
+    username_included_in_password: est trop similaire à votre surnom
   social_share_button:
     delicious: Delicious
     douban: Douban
