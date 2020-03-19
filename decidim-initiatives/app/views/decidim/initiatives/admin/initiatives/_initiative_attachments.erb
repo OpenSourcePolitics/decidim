@@ -1,5 +1,9 @@
 <div class="row column">
   <div class="columns xlarge-12">
+    <label for="documents"><%= t "layouts.decidim.admin.initiative.attachments" %></label>
+  </div>
+
+  <div class="columns xlarge-12">
     <% if current_initiative.documents.any? %>
       <div class="row column">
         <strong><%= t ".documents" %>:</strong>

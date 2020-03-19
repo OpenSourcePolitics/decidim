@@ -27,7 +27,7 @@ module Decidim
           initiative_type.update(attributes)
 
           if initiative_type.valid?
-            upate_initiatives_signature_type
+            update_initiatives_signature_type
             broadcast(:ok, initiative_type)
           else
             broadcast(:invalid)
@@ -59,7 +59,7 @@ module Decidim
           result
         end
 
-        def upate_initiatives_signature_type
+        def update_initiatives_signature_type
           initiative_type.initiatives.signature_type_updatable.each do |initiative|
             initiative.update!(signature_type: initiative_type.signature_type)
           end
