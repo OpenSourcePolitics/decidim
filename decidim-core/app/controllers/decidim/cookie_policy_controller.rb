@@ -17,7 +17,19 @@ module Decidim
     end
 
     def show_terms
-      render partial: "decidim/cookie_policy/cookie_banner_modal"
+      render partial: "decidim/cookie_policy/cookie_banner_modal", locals: { cookies: cookies_explanation }
+    end
+
+    private
+
+    def cookies_explanation
+      [
+        { name: "session", url: "https://opensourcepolitics.eu/" },
+        { name: "matomo_session", url: "https://fr.matomo.org/faq/general/faq_146/" },
+        { name: "pk_id", url: "https://fr.matomo.org/faq/general/faq_146/" },
+        { name: "pk_ses", url: "https://fr.matomo.org/faq/general/faq_146/" },
+        { name: "test_cookie", url: "https://fr.matomo.org/faq/general/faq_146/" }
+      ]
     end
   end
 end

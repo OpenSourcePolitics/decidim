@@ -1,0 +1,13 @@
+<% if cookies.present? %>
+  <% cookies.each do |cookie| %>
+      <td><p><%= t("#{cookie[:name]}.type", scope: "decidim.cookie_policy.cookie_banner_modal.explanation.table.row") %></p></td>
+    <tr data-ccname="<%= cookie[:name] %>">
+      <td><p><%= truncate(t("#{cookie[:name]}.name", scope: "decidim.cookie_policy.cookie_banner_modal.explanation.table.row"), length: 15) %></p></td>
+      <td><p><%= t("#{cookie[:name]}.owner", scope: "decidim.cookie_policy.cookie_banner_modal.explanation.table.row") %></p></td>
+      <td><p><%= t("#{cookie[:name]}.aim", scope: "decidim.cookie_policy.cookie_banner_modal.explanation.table.row") %></p></td>
+      <td><a href="<%= cookie[:url] %>" target="_blank">
+        <p><%= t("#{cookie[:name]}.privacy_policy", scope: "decidim.cookie_policy.cookie_banner_modal.explanation.table.row") %></p></a></td>
+      <td><p><%= t("#{cookie[:name]}.duration", scope: "decidim.cookie_policy.cookie_banner_modal.explanation.table.row") %></p></td>
+    </tr>
+  <% end %>
+<% end %>

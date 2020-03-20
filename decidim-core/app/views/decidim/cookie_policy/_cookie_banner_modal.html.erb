@@ -27,50 +27,10 @@
             </tr>
           </thead>
           <tbody>
-            <tr data-ccname="session">
-              <td><p><%= t(".explanation.table.row.session.type") %></p></td>
-              <td><p><%= truncate(t(".explanation.table.row.session.name"), length: 15) %></p></td>
-              <td><p><%= t(".explanation.table.row.session.owner") %></p></td>
-              <td><p><%= t(".explanation.table.row.session.aim") %></p></td>
-              <td><a href="https://opensourcepolitics.eu/" target="_blank"><p><%= t(".explanation.table.row.session.privacy_policy") %></p></a></td>
-              <td><p><%= t(".explanation.table.row.session.duration") %></p></td>
-            </tr>
-            <tr data-ccname="matomo_session">
-              <td><p><%= t(".explanation.table.row.matomo_session.type") %></p></td>
-              <td><p><%= truncate(t(".explanation.table.row.matomo_session.name"), length: 15) %></p></td>
-              <td><p><%= t(".explanation.table.row.matomo_session.owner") %></p></td>
-              <td><p><%= t(".explanation.table.row.matomo_session.aim") %></p></td>
-              <td><a href="https://fr.matomo.org/faq/general/faq_146/" target="_blank"><p><%= t(".explanation.table.row.matomo_session.privacy_policy") %></p></a></td>
-              <td><p><%= t(".explanation.table.row.matomo_session.duration") %></p></td>
-            </tr>
-            <tr data-ccname="pk_id">
-              <td><p><%= t(".explanation.table.row.pk_id.type") %></p></td>
-              <td><p><%= truncate(t(".explanation.table.row.pk_id.name"), length: 15) %></p></td>
-              <td><p><%= t(".explanation.table.row.pk_id.owner") %></p></td>
-              <td><p><%= t(".explanation.table.row.pk_id.aim") %></p></td>
-              <td><a href="https://fr.matomo.org/faq/general/faq_146/" target="_blank"><p><%= t(".explanation.table.row.pk_id.privacy_policy") %></p></a></td>
-              <td><p><%= t(".explanation.table.row.pk_id.duration") %></p></td>
-            </tr>
-            <tr data-ccname="pk_ses">
-              <td><p><%= t(".explanation.table.row.pk_ses.type") %></p></td>
-              <td><p><%= truncate(t(".explanation.table.row.pk_ses.name"), length: 15) %></p></td>
-              <td><p><%= t(".explanation.table.row.pk_ses.owner") %></p></td>
-              <td><p><%= t(".explanation.table.row.pk_ses.aim") %></p></td>
-              <td><a href="https://fr.matomo.org/faq/general/faq_146/" target="_blank"><p><%= t(".explanation.table.row.pk_ses.privacy_policy") %></p></a></td>
-              <td><p><%= t(".explanation.table.row.pk_ses.duration") %></p></td>
-            </tr>
-            <tr data-ccname="test_cookie">
-              <td><p><%= t(".explanation.table.row.test_cookie.type") %></p></td>
-              <td><p><%= truncate(t(".explanation.table.row.test_cookie.name"), length: 15) %></p></td>
-              <td><p><%= t(".explanation.table.row.test_cookie.owner") %></p></td>
-              <td><p><%= t(".explanation.table.row.test_cookie.aim") %></p></td>
-              <td><a href="https://fr.matomo.org/faq/general/faq_146/" target="_blank"><p><%= t(".explanation.table.row.test_cookie.privacy_policy") %></p></a></td>
-              <td><p><%= t(".explanation.table.row.test_cookie.duration") %></p></td>
-            </tr>
+            <%= render partial: "cookie_detail", locals: { cookies: cookies } %>
           </tbody>
         </table>
       </div>
-
     </div>
     <div class="control">
       <div class="title">
