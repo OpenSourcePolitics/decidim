@@ -67,6 +67,7 @@ end
 - **decidim-comments**: Allow cancelling a vote on a comment. [#5042](https://github.com/decidim/decidim/pull/5042)
 - **decidim-initiatives**: Add styles inline in PDF document of signatures [#5103](https://github.com/decidim/decidim/pull/5103)
 - **decidim-core**: Update nobspw [#5227](https://github.com/decidim/decidim/pull/5227)
+- **decidim-accountability**, **decidim-assemblies**, **decidim-consultations**, **decidim-core**, **decidim-proposals**, **decidim-debates**, **decidim-dev**, **decidim-generators**, **decidim-initiatives**, **decidim-meetings**, **decidim-participatory_processes**, **decidim-proposals**, **decidim-sortitions**, **decidim_app-design**: Change: social share button default sites [\#5270](https://github.com/decidim/decidim/pull/5270)
 
 **Fixed**:
 
@@ -117,6 +118,7 @@ end
 - **decidim-accountability**, **decidim-core**, **decidim-proposals**, **decidim-dev**, **decidim-admin**, **decidim-consultations**, **decidim-initiatives**, **decidim-meetings**, **decidim-proposals**: Multiple bugfixes [\#5329](https://github.com/decidim/decidim/pull/5329)
 - **decidim-core**: Fix rendering when custom colors exist [#5347](https://github.com/decidim/decidim/pull/5347)
 - **decidim-core**: Fix component generator [#5348](https://github.com/decidim/decidim/pull/5348)
+- **decidim-consultations**: Fix: current_participatory_space raises error in ConsultationsController.[\#5513](https://github.com/decidim/decidim/pull/5513)
 
 **Removed**:
 
