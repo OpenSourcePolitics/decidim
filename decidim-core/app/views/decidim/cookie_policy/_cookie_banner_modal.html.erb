@@ -32,6 +32,8 @@
         </table>
       </div>
     </div>
+
+    <% if Decidim.enable_matomo_tracking %>
     <div class="control">
       <div class="title">
         <h5><%= t(".control.title") %></h5>
@@ -44,5 +46,6 @@
         </div>
       </div>
     </div>
+    <% end %>
   </div>
 </div>

@@ -41,6 +41,7 @@ Decidim.configure do |config|
   # take over user accounts.
   #
   config.enable_html_header_snippets = false
+  config.enable_matomo_tracking = false
 
   # SMS gateway configuration
   #

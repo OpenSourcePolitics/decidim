@@ -235,6 +235,11 @@ module Decidim
     true
   end
 
+  # Allow organization's administrators to inject custom HTML into the frontend
+  config_accessor :enable_matomo_tracking do
+    true
+  end
+
   # Allow organization's administrators to track newsletter links
   config_accessor :track_newsletter_links do
     true

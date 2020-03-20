@@ -38,8 +38,20 @@ describe "Cookies", type: :system do
       expect(page).to have_content "Cookies statement"
     end
 
-    it "shows the matomo opt-out" do
-      expect(page).to have_css("iframe")
+    context "when matomo tracking is enabled in initializers" do
+      it "shows the matomo opt-out" do
+        expect(page).to have_css("iframe")
+      end
+    end
+
+    context "when matomo tracking is disabled in initializers" do
+      before do
+        Decidim.enable_matomo_tracking = false
+      end
+
+      it "doesn't show the matomo opt-out" do
+        expect(page).not_to have_css("iframe")
+      end
     end
   end
 end

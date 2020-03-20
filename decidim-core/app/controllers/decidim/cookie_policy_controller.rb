@@ -24,7 +24,13 @@ module Decidim
 
     def cookies_explanation
       [
-        { name: "session", url: "https://opensourcepolitics.eu/" },
+        { name: "session", url: "https://opensourcepolitics.eu/" }
+      ].concat matomo_cookies
+    end
+
+    def matomo_cookies
+      return [] unless Decidim.enable_matomo_tracking
+      [
         { name: "matomo_session", url: "https://fr.matomo.org/faq/general/faq_146/" },
         { name: "pk_id", url: "https://fr.matomo.org/faq/general/faq_146/" },
         { name: "pk_ses", url: "https://fr.matomo.org/faq/general/faq_146/" },
