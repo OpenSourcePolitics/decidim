@@ -52,6 +52,8 @@ module Decidim
           expect(mail.deliver_now).to be_nil
         end
       end
+
+      include_examples "mail with logo"
     end
   end
 end
