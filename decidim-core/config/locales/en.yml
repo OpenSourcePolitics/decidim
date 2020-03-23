@@ -554,6 +554,7 @@ en:
       default_image: Default image
       errors:
         error: There's an error in this field.
+        special_characters: Please avoid special characters
       remove_this_file: Remove this file
     gamification:
       all_badges_link: See all available badges.
@@ -1259,6 +1260,7 @@ en:
     password_too_common: is too common
     password_too_long: is too long
     password_too_short: is too short
+    username_included_in_password: is too similar to your username
   social_share_button:
     delicious: Delicious
     douban: Douban

@@ -53,6 +53,12 @@ module Decidim
       it { is_expected.to be_invalid }
     end
 
+    context "when the name contains special characters" do
+      let(:name) { "§!çname23éà)" }
+
+      it { is_expected.to be_invalid }
+    end
+
     context "when the nickname is not present" do
       let(:nickname) { nil }
 
@@ -79,6 +85,12 @@ module Decidim
 
     context "when the nickname is too long" do
       let(:nickname) { "verylongnicknamethatcreatesanerror" }
+
+      it { is_expected.to be_invalid }
+    end
+
+    context "when the nickname contains special characters" do
+      let(:nickname) { "§!çnickname23éà)" }
 
       it { is_expected.to be_invalid }
     end
