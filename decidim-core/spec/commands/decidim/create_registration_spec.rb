@@ -32,8 +32,8 @@ module Decidim
         end
         let(:form) do
           RegistrationForm.from_params(
-              form_params,
-              current_locale: current_locale
+            form_params,
+            current_locale: current_locale
           ).with_context(
             current_organization: organization
           )
