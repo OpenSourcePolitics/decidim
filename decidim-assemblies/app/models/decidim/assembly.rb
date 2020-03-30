@@ -142,6 +142,9 @@ module Decidim
       closing_date < Date.current
     end
 
+    def self.sorted_by_name(order = :ASC)
+      order(title: order)
+    end
     private
 
     # When an assembly changes their parent, we need to update the parents_path attribute
