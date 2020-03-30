@@ -64,8 +64,8 @@ module Decidim
 
             authorization = Decidim::Authorization.last
             expect(authorization.metadata).to include(
-              "document_number" => authorization_params[:document_number],
-              "postal_code" => authorization_params[:postal_code]
+              document_number: authorization_params[:document_number],
+              postal_code: authorization_params[:postal_code]
             )
             expect(authorization.user.name).to eq("Patrick Participant")
           end
@@ -131,10 +131,7 @@ module Decidim
               user: user,
               name: authorization_params[:handler_name],
               unique_id: authorization_params[:document_number],
-              metadata: {
-                document_number: "9999X",
-                postal_code: "99999"
-              }
+              encrypted_metadata: encrypted_metadata_attribute(unique_id: authorization_params[:document_number], metadata: { document_number: "9999X", postal_code: "99999" })
             )
           end
 
@@ -152,8 +149,8 @@ module Decidim
 
             authorization = Decidim::Authorization.last
             expect(authorization.metadata).to include(
-              "document_number" => authorization_params[:document_number],
-              "postal_code" => authorization_params[:postal_code]
+              document_number: authorization_params[:document_number],
+              postal_code: authorization_params[:postal_code]
             )
           end
         end
@@ -169,10 +166,10 @@ module Decidim
               user: user,
               name: authorization_params[:handler_name],
               unique_id: authorization_params[:document_number],
-              metadata: {
-                document_number: authorization_params[:document_number],
-                postal_code: "99999"
-              }
+              encrypted_metadata: encrypted_metadata_attribute(unique_id: authorization_params[:document_number], metadata: {
+                                                                 document_number: authorization_params[:document_number],
+                                                                 postal_code: "99999"
+                                                               })
             )
           end
 
