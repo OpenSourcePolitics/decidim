@@ -36,8 +36,7 @@ module Decidim
       Decidim::Initiatives::DataPortabilityInitiativesVoteSerializer
     end
 
-    def self.data_portability_images(user)
-    end
+    def self.data_portability_images(user); end
 
     # Public: Generates a hashed representation of the initiative support.
     #

@@ -45,7 +45,7 @@ Decidim.register_participatory_space(:initiatives) do |participatory_space|
     end
 
     exports.include_in_open_data = true
-  
+
     export.serializer Decidim::Initiatives::InitiativeSerializer
   end
 

@@ -118,6 +118,7 @@ module Decidim
 
     def self.user_collection(author)
       return unless author.is_a?(Decidim::User)
+
       where(decidim_author_id: author.id)
     end
 
@@ -125,8 +126,7 @@ module Decidim
       Decidim::Initiatives::InitiativeSerializer
     end
 
-    def self.data_portability_images(user)
-    end
+    def self.data_portability_images(user); end
 
     # PUBLIC banner image
     #

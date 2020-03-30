@@ -36,7 +36,7 @@ module Decidim
       #
       # Returns a String.
       def humanize_initiative_state(initiative)
-        I18n.t(initiative.state , scope: "decidim.initiatives.state", default: :created)
+        I18n.t(initiative.state, scope: "decidim.initiatives.state", default: :created)
       end
 
       # Public: The state of an initiative from an administration perspective in
@@ -158,19 +158,21 @@ module Decidim
 
       def any_initiative_types_authorized?
         return unless current_user
+
         Decidim::Initiatives::InitiativeTypes.for(current_user.organization).inject do |result, type|
           result && ActionAuthorizer.new(current_user, :create, type, type).authorize.ok?
         end
       end
 
       def permissions_for(action, type)
-        return [] unless type.permissions && type.permissions.dig(action.to_s,"authorization_handlers")
-        type.permissions.dig(action.to_s,"authorization_handlers").keys
+        return [] unless type.permissions && type.permissions.dig(action.to_s, "authorization_handlers")
+
+        type.permissions.dig(action.to_s, "authorization_handlers").keys
       end
 
       def merged_permissions_for(action)
         Decidim::Initiatives::InitiativeTypes.for(current_organization).map do |type|
-          permissions_for(action,type)
+          permissions_for(action, type)
         end.inject do |result, list|
           result + list
         end.uniq
@@ -181,7 +183,7 @@ module Decidim
           organization: current_organization,
           user: current_initiative.author,
           granted: true,
-          name: (action_authorized_to("create", resource: current_initiative, permissions_holder: current_initiative.type).statuses || []).map { |s| s.handler_name }
+          name: (action_authorized_to("create", resource: current_initiative, permissions_holder: current_initiative.type).statuses || []).map(&:handler_name)
         )
       end
 
@@ -206,7 +208,7 @@ module Decidim
         end
       end
 
-      def authorization_router(authorization)
+      def authorization_router(_authorization)
         Decidim::Verifications.find_workflow_manifest(@authorizations.first.name).admin_engine.routes.url_helpers
       end
     end
