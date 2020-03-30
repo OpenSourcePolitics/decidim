@@ -44,6 +44,7 @@ fr:
         scopes_enabled: Secteurs activés
         short_description: Résumé
         show_statistics: Afficher les statistiques
+        sort_children: Trier les assemblées enfant
         slug: Identifiant
         special_features: Particularités
         subtitle: Sous-titre
