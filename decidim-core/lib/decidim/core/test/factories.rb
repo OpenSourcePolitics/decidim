@@ -239,7 +239,7 @@ FactoryBot.define do
   factory :authorization, class: "Decidim::Authorization" do
     sequence(:name) { |n| "dummy_authorization_#{n}" }
     user
-    metadata { {} }
+    encrypted_metadata { {} }
     granted
 
     trait :granted do
