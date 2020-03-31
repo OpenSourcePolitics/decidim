@@ -197,7 +197,7 @@ describe "Assemblies", type: :system do
     end
 
     context "when the assembly has children assemblies" do
-      let!(:children_assembly) { create_list :assembly, 3, organization: organization, parent: assembly }
+      let!(:child_assembly) { create :assembly, organization: organization, parent: assembly }
       let!(:unpublished_child_assembly) { create :assembly, :unpublished, organization: organization, parent: assembly }
 
       before do
@@ -206,41 +206,8 @@ describe "Assemblies", type: :system do
 
       it "shows only the published children assemblies" do
         within("#assemblies-grid") do
-          expect(page).to have_link translated(children_assembly.first.title)
+          expect(page).to have_link translated(child_assembly.title)
           expect(page).not_to have_link translated(unpublished_child_assembly.title)
-        end
-      end
-
-      it "doesn't sort the children by name" do
-        within("#assemblies-grid") do
-          expect(page.all("h5.card__title").collect(&:text)).to eq([translated(children_assembly.last.title), translated(children_assembly[1].title), translated(children_assembly.first.title)])
-        end
-      end
-
-      context "when sort_children attribute is true" do
-        let(:base_assembly) do
-          create(
-            :assembly,
-            organization: organization,
-            description: { en: "Description", ca: "Descripció", es: "Descripción" },
-            short_description: { en: "Short description", ca: "Descripció curta", es: "Descripción corta" },
-            show_statistics: show_statistics,
-            assembly_type: "others",
-            sort_children: true
-          )
-        end
-        let!(:assembly) { base_assembly }
-        let!(:child1) { create :assembly, title: { en: "1.1 Afgh" }, organization: organization, parent: assembly }
-        let!(:child2) { create :assembly, title: { en: "2.3 Defg" }, organization: organization, parent: assembly }
-        let!(:child3) { create :assembly, title: { en: "1.3 Zhoro" }, organization: organization, parent: assembly }
-
-        it "sort the children by name" do
-          sorted_ary = assembly.children.published.sorted_by_name
-          within("#assemblies-grid") do
-            expect(translated(sorted_ary[0].title)).to eq(translated(child1.title))
-            expect(translated(sorted_ary[1].title)).to eq(translated(child3.title))
-            expect(translated(sorted_ary[2].title)).to eq(translated(child2.title))
-          end
         end
       end
     end

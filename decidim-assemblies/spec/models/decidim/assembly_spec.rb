@@ -147,5 +147,16 @@ module Decidim
         end
       end
     end
+
+    describe "#sort_children_by" do
+      let!(:assembly) { create :assembly, sort_children: true }
+      let!(:child1) { create :assembly, title: { en: "1.1 Afgh" }, parent: assembly }
+      let!(:child2) { create :assembly, title: { en: "2.3 Defg" }, parent: assembly }
+      let!(:child3) { create :assembly, title: { en: "1.3 Zhoro" }, parent: assembly }
+
+      it "sorts the children assemblies" do
+        expect(assembly.children.sort_children_by.collect(&:title).map { |x| translated(x) }).to eq([translated(child1.title), translated(child3.title), translated(child2.title)])
+      end
+    end
   end
 end
