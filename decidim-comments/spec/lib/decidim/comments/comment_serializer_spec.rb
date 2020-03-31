@@ -10,37 +10,41 @@ module Decidim
 
       describe "#serialize" do
         it "includes the id" do
-          expect(subject.serialize).to include(id: comment.id)
+          expect(subject.serialize).to include("ID" => comment.id)
         end
 
         it "includes the creation date" do
-          expect(subject.serialize).to include(created_at: comment.created_at)
+          expect(subject.serialize).to include("Creation date" => comment.created_at)
         end
 
         it "includes the body" do
-          expect(subject.serialize).to include(body: comment.body)
+          expect(subject.serialize).to include("Content" => comment.body)
         end
 
         it "includes the author" do
-          expect(subject.serialize[:author]).to(
-            include(id: comment.author.id, name: comment.author.name)
+          expect(subject.serialize["Author"]).to(
+            include("ID" => comment.author.id, "Name" => comment.author.name)
           )
         end
 
         it "includes the alignment" do
-          expect(subject.serialize).to include(alignment: comment.alignment)
+          expect(subject.serialize).to include("Alignment" => comment.alignment)
         end
 
         it "includes the depth" do
-          expect(subject.serialize).to include(alignment: comment.depth)
+          expect(subject.serialize).to include("Depth" => comment.depth)
         end
 
         it "includes the root commentable's url" do
-          expect(subject.serialize[:root_commentable_url]).to match(/http/)
+          expect(subject.serialize["Root commentable URL"]).to match(/http/)
         end
 
         it "includes authors metadata" do
-          expect(subject.serialize[:author]).to include(registration_metadata: comment.author.registration_metadata)
+          expect(subject.serialize["Author"]).to include("Birth date" => comment.author.registration_metadata[:birth_date.to_s].to_s)
+          expect(subject.serialize["Author"]).to include("Gender" => comment.author.registration_metadata[:gender.to_s])
+          expect(subject.serialize["Author"]).to include("Work area" => comment.author.registration_metadata[:work_area.to_s])
+          expect(subject.serialize["Author"]).to include("Residential area" => comment.author.registration_metadata[:residential_area.to_s])
+          expect(subject.serialize["Author"]).to include("Statutory representative email" => comment.author.registration_metadata[:statutory_representative_email.to_s])
         end
       end
     end

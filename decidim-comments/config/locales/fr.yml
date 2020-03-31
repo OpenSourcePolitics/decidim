@@ -17,6 +17,30 @@ fr:
   decidim:
     comments:
       comments: Commentaires
+      exports:
+        column_name:
+          comments:
+            alignment: Positionnement
+            author:
+              author: Auteur
+              birth_date: Date de naissance
+              gender: Genre
+              id: ID
+              name: Nom
+              residential_area: Lieu de résidence
+              statutory_representative_email: Email representatif
+              work_area: Lieu de travail
+            body: Contenu
+            commentable_id: ID de l'élément commenté
+            commentable_type: Type de l'élément commenté
+            created_at: Date de création
+            depth: Niveau de réponse
+            id: ID
+            root_commentable_url: URL de la proposition commentée
+            user_group:
+              id: ID
+              name: Nom
+              user_group: Groupe utilisateur
       last_activity:
         new_comment_at_html: "<span>Nouveau commentaire à %{link}</span>"
       translate: Traduire

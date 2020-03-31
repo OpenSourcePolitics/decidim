@@ -25,8 +25,9 @@ module Decidim
         # Initializes the converteer for the given meeting.
         #
         # meeting - the Meeting to convert
-        def initialize(meeting)
+        def initialize(meeting, private_scope = false)
           @meeting = meeting
+          @private_scope = private_scope
         end
 
         # Converts the given meeting to an ICalendar event object

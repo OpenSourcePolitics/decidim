@@ -15,15 +15,63 @@ module Decidim
       # Initializes the serializer with a resource.
       #
       # resource - The Object to serialize.
-      def initialize(resource)
+      # private_scope - Boolean to differentiate open data export and administrator export. By default scope is public.
+      def initialize(resource, private_scope = false)
         @resource = resource
+        @private_scope = private_scope
       end
 
       # Public: Returns a serialized view of the provided resource.
       #
       # Returns a nested Hash with the fields.
       def serialize
-        @resource.to_h
+        @resource.to_h.merge options_merge(admin_extra_fields)
+      end
+
+      private
+
+      # Private: Returns a Hash with additional fields to export if the export is done by administrator
+      #
+      # Returns a empty hash or Hash with some other fields
+      def options_merge(options = {})
+        return {} unless options.is_a?(Hash) && @private_scope
+        options
+      end
+
+      # Private: Returns a Hash with additional fields that administrator want to see in export
+      #
+      # Returns a Hash
+      def admin_extra_fields
+        {}
+      end
+
+      # Private: Find a scope area and returns the translated name
+      def scope_area_name(id)
+        translated_attribute(Decidim::Scope.find(id)[:name])
+      rescue ActiveRecord::RecordNotFound
+        ""
+      end
+
+      # Private: Returns a specific value from registration_metadata hash
+      def key_from_registration_metadata(user, sym_target)
+        registration_metadata = user.try(:registration_metadata)
+        return "" if registration_metadata.nil?
+
+        if sym_target == :work_area
+          scope_area_name(user.try(:registration_metadata)[sym_target.to_s])
+        elsif sym_target == :residential_area
+          scope_area_name(user.try(:registration_metadata)[sym_target.to_s])
+        else
+          user.try(:registration_metadata)[sym_target.to_s] || ""
+        end
+      end
+
+      def t_column_name(attribute, scope_extension = "")
+        I18n.t(attribute.to_sym, scope: i18n_scope + scope_extension)
+      end
+
+      def i18n_scope
+        ""
       end
     end
   end

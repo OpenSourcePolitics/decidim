@@ -318,6 +318,51 @@ en:
         actions:
           preview: Preview
         exports:
+          column_name:
+            proposals:
+              amendments: Amendments
+              answer: Answer
+              attachments: Attachments
+              attachments_url: Amendment url
+              authors:
+                authors: Authors
+                birth_date: Birth date
+                emails: Emails
+                gender: Gender
+                names: Names
+                nicknames: Nicknames
+                residential_area: Residential area
+                statutory_representative_email: Statutory representative email
+                work_area: Work area
+              body: Content
+              category:
+                category: Category
+                id: ID
+                name: Name
+              collaborative_draft_origin: Collaborative draft
+              comments: Comments
+              component:
+                component: Component
+                id: ID
+              endorsements: Endorsements
+              followers: Followers
+              id: ID
+              meeting_urls: Meeting url
+              participatory_space:
+                id: ID
+                participatory_space: Participatory space
+                url: URL
+              published_at: Publication date
+              reference: Reference
+              related_proposals: Related proposals
+              scope:
+                id: ID
+                name: Name
+                scope: Scope
+              state: State
+              supports: Supports
+              title: Title
+              url: Url
           comments: Comments
           proposals: Proposals
         models:

@@ -66,6 +66,7 @@ FactoryBot.define do
   factory :registration, class: "Decidim::Meetings::Registration" do
     meeting
     user
+    user_group
   end
 
   factory :agenda, class: "Decidim::Meetings::Agenda" do

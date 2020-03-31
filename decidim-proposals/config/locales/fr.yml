@@ -306,6 +306,51 @@ fr:
         actions:
           preview: Aperçu
         exports:
+          column_name:
+            proposals:
+              amendments: Amendements
+              answer: Réponse
+              attachments: Nombre de pièces-jointes
+              attachments_url: URL de l'amendement
+              authors:
+                authors: Auteurs
+                birth_date: Date de naissance
+                emails: Emails
+                gender: Genre
+                names: Noms
+                nicknames: Prénoms
+                residential_area: Lieu de résidence
+                statutory_representative_email: Email representatif
+                work_area: Lieu de travail
+              body: Contenu
+              category:
+                category: Catégorie
+                id: ID
+                name: Nom
+              collaborative_draft_origin: Brouillon collaboratif
+              comments: Commentaires
+              component:
+                component: Fonctionnalité
+                id: ID
+              endorsements: Soutiens
+              followers: Followers
+              id: ID
+              meeting_urls: Url de la rencontre
+              participatory_space:
+                id: ID
+                participatory_space: Concertation
+                url: URL
+              published_at: Date de publication
+              reference: Référence
+              related_proposals: Propositions liées
+              scope:
+                id: ID
+                name: Nom
+                scope: Quartier
+              state: État de la proposition
+              supports: Votes
+              title: Titre
+              url: Url
           comments: Commentaires
           proposals: Propositions
         models:

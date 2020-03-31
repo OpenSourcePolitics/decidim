@@ -17,6 +17,30 @@ en:
   decidim:
     comments:
       comments: Comments
+      exports:
+        column_name:
+          comments:
+            alignment: Alignment
+            author:
+              author: Author
+              birth_date: Birth date
+              gender: Gender
+              id: ID
+              name: Name
+              residential_area: Residential area
+              statutory_representative_email: Statutory representative email
+              work_area: Work area
+            body: Content
+            commentable_id: Commentable ID
+            commentable_type: Commentable type
+            created_at: Creation date
+            depth: Depth
+            id: ID
+            root_commentable_url: Root commentable URL
+            user_group:
+              id: ID
+              name: Name
+              user_group: User group
       last_activity:
         new_comment_at_html: "<span>New comment at %{link}</span>"
       translate: Translate
