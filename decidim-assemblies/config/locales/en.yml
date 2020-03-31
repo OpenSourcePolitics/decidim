@@ -44,8 +44,8 @@ en:
         scopes_enabled: Scopes enabled
         short_description: Short description
         show_statistics: Show statistics
-        sort_children: Sort children
         slug: URL slug
+        sort_children: Sort children
         special_features: Special features
         subtitle: Subtitle
         target: Who participates
