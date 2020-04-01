@@ -1,5 +1,9 @@
 # frozen_string_literal: true
 
+require "decidim/core/test/factories"
+require "decidim/comments/test/factories"
+require "decidim/participatory_processes/test/factories"
+
 def generate_localized_debate_title
   Decidim::Faker::Localized.localized { "<script>alert(\"TITLE\");</script> " + generate(:title) }
 end
