@@ -2,6 +2,12 @@
 
 require "decidim/faker/localized"
 require "decidim/dev"
+require "decidim/core/test/factories"
+require "decidim/proposals/test/factories"
+require "decidim/assemblies/test/factories"
+require "decidim/participatory_processes/test/factories"
+require "decidim/consultations/test/factories"
+require "decidim/meetings/test/factories"
 
 FactoryBot.define do
   sequence(:conference_slug) do |n|
