@@ -374,7 +374,12 @@ module Decidim
       file = object.send attribute
       template = ""
       template += label(attribute, label_for(attribute) + required_for_attribute(attribute))
-      template += @template.file_field @object_name, attribute
+      if options[:accept].present?
+        template += @template.file_field @object_name, attribute, accept: options.delete(:accept)
+      else
+        template += @template.file_field @object_name, attribute
+      end
+
 
       if file_is_image?(file)
         template += if file.present?

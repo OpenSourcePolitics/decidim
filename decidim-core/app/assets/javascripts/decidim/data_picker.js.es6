@@ -129,9 +129,9 @@
     _choose(data, user = true) {
       // Prevent choosing is nothing has been selected. This would otherwise
       // cause an empty checkbox to appear in the selected values list.
-      if (!data.value || data.value.length < 1) {
-        return;
-      }
+      // if (!data.value || data.value.length < 1) {
+      //   return;
+      // }
 
       let dataText = this._escape(data.text);
 
@@ -140,7 +140,7 @@
         let link = $("a", this.current.div);
         link.data("picker-value", data.value);
         link.attr("href", data.url);
-        link.text(dataText);
+        link.text(decodeHTMLEntities(dataText));
       } else {
         let input = "hidden",
             name = this.current.name;
@@ -149,7 +149,7 @@
           input = "checkbox";
           name += "[]";
         }
-        this.current.div = $(`<div><input type="${input}" checked name="${name}"/><a href="${data.url}" data-picker-value="${data.value}">${dataText}</a></div>`);
+        this.current.div = $(`<div><input type="${input}" checked name="${name}"/><a href="${data.url}" data-picker-value="${data.value}">${decodeHTMLEntities(dataText)}</a></div>`);
         this.current.div.appendTo(this.current.values);
       }
 
@@ -188,6 +188,12 @@
         return `&#${char.charCodeAt(0)};`;
       });
     }
+  }
+
+  function decodeHTMLEntities(text) {
+    var textArea = document.createElement('textarea');
+    textArea.innerHTML = text;
+    return textArea.value;
   }
 
   exports.Decidim = exports.Decidim || {};
