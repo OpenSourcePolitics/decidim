@@ -32,7 +32,7 @@ module Decidim::Assemblies
           expect(subject).to eq([child1, child3, child2])
         end
 
-        context "when the sorted_by parameter" do
+        context "when the sorted_by parameter is defined" do
           subject { helper.child_assemblies_collection(participatory_space, :id) }
 
           it "sorts the children by id" do
