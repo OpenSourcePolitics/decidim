@@ -12,6 +12,7 @@ module Decidim
       include Decidim::ResourceReferenceHelper
       include Decidim::FiltersHelper
       include FilterAssembliesHelper
+      include ChildAssembliesHelper
 
       # Public: Returns the characteristics of an assembly in a readable format like
       # "title: close, no public, no transparent and is restricted to the members of the assembly"

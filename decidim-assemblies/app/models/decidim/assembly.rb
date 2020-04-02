@@ -142,8 +142,8 @@ module Decidim
       closing_date < Date.current
     end
 
-    def self.sort_children_by(column = :title)
-      order(column)
+    def self.sort_children_by(ordered_by = :title)
+      ordered_by.nil? ? order(:title) : order(ordered_by)
     end
 
     private
