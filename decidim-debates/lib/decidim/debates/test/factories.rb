@@ -32,10 +32,10 @@ FactoryBot.define do
 
     trait :with_user_group_author do
       author do
-        build(:user, organization: component.organization) if component
+        create(:user, organization: component.organization) if component
       end
       user_group do
-        build(:user_group, :verified, organization: component.organization, users: [author]) if component
+        create(:user_group, :verified, organization: component.organization, users: [author]) if component
       end
     end
   end
