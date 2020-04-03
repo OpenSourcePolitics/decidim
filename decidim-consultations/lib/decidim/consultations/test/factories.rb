@@ -2,6 +2,7 @@
 
 require "decidim/faker/localized"
 require "decidim/dev"
+require "decidim/core/test/factories"
 
 FactoryBot.define do
   sequence(:consultation_slug) do |n|
