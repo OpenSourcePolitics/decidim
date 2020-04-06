@@ -31,7 +31,7 @@ module Decidim
 
         common.merge(
           upstream_status: upstream_status,
-          published_at: upstream_moderation.try(:updated_at)
+          published_at: upstream_moderation_updated_at
         )
       end
 
@@ -49,6 +49,14 @@ module Decidim
 
       def root_commentable_url
         @root_commentable_url ||= Decidim::ResourceLocatorPresenter.new(resource.root_commentable).url
+      end
+
+      # Updated_at field has to be nil when the comment is pending or hidden
+      def upstream_moderation_updated_at
+        return nil if resource.upstream_pending?
+        return nil if resource.upstream_hidden?
+
+        upstream_moderation.try(:updated_at)
       end
 
       def upstream_moderation
