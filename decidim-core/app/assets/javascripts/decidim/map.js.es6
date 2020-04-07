@@ -26,7 +26,9 @@ const addMarkers = (markersData, markerClusters, map) => {
 
   markersData.forEach((markerData) => {
     let marker = L.marker([markerData.latitude, markerData.longitude], {
-      icon: new L.DivIcon.SVGIcon.DecidimIcon()
+      icon: new L.DivIcon.SVGIcon.DecidimIcon({
+        fillColor: window.Decidim.mapConfiguration.markerColor
+      })
     });
     let node = document.createElement("div");
 
@@ -48,7 +50,6 @@ const addMarkers = (markersData, markerClusters, map) => {
 
 const loadMap = (mapId, markersData) => {
   let markerClusters = L.markerClusterGroup();
-  const { hereApiKey } = window.Decidim.mapConfiguration;
 
   if (window.Decidim.currentMap) {
     window.Decidim.currentMap.remove();
@@ -57,9 +58,7 @@ const loadMap = (mapId, markersData) => {
 
   const map = L.map(mapId);
 
-  L.tileLayer.here({
-    apiKey: hereApiKey
-  }).addTo(map);
+  L.tileLayer.here(window.Decidim.mapConfiguration).addTo(map);
 
   if (markersData.length > 0) {
     addMarkers(markersData, markerClusters, map);
@@ -83,9 +82,27 @@ $(() => {
   const $map = $(`#${mapId}`);
 
   const markersData = $map.data("markers-data");
+  const hereAppId = $map.data("here-app-id");
+  const hereAppCode = $map.data("here-app-code");
   const hereApiKey = $map.data("here-api-key");
 
-  window.Decidim.mapConfiguration = { hereApiKey };
+  let markerColor = getComputedStyle(document.documentElement).getPropertyValue("--primary");
+  if (!markerColor || markerColor.length < 1) {
+    markerColor = "#ef604d";
+  }
+
+  let mapApiConfig = null;
+  if (hereApiKey) {
+    mapApiConfig = { apiKey: hereApiKey };
+  } else {
+    mapApiConfig = {
+      appId: hereAppId,
+      appCode: hereAppCode
+    };
+  }
+  window.Decidim.mapConfiguration = $.extend({
+    markerColor: markerColor
+  }, mapApiConfig);
 
   if ($map.length > 0) {
     window.Decidim.currentMap = loadMap(mapId, markersData);

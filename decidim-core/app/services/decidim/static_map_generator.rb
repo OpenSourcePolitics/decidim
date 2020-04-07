@@ -31,8 +31,7 @@ module Decidim
         z: @options[:zoom],
         w: @options[:width],
         h: @options[:height],
-        f: "1",
-        apiKey: Decidim.geocoder.fetch(:here_api_key)
+        f: "1"
       }
 
       if Decidim.geocoder[:here_api_key].present?

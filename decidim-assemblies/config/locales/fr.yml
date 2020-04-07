@@ -1,3 +1,4 @@
+---
 fr:
   activemodel:
     attributes:
@@ -62,7 +63,9 @@ fr:
         position: Statut
       assembly_user_role:
         email: E-mail
-        name: "Nom\n"
+        name: 'Nom
+
+'
         role: Fonction
   activerecord:
     models:
@@ -208,6 +211,7 @@ fr:
             admin: Administrateur
             collaborator: Collaborateur
             moderator: Modérateur
+            valuator: Valorisateur
       titles:
         assemblies: Assemblées
         assemblies_types: Types d'assemblées
@@ -309,6 +313,7 @@ fr:
         home:
           highlighted_assemblies:
             active_assemblies: Assemblées actives
+            assemblies_button_title: Lien vers la page des assemblées affichant toutes les assemblées
             see_all_assemblies: Voir toutes les assemblées
         user_profile:
           member_of:
@@ -339,6 +344,7 @@ fr:
         related_participatory_processes: Concertations associées
         scope: Périmètre d'application
         social_networks: Réseaux sociaux
+        social_networks_title: Partagez cette assemblée sur
         target: Participants
       statistics:
         answers_count: Réponses
@@ -350,6 +356,7 @@ fr:
         meetings_count: Rencontres
         orders_count: Votes
         pages_count: Pages
+        posts_count: Posts
         projects_count: Projets
         proposals_count: Propositions
         results_count: Réalisations
@@ -361,6 +368,11 @@ fr:
         designated_on: Désigné le
       index:
         title: Membres
+    conferences:
+      pages:
+        home:
+          highlighted_conferences:
+            conferences_button_title: Lien vers la page des conférences affichant toutes les conférences
     help:
       participatory_spaces:
         assemblies:
@@ -380,6 +392,17 @@ fr:
         description: Nombre d'assemblées créées
         object: assemblées
         title: Assemblées
+    pages:
+      home:
+        hero:
+          participate_title: Participer aux processus de la plateforme
+        sub_hero:
+          register_title: Inscrivez-vous pour créer un compte sur la plateforme
+    participatory_processes:
+      pages:
+        home:
+          highlighted_processes:
+            processes_button_title: Lien vers la page des processus affichant tous les processus
   errors:
     messages:
       cannot_be_blank: ne peut être vide

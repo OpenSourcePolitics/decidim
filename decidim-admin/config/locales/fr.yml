@@ -1,3 +1,4 @@
+---
 fr:
   activemodel:
     attributes:
@@ -577,12 +578,20 @@ fr:
           officialized: Validé
           reofficialize: De nouveau validé
           search: Recherchez
+          show_email: Afficher l'adresse électronique
           status: Statut
           unofficialize: Invalider
         new:
           badge: Badge de validation
           officialize: Valider
           title: Valider l'utilisateur "%{name}"
+        show_email_modal:
+          description: Si vous devez contacter directement un participant, vous pouvez cliquer sur le bouton Afficher pour voir l'adresse électronique. Cette action sera enregistrée.
+          email_address: Adresse électronique
+          full_name: Nom et prénom
+          hidden: caché
+          show: Voir
+          title: Afficher l'adresse électronique du participant
       organization:
         edit:
           title: Modifier l'organisation

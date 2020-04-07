@@ -29,8 +29,7 @@ module Decidim
       map_html_options = {
         class: "google-map",
         id: "map",
-        "data-markers-data" => markers_data.to_json,
-        "data-here-api-key" => Decidim.geocoder[:here_api_key]
+        "data-markers-data" => markers_data.to_json
       }
 
       if Decidim.geocoder[:here_api_key]

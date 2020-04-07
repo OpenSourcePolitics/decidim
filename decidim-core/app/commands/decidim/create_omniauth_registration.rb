@@ -78,7 +78,7 @@ module Decidim
           # to be marked confirmed.
           @user.skip_confirmation! if !@user.confirmed? && @user.email == verified_email
         else
-          @user.email = (verified_email || form.email)
+          @user.email = (form.email || verified_email)
           @user.name = form.name
           @user.nickname = form.normalized_nickname
           @user.newsletter_notifications_at = nil
@@ -86,8 +86,8 @@ module Decidim
           @user.password = generated_password
           @user.password_confirmation = generated_password
           @user.remote_avatar_url = form.avatar_url if form.avatar_url.present?
-          @user.skip_confirmation! if verified_email
-          @after_confirmation = true
+          @user.skip_confirmation! unless verified_email != form.email
+          @after_confirmation = (verified_email != form.email)
         end
       end
 

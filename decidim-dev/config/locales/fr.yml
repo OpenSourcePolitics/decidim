@@ -1,3 +1,4 @@
+---
 fr:
   activemodel:
     attributes:
@@ -9,6 +10,12 @@ fr:
         translatable_text: Texte traduisible
         updated_at: Mis à jour à
   decidim:
+    components:
+      dummy:
+        settings:
+          step:
+            endorsements_blocked: Approbations bloquées
+            endorsements_enabled: Approbations autorisées
     dummy:
       admin:
         exports:

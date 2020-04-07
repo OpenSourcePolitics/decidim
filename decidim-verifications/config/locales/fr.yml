@@ -1,3 +1,4 @@
+---
 fr:
   activemodel:
     attributes:
@@ -26,6 +27,18 @@ fr:
   decidim:
     admin:
       menu:
+        authorization_revocation:
+          before_date_info: Utile si la procédure a déjà commencé et que vous souhaitez révoquer les autorisations de la procédure précédente.
+          button: Révoquer tout
+          button_before: Révoquer avant la date
+          destroy:
+            confirm: Les autorisations de révocation avant la date ne peuvent pas être annulées. Êtes-vous sûr de vouloir continuer ?
+            confirm_all: La révocation de toutes les autorisations ne peut pas être annulée. Êtes-vous sûr de vouloir continuer ?
+          destroy_nok: Il y a eu un problème lors de la révocation des autorisations.
+          destroy_ok: Toutes les autorisations correspondantes ont été révoquées avec succès !
+          info: Il y a un total de %{compte} participants vérifiés.
+          no_data: Aucun participant vérifié
+          title: Révocation des vérifications
         authorization_workflows: Vérifications
     admin_log:
       organization:
@@ -46,7 +59,7 @@ fr:
           - Si vous ne pouvez pas voir clairement les informations ou si vous ne pouvez pas les vérifier, vous pouvez rejeter la demande et l'utilisateur sera en mesure de les corriger.
         omniauth:
           help:
-          - Validate with an external OmniAuth account
+          - Confirmer avec un compte OmniAuth externe
         postal_letter:
           help:
           - Les utilisateurs demandent un code de vérification à envoyer à leur adresse.

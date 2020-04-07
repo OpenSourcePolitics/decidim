@@ -1,3 +1,4 @@
+---
 fr:
   activemodel:
     attributes:
@@ -27,6 +28,7 @@ fr:
         scope_type_max_depth_id: Profondeur du filtre
         scopes_enabled: Périmètres d'application activés
         short_description: Résumé
+        show_metrics: Afficher les mesures
         show_statistics: Montrer les statistiques
         slug: Identifiant
         start_date: Date de début
@@ -134,6 +136,7 @@ fr:
             admin: Administrateur
             collaborator: Relecteur
             moderator: Modérateur
+            valuator: Valorisateur
         user:
           fields:
             invitation_accepted_at: Invitation acceptée à
@@ -205,11 +208,13 @@ fr:
         destroy:
           success: Utilisateur supprimé avec succès de cette concertation.
         edit:
+          title: Mise à jour de l'administration du processus participatif
           update: Mettre à jour
         index:
           process_admins_title: Administrateurs de la concertation
         new:
           create: Créer
+          title: Nouvelle administration du processus participatif
         update:
           error: Une erreur s'est produite lors de la mise à jour d'un utilisateur pour cette concertation.
           success: L'utilisateur a été mis à jour avec succès pour cette concertation.
@@ -389,8 +394,10 @@ fr:
         comments_count: Commentaires
         debates_count: Débats
         endorsements_count: Soutiens
+        followers_count: Suiveurs
         headline: Activité
         meetings_count: Rencontres
+        no_stats: Il n'y a pas encore de statistiques.
         orders_count: Votes
         pages_count: Pages
         participants_count: Participants

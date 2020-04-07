@@ -1,3 +1,4 @@
+---
 fr:
   activemodel:
     attributes:
@@ -92,6 +93,7 @@ fr:
             other: "%{count} projets"
         filters:
           category: Catégorie
+          category_prompt: Sélectionnez une catégorie
           scope: Champ d'application
           search: Rechercher
         filters_small_view:
@@ -107,6 +109,12 @@ fr:
             one: projet sélectionné
             other: projets sélectionnés
           view: Voir
+        orders:
+          highest_cost: Coût le plus élevé
+          label: Commander les projets par
+          lowest_cost: Le coût le plus bas
+          most_voted: Les plus votés
+          random: Ordre aléatoire
         project:
           add: Ajouter
           count:
