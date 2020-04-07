@@ -65,7 +65,8 @@ module Decidim::Assemblies
         facebook_handler: "lorem",
         instagram_handler: "lorem",
         youtube_handler: "lorem",
-        github_handler: "lorem"
+        github_handler: "lorem",
+        sort_children: false
       )
     end
     let(:invalid) { false }

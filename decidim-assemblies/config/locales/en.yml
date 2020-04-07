@@ -45,6 +45,7 @@ en:
         short_description: Short description
         show_statistics: Show statistics
         slug: URL slug
+        sort_children: Sort children
         special_features: Special features
         subtitle: Subtitle
         target: Who participates

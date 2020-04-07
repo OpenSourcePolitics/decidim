@@ -46,6 +46,7 @@ module Decidim
         attribute :parent_id, Integer
         attribute :participatory_processes_ids, Array[Integer]
         attribute :scope_id, Integer
+        attribute :sort_children, Boolean
 
         attribute :is_transparent, Boolean
         attribute :promoted, Boolean

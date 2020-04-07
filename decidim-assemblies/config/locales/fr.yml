@@ -45,6 +45,7 @@ fr:
         short_description: Résumé
         show_statistics: Afficher les statistiques
         slug: Identifiant
+        sort_children: Trier les assemblées enfant
         special_features: Particularités
         subtitle: Sous-titre
         target: Qui participe
