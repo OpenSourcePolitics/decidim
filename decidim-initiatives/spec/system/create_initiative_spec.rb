@@ -6,6 +6,16 @@ describe "Initiative", type: :system do
   let(:organization) { create(:organization) }
   let(:authorized_user) { create(:user, :confirmed, organization: organization) }
 
+  shared_examples "initiatives path redirection" do
+    it "redirects to initiatives path" do
+      accept_confirm do
+        click_link("Send my initiative")
+      end
+
+      expect(page).to have_current_path("/initiatives")
+    end
+  end
+
   context "when access to functionality" do
     before do
       switch_to_host(organization.host)
@@ -295,11 +305,14 @@ describe "Initiative", type: :system do
               expect(page).to have_selector "a[data-confirm='Confirm']"
             end
           end
+
+          it_behaves_like "initiatives path redirection"
         end
 
         context "when promoting committee is not enabled" do
           let(:initiative) { build(:initiative, organization: organization, scoped_type: initiative_type_scope) }
           let(:initiative_type_promoting_committee_enabled) { false }
+          let(:initiative_type_minimum_committee_members) { 0 }
 
           it "displays a send to technical validation link" do
             within ".column.actions" do
@@ -307,6 +320,8 @@ describe "Initiative", type: :system do
               expect(page).to have_selector "a[data-confirm='Confirm']"
             end
           end
+
+          it_behaves_like "initiatives path redirection"
         end
       end
     end
