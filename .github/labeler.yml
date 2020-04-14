@@ -32,8 +32,6 @@ initiatives: decidim-initiatives/*
 
 meetings: decidim-meetings/*
 
-initiatives: decidim-initiatives/*
-
 pages: decidim-pages/*
 
 participatory_processes: decidim-participatory_processes/*
