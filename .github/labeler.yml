@@ -1,0 +1,53 @@
+chores:
+  - .circleci/*
+  - .github/*
+
+accountability: decidim-accountability/*
+
+admin: decidim-admin/*
+
+api: decidim-api/*
+
+assemblies: decidim-assemblies/*
+
+blogs: decidim-blogs/*
+
+budgets: decidim-budgets/*
+
+comments: decidim-comments/*
+
+conferences: decidim-conferences/*
+
+consultations: decidim-consultations/*
+
+debates: decidim-debates/*
+
+dev: decidim-dev/*
+
+forms: decidim-forms/*
+
+generators: decidim-generators/*
+
+initiatives: decidim-initiatives/*
+
+meetings: decidim-meetings/*
+
+pages: decidim-pages/*
+
+participatory_processes: decidim-participatory_processes/*
+
+proposals: decidim-proposals/*
+
+sortitions: decidim-sortitions/*
+
+surveys: decidim-surveys/*
+
+system: decidim-system/*
+
+verifications: decidim-verifications/*
+
+docs: docs/*
+
+lib: lib/*
+
+spec: spec/*

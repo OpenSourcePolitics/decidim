@@ -10,7 +10,9 @@
       </div>
     </div>
     <div id="activities" class="columns mediumlarge-8 large-9">
-      <%= render partial: "activities" %>
+      <% cache Digest::MD5.hexdigest(activities.map(&:updated_at).to_s) do %>
+        <%= render partial: "activities" %>
+      <% end %>
     </div>
   </div>
 </div>
