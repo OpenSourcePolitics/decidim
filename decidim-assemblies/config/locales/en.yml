@@ -352,6 +352,9 @@ en:
         description: Number of assemblies created
         object: assemblies
         title: Assemblies
+    participatory_processes:
+      show:
+        related_assemblies: Related assemblies
   errors:
     messages:
       cannot_be_blank: can not be blank
