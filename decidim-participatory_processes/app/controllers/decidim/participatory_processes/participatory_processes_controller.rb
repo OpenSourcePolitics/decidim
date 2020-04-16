@@ -20,9 +20,9 @@ module Decidim
 
       def participatory_process_assemblies
         @participatory_process_assemblies ||=
-            current_participatory_space
-                .linked_participatory_space_resources(:assembly, "included_participatory_processes")
-                .published
+          current_participatory_space
+          .linked_participatory_space_resources(:assembly, "included_participatory_processes")
+          .published
       end
 
       def show
