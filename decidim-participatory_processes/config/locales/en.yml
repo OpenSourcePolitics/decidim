@@ -295,6 +295,9 @@ en:
         metrics:
           headline: Participation in figures
           link: Show all statistics
+    participatory_process:
+      show:
+        related_assemblies: Related assemblies
     participatory_process_groups:
       show:
         group_participatory_processes:
