@@ -52,6 +52,17 @@ module Decidim
           processes.public_spaces.count.to_s
         end
       end
+
+      def linked_assemblies
+        model.participatory_processes
+            .first
+            .linked_participatory_space_resources(:assembly, "included_participatory_processes")
+            .published
+      end
+
+      def decidim_assemblies
+        Decidim::Assemblies::Engine.routes.url_helpers
+      end
     end
   end
 end
