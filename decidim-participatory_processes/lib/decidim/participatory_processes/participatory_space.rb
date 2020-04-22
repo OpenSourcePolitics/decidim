@@ -3,6 +3,7 @@
 Decidim.register_participatory_space(:participatory_processes) do |participatory_space|
   participatory_space.icon = "decidim/participatory_processes/process.svg"
   participatory_space.model_class_name = "Decidim::ParticipatoryProcess"
+  participatory_space.stylesheet = "decidim/participatory_processes/participatory_processes"
 
   participatory_space.participatory_spaces do |organization|
     Decidim::ParticipatoryProcesses::OrganizationParticipatoryProcesses.new(organization).query

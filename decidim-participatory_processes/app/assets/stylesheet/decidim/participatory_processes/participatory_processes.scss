@@ -1,0 +1,10 @@
+.linked_assemblies {
+  text-align: center;
+
+  .linked_assembly {
+    display: inline-block;
+    font-size: .8rem;
+    color: $secondary;
+    margin-bottom: 0.8rem;
+  }
+}

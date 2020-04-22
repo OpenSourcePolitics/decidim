@@ -9,9 +9,20 @@
             <article class="card card--process card--mini">
               <%= link_to decidim_participatory_processes.participatory_process_path(process), class: "card__link" do %>
                 <div class="card__image-top"
-                  style="background-image:url(<%= process.hero_image.url %>)"></div>
+                     style="background-image:url(<%= process.hero_image.url %>)"></div>
               <% end %>
               <div class="card__content">
+
+                <% if linked_assemblies_for(process).present? %>
+                  <div class="linked_assemblies">
+                    <% linked_assemblies_for(process).each do |assembly| %>
+                      <%= link_to decidim_assemblies.assembly_path(assembly), class: "linked_assembly" do %>
+                        <%= translated_attribute(assembly.title) %>
+                      <% end %>
+                    <% end %>
+                  </div>
+                <% end %>
+
                 <%= link_to decidim_participatory_processes.participatory_process_path(process), class: "card__link" do %>
                   <h4 class="card__title"><%= translated_attribute process.title %></h4>
                 <% end %>

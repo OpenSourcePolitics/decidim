@@ -32,12 +32,21 @@ module Decidim
           ).query.limit(max_results)
         end
 
+        def linked_assemblies_for(process)
+          process.linked_participatory_space_resources(:assembly, "included_participatory_processes")
+              .published
+        end
+
         def i18n_scope
           "decidim.participatory_processes.pages.home.highlighted_processes"
         end
 
         def decidim_participatory_processes
           Decidim::ParticipatoryProcesses::Engine.routes.url_helpers
+        end
+
+        def decidim_assemblies
+          Decidim::Assemblies::Engine.routes.url_helpers
         end
       end
     end
