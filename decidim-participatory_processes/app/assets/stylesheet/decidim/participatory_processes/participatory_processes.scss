@@ -1,4 +1,6 @@
 .linked_assemblies {
+  display: flex;
+  flex-direction: column;
   text-align: center;
 
   .linked_assembly {

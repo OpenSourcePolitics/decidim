@@ -2,6 +2,16 @@
   <div class="row collapse card--process__row">
     <div class="columns mediumlarge-8 large-6 card--process__column">
       <div class="card__content">
+        <% if linked_assemblies_for(promoted_process).present? %>
+          <div class="linked_assemblies">
+            <% linked_assemblies_for(promoted_process).each do |assembly| %>
+              <%= link_to decidim_assemblies.assembly_path(assembly), class: "linked_assembly" do %>
+                <%= translated_attribute(assembly.title) %>
+              <% end %>
+            <% end %>
+          </div>
+        <% end %>
+
         <%= link_to participatory_process_path(promoted_process), class: "card__link" do %>
           <h2 class="card__title"><%= translated_attribute promoted_process.title %></h2>
         <% end %>
