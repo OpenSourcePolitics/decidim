@@ -19,6 +19,16 @@
             <% end %>
             <%= translated_attribute(current_participatory_space.subtitle) %>
           </h2>
+
+          <% if linked_assemblies_for(current_participatory_space).present? %>
+            <div class="linked_assemblies">
+              <% linked_assemblies_for(current_participatory_space).each do |assembly| %>
+                <%= link_to decidim_assemblies.assembly_path(assembly), class: "linked_assembly" do %>
+                  <%= translated_attribute(assembly.title) %>
+                <% end %>
+              <% end %>
+            </div>
+          <% end %>
         </div>
       </div>
       <%= render partial: "layouts/decidim/process_header_steps", locals: { participatory_process: current_participatory_space } %>
