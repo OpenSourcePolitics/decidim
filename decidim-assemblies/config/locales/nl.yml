@@ -1,3 +1,4 @@
+---
 nl:
   activemodel:
     attributes:
@@ -269,6 +270,7 @@ nl:
         executive: Uitvoerend
         government: Regering
         help: 'Toon:'
+        label: 'Show:'
         others: Overige
         participatory: Participatief
         working_group: Werkgroep

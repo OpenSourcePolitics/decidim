@@ -1,3 +1,4 @@
+---
 nl:
   activemodel:
     attributes:
@@ -8,6 +9,8 @@ nl:
         description: Beschrijving
         proposal_ids: Verwante voorstellen
         title: Titel
+    models:
+      decidim/budgets/decidim_events_budgets_reminder_order: Reminder order event
   activerecord:
     errors:
       messages:
@@ -92,6 +95,8 @@ nl:
             description: Je hebt al voor de begroting gestemd. Als u van mening bent, kunt u %{cancel_link}.
             title: Begrotingsstemming voltooid
           description: Voor welke projecten vindt u dat we een budget moeten vrijmaken? Geef ten minste %{minimum_budget} toe aan de projecten die u wilt en stem met uw voorkeuren om het budget te definiëren.
+          description_per_budget: What projects do you think we should allocate budget for? Assign at least %{minimum_budget} to the projects you want and vote with your preferences to define the budget.
+          description_per_project: To which projects do you think we should allocate a budget? Choose %{minimum_project} projects and validate your vote. Attention, all votes are irrevocable.
           title: U bepaalt het budget
         count:
           projects_count:
@@ -156,6 +161,7 @@ nl:
           global:
             announcement: Aankondiging
             comments_enabled: Reacties ingeschakeld
+            comments_max_length: Comments max length
             geocoding_enabled: Geocoding enabled
             projects_per_page: Projecten per pagina
             resources_permissions_enabled: Actiemachtigingen kunnen voor elke vergadering worden ingesteld
@@ -176,6 +182,11 @@ nl:
           email_outro: Thank you for your participation
           email_subject: Your vote has been validated
           notification_title: Your vote has been validated
+        reminder_order:
+          email_intro: 'A vote is still pending! You can always continue by clicking here: <a href=''%{resource_url}''>%{participatory_space_title}</a>'
+          email_outro: Thank you for your participation
+          email_subject: A vote is still pending on %{participatory_space_title}
+          notification_title: 'A vote is still pending! You can always continue by clicking here: <a href=''%{resource_url}''>%{participatory_space_title}</a>'
     orders:
       checkout:
         error: Er is een fout opgetreden tijdens het verwerken van uw stem
