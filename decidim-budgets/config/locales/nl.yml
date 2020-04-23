@@ -1,3 +1,4 @@
+---
 nl:
   activemodel:
     attributes:
@@ -92,6 +93,8 @@ nl:
             other: "%{count} projecten"
         filters:
           category: Categorie
+          category_prompt: Select a category
+          scope: Scope
           search: Zoeken
         filters_small_view:
           close_modal: Dialoogvenster sluiten
@@ -106,6 +109,12 @@ nl:
             one: Geselecteerd project
             other: Geselecteerde projecten
           view: Bekijk
+        orders:
+          highest_cost: Highest cost
+          label: Order projects by
+          lowest_cost: Lowest cost
+          most_voted: Most voted
+          random: Random order
         project:
           add: Toevoegen
           count:
