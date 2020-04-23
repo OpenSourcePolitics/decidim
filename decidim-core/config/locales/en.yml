@@ -1,4 +1,5 @@
 ---
+
 en:
   activemodel:
     attributes:
@@ -316,6 +317,34 @@ en:
     datepicker:
       help_text: 'Expected format: %{datepicker_format}'
     devise:
+      invitations:
+        edit:
+          underage: Underage
+          residential_area: Residential area
+          statutory_representative_email: Statutory representative email
+          work_area: Work area
+          prompt: Please select
+          gender_label: Gender
+          birth_date: Birth date
+          gender:
+            male: Male
+            female: Female
+            other: Other
+          year_label: Year
+          month_label: Month
+          month_name:
+            january: January
+            february: February
+            march: March
+            april: April
+            may: May
+            june: June
+            july: July
+            august: August
+            september: September
+            october: October
+            november: November
+            december: December
       omniauth_registrations:
         create:
           email_already_exists: Another account is using the same email address

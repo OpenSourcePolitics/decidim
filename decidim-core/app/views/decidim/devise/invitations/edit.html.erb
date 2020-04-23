@@ -1,80 +1,142 @@
 <main class="wrapper">
-<div class="row collapse">
   <div class="row collapse">
-    <div class="columns large-8 large-centered text-center page-title">
-      <h1><%= t "devise.invitations.edit.header" %></h1>
+    <div class="row collapse">
+      <div class="columns large-8 large-centered text-center page-title">
+        <h1><%= t "devise.invitations.edit.header" %></h1>
 
-      <p><%= t("devise.invitations.edit.subtitle").html_safe %></p>
+        <p><%= t("devise.invitations.edit.subtitle").html_safe %></p>
+      </div>
     </div>
-  </div>
 
-  <div class="row">
-    <div class="columns large-6 medium-10 medium-centered">
-      <%= decidim_form_for resource, as: resource_name, url: invitation_path(resource_name, invite_redirect: params[:invite_redirect]), html: { method: :put, class: "register-form new_user" } do |f| %>
-        <div class="card">
-          <div class="card__content">
-            <legend><%= t("sign_up_as.legend", scope: "decidim.devise.registrations.new") %></legend>
+    <div class="row">
+      <div class="columns large-6 medium-10 medium-centered">
+        <%= decidim_form_for resource, as: resource_name, url: invitation_path(resource_name, invite_redirect: params[:invite_redirect]), html: { method: :put, class: "register-form new_user" } do |f| %>
+          <div class="card">
+            <div class="card__content">
+              <legend><%= t("sign_up_as.legend", scope: "decidim.devise.registrations.new") %></legend>
 
-            <%= f.hidden_field :invitation_token %>
+              <%= f.hidden_field :invitation_token %>
 
-            <div class="field">
-              <%= f.text_field :nickname, help_text: t("devise.invitations.edit.nickname_help", organization: current_organization.name), required: "required" %>
-            </div>
-
-            <% if f.object.class.require_password_on_accepting %>
               <div class="field">
-                <%= f.password_field :password, help_text: t("devise.shared.password_help"), required: "required" %></p>
+                <%= f.text_field :nickname, help_text: t("devise.invitations.edit.nickname_help", organization: current_organization.name), required: "required" %>
               </div>
 
               <div class="field">
-                <%= f.password_field :password_confirmation, required: "required" %></p>
-              </div>
-            <% end %>
-          </div>
-        </div>
-
-        <div class="card" id="card__tos">
-          <div class="card__content">
-            <legend>
-              <%= t("tos_title", scope: "decidim.devise.registrations.new") %>
-            </legend>
-
-            <p class="tos-text">
-              <%= strip_tags(translated_attribute(terms_and_conditions_page.content)) %>
-            </p>
-
-            <div class="field">
-              <% link = link_to t("terms", scope: "decidim.devise.registrations.new"), page_path("terms-and-conditions"), target: "_blank" %>
-              <% label = t("tos_agreement", scope: "decidim.devise.registrations.new", link: link) %>
-              <%= f.check_box :tos_agreement, label: label, required: "required" %>
-            </div>
-          </div>
-        </div>
-
-        <div class="card" id="card__newsletter">
-          <div class="card__content">
-            <legend><%= t("newsletter_title", scope: "decidim.devise.registrations.new") %></legend>
-            <fieldset>
-              <div class="field">
-                <%= label_tag :"#{resource_name}[newsletter_notifications]" do %>
-                  <%= check_box_tag :"#{resource_name}[newsletter_notifications]" %>
-                  <%= t("newsletter", scope: "decidim.devise.registrations.new") %>
+                <%= label_tag "#{resource_name}[registration_metadata][residential_area]" do %>
+                  <%= t(".residential_area") %>
+                  <%= select_tag "#{resource_name}[registration_metadata][residential_area]",
+                                 options_for_select(residential_area_for_select.map { |residential_area| [translated_attribute(residential_area.name), residential_area.id.to_s] }),
+                                 prompt: t(".prompt") %>
                 <% end %>
               </div>
-            </fieldset>
-          </div>
-        </div>
 
-        <div class="card">
-          <div class="card__content">
-            <div class="actions">
-              <%= f.submit t("devise.invitations.edit.submit_button"), class: "button expanded" %>
+              <div class="field">
+                <%= label_tag "#{resource_name}[registration_metadata][work_area]" do %>
+                  <%= t(".work_area") %>
+                  <%= select_tag "#{resource_name}[registration_metadata][work_area]",
+                                 options_for_select(work_area_for_select.map { |work_area| [translated_attribute(work_area.name), work_area.id.to_s] }),
+                                 prompt: t(".prompt") %>
+                <% end %>
+              </div>
+
+              <div class="field">
+                <%= label_tag "#{resource_name}[registration_metadata][gender]" do %>
+                  <%= t(".gender_label") %>
+                  <%= select_tag "#{resource_name}[registration_metadata][gender]",
+                                 options_for_select(gender_types_for_select),
+                                 prompt: t(".prompt") %>
+                <% end %>
+              </div>
+
+              <div class="field">
+                <%= f.label t(".birth_date") %>
+                <div class="row">
+                  <div class="columns large-6 small-12">
+                    <%= label_tag "#{resource_name}[registration_metadata][gender][month]" do %>
+                      <%= label_tag t(".month_label") %>
+                      <%= select_tag "#{resource_name}[registration_metadata][birth_date][month]",
+                                     options_for_select(month_names_for_select),
+                                     prompt: t(".prompt") %>
+                    <% end %>
+                  </div>
+                  <div class="columns large-6 small-12">
+                    <%= label_tag "#{resource_name}[registration_metadata][birth_date][year]" do %>
+                      <%= label_tag t(".year_label") %>
+                      <%= select_tag "#{resource_name}[registration_metadata][birth_date][year]",
+                                     options_for_select(year_for_select),
+                                     prompt: t(".prompt") %>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+
+              <div class="field">
+                <%= label_tag "#{resource_name}[registration_metadata][underage]" do %>
+                  <%= check_box_tag "#{resource_name}[registration_metadata][underage]", value = "1", checked = false, id: "underage_registration" %>
+                  <%= t(".underage") %>
+                <% end %>
+              </div>
+              <div class="field hide" id="statutory_representative_email">
+                <%= label_tag "#{resource_name}[registration_metadata][statutory_representative_email]" do %>
+                  <%= t(".statutory_representative_email") %>
+                  <%= email_field_tag "#{resource_name}[registration_metadata][statutory_representative_email]" %>
+                <% end %>
+              </div>
+
+              <% if f.object.class.require_password_on_accepting %>
+                <div class="field">
+                  <%= f.password_field :password, help_text: t("devise.shared.password_help"), required: "required" %></p>
+                </div>
+
+                <div class="field">
+                  <%= f.password_field :password_confirmation, required: "required" %></p>
+                </div>
+              <% end %>
             </div>
           </div>
-        </div>
 
-      <% end %>
+          <div class="card" id="card__tos">
+            <div class="card__content">
+              <legend>
+                <%= t("tos_title", scope: "decidim.devise.registrations.new") %>
+              </legend>
+
+              <p class="tos-text">
+                <%= strip_tags(translated_attribute(terms_and_conditions_page.content)) %>
+              </p>
+
+              <div class="field">
+                <% link = link_to t("terms", scope: "decidim.devise.registrations.new"), page_path("terms-and-conditions"), target: "_blank" %>
+                <% label = t("tos_agreement", scope: "decidim.devise.registrations.new", link: link) %>
+                <%= f.check_box :tos_agreement, label: label, required: "required" %>
+              </div>
+            </div>
+          </div>
+
+          <div class="card" id="card__newsletter">
+            <div class="card__content">
+              <legend><%= t("newsletter_title", scope: "decidim.devise.registrations.new") %></legend>
+              <fieldset>
+                <div class="field">
+                  <%= label_tag :"#{resource_name}[newsletter_notifications]" do %>
+                    <%= check_box_tag :"#{resource_name}[newsletter_notifications]" %>
+                    <%= t("newsletter", scope: "decidim.devise.registrations.new") %>
+                  <% end %>
+                </div>
+              </fieldset>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card__content">
+              <div class="actions">
+                <%= f.submit t("devise.invitations.edit.submit_button"), class: "button expanded" %>
+              </div>
+            </div>
+          </div>
+
+        <% end %>
+      </div>
     </div>
   </div>
-</div>
 </main>

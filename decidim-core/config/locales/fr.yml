@@ -1,4 +1,5 @@
 ---
+
 fr:
   activemodel:
     attributes:
@@ -315,6 +316,34 @@ fr:
     datepicker:
       help_text: 'Format attendu : %{datepicker_format}'
     devise:
+      invitations:
+        edit:
+          underage: Change me at decidim.devise.invitations.edit.underage
+          residential_area: Change me at decidim.devise.invitations.edit.residential_area
+          statutory_representative_email: Change me at decidim.devise.invitations.edit.statutory_representative_email
+          work_area: Change me at decidim.devise.invitations.edit.work_area
+          gender_label: Change me at decidim.devise.invitations.edit.gender_label
+          prompt: Change me at decidim.devise.invitations.edit.prompt
+          gender:
+            male: Change me at decidim.devise.invitations.edit.gender.male
+            female: Change me at decidim.devise.invitations.new.gender.female
+            other: Change me at decidim.devise.invitations.new.gender.other
+          birth_date: Change me at decidim.devise.invitations.edit.birth_date
+          year_label: Change me at decidim.devise.invitations.edit.year_label
+          month_label: Change me at decidim.devise.invitations.edit.month_label
+          month_name:
+            january: Change me at decidim.devise.invitations.edit.month_name.january
+            february: Change me at decidim.devise.invitations.edit.month_name.january
+            march: Change me at decidim.devise.invitations.edit.month_name.january
+            april: Change me at decidim.devise.invitations.edit.month_name.january
+            may: Change me at decidim.devise.invitations.edit.month_name.january
+            june: Change me at decidim.devise.invitations.edit.month_name.january
+            july: Change me at decidim.devise.invitations.edit.month_name.january
+            august: Change me at decidim.devise.invitations.edit.month_name.january
+            september: Change me at decidim.devise.invitations.edit.month_name.january
+            october: Change me at decidim.devise.invitations.edit.month_name.january
+            november: Change me at decidim.devise.invitations.edit.month_name.january
+            december: Change me at decidim.devise.invitations.edit.month_name.january
       omniauth_registrations:
         create:
           email_already_exists: Un autre compte utilise la même adresse email
