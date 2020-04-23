@@ -30,7 +30,7 @@ module Decidim
 
       def linked_assemblies_for(process)
         process.linked_participatory_space_resources(:assembly, "included_participatory_processes")
-            .published
+               .published
       end
 
       def search_klass
