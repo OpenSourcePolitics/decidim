@@ -6,7 +6,6 @@ fr:
         delete_reason: Pour quelle(s) raison(s) supprimez-vous votre compte ?
       group:
         about: A propos
-        avatar: Avatar
         document_number: Numéro de document
         email: Courriel
         name: Nom
@@ -64,6 +63,9 @@ fr:
     errors:
       general: Image de traitement des erreurs
       image_too_big: L'image est trop grande
+  comments:
+    translate: Translate
+    translated: Translated
   date:
     formats:
       decidim_short: "%d/%m/%Y"
@@ -1007,7 +1009,6 @@ fr:
       create:
         error: Il y a eu un problème lors de l'action d'approbation.
     scopes:
-      global: Portée générale
       picker:
         cancel: Annuler
         choose: Sélectionner
@@ -1269,6 +1270,7 @@ fr:
       not_saved:
         one: Une erreur est survenue pendant le traitement de votre requête.
         other: Plusieurs erreurs sont survenues pendant le traitement de votre requête.
+      taken: Taken
       too_many_marks: utilise trop de signes de ponctuation consécutifs (par exemple! et?)
       too_much_caps: utilise trop de lettres majuscules (plus de 25% du texte)
       too_short: est trop court (moins de 15 caractères)

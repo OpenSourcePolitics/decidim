@@ -97,6 +97,7 @@ fr:
             dummy_authorization_workflow: Vérifiez par rapport à l'exemple de procédure d'autorisation
             id_documents: Vérifiez votre identité en téléchargeant votre document d'identité
             postal_letter: Vérifiez votre identité en recevant un code de vérification par courrier postal
+            sms: sms
           title: Vérifier votre Identité
           verify_with_these_options: 'Voici les options disponibles pour vérifier votre identité :'
         new:

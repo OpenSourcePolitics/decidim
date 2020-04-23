@@ -344,10 +344,10 @@ nl:
           back_to_initiatives: Terug naar initiatieven
           callout_text: Proficiat! Je burgerinitiatief is aangemaakt.
           confirm: Confirm
-          edit_my_initiative: Edit my initiatives
+          edit_my_initiative: Mijn petitie bewerken
           go_to_my_initiatives: Ga naar mijn initiatieven
           more_information: "(Meer informatie)"
-          send_my_initiative: Send my initiative
+          send_my_initiative: Stuur mijn petitie naar de technische validatie
         finish_help:
           access_reminder: Vergeet niet dat je altijd toegang hebt tot je initiatieven
             via het gebruikersmenu.
@@ -592,7 +592,7 @@ nl:
         back: Terug
         fill_data: creëren
         finish: Voltooien
-        previous_form: Begin
+        previous_form: Maak een petitie aan
         promotal_committee: Promotieraad
         select_initiative_type: Kiezen
         show_similar_initiatives: Vergelijken
