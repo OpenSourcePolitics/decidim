@@ -1,10 +1,14 @@
+---
 nl:
   activemodel:
     attributes:
+      group:
+        avatar: Avatar
       initiative:
         decidim_user_group_id: Auteur
         description: Beschrijving
         offline_votes: Face-to-face handtekeningen
+        offline_votes_for_scope: In-person signatures for %{scope}
         scope_id: Bereik
         signature_end_date: Einde van de periode om handtekeningen te verzamelen
         signature_start_date: Begin van de periode voor het verzamelen van handtekeningen
@@ -27,12 +31,15 @@ nl:
         user: Commissielid
       initiatives_type:
         banner_image: Banner afbeelding
+        child_scope_threshold_enabled: Enable child scope signatures
         collect_user_extra_fields: Persoonlijke gebruikersgegevens verzamelen bij ondertekening
+        comments_enabled: Enable comments
         description: Beschrijving
         document_number_authorization_handler: Autorisatie om documentnummer op handtekeningen te verifiëren
         extra_fields_legal_information: Juridische informatie over het verzamelen van persoonlijke gegevens
         minimum_committee_members: Minimaal aantal commissieleden
         online_signature_enabled: Online handtekening ingeschakeld
+        only_global_scope_enabled: Only allow global scope initiatives creation
         promoting_committee_enabled: Inschakelen bevorderingscommissie
         title: Titel
         undo_online_signatures_enabled: Gebruikers in staat stellen hun online handtekeningen ongedaan te maken
@@ -46,6 +53,14 @@ nl:
         address: Adres
         id_document: Identiteitsbewijs
         name: Volledige naam
+    errors:
+      models:
+        initiative:
+          attributes:
+            attachment:
+              file: File is invalid
+              needs_to_be_reattached: Needs to be reattached
+              title: Title shouldn't be empty
   activerecord:
     models:
       decidim/initiative:
@@ -60,10 +75,24 @@ nl:
   decidim:
     admin:
       actions:
+        configure: Configure
+        confirm_destroy: Confirm destroy
+        destroy: Destroy
+        new: New
         new_initiative_type: Nieuw initiatiefstype
+        publish: Publish
+        unpublish: Unpublish
+      filters:
+        search_placeholder:
+          title_or_description_cont: Search %{collection} by title or description.
+        state_eq:
+          values:
+            validating: Technical validation
       menu:
         initiatives: initiatieven
         initiatives_types: Initiatieftypes
+        participatory_processes_submenu:
+          moderations: Moderations
       models:
         initiatives:
           fields:
@@ -94,6 +123,7 @@ nl:
             initiative_title: Titel van het initiatief
             name_and_surname: Naam en achternaam
             postal_code: Postcode
+            scope: Scope
             time_and_date: Tijd en datum
             timestamp: tijdstempel
       titles:
@@ -121,8 +151,8 @@ nl:
       badges:
         initiatives:
           conditions:
-            - Ga naar de participatieruimte van Intiatieven
-            - Volg de stappen om een ​​nieuw initiatief te maken
+          - Ga naar de participatieruimte van Intiatieven
+          - Volg de stappen om een ​​nieuw initiatief te maken
           description: Deze badge wordt toegekend wanneer u nieuwe initiatieven start en samenwerkt met anderen om ze uit te voeren.
           description_another: Deze gebruiker heeft %{score} initiatieven gepubliceerd.
           description_own: Je hebt %{score} initiatieven gepubliceerd.
@@ -178,6 +208,11 @@ nl:
             actions_title: Actie
             preview: Voorbeeld
             print: Afdrukken
+          initiative_attachments:
+            documents: Documents
+            edit: Edit
+            new: New
+            photos: Photos
           show:
             print: Afdrukken
           update:
@@ -213,6 +248,8 @@ nl:
             destroy: Verwijder
             update: Bijwerken
           form:
+            authorizations: Authorization settings
+            options: Options
             title: Algemene informatie
           initiative_type_scopes:
             title: Scopes voor het initiatieftype
@@ -256,8 +293,11 @@ nl:
           back: Terug
           back_to_initiatives: Terug naar initiatieven
           callout_text: Proficiat! Je burgerinitiatief is aangemaakt.
+          confirm: Confirm
+          edit_my_initiative: Mijn petitie bewerken
           go_to_my_initiatives: Ga naar mijn initiatieven
           more_information: "(Meer informatie)"
+          send_my_initiative: Stuur mijn petitie naar de technische validatie
         finish_help:
           access_reminder: Vergeet niet dat je altijd toegang hebt tot je initiatieven via het gebruikersmenu.
           help_for_organizations: Als u een vereniging bent, moet u de notulen van het directiecomité uploaden van alle organisaties die de promotieraad vormen
@@ -419,17 +459,31 @@ nl:
           highlighted_initiatives:
             active_initiatives: Actieve initiatieven
             see_all_initiatives: Bekijk alle initiatieven
+      state:
+        accepted: Accepted
+        created: Created
+        discarded: Discarded
+        published: Published
+        rejected: Rejected
+        validating: Technical validation
       states:
         accepted: Aanvaard
         expired: Vervallen
       unavailable_scope: Niet beschikbaar bereik
     menu:
       initiatives: initiatieven
+    proposals:
+      proposals:
+        edit:
+          attachment_legend: Attachment legend
     resources:
       initiatives_type:
         actions:
+          create: Create initiative
           title: acties
           vote: Onderteken
+    scopes:
+      global: Global
   layouts:
     decidim:
       admin:
@@ -442,7 +496,7 @@ nl:
         back: Terug
         fill_data: creëren
         finish: Voltooien
-        previous_form: Begin
+        previous_form: Maak een petitie aan
         promotal_committee: Promotieraad
         select_initiative_type: Kiezen
         show_similar_initiatives: Vergelijken
@@ -450,6 +504,8 @@ nl:
         title: Maak nieuw initiatief
       initiative_header:
         initiative_menu_item: Initiatief
+      initiative_header_steps:
+        description: Signature period between
       initiative_signature_creation_header:
         back: Terug
         fill_personal_data: Vul uw gegevens in

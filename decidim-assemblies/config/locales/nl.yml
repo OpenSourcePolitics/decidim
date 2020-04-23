@@ -1,3 +1,4 @@
+---
 nl:
   activemodel:
     attributes:
@@ -16,6 +17,7 @@ nl:
         created_by_other: Aangemaakt door iemand anders
         creation_date: Gemaakt op
         decidim_area_id: onderwerp
+        decidim_assemblies_type_id: Assembly type
         decidim_scope_id: Bereik
         description: Beschrijving
         developer_group: Organisator
@@ -78,6 +80,7 @@ nl:
     admin:
       actions:
         new_assembly: Nieuwe groep
+        new_assembly_type: New assembly type
       assemblies:
         create:
           error: Er is een fout opgetreden bij het maken van een nieuwe groep.
@@ -100,8 +103,17 @@ nl:
           error: Er was een fout bij het dupliceren van deze groep.
           success: Groep succesvol gedupliceerd.
       assemblies_types:
+        create:
+          error: There was a problem creating a new assembly type.
+          success: Assembly type created successfully.
+        destroy:
+          success: Assembly type successfully deleted.
         new:
           create: Aanmaken
+          title: New assembly type
+        update:
+          error: There was a problem updating this assembly type.
+          success: Assembly type successfully updated.
       assembly_copies:
         new:
           copy: Kopiëren
@@ -161,6 +173,7 @@ nl:
           info: Info
           moderations: Moderaties
           private_users: Particuliere gebruikers
+        assemblies_types: Assemblies types
       models:
         assemblies_types:
           fields:
@@ -196,6 +209,7 @@ nl:
             admin: Beheerder
             collaborator: Medewerker
             moderator: Moderator
+            valuator: Valuator
       titles:
         assemblies: Groepen
         assemblies_types: Groepstype
@@ -297,6 +311,7 @@ nl:
         home:
           highlighted_assemblies:
             active_assemblies: Huidige events
+            assemblies_button_title: Link to the Assemblies page displaying all the assemblies
             see_all_assemblies: Bekijk alle events
         user_profile:
           member_of:
@@ -327,6 +342,7 @@ nl:
         related_participatory_processes: Verwante inspraakprocessen
         scope: Scope
         social_networks: Sociale netwerken
+        social_networks_title: Share this assembly on
         target: Wie doet mee
       statistics:
         answers_count: Antwoorden
@@ -338,6 +354,7 @@ nl:
         meetings_count: Events
         orders_count: Ondersteunt
         pages_count: Pagina's
+        posts_count: Posts
         projects_count: Projecten
         proposals_count: Voorstellen
         results_count: Resultaten
@@ -349,6 +366,11 @@ nl:
         designated_on: Aangewezen op
       index:
         title: Leden
+    conferences:
+      pages:
+        home:
+          highlighted_conferences:
+            conferences_button_title: Link to the Conferences page displaying all the conferences
     help:
       participatory_spaces:
         assemblies:
@@ -368,6 +390,17 @@ nl:
         description: Aantal aangemaakte groepen
         object: groepen
         title: Groepen
+    pages:
+      home:
+        hero:
+          participate_title: Participate to the platform's processes
+        sub_hero:
+          register_title: Sign up to create an account on the platform
+    participatory_processes:
+      pages:
+        home:
+          highlighted_processes:
+            processes_button_title: Link to the Processes page displaying all the processes
   errors:
     messages:
       cannot_be_blank: mag niet leeg zijn

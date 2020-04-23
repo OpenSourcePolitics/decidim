@@ -1,3 +1,4 @@
+---
 nl:
   activemodel:
     attributes:
@@ -143,7 +144,7 @@ nl:
         browse: Browsen
         export: Exporteren
         manage: Beheer
-        new: Nieuwe %{name}
+        per_page: Per page
         permissions: Permissies
         reject: Weigeren
         verify: Verifiëren
@@ -292,6 +293,39 @@ nl:
       exports:
         export_as: "%{name} als %{export_format}"
         notice: Uw export is momenteel aan de gang. U ontvangt een email wanneer het klaar is.
+      filters:
+        category_id_eq:
+          label: Category
+        filter_label: Filter
+        officialized_at_null:
+          label: State
+          values:
+            'false': Officialized
+            'true': Not officialized
+        private_space_eq:
+          label: Private
+          values:
+            'false': Public
+            'true': Private
+        published_at_null:
+          label: Published
+          values:
+            'false': Published
+            'true': Unpublished
+        scope_id_eq:
+          label: Scope
+        search_label: Search
+        search_placeholder:
+          name_or_nickname_or_email_cont: Search %{collection} by email, name or nickname.
+          title_cont: Search %{collection} by title.
+        state_eq:
+          label: State
+          values:
+            accepted: Accepted
+            created: Created
+            discarded: Discarded
+            published: Published
+            rejected: Rejected
       help_sections:
         error: Er is een fout opgetreden bij het bijwerken van de Help-gedeelten
         form:
@@ -531,18 +565,34 @@ nl:
           actions: acties
           badge: badge
           created_at: Aangemaakt op
+          filter:
+            all: All
+            not_officialized: Not validated
+            officialized: Validated
+          filter_by: Filter by
           name: Naam
           nickname: Gebruikersnaam
           not_officialized: Niet gevalideerd
-          officialize: "Valideren\n"
+          officialize: 'Valideren
+
+'
           officialized: Gevalideerd
           reofficialize: Hervalideren
+          search: Search
+          show_email: Show email address
           status: status
           unofficialize: Ingetrokken
         new:
           badge: Bevestigings badge
           officialize: Bevestigen
           title: Deelnemer "%{name}" officieel maken
+        show_email_modal:
+          description: If you need to contact a participant directly you can click on the Show button to see the email address. This action will be logged.
+          email_address: Email address
+          full_name: Full name
+          hidden: hidden
+          show: Show
+          title: Show participant email address
       organization:
         edit:
           title: Organisatie bewerken

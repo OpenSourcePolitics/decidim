@@ -2,6 +2,8 @@
 fr:
   activemodel:
     attributes:
+      group:
+        avatar: Avatar
       initiative:
         decidim_user_group_id: Auteur
         description: Description
@@ -51,6 +53,14 @@ fr:
         address: Adresse
         id_document: Document d'identité
         name: Nom complet
+    errors:
+      models:
+        initiative:
+          attributes:
+            attachment:
+              file: File is invalid
+              needs_to_be_reattached: Needs to be reattached
+              title: Title shouldn't be empty
   activerecord:
     models:
       decidim/initiative:
@@ -65,7 +75,13 @@ fr:
   decidim:
     admin:
       actions:
+        configure: Configure
+        confirm_destroy: Confirm destroy
+        destroy: Destroy
+        new: New
         new_initiative_type: Nouveau type d'initiative
+        publish: Publish
+        unpublish: Unpublish
       filters:
         search_placeholder:
           title_or_description_cont: Recherche %{collection} par titre ou description.
@@ -75,6 +91,8 @@ fr:
       menu:
         initiatives: Initiatives
         initiatives_types: Types d'initiatives
+        participatory_processes_submenu:
+          moderations: Moderations
       models:
         initiatives:
           fields:
@@ -190,6 +208,11 @@ fr:
             actions_title: Action
             preview: Aperçu
             print: Impression
+          initiative_attachments:
+            documents: Documents
+            edit: Edit
+            new: New
+            photos: Photos
           show:
             print: Impression
           update:
@@ -270,8 +293,11 @@ fr:
           back: Retour
           back_to_initiatives: Retour à l'index des initiatives
           callout_text: Bravo ! Votre initiative a été créée avec succès.
+          confirm: Confirm
+          edit_my_initiative: Edit my initiatives
           go_to_my_initiatives: Consulter mes initiatives
           more_information: "(Plus d'informations)"
+          send_my_initiative: Send my initiative
         finish_help:
           access_reminder: Rappelez-vous que vous serez toujours en mesure d'accéder à vos initiatives via le menu utilisateur.
           help_for_organizations: Si vous êtes une association, vous devrez télécharger les procès-verbaux du conseil d'administration de toutes les organisations qui constituent le Comité de promotion
@@ -446,12 +472,18 @@ fr:
       unavailable_scope: Portée indisponible
     menu:
       initiatives: Initiatives
+    proposals:
+      proposals:
+        edit:
+          attachment_legend: Attachment legend
     resources:
       initiatives_type:
         actions:
           create: Créer une initiative
           title: Actions
           vote: Vote
+    scopes:
+      global: Global
   layouts:
     decidim:
       admin:

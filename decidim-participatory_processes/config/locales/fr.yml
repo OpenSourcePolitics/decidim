@@ -76,9 +76,6 @@ fr:
     admin:
       actions:
         activate: Activer
-        configure: Configurer
-        confirm_destroy: Confirmez la suppression
-        destroy: Supprimer
         duplicate: Dupliquer
         edit: Modifier
         filter:
@@ -90,9 +87,7 @@ fr:
         new_process_step: Nouvelle étape
         new_process_user_role: Nouvel administrateur de la concertation
         preview: Aperçu
-        publish: Publier
         resend_invitation: Renvoyer l'invitation
-        unpublish: Dépublier
       menu:
         participatory_process_groups: Groupes de concertations
         participatory_processes: Concertations
@@ -103,7 +98,6 @@ fr:
           categories: Catégories
           components: Fonctionnalités
           info: Information
-          moderations: Modérations
           private_users: Utilisateurs privés
           process_admins: Administrateurs de la concertation
           steps: Étapes

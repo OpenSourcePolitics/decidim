@@ -144,7 +144,6 @@ fr:
         browse: Parcourir
         export: Exporter
         manage: Gérer
-        new: Nouvelle %{name}
         per_page: Par page
         permissions: Autorisations
         reject: Rejeter

@@ -1,3 +1,4 @@
+---
 nl:
   activemodel:
     attributes:
@@ -5,7 +6,6 @@ nl:
         delete_reason: Reden om uw account te verwijderen
       group:
         about: Over
-        avatar: Profielafbeelding
         document_number: Documentnummer
         email: E-mail
         name: Naam
@@ -33,6 +33,7 @@ nl:
       decidim/profile_updated_event: Profiel bijgewerkt
       decidim/promote_to_admin: Gepromoveerd tot groepsbeheerder
       decidim/removed_from_group: Verwijderd uit de groep
+      decidim/resource_endorsed_event: Resurce endorsed
   activerecord:
     attributes:
       decidim/user:
@@ -46,6 +47,9 @@ nl:
       decidim/amendment:
         one: Amendement
         other: Amendementen
+      decidim/endorsement:
+        one: Endorsement
+        other: Endorsements
       decidim/user:
         one: Deelnemer
         other: Deelnemers
@@ -53,11 +57,15 @@ nl:
         one: Groep
         other: Groepen
   booleans:
-    'false': 'Nee'
-    'true': 'Ja'
+    'false': Nee
+    'true': Ja
   carrierwave:
     errors:
+      general: Error processing image
       image_too_big: De afbeelding is te groot
+  comments:
+    translate: Translate
+    translated: Translated
   date:
     formats:
       decidim_short: "%d/%m/%Y"
@@ -66,6 +74,9 @@ nl:
       decidim_with_month_name: "%d %B %Y"
       decidim_with_month_name_short: "%d %b"
   decidim:
+    accessibility:
+      logo: "%{organization}'s official logo"
+      skip_button: Skip to main content
     account:
       data_portability_export:
         file_no_exists: Bestand bestaat niet
@@ -88,6 +99,9 @@ nl:
         error: Er is een fout opgetreden bij het bijwerken van uw account.
         success: Uw account is bijgewerkt.
         success_with_email_confirmation: Uw account is bijgewerkt. U ontvangt een e-mail ter bevestiging van uw nieuwe e-mailadres.
+    admin:
+      actions:
+        cancel: Cancel
     admin_log:
       area:
         create: "%{user_name} heeft %{resource_name} aangemaakt"
@@ -131,11 +145,14 @@ nl:
         invite: "%{user_name} nodigde de deelnemer %{resource_name} met rol: %{role} uit"
         officialize: "%{user_name} heeft de deelnemer %{resource_name} gevalideerd"
         remove_from_admin: "%{user_name} de deelnemer %{resource_name} met rol: %{role} verwijderd"
+        show_email: "%{user_name} retrieved the email of the participant %{resource_name}"
         unofficialize: "%{user_name} heeft de deelnemer %{resource_name} ingetrokken"
       user_group:
         reject: "%{user_name} heeft de %{resource_name} gebruikersgroepverificatie geweigerd"
         verify: "%{user_name} heeft de %{resource_name} gebruikersgroep geverifieerd"
         verify_via_csv: "%{user_name} heeft de %{resource_name} gebruikersgroep geverifieerd via een CSV-bestand"
+    admin_terms_of_use:
+      default_body: "<h2>ADMIN TERMS OF USE</h2><p>We trust you have received the usual lecture from the local System Administrator. It usually boils down to these three things:</p><ol><li>Respect the privacy of others.</li><li>Think before you click.</li><li>With great power comes great responsibility.</li></ol>"
     amendments:
       accepted:
         error: Er is een fout opgetreden bij het accepteren van het amendement.
@@ -177,7 +194,9 @@ nl:
             Dit amendement voor de %{amendable_type} %{amendable_link}
             wordt geëvalueerd.
           promoted: Gepromoveerd naar een %{amendable_type}.
-          rejected: "Deze emendatie voor de %{amendable_type} %{amendable_link}\nwerd afgewezen op <strong>%{announcement_date}</strong>."
+          rejected: |-
+            Deze emendatie voor de %{amendable_type} %{amendable_link}
+            werd afgewezen op <strong>%{announcement_date}</strong>.
           withdrawn: |-
             Dit amendement voor de %{amendable_type} %{amendable_link}
             is door de auteur ingetrokken.
@@ -224,14 +243,20 @@ nl:
         documents:
           one: Document
           other: Documenten
+      document:
+        download: Download file
       documents:
         related_documents: Gerelateerde documenten
       photos:
         related_photos: Gerelateerde foto 's
     author:
+      avatar: Avatar
       comments:
         one: commentaar
         other: commentaren
+      endorsements:
+        one: endorsement
+        other: endorsements
     authorization_handlers:
       another_dummy_authorization_handler:
         explanation: Wordt geverifieerd door een paspoortnummer in te voeren dat begint met 'A'
@@ -276,6 +301,10 @@ nl:
           authorize: Autoriseren met "%{authorization}"
           explanation: Om deze actie uit te voeren, moet u autoriseren met "%{authorization}".
           title: Autorisatie vereist
+        ok:
+          authorize: Already authorized
+          explanation: "%{authorization}"
+          title: Authorization confirmed
         pending:
           explanation: Als u deze actie wilt uitvoeren, moet u zijn gemachtigd met '%{authorization}', maar uw autorisatie is nog in uitvoering
           resume: Controleer de voortgang van uw autorisatie bij "%{authorization}"
@@ -372,7 +401,7 @@ nl:
           newsletter: Ontvang af en toe een nieuwsbrief met relevante informatie
           newsletter_title: Contact toestemming
           nickname_help: Jouw bijnaam in %{organization}
-          password_help: "gebruik minimaal %{minimun_characters} tekens, deze mogen niet te algemeen zijn (bijv. 123456) en moeten anders zijn dan je alias en je e-mail."
+          password_help: gebruik minimaal %{minimun_characters} tekens, deze mogen niet te algemeen zijn (bijv. 123456) en moeten anders zijn dan je alias en je e-mail.
           sign_in: Aanmelden
           sign_up: Registratie
           sign_up_as:
@@ -421,6 +450,13 @@ nl:
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> wil toegang tot je account"
     endorsable:
       endorsements: Aanbevelingen
+    endorsement_buttons_cell:
+      already_endorsed: Endorsed
+      endorse: Endorse
+    endorsements:
+      identities:
+        done: Done
+        select_identity: Select identity
     errors:
       internal_server_error:
         title: Er was een probleem met de server
@@ -541,6 +577,11 @@ nl:
           notification_title: Je bent verwijderd uit de <a href="%{resource_path}">%{user_group_name}</a> groep.
       notification_event:
         notification_title: Er is een gebeurtenis opgetreden bij <a href="%{resource_path}">%{resource_title}</a>.
+      resource_endorsed:
+        email_intro: '%{endorser_name} %{endorser_nickname}, who you are following, has just endorsed "%{resource_title}" and we think it may be interesting to you. Check it out and contribute:'
+        email_outro: You have received this notification because you are following %{endorser_nickname}. You can stop receiving notifications following the previous link.
+        email_subject: "%{endorser_nickname} has performed a new endorsement"
+        notification_title: The <a href="%{resource_path}">%{resource_title}</a> %{resource_type} has been endorsed by <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>.
       users:
         profile_updated:
           email_intro: De <a href="%{resource_url}">profile page</a> of %{name} (%{nickname}), die je volgt, is bijgewerkt.
@@ -598,7 +639,7 @@ nl:
       badges:
         followers:
           conditions:
-            - Actief zijn en andere mensen volgen, zal ervoor zorgen dat andere mensen je volgen.
+          - Actief zijn en andere mensen volgen, zal ervoor zorgen dat andere mensen je volgen.
           description: Deze badge wordt toegekend wanneer je een bepaald aantal volgers bereikt. %{organization_name} is een netwerk, weef je web om te communiceren met andere mensen op het platform.
           description_another: Deze deelnemer heeft %{score} volgers.
           description_own: "%{score} gebruikers volgen jou."
@@ -613,9 +654,9 @@ nl:
           title: Badges
         invitations:
           conditions:
-            - Gebruik de link "Vrienden uitnodigen" op uw gebruikerspagina om uw vrienden uit te nodigen
-            - Pas het bericht aan dat u stuurt, als u wilt
-            - Je komt op een niveau door uitnodigingen te versturen en ze te laten registreren.
+          - Gebruik de link "Vrienden uitnodigen" op uw gebruikerspagina om uw vrienden uit te nodigen
+          - Pas het bericht aan dat u stuurt, als u wilt
+          - Je komt op een niveau door uitnodigingen te versturen en ze te laten registreren.
           description: Deze badge wordt toegekend als je enkele mensen hebt uitgenodigd en ze hebben een beetje tijd besteed om in %{organization_name} te registreren en deelnemers te worden. Dank u om %{organization_name} bekend te maken bij anderen en om de community te helpen uit te breiden!
           description_another: Deze deelnemer heeft %{score} personen uitgenodigd.
           description_own: Je hebt %{score} mensen uitgenodigd.
@@ -655,7 +696,7 @@ nl:
     group_members:
       accept:
         error: Er is een fout opgetreden bij het accepteren van dit deelnameverzoek
-        success: Het deelnameverzoek is geaccepteerd 
+        success: Het deelnameverzoek is geaccepteerd
       actions:
         are_you_sure: Weet je het zeker?
         promote_to_admin: Beheerder maken
@@ -772,6 +813,7 @@ nl:
           send: Sturen
           title: Beantwoorden
         show:
+          not_allowed: This user does not accept any more direct messages.
           title: Gesprek met %{usernames}
         start:
           send: Verzenden
@@ -823,6 +865,8 @@ nl:
       no_notifications: Nog geen meldingen.
     notifications_settings:
       show:
+        allow_public_contact: Allow anyone to send me a direct message, even if I don't follow them.
+        direct_messages: Receive direct messages from anyone
         email_on_notification: Ik wil een e-mail ontvangen telkens als ik een melding krijg.
         everything_followed: Alles wat ik volg
         newsletter_notifications: Ik wil de nieuwsbrief ontvangen
@@ -962,8 +1006,10 @@ nl:
       create:
         error: Er is een fout opgetreden tijdens het maken van het rapport. Probeer het alstublieft opnieuw.
         success: Het rapport is gemaakt en het zal worden beoordeeld door een beheerder.
+    resource_endorsements:
+      create:
+        error: There was a problem during the endorsement action.
     scopes:
-      global: Globale scope
       picker:
         cancel: Annuleer
         choose: Selecteer
@@ -1027,15 +1073,21 @@ nl:
         select_user_group: Selecteer een groep
       results_per_page:
         label: 'Resultaten per pagina:'
+        title: Select number of results per page
       share_modal:
         close_window: Sluit venster
         share: Deel
         share_link: Link delen
       version_author:
         deleted: Verwijderde deelnemer
+    translate:
+      original: Translate text
+      tooltip: Translated with Deepl
+      translated: Back to the original version
     user_activity:
       index:
         no_activities_warning: Deze deelnemer heeft nog geen activiteit gehad.
+    user_contact_disabled: This participant does not accept direct messages.
     user_interests:
       show:
         my_interests: Mijn interesses
@@ -1144,7 +1196,7 @@ nl:
         change_your_password: Verander uw wachtwoord
         confirm_new_password: Bevestig nieuw wachtwoord
         new_password: Nieuw wachtwoord
-        password_help: "gebruik minimaal %{minimun_characters} tekens, deze mogen niet te algemeen zijn (bijv. 123456) en moeten anders zijn dan je alias en je e-mail."
+        password_help: gebruik minimaal %{minimun_characters} tekens, deze mogen niet te algemeen zijn (bijv. 123456) en moeten anders zijn dan je alias en je e-mail.
       new:
         forgot_your_password: Je wachtwoord vergeten?
         send_me_reset_password_instructions: Stuur mij opnieuw wachtwoordinstructies
@@ -1164,6 +1216,9 @@ nl:
         unhappy: Ongelukkig?
         update: Bijwerken
         we_need_your_current_password_to_confirm_your_changes: we hebben je huidige wachtwoord nodig om je wijzigingen te bevestigen
+      logout:
+        error: Could not sign you out from %{kind}.
+        success: Successfully signed out from your %{kind} account.
       new:
         sign_up: Aanmelden
       signed_up: Welkom! Je hebt je succesvol aangemeld.
@@ -1216,6 +1271,7 @@ nl:
       not_saved:
         one: 'Er is een fout opgetreden bij de verwerking van je aanvraag:'
         other: 'Er zijn fouten opgetreden bij de verwerking van je aanvraag:'
+      taken: Taken
       too_many_marks: gebruikt te veel opeenvolgende leestekens (bijvoorbeeld ! en?)
       too_much_caps: gebruikt te veel hoofdletters (meer dan 25% van de tekst)
       too_short: is te kort (minder dan 15 tekens)
@@ -1313,6 +1369,7 @@ nl:
           invitation_instructions:
             accept_until_format: "%B %d, %Y %I:%M %p"
       long: "%B %d, %Y %H:%M"
+      long_dashed: "%Y-%m-%d %H:%M:%S"
       short: "%d/%m/%Y %H:%M"
       time_of_day: "%H:%M"
   versions:
@@ -1322,12 +1379,19 @@ nl:
     dropdown:
       choose_diff_view_html: 'HTML weergavemodus:'
       choose_diff_view_mode: 'Vergelijk weergavemodus:'
+      option_escaped: Escaped
       option_split: Naast elkaar
+      option_unescaped: Unescaped
       option_unified: Verenigd
   views:
     pagination:
       first: "&laquo; Eerste"
+      first_title: Link to the first page
       last: Laatste &raquo;
+      last_title: Link to the last page
       next: Volgende &rsaquo;
+      next_title: Link to the next page
       previous: "&lsaquo; Vorige"
+      previous_title: Link to the previous page
+      title: 'Page number: '
       truncate: "&hellip;"
