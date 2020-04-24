@@ -5,6 +5,7 @@ module Decidim
     module ContentBlocks
       class HighlightedProcessesCell < Decidim::ViewModel
         include Decidim::SanitizeHelper
+        include Decidim::LinkedAssembliesHelper
 
         delegate :current_user, to: :controller
 
@@ -30,11 +31,6 @@ module Decidim
             HighlightedParticipatoryProcesses.new |
             FilteredParticipatoryProcesses.new("active")
           ).query.limit(max_results)
-        end
-
-        def linked_assemblies_for(process)
-          process.linked_participatory_space_resources(:assembly, "included_participatory_processes")
-              .published
         end
 
         def i18n_scope
