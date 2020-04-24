@@ -315,6 +315,34 @@ fr:
     datepicker:
       help_text: 'Format attendu : %{datepicker_format}'
     devise:
+      invitations:
+        edit:
+          birth_date: Change me at decidim.devise.invitations.edit.birth_date
+          gender:
+            female: Change me at decidim.devise.invitations.new.gender.female
+            male: Change me at decidim.devise.invitations.edit.gender.male
+            other: Change me at decidim.devise.invitations.new.gender.other
+          gender_label: Change me at decidim.devise.invitations.edit.gender_label
+          month_label: Change me at decidim.devise.invitations.edit.month_label
+          month_name:
+            april: Change me at decidim.devise.invitations.edit.month_name.january
+            august: Change me at decidim.devise.invitations.edit.month_name.january
+            december: Change me at decidim.devise.invitations.edit.month_name.january
+            february: Change me at decidim.devise.invitations.edit.month_name.january
+            january: Change me at decidim.devise.invitations.edit.month_name.january
+            july: Change me at decidim.devise.invitations.edit.month_name.january
+            june: Change me at decidim.devise.invitations.edit.month_name.january
+            march: Change me at decidim.devise.invitations.edit.month_name.january
+            may: Change me at decidim.devise.invitations.edit.month_name.january
+            november: Change me at decidim.devise.invitations.edit.month_name.january
+            october: Change me at decidim.devise.invitations.edit.month_name.january
+            september: Change me at decidim.devise.invitations.edit.month_name.january
+          prompt: Change me at decidim.devise.invitations.edit.prompt
+          residential_area: Change me at decidim.devise.invitations.edit.residential_area
+          statutory_representative_email: Change me at decidim.devise.invitations.edit.statutory_representative_email
+          underage: Change me at decidim.devise.invitations.edit.underage
+          work_area: Change me at decidim.devise.invitations.edit.work_area
+          year_label: Change me at decidim.devise.invitations.edit.year_label
       omniauth_registrations:
         create:
           email_already_exists: Un autre compte utilise la même adresse email
