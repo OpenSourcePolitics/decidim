@@ -9,7 +9,7 @@ module Decidim
       participatory_space_layout only: [:show, :statistics]
       include FilterResource
 
-      helper_method :collection, :promoted_participatory_processes, :participatory_processes, :stats, :metrics, :default_date_filter, :linked_assemblies_for
+      helper_method :collection, :promoted_participatory_processes, :participatory_processes, :stats, :metrics, :default_date_filter
 
       def index
         raise ActionController::RoutingError, "Not Found" if published_processes.none?
@@ -27,11 +27,6 @@ module Decidim
       end
 
       private
-
-      def linked_assemblies_for(process)
-        process.linked_participatory_space_resources(:assembly, "included_participatory_processes")
-               .published
-      end
 
       def search_klass
         ParticipatoryProcessSearch
