@@ -50,15 +50,14 @@ describe "Edit proposals", type: :system do
 
       before do
         stub_geocoding(new_address, [latitude, longitude])
-      end
-
-      it "can be updated with address" do
         visit_component
 
         click_link proposal.title
         click_link "Edit proposal"
         check "proposal_has_address"
+      end
 
+      it "can be updated with address" do
         expect(page).to have_field("Title", with: proposal.title)
         expect(page).to have_field("Body", with: proposal.body)
         expect(page).to have_field("Address", with: proposal.address)
@@ -70,6 +69,8 @@ describe "Edit proposals", type: :system do
         click_button "Send"
         expect(page).to have_content(new_address)
       end
+
+      it_behaves_like "autocomplete address"
     end
 
     context "when updating with wrong data" do

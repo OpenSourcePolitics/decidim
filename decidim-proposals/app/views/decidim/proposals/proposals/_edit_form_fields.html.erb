@@ -38,9 +38,7 @@
   <div class="field flex-input-group" id="address_input">
     <div class="input-wrapper">
       <%= form.text_field :address, placeholder: t("decidim.proposals.proposals.placeholder.address"), "data-here-api" => Decidim.geocoder.fetch(:here_api_key), list: :here_suggestions, title: t("decidim.proposals.proposals.placeholder.address") %>
-      <datalist id="here_suggestions">
-
-      </datalist>
+      <datalist id="here_suggestions"></datalist>
     </div>
     <% if has_position?(@proposal) %>
       <div class="button-wrapper">
