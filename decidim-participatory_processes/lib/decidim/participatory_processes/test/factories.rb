@@ -33,6 +33,10 @@ FactoryBot.define do
     end_date { 2.months.from_now }
     area { nil }
 
+    trait :display_linked_assemblies do
+      display_linked_assemblies { true }
+    end
+
     trait :private_space do
       private_space { true }
     end

@@ -32,6 +32,7 @@ module Decidim
 
         attribute :private_space, Boolean
         attribute :promoted, Boolean
+        attribute :display_linked_assemblies, Boolean
         attribute :scopes_enabled, Boolean
         attribute :show_statistics, Boolean
 

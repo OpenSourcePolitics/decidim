@@ -61,6 +61,7 @@ module Decidim
             banner_image: form.banner_image,
             remove_banner_image: form.remove_banner_image,
             promoted: form.promoted,
+            display_linked_assemblies: form.display_linked_assemblies,
             description: form.description,
             short_description: form.short_description,
             scopes_enabled: form.scopes_enabled,

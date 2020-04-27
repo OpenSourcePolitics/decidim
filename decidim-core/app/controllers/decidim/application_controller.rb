@@ -25,7 +25,7 @@ module Decidim
     helper Decidim::CardHelper
     helper Decidim::SanitizeHelper
     helper Decidim::DeeplHelper
-    helper Decidim::LinkedAssembliesHelper
+    helper Decidim::ParticipatoryProcesses::LinkedAssembliesHelper
 
     register_permissions(::Decidim::ApplicationController,
                          ::Decidim::Admin::Permissions,

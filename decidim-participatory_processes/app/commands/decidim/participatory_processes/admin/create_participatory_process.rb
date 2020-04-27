@@ -50,6 +50,7 @@ module Decidim
             hero_image: form.hero_image,
             banner_image: form.banner_image,
             promoted: form.promoted,
+            display_linked_assemblies: form.display_linked_assemblies,
             scopes_enabled: form.scopes_enabled,
             scope: form.scope,
             private_space: form.private_space,
