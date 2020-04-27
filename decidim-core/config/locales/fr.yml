@@ -317,6 +317,7 @@ fr:
     devise:
       invitations:
         edit:
+          gdpr_disclaimer: Change me at decidim.devise.invitations.edit.gdpr_disclaimer
           birth_date: Change me at decidim.devise.invitations.edit.birth_date
           gender:
             female: Change me at decidim.devise.invitations.new.gender.female

@@ -318,6 +318,7 @@ en:
     devise:
       invitations:
         edit:
+          gdpr_disclaimer: GDPR Disclaimer
           birth_date: Birth date
           gender:
             female: Female
