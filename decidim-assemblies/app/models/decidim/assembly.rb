@@ -143,7 +143,7 @@ module Decidim
     end
 
     # returns the children sorted by "ordered_by" params if the assembly has sort_children set to true
-    def sort_children_by(ordered_by = :title)
+    def sort_children_by(ordered_by = :slug)
       return children.published unless sort_children?
 
       children.published.order(ordered_by)
