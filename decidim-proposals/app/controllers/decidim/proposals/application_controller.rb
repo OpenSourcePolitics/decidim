@@ -9,7 +9,7 @@ module Decidim
     # override its layout and provide all kinds of useful methods.
     class ApplicationController < Decidim::Components::BaseController
       helper Decidim::Messaging::ConversationHelper
-      helper_method :proposal_limit_reached?
+      helper_method :proposal_limit_reached?, :linked_assemblies_for
 
       def proposal_limit
         return nil if component_settings.proposal_limit.zero?
@@ -25,6 +25,13 @@ module Decidim
 
       def proposals
         Proposal.where(component: current_component)
+      end
+
+      private
+
+      def linked_assemblies_for(process)
+        process.linked_participatory_space_resources(:assembly, "included_participatory_processes")
+            .published
       end
     end
   end
