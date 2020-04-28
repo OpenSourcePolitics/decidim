@@ -100,9 +100,11 @@ describe "Proposals", type: :system do
 
           let(:proposal_draft) { create(:proposal, :draft, users: [user], component: component, title: "More sidewalks and less roads", body: "He will not solve everything") }
 
-          it "creates a new proposal", :slow do
+          before do
             visit complete_proposal_path(component, proposal_draft)
+          end
 
+          it "creates a new proposal", :slow do
             within ".edit_proposal" do
               check :proposal_has_address
               fill_in :proposal_title, with: "More sidewalks and less roads"
@@ -124,6 +126,8 @@ describe "Proposals", type: :system do
             expect(page).to have_content(translated(scope.name))
             expect(page).to have_author(user.name)
           end
+
+          it_behaves_like "autocomplete address"
         end
 
         context "when component has extra hashtags defined" do
@@ -201,9 +205,11 @@ describe "Proposals", type: :system do
 
             let(:proposal_draft) { create(:proposal, :draft, users: [user], component: component, title: "More sidewalks and less roads", body: "He will not solve everything") }
 
-            it "creates a new proposal as a user group", :slow do
+            before do
               visit complete_proposal_path(component, proposal_draft)
+            end
 
+            it "creates a new proposal as a user group", :slow do
               within ".edit_proposal" do
                 fill_in :proposal_title, with: "More sidewalks and less roads"
                 fill_in :proposal_body, with: "Cities need more people, not more cars"
@@ -226,6 +232,7 @@ describe "Proposals", type: :system do
               expect(page).to have_content(translated(scope.name))
               expect(page).to have_author(user_group.name)
             end
+            it_behaves_like "autocomplete address"
           end
         end
 
