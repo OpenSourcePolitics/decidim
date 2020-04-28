@@ -7,7 +7,7 @@
 $(() => {
   const $inputAddress = $("#address_input #proposal_address")
   const $datalistSuggestions = $("#here_suggestions")
-  const apiKey = $inputAddress.data("hereApi")
+  const apiKey = $datalistSuggestions.data("hereApi")
   const apiUrl = "https://autocomplete.geocoder.ls.hereapi.com/6.2/suggest.json"
   // set a minimum input length to submit request. Set to false if you do not want minimum length
   const minLenInput = 5

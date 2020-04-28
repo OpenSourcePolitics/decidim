@@ -11,6 +11,7 @@ module Decidim
       include ProposalEndorsementsHelper
       include Decidim::MapHelper
       include Decidim::Proposals::MapHelper
+      include Decidim::Proposals::AutocompleteHelper
       include CollaborativeDraftHelper
       include ControlVersionHelper
 
