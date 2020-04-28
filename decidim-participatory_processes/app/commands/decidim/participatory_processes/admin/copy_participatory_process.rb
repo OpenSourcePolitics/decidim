@@ -50,6 +50,7 @@ module Decidim
             hero_image: @participatory_process.hero_image,
             banner_image: @participatory_process.banner_image,
             promoted: @participatory_process.promoted,
+            display_linked_assemblies: @participatory_process.display_linked_assemblies,
             scope: @participatory_process.scope,
             developer_group: @participatory_process.developer_group,
             local_area: @participatory_process.local_area,

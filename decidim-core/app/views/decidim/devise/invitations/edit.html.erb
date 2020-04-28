@@ -120,7 +120,7 @@
                 <div class="field">
                   <%= label_tag :"#{resource_name}[newsletter_notifications]" do %>
                     <%= check_box_tag :"#{resource_name}[newsletter_notifications]" %>
-                    <%= t("newsletter", scope: "decidim.devise.registrations.new") %>
+                    <%== t("newsletter", scope: "decidim.devise.registrations.new") %>
                   <% end %>
                 </div>
               </fieldset>
@@ -137,6 +137,11 @@
 
         <% end %>
       </div>
+    </div>
+  </div>
+  <div class="row collapse">
+    <div class="columns large-6 medium-10 medium-centered">
+      <p class="gdpr_disclaimer"><%= t(".gdpr_disclaimer") %></p>
     </div>
   </div>
 </main>

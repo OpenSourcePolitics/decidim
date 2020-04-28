@@ -5,6 +5,8 @@ module Decidim
     # This cell renders the Medium (:m) process card
     # for an given instance of a Process
     class ProcessMCell < Decidim::CardMCell
+      include Decidim::ParticipatoryProcesses::LinkedAssembliesHelper
+
       private
 
       def has_image?
@@ -75,6 +77,14 @@ module Decidim
 
       def end_date
         model.end_date
+      end
+
+      def linked_assemblies
+        linked_assemblies_for(model)
+      end
+
+      def decidim_assemblies
+        Decidim::Assemblies::Engine.routes.url_helpers
       end
     end
   end

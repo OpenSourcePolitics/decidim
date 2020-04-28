@@ -1,5 +1,5 @@
 <div class="card__header">
-  <% if linked_assemblies %>
+  <% if linked_assemblies.present? %>
     <div class="linked_assemblies">
       <% linked_assemblies.each do |assembly| %>
         <%= link_to decidim_assemblies.assembly_path(assembly), class: "linked_assembly" do %>

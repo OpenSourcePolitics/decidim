@@ -149,25 +149,20 @@ module Decidim
     end
 
     describe "#sort_children_by" do
+      let(:slugs) { %w(AAAA BBBB CCCC DDDD) }
+
       let!(:assembly) { create :assembly }
-      let!(:fourth) { create :assembly, title: { en: "1.1 Afgh" }, parent: assembly }
-      let!(:third) { create :assembly, title: { en: "2.3 Defg" }, parent: assembly }
-      let!(:second) { create :assembly, title: { en: "1.3 Zhoro" }, parent: assembly }
-      let!(:first) { create :assembly, title: { en: "2.1 Lora" }, parent: assembly }
+      let!(:assemblies) { slugs.map { |slug| create :assembly, slug: slug, parent: assembly } }
 
       it "doesn't sort the child assemblies by default" do
-        expect(assembly.sort_children_by).to match_array([first, second, third, fourth])
+        expect(assembly.sort_children_by).to match_array(assemblies)
       end
 
       context "when child sorting is enabled" do
         let!(:assembly) { create :assembly, sort_children: true }
 
-        it "sorts the children assemblies by title" do
-          expect(assembly.sort_children_by).to eq([fourth, second, first, third])
-        end
-
-        it "sorts the children assemblies by id" do
-          expect(assembly.sort_children_by(:id)).to eq([fourth, third, second, first])
+        it "sorts the children assemblies by slug" do
+          expect(assembly.sort_children_by.collect(&:slug)).to match_array(slugs)
         end
       end
     end

@@ -319,6 +319,7 @@ en:
       invitations:
         edit:
           birth_date: Birth date
+          gdpr_disclaimer: GDPR Disclaimer
           gender:
             female: Female
             male: Male

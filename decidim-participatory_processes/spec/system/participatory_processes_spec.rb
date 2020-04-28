@@ -434,6 +434,17 @@ describe "Participatory Processes", type: :system do
     end
 
     context "when assemblies are linked to participatory process" do
+      let(:participatory_process) do
+        create(
+          :participatory_process,
+          :active,
+          organization: organization,
+          description: { en: "Description", ca: "Descripció", es: "Descripción" },
+          short_description: { en: "Short description", ca: "Descripció curta", es: "Descripción corta" },
+          show_statistics: show_statistics,
+          display_linked_assemblies: true
+        )
+      end
       let!(:published_assembly) { create(:assembly, :published, organization: organization) }
       let!(:unpublished_assembly) { create(:assembly, :unpublished, organization: organization) }
 
