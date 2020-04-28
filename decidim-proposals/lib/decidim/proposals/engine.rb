@@ -51,6 +51,7 @@ module Decidim
 
       initializer "decidim_proposals.assets" do |app|
         app.config.assets.precompile += %w(decidim_proposals_manifest.js
+                                           decidim/proposals/autocomplete.js
                                            decidim/proposals/identity_selector_dialog.js)
       end
 
