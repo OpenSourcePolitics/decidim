@@ -5,67 +5,83 @@
 // It allows to avoid difference between address formatting
 
 $(() => {
-  const $inputAddress = $('#address_input #proposal_address')
+  const $inputAddress = $("#address_input #proposal_address")
+  const $datalistSuggestions = $("#here_suggestions")
   const apiKey = $inputAddress.data("hereApi")
   const apiUrl = "https://autocomplete.geocoder.ls.hereapi.com/6.2/suggest.json"
-  const maxResultsPerRequest = 10 // set a response length limit. Set to false if you want all results
-  const uniqueCountryCode = "FRA" // filter by country. Set to false if you want all results
+  // set a minimum input length to submit request. Set to false if you do not want minimum length
+  const minLenInput = 5
+  // set a response length limit. Set to false if you want all results
+  const maxResultsPerRequest = 10
+  // filter by country. Set to false if you want all results
+  const uniqueCountryCode = "FRA"
 
   $inputAddress.on("input", () => {
-      let params = '?' +
-        'query=' +  encodeURI($inputAddress.val()) +
-        '&apiKey=' + apiKey
+    const userInput = $.trim($inputAddress.val())
 
-      if (uniqueCountryCode !== false) {
-        params += "&country=" + uniqueCountryCode
-      }
+    const isSameAddress = (input) => {
+      return $(`#here_suggestions option[value="${input}"]`).length > 0
+    }
 
-      if (maxResultsPerRequest !== false) {
-        params += "&maxresults=" + maxResultsPerRequest
-      }
+    if (isSameAddress(userInput)) {
+      return
+    }
 
-      const fillDatalist = (arrayOfSuggestions) => {
-        for (const suggestion of arrayOfSuggestions) {
-          switch (suggestion.matchLevel) {
-            case 'houseNumber':
-              var optionValue = suggestion.address.houseNumber + " " + suggestion.address.street + " " + suggestion.address.postalCode + " " + suggestion.address.city
-              break
-            case 'street':
-              var optionValue = suggestion.address.street + " " + suggestion.address.postalCode + " " + suggestion.address.city
-              break
-            case 'city':
-              var optionValue = suggestion.address.postalCode + " " + suggestion.address.city
-              break
-            case 'postalCode':
-              var optionValue = refactorLabel(suggestion.label)
-              break
-            default:
-              break
-          }
-          if (optionValue){
-            $("#here_suggestions").append(new Option(suggestion.label, optionValue))
-          }
+    let params = `?query=${encodeURI(userInput)}&apiKey=${apiKey}`
+
+    if (uniqueCountryCode !== false) {
+      params += `&country=${uniqueCountryCode}`
+    }
+
+    if (maxResultsPerRequest !== false) {
+      params += `&maxresults=${maxResultsPerRequest}`
+    }
+
+    // Allows to reformat the here api response label for the concerned suggestion
+    const refactorLabel = (str) => {
+      const array = str.split(",");
+      return array[array.length - 2] + array[array.length - 1]
+    }
+
+    const fillDatalist = (arrayOfSuggestions) => {
+      let optionValue = ""
+      for (const suggestion of arrayOfSuggestions) {
+        switch (suggestion.matchLevel) {
+        case "houseNumber":
+          optionValue = `${suggestion.address.houseNumber} ${suggestion.address.street} ${suggestion.address.postalCode} ${suggestion.address.city}`
+          break
+        case "street":
+          optionValue = `${suggestion.address.street} ${suggestion.address.postalCode} ${suggestion.address.city}`
+          break
+        case "city":
+          optionValue = `${suggestion.address.postalCode} ${suggestion.address.city}`
+          break
+        case "postalCode":
+          optionValue = refactorLabel(suggestion.label)
+          break
+        default:
+          break
+        }
+        if (optionValue) {
+          $datalistSuggestions.append(new Option(suggestion.label, optionValue))
         }
       }
+    }
 
-      const hereApiRequest = url => {
-        $.ajax({
-          url: url,
-          method: "GET"
-        }).success(function( data ) {
-          $("#here_suggestions").empty()
-          if (Object.keys(data).length > 0) {
-            fillDatalist(data.suggestions)
-          }
-        });
-      }
+    const hereApiRequest = (url) => {
+      $.ajax({
+        url: url,
+        method: "GET"
+      }).success(function(data) {
+        $("#here_suggestions").empty()
+        if (Object.keys(data).length > 0) {
+          fillDatalist(data.suggestions)
+        }
+      });
+    }
 
+    if (userInput.length > minLenInput || minLenInput === false) {
       hereApiRequest(apiUrl + params)
+    }
   });
 });
-
-// Returns only postalCode and City from label
-function refactorLabel(str) {
-  const array = str.split(',');
-  return array[array.length - 2] + array[array.length - 1]
-}
