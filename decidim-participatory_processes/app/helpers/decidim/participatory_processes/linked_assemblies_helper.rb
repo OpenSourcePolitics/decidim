@@ -22,7 +22,7 @@ module Decidim
         return [] unless process.display_linked_assemblies?
 
         process.linked_participatory_space_resources(:assembly, "included_participatory_processes")
-            .published
+               .published
       end
     end
   end

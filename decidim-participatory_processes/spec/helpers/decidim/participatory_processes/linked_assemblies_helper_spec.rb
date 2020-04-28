@@ -26,7 +26,6 @@ module Decidim
         end
       end
 
-
       def link_participatory_processes(assembly, process)
         assembly.link_participatory_spaces_resources(process, "included_participatory_processes")
       end
