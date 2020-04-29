@@ -326,18 +326,18 @@ fr:
           gender_label: Change me at decidim.devise.invitations.edit.gender_label
           month_label: Change me at decidim.devise.invitations.edit.month_label
           month_name:
-            april: Change me at decidim.devise.invitations.edit.month_name.january
-            august: Change me at decidim.devise.invitations.edit.month_name.january
-            december: Change me at decidim.devise.invitations.edit.month_name.january
-            february: Change me at decidim.devise.invitations.edit.month_name.january
+            april: Change me at decidim.devise.invitations.edit.month_name.april
+            august: Change me at decidim.devise.invitations.edit.month_name.august
+            december: Change me at decidim.devise.invitations.edit.month_name.december
+            february: Change me at decidim.devise.invitations.edit.month_name.february
             january: Change me at decidim.devise.invitations.edit.month_name.january
-            july: Change me at decidim.devise.invitations.edit.month_name.january
-            june: Change me at decidim.devise.invitations.edit.month_name.january
-            march: Change me at decidim.devise.invitations.edit.month_name.january
-            may: Change me at decidim.devise.invitations.edit.month_name.january
-            november: Change me at decidim.devise.invitations.edit.month_name.january
-            october: Change me at decidim.devise.invitations.edit.month_name.january
-            september: Change me at decidim.devise.invitations.edit.month_name.january
+            july: Change me at decidim.devise.invitations.edit.month_name.july
+            june: Change me at decidim.devise.invitations.edit.month_name.june
+            march: Change me at decidim.devise.invitations.edit.month_name.march
+            may: Change me at decidim.devise.invitations.edit.month_name.may
+            november: Change me at decidim.devise.invitations.edit.month_name.november
+            october: Change me at decidim.devise.invitations.edit.month_name.october
+            september: Change me at decidim.devise.invitations.edit.month_name.september
           prompt: Change me at decidim.devise.invitations.edit.prompt
           residential_area: Change me at decidim.devise.invitations.edit.residential_area
           statutory_representative_email: Change me at decidim.devise.invitations.edit.statutory_representative_email
