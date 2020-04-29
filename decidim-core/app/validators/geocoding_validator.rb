@@ -7,7 +7,7 @@ class GeocodingValidator < ActiveModel::EachValidator
     if Decidim.geocoder.present? && record.component.present?
       organization = record.component.organization
       Geocoder.configure(Geocoder.config.merge(http_headers: { "Referer" => organization.host }))
-      coordinates = Geocoder.coordinates(value)
+      coordinates = find_coordinates value
 
       if coordinates.present?
         record.latitude = coordinates.first
@@ -18,5 +18,17 @@ class GeocodingValidator < ActiveModel::EachValidator
     else
       record.errors.add(attribute, :invalid)
     end
+  end
+
+  private
+
+  def find_coordinates(value)
+    return Geocoder.coordinates(value) unless restricted_to_country?
+
+    Geocoder.coordinates(value, params: { country: Decidim.geocoder[:country_restriction] })
+  end
+
+  def restricted_to_country?
+    Decidim.geocoder[:country_restriction].present?
   end
 end
