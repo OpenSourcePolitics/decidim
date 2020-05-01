@@ -30,7 +30,9 @@
     "test:ci": "npm run lint && npm run test",
     "graphql:download_schema": "apollo-codegen download-schema http://${DECIDIM_HOST:-localhost:3000}/api --output schema.json",
     "pregraphql:generate_schema_types": "npm run graphql:download_schema",
-    "graphql:generate_schema_types": "apollo-codegen generate decidim-comments/**/*.graphql --schema schema.json --target typescript --output decidim-comments/app/frontend/support/schema.ts"
+    "graphql:generate_schema_types": "apollo-codegen generate decidim-comments/**/*.graphql --schema schema.json --target typescript --output decidim-comments/app/frontend/support/schema.ts",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "stylelint": {
     "rules": {
@@ -262,7 +264,7 @@
     "graphql": "^0.13.0",
     "graphql-anywhere": "^4.1.5",
     "graphql-tag": "^2.8.0",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "react": "^16.0.0",
     "react-apollo": "^2.0.4",
     "react-dom": "^16.0.0",
@@ -270,7 +272,8 @@
     "react-select": "^1.2.1",
     "react-test-renderer": "^16.0.0",
     "unfetch": "^3.0.0",
-    "uuid": "^3.2.1"
+    "uuid": "^3.2.1",
+    "snyk": "^1.316.1"
   },
   "jest": {
     "setupFiles": [
@@ -293,5 +296,6 @@
       ".*": "babel-jest"
     },
     "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$"
-  }
+  },
+  "snyk": true
 }
