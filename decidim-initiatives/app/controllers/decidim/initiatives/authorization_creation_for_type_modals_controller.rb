@@ -17,7 +17,7 @@ module Decidim
       private
 
       def redirect_url
-        params[:redirect] || create_initiative_path(:previous_form)
+        params[:redirect] || create_initiative_path(:previous_form)
       end
 
       def authorize_action_path(handler_name)

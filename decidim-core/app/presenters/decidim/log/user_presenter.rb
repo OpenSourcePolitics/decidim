@@ -78,7 +78,7 @@ module Decidim
       #
       # Returns an HTML-safe String.
       def user_path
-        h.decidim.profile_path(present_user_nickname) unless present_user_nickname.blank?
+        h.decidim.profile_path(present_user_nickname) if present_user_nickname.present?
       end
     end
   end

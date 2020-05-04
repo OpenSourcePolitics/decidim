@@ -34,7 +34,7 @@ module Decidim
         unique_id: handler.unique_id,
         encrypted_metadata: Decidim::MetadataEncryptor.new(
           uid: handler.unique_id
-        ).encrypt(handler.metadata.select { |k,v| k != :nickname })
+        ).encrypt(handler.metadata.reject { |k, _v| k == :nickname })
       }
 
       authorization.grant!

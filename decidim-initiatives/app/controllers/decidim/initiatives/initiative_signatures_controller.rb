@@ -42,11 +42,11 @@ module Decidim
         enforce_permission_to :vote, :initiative, initiative: current_initiative, group_id: group_id
 
         @form = form(Decidim::Initiatives::VoteForm)
-                    .from_params(
-                        initiative: current_initiative,
-                        signer: current_user,
-                        group_id: group_id
-                    )
+                .from_params(
+                  initiative: current_initiative,
+                  signer: current_user,
+                  group_id: group_id
+                )
 
         VoteInitiative.call(@form) do
           on(:ok) do
@@ -56,7 +56,7 @@ module Decidim
 
           on(:invalid) do
             render json: {
-                error: I18n.t("create.error", scope: "decidim.initiatives.initiative_votes")
+              error: I18n.t("create.error", scope: "decidim.initiatives.initiative_votes")
             }, status: :unprocessable_entity
           end
         end
@@ -66,11 +66,11 @@ module Decidim
 
       def fill_personal_data_step(_unused)
         @form = form(Decidim::Initiatives::VoteForm)
-                    .from_params(
-                        initiative: current_initiative,
-                        signer: current_user,
-                        group_id: params[:group_id]
-                    )
+                .from_params(
+                  initiative: current_initiative,
+                  signer: current_user,
+                  group_id: params[:group_id]
+                )
 
         session[:initiative_vote_form] = { group_id: @form.group_id }
         skip_step unless initiative_type.collect_user_extra_fields
@@ -163,7 +163,7 @@ module Decidim
         return unless raw_birth_date
 
         @vote_form = form(Decidim::Initiatives::VoteForm).from_params(
-            session[:initiative_vote_form].merge("date_of_birth" => Date.parse(raw_birth_date))
+          session[:initiative_vote_form].merge("date_of_birth" => Date.parse(raw_birth_date))
         )
       end
 

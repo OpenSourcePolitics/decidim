@@ -8,7 +8,6 @@ module Decidim
 
         # Overrides the parent class method, but it still uses it to keep the base behavior
         def authorize
-
           status_code, data = *super
 
           # if allowed_postal_codes.present?

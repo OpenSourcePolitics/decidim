@@ -16,19 +16,19 @@ module Decidim
       # number of supports received by the initiative.
       def notify
         initiative.followers.each do |follower|
-          if initiative.author != follower
-            Decidim::Initiatives::InitiativesMailer
-              .notify_progress(initiative, follower)
-              .deliver_later
-          end
+          next unless initiative.author != follower
+
+          Decidim::Initiatives::InitiativesMailer
+            .notify_progress(initiative, follower)
+            .deliver_later
         end
 
         initiative.committee_members.approved.each do |committee_member|
-          if initiative.author != committee_member.user
-            Decidim::Initiatives::InitiativesMailer
-              .notify_progress(initiative, committee_member.user)
-              .deliver_later
-          end
+          next unless initiative.author != committee_member.user
+
+          Decidim::Initiatives::InitiativesMailer
+            .notify_progress(initiative, committee_member.user)
+            .deliver_later
         end
 
         Decidim::Initiatives::InitiativesMailer
