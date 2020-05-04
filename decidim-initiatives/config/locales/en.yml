@@ -265,14 +265,12 @@ en:
           continue: Continue
           fill_data_help: "<ul> <li>Review the content of your initiative. Is your title easy to understand? Is the objective of your initiative clear?</li> <li>You have to choose the type of signature. In-person, online or a combination of both</li> <li>Which is the geographic scope of the initiative? City, district?</li> </ul>"
           initiative_type: Initiative type
-          more_information: "(More information)"
           select_scope: Select a scope
         finish:
           back: Back
           back_to_initiatives: Back to initiatives
           callout_text: Congratulations! Your citizen initiative has been successfully created.
           go_to_my_initiatives: Go to my initiatives
-          more_information: "(More information)"
         finish_help:
           access_reminder: Remember that you will always be able to access your initiatives through the participant menu.
           help_for_organizations: If you are an association you will have to upload the minutes of the management board of all the organisations that form the Promoting Commission
@@ -284,15 +282,12 @@ en:
           back: Back
           continue: Continue
           help: What does the initiative consist of? Write down the title and description. We recommend a short and concise title and a description focused on the proposed solution.
-          more_information: "(More information)"
         promotal_committee:
           back: Back
           individual_help_text: This kind of citizen initiative requires a Promoting Commission consisting of at least %{committee_size} people (attestors). You must share the following link with the other people that are part of this initiative. When your contacts receive this link they will have to follow the indicated steps.
-          more_information: "(More information)"
         select_initiative_type:
           back: Back
           choose_html: I want to create a <strong>%{title}</strong>
-          more_information: "(More information)"
           select: I want to promote this initiative
           select_initiative_type_help: Citizen initiatives are a means by which the citizenship can intervene so that the City Council can undertake actions in defence of the general interest that are within fields of municipal jurisdiction. Which initiative do you want to launch?
         share_committee_link:
@@ -302,7 +297,6 @@ en:
           back: Back
           compare_help: If any of the following initiatives is similar to yours we encourage you to sign it. Your proposal will have more possibilities to get done.
           continue: My initiative is different
-          more_information: "(More information)"
       events:
         create_initiative_event:
           email_intro: "%{author_name} %{author_nickname}, who you are following, has created a new initiative, check it out and contribute:"
@@ -433,13 +427,6 @@ en:
           highlighted_initiatives:
             active_initiatives: Active initiatives
             see_all_initiatives: See all initiatives
-      state:
-        accepted: Accepted
-        created: Created
-        discarded: Discarded
-        published: Published
-        rejected: Rejected
-        validating: Technical validation
       states:
         accepted: Accepted
         expired: Expired

@@ -68,7 +68,7 @@ class Comment extends React.Component<CommentProps, CommentState> {
       showReplyForm: false,
       commentBody: props.comment.formattedBody,
       translatable: window.Decidim.translatable,
-      translatableLabel: I18n.t("comments.translate", {target: window.Decidim.locale_name}),
+      translatableLabel: I18n.t("decidim.comments.translate", {target: window.Decidim.locale_name}),
       translated: false
     };
   }
@@ -201,7 +201,7 @@ class Comment extends React.Component<CommentProps, CommentState> {
     if (this.state.translated) {
       this.setState({
         commentBody: this.props.comment.formattedBody,
-        translatableLabel: I18n.t("comments.translate", {target: window.Decidim.locale_name}),
+        translatableLabel: I18n.t("decidim.comments.translate", {target: window.Decidim.locale_name}),
         translated: false
       });
     } else {
@@ -234,7 +234,7 @@ class Comment extends React.Component<CommentProps, CommentState> {
           if ( result.translations && result.translations[0] ) {
             this.setState({
               commentBody: result.translations[0].text,
-              translatableLabel: I18n.t("comments.translated"),
+              translatableLabel: I18n.t("decidim.comments.translated"),
               translated: true
             });
           } else {
