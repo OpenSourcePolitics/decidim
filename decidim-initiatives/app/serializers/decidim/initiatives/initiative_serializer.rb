@@ -20,7 +20,6 @@ module Decidim
           title: initiative.title,
           description: initiative.description,
           hashtag: initiative.hashtag,
-          type: initiative.type,
           type: {
             id: initiative.type.try(:id),
             name: initiative.type.try(:title) || empty_translatable
