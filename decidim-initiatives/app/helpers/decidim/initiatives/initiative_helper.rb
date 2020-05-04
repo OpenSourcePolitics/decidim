@@ -171,9 +171,10 @@ module Decidim
       end
 
       def merged_permissions_for(action)
-        Decidim::Initiatives::InitiativeTypes.for(current_organization).map do |type|
+        initiatives_type = Decidim::Initiatives::InitiativeTypes.for(current_organization).map do |type|
           permissions_for(action, type)
-        end.inject do |result, list|
+        end
+        initiatives_type.inject do |result, list|
           result + list
         end.uniq
       end
