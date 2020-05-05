@@ -105,7 +105,7 @@ module Decidim
         # Rails.logger.debug "+++++++++++++++++++++++++"
 
         location = store_location_for(:user, stored_location_for(:user))
-        return unless location.present? && !!location.match(%r{^/#{params[:action]}/$})
+        return unless location.present? && location.match?(%r{^/#{params[:action]}/$})
 
         @verified_email = current_user.email if current_user
 
