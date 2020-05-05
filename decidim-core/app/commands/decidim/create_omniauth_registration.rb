@@ -51,20 +51,7 @@ module Decidim
       generated_password = SecureRandom.hex
 
       if (verified_email || form.email).blank?
-
-        @user = User.new(
-          email: "",
-          organization: organization,
-          name: form.name,
-          nickname: form.nickname,
-          newsletter_notifications_at: nil,
-          email_on_notification: false,
-          accepted_tos_version: organization.tos_version,
-          # managed: true,
-          password: generated_password,
-          password_confirmation: generated_password
-        )
-        @user.skip_confirmation!
+        create_and_skip_confirmation(generated_password)
       else
 
         @user = User.find_or_initialize_by(
@@ -72,7 +59,8 @@ module Decidim
           organization: organization
         )
 
-        if @user.persisted?
+        case @user.persisted?
+        when true
           # If user has left the account unconfirmed and later on decides to sign
           # in with omniauth with an already verified account, the account needs
           # to be marked confirmed.
@@ -93,6 +81,22 @@ module Decidim
 
       @user.tos_agreement = "1"
       @user.save!
+    end
+
+    def create_and_skip_confirmation(generated_password)
+      @user = User.new(
+        email: "",
+        organization: organization,
+        name: form.name,
+        nickname: form.nickname,
+        newsletter_notifications_at: nil,
+        email_on_notification: false,
+        accepted_tos_version: organization.tos_version,
+        # managed: true,
+        password: generated_password,
+        password_confirmation: generated_password
+      )
+      @user.skip_confirmation!
     end
 
     def create_identity
