@@ -199,9 +199,11 @@ en:
               title: "%{handler_name} authorizations"
         authorizations:
           new:
+            error: We could not verify your account from this external provider.
             success: Your account has been successfully verified.
         errors:
           anti_affinity: 'You can''t be connected with these identities at the same time : %{anti_affinity}'
+          minimum_age: You must be at least %{minimum_age} to validate your account.
       postal_letter:
         admin:
           pending_authorizations:

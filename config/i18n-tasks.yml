@@ -207,6 +207,9 @@ ignore_unused:
   - layouts.decidim.conference_widgets.*
   - layouts.decidim.participatory_process_widgets.*
   - decidim.admin.officializations.index.*
+  - decidim.verifications.omniauth.authorizations.new.error
+  - decidim.verifications.omniauth.errors.minimum_age
+  - decidim.initiatives.state.*
 
 ## Exclude these keys from the `i18n-tasks eq-base' report:
 # ignore_eq_base:
