@@ -59,24 +59,7 @@ module Decidim
           organization: organization
         )
 
-        case @user.persisted?
-        when true
-          # If user has left the account unconfirmed and later on decides to sign
-          # in with omniauth with an already verified account, the account needs
-          # to be marked confirmed.
-          @user.skip_confirmation! if !@user.confirmed? && @user.email == verified_email
-        else
-          @user.email = (verified_email || form.email)
-          @user.name = form.name
-          @user.nickname = form.normalized_nickname
-          @user.newsletter_notifications_at = nil
-          @user.email_on_notification = true
-          @user.password = generated_password
-          @user.password_confirmation = generated_password
-          @user.remote_avatar_url = form.avatar_url if form.avatar_url.present?
-          @user.skip_confirmation! if verified_email
-          @after_confirmation = true
-        end
+        skip_or_create_user
       end
 
       @user.tos_agreement = "1"
@@ -97,6 +80,26 @@ module Decidim
         password_confirmation: generated_password
       )
       @user.skip_confirmation!
+    end
+
+    def skip_or_create_user
+      if @user.persisted?
+        # If user has left the account unconfirmed and later on decides to sign
+        # in with omniauth with an already verified account, the account needs
+        # to be marked confirmed.
+        @user.skip_confirmation! if !@user.confirmed? && @user.email == verified_email
+      else
+        @user.email = (verified_email || form.email)
+        @user.name = form.name
+        @user.nickname = form.normalized_nickname
+        @user.newsletter_notifications_at = nil
+        @user.email_on_notification = true
+        @user.password = generated_password
+        @user.password_confirmation = generated_password
+        @user.remote_avatar_url = form.avatar_url if form.avatar_url.present?
+        @user.skip_confirmation! if verified_email
+        @after_confirmation = true
+      end
     end
 
     def create_identity
