@@ -31,8 +31,7 @@
                   <%= icon_link_to "pencil",
                                   decidim_admin_initiatives.edit_initiatives_type_initiatives_type_scope_path(initiative_type, s),
                                   t("actions.configure", scope: "decidim.admin"),
-                                  class: "action-icon--new"
-                  %>
+                                  class: "action-icon--new" %>
                 <% end %>
                 <% if allowed_to? :destroy, :initiative_type_scope, initiative_type_scope: s %>
                   <%= icon_link_to "circle-x",
@@ -40,8 +39,7 @@
                                   t("actions.destroy", scope: "decidim.admin"),
                                   class: "action-icon--remove",
                                   method: :delete,
-                                  data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin") }
-                  %>
+                                  data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin") } %>
                 <% end %>
               </td>
             </tr>
