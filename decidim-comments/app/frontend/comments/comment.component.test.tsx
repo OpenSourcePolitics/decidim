@@ -248,7 +248,7 @@ describe("<Comment />", () => {
         orderBy={orderBy}
       />
     );
-    wrapper.find(Comment).forEach(node => {
+    wrapper.find(Comment).forEach((node) => {
       expect(node.prop("articleClassName")).toEqual(
         "comment comment--nested comment--nested--alt"
       );

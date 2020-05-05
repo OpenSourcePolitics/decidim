@@ -38,6 +38,18 @@ interface CommentState {
   translated: boolean;
 }
 
+interface DecidimInterface {
+  locale: string;
+  locale_name: string;
+  available_locales: string[];
+  translatable: boolean;
+  translatable_locales: string[];
+}
+
+declare global {
+  interface Window { Decidim: DecidimInterface; }
+}
+
 interface Dict {
   [key: string]: boolean | undefined;
 }
