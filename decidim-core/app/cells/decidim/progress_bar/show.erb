@@ -3,9 +3,9 @@
 
     <% if horizontal? %>
       <span class="progress__bar__text"><%= subtitle_text %></span>
-      <span class="progress__bar__number"><%= number_with_delimiter(progress, :delimiter => '.') %></span><%= "/#{number_with_delimiter(total, :delimiter => '.')}" if total != 0 %>
+      <span class="progress__bar__number"><%= number_with_delimiter(progress, delimiter: '.') %></span><%= "/#{number_with_delimiter(total, delimiter: '.')}" if total != 0 %>
     <% else %>
-      <span class="progress__bar__number"><%= number_with_delimiter(progress, :delimiter => '.') %></span><%= "/#{number_with_delimiter(total, :delimiter => '.')}" if total != 0 %>
+      <span class="progress__bar__number"><%= number_with_delimiter(progress, delimiter: '.') %></span><%= "/#{number_with_delimiter(total, delimiter: '.')}" if total != 0 %>
       <span class="progress__bar__text"><%= units_name_text %></span>
     <% end %>
   </div>
