@@ -472,6 +472,8 @@ nl:
       unavailable_scope: Niet beschikbaar bereik
     menu:
       initiatives: initiatieven
+    progress_bar:
+      number_delimiter: "."
     proposals:
       proposals:
         edit:

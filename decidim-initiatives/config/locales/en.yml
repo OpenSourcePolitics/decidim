@@ -460,6 +460,8 @@ en:
       unavailable_scope: Unavailable scope
     menu:
       initiatives: Initiatives
+    progress_bar:
+      number_delimiter: "."
     resources:
       initiatives_type:
         actions:
