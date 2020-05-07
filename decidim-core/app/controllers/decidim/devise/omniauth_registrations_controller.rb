@@ -174,15 +174,10 @@ module Decidim
       end
 
       def user_params
-        if user_params_from_oauth_hash
-          if params[:user]
-            user_params_from_oauth_hash.merge(params[:user].to_unsafe_h)
-          else
-            user_params_from_oauth_hash
-          end
-        else
-          params[:user]
-        end
+        return params[:user] unless user_params_from_oauth_hash
+        return user_params_from_oauth_hash unless params[:user]
+
+        user_params_from_oauth_hash.merge(params[:user].to_unsafe_h)
       end
 
       # Private: Create form params from omniauth hash
