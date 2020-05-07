@@ -472,6 +472,8 @@ fr:
       unavailable_scope: Portée indisponible
     menu:
       initiatives: Initiatives
+    progress_bar:
+      number_delimiter: "."
     proposals:
       proposals:
         edit:
