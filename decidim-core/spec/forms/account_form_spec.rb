@@ -6,18 +6,18 @@ module Decidim
   describe AccountForm do
     subject do
       described_class.new(
-        name: name,
-        email: email,
-        nickname: nickname,
-        password: password,
-        password_confirmation: password_confirmation,
-        avatar: avatar,
-        remove_avatar: remove_avatar,
-        personal_url: personal_url,
-        about: about
+          name: name,
+          email: email,
+          nickname: nickname,
+          password: password,
+          password_confirmation: password_confirmation,
+          avatar: avatar,
+          remove_avatar: remove_avatar,
+          personal_url: personal_url,
+          about: about
       ).with_context(
-        current_organization: organization,
-        current_user: user
+          current_organization: organization,
+          current_user: user
       )
     end
 
@@ -40,11 +40,22 @@ module Decidim
       end
     end
 
-    context "with an empty name" do
-      let(:name) { "" }
 
-      it "is invalid" do
-        expect(subject).not_to be_valid
+    describe "name" do
+      context "with an empty name" do
+        let(:name) { "" }
+
+        it "is invalid" do
+          expect(subject).not_to be_valid
+        end
+      end
+
+      context "with a long name" do
+        let(:name) { "The longest name in the world" }
+
+        it "is invalid" do
+          expect(subject).not_to be_valid
+        end
       end
     end
 
@@ -75,6 +86,14 @@ module Decidim
     end
 
     describe "nickname" do
+      context "with a long nickname" do
+        let(:nickname) { "The longest nickname in the world" }
+
+        it "is invalid" do
+          expect(subject).not_to be_valid
+        end
+      end
+
       context "with an empty nickname" do
         let(:nickname) { "" }
 
@@ -96,14 +115,6 @@ module Decidim
 
         it "is valid" do
           expect(subject).to be_valid
-        end
-      end
-
-      context "with invalid characters" do
-        let(:nickname) { "foo@bar" }
-
-        it "is invalid" do
-          expect(subject).not_to be_valid
         end
       end
     end
