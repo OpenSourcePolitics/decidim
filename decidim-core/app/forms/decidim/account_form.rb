@@ -21,6 +21,7 @@ module Decidim
     validates :nickname, presence: true
 
     validates :nickname, length: { maximum: Decidim::User.nickname_max_length, allow_blank: true }
+    validates :name, length: { maximum: 25, allow_blank: true }
     validates :password, confirmation: true
     validates :password, password: { name: :name, email: :email, username: :nickname }, if: -> { password.present? }
     validates :password_confirmation, presence: true, if: :password_present
