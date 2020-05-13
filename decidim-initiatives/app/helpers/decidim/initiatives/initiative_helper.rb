@@ -209,6 +209,12 @@ module Decidim
       def authorization_router(authorization)
         Decidim::Verifications.find_workflow_manifest(@authorizations.first.name).admin_engine.routes.url_helpers
       end
+
+      def can_edit_custom_signature_end_date?(initiative)
+        return false unless initiative.custom_signature_end_date_enabled?
+
+        initiative.created? || initiative.validating?
+      end
     end
   end
 end

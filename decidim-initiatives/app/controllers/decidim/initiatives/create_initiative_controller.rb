@@ -84,6 +84,12 @@ module Decidim
 
       def promotal_committee_step(parameters)
         enforce_permission_to :create, :initiative
+        @form = build_form(Decidim::Initiatives::InitiativeForm, parameters)
+        unless @form.valid?
+          redirect_to previous_wizard_path(validate_form: true)
+          return
+        end
+
         skip_step unless promotal_committee_required?
 
         if session_initiative.has_key?(:id)
@@ -118,15 +124,15 @@ module Decidim
 
       def similar_initiatives
         @similar_initiatives ||= Decidim::Initiatives::SimilarInitiatives
-                                 .for(current_organization, @form)
-                                 .all
+                                     .for(current_organization, @form)
+                                     .all
       end
 
       def build_form(klass, parameters)
         @form = if single_initiative_type?
-                  form(klass).from_params(parameters.merge(type_id: current_organization_initiatives_type.first.id))
+                  form(klass).from_params(parameters.merge(type_id: current_organization_initiatives_type.first.id), extra_context)
                 else
-                  form(klass).from_params(parameters)
+                  form(klass).from_params(parameters, extra_context)
                 end
 
         attributes = @form.attributes_with_values
@@ -135,6 +141,12 @@ module Decidim
         @form.valid? if params[:validate_form]
 
         @form
+      end
+
+      def extra_context
+        return {} unless initiative_type_id
+
+        { initiative_type: initiative_type }
       end
 
       def scopes
@@ -146,7 +158,11 @@ module Decidim
       end
 
       def initiative_type
-        @initiative_type ||= InitiativesType.find(session_initiative[:type_id] || @form&.type_id)
+        @initiative_type ||= InitiativesType.find(initiative_type_id)
+      end
+
+      def initiative_type_id
+        session_initiative[:type_id] || @form&.type_id
       end
 
       def session_initiative
@@ -158,7 +174,7 @@ module Decidim
         return false unless initiative_type.promoting_committee_enabled?
 
         minimum_committee_members = initiative_type.minimum_committee_members ||
-                                    Decidim::Initiatives.minimum_committee_members
+            Decidim::Initiatives.minimum_committee_members
         minimum_committee_members.present? && minimum_committee_members.positive?
       end
     end
