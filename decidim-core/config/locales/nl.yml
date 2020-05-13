@@ -991,6 +991,9 @@ nl:
         manage_user_group_admins: Beheer beheerders
         manage_user_group_users: Leden beheren
         resend_email_confirmation_instructions: Verzend instructies voor e-mailbevestiging opnieuw
+    progress_bar:
+      show:
+        number_delimiter: Number delimiter
     reported_mailer:
       hide:
         hello: Hallo %{name},

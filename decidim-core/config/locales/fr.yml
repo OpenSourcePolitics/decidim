@@ -990,6 +990,9 @@ fr:
         manage_user_group_admins: Gérer les administrateurs
         manage_user_group_users: Gérer les membres
         resend_email_confirmation_instructions: Renvoyer les instructions de confirmation par courrier électronique
+    progress_bar:
+      show:
+        number_delimiter: Number delimiter
     reported_mailer:
       hide:
         hello: Bonjour %{name},
