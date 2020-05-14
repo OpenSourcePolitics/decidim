@@ -1,3 +1,4 @@
+---
 nl:
   activemodel:
     models:
@@ -48,6 +49,7 @@ nl:
             title: titel
       posts:
         show:
+          back: Back to list
           view: Bekijk
         sidebar_blog:
           comments: reacties

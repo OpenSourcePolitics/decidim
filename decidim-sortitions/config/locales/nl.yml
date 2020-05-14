@@ -1,3 +1,4 @@
+---
 nl:
   activemodel:
     attributes:
@@ -124,6 +125,7 @@ nl:
         show:
           algorithm: De algoritme-code van de loting
           any_category: alle categorieën
+          back: Back to list
           cancelled: Geannuleerde loting
           candidate_proposal_ids: Sorteervolgorde orders en ID's
           candidate_proposals_info: 'De loting werd uitgevoerd tussen de volgende voorstellen (%{category_label}), met de volgende ID''s (vetgedrukt de geselecteerde voorstellen)  '
@@ -139,7 +141,7 @@ nl:
           random_seed: Willekeurig zaad
           selected_proposals:
             one: 1 voorstel geselecteerd
-            other: '%{count} voorstellen geselecteerd'
+            other: "%{count} voorstellen geselecteerd"
           view: Bekijk
         sortition_author:
           deleted: Verwijder gebruiker

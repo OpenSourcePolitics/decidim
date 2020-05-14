@@ -1,3 +1,4 @@
+---
 nl:
   activemodel:
     attributes:
@@ -81,6 +82,7 @@ nl:
           global:
             announcement: Aankondiging
             comments_enabled: Reacties ingeschakeld
+            comments_max_length: Comments max length
             default_registration_terms: Standaard registratievoorwaarden
             enable_pads_creation: Schakel het maken van notitieblokken in
             resources_permissions_enabled: Actiemachtigingen kunnen voor elke vergadering worden ingesteld
@@ -136,7 +138,7 @@ nl:
       badges:
         attended_meetings:
           conditions:
-            - Registreer u in de vergaderingen die u wilt bijwonen
+          - Registreer u in de vergaderingen die u wilt bijwonen
           description: Deze badge wordt toegekend wanneer u verschillende persoonlijke vergaderingen bijwoont.
           description_another: Deze gebruiker heeft %{score} vergaderingen bijgewoond.
           description_own: U hebt %{score} vergaderingen bijgewoond.
@@ -368,6 +370,7 @@ nl:
           confirm: Bevestigen
         show:
           attendees: Aantal deelnemers
+          back: Back to list
           contributions: Aantal bijdragen
           going: Gaat
           join: Deelnemen aan bijeenkomst
