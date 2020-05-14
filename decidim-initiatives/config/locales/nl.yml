@@ -283,6 +283,7 @@ nl:
           name: Gemarkeerde initiatieven
       create_initiative:
         fill_data:
+          attachment_legend: Attachment legend
           back: Terug
           continue: Doorgaan met
           fill_data_help: "<ul> <li>Herbekijk de inhoud van je initiatief. Is uw titel gemakkelijk te begrijpen? Is het doel van uw initiatief duidelijk?</li> <li>Je moet het type handtekening kiezen. Persoonlijk, online of een combinatie van beide</li> <li>Wat is de geografische reikwijdte van het initiatief? Stad, streek?</li> </ul>"

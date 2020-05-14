@@ -283,6 +283,7 @@ fr:
           name: Initiatives mises en avant
       create_initiative:
         fill_data:
+          attachment_legend: Attachment legend
           back: Retour
           continue: Continuer
           fill_data_help: "<ul> <li>Vérifier le contenu de votre initiative. Votre titre est-il facile à comprendre ? L'objectif de votre pétition est-il clair ?</li> <li>Vous devez choisir le type de recueil des signatures : en présentiel, en ligne ou une combinaison des deux</li> <li>Quelle est le secteur géographique de l'initiative ? Ville, arrondissement, quartier ?</li> </ul>"

@@ -69,7 +69,7 @@
             <% end %>
 
             <fieldset>
-              <legend><%= t(".attachment_legend", scope: "decidim.proposals.proposals.edit") %></legend>
+              <legend><%= t(".attachment_legend")%></legend>
               <%= f.fields_for :attachment, @form.attachment do |nested_form| %>
                 <div class="field">
                   <%= nested_form.text_field :title %>
