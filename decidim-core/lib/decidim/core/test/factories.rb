@@ -93,7 +93,9 @@ FactoryBot.define do
     force_users_to_authenticate_before_access_organization { false }
     smtp_settings do
       {
-        "from" => "test@example.org",
+        "from" => "Test <test@example.org>",
+        "from_label" => "Test",
+        "from_email" => "test@example.org",
         "user_name" => "test",
         "encrypted_password" => Decidim::AttributeEncryptor.encrypt("demo"),
         "port" => "25",

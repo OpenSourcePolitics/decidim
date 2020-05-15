@@ -20,6 +20,8 @@ module Decidim
       attribute :users_registration_mode, String
       jsonb_attribute :smtp_settings, [
         [:from, String],
+        [:from_label, String],
+        [:from_email, String],
         [:user_name, String],
         [:encrypted_password, String],
         [:address, String],

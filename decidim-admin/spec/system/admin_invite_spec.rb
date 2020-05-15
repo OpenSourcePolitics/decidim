@@ -22,7 +22,8 @@ describe "Admin invite", type: :system do
         "port" => "25",
         "user_name" => "f.laguardia",
         "password" => Decidim::AttributeEncryptor.encrypt("password"),
-        "from" => "no-reply@decide.lvh.me"
+        "from_label" => "Decide LVH",
+        "from_email" => "no-reply@decide.lvh.me"
       }
     }
   end

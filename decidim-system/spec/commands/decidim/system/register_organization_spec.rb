@@ -30,7 +30,8 @@ module Decidim
                 "port" => "25",
                 "user_name" => "f.laguardia",
                 "password" => Decidim::AttributeEncryptor.encrypt("password"),
-                "from" => "decide@gotham.gov"
+                "from_label" => "Gotham GOV",
+                "from_email" => "decide@gotham.gov"
               },
               omniauth_settings_facebook_enabled: true,
               omniauth_settings_facebook_app_id: "facebook-app-id",

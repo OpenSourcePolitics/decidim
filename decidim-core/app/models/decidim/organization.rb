@@ -40,6 +40,8 @@ module Decidim
     mount_uploader :favicon, Decidim::OrganizationFaviconUploader
     mount_uploader :highlighted_content_banner_image, ImageUploader
 
+    before_save :manage_smtp_sender, if: :will_save_change_to_smtp_settings?
+
     def self.log_presenter_class_for(_log)
       Decidim::AdminLog::OrganizationPresenter
     end
@@ -145,6 +147,14 @@ module Decidim
       end
 
       provider_settings
+    end
+
+    def manage_smtp_sender
+      smtp_settings["from"] = if smtp_settings["from_label"].present?
+                                "#{smtp_settings["from_label"]} <#{smtp_settings["from_email"]}>"
+                              else
+                                smtp_settings["from_email"]
+                              end
     end
   end
 end
