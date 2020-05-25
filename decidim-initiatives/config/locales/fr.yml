@@ -293,11 +293,11 @@ fr:
           back: Retour
           back_to_initiatives: Retour à l'index des initiatives
           callout_text: Bravo ! Votre initiative a été créée avec succès.
-          confirm: Confirm
-          edit_my_initiative: Edit my initiatives
+          confirm: Est-ce que vous confirmez ? 
+          edit_my_initiative: Editer mes initiatives
           go_to_my_initiatives: Consulter mes initiatives
           more_information: "(Plus d'informations)"
-          send_my_initiative: Send my initiative
+          send_my_initiative: Envoyer pour validation
         finish_help:
           access_reminder: Rappelez-vous que vous serez toujours en mesure d'accéder à vos initiatives via le menu utilisateur.
           help_for_organizations: Si vous êtes une association, vous devrez télécharger les procès-verbaux du conseil d'administration de toutes les organisations qui constituent le Comité de promotion
@@ -477,7 +477,7 @@ fr:
     proposals:
       proposals:
         edit:
-          attachment_legend: Attachment legend
+          attachment_legend: Ajouter une pièce jointe (facultatif)
     resources:
       initiatives_type:
         actions:
