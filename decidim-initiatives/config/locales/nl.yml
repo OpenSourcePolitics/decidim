@@ -284,7 +284,7 @@ nl:
       create_initiative:
         fill_data:
           back: Terug
-          continue: Doorgaan met
+          continue: Ga verder
           fill_data_help: "<ul> <li>Herbekijk de inhoud van je initiatief. Is uw titel gemakkelijk te begrijpen? Is het doel van uw initiatief duidelijk?</li> <li>Je moet het type handtekening kiezen. Persoonlijk, online of een combinatie van beide</li> <li>Wat is de geografische reikwijdte van het initiatief? Stad, streek?</li> </ul>"
           initiative_type: Initiatieftype
           more_information: "(Meer informatie)"
@@ -293,11 +293,11 @@ nl:
           back: Terug
           back_to_initiatives: Terug naar initiatieven
           callout_text: Proficiat! Je burgerinitiatief is aangemaakt.
-          confirm: Confirm
+          confirm: Weet je het zeker ?
           edit_my_initiative: Mijn petitie bewerken
           go_to_my_initiatives: Ga naar mijn initiatieven
           more_information: "(Meer informatie)"
-          send_my_initiative: Stuur mijn petitie naar de technische validatie
+          send_my_initiative: Stuur uw petitie door voor validatie
         finish_help:
           access_reminder: Vergeet niet dat je altijd toegang hebt tot je initiatieven via het gebruikersmenu.
           help_for_organizations: Als u een vereniging bent, moet u de notulen van het directiecomité uploaden van alle organisaties die de promotieraad vormen
@@ -307,7 +307,7 @@ nl:
           page: pagina
         previous_form:
           back: Terug
-          continue: Doorgaan met
+          continue: Ga verder
           help: Waaruit bestaat het initiatief? Noteer de titel en beschrijving. We adviseren een korte en bondige titel en een beschrijving gericht op de voorgestelde oplossing.
           more_information: "(Meer informatie)"
         promotal_committee:
@@ -321,7 +321,7 @@ nl:
           select: Ik wil dit initiatief promoten
           select_initiative_type_help: Burgerinitiatieven zijn een middel waarmee burgers kunnen ingrijpen, zodat de gemeenteraad acties kan ondernemen ter verdediging van het algemeen belang die zich binnen de rechtsgebieden van de gemeente bevinden. Welk initiatief wil jij lanceren?
         share_committee_link:
-          continue: Doorgaan met
+          continue: Ga verder
           invite_to_committee_help: Link om mensen uit te nodigen die deel zullen uitmaken van de promotieraad
         show_similar_initiatives:
           back: Terug
@@ -477,7 +477,7 @@ nl:
     proposals:
       proposals:
         edit:
-          attachment_legend: Attachment legend
+          attachment_legend: Een bijlage toevoegen (optioneel)
     resources:
       initiatives_type:
         actions:
@@ -498,7 +498,7 @@ nl:
         back: Terug
         fill_data: creëren
         finish: Voltooien
-        previous_form: Maak een petitie aan
+        previous_form: Maak uw petitie aan
         promotal_committee: Promotieraad
         select_initiative_type: Kiezen
         show_similar_initiatives: Vergelijken
