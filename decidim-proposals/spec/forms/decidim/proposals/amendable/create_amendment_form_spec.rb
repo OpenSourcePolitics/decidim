@@ -52,16 +52,6 @@ module Decidim
         it { is_expected.to be_valid }
       end
 
-      context "when emendation adds more errors than original" do
-        let(:amendable) { create(:proposal, title: "AAAAAAAAAAAAAAAAAAAAAAAAAA") }
-        let(:emendation_params) { { title: "AA", body: amendable.body } }
-
-        it "is invalid" do
-          expect(form).to be_invalid
-          expect(form.errors[:title]).to eq(["is too short (under 15 characters)"])
-        end
-      end
-
       context "when emendation adds less errors than original" do
         let(:amendable) { create(:proposal, title: "1 A!!#?", body: "#$^^ABC") }
         let(:emendation_params) { { title: "A title which is long enough", body: "A new body which is long enough" } }
