@@ -362,8 +362,8 @@ en:
           invalid: The phone number is invalid or pending of authorization. Please, check your authorizations.
       initiatives:
         author:
-          identifier: "Identifier: <b>N°%{identifier}</b>"
           deleted: Deleted
+          identifier: 'Identifier: <b>N°%{identifier}</b>'
         author_list:
           hidden_authors_count:
             one: and 1 more person
