@@ -81,6 +81,8 @@ en:
             published: Published
             rejected: Rejected
             validating: Technical validation
+        type_id_eq:
+          label: Type
       menu:
         initiatives: Initiatives
         initiatives_types: Initiative types
