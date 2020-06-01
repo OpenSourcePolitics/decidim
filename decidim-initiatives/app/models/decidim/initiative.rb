@@ -455,6 +455,4 @@ module Decidim
       Arel.sql("decidim_initiatives_type_scopes.decidim_initiatives_types_id")
     end
   end
-
-
 end
