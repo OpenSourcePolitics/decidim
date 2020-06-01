@@ -1,5 +1,4 @@
 ---
-
 fr:
   activemodel:
     attributes:
@@ -85,6 +84,8 @@ fr:
             debatted: Débattue
             examinated: Examinée
             validating: Validation technique
+        type_id_eq:
+          label: Type
       menu:
         initiatives: Initiatives
         initiatives_types: Types d'initiatives
@@ -419,7 +420,7 @@ fr:
             year: Année
           help: S'il vous plaît, remplissez les champs suivants avec vos données personnelles
             pour signer l'initiative
-          select_scope: "Sélectionner un périmètre d'application"
+          select_scope: Sélectionner un périmètre d'application
         finish:
           back_to_initiative: Retour à l'initiative
         sms_code:
@@ -446,8 +447,8 @@ fr:
             S'il vous plaît, vérifiez vos autorisations.
       initiatives:
         author:
-          identifier: "Identifiant: <b>N°%{identifier}</b>"
           deleted: Supprimé
+          identifier: 'Identifiant: <b>N°%{identifier}</b>'
         author_list:
           hidden_authors_count:
             one: et 1 autre personne
