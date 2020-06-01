@@ -28,7 +28,8 @@ en:
           success: Admin successfully updated
       default_pages:
         placeholders:
-          content: Please add meaningful content to the %{page} static page on the admin dashboard.
+          content: Please add meaningful content to the %{page} static page on the
+            admin dashboard.
           title: Default title for %{page}
       menu:
         admins: Admins
@@ -60,7 +61,8 @@ en:
         index:
           title: Organizations
         new:
-          reference_prefix_hint: The reference prefix is used to uniquely identify resources across all organization
+          reference_prefix_hint: The reference prefix is used to uniquely identify
+            resources across all organization
           secondary_hosts_hint: Enter each one of them in a new line
           title: New organization
         omniauth_settings:
@@ -82,10 +84,12 @@ en:
         users_registration_mode:
           disabled: Access only can be done with external accounts
           enabled: Allow participants to register and login
-          existing: Don't allow participants to register, but allow existing participants to login
+          existing: Don't allow participants to register, but allow existing participants
+            to login
       shared:
         notices:
-          no_organization_warning_html: You must create an organization to get started. Make sure you read %{guide} before proceeding.
+          no_organization_warning_html: You must create an organization to get started.
+            Make sure you read %{guide} before proceeding.
           our_getting_started_guide: our getting started guide
       titles:
         dashboard: Dashboard
