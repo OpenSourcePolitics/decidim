@@ -1,5 +1,4 @@
 ---
-
 fr:
   activemodel:
     attributes:
@@ -153,6 +152,14 @@ fr:
             email_subject: Nouvelle étape franchie !
             notification_title: L'initiative <a href="%{resource_path}">%{resource_title}</a>
               a atteint les %{percentage}% de signatures.
+          support_threshold_reached:
+            email_intro: The initiative %{resource_title} has reached the support
+              threshold
+            email_outro: You have received this notification because you are an admin
+              of the platform.
+            email_subject: Support threshold reached
+            notification_title: The <a href="%{resource_path}">%{resource_title}</a>
+              initiative has reached the support threshold
     gamification:
       badges:
         initiatives:
@@ -419,7 +426,7 @@ fr:
             year: Année
           help: S'il vous plaît, remplissez les champs suivants avec vos données personnelles
             pour signer l'initiative
-          select_scope: "Sélectionner un périmètre d'application"
+          select_scope: Sélectionner un périmètre d'application
         finish:
           back_to_initiative: Retour à l'initiative
         sms_code:
@@ -446,8 +453,8 @@ fr:
             S'il vous plaît, vérifiez vos autorisations.
       initiatives:
         author:
-          identifier: "Identifiant: <b>N°%{identifier}</b>"
           deleted: Supprimé
+          identifier: 'Identifiant: <b>N°%{identifier}</b>'
         author_list:
           hidden_authors_count:
             one: et 1 autre personne
