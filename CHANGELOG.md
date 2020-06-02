@@ -85,6 +85,8 @@ Due to [\#5553](https://github.com/decidim/decidim/pull/5553), SSL is turned on 
 ### Added
 
 - **decidim-initiatives**: Enhanced initiatives search [\#6086](https://github.com/decidim/decidim/pull/6086)
+- **decidim-initiatives**: Allow admins to export initiatives [/#6070](https://github.com/decidim/decidim/pull/6070)
+- **decidim-initiatives**: Add filter by type to admin. [\#6093](https://github.com/decidim/decidim/pull/6093)
 - **decidim-initiative**: Add CTA on initiative submission. [\#5838](https://github.com/decidim/decidim/pull/5838)
 - **decidim-core**: Allow users to register with a preferred language. [\#5789](https://github.com/decidim/decidim/pull/5789
 - **decidim-dev**: Retry failed test to avoid flaky. [\#5894](https://github.com/decidim/decidim/pull/5894)
