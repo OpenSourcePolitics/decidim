@@ -73,9 +73,11 @@ describe "Initiatives", type: :system do
         within ".new_filter[action='/initiatives']" do
           expect(page).not_to have_css("#filter_type")
         end
+      end
+    end
 
-        context "when in a manual state" do
-          let(:base_initiative) { create(:initiative, :debatted, organization: organization) }
+    context "when in a manual state" do
+      let(:base_initiative) { create(:initiative, :debatted, organization: organization) }
 
           it "displays the correct badge status" do
             within "#initiative_#{base_initiative.id}" do

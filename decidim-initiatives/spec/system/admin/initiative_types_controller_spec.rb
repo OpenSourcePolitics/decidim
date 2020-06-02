@@ -4,7 +4,7 @@ require "spec_helper"
 
 describe "InitiativeTypesController", type: :system do
   let(:organization) { create(:organization) }
-  let(:user) { create(:user, :admin, :confirmed, organization: organization) }
+  let(:initiatives_type) { create(:initiatives_type, :online_signature_enabled, :undo_online_signatures_enabled, :custom_signature_end_date_disabled, organization: organization) }
 
   before do
     switch_to_host(organization.host)
@@ -63,6 +63,7 @@ describe "InitiativeTypesController", type: :system do
 
       select("In-person", from: "Signature type")
       uncheck "Enable participants to undo their online signatures"
+      check "Enable authors to choose the end of signature collection period"
 
       click_button "Update"
 

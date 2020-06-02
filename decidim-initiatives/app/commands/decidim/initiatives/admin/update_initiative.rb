@@ -39,8 +39,6 @@ module Decidim
         private
 
         attr_reader :form, :initiative, :current_user
-
-        # rubocop:disable Metrics/CyclomaticComplexity
         def attributes
           attrs = {
             title: form.title,
@@ -54,20 +52,25 @@ module Decidim
           end
 
           if current_user.admin?
-            attrs[:signature_start_date] = form.signature_start_date
+            add_admin_accessible_attrs(attrs)
+          elsif initiative.custom_signature_end_date_enabled? && initiative.created?
             attrs[:signature_end_date] = form.signature_end_date
-            attrs[:offline_votes] = form.offline_votes.presence || { "total": 0 } if form.offline_votes
-            attrs[:state] = form.state if form.state
-
-            if initiative.published?
-              @notify_extended = true if form.signature_end_date != initiative.signature_end_date &&
-                                         form.signature_end_date > initiative.signature_end_date
-            end
           end
 
           attrs
         end
-        # rubocop:enable Metrics/CyclomaticComplexity
+
+        def add_admin_accessible_attrs(attrs)
+          attrs[:signature_start_date] = form.signature_start_date
+          attrs[:signature_end_date] = form.signature_end_date
+          attrs[:offline_votes] = form.offline_votes if form.offline_votes
+          attrs[:state] = form.state if form.state
+
+          if initiative.published?
+            @notify_extended = true if form.signature_end_date != initiative.signature_end_date &&
+                                       form.signature_end_date > initiative.signature_end_date
+          end
+        end
 
         def notify_initiative_is_extended
           Decidim::EventsManager.publish(
