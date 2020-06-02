@@ -57,7 +57,6 @@ module Decidim
           badges_enabled: true,
           user_groups_enabled: true,
           default_locale: form.default_locale,
-          omniauth_settings: form.encrypted_omniauth_settings,
           smtp_settings: form.encrypted_smtp_settings,
           send_welcome_notification: true
         )
