@@ -86,6 +86,8 @@ fr:
             debatted: Débattue
             examinated: Examinée
             validating: Validation technique
+        type_id_eq:
+          label: Type
       menu:
         initiatives: Initiatives
         initiatives_types: Types d'initiatives
@@ -154,6 +156,14 @@ fr:
             email_subject: Nouvelle étape franchie !
             notification_title: L'initiative <a href="%{resource_path}">%{resource_title}</a>
               a atteint les %{percentage}% de signatures.
+          support_threshold_reached:
+            email_intro: The initiative %{resource_title} has reached the support
+              threshold
+            email_outro: You have received this notification because you are an admin
+              of the platform.
+            email_subject: Support threshold reached
+            notification_title: The <a href="%{resource_path}">%{resource_title}</a>
+              initiative has reached the support threshold
     gamification:
       badges:
         initiatives:

@@ -73,7 +73,7 @@ en:
         new_initiative_type: New initiative type
       filters:
         search_placeholder:
-          title_or_description_cont: Search %{collection} by title or description.
+          title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Search %{collection} by title, description, ID or author name.
         state_eq:
           values:
             accepted: Accepted
@@ -156,6 +156,14 @@ en:
             email_subject: New milestone completed!
             notification_title: The <a href="%{resource_path}">%{resource_title}</a>
               initiative has achieved the %{percentage}% of signatures.
+          support_threshold_reached:
+            email_intro: The initiative %{resource_title} has reached the support
+              threshold
+            email_outro: You have received this notification because you are an admin
+              of the platform.
+            email_subject: Support threshold reached
+            notification_title: The <a href="%{resource_path}">%{resource_title}</a>
+              initiative has reached the support threshold
     gamification:
       badges:
         initiatives:
@@ -228,6 +236,8 @@ en:
         content_blocks:
           highlighted_initiatives:
             max_results: Maximum amount of elements to show
+        exports:
+          initiatives: Initiatives
         initiatives:
           edit:
             accept: Accept initiative
@@ -308,6 +318,18 @@ en:
         published: Published
         rejected: Rejected
         validating: Technical validation
+      application_helper:
+        filter_scope_values:
+          all: All
+        filter_state_values:
+          accepted: Enough signatures
+          all: All
+          answered: Answered
+          closed: Closed
+          open: Open
+          rejected: Not enough signatures
+        filter_type_values:
+          all: All
       committee_requests:
         new:
           continue: Continue
@@ -462,7 +484,7 @@ en:
           author: Author
           closed: Closed
           myself: My initiatives
-          open: Open
+          scope: Scope
           search: Search
           state: Status
           type: Type
@@ -551,6 +573,14 @@ en:
           highlighted_initiatives:
             active_initiatives: Active initiatives
             see_all_initiatives: See all initiatives
+      show:
+        badge_name:
+          accepted: Enough signatures
+          created: Created
+          discarded: Discarded
+          published: Published
+          rejected: Not enough signatures
+          validating: Technical validation
       state:
         accepted: Accepted
         created: Created

@@ -18,7 +18,7 @@ module Decidim
           end
 
           def search_field_predicate
-            :title_or_description_cont
+            :title_or_description_or_id_string_or_author_name_or_author_nickname_cont
           end
 
           def filters
@@ -30,6 +30,14 @@ module Decidim
               state_eq: Initiative.states.keys,
               type_id_eq: InitiativesType.where(organization: current_organization).pluck(:id)
             }
+          end
+
+          def dynamically_translated_filters
+            [:type_id_eq]
+          end
+
+          def translated_type_id_eq(id)
+            translated_attribute(Decidim::InitiativesType.find_by(id: id).title[I18n.locale.to_s])
           end
         end
 

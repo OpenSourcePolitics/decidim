@@ -66,19 +66,26 @@ module Decidim
     validate :signature_type_allowed
 
     scope :open, lambda {
-      published
-        .where.not(state: [:discarded, :rejected, :accepted, :created, :classified])
-        .where("signature_start_date <= ?", Date.current)
-        .where("signature_end_date >= ?", Date.current)
+      where.not(state: [:discarded, :rejected, :accepted, :created])
+           .currently_signable
     }
     scope :closed, lambda {
-      published
-        .where(state: [:discarded, :rejected, :accepted, :classified])
-        .or(where("signature_start_date > ?", Date.current))
-        .or(where("signature_end_date < ?", Date.current))
+      where(state: [:discarded, :rejected, :accepted])
+        .or(currently_unsignable)
     }
     scope :published, -> { where.not(published_at: nil) }
     scope :with_state, ->(state) { where(state: state) if state.present? }
+
+    scope :currently_signable, lambda {
+      where("signature_start_date <= ?", Date.current)
+        .where("signature_end_date >= ?", Date.current)
+    }
+    scope :currently_unsignable, lambda {
+      where("signature_start_date > ?", Date.current)
+        .or(where("signature_end_date < ?", Date.current))
+    }
+
+    scope :answered, -> { where.not(answered_at: nil) }
 
     scope :public_spaces, -> { published }
     scope :signature_type_updatable, -> { created }
@@ -373,6 +380,10 @@ module Decidim
       committee_members.approved.where(decidim_users_id: user.id).any?
     end
 
+    def author_users
+      [author].concat(committee_members.excluding_author.map(&:user))
+    end
+
     def accepts_offline_votes?
       published? && (offline_signature_type? || any_signature_type?)
     end
@@ -452,7 +463,19 @@ module Decidim
 
     # Allow ransacker to search on an Enum Field
     ransacker :state, formatter: proc { |int| states[int] }
-      
+
+    ransacker :id_string do
+      Arel.sql(%{cast("decidim_initiatives"."id" as text)})
+    end
+
+    ransacker :author_name do
+      Arel.sql("decidim_users.name")
+    end
+
+    ransacker :author_nickname do
+      Arel.sql("decidim_users.nickname")
+    end
+    
     ransacker :type_id do
       Arel.sql("decidim_initiatives_type_scopes.decidim_initiatives_types_id")
     end
