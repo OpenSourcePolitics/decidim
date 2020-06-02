@@ -80,11 +80,18 @@ fr:
       filters:
         search_placeholder:
           title_or_description_cont: Recherche %{collection} par titre ou description.
+          title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Recherche
+            %{collection} par titre, description, ID ou nom d'auteur.
         state_eq:
           values:
+            accepted: Accepté
             classified: Classée
+            created: Créé
             debatted: Débattue
+            discarded: Rejeté
             examinated: Examinée
+            published: Publié
+            rejected: Rejeté
             validating: Validation technique
         type_id_eq:
           label: Type
@@ -96,6 +103,7 @@ fr:
           fields:
             created_at: Créé à
             id: ID
+            published_at: Publié à l'adresse
             state: État
             supports_count: Signatures
             title: Initiatives
@@ -239,6 +247,8 @@ fr:
         content_blocks:
           highlighted_initiatives:
             max_results: Quantité maximale d'éléments à afficher
+        exports:
+          initiatives: Initiatives
         initiatives:
           edit:
             accept: Accepter l'initiative
@@ -319,6 +329,18 @@ fr:
         published: Publiée
         rejected: Rejetée
         validating: Validation technique
+      application_helper:
+        filter_scope_values:
+          all: Tous
+        filter_state_values:
+          accepted: Assez de signatures
+          all: Tous
+          answered: 'Réponse '
+          closed: Fermé
+          open: Ouvrez
+          rejected: Pas assez de signatures
+        filter_type_values:
+          all: Tous
       committee_requests:
         new:
           continue: Continuer
@@ -473,6 +495,7 @@ fr:
           closed: Fermées
           myself: Mes initiatives
           open: Ouvrir
+          scope: Champ d'application
           search: Rechercher
           state: État
           type: Type
@@ -495,6 +518,7 @@ fr:
           most_voted: Les plus soutenues
           random: Aléatoire
           recent: Les plus récentes
+          recently_published: Dernière publication
         result:
           answer_title:
             accepted: Cette initiative a été acceptée car
@@ -515,6 +539,8 @@ fr:
             sur cette initiative
           of_versions: "(of %{number})"
           offline_method: Cette initiative ne recueille que des soutiens en présentiel.
+          see_other_versions: voir les autres versions
+          version: Version %{nombre}
         signature_identities:
           select_identity: Sélectionner l'identifiant de l'utilisateur
         signatures_count:
@@ -560,6 +586,14 @@ fr:
           highlighted_initiatives:
             active_initiatives: Initiatives actives
             see_all_initiatives: Voir toutes les initiatives
+      show:
+        badge_name:
+          accepted: Assez de signatures
+          created: Créé
+          discarded: Rejeté
+          published: Publié
+          rejected: Pas assez de signatures
+          validating: Validation technique
       state:
         accepted: Acceptée
         created: Créée
