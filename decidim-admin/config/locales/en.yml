@@ -321,12 +321,6 @@ en:
           title_cont: Search %{collection} by title.
         state_eq:
           label: State
-          values:
-            accepted: Accepted
-            created: Created
-            discarded: Discarded
-            published: Published
-            rejected: Rejected
       help_sections:
         error: There was a problem updating the help sections
         form:
