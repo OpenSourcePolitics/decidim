@@ -261,6 +261,18 @@ en:
         published: Published
         rejected: Rejected
         validating: Technical validation
+      application_helper:
+        filter_scope_values:
+          all: All
+        filter_state_values:
+          accepted: Enough signatures
+          all: All
+          answered: Answered
+          closed: Closed
+          open: Open
+          rejected: Not enough signatures
+        filter_type_values:
+          all: All
       committee_requests:
         new:
           continue: Continue
@@ -375,7 +387,7 @@ en:
           author: Author
           closed: Closed
           myself: My initiatives
-          open: Open
+          scope: Scope
           search: Search
           state: Status
           type: Type
@@ -451,6 +463,14 @@ en:
           highlighted_initiatives:
             active_initiatives: Active initiatives
             see_all_initiatives: See all initiatives
+      show:
+        badge_name:
+          accepted: Enough signatures
+          created: Created
+          discarded: Discarded
+          published: Published
+          rejected: Not enough signatures
+          validating: Technical validation
       state:
         accepted: Accepted
         created: Created

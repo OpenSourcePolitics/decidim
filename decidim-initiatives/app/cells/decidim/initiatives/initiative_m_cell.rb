@@ -28,6 +28,17 @@ module Decidim
         true
       end
 
+      # Explicitely commenting the used I18n keys so their are not flagged as unused
+      # i18n-tasks-use t('decidim.initiatives.show.badge_name.accepted')
+      # i18n-tasks-use t('decidim.initiatives.show.badge_name.created')
+      # i18n-tasks-use t('decidim.initiatives.show.badge_name.discarded')
+      # i18n-tasks-use t('decidim.initiatives.show.badge_name.published')
+      # i18n-tasks-use t('decidim.initiatives.show.badge_name.rejected')
+      # i18n-tasks-use t('decidim.initiatives.show.badge_name.validating')
+      def badge_name
+        I18n.t(model.state, scope: "decidim.initiatives.show.badge_name")
+      end
+
       def state_classes
         case state
         when "accepted", "published", "debatted"
@@ -52,10 +63,6 @@ module Decidim
       def authors
         [present(model).author] +
           model.committee_members.approved.non_deleted.excluding_author.map { |member| present(member.user) }
-      end
-
-      def badge_name
-        humanize_initiative_state model
       end
 
       def comments_count
