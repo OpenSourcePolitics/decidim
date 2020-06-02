@@ -18,7 +18,6 @@ gem "faker", "~> 1.9"
 
 gem "activerecord-session_store"
 gem "deepl-rb"
-
 group :development, :test do
   gem "byebug", "~> 11.0", platform: :mri
 
