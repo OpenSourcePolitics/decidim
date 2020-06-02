@@ -30,6 +30,7 @@ module Decidim
 
         send_notification
         notify_percentage_change(percentage_before, percentage_after)
+        notify_support_threshold_reached(percentage_after)
 
         broadcast(:ok, votes)
       end
@@ -92,6 +93,21 @@ module Decidim
             percentage: percentage
           }
         )
+      end
+
+      def notify_support_threshold_reached(percentage)
+        return unless percentage >= 100
+
+        Decidim::EventsManager.publish(
+            event: "decidim.events.initiatives.support_threshold_reached",
+            event_class: Decidim::Initiatives::Admin::SupportThresholdReachedEvent,
+            resource: @initiative,
+            followers: organization_admins
+        )
+      end
+
+      def organization_admins
+        Decidim::User.where(organization: @initiative.organization, admin: true)
       end
     end
   end

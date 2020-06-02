@@ -46,6 +46,7 @@ module Decidim
               get :spawn
             end
           end
+          resources :versions, only: [:show, :index]
         end
 
         get "authorization_creation_modal", to: "authorization_creation_modals#show"
