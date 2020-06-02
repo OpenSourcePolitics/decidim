@@ -72,14 +72,16 @@ describe "Initiatives", type: :system do
       it "doesn't display the initiative type filter" do
         within ".new_filter[action='/initiatives']" do
           expect(page).not_to have_css("#filter_type")
-    end
-    
-    context "when in a manual state" do
-      let(:base_initiative) { create(:initiative, :debatted, organization: organization) }
+        end
 
-      it "displays the correct badge status" do
-        within "#initiative_#{base_initiative.id}" do
-          expect(page).to have_css(".success.card__text--status")
+        context "when in a manual state" do
+          let(:base_initiative) { create(:initiative, :debatted, organization: organization) }
+
+          it "displays the correct badge status" do
+            within "#initiative_#{base_initiative.id}" do
+              expect(page).to have_css(".success.card__text--status")
+            end
+          end
         end
       end
     end
