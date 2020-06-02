@@ -40,6 +40,14 @@ module Decidim
             translated_attribute(Decidim::InitiativesType.find_by(id: id).title[I18n.locale.to_s])
           end
         end
+
+        def dynamically_translated_filters
+          [:type_id_eq]
+        end
+
+        def translated_type_id_eq(id)
+          translated_attribute(Decidim::InitiativesType.find_by(id: id).title[I18n.locale.to_s])
+        end
       end
     end
   end

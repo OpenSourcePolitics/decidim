@@ -220,6 +220,7 @@ ignore_unused:
   - decidim.initiatives.create_initiative.select_initiative_type.more_information
   - decidim.initiatives.create_initiative.show_similar_initiatives.more_information
   - decidim.initiatives.state.*
+  - decidim.initiatives.initiative_signatures.fill_personal_data.date_select.*
 
 ## Exclude these keys from the `i18n-tasks eq-base' report:
 # ignore_eq_base:

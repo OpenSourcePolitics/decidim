@@ -72,8 +72,10 @@ describe "Initiatives", type: :system do
       it "doesn't display the initiative type filter" do
         within ".new_filter[action='/initiatives']" do
           expect(page).not_to have_css("#filter_type")
+        end
+      end
     end
-    
+
     context "when in a manual state" do
       let(:base_initiative) { create(:initiative, :debatted, organization: organization) }
 

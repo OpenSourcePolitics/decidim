@@ -33,6 +33,8 @@ fr:
         collect_user_extra_fields: Collecter les données personnelles de l'utilisateur
           lors de la signature
         comments_enabled: Activer les commentaires
+        custom_signature_end_date_enabled: Enable authors to choose the end of signature
+          collection period
         description: Description
         document_number_authorization_handler: Niveau d'autorisation nécessaire pour
           signer les initiatives de ce type
@@ -503,6 +505,7 @@ fr:
             qu'en présentiel.
           follow_description: Recevoir une notification lorsqu'il y a des actualités
             sur cette initiative
+          of_versions: "(of %{number})"
           offline_method: Cette initiative ne recueille que des soutiens en présentiel.
         signature_identities:
           select_identity: Sélectionner l'identifiant de l'utilisateur
@@ -563,6 +566,20 @@ fr:
         examinated: Examinée
         expired: Expirées
       unavailable_scope: Portée indisponible
+      versions:
+        index:
+          number_of_versions: Versions
+          title: Versions
+        shared:
+          back_to_initiative: Go back to initiative
+          changes_at_title: Changes at "%{title}"
+        show:
+          show_all_versions: Show all versions
+          version_author: Version author
+          version_created_at: Version created at
+          version_number_out_of_total: "%{current_version} out of %{total_count}"
+        version:
+          version_index: Version %{index}
     menu:
       initiatives: Initiatives
     resources:
