@@ -576,8 +576,11 @@ en:
       show:
         badge_name:
           accepted: Enough signatures
+          classified: Classified
           created: Created
+          debatted: Debatted
           discarded: Discarded
+          examinated: Examinated
           published: Published
           rejected: Not enough signatures
           validating: Technical validation
