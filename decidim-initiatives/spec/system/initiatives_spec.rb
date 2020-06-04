@@ -66,6 +66,18 @@ describe "Initiatives", type: :system do
       end
     end
 
+    context "when validating state initiative" do
+      let(:validating_initiative) { create(:initiative, :validating, organization: organization) }
+
+      it "does not display the validating initiative" do
+        within "#initiatives" do
+          expect(page).to have_content(translated(initiative.title, locale: :en))
+          expect(page).to have_content(initiative.author_name, count: 1)
+          expect(page).not_to have_content(translated(validating_initiative.title, locale: :en))
+        end
+      end
+    end
+
     context "when there is a unique initiative type" do
       let!(:unpublished_initiative) { nil }
 

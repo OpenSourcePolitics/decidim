@@ -19,7 +19,11 @@ module Decidim
                 TreePoint.new("rejected", t("decidim.initiatives.application_helper.filter_state_values.rejected"))
               ]
             ),
-            TreePoint.new("answered", t("decidim.initiatives.application_helper.filter_state_values.answered"))
+            TreePoint.new("answered", t("decidim.initiatives.application_helper.filter_state_values.answered")),
+            TreePoint.new("published", t("decidim.initiatives.application_helper.filter_state_values.published")),
+            TreePoint.new("classified", t("decidim.initiatives.application_helper.filter_state_values.classified")),
+            TreePoint.new("examinated", t("decidim.initiatives.application_helper.filter_state_values.examinated")),
+            TreePoint.new("debatted", t("decidim.initiatives.application_helper.filter_state_values.debatted"))
           ]
         )
       end
