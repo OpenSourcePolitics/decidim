@@ -18,8 +18,8 @@ module Decidim
           form_klass
             .from_model(initiative)
             .with_context(
-                current_organization: organization,
-                initiative_type: initiative.scoped_type.type
+              current_organization: organization,
+              initiative_type: initiative.scoped_type.type
             )
         end
 
@@ -42,11 +42,11 @@ module Decidim
         let(:author) { create(:user, organization: organization) }
         let(:form) do
           form_klass
-              .from_params(form_params)
-              .with_context(
-                  current_organization: organization,
-                  initiative_type: scoped_type.type
-              )
+            .from_params(form_params)
+            .with_context(
+              current_organization: organization,
+              initiative_type: scoped_type.type
+            )
         end
         let(:form_params) do
           {

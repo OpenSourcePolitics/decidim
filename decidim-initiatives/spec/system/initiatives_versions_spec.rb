@@ -9,14 +9,14 @@ describe "Explore versions", versioning: true, type: :system do
 
   let(:form) do
     Decidim::Initiatives::Admin::InitiativeForm.from_params(
-        title: { en: "A reasonable initiative title" },
-        description: { en: "A reasonable initiative description" },
-        signature_start_date: initiative.signature_start_date,
-        signature_end_date: initiative.signature_end_date
+      title: { en: "A reasonable initiative title" },
+      description: { en: "A reasonable initiative description" },
+      signature_start_date: initiative.signature_start_date,
+      signature_end_date: initiative.signature_end_date
     ).with_context(
-        current_organization: organization,
-        current_component: nil,
-        initiative: initiative
+      current_organization: organization,
+      current_component: nil,
+      initiative: initiative
     )
   end
   let(:command) { Decidim::Initiatives::Admin::UpdateInitiative.new(initiative, form, user) }

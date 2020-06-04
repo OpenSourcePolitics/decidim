@@ -6,11 +6,11 @@ shared_examples "create an initiative" do
   let(:author) { create(:user, organization: initiative_type.organization) }
   let(:form) do
     form_klass
-        .from_params(form_params)
-        .with_context(
-            current_organization: initiative_type.organization,
-            initiative_type: initiative_type
-        )
+      .from_params(form_params)
+      .with_context(
+        current_organization: initiative_type.organization,
+        initiative_type: initiative_type
+      )
   end
 
   describe "call" do
@@ -112,13 +112,13 @@ shared_examples "create an initiative" do
 
         let(:form_params) do
           {
-              title: "A reasonable initiative title",
-              description: "A reasonable initiative description",
-              type_id: scoped_type.type.id,
-              signature_type: "online",
-              scope_id: scoped_type.scope.id,
-              decidim_user_group_id: nil,
-              signature_end_date: Date.tomorrow
+            title: "A reasonable initiative title",
+            description: "A reasonable initiative description",
+            type_id: scoped_type.type.id,
+            signature_type: "online",
+            scope_id: scoped_type.scope.id,
+            decidim_user_group_id: nil,
+            signature_end_date: Date.tomorrow
           }
         end
 
