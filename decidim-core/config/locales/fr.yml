@@ -145,7 +145,7 @@ fr:
         invite: "%{user_name} a invité l'utilisateur %{resource_name} avec le rôle : %{role}"
         officialize: "%{user_name} a officialisé l'utilisateur %{resource_name}"
         remove_from_admin: "%{user_name} a retiré le rôle : %{role} de l'utilisateur %{resource_name}"
-        show_email: "%{nom_utilisateur} a récupéré le courrier électronique du participant %{nom_ressource}"
+        show_email: "%{user_name} a récupéré le courrier électronique du participant %{resource_name}"
         unofficialize: "%{user_name} a retiré l'officialisation de l'utilisateur %{resource_name}"
       user_group:
         reject: "%{user_name} a rejeté la vérification du groupe d'utilisateurs %{resource_name}"

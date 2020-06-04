@@ -226,11 +226,11 @@ fr:
         delete: "%{user_name} enlevé le membre %{resource_name} de l'assemblée %{space_name}"
         update: "%{user_name} a mis à jour le membre %{resource_name} de l'assemblée %{space_name}"
       assembly_type:
-        create: "%{nom_utilisateur} a créé le type d'assemblée %{nom_ressource}"
-        delete: "%{nom_utilisateur} a supprimé le membre %{nom_ressource} du type d'assemblée %{nom_espace}"
-        publish: "%{nom_utilisateur} a publié le type d'assemblée %{nom_ressource}"
-        unpublish: "%{nom_utilisateur} non publié le %{nom_ressource} type d'assemblée"
-        update: "%{nom_utilisateur} a mis à jour le type d'assemblée %{nom_ressource}"
+        create: "%{user_name} a créé le type d'assemblée %{resource_name}"
+        delete: "%{user_name} a supprimé le membre %{resource_name} du type d'assemblée %{nom_espace}"
+        publish: "%{user_name} a publié le type d'assemblée %{resource_name}"
+        unpublish: "%{user_name} non publié le %{resource_name} type d'assemblée"
+        update: "%{user_name} a mis à jour le type d'assemblée %{resource_name}"
       assembly_user_role:
         create: "%{user_name} a invité %{resource_name} à l'assemblée %{space_name}"
         delete: "%{user_name} a supprimé l'utilisateur %{resource_name} de l'assemblée%{space_name}"
