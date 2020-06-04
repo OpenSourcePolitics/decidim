@@ -19,6 +19,7 @@ module Decidim
     include Decidim::HasReference
     include Decidim::Randomable
     include Decidim::Searchable
+    include Decidim::Initiatives::HasArea
 
     belongs_to :organization,
                foreign_key: "decidim_organization_id",
@@ -146,7 +147,8 @@ module Decidim
     #
     # RETURNS string
     delegate :banner_image, to: :type
-    delegate :document_number_authorization_handler, :promoting_committee_enabled?, :custom_signature_end_date_enabled?, to: :type
+    delegate :document_number_authorization_handler, :promoting_committee_enabled?, :custom_signature_end_date_enabled?,:area_enabled?, to: :type
+    delegate :name, to: :area, prefix: true, allow_nil: true
     delegate :type, :scope, :scope_name, to: :scoped_type, allow_nil: true
 
     # PUBLIC

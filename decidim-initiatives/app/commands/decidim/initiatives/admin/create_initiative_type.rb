@@ -43,6 +43,7 @@ module Decidim
             signature_type: form.signature_type,
             undo_online_signatures_enabled: form.undo_online_signatures_enabled,
             custom_signature_end_date_enabled: form.custom_signature_end_date_enabled,
+            area_enabled: form.area_enabled,
             promoting_committee_enabled: form.promoting_committee_enabled,
             minimum_committee_members: form.minimum_committee_members,
             banner_image: form.banner_image,

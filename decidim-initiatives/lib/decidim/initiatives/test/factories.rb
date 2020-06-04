@@ -12,6 +12,7 @@ FactoryBot.define do
     signature_type { :online }
     undo_online_signatures_enabled { true }
     custom_signature_end_date_enabled { false }
+    area_enabled { false }
     promoting_committee_enabled { true }
     minimum_committee_members { 3 }
     child_scope_threshold_enabled { false }
@@ -39,6 +40,14 @@ FactoryBot.define do
 
     trait :custom_signature_end_date_disabled do
       custom_signature_end_date_enabled { false }
+    end
+
+    trait :area_enabled do
+      area_enabled { true }
+    end
+
+    trait :area_disabled do
+      area_enabled { false }
     end
 
     trait :promoting_committee_enabled do

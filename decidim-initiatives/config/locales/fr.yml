@@ -28,6 +28,7 @@ fr:
       initiatives_committee_member:
         user: Membre du Comité de promotion
       initiatives_type:
+        area_enabled: Enable authors to choose the area for their initiative
         banner_image: Image d'en-tête
         child_scope_threshold_enabled: Activer les signatures des sous-périmètres
         collect_user_extra_fields: Collecter les données personnelles de l'utilisateur
@@ -78,6 +79,8 @@ fr:
       actions:
         new_initiative_type: Nouveau type d'initiative
       filters:
+        decidim_area_id_eq:
+          label: Area
         search_placeholder:
           title_or_description_cont: Recherche %{collection} par titre ou description.
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Recherche
@@ -330,6 +333,8 @@ fr:
         rejected: Rejetée
         validating: Validation technique
       application_helper:
+        filter_area_values:
+          all: All
         filter_scope_values:
           all: Tous
         filter_state_values:
@@ -363,6 +368,7 @@ fr:
             ?</li> </ul>"
           initiative_type: Type d'initiative
           more_information: "(Plus d'informations)"
+          select_area: Select an area
           select_scope: Sélectionnez une portée
         finish:
           back: Retour
@@ -491,6 +497,7 @@ fr:
             other: "%{count} initiatives"
         filters:
           any: Tout
+          area: Area
           author: Auteur
           closed: Fermées
           myself: Mes initiatives

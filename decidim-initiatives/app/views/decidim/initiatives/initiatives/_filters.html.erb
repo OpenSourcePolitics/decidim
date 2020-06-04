@@ -27,4 +27,6 @@
     <%= form.check_boxes_tree :type_id, filter_types_values, legend_title: t(".type") %>
     <%= hidden_field_tag :order, order, id: nil, class: "order_filter" %>
   <% end %>
+
+  <%= form.check_boxes_tree :area_id, filter_areas_values, legend_title: t(".area") %>
 <% end %>
