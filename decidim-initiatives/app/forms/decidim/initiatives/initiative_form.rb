@@ -12,7 +12,6 @@ module Decidim
       attribute :description, String
       attribute :type_id, Integer
       attribute :scope_id, Integer
-      attribute :area_id, Integer
       attribute :decidim_user_group_id, Integer
       attribute :signature_type, String
       attribute :signature_end_date, Date
@@ -22,7 +21,6 @@ module Decidim
       validates :title, length: { maximum: 150 }
       validates :signature_type, presence: true
       validates :type_id, presence: true
-      validates :area, presence: true, if: ->(form) { form.area_id.present? }
       validate :scope_exists
       validates :signature_end_date, date: { after: Date.current }, if: lambda { |form|
         form.context.initiative_type.custom_signature_end_date_enabled? && form.signature_end_date.present?
@@ -57,10 +55,6 @@ module Decidim
 
       def scope
         @scope ||= Scope.find(scope_id) if scope_id.present?
-      end
-
-      def area
-        @area ||= current_organization.areas.find_by(id: area_id)
       end
 
       private

@@ -61,7 +61,7 @@
       </div>
     <% end %>
 
-    <% if current_initiative.area_enabled? %>
+    <% if current_initiative.area_enabled? && current_user.admin? %>
       <div class="field">
         <%= form.areas_select :area_id,
                               areas_for_select(current_organization),

@@ -58,7 +58,7 @@ module Decidim
         end
 
         def area_updatable?
-          @area_updatable ||= current_user.admin? || context.initiative.created?
+          @area_updatable ||= current_user.admin?
         end
 
         def signature_type_updatable?
