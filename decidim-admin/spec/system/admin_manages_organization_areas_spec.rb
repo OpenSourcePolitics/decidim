@@ -55,7 +55,7 @@ describe "Organization Areas", type: :system do
         end
       end
 
-      context "can edit area" do
+      context "when edit area" do
         before do
           within find("tr", text: translated(area.name)) do
             click_link "Edit"
@@ -65,8 +65,8 @@ describe "Organization Areas", type: :system do
         it "edits area" do
           within ".edit_area" do
             fill_in_i18n :area_name, "#area-name-tabs", en: "Another area",
-                         es: "Otra area",
-                         ca: "Una altra area"
+                                                        es: "Otra area",
+                                                        ca: "Una altra area"
             find("*[type=submit]").click
           end
 
@@ -85,9 +85,6 @@ describe "Organization Areas", type: :system do
           expect(page).to have_content("Logo")
         end
       end
-
-
-
 
       it "can delete them" do
         click_delete_area

@@ -11,6 +11,8 @@ module Decidim::Admin
     let(:name) { Decidim::Faker::Localized.literal(Faker::Address.unique.state) }
     let(:code) { Faker::Address.unique.state_abbr }
     let(:area_type) { create :area_type }
+    let(:color) { "#efaa4d" }
+    let(:logo) { Decidim::Dev.test_file("icon.png", "image/png") }
 
     let(:form) do
       double(
@@ -18,7 +20,9 @@ module Decidim::Admin
         current_user: user,
         name: name,
         organization: organization,
-        area_type: area_type
+        area_type: area_type,
+        color: color,
+        logo: logo
       )
     end
     let(:invalid) { false }
@@ -43,7 +47,7 @@ module Decidim::Admin
       it "traces the action", versioning: true do
         expect(Decidim.traceability)
           .to receive(:create!)
-          .with(Decidim::Area, user, hash_including(:name, :organization, :area_type))
+          .with(Decidim::Area, user, hash_including(:name, :organization, :area_type, :color, :logo))
           .and_call_original
 
         expect { subject.call }.to change(Decidim::ActionLog, :count)

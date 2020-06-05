@@ -2,9 +2,12 @@
 
 module Decidim
   # This class deals with uploading the organization's logo.
-  class OrganizationLogoUploader < ImageUploader
+  class AreaLogoUploader < ImageUploader
+
+    process quality: Decidim.image_uploader_quality
+
     version :medium do
-      process resize_to_fit: [600, 160]
+      process resize_to_fit: [400, 160]
     end
   end
 end

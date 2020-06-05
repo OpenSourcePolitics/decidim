@@ -41,7 +41,9 @@ module Decidim
       def attributes
         {
           name: form.name,
-          area_type: form.area_type
+          area_type: form.area_type,
+          color: form.color,
+          logo: form.logo
         }
       end
     end

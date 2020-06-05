@@ -18,10 +18,15 @@ module Decidim
                inverse_of: :areas,
                optional: true
 
+    attribute :color
+    attribute :logo
+
     validates :name, :organization, presence: true
     validates :name, uniqueness: { scope: [:organization, :area_type] }
 
     before_destroy :abort_if_dependencies
+
+    mount_uploader :logo, Decidim::AreaLogoUploader
 
     def self.log_presenter_class_for(_log)
       Decidim::AdminLog::AreaPresenter
