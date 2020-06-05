@@ -45,6 +45,7 @@ module Decidim
       end
 
       # Handle the state filter
+      # rubocop:disable Metrics/CyclomaticComplexity
       def search_state
         accepted ||= query.accepted if state.member?("accepted")
         rejected ||= query.rejected if state.member?("rejected")
@@ -68,6 +69,7 @@ module Decidim
           .or(query.where(id: debatted))
       end
 
+      # rubocop:enable Metrics/CyclomaticComplexity
       def search_type_id
         return query if type_ids.include?("all")
 
