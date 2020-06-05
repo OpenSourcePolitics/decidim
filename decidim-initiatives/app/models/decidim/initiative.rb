@@ -481,24 +481,24 @@ module Decidim
 
     # method for sort_link by number of supports
     ransacker :supports_count do
-     query = <<~SQL
-       (
-         SELECT
-           CASE
-             WHEN signature_type = 0 THEN 0
-             ELSE COALESCE((offline_votes::json->>'total')::int, 0)
-           END
-           +
-           CASE
-             WHEN signature_type = 1 THEN 0
-             ELSE COALESCE((online_votes::json->>'total')::int, 0)
-           END
-          FROM decidim_initiatives as initiatives
-         WHERE initiatives.id = decidim_initiatives.id
-         GROUP BY initiatives.id
-       )
-     SQL
-     Arel.sql(query)
+      query = <<~SQL
+        (
+          SELECT
+            CASE
+              WHEN signature_type = 0 THEN 0
+              ELSE COALESCE((offline_votes::json->>'total')::int, 0)
+            END
+            +
+            CASE
+              WHEN signature_type = 1 THEN 0
+              ELSE COALESCE((online_votes::json->>'total')::int, 0)
+            END
+           FROM decidim_initiatives as initiatives
+          WHERE initiatives.id = decidim_initiatives.id
+          GROUP BY initiatives.id
+        )
+      SQL
+      Arel.sql(query)
     end
   end
 end
