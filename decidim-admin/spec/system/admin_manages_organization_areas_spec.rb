@@ -55,24 +55,39 @@ describe "Organization Areas", type: :system do
         end
       end
 
-      it "can edit them" do
-        within find("tr", text: translated(area.name)) do
-          click_link "Edit"
+      context "can edit area" do
+        before do
+          within find("tr", text: translated(area.name)) do
+            click_link "Edit"
+          end
         end
 
-        within ".edit_area" do
-          fill_in_i18n :area_name, "#area-name-tabs", en: "Another area",
-                                                      es: "Otra area",
-                                                      ca: "Una altra area"
-          find("*[type=submit]").click
+        it "edits area" do
+          within ".edit_area" do
+            fill_in_i18n :area_name, "#area-name-tabs", en: "Another area",
+                         es: "Otra area",
+                         ca: "Una altra area"
+            find("*[type=submit]").click
+          end
+
+          expect(page).to have_admin_callout("successfully")
+
+          within "table" do
+            expect(page).to have_content("Another area")
+          end
         end
 
-        expect(page).to have_admin_callout("successfully")
+        it "can select area's color" do
+          expect(page).to have_content("Area color")
+        end
 
-        within "table" do
-          expect(page).to have_content("Another area")
+        it "can select area's logo" do
+          expect(page).to have_content("Logo")
         end
       end
+
+
+
 
       it "can delete them" do
         click_delete_area

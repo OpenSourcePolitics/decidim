@@ -179,6 +179,9 @@ en:
           error: There was a problem updating this area type.
           success: Area type updated successfully
       areas:
+        form:
+          color: Area color
+          logo: Area logo
         create:
           error: There was a problem creating a new area.
           success: Area created successfully.
