@@ -50,6 +50,9 @@ module Decidim
         answered = state.member?("answered") ? query.answered : nil
         open = state.member?("open") ? query.open : nil
         closed = state.member?("closed") ? query.closed : nil
+        classified = state.member?("classified") ? query.classified : nil
+        examinated = state.member?("examinated") ? query.examinated : nil
+        debatted = state.member?("debatted") ? query.debatted : nil
 
         query
           .where(id: accepted)
@@ -57,6 +60,9 @@ module Decidim
           .or(query.where(id: answered))
           .or(query.where(id: open))
           .or(query.where(id: closed))
+          .or(query.where(id: classified))
+          .or(query.where(id: examinated))
+          .or(query.where(id: debatted))
       end
 
       def search_type_id
