@@ -4,6 +4,7 @@ module Decidim
   module Consultations
     class AuthorizationVoteModalsController < Decidim::Consultations::ApplicationController
       include NeedsQuestion
+      helper Decidim::Verifications::AntiAffinityHelper
 
       helper_method :authorizations, :authorize_action_path
       layout false
