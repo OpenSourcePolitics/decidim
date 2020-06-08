@@ -40,11 +40,21 @@ module Decidim
       end
     end
 
-    context "with an empty name" do
-      let(:name) { "" }
+    describe "name" do
+      context "with an empty name" do
+        let(:name) { "" }
 
-      it "is invalid" do
-        expect(subject).not_to be_valid
+        it "is invalid" do
+          expect(subject).not_to be_valid
+        end
+      end
+
+      context "with a long name" do
+        let(:name) { "The longest name in the world" }
+
+        it "is invalid" do
+          expect(subject).not_to be_valid
+        end
       end
     end
 
@@ -75,6 +85,14 @@ module Decidim
     end
 
     describe "nickname" do
+      context "with a long nickname" do
+        let(:nickname) { "The longest nickname in the world" }
+
+        it "is invalid" do
+          expect(subject).not_to be_valid
+        end
+      end
+
       context "with an empty nickname" do
         let(:nickname) { "" }
 
