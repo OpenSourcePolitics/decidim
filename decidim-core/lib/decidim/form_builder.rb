@@ -367,6 +367,7 @@ module Decidim
     # attribute    - The String name of the attribute to buidl the field.
     # options      - A Hash with options to build the field.
     #              * optional: Whether the file can be optional or not.
+    # rubocop:disable Metrics/PerceivedComplexity
     def upload(attribute, options = {})
       self.multipart = true
       options[:optional] = options[:optional].nil? ? true : options[:optional]
@@ -374,12 +375,11 @@ module Decidim
       file = object.send attribute
       template = ""
       template += label(attribute, label_for(attribute) + required_for_attribute(attribute))
-      if options[:accept].present?
-        template += @template.file_field @object_name, attribute, accept: options.delete(:accept)
-      else
-        template += @template.file_field @object_name, attribute
-      end
-
+      template += if options[:accept].present?
+                    @template.file_field @object_name, attribute, accept: options.delete(:accept)
+                  else
+                    @template.file_field @object_name, attribute
+                  end
 
       if file_is_image?(file)
         template += if file.present?
@@ -416,6 +416,7 @@ module Decidim
     # Public: Returns the translated name for the given attribute.
     #
     # attribute    - The String name of the attribute to return the name.
+    # rubocop:enabled Metrics/PerceivedComplexity
     def label_for(attribute)
       if object.class.respond_to?(:human_attribute_name)
         object.class.human_attribute_name(attribute)
@@ -559,7 +560,6 @@ module Decidim
     #
     # Returns a String.
     # rubocop:disable Metrics/CyclomaticComplexity
-    # rubocop:disable Metrics/PerceivedComplexity
     def custom_label(attribute, text, options, field_before_label = false, show_required = true)
       return block_given? ? yield.html_safe : "".html_safe if text == false
 

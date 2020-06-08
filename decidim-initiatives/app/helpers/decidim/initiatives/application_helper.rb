@@ -80,15 +80,15 @@ module Decidim
                        end
 
         TreeNode.new(
-            TreePoint.new("", t("decidim.initiatives.application_helper.filter_area_values.all")),
-            areas_values
+          TreePoint.new("", t("decidim.initiatives.application_helper.filter_area_values.all")),
+          areas_values
         )
       end
 
       def filter_areas(areas)
         areas.map do |area|
           TreeNode.new(
-              TreePoint.new(area.id.to_s, area.name[I18n.locale.to_s])
+            TreePoint.new(area.id.to_s, area.name[I18n.locale.to_s])
           )
         end
       end
@@ -96,10 +96,10 @@ module Decidim
       def filter_areas_and_types(area_types)
         area_types.map do |area_type|
           TreeNode.new(
-              TreePoint.new(area_type.area_ids.join("_"), area_type.name[I18n.locale.to_s]),
-              area_type.areas.map do |area|
-                TreePoint.new(area.id.to_s, area.name[I18n.locale.to_s])
-              end
+            TreePoint.new(area_type.area_ids.join("_"), area_type.name[I18n.locale.to_s]),
+            area_type.areas.map do |area|
+              TreePoint.new(area.id.to_s, area.name[I18n.locale.to_s])
+            end
           )
         end
       end

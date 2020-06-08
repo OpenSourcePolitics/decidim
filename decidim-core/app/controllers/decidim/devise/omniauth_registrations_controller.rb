@@ -13,7 +13,7 @@ module Decidim
 
       after_action :grant_omniauth_authorization, except: [:logout]
 
-      skip_before_action :verify_authenticity_token, if: :is_saml_callback?
+      skip_before_action :verify_authenticity_token, if: :saml_callback?
 
       def new
         @form = form(OmniauthRegistrationForm).from_params(user_params)
@@ -226,7 +226,7 @@ module Decidim
         current_organization.enabled_omniauth_providers[provider.to_sym][:provider_name].presence || provider.capitalize
       end
 
-      def is_saml_callback?
+      def saml_callback?
         request.path.end_with?("saml/callback")
       end
     end
