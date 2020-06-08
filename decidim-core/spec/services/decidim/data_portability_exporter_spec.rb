@@ -31,6 +31,8 @@ module Decidim
         decidim-comments-comments-
         decidim-comments-commentvotes-
         decidim-users/avatar.jpg
+        decidim-initiatives-
+        decidim-initiativesvotes-
       )
     end
 
