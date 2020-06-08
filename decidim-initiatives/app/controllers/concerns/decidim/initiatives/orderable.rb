@@ -14,8 +14,7 @@ module Decidim
         # Available orders based on enabled settings
         def available_orders
           @available_orders ||= begin
-            available_orders = %w(random recent most_voted recently_published)
-            available_orders
+            %w(random recent most_voted recently_published answer_date)
           end
         end
 
@@ -33,6 +32,8 @@ module Decidim
             initiatives.order_by_most_recent
           when "recently_published"
             initiatives.order_by_most_recently_published
+          when "answer_date"
+            initiatives.order_by_answer_date
           else
             initiatives.order_randomly(random_seed)
           end

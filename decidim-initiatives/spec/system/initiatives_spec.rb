@@ -98,4 +98,22 @@ describe "Initiatives", type: :system do
       end
     end
   end
+
+  context "when sorting initiatives" do
+    before do
+      visit decidim_initiatives.initiatives_path
+    end
+
+    it "displays the sorting list" do
+      expect(page).to have_content("Sort initiatives by")
+
+      within "#initiatives .collection-sort-controls" do
+        expect(page).to have_css("a", text: "Random")
+        expect(page).to have_css("a", text: "Most recent", visible: false)
+        expect(page).to have_css("a", text: "Most signed", visible: false)
+        expect(page).to have_css("a", text: "Most recently published", visible: false)
+        expect(page).to have_css("a", text: "Answer date", visible: false)
+      end
+    end
+  end
 end

@@ -90,6 +90,7 @@ module Decidim
     scope :public_spaces, -> { published }
     scope :signature_type_updatable, -> { created }
 
+    scope :order_by_answer_date, -> { order("answered_at DESC nulls last") }
     scope :order_by_most_recent, -> { order(created_at: :desc) }
     scope :order_by_most_recently_published, -> { order(published_at: :desc) }
     scope :order_by_supports, -> { order("((online_votes->>'total')::int + (offline_votes->>'total')::int) DESC") }
@@ -146,7 +147,7 @@ module Decidim
     #
     # RETURNS string
     delegate :banner_image, to: :type
-    delegate :document_number_authorization_handler, :promoting_committee_enabled?, :custom_signature_end_date_enabled?,:area_enabled?, to: :type
+    delegate :document_number_authorization_handler, :promoting_committee_enabled?, :custom_signature_end_date_enabled?, :area_enabled?, to: :type
     delegate :name, to: :area, prefix: true, allow_nil: true
     delegate :type, :scope, :scope_name, to: :scoped_type, allow_nil: true
 

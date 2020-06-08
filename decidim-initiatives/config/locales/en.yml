@@ -441,6 +441,7 @@ en:
               one: Comment
               other: Comment
         orders:
+          answer_date: Answer date
           label: 'Sort initiatives by:'
           most_commented: Most commented
           most_voted: Most signed
