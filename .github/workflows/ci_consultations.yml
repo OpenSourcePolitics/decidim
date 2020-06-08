@@ -6,6 +6,7 @@ on:
       - master
       - release/*
       - "*-stable"
+      - fix/merge_petition_ci
   pull_request:
     branches:
       - develop

@@ -7,6 +7,7 @@ on:
       - release/*
       - "*-stable"
       - feature/*
+      - fix/merge_petition_ci
   pull_request:
     branches:
       - "*"
