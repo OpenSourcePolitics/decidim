@@ -85,5 +85,44 @@ describe "Initiatives", type: :system do
         end
       end
     end
+
+    context "when linked to an area" do
+      let!(:area) { create(:area, organization: organization) }
+      let(:base_initiative) { create(:initiative, :published, :with_area, area: area, organization: organization) }
+
+      it "doesn't display area-header" do
+        within "#initiative_#{base_initiative.id}" do
+          expect(page).not_to have_css(".area-header")
+        end
+      end
+
+      context "when area has color" do
+        let!(:area) { create(:area, :with_color, organization: organization) }
+
+        it "displays area header with background color" do
+          within "#initiative_#{base_initiative.id}" do
+            expect(page).to have_css(".area-header")
+
+            within ".area-header" do
+              expect(page).to have_content(translated(area.name, locale: :en))
+            end
+          end
+        end
+
+        context "when area has logo" do
+          let!(:area) { create(:area, :with_color, :with_logo, organization: organization) }
+
+          it "displays logo inside a tooltip" do
+            within "#initiative_#{base_initiative.id}" do
+              within ".area-header" do
+                within "span[data-tooltip=\"true\"]" do
+                  expect(page).to have_selector("img")
+                end
+              end
+            end
+          end
+        end
+      end
+    end
   end
 end

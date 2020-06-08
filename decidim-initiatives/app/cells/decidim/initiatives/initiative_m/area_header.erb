@@ -1,0 +1,11 @@
+<div class="area-header row" <%= area_color_style %>>
+  <% if area_logo.present? %>
+    <div class="columns">
+      <%= with_tooltip area_name do %>
+        <%= image_tag area_logo.url %>
+      <% end %>
+    </div>
+  <% else %>
+    <p><%= area_name %></p>
+  <% end %>
+</div>

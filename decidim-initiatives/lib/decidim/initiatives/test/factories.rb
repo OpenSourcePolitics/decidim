@@ -98,6 +98,7 @@ FactoryBot.define do
     signature_start_date { Date.current - 1.day }
     signature_end_date { Date.current + 120.days }
     answer_date {}
+    area {}
 
     scoped_type do
       create(:initiatives_type_scope,
@@ -109,6 +110,10 @@ FactoryBot.define do
         create(:authorization, user: initiative.author, granted_at: Time.now.utc)
       end
       create_list(:initiatives_committee_member, 3, initiative: initiative)
+    end
+
+    trait :with_area do
+      area { create(:area, organization: organization) }
     end
 
     trait :with_answer do

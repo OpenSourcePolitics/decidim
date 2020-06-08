@@ -52,6 +52,22 @@ module Decidim
         end
       end
 
+      def has_area_color?
+        model.area_color.present?
+      end
+
+      def area_color_style
+        "style=\"background-color:#{model.area_color};\""
+      end
+
+      def area_logo
+        model.area_logo
+      end
+
+      def area_name
+        translated_attribute(model.area_name)
+      end
+
       def resource_path
         initiative_path(model)
       end
@@ -62,7 +78,7 @@ module Decidim
 
       def authors
         [present(model).author] +
-          model.committee_members.approved.non_deleted.excluding_author.map { |member| present(member.user) }
+            model.committee_members.approved.non_deleted.excluding_author.map { |member| present(member.user) }
       end
 
       def comments_count
