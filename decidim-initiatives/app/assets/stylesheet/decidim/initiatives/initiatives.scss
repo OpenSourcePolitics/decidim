@@ -67,6 +67,15 @@
 }
 
 .area-header{
-  padding: 0 1rem;
-  text-align: center;
+  span{
+    padding: 1rem 1rem;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+
+    img{
+      max-width: 75%
+    }
+  }
 }
