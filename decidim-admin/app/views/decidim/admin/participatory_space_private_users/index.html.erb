@@ -23,6 +23,7 @@
           </thead>
           <tbody>
             <% collection.each do |private_user| %>
+              <% next if private_user.user.nil? %>
               <tr>
                 <td>
                   <%= private_user.user.name %><br>
