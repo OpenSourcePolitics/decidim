@@ -95,6 +95,7 @@ module Decidim
           def collection
             @collection ||= privatable_to
                             .participatory_space_private_users
+                            .includes(:user).where.not("decidim_users.id" => nil)
                             .page(params[:page])
                             .per(20)
           end
