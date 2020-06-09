@@ -237,13 +237,13 @@ fr:
       components:
         budgets:
           voting_rules_fieldset:
-            voting_rules: Voting rules
+            voting_rules: Règles de vote
           voting_rules_modal:
-            close: Close
+            close: Fermer
             ok: OK
-            title: "There's been a problem with the votings rules!"
-            total_projects_limit: "Make sure that the sum of minimums per categories does not amount to more than the value inputed for <em>Number of projects the user has to select</em>: "
-            component_projects_limit: "Make sure that the value of the following fields does not surpass the total number of projects for this component: <strong>%{total_projects}</strong>"
+            title: "Il y a eu un problème avec les règles de vote !"
+            total_projects_limit: "Assurez-vous que la somme des minimums par catégories ne soit pas supérieure à la valeur saisie pour <em>Nombre de projets que l'utilisateur doit sélectionner</em> : "
+            component_projects_limit: "Assurez-vous que la valeur des champs suivants ne dépasse pas le nombre total de projets pour cette composante : <strong>%{total_projects}</strong>"
         create:
           error: Une erreur s'est produite lors de la création de cette fonctionnalité.
           success: Fonctionnalité créée avec succès.
