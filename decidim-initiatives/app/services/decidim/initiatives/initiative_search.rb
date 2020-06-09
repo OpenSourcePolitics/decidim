@@ -47,26 +47,12 @@ module Decidim
       # Handle the state filter
       # rubocop:disable Metrics/CyclomaticComplexity
       def search_state
-        accepted ||= query.accepted if state.member?("accepted")
-        rejected ||= query.rejected if state.member?("rejected")
-        open ||= query.open if state.member?("open")
-        closed ||= query.closed if state.member?("closed")
-        answered ||= query.answered if state.member?("answered")
-        published ||= query.published if state.member?("published")
-        classified ||= query.classified if state.member?("classified")
-        examinated ||= query.examinated if state.member?("examinated")
-        debatted ||= query.debatted if state.member?("debatted")
+        states
+      end
 
-        query
-          .where(id: accepted)
-          .or(query.where(id: rejected))
-          .or(query.where(id: answered))
-          .or(query.where(id: open))
-          .or(query.where(id: closed))
-          .or(query.where(id: published))
-          .or(query.where(id: classified))
-          .or(query.where(id: examinated))
-          .or(query.where(id: debatted))
+      # rubocop:enable Metrics/CyclomaticComplexity
+      def search_custom_state
+        states
       end
 
       # rubocop:enable Metrics/CyclomaticComplexity
@@ -104,6 +90,30 @@ module Decidim
       end
 
       private
+
+
+      def states
+        accepted ||= query.accepted if state.member?("accepted")
+        rejected ||= query.rejected if state.member?("rejected")
+        open ||= query.open if state.member?("open")
+        closed ||= query.closed if state.member?("closed")
+        answered ||= query.answered if state.member?("answered")
+        published ||= query.published if custom_state.member?("published")
+        classified ||= query.classified if custom_state.member?("classified")
+        examinated ||= query.examinated if custom_state.member?("examinated")
+        debatted ||= query.debatted if custom_state.member?("debatted")
+
+        query
+          .where(id: accepted)
+          .or(query.where(id: rejected))
+          .or(query.where(id: answered))
+          .or(query.where(id: open))
+          .or(query.where(id: closed))
+          .or(query.where(id: published))
+          .or(query.where(id: classified))
+          .or(query.where(id: examinated))
+          .or(query.where(id: debatted))
+      end
 
       # Private: Returns an array with checked type ids.
       def type_ids

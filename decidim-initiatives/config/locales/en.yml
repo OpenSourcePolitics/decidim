@@ -505,6 +505,7 @@ en:
             one: "%{count} initiative"
             other: "%{count} initiatives"
         filters:
+          sort: Sorts
           any: Any
           area: Area
           author: Author

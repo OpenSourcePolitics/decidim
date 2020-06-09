@@ -117,14 +117,14 @@ describe "Filter Initiatives", :slow, type: :system do
     end
 
     context "when selecting the open state" do
-      it "lists the open initiatives", :slow do
+      it "lists the open initiatives" do
         within ".filters .state_check_boxes_tree_filter" do
           uncheck "All"
           check "Open"
         end
 
-        expect(page).to have_css(".card--initiative", count: 12)
-        expect(page).to have_content("12 INITIATIVES")
+        expect(page).to have_css(".card--initiative", count: 10)
+        expect(page).to have_content("10 INITIATIVES")
       end
     end
 
@@ -172,7 +172,7 @@ describe "Filter Initiatives", :slow, type: :system do
 
     context "when selecting the answered state" do
       it "lists the answered initiatives" do
-        within ".filters .state_check_boxes_tree_filter" do
+        within ".filters.state_check_boxes_tree_filter" do
           uncheck "All"
           check "Answered"
         end
@@ -184,7 +184,7 @@ describe "Filter Initiatives", :slow, type: :system do
 
     context "when selecting the published state" do
       it "lists the published initiatives" do
-        within ".filters .state_check_boxes_tree_filter" do
+        within ".filters.state_check_boxes_tree_filter:first-child" do
           uncheck "All"
           check "Published"
         end

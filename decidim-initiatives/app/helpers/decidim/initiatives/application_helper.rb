@@ -20,6 +20,14 @@ module Decidim
               ]
             ),
             TreePoint.new("answered", t("decidim.initiatives.application_helper.filter_state_values.answered")),
+          ]
+        )
+      end
+
+      def filter_sorts_values
+        TreeNode.new(
+          TreePoint.new("", t("decidim.initiatives.application_helper.filter_state_values.all")),
+          [
             TreePoint.new("published", t("decidim.initiatives.application_helper.filter_state_values.published")),
             TreePoint.new("classified", t("decidim.initiatives.application_helper.filter_state_values.classified")),
             TreePoint.new("examinated", t("decidim.initiatives.application_helper.filter_state_values.examinated")),

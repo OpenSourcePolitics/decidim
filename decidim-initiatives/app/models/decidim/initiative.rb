@@ -67,11 +67,11 @@ module Decidim
     validate :signature_type_allowed
 
     scope :open, lambda {
-      where.not(state: [:discarded, :rejected, :accepted, :created])
+      where.not(state: [:classified, :discarded, :rejected, :accepted, :created])
            .currently_signable
     }
     scope :closed, lambda {
-      where(state: [:discarded, :rejected, :accepted])
+      where(state: [:classified, :discarded, :rejected, :accepted])
         .or(currently_unsignable)
     }
     scope :with_state, ->(state) { where(state: state) if state.present? }
