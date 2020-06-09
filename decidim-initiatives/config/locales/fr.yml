@@ -543,6 +543,7 @@ fr:
               one: Commentaire
               other: commentaires
         orders:
+          answer_date: Date de réponse
           label: 'Trier les initiatives par :'
           most_commented: Les plus commentées
           most_voted: Les plus soutenues
