@@ -13,9 +13,7 @@ module Decidim
 
         # Available orders based on enabled settings
         def available_orders
-          @available_orders ||= begin
-            %w(random recent most_voted recently_published answer_date)
-          end
+          @available_orders ||= %w(random recent most_voted recently_published answer_date)
         end
 
         def default_order
