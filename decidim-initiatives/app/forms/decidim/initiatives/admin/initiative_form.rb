@@ -98,7 +98,7 @@ module Decidim
         def notify_missing_attachment_if_errored
           errors.add(:attachment, :needs_to_be_reattached) if errors.any? && attachment.present?
         end
-        
+
         def area_is_not_removed
           return if context.initiative.decidim_area_id.blank? || context.initiative.created?
 

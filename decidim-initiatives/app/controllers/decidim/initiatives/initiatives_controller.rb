@@ -75,7 +75,7 @@ module Decidim
           author: "any",
           scope_id: default_filter_scope_params,
           area_id: default_filter_area_params,
-          custom_state: [ "published" ]
+          custom_state: [""]
         }
       end
 

@@ -45,12 +45,11 @@ module Decidim
       end
 
       # Handle the state filter
-      # rubocop:disable Metrics/CyclomaticComplexity
       def search_state
         states
       end
 
-      # rubocop:enable Metrics/CyclomaticComplexity
+      # Handle the custom state filter
       def search_custom_state
         states
       end
@@ -91,17 +90,17 @@ module Decidim
 
       private
 
-
+      # search_state and search_custom_state should be a common query in different filter
       def states
-        accepted ||= query.accepted if state.member?("accepted")
-        rejected ||= query.rejected if state.member?("rejected")
-        open ||= query.open if state.member?("open")
-        closed ||= query.closed if state.member?("closed")
-        answered ||= query.answered if state.member?("answered")
-        published ||= query.published if custom_state.member?("published")
-        classified ||= query.classified if custom_state.member?("classified")
-        examinated ||= query.examinated if custom_state.member?("examinated")
-        debatted ||= query.debatted if custom_state.member?("debatted")
+        accepted ||= query.accepted if state&.member?("accepted")
+        rejected ||= query.rejected if state&.member?("rejected")
+        open ||= query.open if state&.member?("open")
+        closed ||= query.closed if state&.member?("closed")
+        answered ||= query.answered if state&.member?("answered")
+        published ||= query.published if custom_state&.member?("published")
+        classified ||= query.classified if custom_state&.member?("classified")
+        examinated ||= query.examinated if custom_state&.member?("examinated")
+        debatted ||= query.debatted if custom_state&.member?("debatted")
 
         query
           .where(id: accepted)

@@ -189,7 +189,7 @@ module Decidim
           permissions_for(action, type)
         end.inject do |result, list|
           result + list
-        end.uniq
+        end&.uniq
       end
       # rubocop:enable Style/MultilineBlockChain
 
