@@ -43,7 +43,8 @@ module Decidim
           name: form.name,
           area_type: form.area_type,
           color: form.color,
-          logo: form.logo
+          logo: form.logo,
+          remove_logo: form.remove_logo
         }
       end
     end

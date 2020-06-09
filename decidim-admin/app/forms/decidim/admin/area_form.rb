@@ -11,6 +11,7 @@ module Decidim
       attribute :area_type_id, Integer
       attribute :color
       attribute :logo
+      attribute :remove_logo
 
       mimic :area
 
