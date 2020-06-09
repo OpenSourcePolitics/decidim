@@ -2,6 +2,8 @@
 fr:
   activemodel:
     attributes:
+      group:
+        avatar: Avatar
       initiative:
         decidim_user_group_id: Auteur
         description: Description
@@ -29,6 +31,7 @@ fr:
         user: Membre du Comité de promotion
       initiatives_type:
         area_enabled: Enable authors to choose the area for their initiative
+        attachments_enabled: Enable attachments
         banner_image: Image d'en-tête
         child_scope_threshold_enabled: Activer les signatures des sous-périmètres
         collect_user_extra_fields: Collecter les données personnelles de l'utilisateur
@@ -63,6 +66,14 @@ fr:
         address: Adresse
         id_document: Document d'identité
         name: Nom complet
+    errors:
+      models:
+        initiative:
+          attributes:
+            attachment:
+              file: File is invalid
+              needs_to_be_reattached: Needs to be reattached
+              title: Title shouldn't be empty
   activerecord:
     models:
       decidim/initiative:
@@ -77,7 +88,13 @@ fr:
   decidim:
     admin:
       actions:
+        configure: Configure
+        confirm_destroy: Confirm destroy
+        destroy: Destroy
+        new: New
         new_initiative_type: Nouveau type d'initiative
+        publish: Publish
+        unpublish: Unpublish
       filters:
         decidim_area_id_eq:
           label: Area
@@ -101,6 +118,8 @@ fr:
       menu:
         initiatives: Initiatives
         initiatives_types: Types d'initiatives
+        participatory_processes_submenu:
+          moderations: Moderations
       models:
         initiatives:
           fields:
@@ -269,6 +288,11 @@ fr:
             actions_title: Action
             preview: Aperçu
             print: Impression
+          initiative_attachments:
+            documents: Documents
+            edit: Edit
+            new: New
+            photos: Photos
           show:
             print: Impression
           update:
@@ -520,6 +544,7 @@ fr:
               one: Commentaire
               other: commentaires
         orders:
+          answer_date: Date de réponse
           label: 'Trier les initiatives par :'
           most_commented: Les plus commentées
           most_voted: Les plus soutenues
@@ -631,12 +656,20 @@ fr:
           version_index: Version %{index}
     menu:
       initiatives: Initiatives
+    progress_bar:
+      number_delimiter: "."
+    proposals:
+      proposals:
+        edit:
+          attachment_legend: Ajouter une pièce jointe (facultatif)
     resources:
       initiatives_type:
         actions:
           create: Créer une initiative
           title: Actions
           vote: Vote
+    scopes:
+      global: Global
   layouts:
     decidim:
       admin:

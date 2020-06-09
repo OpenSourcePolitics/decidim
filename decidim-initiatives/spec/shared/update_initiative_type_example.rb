@@ -11,6 +11,7 @@ shared_examples "update an initiative type" do
            :area_disabled,
            organization: organization)
   end
+
   let(:form) do
     form_klass.from_params(
       form_params
@@ -26,6 +27,7 @@ shared_examples "update an initiative type" do
         title: Decidim::Faker::Localized.sentence(5),
         description: Decidim::Faker::Localized.sentence(25),
         signature_type: "offline",
+        attachments_enabled: true,
         undo_online_signatures_enabled: false,
         custom_signature_end_date_enabled: true,
         area_enabled: true,
@@ -54,6 +56,7 @@ shared_examples "update an initiative type" do
         expect(initiative_type.title).not_to eq(form_params[:title])
         expect(initiative_type.description).not_to eq(form_params[:description])
         expect(initiative_type.signature_type).not_to eq(form_params[:signature_type])
+        expect(initiative_type.attachments_enabled).not_to eq(form_params[:attachments_enabled])
         expect(initiative_type.undo_online_signatures_enabled).not_to eq(form_params[:undo_online_signatures_enabled])
         expect(initiative_type.custom_signature_end_date_enabled).not_to eq(form_params[:custom_signature_end_date_enabled])
         expect(initiative_type.area_enabled).not_to eq(form_params[:area_enabled])
@@ -75,6 +78,7 @@ shared_examples "update an initiative type" do
         expect(initiative_type.description).to eq(form_params[:description])
         expect(initiative_type.signature_type).to eq(form_params[:signature_type])
         expect(initiative_type.undo_online_signatures_enabled).to eq(form_params[:undo_online_signatures_enabled])
+        expect(initiative_type.attachments_enabled).to eq(form_params[:attachments_enabled])
         expect(initiative_type.custom_signature_end_date_enabled).to eq(form_params[:custom_signature_end_date_enabled])
         expect(initiative_type.area_enabled).to eq(form_params[:area_enabled])
         expect(initiative_type.minimum_committee_members).to eq(form_params[:minimum_committee_members])

@@ -10,6 +10,7 @@ FactoryBot.define do
     banner_image { Decidim::Dev.test_file("city2.jpeg", "image/jpeg") }
     organization
     signature_type { :online }
+    attachments_enabled { true }
     undo_online_signatures_enabled { true }
     custom_signature_end_date_enabled { false }
     area_enabled { false }
@@ -17,6 +18,14 @@ FactoryBot.define do
     minimum_committee_members { 3 }
     child_scope_threshold_enabled { false }
     only_global_scope_enabled { false }
+
+    trait :attachments_enabled do
+      attachments_enabled { true }
+    end
+
+    trait :attachments_disabled do
+      attachments_enabled { false }
+    end
 
     trait :online_signature_enabled do
       signature_type { :online }

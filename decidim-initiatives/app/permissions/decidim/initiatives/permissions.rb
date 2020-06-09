@@ -29,6 +29,8 @@ module Decidim
         sign_initiative?
         unvote_initiative?
 
+        initiative_attachment?
+
         permission_action
       end
 
@@ -172,6 +174,13 @@ module Decidim
                      authorized?(:vote, resource: initiative, permissions_holder: initiative.type)
 
         toggle_allow(can_unvote)
+      end
+
+      def initiative_attachment?
+        return unless permission_action.action == :add_attachment &&
+                      permission_action.subject == :initiative
+
+        toggle_allow(initiative_type.attachments_enabled?)
       end
 
       def public_report_content_action?

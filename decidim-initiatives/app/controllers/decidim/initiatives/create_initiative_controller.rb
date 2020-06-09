@@ -77,6 +77,8 @@ module Decidim
       def fill_data_step(parameters)
         enforce_permission_to :create, :initiative
         @form = build_form(Decidim::Initiatives::InitiativeForm, parameters)
+        @form.attachment = form(AttachmentForm).from_params({})
+
         render_wizard
       end
 

@@ -16,6 +16,7 @@ describe "InitiativeTypesController", type: :system do
 
     it "Shows the initiative type data" do
       visit decidim_admin_initiatives.initiatives_types_path
+
       expect(page).to have_i18n_content(initiative_type.title)
     end
   end
@@ -70,6 +71,7 @@ describe "InitiativeTypesController", type: :system do
       )
 
       select("In-person", from: "Signature type")
+      check "Enable attachments"
       uncheck "Enable participants to undo their online signatures"
       check "Enable authors to choose the end of signature collection period"
       check "Enable authors to choose the area for their initiative"

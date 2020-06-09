@@ -67,23 +67,22 @@ module Decidim
     validate :signature_type_allowed
 
     scope :open, lambda {
-      where.not(state: [:discarded, :rejected, :accepted, :created])
-          .currently_signable
+      where.not(state: [:classified, :discarded, :rejected, :accepted, :created])
+        .currently_signable
     }
     scope :closed, lambda {
-      where(state: [:discarded, :rejected, :accepted])
-          .or(currently_unsignable)
+      where(state: [:classified, :discarded, :rejected, :accepted])
+        .or(currently_unsignable)
     }
-    scope :published, -> { where.not(published_at: nil) }
     scope :with_state, ->(state) { where(state: state) if state.present? }
 
     scope :currently_signable, lambda {
       where("signature_start_date <= ?", Date.current)
-          .where("signature_end_date >= ?", Date.current)
+        .where("signature_end_date >= ?", Date.current)
     }
     scope :currently_unsignable, lambda {
       where("signature_start_date > ?", Date.current)
-          .or(where("signature_end_date < ?", Date.current))
+        .or(where("signature_end_date < ?", Date.current))
     }
 
     scope :answered, -> { where.not(answered_at: nil) }
@@ -91,6 +90,7 @@ module Decidim
     scope :public_spaces, -> { published }
     scope :signature_type_updatable, -> { created }
 
+    scope :order_by_answer_date, -> { order("answered_at DESC nulls last") }
     scope :order_by_most_recent, -> { order(created_at: :desc) }
     scope :order_by_most_recently_published, -> { order(published_at: :desc) }
     scope :order_by_supports, -> { order("((online_votes->>'total')::int + (offline_votes->>'total')::int) DESC") }
@@ -149,8 +149,8 @@ module Decidim
     #
     # RETURNS string
     delegate :banner_image, to: :type
-    delegate :document_number_authorization_handler, :promoting_committee_enabled?, :custom_signature_end_date_enabled?, :area_enabled?, to: :type
     delegate :name, :color, :logo, to: :area, prefix: true, allow_nil: true
+    delegate :attachments_enabled, :document_number_authorization_handler, :promoting_committee_enabled?, :custom_signature_end_date_enabled?, :area_enabled?, to: :type
     delegate :type, :scope, :scope_name, to: :scoped_type, allow_nil: true
 
     # PUBLIC

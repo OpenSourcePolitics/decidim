@@ -125,6 +125,54 @@ module Decidim
               expect(subject).to match_array(answered_initiatives)
             end
           end
+
+          context "and filtering published initiatives" do
+            let(:state) { ["published"] }
+
+            it "returns only published initiatives" do
+              default_published_initiatives = create_list(:initiative, 3, organization: organization)
+              published_initiatives = create_list(:initiative, 3, :published, organization: organization)
+
+              expect(subject.size).to eq(6)
+              expect(subject).to match_array(default_published_initiatives + published_initiatives)
+            end
+          end
+
+          context "and filtering classified initiatives" do
+            let(:state) { ["classified"] }
+
+            it "returns only classified initiatives" do
+              create_list(:initiative, 3, organization: organization)
+              classified_initiatives = create_list(:initiative, 3, :classified, organization: organization)
+
+              expect(subject.size).to eq(3)
+              expect(subject).to match_array(classified_initiatives)
+            end
+          end
+
+          context "and filtering examinated initiatives" do
+            let(:state) { ["examinated"] }
+
+            it "returns only examinated initiatives" do
+              create_list(:initiative, 3, organization: organization)
+              examinated_initiatives = create_list(:initiative, 3, :examinated, organization: organization)
+
+              expect(subject.size).to eq(3)
+              expect(subject).to match_array(examinated_initiatives)
+            end
+          end
+
+          context "and filtering debatted initiatives" do
+            let(:state) { ["debatted"] }
+
+            it "returns only debatted initiatives" do
+              create_list(:initiative, 3, organization: organization)
+              debatted_initiatives = create_list(:initiative, 3, :debatted, organization: organization)
+
+              expect(subject.size).to eq(3)
+              expect(subject).to match_array(debatted_initiatives)
+            end
+          end
         end
 
         context "when the filter includes scope_id" do

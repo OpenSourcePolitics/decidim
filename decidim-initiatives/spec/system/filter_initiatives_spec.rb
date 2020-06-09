@@ -76,6 +76,12 @@ describe "Filter Initiatives", :slow, type: :system do
       create_list(:initiative, 4, organization: organization)
       create_list(:initiative, 3, :accepted, organization: organization)
       create_list(:initiative, 2, :rejected, organization: organization)
+      create_list(:initiative, 2, :published, organization: organization)
+      create_list(:initiative, 1, :examinated, organization: organization)
+      create_list(:initiative, 2, :classified, organization: organization)
+      create_list(:initiative, 2, :debatted, organization: organization)
+      create_list(:initiative, 3, :validating, organization: organization)
+      create_list(:initiative, 3, :created, organization: organization)
       create(:initiative, :acceptable, organization: organization)
       create(:initiative, organization: organization, answered_at: Time.current)
 
@@ -95,8 +101,18 @@ describe "Filter Initiatives", :slow, type: :system do
           check "All"
         end
 
-        expect(page).to have_css(".card--initiative", count: 11)
-        expect(page).to have_content("11 INITIATIVES")
+        expect(page).to have_css(".card--initiative", count: 18)
+        expect(page).to have_content("18 INITIATIVES")
+      end
+
+      it "does not list created and validating initiatives" do
+        within ".filters .state_check_boxes_tree_filter" do
+          uncheck "All"
+          check "All"
+        end
+
+        expect(page).not_to have_content("CREATED")
+        expect(page).not_to have_content("TECHNICAL VALIDATION")
       end
     end
 
@@ -107,20 +123,20 @@ describe "Filter Initiatives", :slow, type: :system do
           check "Open"
         end
 
-        expect(page).to have_css(".card--initiative", count: 5)
-        expect(page).to have_content("5 INITIATIVES")
+        expect(page).to have_css(".card--initiative", count: 10)
+        expect(page).to have_content("10 INITIATIVES")
       end
     end
 
     context "when selecting the closed state" do
-      it "lists the closed initiatives" do
+      it "lists the closed initiatives", :slow do
         within ".filters .state_check_boxes_tree_filter" do
           uncheck "All"
           check "Closed"
         end
 
-        expect(page).to have_css(".card--initiative", count: 6)
-        expect(page).to have_content("6 INITIATIVES")
+        expect(page).to have_css(".card--initiative", count: 8)
+        expect(page).to have_content("8 INITIATIVES")
       end
     end
 
@@ -163,6 +179,70 @@ describe "Filter Initiatives", :slow, type: :system do
 
         expect(page).to have_css(".card--initiative", count: 1)
         expect(page).to have_content("1 INITIATIVE")
+      end
+    end
+
+    context "when selecting the published state" do
+      it "lists the published initiatives" do
+        within ".filters .state_check_boxes_tree_filter" do
+          uncheck "Open"
+        end
+
+        within ".filters .custom_state_check_boxes_tree_filter" do
+          uncheck "All"
+          check "Published"
+        end
+
+        expect(page).to have_css(".card--initiative", count: 8)
+        expect(page).to have_content("8 INITIATIVES")
+      end
+    end
+
+    context "when selecting the examinated state" do
+      it "lists the examinated initiatives" do
+        within ".filters .state_check_boxes_tree_filter" do
+          uncheck "Open"
+        end
+
+        within ".filters .custom_state_check_boxes_tree_filter" do
+          uncheck "All"
+          check "Examinated"
+        end
+
+        expect(page).to have_css(".card--initiative", count: 1)
+        expect(page).to have_content("1 INITIATIVE")
+      end
+    end
+
+    context "when selecting the classified state" do
+      it "lists the classified initiatives" do
+        within ".filters .state_check_boxes_tree_filter" do
+          uncheck "Open"
+        end
+
+        within ".filters .custom_state_check_boxes_tree_filter" do
+          uncheck "All"
+          check "Classified"
+        end
+
+        expect(page).to have_css(".card--initiative", count: 2)
+        expect(page).to have_content("2 INITIATIVES")
+      end
+    end
+
+    context "when selecting the debatted state" do
+      it "lists the debatted initiatives" do
+        within ".filters .state_check_boxes_tree_filter" do
+          uncheck "Open"
+        end
+
+        within ".filters .custom_state_check_boxes_tree_filter" do
+          uncheck "All"
+          check "Debatted"
+        end
+
+        expect(page).to have_css(".card--initiative", count: 2)
+        expect(page).to have_content("2 INITIATIVES")
       end
     end
   end

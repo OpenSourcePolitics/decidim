@@ -27,7 +27,7 @@ module Decidim
           initiative_type.update(attributes)
 
           if initiative_type.valid?
-            upate_initiatives_signature_type
+            update_initiatives_signature_type
             broadcast(:ok, initiative_type)
           else
             broadcast(:invalid)
@@ -43,6 +43,7 @@ module Decidim
             title: form.title,
             description: form.description,
             signature_type: form.signature_type,
+            attachments_enabled: form.attachments_enabled,
             undo_online_signatures_enabled: form.undo_online_signatures_enabled,
             custom_signature_end_date_enabled: form.custom_signature_end_date_enabled,
             area_enabled: form.area_enabled,
@@ -61,7 +62,7 @@ module Decidim
           result
         end
 
-        def upate_initiatives_signature_type
+        def update_initiatives_signature_type
           initiative_type.initiatives.signature_type_updatable.each do |initiative|
             initiative.update!(signature_type: initiative_type.signature_type)
           end
