@@ -520,6 +520,7 @@ fr:
             one: "%{count} initiative"
             other: "%{count} initiatives"
         filters:
+          select_an_area: Selectionnez un area
           any: Tout
           area: Area
           author: Auteur

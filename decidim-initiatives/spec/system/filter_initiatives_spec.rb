@@ -302,9 +302,8 @@ describe "Filter Initiatives", :slow, type: :system do
 
     context "when selecting all areas" do
       it "lists all initiatives", :slow do
-        within ".filters .area_id_check_boxes_tree_filter" do
-          uncheck "All"
-          check "All"
+        within ".filters .area_id_areas_select_filter" do
+          select "Select an area", from: "filter_area_id"
         end
 
         expect(page).to have_css(".card--initiative", count: 4)
@@ -314,15 +313,8 @@ describe "Filter Initiatives", :slow, type: :system do
 
     context "when selecting one area" do
       it "lists the filtered initiatives", :slow do
-        within ".filters .area_id_check_boxes_tree_filter" do
-          uncheck "All"
-          within all(".filters__has-subfilters").first do
-            click_button
-          end
-          within all(".filters__has-subfilters").last do
-            click_button
-          end
-          check area1.name[I18n.locale.to_s]
+        within ".filters .area_id_areas_select_filter" do
+          select translated(area1.name), from: "filter_area_id"
         end
 
         expect(page).to have_css(".card--initiative", count: 2)
@@ -332,9 +324,8 @@ describe "Filter Initiatives", :slow, type: :system do
 
     context "when selecting one area type" do
       it "lists the filtered initiatives", :slow do
-        within ".filters .area_id_check_boxes_tree_filter" do
-          uncheck "All"
-          check area_type1.name[I18n.locale.to_s]
+        within ".filters .area_id_areas_select_filter" do
+          select translated(area_type1.name), from: "filter_area_id"
         end
 
         expect(page).to have_css(".card--initiative", count: 3)

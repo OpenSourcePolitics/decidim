@@ -505,6 +505,7 @@ en:
             one: "%{count} initiative"
             other: "%{count} initiatives"
         filters:
+          select_an_area: Select an area
           sort: Sorts
           any: Any
           area: Area
