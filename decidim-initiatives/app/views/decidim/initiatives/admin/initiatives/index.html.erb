@@ -21,6 +21,7 @@
             <%-#sort_link(query, :supports_count, t("models.initiatives.fields.supports_count", scope: "decidim.admin"), default_order: :desc) -%>
             <th><%= sort_link(query, :created_at, t("models.initiatives.fields.created_at", scope: "decidim.admin"), default_order: :desc) %></th>
             <th><%= sort_link(query, :published_at, t("models.initiatives.fields.published_at", scope: "decidim.admin"), default_order: :desc) %></th>
+            <th><%= sort_link(query, :answer_date, t("models.initiatives.fields.answered_at", scope: "decidim.admin"), default_order: :desc) %></th>
             <th class="actions"><%= t ".actions_title" %></th>
           </tr>
         </thead>
@@ -40,6 +41,7 @@
             <td><%= initiative.supports_count %>/<%= initiative.scoped_type.supports_required %></td>
             <td><%= l initiative.created_at, format: :short %></td>
             <td><%= initiative.published_at? ? l(initiative.published_at, format: :short) : "" %></td>
+            <td><%= initiative.answer_date? ? l(initiative.answer_date.to_time, format: :short) : "" %></td>
             <td class="table-list__actions">
               <% if allowed_to? :preview, :initiative, initiative: initiative %>
                 <%= icon_link_to "eye",
