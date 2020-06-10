@@ -54,7 +54,6 @@ module Decidim
         states
       end
 
-      # rubocop:enable Metrics/CyclomaticComplexity
       def search_type_id
         return query if type_ids.include?("all")
 
@@ -91,6 +90,7 @@ module Decidim
       private
 
       # search_state and search_custom_state should be a common query in different filter
+      # rubocop:disable Metrics/CyclomaticComplexity
       def states
         accepted ||= query.accepted if state&.member?("accepted")
         rejected ||= query.rejected if state&.member?("rejected")
@@ -115,6 +115,7 @@ module Decidim
       end
 
       # Private: Returns an array with checked type ids.
+      # rubocop:enable Metrics/CyclomaticComplexity
       def type_ids
         [type_id].flatten
       end
