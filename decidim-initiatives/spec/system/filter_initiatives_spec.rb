@@ -321,17 +321,6 @@ describe "Filter Initiatives", :slow, type: :system do
         expect(page).to have_content("2 INITIATIVES")
       end
     end
-
-    context "when selecting one area type" do
-      it "lists the filtered initiatives", :slow do
-        within ".filters .area_id_areas_select_filter" do
-          select translated(area_type1.name), from: "filter_area_id"
-        end
-
-        expect(page).to have_css(".card--initiative", count: 3)
-        expect(page).to have_content("3 INITIATIVES")
-      end
-    end
   end
 
   context "when filtering initiatives by AUTHOR" do
