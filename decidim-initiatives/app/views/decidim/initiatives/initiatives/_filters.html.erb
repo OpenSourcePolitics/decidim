@@ -13,8 +13,10 @@
   </div>
 
   <%= form.check_boxes_tree :state, filter_states_values, legend_title: t(".state") %>
-  <%= form.areas_select :area_id, areas_for_select(current_organization),
-                        include_blank: t(".select_an_area") %>
+  <%= form.areas_select :area_id,
+                  current_organization.areas,
+                  include_blank: t(".select_an_area") %>
+
   <%= form.check_boxes_tree :custom_state, filter_sorts_values, legend_title: t(".sort") %>
   <% if current_user %>
     <%= form.collection_radio_buttons :author,
