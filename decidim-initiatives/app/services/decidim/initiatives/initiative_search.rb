@@ -44,16 +44,6 @@ module Decidim
           )
       end
 
-      # Handle the state filter
-      def search_state
-        states
-      end
-
-      # Handle the custom state filter
-      def search_custom_state
-        states
-      end
-
       # rubocop:enable Metrics/CyclomaticComplexity
       def search_type_id
         return query if type_ids.include?("all")
@@ -88,19 +78,27 @@ module Decidim
         query.where(decidim_area_id: area_id)
       end
 
+
+      # Handle the state filter
+      def search_state
+        states
+      end
+
+      # Handle the custom state filter
+      def search_custom_state
+        states
+      end
+
+
       private
 
       # search_state and search_custom_state should be a common query in different filter
       def states
-        accepted ||= query.accepted if state&.member?("accepted")
-        rejected ||= query.rejected if state&.member?("rejected")
-        open ||= query.open if state&.member?("open")
-        closed ||= query.closed if state&.member?("closed")
-        answered ||= query.answered if state&.member?("answered")
-        published ||= query.published if custom_state&.member?("published")
-        classified ||= query.classified if custom_state&.member?("classified")
-        examinated ||= query.examinated if custom_state&.member?("examinated")
-        debatted ||= query.debatted if custom_state&.member?("debatted")
+        accepted ||= query_state_relation(query.accepted, custom_state) if state&.member?("accepted")
+        rejected ||= query_state_relation(query.rejected, custom_state) if state&.member?("rejected")
+        open ||= query_state_relation(query.open, custom_state) if state&.member?("open")
+        closed ||= query_state_relation(query.closed, custom_state) if state&.member?("closed")
+        answered ||= query_state_relation(query.answered, custom_state) if state&.member?("answered")
 
         query
           .where(id: accepted)
@@ -108,10 +106,17 @@ module Decidim
           .or(query.where(id: answered))
           .or(query.where(id: open))
           .or(query.where(id: closed))
-          .or(query.where(id: published))
-          .or(query.where(id: classified))
-          .or(query.where(id: examinated))
-          .or(query.where(id: debatted))
+      end
+
+      def query_state_relation(query, custom_state=nil)
+        return query unless custom_state.present?
+
+        query = query.where(id: query.published) if custom_state.member?("published")
+        query = query.where(id: query.classified) if custom_state.member?("classified")
+        query = query.where(id: query.examinated) if custom_state.member?("examinated")
+        query = query.where(id: query.debatted) if custom_state.member?("debatted")
+
+        query
       end
 
       # Private: Returns an array with checked type ids.
