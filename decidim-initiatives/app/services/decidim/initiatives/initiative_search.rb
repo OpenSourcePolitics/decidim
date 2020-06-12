@@ -22,10 +22,6 @@ module Decidim
           .where.not(published_at: nil)
       end
 
-      def options
-        super
-      end
-
       # Handle the search_text filter
       def search_search_text
         query
