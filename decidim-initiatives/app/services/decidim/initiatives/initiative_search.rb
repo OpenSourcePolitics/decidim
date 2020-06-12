@@ -22,6 +22,10 @@ module Decidim
           .where.not(published_at: nil)
       end
 
+      def options
+        super
+      end
+
       # Handle the search_text filter
       def search_search_text
         query
@@ -99,6 +103,7 @@ module Decidim
                               .or(query_for_state.where(id: status[:debatted]))
         end
 
+
         query_for_state
       end
 
@@ -152,7 +157,7 @@ module Decidim
                             end
         end
 
-        query_for_state.presence || query
+        query_for_state || query.where(id: nil)
       end
 
       # rubocop:enable Metrics/CyclomaticComplexity
