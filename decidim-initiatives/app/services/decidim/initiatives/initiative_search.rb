@@ -44,7 +44,6 @@ module Decidim
           )
       end
 
-      # rubocop:enable Metrics/CyclomaticComplexity
       def search_type_id
         return query if type_ids.include?("all")
 
@@ -78,46 +77,86 @@ module Decidim
         query.where(decidim_area_id: area_id)
       end
 
+      # Handle the custom state filter
+      def search_custom_state
+        states
+      end
 
       # Handle the state filter
       def search_state
         states
       end
 
-      # Handle the custom state filter
-      def search_custom_state
-        states
-      end
-
-
       private
 
+      def query_for_specific_state(query, state, status = {})
+        query_for_state = query.where(id: state)
+
+        if status[:published] || status[:examinated] || status[:classified] || status[:debatted]
+          query_for_state = query_for_state.where(id: status[:classified])
+                              .or(query_for_state.where(id: status[:examinated]))
+                              .or(query_for_state.where(id: status[:published]))
+                              .or(query_for_state.where(id: status[:debatted]))
+        end
+
+        query_for_state
+      end
+
       # search_state and search_custom_state should be a common query in different filter
+      # rubocop:disable Metrics/CyclomaticComplexity
+      # rubocop:disable Metrics/PerceivedComplexity
       def states
-        accepted ||= query_state_relation(query.accepted, custom_state) if state&.member?("accepted")
-        rejected ||= query_state_relation(query.rejected, custom_state) if state&.member?("rejected")
-        open ||= query_state_relation(query.open, custom_state) if state&.member?("open")
-        closed ||= query_state_relation(query.closed, custom_state) if state&.member?("closed")
-        answered ||= query_state_relation(query.answered, custom_state) if state&.member?("answered")
+        accepted ||= query.accepted if state&.member?("accepted") || state.nil?
+        rejected ||= query.rejected if state&.member?("rejected") || state.nil?
+        open ||= query.open if state&.member?("open") || state.nil?
+        closed ||= query.closed if state&.member?("closed") || state.nil?
+        answered ||= query.answered if state&.member?("answered") || state.nil?
+        custom_states = {
+          published: custom_state&.member?("published") ? query.published : nil,
+          examinated: custom_state&.member?("examinated") ? query.examinated : nil,
+          classified: custom_state&.member?("classified") ? query.classified : nil,
+          debatted: custom_state&.member?("debatted") ? query.debatted : nil
+        }
 
-        query
-          .where(id: accepted)
-          .or(query.where(id: rejected))
-          .or(query.where(id: answered))
-          .or(query.where(id: open))
-          .or(query.where(id: closed))
+        query_for_state = query_for_specific_state(query, accepted, custom_states) if accepted.present?
+
+        if rejected.present?
+          query_for_state = if query_for_state.present?
+                              query_for_state.or(query_for_specific_state(query, rejected, custom_states))
+                            else
+                              query_for_specific_state(query, rejected, custom_states)
+                            end
+        end
+
+        if open.present?
+          query_for_state = if query_for_state.present?
+                              query_for_state.or(query_for_specific_state(query, open, custom_states))
+                            else
+                              query_for_specific_state(query, open, custom_states)
+                            end
+        end
+
+        if closed.present?
+          query_for_state = if query_for_state.present?
+                              query_for_state.or(query_for_specific_state(query, closed, custom_states))
+                            else
+                              query_for_specific_state(query, closed, custom_states)
+                            end
+        end
+
+        if answered.present?
+          query_for_state = if query_for_state.present?
+                              query_for_state.or(query_for_specific_state(query, answered, custom_states))
+                            else
+                              query_for_specific_state(query, answered, custom_states)
+                            end
+        end
+
+        query_for_state.presence || query
       end
 
-      def query_state_relation(query, custom_state=nil)
-        return query unless custom_state.present?
-
-        query = query.where(id: query.published) if custom_state.member?("published")
-        query = query.where(id: query.classified) if custom_state.member?("classified")
-        query = query.where(id: query.examinated) if custom_state.member?("examinated")
-        query = query.where(id: query.debatted) if custom_state.member?("debatted")
-
-        query
-      end
+      # rubocop:enable Metrics/CyclomaticComplexity
+      # rubocop:enable Metrics/PerceivedComplexity
 
       # Private: Returns an array with checked type ids.
       def type_ids
