@@ -98,11 +98,10 @@ module Decidim
 
         if status[:published] || status[:examinated] || status[:classified] || status[:debatted]
           query_for_state = query_for_state.where(id: status[:classified])
-                              .or(query_for_state.where(id: status[:examinated]))
-                              .or(query_for_state.where(id: status[:published]))
-                              .or(query_for_state.where(id: status[:debatted]))
+                                           .or(query_for_state.where(id: status[:examinated]))
+                                           .or(query_for_state.where(id: status[:published]))
+                                           .or(query_for_state.where(id: status[:debatted]))
         end
-
 
         query_for_state
       end

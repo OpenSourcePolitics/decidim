@@ -12,9 +12,9 @@ module Decidim
     let(:initiatives_type_minimum_committee_members) { 2 }
     let(:initiatives_type) do
       create(
-          :initiatives_type,
-          organization: organization,
-          minimum_committee_members: initiatives_type_minimum_committee_members
+        :initiatives_type,
+        organization: organization,
+        minimum_committee_members: initiatives_type_minimum_committee_members
       )
     end
     let(:scoped_type) { create(:initiatives_type_scope, type: initiatives_type) }
@@ -24,16 +24,16 @@ module Decidim
     describe ".states" do
       it "returns the correct enumerator" do
         expect(subject.class.states).to eq(
-                                            "created" => 0,
-                                            "validating" => 1,
-                                            "discarded" => 2,
-                                            "published" => 3,
-                                            "rejected" => 4,
-                                            "accepted" => 5,
-                                            "examinated" => 6,
-                                            "debatted" => 7,
-                                            "classified" => 8
-                                        )
+          "created" => 0,
+          "validating" => 1,
+          "discarded" => 2,
+          "published" => 3,
+          "rejected" => 4,
+          "accepted" => 5,
+          "examinated" => 6,
+          "debatted" => 7,
+          "classified" => 8
+        )
       end
     end
 
@@ -63,16 +63,16 @@ module Decidim
       it "technical revission request is notified by email" do
         expect(administrator).not_to be_nil
         expect(Decidim::Initiatives::InitiativesMailer).to receive(:notify_validating_request)
-                                                               .at_least(:once)
-                                                               .and_return(message_delivery)
+          .at_least(:once)
+          .and_return(message_delivery)
         initiative.validating!
       end
 
       it "Creation is notified by email" do
         expect(Decidim::Initiatives::InitiativesMailer).to receive(:notify_creation)
-                                                               .at_least(:once)
-                                                               .at_most(:once)
-                                                               .and_return(message_delivery)
+          .at_least(:once)
+          .at_most(:once)
+          .and_return(message_delivery)
         initiative = build(:initiative, :created)
         initiative.save!
       end
@@ -117,15 +117,15 @@ module Decidim
 
         it "Acceptation is notified by email" do
           expect(Decidim::Initiatives::InitiativesMailer).to receive(:notify_state_change)
-                                                                 .at_least(:once)
-                                                                 .and_return(message_delivery)
+            .at_least(:once)
+            .and_return(message_delivery)
           published_initiative.accepted!
         end
 
         it "Rejection is notified by email" do
           expect(Decidim::Initiatives::InitiativesMailer).to receive(:notify_state_change)
-                                                                 .at_least(:once)
-                                                                 .and_return(message_delivery)
+            .at_least(:once)
+            .and_return(message_delivery)
           published_initiative.rejected!
         end
       end
@@ -159,15 +159,15 @@ module Decidim
 
         it "publication is notified by email" do
           expect(Decidim::Initiatives::InitiativesMailer).to receive(:notify_state_change)
-                                                                 .at_least(:once)
-                                                                 .and_return(message_delivery)
+            .at_least(:once)
+            .and_return(message_delivery)
           validating_initiative.published!
         end
 
         it "Discard is notified by email" do
           expect(Decidim::Initiatives::InitiativesMailer).to receive(:notify_state_change)
-                                                                 .at_least(:once)
-                                                                 .and_return(message_delivery)
+            .at_least(:once)
+            .and_return(message_delivery)
           validating_initiative.discarded!
         end
       end
@@ -241,7 +241,7 @@ module Decidim
 
       before do
         allow(Decidim::Initiatives).to(
-            receive(:minimum_committee_members).and_return(committee_members_fallback_setting)
+          receive(:minimum_committee_members).and_return(committee_members_fallback_setting)
         )
       end
 

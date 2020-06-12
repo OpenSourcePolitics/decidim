@@ -178,7 +178,7 @@ module Decidim
 
           context "and mixing state filtering" do
             context "when filtering by open, closed and published" do
-              let(:state) { ["open", "closed"] }
+              let(:state) { %w(open closed) }
               let(:custom_state) { ["published"] }
 
               it "returns only published initiatives from opened or closed" do
@@ -191,8 +191,9 @@ module Decidim
                 expect(subject).not_to include(closed_initiatives)
               end
             end
+
             context "when filtering by answered, closed and examinated" do
-              let(:state) { ["answered", "closed"] }
+              let(:state) { %w(answered closed) }
               let(:custom_state) { ["examinated"] }
 
               it "returns only examinated initiatives from answered or closed" do

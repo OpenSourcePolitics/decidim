@@ -78,7 +78,7 @@ module Decidim
 
       def authors
         [present(model).author] +
-            model.committee_members.approved.non_deleted.excluding_author.map { |member| present(member.user) }
+          model.committee_members.approved.non_deleted.excluding_author.map { |member| present(member.user) }
       end
 
       def comments_count
