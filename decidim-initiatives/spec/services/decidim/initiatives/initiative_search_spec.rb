@@ -22,6 +22,7 @@ module Decidim
           described_class.new(
             search_text: search_text,
             state: state,
+            custom_state: custom_state,
             type_id: type_id,
             author: author,
             scope_id: scope_id,
@@ -33,6 +34,7 @@ module Decidim
 
         let(:search_text) { nil }
         let(:state) { nil }
+        let(:custom_state) { nil }
         let(:type_id) { ["all"] }
         let(:author) { nil }
         let(:scope_id) { nil }
@@ -127,7 +129,7 @@ module Decidim
           end
 
           context "and filtering published initiatives" do
-            let(:state) { ["published"] }
+            let(:custom_state) { ["published"] }
 
             it "returns only published initiatives" do
               default_published_initiatives = create_list(:initiative, 3, organization: organization)
@@ -139,7 +141,7 @@ module Decidim
           end
 
           context "and filtering classified initiatives" do
-            let(:state) { ["classified"] }
+            let(:custom_state) { ["classified"] }
 
             it "returns only classified initiatives" do
               create_list(:initiative, 3, organization: organization)
@@ -151,7 +153,7 @@ module Decidim
           end
 
           context "and filtering examinated initiatives" do
-            let(:state) { ["examinated"] }
+            let(:custom_state) { ["examinated"] }
 
             it "returns only examinated initiatives" do
               create_list(:initiative, 3, organization: organization)
@@ -163,7 +165,7 @@ module Decidim
           end
 
           context "and filtering debatted initiatives" do
-            let(:state) { ["debatted"] }
+            let(:custom_state) { ["debatted"] }
 
             it "returns only debatted initiatives" do
               create_list(:initiative, 3, organization: organization)
@@ -171,6 +173,39 @@ module Decidim
 
               expect(subject.size).to eq(3)
               expect(subject).to match_array(debatted_initiatives)
+            end
+          end
+
+          context "and mixing state filtering" do
+            context "when filtering by open, closed and published" do
+              let(:state) { ["open", "closed"] }
+              let(:custom_state) { ["published"] }
+
+              it "returns only published initiatives from opened or closed" do
+                default_published_initiatives = create_list(:initiative, 3, organization: organization)
+                published_initiatives = create_list(:initiative, 3, :published, organization: organization)
+                closed_initiatives = create_list(:initiative, 3, :rejected, organization: organization)
+
+                expect(subject.size).to eq(6)
+                expect(subject).to match_array(default_published_initiatives + published_initiatives)
+                expect(subject).not_to include(closed_initiatives)
+              end
+            end
+            context "when filtering by answered, closed and examinated" do
+              let(:state) { ["answered", "closed"] }
+              let(:custom_state) { ["examinated"] }
+
+              it "returns only examinated initiatives from answered or closed" do
+                create_list(:initiative, 3, organization: organization)
+                answered_initiatives = create_list(:initiative, 3, :examinated, organization: organization, answered_at: Time.current)
+                closed_initiatives = create_list(:initiative, 3, :rejected, organization: organization)
+                examinated_initiatives = create_list(:initiative, 3, :examinated, organization: organization)
+
+                expect(subject.size).to eq(3)
+                expect(subject).to match_array(answered_initiatives)
+                expect(subject).not_to include(closed_initiatives)
+                expect(subject).not_to include(examinated_initiatives)
+              end
             end
           end
         end
