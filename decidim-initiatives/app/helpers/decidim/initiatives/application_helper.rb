@@ -9,30 +9,30 @@ module Decidim
 
       def filter_states_values
         TreeNode.new(
-            TreePoint.new("", t("decidim.initiatives.application_helper.filter_state_values.all")),
-            [
-                TreePoint.new("open", t("decidim.initiatives.application_helper.filter_state_values.open")),
-                TreeNode.new(
-                    TreePoint.new("closed", t("decidim.initiatives.application_helper.filter_state_values.closed")),
-                    [
-                        TreePoint.new("accepted", t("decidim.initiatives.application_helper.filter_state_values.accepted")),
-                        TreePoint.new("rejected", t("decidim.initiatives.application_helper.filter_state_values.rejected"))
-                    ]
-                ),
-                TreePoint.new("answered", t("decidim.initiatives.application_helper.filter_state_values.answered"))
-            ]
+          TreePoint.new("", t("decidim.initiatives.application_helper.filter_state_values.all")),
+          [
+            TreePoint.new("open", t("decidim.initiatives.application_helper.filter_state_values.open")),
+            TreeNode.new(
+              TreePoint.new("closed", t("decidim.initiatives.application_helper.filter_state_values.closed")),
+              [
+                TreePoint.new("accepted", t("decidim.initiatives.application_helper.filter_state_values.accepted")),
+                TreePoint.new("rejected", t("decidim.initiatives.application_helper.filter_state_values.rejected"))
+              ]
+            ),
+            TreePoint.new("answered", t("decidim.initiatives.application_helper.filter_state_values.answered"))
+          ]
         )
       end
 
       def filter_sorts_values
         TreeNode.new(
-            TreePoint.new("", t("decidim.initiatives.application_helper.filter_state_values.all")),
-            [
-                TreePoint.new("published", t("decidim.initiatives.application_helper.filter_state_values.published")),
-                TreePoint.new("classified", t("decidim.initiatives.application_helper.filter_state_values.classified")),
-                TreePoint.new("examinated", t("decidim.initiatives.application_helper.filter_state_values.examinated")),
-                TreePoint.new("debatted", t("decidim.initiatives.application_helper.filter_state_values.debatted"))
-            ]
+          TreePoint.new("", t("decidim.initiatives.application_helper.filter_state_values.all")),
+          [
+            TreePoint.new("published", t("decidim.initiatives.application_helper.filter_state_values.published")),
+            TreePoint.new("classified", t("decidim.initiatives.application_helper.filter_state_values.classified")),
+            TreePoint.new("examinated", t("decidim.initiatives.application_helper.filter_state_values.examinated")),
+            TreePoint.new("debatted", t("decidim.initiatives.application_helper.filter_state_values.debatted"))
+          ]
         )
       end
 
@@ -42,16 +42,16 @@ module Decidim
 
           scopes_values = main_scopes.includes(:scope_type, :children).flat_map do |scope|
             TreeNode.new(
-                TreePoint.new(scope.id.to_s, translated_attribute(scope.name, current_organization)),
-                scope_children_to_tree(scope)
+              TreePoint.new(scope.id.to_s, translated_attribute(scope.name, current_organization)),
+              scope_children_to_tree(scope)
             )
           end
 
           scopes_values.prepend(TreePoint.new("global", t("decidim.scopes.global")))
 
           TreeNode.new(
-              TreePoint.new("", t("decidim.initiatives.application_helper.filter_scope_values.all")),
-              scopes_values
+            TreePoint.new("", t("decidim.initiatives.application_helper.filter_scope_values.all")),
+            scopes_values
           )
         end
       end
@@ -61,8 +61,8 @@ module Decidim
 
         scope.children.includes(:scope_type, :children).flat_map do |child|
           TreeNode.new(
-              TreePoint.new(child.id.to_s, translated_attribute(child.name, current_organization)),
-              scope_children_to_tree(child)
+            TreePoint.new(child.id.to_s, translated_attribute(child.name, current_organization)),
+            scope_children_to_tree(child)
           )
         end
       end
@@ -70,13 +70,13 @@ module Decidim
       def filter_types_values
         types_values = Decidim::InitiativesType.where(organization: current_organization).map do |type|
           TreeNode.new(
-              TreePoint.new(type.id.to_s, type.title[I18n.locale.to_s])
+            TreePoint.new(type.id.to_s, type.title[I18n.locale.to_s])
           )
         end
 
         TreeNode.new(
-            TreePoint.new("", t("decidim.initiatives.application_helper.filter_type_values.all")),
-            types_values
+          TreePoint.new("", t("decidim.initiatives.application_helper.filter_type_values.all")),
+          types_values
         )
       end
 
@@ -90,15 +90,15 @@ module Decidim
                        end
 
         TreeNode.new(
-            TreePoint.new("", t("decidim.initiatives.application_helper.filter_area_values.all")),
-            areas_values
+          TreePoint.new("", t("decidim.initiatives.application_helper.filter_area_values.all")),
+          areas_values
         )
       end
 
       def filter_areas(areas)
         areas.map do |area|
           TreeNode.new(
-              TreePoint.new(area.id.to_s, area.name[I18n.locale.to_s])
+            TreePoint.new(area.id.to_s, area.name[I18n.locale.to_s])
           )
         end
       end
@@ -106,10 +106,10 @@ module Decidim
       def filter_areas_and_types(area_types)
         area_types.map do |area_type|
           TreeNode.new(
-              TreePoint.new(area_type.area_ids.join("_"), area_type.name[I18n.locale.to_s]),
-              area_type.areas.map do |area|
-                TreePoint.new(area.id.to_s, area.name[I18n.locale.to_s])
-              end
+            TreePoint.new(area_type.area_ids.join("_"), area_type.name[I18n.locale.to_s]),
+            area_type.areas.map do |area|
+              TreePoint.new(area.id.to_s, area.name[I18n.locale.to_s])
+            end
           )
         end
       end

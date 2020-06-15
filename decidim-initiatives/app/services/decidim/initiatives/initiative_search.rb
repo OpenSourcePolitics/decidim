@@ -54,7 +54,6 @@ module Decidim
         states
       end
 
-      # rubocop:enable Metrics/CyclomaticComplexity
       def search_type_id
         return query if type_ids.include?("all")
 
