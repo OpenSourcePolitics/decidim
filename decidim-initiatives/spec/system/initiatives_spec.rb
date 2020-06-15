@@ -55,10 +55,10 @@ describe "Initiatives", type: :system do
       end
     end
 
-    context "for each initiative" do
+    context "for votable manual state initiative" do
       let(:base_initiative) { create(:initiative, :debatted, organization: organization) }
 
-      it "displays the initiatives signature gauge" do
+      it "displays a signature gauge" do
         within "#initiatives" do
           expect(page).to have_content(translated(initiative.title, locale: :en))
           expect(page).to have_css("#initiative-#{initiative.id}-signatures-count")
