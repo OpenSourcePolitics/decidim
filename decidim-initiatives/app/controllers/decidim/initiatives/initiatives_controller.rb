@@ -55,10 +55,14 @@ module Decidim
         @current_participatory_space ||= Initiative.find_by(id: id_from_slug(params[:slug]))
       end
 
+      def fetched_initiatives
+        initiatives = search.results.includes(:scoped_type)
+        initiatives = reorder(initiatives)
+        paginate(initiatives)
+      end
+
       def initiatives
-        @initiatives = search.results.includes(:scoped_type)
-        @initiatives = reorder(@initiatives)
-        @initiatives = paginate(@initiatives)
+        @initiatives ||= fetched_initiatives
       end
 
       alias collection initiatives

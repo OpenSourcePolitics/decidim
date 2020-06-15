@@ -38,18 +38,20 @@ module Decidim
       end
 
       def filter
-        @filter ||= Filter.new(filter_params)
+        Rails.cache.fetch("filter_params_#{filter_params}") do
+          @filter ||= Filter.new(filter_params)
+        end
       end
 
       def search_params
         default_search_params
-          .merge(filter_params)
-          .merge(context_params)
+            .merge(filter_params)
+            .merge(context_params)
       end
 
       def filter_params
         default_filter_params
-          .merge(params.to_unsafe_h[:filter].try(:symbolize_keys) || {})
+            .merge(params.to_unsafe_h[:filter].try(:symbolize_keys) || {})
       end
 
       def default_search_params

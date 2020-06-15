@@ -1,3 +1,4 @@
+<% cache collection do %>
   <% if collection.leaf %>
     <% data_checkboxes_tree_id = "#{check_boxes_tree_id}-#{collection.leaf.value}" %>
     <% hide_node = (hide_node.present? and hide_node == "true") ? true : false %>
@@ -52,3 +53,4 @@
       </div>
     <% end %>
   <% end %>
+<% end %>

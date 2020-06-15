@@ -148,7 +148,7 @@ module Decidim
     # RETURNS string
     delegate :banner_image, to: :type
     delegate :name, :color, :logo, to: :area, prefix: true, allow_nil: true
-    delegate :attachments_enabled, :document_number_authorization_handler, :promoting_committee_enabled?, :custom_signature_end_date_enabled?, :area_enabled?, to: :type
+    delegate :attachments_enabled?, :attachments_enabled, :document_number_authorization_handler, :promoting_committee_enabled?, :custom_signature_end_date_enabled?, :area_enabled?, to: :type
     delegate :type, :scope, :scope_name, to: :scoped_type, allow_nil: true
 
     # PUBLIC
