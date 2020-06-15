@@ -332,7 +332,7 @@ describe "Initiative", type: :system do
           end
 
           it "Offers contextual help" do
-            within ".callout.secondary" do
+            within ".callout.success" do
               expect(page).to have_content("Congratulations! Your citizen initiative has been successfully created.")
             end
           end
