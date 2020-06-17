@@ -23,7 +23,7 @@ module Decidim
         }
         validates :state, inclusion: { in: :manual_states }
         validates :answer_date, presence: true, if: :answer_date_allowed?
-        validates :answer_date, date: { before: Date.current }, if: :answer_date_allowed?
+        validates :answer_date, date: { before: Date.current.advance(days: 1) }, if: :answer_date_allowed?
 
         def signature_dates_required?
           @signature_dates_required ||= check_state

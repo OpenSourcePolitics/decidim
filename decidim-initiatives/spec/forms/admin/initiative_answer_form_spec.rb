@@ -42,6 +42,12 @@ module Decidim
 
               it { is_expected.to be_invalid }
             end
+
+            context "when answer_date is the current day" do
+              let(:answer_date) { Date.current }
+
+              it { is_expected.to be_valid }
+            end
           end
         end
 
