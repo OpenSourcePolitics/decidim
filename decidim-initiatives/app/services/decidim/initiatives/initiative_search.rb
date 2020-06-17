@@ -112,7 +112,7 @@ module Decidim
         closed ||= query.closed if state&.member?("closed") || state.nil?
         answered ||= query.answered if state&.member?("answered") || state.nil?
         custom_states = {
-          published: custom_state&.member?("published") ? query.published : nil,
+          published: custom_state&.member?("published") ? query.with_state(:published) : nil,
           examinated: custom_state&.member?("examinated") ? query.examinated : nil,
           classified: custom_state&.member?("classified") ? query.classified : nil,
           debatted: custom_state&.member?("debatted") ? query.debatted : nil
