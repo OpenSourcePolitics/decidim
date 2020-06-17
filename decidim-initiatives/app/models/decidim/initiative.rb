@@ -86,6 +86,7 @@ module Decidim
     }
 
     scope :answered, -> { where.not(answered_at: nil) }
+    scope :published, -> { where.not(published_at: nil) }
 
     scope :public_spaces, -> { published }
     scope :signature_type_updatable, -> { created }
