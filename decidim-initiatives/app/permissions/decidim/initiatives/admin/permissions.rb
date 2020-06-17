@@ -146,7 +146,12 @@ module Decidim
           when :discard
             toggle_allow(initiative.validating?)
           when :export_pdf_signatures
-            toggle_allow(initiative.published? || initiative.accepted? || initiative.rejected?)
+            toggle_allow(initiative.published? ||
+                           initiative.accepted? ||
+                           initiative.rejected? ||
+                           initiative.examinated? ||
+                           initiative.debatted? ||
+                           initiative.classified?)
           when :export_votes
             toggle_allow(initiative.offline_signature_type? || initiative.any_signature_type?)
           when :accept
