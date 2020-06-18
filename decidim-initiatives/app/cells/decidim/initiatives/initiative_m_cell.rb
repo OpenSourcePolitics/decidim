@@ -18,8 +18,8 @@ module Decidim
 
       def cache_hash
         hash = model.updated_at.to_s +
-            model.supports_count.to_s +
-            comments_count.to_s
+               model.supports_count.to_s +
+               comments_count.to_s
 
         hash << current_user.follows?(model).to_s if current_user
 

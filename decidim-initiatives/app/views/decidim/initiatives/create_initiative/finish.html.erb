@@ -21,7 +21,7 @@
       </div>
 
       <div class="column actions">
-        <% unless promotal_committee_required? %>
+        <% if !promotal_committee_required? || minimum_committee_members == 1 %>
           <%= link_to t(".send_my_initiative"),
                       decidim_admin_initiatives.send_to_technical_validation_initiative_path(current_initiative),
                       class: "button success light expanded",

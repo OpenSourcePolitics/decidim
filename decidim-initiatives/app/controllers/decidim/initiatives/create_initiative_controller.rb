@@ -21,6 +21,7 @@ module Decidim
       helper_method :current_initiative
       helper_method :initiative_type
       helper_method :promotal_committee_required?
+      helper_method :minimum_committee_members
 
       steps :select_initiative_type,
             :previous_form,
@@ -171,9 +172,12 @@ module Decidim
       def promotal_committee_required?
         return false unless initiative_type.promoting_committee_enabled?
 
-        minimum_committee_members = initiative_type.minimum_committee_members ||
-                                    Decidim::Initiatives.minimum_committee_members
-        minimum_committee_members.present? && minimum_committee_members.positive?
+        minimum_members = minimum_committee_members
+        minimum_members.present? && minimum_members.positive?
+      end
+
+      def minimum_committee_members
+        initiative_type.minimum_committee_members || Decidim::Initiatives.minimum_committee_members
       end
     end
   end

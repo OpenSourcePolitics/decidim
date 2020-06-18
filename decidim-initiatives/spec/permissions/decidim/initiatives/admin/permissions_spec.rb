@@ -395,6 +395,11 @@ describe Decidim::Initiatives::Admin::Permissions do
       it_behaves_like "checks initiative state", :discard, :validating, :published
       it_behaves_like "checks initiative state", :export_votes, :offline, :online
       it_behaves_like "checks initiative state", :export_pdf_signatures, :published, :validating
+      it_behaves_like "checks initiative state", :export_pdf_signatures, :accepted, :validating
+      it_behaves_like "checks initiative state", :export_pdf_signatures, :rejected, :validating
+      it_behaves_like "checks initiative state", :export_pdf_signatures, :classified, :validating
+      it_behaves_like "checks initiative state", :export_pdf_signatures, :examinated, :validating
+      it_behaves_like "checks initiative state", :export_pdf_signatures, :debatted, :validating
 
       context "when accepting the initiative" do
         let(:action_name) { :accept }

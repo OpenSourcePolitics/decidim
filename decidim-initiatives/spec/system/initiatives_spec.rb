@@ -55,6 +55,17 @@ describe "Initiatives", type: :system do
       end
     end
 
+    context "for votable manual state initiative" do
+      let(:base_initiative) { create(:initiative, :debatted, organization: organization) }
+
+      it "displays a signature gauge" do
+        within "#initiatives" do
+          expect(page).to have_content(translated(initiative.title, locale: :en))
+          expect(page).to have_css("#initiative-#{initiative.id}-signatures-count")
+        end
+      end
+    end
+
     it "links to the individual initiative page" do
       click_link(translated(initiative.title, locale: :en))
       expect(page).to have_current_path(decidim_initiatives.initiative_path(initiative))

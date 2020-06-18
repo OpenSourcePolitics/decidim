@@ -319,8 +319,6 @@ describe "Initiative", type: :system do
 
           select(translated(initiative_type_scope.scope.name, locale: :en), from: "Scope")
           select("Online", from: "Signature collection type")
-          fill_in :initiative_attachment_title, with: "Document name"
-          attach_file :initiative_attachment_file, Decidim::Dev.asset("Exampledocument.pdf")
           find_button("Continue").click
         end
 
@@ -334,7 +332,7 @@ describe "Initiative", type: :system do
           end
 
           it "Offers contextual help" do
-            within ".callout.secondary" do
+            within ".callout.success" do
               expect(page).to have_content("Congratulations! Your citizen initiative has been successfully created.")
             end
           end

@@ -124,6 +124,7 @@ fr:
       models:
         initiatives:
           fields:
+            answered_at: Répondu à
             created_at: Créé à
             id: ID
             published_at: Publié à l'adresse
@@ -624,8 +625,11 @@ fr:
       show:
         badge_name:
           accepted: Assez de signatures
+          classified: Classée
           created: Créé
+          debatted: Débattue
           discarded: Rejeté
+          examinated: Examinée
           published: Publié
           rejected: Pas assez de signatures
           validating: Validation technique

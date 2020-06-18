@@ -106,6 +106,7 @@ en:
       models:
         initiatives:
           fields:
+            answered_at: Answered at
             created_at: Created at
             id: ID
             published_at: Published at
