@@ -16,9 +16,7 @@
             <th><%= t("models.initiatives.fields.id", scope: "decidim.admin") %></th>
             <th><%= t("models.initiatives.fields.title", scope: "decidim.admin") %></th>
             <th><%= t("models.initiatives.fields.state", scope: "decidim.admin") %></th>
-            <th><%= t("models.initiatives.fields.supports_count", scope: "decidim.admin") %></th>
-            <%- # TODO: Check for sorting by supports_count -%>
-            <%- #sort_link(query, :supports_count, t("models.initiatives.fields.supports_count", scope: "decidim.admin"), default_order: :desc) -%>
+            <th><%= sort_link(query, :supports_count, t("models.initiatives.fields.supports_count", scope: "decidim.admin"), default_order: :desc) %></th>
             <th><%= sort_link(query, :created_at, t("models.initiatives.fields.created_at", scope: "decidim.admin"), default_order: :desc) %></th>
             <th><%= sort_link(query, :published_at, t("models.initiatives.fields.published_at", scope: "decidim.admin"), default_order: :desc) %></th>
             <th><%= sort_link(query, :answer_date, t("models.initiatives.fields.answered_at", scope: "decidim.admin"), default_order: :desc) %></th>
