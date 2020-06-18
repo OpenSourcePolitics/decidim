@@ -106,6 +106,8 @@ FactoryBot.define do
     signature_type { "online" }
     signature_start_date { Date.current - 1.day }
     signature_end_date { Date.current + 120.days }
+    online_votes { { "total": 0 } }
+    offline_votes { { "total": 0 } }
     answer_date {}
     area {}
 
