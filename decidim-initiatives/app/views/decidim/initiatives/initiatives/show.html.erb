@@ -51,7 +51,7 @@ edit_link(
         </div>
       </div>
     <% end %>
-    <% if current_initiative.published? || current_initiative.accepted? %>
+    <% if current_initiative.votes_enabled_state? || current_initiative.accepted? %>
       <%= render partial: "decidim/shared/share_modal" %>
       <%= embed_modal_for initiative_initiative_widget_url(current_initiative, format: :js) %>
     <% end %>
