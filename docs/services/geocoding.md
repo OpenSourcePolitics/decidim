@@ -10,8 +10,8 @@ After generating your app, you'll see that your `config/initializers/decidim.rb`
 # Geocoder configuration
 # config.geocoder = {
 #   static_map_url: "https://image.maps.ls.hereapi.com/mia/1.6/mapview",
-#   here_app_id: Rails.application.secrets.geocoder[:here_app_id],
-#   here_app_code: Rails.application.secrets.geocoder[:here_app_code]
+#   here_api_key: Rails.application.secrets.geocoder[:here_api_key]
+#   country_restriction: nil
 # }
 ```
 
@@ -33,3 +33,19 @@ In order to enable geocoding for proposals you'll need to edit the feature confi
 ### Meetings
 
 Meetings do not have a configuration option for geocoding. Instead, if geocoding is configured it will try to geocode the address every time you create or update a meeting.. As of April 2017 there's no way to enable or disable geocoding per meetings component.
+
+## Restrict Here coordinate requests to a specific country
+Some organizations wants to limit the geocoding scope to a country area. If you want to, you can define the country name as String in `config.geocoder.country_restriction` defined in `config/initializers/decidim.rb`. 
+
+### Example of Geocoding enabled and restricted to France
+
+```ruby
+Geocoder configuration
+config.geocoder = {
+  static_map_url: "https://image.maps.ls.hereapi.com/mia/1.6/mapview",
+  here_api_key: Rails.application.secrets.geocoder[:here_api_key]
+  country_restriction: 'France'
+}
+```
+
+Because `country_restriction` is not nil, a 'country' extra param will be passed in geocoding coordinate request in `decidim-core/app/validators/geocoding_validator.rb`

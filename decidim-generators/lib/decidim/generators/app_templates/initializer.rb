@@ -9,9 +9,11 @@ Decidim.configure do |config|
   config.available_locales = [:en, :ca, :es]
 
   # Geocoder configuration
+  # country_restriction : String or nil - allows to specify a country name to restrict search to a specific country
   # config.geocoder = {
   #   static_map_url: "https://image.maps.ls.hereapi.com/mia/1.6/mapview",
   #   here_api_key: Rails.application.secrets.geocoder[:here_api_key]
+  #   country_restriction: nil
   # }
 
   # Custom resource reference generator method

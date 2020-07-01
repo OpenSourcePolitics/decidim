@@ -16,7 +16,7 @@ module Decidim
       end
 
       def attachment_invalid?
-        if attachment&.invalid? && attachment&.errors.has_key?(:file)
+        if attachment&.invalid? && attachment&.errors&.has_key?(:file)
           @form.attachment.errors.add :file, attachment.errors[:file]
           true
         end

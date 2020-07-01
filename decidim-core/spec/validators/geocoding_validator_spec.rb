@@ -3,6 +3,14 @@
 require "spec_helper"
 
 describe GeocodingValidator do
+  shared_examples_for "geocoder coordinates computing" do
+    it "uses Geocoder to compute its coordinates" do
+      expect(subject).to be_valid
+      expect(subject.latitude).to eq(latitude)
+      expect(subject.longitude).to eq(longitude)
+    end
+  end
+
   let(:validatable) do
     Class.new do
       def self.model_name
@@ -35,10 +43,14 @@ describe GeocodingValidator do
       stub_geocoding(address, [latitude, longitude])
     end
 
-    it "uses Geocoder to compute its coordinates" do
-      expect(subject).to be_valid
-      expect(subject.latitude).to eq(latitude)
-      expect(subject.longitude).to eq(longitude)
+    it_behaves_like "geocoder coordinates computing"
+
+    context "when search is restricted to a specific country" do
+      before do
+        Decidim.geocoder[:country_restriction] = "France"
+      end
+
+      it_behaves_like "geocoder coordinates computing"
     end
   end
 
