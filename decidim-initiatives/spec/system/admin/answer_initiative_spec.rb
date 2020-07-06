@@ -17,6 +17,7 @@ describe "User answers the initiative", type: :system do
           es: "Una respuesta",
           ca: "Una resposta"
         )
+        expect(page).to have_css("#initiative_state", visible: false)
         expect(page).to have_css("#initiative_signature_start_date")
         expect(page).to have_css("#initiative_signature_end_date")
         expect(page).to have_css("#initiative_state")

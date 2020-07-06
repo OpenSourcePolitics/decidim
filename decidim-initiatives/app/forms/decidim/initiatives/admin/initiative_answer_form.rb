@@ -21,7 +21,8 @@ module Decidim
         validates :signature_end_date, date: { after: :signature_start_date }, if: lambda { |form|
           form.signature_start_date.present? && form.signature_end_date.present?
         }
-        validates :state, inclusion: { in: :manual_states }
+        validates :state, presence: true
+        validate :state_validation
         validates :answer_date, presence: true, if: :answer_date_allowed?
         validates :answer_date, date: { before: Date.current.advance(days: 1) }, if: :answer_date_allowed?
 
@@ -33,6 +34,10 @@ module Decidim
           manual_states.include? context.initiative.state
         end
 
+        def uniq_states
+          (Decidim::Initiative::AUTOMATIC_STATES + Decidim::Initiative::MANUAL_STATES).uniq.map(&:to_s)
+        end
+
         def manual_states
           Decidim::Initiative::MANUAL_STATES.map(&:to_s)
         end
@@ -41,6 +46,11 @@ module Decidim
           return false if state == "published"
 
           state_updatable?
+        end
+
+        def state_validation
+          errors.add(:state, :invalid) unless context.initiative.state == state
+          errors.add(:state, :invalid) unless uniq_states.include? state
         end
 
         private
