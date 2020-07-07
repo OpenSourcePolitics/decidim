@@ -22,6 +22,8 @@ describe "User answers the initiative", type: :system do
         expect(page).to have_css("#initiative_state")
         expect(page).to have_css("#initiative_answer_date")
 
+        expect(find("#initiative_answer_date").value).to eq(I18n.l(Date.current, format: :decidim_short))
+
         fill_in :initiative_answer_date, with: 1.day.ago.strftime("%dd/%mm/%Y")
         fill_in :initiative_signature_start_date, with: 2.days.ago
       end

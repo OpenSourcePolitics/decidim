@@ -21,7 +21,7 @@
 
       <% if @form.state_updatable? %>
         <div class="row column">
-          <%= f.date_field :answer_date %>
+          <%= f.date_field :answer_date, value: l(Date.current, format: :decidim_short ) %>
         </div>
       <% end %>
 
