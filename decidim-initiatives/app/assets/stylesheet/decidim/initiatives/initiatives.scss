@@ -65,3 +65,17 @@
 .legal_text{
   font-size: 8pt;
 }
+
+.area-header{
+  span{
+    padding: 1rem 1rem;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+
+    img{
+      max-width: 75%
+    }
+  }
+}

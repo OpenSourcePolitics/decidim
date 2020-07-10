@@ -226,7 +226,7 @@ module Decidim
     #              If it's areas, we sort the selectable options alphabetically.
     #
     # Returns a String.
-    def areas_select(name, collection, options = {})
+    def areas_select(name, collection, options = {}, html_options = {})
       selectables = if collection.first.is_a?(Decidim::Area)
                       assemblies = collection
                                    .map { |a| [a.name[I18n.locale.to_s], a.id] }
@@ -247,7 +247,7 @@ module Decidim
                       )
                     end
 
-      select(name, selectables, options)
+      select(name, selectables, options, html_options)
     end
 
     # Public: Generates a picker field for scope selection.
@@ -374,7 +374,12 @@ module Decidim
       file = object.send attribute
       template = ""
       template += label(attribute, label_for(attribute) + required_for_attribute(attribute))
-      template += @template.file_field @object_name, attribute
+      if options[:accept].present?
+        template += @template.file_field @object_name, attribute, accept: options.delete(:accept)
+      else
+        template += @template.file_field @object_name, attribute
+      end
+
 
       if file_is_image?(file)
         template += if file.present?

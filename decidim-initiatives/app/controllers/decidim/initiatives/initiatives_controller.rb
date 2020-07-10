@@ -55,10 +55,14 @@ module Decidim
         @current_participatory_space ||= Initiative.find_by(id: id_from_slug(params[:slug]))
       end
 
+      def fetched_initiatives
+        initiatives = search.results.includes(:scoped_type)
+        initiatives = reorder(initiatives)
+        paginate(initiatives)
+      end
+
       def initiatives
-        @initiatives = search.results.includes(:scoped_type)
-        @initiatives = reorder(@initiatives)
-        @initiatives = paginate(@initiatives)
+        @initiatives ||= fetched_initiatives
       end
 
       alias collection initiatives
@@ -70,11 +74,25 @@ module Decidim
       def default_filter_params
         {
           search_text: "",
-          state: "open",
-          type: "all",
+          state: ["open"],
+          type_id: default_filter_type_params,
           author: "any",
-          scope_id: nil
+          scope_id: default_filter_scope_params,
+          area_id: default_filter_area_params,
+          custom_state: [""]
         }
+      end
+
+      def default_filter_type_params
+        %w(all) + Decidim::InitiativesType.where(organization: current_organization).pluck(:id).map(&:to_s)
+      end
+
+      def default_filter_scope_params
+        %w(all global) + current_organization.scopes.pluck(:id).map(&:to_s)
+      end
+
+      def default_filter_area_params
+        %w(all) + current_organization.areas.pluck(:id).map(&:to_s)
       end
 
       def context_params

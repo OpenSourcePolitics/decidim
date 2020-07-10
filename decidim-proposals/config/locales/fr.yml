@@ -428,7 +428,7 @@ fr:
             create: Créer
             title: Créer une proposition
           publish_answers:
-            number_of_proposals: Les réponses aux propositions %{nombre} seront publiées.
+            number_of_proposals: Les réponses aux propositions %{number} seront publiées.
             select_a_proposal: Veuillez sélectionner une proposition
           show:
             amendments_count: Les amendements comptent
@@ -447,7 +447,7 @@ fr:
             link: Lien
             n_more_endorsers:
               one: et 1 autre
-              other: et %{compte} plus
+              other: et %{account} plus
             photos: Photos
             proposals: Propositions
             ranking: "%{classement} de %{total}"
@@ -458,15 +458,15 @@ fr:
             votes_count: Nombre de votes
             votes_ranking: Classement par soutiens
           update_category:
-            invalid: 'Ces propositions avaient déjà la catégorie %{nom_du_sujet} : %{propositions}.'
+            invalid: 'Ces propositions avaient déjà la catégorie %{subject_name} : %{proposals}.'
             select_a_category: Veuillez sélectionner une catégorie
             select_a_proposal: Veuillez sélectionner une proposition
-            success: 'Propositions mises à jour avec succès dans la catégorie %{nom_du_sujet} : %{propositions}.'
+            success: 'Propositions mises à jour avec succès dans la catégorie %{subject_name} : %{proposals}.'
           update_scope:
-            invalid: 'Ces propositions avaient déjà la portée %{nom_du_sujet} : %{propositions}.'
+            invalid: 'Ces propositions avaient déjà la portée %{subject_name} : %{proposals}.'
             select_a_proposal: Veuillez sélectionner une proposition
             select_a_scope: Veuillez sélectionner un champ d'application
-            success: 'Propositions mises à jour avec succès au champ d''application %{nom_du_sujet} : %{propositions}.'
+            success: 'Propositions mises à jour avec succès au champ d''application %{subject_name} : %{proposals}.'
         proposals_imports:
           create:
             invalid: Un problème est survenu lors de l'importation des propositions
@@ -495,13 +495,13 @@ fr:
         proposal:
           answer: "%{user_name} a répondu à la proposition %{resource_name} sur l'espace %{space_name}"
           create: "%{user_name} a créé la proposition %{resource_name} sur l'espace %{space_name} en tant que proposition officielle"
-          publish_answer: "%{nom_utilisateur} a publié la réponse à la proposition de %{nom_ressource} sur le %{nom_espace} espace"
+          publish_answer: "%{user_name} a publié la réponse à la proposition de %{resource_name} sur le %{space_name} espace"
           update: "%{user_name} mis à jour le %{resource_name} proposition officielle sur le %{space_name} espace"
         proposal_note:
           create: "%{user_name} a publié une note privée sur la proposition %{resource_name} sur l'espace %{space_name}"
         valuation_assignment:
-          create: "%{nom_utilisateur} a attribué la proposition %{nom_ressource} à un évaluateur"
-          delete: "%{nom_d'utilisateur} non attribué un évaluateur de la proposition %{titre_de_la_proposition}"
+          create: "%{user_name} a attribué la proposition %{resource_name} à un évaluateur"
+          delete: "%{nom_d'utilisateur} non attribué un évaluateur de la proposition %{proposal_title}"
       answers:
         accepted: Retenue
         evaluating: En cours d'évaluation
@@ -790,7 +790,7 @@ fr:
           withdraw_confirmation: Êtes-vous sûr de vouloir retirer cette proposition ?
           withdraw_proposal: Retirer la proposition
         tags:
-          changed_from: "(modifié de <u>%{nom_précédent}</u> par un administrateur)"
+          changed_from: "(modifié de <u>%{previous_name}</u> par un administrateur)"
         vote_button:
           already_voted: Déjà votée
           already_voted_hover: Retirer le vote

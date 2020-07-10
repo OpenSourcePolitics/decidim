@@ -7,7 +7,9 @@ shared_context "when admins initiative" do
   let!(:other_initiatives_type) { create(:initiatives_type, organization: organization, signature_type: "any") }
   let!(:other_initiatives_type_scope) { create(:initiatives_type_scope, type: other_initiatives_type) }
 
-  let!(:initiative) { create(:initiative, organization: organization, author: author) }
+  let(:initiative_type) { create(:initiatives_type, organization: organization) }
+  let(:initiative_scope) { create(:initiatives_type_scope, type: initiative_type) }
+  let!(:initiative) { create(:initiative, organization: organization, scoped_type: initiative_scope, author: author) }
 
   let(:image1_filename) { "city.jpeg" }
   let(:image1_path) { Decidim::Dev.asset(image1_filename) }

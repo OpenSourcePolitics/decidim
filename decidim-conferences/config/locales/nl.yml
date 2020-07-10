@@ -1,3 +1,4 @@
+---
 nl:
   activemodel:
     attributes:
@@ -183,6 +184,7 @@ nl:
             admin: Beheerder
             collaborator: Medewerker
             moderator: Moderator
+            valuator: Valuator
         media_link:
           fields:
             date: Datum
@@ -461,6 +463,9 @@ nl:
             active_conferences: Actieve conferenties
             see_all_conferences: Bekijk alle conferenties
       photo:
+        image:
+          attributes:
+            alt: Media picture
         show:
           close_modal: Modal sluiten
           photo: Foto

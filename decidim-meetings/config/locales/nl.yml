@@ -1,3 +1,4 @@
+---
 nl:
   activemodel:
     attributes:
@@ -136,7 +137,7 @@ nl:
       badges:
         attended_meetings:
           conditions:
-            - Registreer u voor de vergaderingen die u wilt bijwonen
+          - Registreer u voor de vergaderingen die u wilt bijwonen
           description: Deze badge wordt toegekend wanneer u verschillende vergaderingen persoonlijk bijwoont.
           description_another: Deze gebruiker heeft %{score} vergaderingen bijgewoond.
           description_own: U hebt %{score} vergaderingen bijgewoond.
@@ -368,6 +369,7 @@ nl:
           confirm: Bevestigen
         show:
           attendees: Aantal deelnemers
+          back: Back to list
           contributions: Aantal bijdragen
           going: Gaat
           join: Deelnemen aan bijeenkomst

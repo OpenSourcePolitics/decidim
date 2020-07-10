@@ -3,6 +3,7 @@
 module Decidim
   class ViewModel < Cell::ViewModel
     include ActionView::Helpers::TranslationHelper
+    include ActionView::Helpers::NumberHelper
     include ::Cell::Translation
     include Decidim::ResourceHelper
     include Decidim::ScopesHelper

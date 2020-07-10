@@ -1,3 +1,4 @@
+---
 nl:
   activemodel:
     models:
@@ -48,6 +49,8 @@ nl:
             title: titel
       posts:
         show:
+          back: Back to list
+          comments: Comments
           view: Bekijk
         sidebar_blog:
           comments: reacties
@@ -63,6 +66,8 @@ nl:
           step:
             announcement: Aankondiging
             comments_blocked: Reacties geblokkeerd
+            endorsements_blocked: Endorsements blocked
+            endorsements_enabled: Endorsements enabled
     events:
       blogs:
         post_created:

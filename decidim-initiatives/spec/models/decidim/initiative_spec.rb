@@ -277,6 +277,33 @@ module Decidim
       end
     end
 
+    describe "sorting" do
+      before do
+        create(:initiative, organization: organization, signature_type: "offline")
+        create(:initiative, organization: organization, signature_type: "offline", offline_votes: { "total": 4 })
+        create(:initiative, organization: organization, signature_type: "offline", offline_votes: { "total": 3 })
+        create(:initiative, organization: organization, signature_type: "online", online_votes: { "total": 4 })
+        create(:initiative, organization: organization, signature_type: "online", online_votes: { "total": 8 })
+        create(:initiative, organization: organization, signature_type: "online", online_votes: { "total": 2 })
+      end
+
+      context "when sorts by order desc" do
+        subject(:sorter) { described_class.ransack("s" => "supports_count desc") }
+
+        it "sorts initiatives by supports count" do
+          expect(sorter.result.map(&:supports_count)).to eq([8, 4, 4, 3, 2, 0])
+        end
+      end
+
+      context "when sorts by order asc" do
+        subject(:sorter) { described_class.ransack("s" => "supports_count asc") }
+
+        it "sorts initiatives by supports count" do
+          expect(sorter.result.map(&:supports_count)).to eq([0, 2, 3, 4, 4, 8])
+        end
+      end
+    end
+
     describe "#votes_enabled?" do
       subject { initiative.votes_enabled? }
 
@@ -303,6 +330,12 @@ module Decidim
 
         it { is_expected.to be_falsy }
       end
+    end
+
+    context "when linked to an area" do
+      let(:initiative) { build :initiative, :with_area }
+
+      it { is_expected.to be_truthy }
     end
   end
 end

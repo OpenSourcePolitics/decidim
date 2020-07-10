@@ -55,6 +55,24 @@
       </div>
     <% end %>
 
+    <% if can_edit_custom_signature_end_date?(current_initiative) %>
+      <div class="row column">
+        <%= form.date_field :signature_end_date, disabled: !allowed_to?(:update, :initiative, initiative: current_initiative) %>
+      </div>
+    <% end %>
+
+    <% if current_initiative.area_enabled? && current_user.admin? %>
+      <div class="field">
+        <%= form.areas_select :area_id,
+                              areas_for_select(current_organization),
+                              {
+                                selected: current_initiative.decidim_area_id,
+                                include_blank: current_initiative.decidim_area_id.blank? || current_initiative.created?
+                              },
+                              disabled: !@form.area_updatable? %>
+      </div>
+    <% end %>
+
     <div class="row">
       <div class="columns xlarge-6">
         <%= form.text_field :hashtag, disabled: !allowed_to?(:update, :initiative, initiative: current_initiative) %>
@@ -74,6 +92,10 @@
           <% end %>
         </div>
       </div>
+    <% end %>
+
+    <% if allowed_to?(:read, :attachment, initiative: current_participatory_space) %>
+      <%= render partial: "initiative_attachments", locals: { current_initiative: current_initiative, current_participatory_space: current_participatory_space } %>
     <% end %>
   </div>
 </div>

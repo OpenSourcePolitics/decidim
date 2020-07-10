@@ -11,11 +11,15 @@ module Decidim
       let(:name) { Decidim::Faker::Localized.word }
       let(:area_type) { create :area_type, organization: organization }
       let(:area_type_id) { area_type.id }
+      let(:color) { "#efaa4d" }
+      let(:logo) { Decidim::Dev.test_file("icon.png", "image/png") }
       let(:attributes) do
         {
           "area" => {
             "name" => name,
-            "area_type_id" => area_type_id
+            "area_type_id" => area_type_id,
+            "color" => color,
+            "logo" => logo
           }
         }
       end
@@ -77,6 +81,18 @@ module Decidim
         end
 
         it { is_expected.to be_valid }
+      end
+
+      context "when color has not hexadecimal format" do
+        let(:color) { "not hexadecimal format" }
+
+        it { is_expected.not_to be_valid }
+      end
+
+      context "when logo has not png format" do
+        let(:logo) { Decidim::Dev.test_file("city.jpeg", "image/jpeg") }
+
+        it { is_expected.not_to be_valid }
       end
     end
   end

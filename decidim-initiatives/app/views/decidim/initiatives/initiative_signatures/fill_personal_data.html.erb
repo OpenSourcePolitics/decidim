@@ -17,7 +17,7 @@
         <% else %>
           <div class="field">
             <%= f.select :user_scope_id,
-                         user_scopes.map { |scope| [translated_attribute(scope&.name), scope&.id]},
+                         user_scopes.reject { |scope| scope&.children&.any? }.map { |scope| [translated_attribute(scope&.name), scope&.id]},
                          prompt: t(".select_scope"),
                          required: true %>
           </div>

@@ -1,3 +1,4 @@
+---
 nl:
   activemodel:
     models:
@@ -43,6 +44,7 @@ nl:
           against: Tegen
           in_favor: Voor
         deleted_user: Verwijderde deelnemer
+        hide_replies: Hide replies
         reply: Antwoord
         report:
           action: Melden
@@ -55,6 +57,7 @@ nl:
             offensive: Bevat racisme, seksisme, laster, persoonlijke aanvallen, bedreigingen met de dood, zelfmoord verzoeken of enige vorm van haatzaaien.
             spam: Bevat clickbait, reclame, oplichting of script bots.
           title: Meld een probleem
+        show_replies: Show %{replies_count} replies
         single_comment_link_title: Krijg link naar enkele reactie
       comment_order_selector:
         order:
@@ -90,6 +93,11 @@ nl:
           email_outro: Je hebt deze melding ontvangen omdat je reactie beantwoord is.
           email_subject: "%{author_name} heeft op je comment gereageerd in %{resource_title}"
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> heeft gereageerd op je opmerking in <a href="%{resource_path}">%{resource_title}</a>
+        user_group_mentioned:
+          email_intro: A group you belong to has been mentioned
+          email_outro: You have received this notification because you are a member of the group %{group_name} that has been mentioned in %{resource_title}.
+          email_subject: You have been mentioned in %{resource_title} as a member of %{group_name}
+          notification_title: You have been mentioned in <a href="%{resource_path}">%{resource_title}</a> by <a href="%{author_path}">%{author_name} %{author_nickname}</a> as a member of <a href="%{group_path}">%{group_name} %{group_nickname}</a>
         user_mentioned:
           email_intro: Iemand heeft je getagd
           email_outro: Je hebt deze melding ontvangen omdat je bent getagd in %{resource_title}.

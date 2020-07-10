@@ -7,6 +7,10 @@ module Decidim
     class LastActivityCell < Decidim::ViewModel
       include Decidim::Core::Engine.routes.url_helpers
 
+      cache :show do
+        Digest::MD5.hexdigest(activities.map(&:updated_at).to_s)
+      end
+
       def show
         return if valid_activities.empty?
 
