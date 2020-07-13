@@ -70,6 +70,13 @@ module Decidim
             it { is_expected.to eq(true) }
           end
         end
+
+        describe "#state_validation" do
+          let(:answer_date) { Date.current }
+          let(:state) { "examinated" }
+
+          it { is_expected.to be_valid }
+        end
       end
     end
   end
