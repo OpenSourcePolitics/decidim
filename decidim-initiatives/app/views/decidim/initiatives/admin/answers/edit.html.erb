@@ -6,7 +6,6 @@
       <h2 class="card-title"><%= t ".title", title: translated_attribute(current_initiative.title) %></h2>
     </div>
 
-    <%= f.hidden_field :state, value: current_initiative.state %>
 
     <% if @form.state_updatable? %>
       <div class="card-section">
@@ -14,6 +13,8 @@
           <%= f.select :state, Decidim::Initiative::MANUAL_STATES.map { |state| [I18n.t(state, scope: "decidim.initiatives.admin_states"), state] } %>
         </div>
       </div>
+    <% else %>
+      <%= f.hidden_field :state, value: current_initiative.state %>
     <% end %>
 
     <div class="card-section">

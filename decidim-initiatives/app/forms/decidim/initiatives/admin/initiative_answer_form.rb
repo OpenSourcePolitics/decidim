@@ -49,7 +49,7 @@ module Decidim
         end
 
         def state_validation
-          errors.add(:state, :invalid) unless context.initiative.state == state
+          errors.add(:state, :invalid) if !state_updatable? && context.initiative.state != state
           errors.add(:state, :invalid) unless uniq_states.include? state
         end
 
