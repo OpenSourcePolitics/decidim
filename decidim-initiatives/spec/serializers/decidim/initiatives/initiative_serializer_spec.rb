@@ -90,7 +90,7 @@ module Decidim
           expect(serialized[:firms]).to include(scopes: 0)
         end
 
-        context "when the is votes" do
+        context "when there is votes" do
           let(:vote) { create_list(:initiative_user_vote, 5, initiative: initiative) }
 
           it "serializes uniq scopes vote count" do
