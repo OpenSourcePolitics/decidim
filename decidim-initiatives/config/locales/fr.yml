@@ -5,10 +5,10 @@ fr:
       group:
         avatar: Avatar
       initiative:
-        area_id: "Zone d'application"
         answer: Réponse
         answer_date: Date de réponse
         answer_url: Lien associé
+        area_id: Zone d'application
         decidim_user_group_id: Auteur
         description: Description
         offline_votes: Votes en présentiel
@@ -102,7 +102,7 @@ fr:
         unpublish: Unpublish
       filters:
         decidim_area_id_eq:
-          label: "Zones d'application"
+          label: Zones d'application
         search_placeholder:
           title_or_description_cont: Recherche %{collection} par titre ou description.
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Recherche
@@ -192,14 +192,13 @@ fr:
             email_subject: Nouvelle étape franchie !
             notification_title: L'initiative <a href="%{resource_path}">%{resource_title}</a>
               a atteint les %{percentage}% de signatures.
-          support_threshold_reached:
-            email_intro: The initiative %{resource_title} has reached the support
-              threshold
-            email_outro: You have received this notification because you are an admin
-              of the platform.
-            email_subject: Support threshold reached
-            notification_title: The <a href="%{resource_path}">%{resource_title}</a>
-              initiative has reached the support threshold
+        support_threshold_reached:
+          email_intro: The initiative %{resource_title} has reached the support threshold
+          email_outro: You have received this notification because you are an admin
+            of the platform.
+          email_subject: Support threshold reached
+          notification_title: The <a href="%{resource_path}">%{resource_title}</a>
+            initiative has reached the support threshold
     gamification:
       badges:
         initiatives:
@@ -398,7 +397,7 @@ fr:
             ?</li> </ul>"
           initiative_type: Type d'initiative
           more_information: "(Plus d'informations)"
-          select_area: "Sélectionnez une zone d'application"
+          select_area: Sélectionnez une zone d'application
           select_scope: Sélectionnez une portée
         finish:
           back: Retour
@@ -526,17 +525,17 @@ fr:
             one: "%{count} initiative"
             other: "%{count} initiatives"
         filters:
-          select_an_area: "Sélectionnez une zone d'application"
           any: Tout
-          area: "Zones d'application"
+          area: Zones d'application
           author: Auteur
           closed: Fermées
           myself: Mes initiatives
           open: Ouvrir
           scope: Champ d'application
           search: Rechercher
-          state: État
+          select_an_area: Sélectionnez une zone d'application
           sort: Sort
+          state: État
           type: Type
           type_prompt: Sélectionnez un type d'initiative
         filters_small_view:

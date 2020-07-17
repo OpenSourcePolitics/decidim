@@ -170,14 +170,13 @@ en:
             email_subject: New milestone completed!
             notification_title: The <a href="%{resource_path}">%{resource_title}</a>
               initiative has achieved the %{percentage}% of signatures.
-          support_threshold_reached:
-            email_intro: The initiative %{resource_title} has reached the support
-              threshold
-            email_outro: You have received this notification because you are an admin
-              of the platform.
-            email_subject: Support threshold reached
-            notification_title: The <a href="%{resource_path}">%{resource_title}</a>
-              initiative has reached the support threshold
+        support_threshold_reached:
+          email_intro: The initiative %{resource_title} has reached the support threshold
+          email_outro: You have received this notification because you are an admin
+            of the platform.
+          email_subject: Support threshold reached
+          notification_title: The <a href="%{resource_path}">%{resource_title}</a>
+            initiative has reached the support threshold
     gamification:
       badges:
         initiatives:
@@ -506,8 +505,6 @@ en:
             one: "%{count} initiative"
             other: "%{count} initiatives"
         filters:
-          select_an_area: Select an area
-          sort: Sorts
           any: Any
           area: Area
           author: Author
@@ -515,6 +512,8 @@ en:
           myself: My initiatives
           scope: Scope
           search: Search
+          select_an_area: Select an area
+          sort: Sorts
           state: Status
           type: Type
           type_prompt: Select a type
