@@ -44,6 +44,9 @@ module Decidim
           authors: {
             id: initiative.author_users.map(&:id),
             name: initiative.author_users.map(&:name)
+          },
+          firms: {
+            scopes: uniq_vote_scopes
           }
         }
       end
@@ -87,6 +90,12 @@ module Decidim
       def serialize_components
         serializer = Decidim::Exporters::ParticipatorySpaceComponentsSerializer.new(@initiative)
         serializer.serialize
+      end
+
+      def uniq_vote_scopes
+        return 0 if initiative.votes.blank?
+
+        initiative.votes.map(&:decidim_scope_id).uniq.size
       end
     end
   end
