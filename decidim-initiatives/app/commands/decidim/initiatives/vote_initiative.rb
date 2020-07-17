@@ -99,15 +99,15 @@ module Decidim
         return unless percentage >= 100
 
         Decidim::EventsManager.publish(
-          event: "decidim.events.initiatives.support_threshold_reached",
-          event_class: Decidim::Initiatives::Admin::SupportThresholdReachedEvent,
-          resource: initiative,
-          followers: organization_admins
+            event: "decidim.events.initiatives.support_threshold_reached",
+            event_class: Decidim::Initiatives::Admin::SupportThresholdReachedEvent,
+            resource: @initiative,
+            followers: organization_admins
         )
       end
 
       def organization_admins
-        Decidim::User.where(organization: initiative.organization, admin: true)
+        Decidim::User.where(organization: @initiative.organization, admin: true)
       end
     end
   end

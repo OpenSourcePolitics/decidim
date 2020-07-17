@@ -113,9 +113,9 @@ module Decidim
             create(:initiative,
                    organization: organization,
                    scoped_type: create(
-                     :initiatives_type_scope,
-                     supports_required: 4,
-                     type: create(:initiatives_type, organization: organization)
+                       :initiatives_type_scope,
+                       supports_required: 4,
+                       type: create(:initiatives_type, organization: organization)
                    ))
           end
 
@@ -128,16 +128,16 @@ module Decidim
 
           it "notifies the admins" do
             expect(Decidim::EventsManager).to receive(:publish)
-              .with(kind_of(Hash))
+                                                  .with(kind_of(Hash))
 
             expect(Decidim::EventsManager)
-              .to receive(:publish)
-              .with(
-                event: "decidim.events.initiatives.support_threshold_reached",
-                event_class: Decidim::Initiatives::Admin::SupportThresholdReachedEvent,
-                resource: initiative,
-                followers: [admin]
-              )
+                .to receive(:publish)
+                        .with(
+                            event: "decidim.events.initiatives.support_threshold_reached",
+                            event_class: Decidim::Initiatives::Admin::SupportThresholdReachedEvent,
+                            resource: initiative,
+                            followers: [admin]
+                        )
 
             command.call
           end
