@@ -155,6 +155,10 @@ fr:
         confirm_destroy: Êtes-vous certain de vouloir supprimer cette rencontre ?
         destroy: Supprimer
         edit: Modifier
+        invalid_destroy:
+          proposals_count:
+            one: 'La réunion ne peut être détruite car elle est associée à %{count} proposition.'
+            other: 'La réunion ne peut être détruite car elle est associée à %{count} propositions.'
         minutes: Retranscription
         new: Nouvelle réunion
         preview: Aperçu
@@ -236,6 +240,10 @@ fr:
             invalid: Il y a eu un problème lors de la création de cette rencontre
             success: Rencontre créée avec succès
           destroy:
+            invalid:
+             proposals_count:
+              one: "La réunion ne peut être détruite car elle est associée à %{count} proposition."
+              other: "La réunion ne peut être détruite car elle est associée à %{count} propositions."
             success: La rencontre a été supprimée avec succès
           edit:
             update: Mettre à jour

@@ -99,6 +99,7 @@ ignore_missing:
   - email_outro
   - notification_title
   - comments.translat*
+  - - actions.invalid_destroy.proposals_count
 
 # Consider these keys used:
 ignore_unused:
@@ -198,6 +199,7 @@ ignore_unused:
   - decidim.assemblies.filter.*
   - decidim.initiatives.initiatives.votes_count.count.*
   - decidim.proposals.admin.participatory_texts.new_import.accepted_mime_types.*
+  - decidim.meetings.actions.invalid_destroy.proposals_count.*
   # OSP CUSTO START HERE
   - decidim.admin.participatory_processes.index.promoted.*
   - decidim.proposals.proposals.edit.address
