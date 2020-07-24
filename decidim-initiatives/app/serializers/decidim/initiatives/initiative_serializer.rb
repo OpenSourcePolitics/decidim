@@ -95,7 +95,15 @@ module Decidim
       def uniq_vote_scopes
         return 0 if initiative.votes.blank?
 
-        initiative.votes.map(&:decidim_scope_id).uniq.size
+        initiative_votes_scopes = []
+        initiative.votes.map(&:decrypted_metadata).each do |metadata|
+          next unless metadata.present?
+          next unless metadata.is_a? Hash
+
+          initiative_votes_scopes << metadata[:user_scope_id]
+        end
+
+        initiative_votes_scopes.uniq.size
       end
     end
   end
