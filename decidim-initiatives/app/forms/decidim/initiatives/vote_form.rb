@@ -204,7 +204,6 @@ module Decidim
       def authorization_status
         return unless authorization
 
-        # TODO: Fix Authorization cipher
         Decidim::Verifications::Adapter.from_element(handler_name).authorize(authorization, {}, nil, nil, nil)
       end
 
