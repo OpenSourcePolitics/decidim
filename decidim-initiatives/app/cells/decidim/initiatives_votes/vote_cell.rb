@@ -34,7 +34,7 @@ module Decidim
       end
 
       def user_scope
-        metadata[:user_scope]
+        translated_attribute(Decidim::Scope.find(metadata[:user_scope_id]).name)
       end
 
       def resident

@@ -39,7 +39,7 @@ module Decidim
       def encrypted_metadata
         return unless required_personal_data?
 
-        @encrypted_metadata ||= encryptor.encrypt(user_scope_id: user_scope_id, resident: resident)
+        @encrypted_metadata ||= encryptor.encrypt(user_scope_id: user_scope_id)
       end
 
       # Public: The hash to uniquely identify an initiative vote. It uses the
@@ -204,6 +204,7 @@ module Decidim
       def authorization_status
         return unless authorization
 
+        # TODO: Fix Authorization cipher
         Decidim::Verifications::Adapter.from_element(handler_name).authorize(authorization, {}, nil, nil, nil)
       end
 
