@@ -91,11 +91,24 @@ module Decidim
         end
 
         context "when there is votes" do
-          let(:vote) { create_list(:initiative_user_vote, 5, initiative: initiative) }
+          let(:scopes) { create_list(:scope, 5, organization: organization) }
+          let(:initiative) { create(:initiative, :with_user_extra_fields_collection, organization: organization) }
+
+          before do
+            create_list(:initiative_user_vote, 2, initiative: initiative,
+                                                  encrypted_metadata: Decidim::Initiatives::DataEncryptor.new(secret: "personal user metadata").encrypt(user_scope_id: scopes[2].id))
+
+            create_list(:initiative_user_vote, 2, initiative: initiative,
+                                                  encrypted_metadata: Decidim::Initiatives::DataEncryptor.new(secret: "personal user metadata").encrypt(user_scope_id: scopes[3].id))
+
+            create(:initiative_user_vote,
+                   initiative: initiative,
+                   encrypted_metadata: Decidim::Initiatives::DataEncryptor.new(secret: "personal user metadata").encrypt(user_scope_id: scopes.first.id))
+          end
 
           it "serializes uniq scopes vote count" do
             expect(serialized[:firms]).to be_a_kind_of Hash
-            expect(serialized[:firms]).to include(scopes: initiative.votes.map(&:decidim_scope_id).uniq.size)
+            expect(serialized[:firms]).to include(scopes: 3)
           end
         end
       end
