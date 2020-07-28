@@ -83,7 +83,7 @@ module Decidim
           next unless initiative.author != committee_member.user
 
           Decidim::Initiatives::InitiativesMailer
-            .notify_state_change(initiative, committee_member.user, initiative.state)
+            .notify_state_change(initiative, committee_member.user)
             .deliver_later
         end
       end
@@ -92,14 +92,14 @@ module Decidim
         initiative.followers.each do |follower|
           initiative.organization.admins.each do |user|
             Decidim::Initiatives::InitiativesMailer
-              .notify_state_change(initiative, user, initiative.state)
+              .notify_state_change(initiative, user)
               .deliver_later
           end
 
           next unless initiative.author != follower
 
           Decidim::Initiatives::InitiativesMailer
-            .notify_state_change(initiative, follower, initiative.state)
+            .notify_state_change(initiative, follower)
             .deliver_later
         end
       end
