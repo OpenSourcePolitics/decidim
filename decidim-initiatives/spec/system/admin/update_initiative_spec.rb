@@ -15,10 +15,23 @@ describe "User prints the initiative", type: :system do
 
   context "when initiative update" do
     context "and user is author" do
+
       before do
         switch_to_host(organization.host)
         login_as author, scope: :user
         visit decidim_admin_initiatives.initiatives_path
+      end
+
+      context "when accessing dashboard" do
+        before do
+          switch_to_host(organization.host)
+          login_as author, scope: :user
+          visit decidim_admin.root_path
+        end
+
+        it "does not see admin TOS" do
+          expect(page).not_to have_content("Please take a moment to review Admin Terms of Use. Otherwise you won't be able to admin the platform. ")
+        end
       end
 
       context "when initiative is in created state" do
