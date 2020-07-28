@@ -34,7 +34,7 @@ module Decidim
       end
 
       def user_scope
-        translated_attribute(Decidim::Scope.find(metadata[:user_scope_id]).name) if metadata[:user_scope_id].present?
+        translated_attribute(Decidim::Scope.find(metadata[:user_scope_id])) if metadata[:user_scope_id].present?
       end
 
       def resident
