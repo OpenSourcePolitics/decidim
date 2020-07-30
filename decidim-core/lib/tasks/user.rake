@@ -50,11 +50,3 @@ More informations about users : \n
 Total destroyed: #{total} \n
 ######################################\n"
 end
-
-# Print on STDOUT a light resume of total users destroyed by command
-def filter_account_to_destroy
-  puts "######### Users Found ! #############\n
-More informations about users : \n
-Total destroyed: #{total} \n
-######################################\n"
-end
