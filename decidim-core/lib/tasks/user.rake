@@ -10,18 +10,15 @@ namespace :user do
     users = Decidim::User
             .not_deleted
             .not_confirmed
+            .where(current_sign_in_at: nil)
+            .where(last_sign_in_at: nil)
+            .where(current_sign_in_ip: nil)
+            .where(last_sign_in_at: nil)
+            .where(invitation_accepted_at: nil)
+            .where(admin: false)
+            .where.not(invitation_token: nil)
+            .where("invitation_sent_at <= ?", Date.new(2020, 7, 1))
 
-
-    #.where(current_sign_in_at: nil)
-       #.where(last_sign_in_at: nil)
-       #.where(current_sign_in_ip: nil)
-       #.where(last_sign_in_at: nil)
-       #.where(invitation_accepted_at: nil)
-       #.where(confirmed_at: nil)
-       #.where(deleted_at: nil)
-       #.where(admin: false)
-       #.where.not(invitation_token: nil)
-       #.where("invitation_sent_at <= ?", Date.new(2020, 7, 1))
     exit(1) unless users.count.positive?
 
     action_resume(users.count)
@@ -37,7 +34,6 @@ namespace :user do
     puts "Choice not confirmed, rake task aborted : Exit status #{e.status}" if e.status == 2
   else
     puts "\nRake task exited successfully !"
-    exit
   end
 end
 
@@ -49,6 +45,14 @@ end
 
 # Print on STDOUT a light resume of total users destroyed by command
 def action_resume(total)
+  puts "######### Users Found ! #############\n
+More informations about users : \n
+Total destroyed: #{total} \n
+######################################\n"
+end
+
+# Print on STDOUT a light resume of total users destroyed by command
+def filter_account_to_destroy
   puts "######### Users Found ! #############\n
 More informations about users : \n
 Total destroyed: #{total} \n
