@@ -2,11 +2,11 @@
 
 namespace :decidim do
   namespace :user do
-    # All ------
+    # destroy_accounts ------
     #
-    # Get all metrics entities and execute his own rake task.
-    # It admits a date-string parameter, in a 'YYYY-MM-DD' format from
-    # today to all past dates
+    # Destroy user accounts using destroy_account decidim's command.
+    # Account concerned are those which seems not to sign again on platform.
+    # This command is usefull when administrator needs to remove user accounts that have been collected from old platform but don't connect again
     desc "Destroy user accounts using decidim destroy_account command"
 
     task destroy_accounts: :environment do |_task, _args|
