@@ -104,7 +104,7 @@ module Decidim
     scope :future_spaces, -> { none }
     scope :past_spaces, -> { closed }
 
-    after_save :notify_state_change
+    after_commit :notify_state_change
     after_create :notify_creation
 
     searchable_fields({
