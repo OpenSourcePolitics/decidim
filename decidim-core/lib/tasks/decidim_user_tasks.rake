@@ -20,9 +20,12 @@ namespace :decidim do
                            .where(invitation_accepted_at: nil) # Account must have a pending acceptation
                            .where.not(invitation_token: nil) # Account must have a pending invitation token
                            .where(last_sign_in_at: nil) # Account have to never been connected on platform
+
       users.each do |user|
         Decidim::DestroyAccount.new(user, destroy_account_form).call
       end
+
+      puts "#{users.count} accounts have been successfully destroyed"
     rescue ArgumentError => e
       puts "#{e} : Please run task with RAILS_FORCE='true' env variable to ensure your choice"
       puts "-----"
