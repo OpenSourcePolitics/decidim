@@ -13,10 +13,13 @@ namespace :decidim do
       raise ArgumentError unless ENV["RAILS_FORCE"] == "true"
 
       destroy_account_form = Decidim::DeleteAccountForm.new(delete_reason: "Supprimé par l'administration pour des raisons RGPD")
-      users = Decidim::User.where(admin: false) # user is not admin
-                           .not_deleted # Do not destroy already destroyed account
+      users = Decidim::User.not_confirmed
+                           .not_deleted
+                           .where(admin: false) # user is not admin
                            .where("invitation_sent_at <= ?", Time.current - 1.month) # Do not destroy accounts invited during the current month
-
+                           .where(invitation_accepted_at: nil) # Account must have a pending acceptation
+                           .where.not(invitation_token: nil) # Account must have a pending invitation token
+                           .where(last_sign_in_at: nil) # Account have to never been connected on platform
       users.each do |user|
         Decidim::DestroyAccount.new(user, destroy_account_form).call
       end

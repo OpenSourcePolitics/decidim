@@ -10,7 +10,7 @@ describe "Executing Decidim User tasks" do
     let(:argument_error_output) { /ArgumentError : Please run task with RAILS_FORCE='true' env variable to ensure your choice/ }
 
     shared_examples_for "have to rescue error" do |error, output|
-      it "have to rescue #{error}" do
+      it "error rescued : #{error}" do
         Rake::Task[task_name].reenable
         expect { Rake::Task[task_name].invoke }.to output(output).to_stdout
       end
@@ -28,7 +28,7 @@ describe "Executing Decidim User tasks" do
           end
 
           it "have to be executed without failures" do
-            Rake::Task[:"decidim:user:destroy_accounts"].reenable
+            Rake::Task[task_name].reenable
             expect { Rake::Task[task_name].invoke }.not_to output(argument_error_output).to_stdout
           end
 
@@ -64,7 +64,7 @@ describe "Executing Decidim User tasks" do
 
             it "destroys the user account" do
               expect(Decidim::User.where(delete_reason: nil).count).to eq(6)
-              Rake::Task[:"decidim:user:destroy_accounts"].reenable
+              Rake::Task[task_name].reenable
 
               Rake::Task[task_name].invoke
               expect(Decidim::User.where.not(delete_reason: nil).count).to eq(0)
@@ -77,7 +77,7 @@ describe "Executing Decidim User tasks" do
 
               it "destroys account" do
                 expect(Decidim::User.where(delete_reason: nil).count).to eq(6)
-                Rake::Task[:"decidim:user:destroy_accounts"].reenable
+                Rake::Task[task_name].reenable
 
                 Rake::Task[task_name].invoke
                 expect(Decidim::User.where.not(delete_reason: nil).count).to eq(1)
