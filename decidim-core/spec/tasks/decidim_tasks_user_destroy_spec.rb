@@ -34,8 +34,10 @@ describe "Executing Decidim User tasks" do
 
           context "when deletes accounts" do
             let!(:organization) { create(:organization) }
+            let!(:admin) { create(:user, :confirmed, :admin, organization: organization) }
+            let!(:confirmed_user) { create(:user, :confirmed, organization: organization) }
+            let!(:confirmed_deleted_user) { create(:user, :confirmed, :deleted, organization: organization) }
             let(:users) { build_list(:user, 5, organization: organization) }
-            let(:admin) { create(:user, :confirmed, :admin, organization: organization) }
 
             let(:form) do
               Decidim::InviteUserForm.from_params(
@@ -58,12 +60,11 @@ describe "Executing Decidim User tasks" do
                                           invited_by: admin,
                                           invitation_instructions: "invite_user"
                                         )).call
-                user.invitation_sent_at = 2.months
               end
             end
 
             it "destroys the user account" do
-              expect(Decidim::User.where(delete_reason: nil).count).to eq(6)
+              expect(Decidim::User.where(delete_reason: nil).count).to eq(8)
               Rake::Task[task_name].reenable
 
               Rake::Task[task_name].invoke
@@ -72,15 +73,16 @@ describe "Executing Decidim User tasks" do
 
             context "when invitation_sent_at is older or equal to 1 month" do
               before do
+                Decidim::User.all[5].update! invitation_sent_at: Time.current - 1.month - 1.day
                 Decidim::User.last.update! invitation_sent_at: Time.current - 1.month
               end
 
               it "destroys account" do
-                expect(Decidim::User.where(delete_reason: nil).count).to eq(6)
+                expect(Decidim::User.where(delete_reason: nil).count).to eq(8)
                 Rake::Task[task_name].reenable
 
                 Rake::Task[task_name].invoke
-                expect(Decidim::User.where.not(delete_reason: nil).count).to eq(1)
+                expect(Decidim::User.where.not(delete_reason: nil).count).to eq(2)
               end
             end
 
@@ -90,7 +92,7 @@ describe "Executing Decidim User tasks" do
               end
 
               it "does not destroy account" do
-                expect(Decidim::User.where(delete_reason: nil).count).to eq(6)
+                expect(Decidim::User.where(delete_reason: nil).count).to eq(8)
                 Rake::Task[:"decidim:user:destroy_accounts"].reenable
 
                 Rake::Task[task_name].invoke
