@@ -22,13 +22,53 @@ describe "Executing Decidim User tasks" do
       end
 
       context "with env variable" do
-        before do
-          ENV["RAILS_FORCE"] = "true"
-        end
+        context "when RAILS_FORCE has a valid content" do
+          before do
+            ENV["RAILS_FORCE"] = "true"
+          end
 
-        it "have to be executed without failures" do
-          Rake::Task[:"decidim:user:destroy_accounts"].reenable
-          expect { Rake::Task[task_name].invoke }.not_to output(argument_error_output).to_stdout
+          it "have to be executed without failures" do
+            Rake::Task[:"decidim:user:destroy_accounts"].reenable
+            expect { Rake::Task[task_name].invoke }.not_to output(argument_error_output).to_stdout
+          end
+
+          context "when deletes accounts" do
+            let!(:organization) { create(:organization) }
+            let(:users) { build_list(:user, 5, organization: organization) }
+            let(:admin) { create(:user, :confirmed, :admin, organization: organization) }
+
+            let(:form) do
+              Decidim::InviteUserForm.from_params(
+                name: "Old man",
+                email: "oldman@email.com",
+                organization: organization,
+                role: "",
+                invited_by: admin,
+                invitation_instructions: "invite_user"
+              )
+            end
+
+            before do
+              users.each do |user|
+                Decidim::InviteUser.new(Decidim::InviteUserForm.from_params(
+                                          name: user.name,
+                                          email: user.email,
+                                          organization: user.organization,
+                                          role: "user_manager",
+                                          invited_by: admin,
+                                          invitation_instructions: "invite_user"
+                                        )).call
+              end
+            end
+
+            it "destroys the user account" do
+              expect(Decidim::User.where(delete_reason: nil).count).to eq(6)
+              Rake::Task[:"decidim:user:destroy_accounts"].reenable
+
+              Rake::Task[task_name].invoke
+              expect(Decidim::User.where.not(delete_reason: nil).count).to eq(5)
+            end
+          end
         end
 
         context "when RAILS_FORCE has not a valid content" do
