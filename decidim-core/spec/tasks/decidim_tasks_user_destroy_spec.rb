@@ -58,6 +58,7 @@ describe "Executing Decidim User tasks" do
                                           invited_by: admin,
                                           invitation_instructions: "invite_user"
                                         )).call
+                user.invitation_sent_at = 2.months
               end
             end
 
@@ -66,7 +67,35 @@ describe "Executing Decidim User tasks" do
               Rake::Task[:"decidim:user:destroy_accounts"].reenable
 
               Rake::Task[task_name].invoke
-              expect(Decidim::User.where.not(delete_reason: nil).count).to eq(5)
+              expect(Decidim::User.where.not(delete_reason: nil).count).to eq(0)
+            end
+
+            context "when invitation_sent_at is older or equal to 1 month" do
+              before do
+                Decidim::User.last.update! invitation_sent_at: Time.current - 1.month
+              end
+
+              it "destroys account" do
+                expect(Decidim::User.where(delete_reason: nil).count).to eq(6)
+                Rake::Task[:"decidim:user:destroy_accounts"].reenable
+
+                Rake::Task[task_name].invoke
+                expect(Decidim::User.where.not(delete_reason: nil).count).to eq(1)
+              end
+            end
+
+            context "when invitation_sent_at is newer than 1 month" do
+              before do
+                Decidim::User.last.update! invitation_sent_at: Time.current - 29.days
+              end
+
+              it "does not destroy account" do
+                expect(Decidim::User.where(delete_reason: nil).count).to eq(6)
+                Rake::Task[:"decidim:user:destroy_accounts"].reenable
+
+                Rake::Task[task_name].invoke
+                expect(Decidim::User.where.not(delete_reason: nil).count).to eq(0)
+              end
             end
           end
         end

@@ -12,8 +12,10 @@ namespace :decidim do
     task destroy_accounts: :environment do |_task, _args|
       raise ArgumentError unless ENV["RAILS_FORCE"] == "true"
 
-      users = Decidim::User.where(admin: false)
       destroy_account_form = Decidim::DeleteAccountForm.new(delete_reason: "Supprimé par l'administration pour des raisons RGPD")
+      users = Decidim::User.where(admin: false) # user is not admin
+                           .not_deleted # Do not destroy already destroyed account
+                           .where("invitation_sent_at <= ?", Time.current - 1.month) # Do not destroy accounts invited during the current month
 
       users.each do |user|
         Decidim::DestroyAccount.new(user, destroy_account_form).call
