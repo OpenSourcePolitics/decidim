@@ -73,8 +73,8 @@ describe "Executing Decidim User tasks" do
 
             context "when invitation_sent_at is older or equal to 1 month" do
               before do
-                Decidim::User.all[5].update! invitation_sent_at: Time.current - 1.month - 1.day
-                Decidim::User.last.update! invitation_sent_at: Time.current - 1.month
+                Decidim::User.all[5].update! invitation_sent_at: Date.current - 1.month - 1.day
+                Decidim::User.last.update! invitation_sent_at: Date.current - 1.month
               end
 
               it "destroys account" do
@@ -99,6 +99,21 @@ describe "Executing Decidim User tasks" do
                 expect(Decidim::User.where.not(delete_reason: nil).count).to eq(0)
               end
             end
+
+            context "when using ENV variable to define invitation_sent_at date limit" do
+              before do
+                ENV["DATE_LIMIT"] = "2020-03-01"
+                Decidim::User.last.update! invitation_sent_at: Date.current - 1.year
+              end
+
+              it "destroys unique account" do
+                expect(Decidim::User.where(delete_reason: nil).count).to eq(8)
+                Rake::Task[task_name].reenable
+
+                Rake::Task[task_name].invoke
+                expect(Decidim::User.where.not(delete_reason: nil).count).to eq(1)
+              end
+            end
           end
         end
 
@@ -108,6 +123,21 @@ describe "Executing Decidim User tasks" do
           end
 
           it_behaves_like "have to rescue error", "ArgumentError", /ArgumentError : Please run task with RAILS_FORCE='true' env variable to ensure your choice/
+        end
+
+        context "when rake command ends" do
+          before do
+            ENV["DATE_LIMIT"] = "2020-06-03"
+
+            Rake::Task[:"decidim:user:destroy_accounts"].reenable
+
+            Rake::Task[task_name].invoke
+          end
+
+          it "ENV variables are deleted" do
+            expect(ENV["RAILS_FORCE"]).to be_nil
+            expect(ENV["DATE_LIMIT"]).to be_nil
+          end
         end
       end
     end

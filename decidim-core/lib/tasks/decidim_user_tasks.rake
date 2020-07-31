@@ -16,7 +16,7 @@ namespace :decidim do
       users = Decidim::User.not_confirmed
                            .not_deleted
                            .where(admin: false) # user is not admin
-                           .where("invitation_sent_at <= ?", Time.current - 1.month) # Do not destroy accounts invited during the current month
+                           .where("invitation_sent_at <= ?", invitation_sent_date_limit) # Do not destroy accounts invited during the current month
                            .where(invitation_accepted_at: nil) # Account must have a pending acceptation
                            .where.not(invitation_token: nil) # Account must have a pending invitation token
                            .where(last_sign_in_at: nil) # Account have to never been connected on platform
@@ -25,6 +25,20 @@ namespace :decidim do
       end
     rescue ArgumentError => e
       puts "#{e} : Please run task with RAILS_FORCE='true' env variable to ensure your choice"
+      puts "-----"
+      puts "OPTIONAL : Use DATE_LIMIT to redefine invitation date limit"
+      puts "Format: DATE_LIMIT='yyyy-mm-dd'"
+    ensure
+      ENV.delete "RAILS_FORCE"
+      ENV.delete "DATE_LIMIT"
     end
   end
+end
+
+def invitation_sent_date_limit
+  if ENV["DATE_LIMIT"]
+    return ENV["DATE_LIMIT"].to_date if ENV["DATE_LIMIT"].to_date.is_a? Date
+  end
+
+  Date.current - 1.month
 end
