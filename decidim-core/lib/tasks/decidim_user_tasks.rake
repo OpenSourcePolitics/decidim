@@ -30,7 +30,7 @@ namespace :decidim do
       puts "Format: DATE_LIMIT='yyyy-mm-dd'"
     ensure
       ENV.delete "RAILS_FORCE"
-      ENV.delete "DATE_LIMIT"
+      ENV.delete "DATE_LIMIT" if ENV["DATE_LIMIT"].present?
     end
   end
 end
