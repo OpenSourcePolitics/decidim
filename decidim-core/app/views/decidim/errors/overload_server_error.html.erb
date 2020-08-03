@@ -1,0 +1,22 @@
+<main class="wrapper">
+  <div class="row">
+    <div class="large-8 large-centered">
+      <div class="page-image row align-center">
+        <% if current_organization.logo.present? %>
+          <%= image_tag current_organization.logo.medium.url, alt: t(".image_alt"), class: "column small" %>
+        <% else %>
+          <%# image_tag "overload", alt: t(".image_alt"), class: "column small" %>
+          <%= image_tag "", alt: t(".image_alt"), class: "column small" %>
+        <% end %>
+      </div>
+      <div class="static__message">
+
+        <h1 class="heading1 page-title"><%= t(".title") %></h1>
+        <p><%= t(".description") %></p>
+        <div class="static__message__cta">
+          <%= link_to t(".back_home"), page_path(""), class: "button" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

@@ -12,5 +12,9 @@ module Decidim
     def internal_server_error
       render status: :internal_server_error
     end
+
+    def overload_server_error
+      render status: 503
+    end
   end
 end

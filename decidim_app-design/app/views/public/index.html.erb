@@ -1,6 +1,6 @@
 <%
-@title = "Decidim Barcelona"
-@activesection = "home"
+  @title = "Decidim Barcelona"
+  @activesection = "home"
 %>
 
 <%= partial "template_top" %>
@@ -18,7 +18,6 @@
           <li><%= link_to "Home con tooltips de ayuda", page_path("home-with-helpers") %></li>
           <li><%= link_to "Estadísticas", page_path("stats") %></li>
         </ul>
-
         <h2 class="section-heading">Search</h2>
         <ul>
           <li><%= link_to "Página de resultados", page_path("search") %></li>
@@ -67,12 +66,6 @@
             </ul>
           </li>
         </ul>
-        <h2 class="section-heading">Comments</h2>
-        <ul>
-          <li>
-            <%= link_to "Detalle de comentario", page_path("proposals/comment-view") + "#single-comment" %>
-          </li>
-        </ul>
         <h2 class="section-heading">Amendments</h2>
         <ul>
           <li><%= link_to "Propuesta con botón de enmienda", page_path("amendments/proposal-view-with-amendment-button") %></li>
@@ -82,19 +75,6 @@
           <li><%= link_to "Validar coautoría", page_path("amendments/amendment-view-validate-coauthorship") %></li>
           <li><%= link_to "Propuesta con enmienda aceptada", page_path("amendments/proposal-view-with-amendment-approved") %></li>
           <li><%= link_to "Propuesta con enmienda rechazada", page_path("amendments/proposal-view-with-amendment-rejected") %></li>
-        </ul>
-        <h2 class="section-heading">Presupuestos participativos</h2>
-        <ul>
-          <li><%= link_to "Presupuestos - Inicio", page_path("projects-budget-welcome") %></li>
-          <li><%= link_to "Presupuestos - Votación en distrito", page_path("projects-budget") %></li>
-          <li><%= link_to "Presupuestos - Vista de proyecto", page_path("project-budget-view") %></li>
-          <li><%= link_to "Presupuestos - Votos excedidos", page_path("projects-budget-excess") %></li>
-          <li><%= link_to "Presupuestos - Confirmar voto", page_path("projects-budget-confirm") %></li>
-          <li><%= link_to "Presupuestos - Voto confirmado (elegir otro distrito)", page_path("projects-budget-next") %></li>
-          <li><%= link_to "Presupuestos - Voto confirmado (sin más distritos)", page_path("projects-budget-two-districts") %></li>
-          <li><%= link_to "Presupuestos - Landing con un distrito votado", page_path("projects-budget-one-voted") %></li>
-          <li><%= link_to "Presupuestos - Landing con dos distritos votados", page_path("projects-budget-already-voted") %></li>
-          <li><%= link_to "Presupuestos - Consulta de votación", page_path("projects-budget-finish") %></li>
         </ul>
         <h2 class="section-heading">Initiatives</h2>
         <ul>
@@ -232,17 +212,17 @@
           La plantilla de email está creada con
           <a href="http://foundation.zurb.com/emails/docs/" target="_blank">
             Foundation para email</a>, y el HTML y CSS original están en la carpeta
-            <code>/source/emails/</code>.
-          </p>
-          <p>
-            El HTML y CSS de los emails se puede combinar con la
-            <a href="http://foundation.zurb.com/emails/inliner-v2.html" target="_blank">
-              herramienta inliner</a> de Foundation.
-            </p>
-            <ul>
-              <li><%= link_to "Ejemplo de email con estilos inline", page_path("email-inline") %></li>
-            </ul>
-          </div>
+          <code>/source/emails/</code>.
+        </p>
+        <p>
+          El HTML y CSS de los emails se puede combinar con la
+          <a href="http://foundation.zurb.com/emails/inliner-v2.html" target="_blank">
+            herramienta inliner</a> de Foundation.
+        </p>
+        <ul>
+          <li><%= link_to "Ejemplo de email con estilos inline", page_path("email-inline") %></li>
+        </ul>
+      </div>
       <hr>
       <h2 class="text-center heading2 mb-m">Legacy views</h2>
       <div class="section" style="columns:2">
@@ -260,6 +240,14 @@
             </ul>
           </li>
           <li><%= link_to "Resultado", page_path("action-view") %></li>
+        </ul>
+        <h2 class="section-heading">Presupuestos participativos</h2>
+        <ul>
+          <li><%= link_to "Presupuestos - Lista de proyectos", page_path("projects-budget") %></li>
+          <li><%= link_to "Presupuestos - Ver proyecto", page_path("project-budget-view") %></li>
+          <li><%= link_to "Presupuestos - Confirmar voto", page_path("projects-budget-confirm") %></li>
+          <li><%= link_to "Presupuestos - Votos excedidos", page_path("projects-budget-excess") %></li>
+          <li><%= link_to "Presupuestos - Votación finalizada", page_path("projects-budget-finish") %></li>
         </ul>
         <h2 class="section-heading">User</h2>
         <ul>
@@ -283,13 +271,14 @@
           <li><%= link_to "Pregunta: dónde votar", page_path("consultations-voting-places") %></li>
           <li><%= link_to "Pregunta: votación en modal", page_path("consultations-vote") %></li>
           <li><%= link_to "Pregunta: votación en modal - confirmar", page_path("consultations-vote-confirm") %></li>
-         </ul>
+        </ul>
         <h2 class="section-heading">Legal y sistema</h2>
         <ul>
           <li><%= link_to "Contenido estático/legal", page_path("static") %></li>
           <li><%= link_to "Contenido estático con navegación", page_path("static-with-nav") %></li>
           <li><%= link_to "Error 404", page_path("404") %></li>
           <li><%= link_to "Error 500", page_path("500") %></li>
+          <li><%= link_to "Overload page", page_path("overload") %></li>
           <li><%= link_to "Cookie warning", page_path("cookie-bar") %></li>
         </ul>
       </div>

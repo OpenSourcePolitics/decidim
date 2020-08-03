@@ -21,6 +21,7 @@ module Decidim
       routes.draw do
         get "not_found" => "decidim/errors#not_found"
         get "internal_server_error" => "decidim/errors#internal_server_error"
+        get "overload_server_error" => "decidim/errors#overload_server_error"
         post "internal_server_error" => "decidim/errors#internal_server_error"
         post "auth_token" => "decidim/errors#auth_token"
         post "cors" => "decidim/errors#cors"
@@ -31,6 +32,13 @@ module Decidim
       it "reports the correct status code" do
         get :not_found
         expect(response).to have_http_status(:not_found)
+      end
+    end
+
+    describe "overload" do
+      it "reports the correct status code" do
+        get :overload_server_error
+        expect(response).to have_http_status(503)
       end
     end
 

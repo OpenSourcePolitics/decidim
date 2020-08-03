@@ -120,6 +120,9 @@ Decidim::Core::Engine.routes.draw do
   match "/404", to: "errors#not_found", via: :all
   match "/500", to: "errors#internal_server_error", via: :all
 
+  # 503 error code according to phusionpassenger request_load_balancing documentation
+  match "/503", to: "errors#overload_server_error", via: :all
+
   get "/open-data/download", to: "open_data#download", as: :open_data_download
 
   resource :follow, only: [:create, :destroy]

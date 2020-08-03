@@ -468,6 +468,11 @@ en:
         back_home: Back home
         content_doesnt_exist: This address is incorrect or has been removed.
         title: The page you're looking for can't be found
+      overload_server_error:
+        back_home: Back home
+        description: The platform is undergoing maintenance due to a large number of connections. Our teams are mobilized to make the platform operational as soon as possible. Thank you for your understanding.
+        image_alt: Image temporarily unavailable page
+        title: The platform is temporarily unavailable.
     events:
       amendments:
         amendment_accepted:
