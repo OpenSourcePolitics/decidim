@@ -10,9 +10,6 @@ namespace :decidim do
     desc "Destroy user accounts using decidim destroy_account command"
 
     task destroy_accounts: :environment do |_task, _args|
-      raise ArgumentError unless ENV["RAILS_FORCE"] == "true"
-
-      destroy_account_form = Decidim::DeleteAccountForm.new(delete_reason: "Supprimé par l'administration pour des raisons RGPD")
       users = Decidim::User.not_confirmed
                            .not_deleted
                            .where(admin: false) # user is not admin
@@ -21,12 +18,17 @@ namespace :decidim do
                            .where.not(invitation_token: nil) # Account must have a pending invitation token
                            .where(last_sign_in_at: nil) # Account have to never been connected on platform
 
+      raise ArgumentError unless ENV["RAILS_FORCE"] == "true"
+
+      destroy_account_form = Decidim::DeleteAccountForm.new(delete_reason: "Supprimé par l'administration pour des raisons RGPD")
+
       users.each do |user|
         Decidim::DestroyAccount.new(user, destroy_account_form).call
       end
 
       puts "#{users.count} accounts have been successfully destroyed"
     rescue ArgumentError => e
+      puts "#{users.count} accounts will be destroyed"
       puts "#{e} : Please run task with RAILS_FORCE='true' env variable to ensure your choice"
       puts "-----"
       puts "OPTIONAL : Use DATE_LIMIT to redefine invitation date limit"
