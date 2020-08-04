@@ -129,7 +129,6 @@ describe "User answers the initiative", type: :system do
           end
 
           submit_and_validate("error")
-          expect(page).to have_current_path decidim_admin_initiatives.edit_initiative_answer_path(initiative)
         end
       end
     end
