@@ -53,13 +53,13 @@ describe "Executing Decidim User tasks" do
             before do
               users.each do |user|
                 Decidim::InviteUser.new(Decidim::InviteUserForm.from_params(
-                  name: user.name,
-                  email: user.email,
-                  organization: user.organization,
-                  role: "user_manager",
-                  invited_by: admin,
-                  invitation_instructions: "invite_user"
-                )).call
+                                          name: user.name,
+                                          email: user.email,
+                                          organization: user.organization,
+                                          role: "user_manager",
+                                          invited_by: admin,
+                                          invitation_instructions: "invite_user"
+                                        )).call
               end
             end
 

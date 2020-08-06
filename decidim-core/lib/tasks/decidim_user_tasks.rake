@@ -11,12 +11,12 @@ namespace :decidim do
 
     task destroy_accounts: :environment do |_task, _args|
       users = Decidim::User.not_confirmed
-                .not_deleted
-                .where(admin: false) # user is not admin
-                .where("invitation_sent_at <= ?", invitation_sent_date_limit) # Do not destroy accounts invited during the current month
-                .where(invitation_accepted_at: nil) # Account must have a pending acceptation
-                .where.not(invitation_token: nil) # Account must have a pending invitation token
-                .where(last_sign_in_at: nil) # Account have to never been connected on platform
+                           .not_deleted
+                           .where(admin: false) # user is not admin
+                           .where("invitation_sent_at <= ?", invitation_sent_date_limit) # Do not destroy accounts invited during the current month
+                           .where(invitation_accepted_at: nil) # Account must have a pending acceptation
+                           .where.not(invitation_token: nil) # Account must have a pending invitation token
+                           .where(last_sign_in_at: nil) # Account have to never been connected on platform
 
       raise ArgumentError unless ENV["RAILS_FORCE"] == "true"
 
