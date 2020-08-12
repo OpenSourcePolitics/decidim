@@ -9,7 +9,12 @@ module Decidim
         manifest.name == name.to_sym
       end
 
-      collection = export_manifest.collection.call(component)
+      collection = if export_manifest.manifest.name == :proposals
+                     export_manifest.collection.call(component).not_hidden
+                   else
+                     export_manifest.collection.call(component)
+                   end
+
       serializer = export_manifest.serializer
 
       export_data = if serializer == Decidim::Proposals::ProposalSerializer
