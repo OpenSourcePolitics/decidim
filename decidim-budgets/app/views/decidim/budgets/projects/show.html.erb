@@ -32,7 +32,7 @@ edit_link(
           <span class="definition-data__number"><%= budget_to_currency project.budget %></span>
         </div>
         <% if current_settings.show_votes? %>
-          <div class="card__support__data">
+          <div class="card__support__data project__support__data">
             <span><%= t("decidim.budgets.projects.project.count", count: project.confirmed_orders_count) %></span>
           </div>
         <% end %>

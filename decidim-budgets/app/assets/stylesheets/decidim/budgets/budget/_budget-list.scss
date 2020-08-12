@@ -60,6 +60,7 @@
     flex-shrink: 0;
     align-self: stretch;
     display: flex;
+    flex-wrap: wrap;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -68,7 +69,7 @@
     font-size: 85%;
     line-height: 1;
     color: $muted;
-    padding: $card-padding-small / 2;
+    padding: ($card-padding-small * .75) ($card-padding-small / 2)  ;
     background: $card-secondary-bg;
     @include breakpoint(medium) {
       min-width: 7rem;
@@ -113,6 +114,7 @@
   &__number {
     @include breakpoint(medium down) {
       font-size: 1rem;
+      white-space: nowrap;
     }
 
     @include breakpoint(medium) {
@@ -126,7 +128,6 @@
 
   &__action {
     margin-bottom: 0;
-    border-radius: 50%;
     align-self: center;
     flex-shrink: 0;
     width: 2em;
@@ -138,5 +139,25 @@
     &--disabled {
       pointer-events: none;
     }
+
+    &.circle {
+      border-radius: 50%;
+    }
   }
+
+  &__support {
+    width: 7em;
+    padding: .5rem 1rem 0;
+    margin: 0;
+    flex-grow: 1;
+    justify-content: center;
+
+    > *:only-child {
+      margin: 0;
+    }
+  }
+}
+
+.project__support__data {
+  margin-bottom: 1rem;
 }
