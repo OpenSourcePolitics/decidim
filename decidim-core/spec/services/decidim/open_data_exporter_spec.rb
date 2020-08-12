@@ -39,6 +39,14 @@ describe Decidim::OpenDataExporter do
           expect(csv_data).to include(proposal.title)
         end
 
+        context "with moderated proposal" do
+          let!(:proposal) { create(:proposal, :hidden, component: component) }
+
+          it "do not includes the proposals data" do
+            expect(csv_data).not_to include(proposal.title)
+          end
+        end
+
         context "with unpublished components" do
           let(:component) do
             create(:proposal_component, organization: organization, published_at: nil)

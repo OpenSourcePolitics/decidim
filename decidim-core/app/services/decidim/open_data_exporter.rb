@@ -38,7 +38,11 @@ module Decidim
 
     def data_for(export_manifest)
       collection = components.where(manifest_name: export_manifest.manifest.name).find_each.flat_map do |component|
-        export_manifest.collection.call(component)
+        if export_manifest.manifest.name == :proposals
+          export_manifest.collection.call(component).not_hidden
+        else
+          export_manifest.collection.call(component)
+        end
       end
 
       Decidim::Exporters::CSV.new(collection, export_manifest.serializer).export
