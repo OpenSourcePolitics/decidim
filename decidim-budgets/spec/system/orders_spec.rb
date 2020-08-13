@@ -195,7 +195,7 @@ describe "Orders", type: :system do
         visit_component
 
         expect(page).to have_selector("button.budget-list__action[disabled]", count: 3)
-        expect(page).to have_no_selector(".budget-summary")
+        expect(page).to have_no_css(".budget-summary")
       end
     end
 
