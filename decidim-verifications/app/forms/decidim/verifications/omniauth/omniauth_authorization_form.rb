@@ -37,6 +37,7 @@ module Decidim
         end
 
         def check_anti_affinity?
+          return true unless manifest.present?
           return true unless manifest.anti_affinity&.present?
 
           anti_affinity_names = (manifest.anti_affinity & identities_for_user.pluck(:provider))
