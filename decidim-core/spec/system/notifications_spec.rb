@@ -113,11 +113,11 @@ describe "Notifications", type: :system do
 
     context "with undisplayable notifications" do
       let!(:notification) { create :notification, user: user, resource: resource, event_class: "Decidim::DummyClass" }
-  
+
       before do
         page.visit decidim.notifications_path
       end
-      
+
       it "doesn't show any notification" do
         expect(page).not_to have_content("Mark all as read")
         expect(page).to have_content("No notifications yet")
