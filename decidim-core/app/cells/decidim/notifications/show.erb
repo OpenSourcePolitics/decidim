@@ -17,6 +17,7 @@
   </div>
 
   <% notifications.select(&:resource).each do |notification| %>
+    <% next unless defined?(notification.event_class.constantize.model_name.human) %>
     <div class="card card--widget">
       <ul class="card-data">
         <li class="card-data__item">
