@@ -1,0 +1,7 @@
+<% if current_settings.show_votes? %>
+  <div class="card__support budget-list__support">
+    <span>
+      <%= t("decidim.budgets.projects.project.count", count: model.confirmed_orders_count) %>
+    </span>
+  </div>
+<% end %>
