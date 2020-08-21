@@ -19,8 +19,8 @@ module Decidim
         }
       end
 
-      it "builds empty answers for each question" do
-        expect(subject.answers.length).to eq(1)
+      it "builds empty responses for each question" do
+        expect(subject.responses.length).to eq(1)
       end
 
       context "when tos_agreement is not accepted" do
