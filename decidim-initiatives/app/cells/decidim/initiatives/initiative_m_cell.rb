@@ -8,9 +8,25 @@ module Decidim
       include InitiativeHelper
       include Decidim::Initiatives::Engine.routes.url_helpers
 
+      cache :show do
+        Digest::MD5.hexdigest(cache_hash)
+      end
+
       property :state
 
       private
+
+      def cache_hash
+        hash = model.author.cache_version +
+               model.cache_version +
+               model.supports_count.to_s +
+               comments_count.to_s
+
+        hash << current_user.follows?(model).to_s if current_user
+        hash << current_locale
+
+        hash
+      end
 
       def translatable?
         true
@@ -28,17 +44,44 @@ module Decidim
         true
       end
 
+      # Explicitely commenting the used I18n keys so their are not flagged as unused
+      # i18n-tasks-use t('decidim.initiatives.show.badge_name.accepted')
+      # i18n-tasks-use t('decidim.initiatives.show.badge_name.created')
+      # i18n-tasks-use t('decidim.initiatives.show.badge_name.discarded')
+      # i18n-tasks-use t('decidim.initiatives.show.badge_name.published')
+      # i18n-tasks-use t('decidim.initiatives.show.badge_name.rejected')
+      # i18n-tasks-use t('decidim.initiatives.show.badge_name.validating')
+      def badge_name
+        I18n.t(model.state, scope: "decidim.initiatives.show.badge_name")
+      end
+
       def state_classes
         case state
-        when "accepted", "published"
+        when "accepted", "published", "debatted"
           ["success"]
-        when "rejected", "discarded"
+        when "rejected", "discarded", "classified"
           ["alert"]
-        when "validating"
+        when "validating", "examinated"
           ["warning"]
         else
           ["muted"]
         end
+      end
+
+      def has_area_color?
+        model.area_color.present?
+      end
+
+      def area_color_style
+        "style=\"background-color:#{model.area_color};\""
+      end
+
+      def area_logo
+        model.area_logo
+      end
+
+      def area_name
+        translated_attribute(model.area_name)
       end
 
       def resource_path
@@ -52,10 +95,6 @@ module Decidim
       def authors
         [present(model).author] +
           model.committee_members.approved.non_deleted.excluding_author.map { |member| present(member.user) }
-      end
-
-      def badge_name
-        humanize_initiative_state model
       end
 
       def comments_count

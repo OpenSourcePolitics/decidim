@@ -31,5 +31,9 @@
     <div class="publish-date">
       <%= l initiative.published_at || initiative.created_at, format: "%d/%m/%Y" %>
     </div>
+
+    <div class="reference">
+      <%== t(".identifier", identifier: initiative.id ) %>
+    </div>
   </div>
 </div>

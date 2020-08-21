@@ -208,6 +208,21 @@ ignore_unused:
   - layouts.decidim.assembly_widgets.*
   - layouts.decidim.conference_widgets.*
   - layouts.decidim.participatory_process_widgets.*
+  ## alt/petition
+  - decidim.admin.officializations.index.filter.*
+  - decidim.admin.officializations.index.filter_by
+  - decidim.admin.officializations.index.search
+  - decidim.verifications.omniauth.*
+  - decidim.initiatives.create_initiative.fill_data.more_information
+  - decidim.initiatives.create_initiative.finish.more_information
+  - decidim.initiatives.create_initiative.previous_form.more_information
+  - decidim.initiatives.create_initiative.promotal_committee.more_information
+  - decidim.initiatives.create_initiative.select_initiative_type.more_information
+  - decidim.initiatives.create_initiative.show_similar_initiatives.more_information
+  - decidim.initiatives.state.*
+  - decidim.initiatives.initiative_signatures.fill_personal_data.date_select.*
+  - decidim.initiatives.initiatives.filters.*
+  - decidim.initiatives.show.badge_name.*
 
 ## Exclude these keys from the `i18n-tasks eq-base' report:
 # ignore_eq_base:

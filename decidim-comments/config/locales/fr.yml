@@ -95,9 +95,9 @@ fr:
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> a réagi à votre commentaire sur <a href="%{resource_path}">%{resource_title}</a>
         user_group_mentioned:
           email_intro: Un groupe auquel vous appartenez a été mentionné
-          email_outro: Vous avez reçu cette notification parce que vous êtes membre du groupe %{nom_du_groupe} qui a été mentionné dans %{titre_de_la_ressource}.
-          email_subject: Vous avez été mentionné dans %{titre_ressource} comme membre de %{nom_du_groupe}
-          notification_title: Vous avez été mentionné dans <a href="%{chemin_ressource}">%{titre_ressource}</a> par <a href="%{chemin_autorisateur}">%{nom_autorisateur} %{nom_de_l'auteur}</a> en tant que membre de <a href="%{chemin_de_groupe}">%{nom_de_groupe} %{nom_de_groupe}</a>
+          email_outro: Vous avez reçu cette notification parce que vous êtes membre du groupe %{group_name} qui a été mentionné dans %{resource_title}.
+          email_subject: Vous avez été mentionné dans %{resource_title} comme membre de %{group_name}.
+          notification_title: Vous avez été mentionné dans <a href="%{resource_path}">%{resource_title}</a> par <a href="%{author_path}">%{author_name} %{author_nickname}</a> en tant que membre de <a href="%{group_path}">%{group_name} %{group_nickname}</a>
         user_mentioned:
           email_intro: Vous avez été mentionné
           email_outro: Vous avez reçu cette notification parce que vous avez été mentionné dans %{resource_title}.

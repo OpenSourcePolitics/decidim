@@ -61,12 +61,11 @@ module Decidim
 
       let(:document_number) { "01234567A" }
       let(:postal_code) { "87111" }
+      let(:resident) { true }
       let(:personal_data) do
         {
-          name_and_surname: "James Morgan McGill",
-          document_number: document_number,
-          date_of_birth: 40.years.ago,
-          postal_code: postal_code
+          user_scope_id: user_scope.id,
+          resident: resident
         }
       end
 
@@ -128,7 +127,7 @@ module Decidim
 
             it { is_expected.not_to eq(personal_data) }
 
-            [:name_and_surname, :document_number, :date_of_birth, :postal_code].each do |personal_attribute|
+            [:user_scope_id, :resident].each do |personal_attribute|
               it { is_expected.not_to include(personal_data[personal_attribute].to_s) }
             end
           end
@@ -166,8 +165,8 @@ module Decidim
             expect(form.authorized_scope_candidates.compact).to match_array(organization.scopes)
           end
 
-          it "includes the scope" do
-            expect(form.authorized_scope_candidates).to include(nil)
+          it "doesn't includes the scope" do
+            expect(form.authorized_scope_candidates).not_to include(nil)
           end
         end
 

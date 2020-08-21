@@ -21,8 +21,7 @@ module Decidim
                class_name: "Decidim::Scope",
                optional: true
 
-    validates :initiative, uniqueness: { scope: [:author, :scope] }
-    validates :initiative, uniqueness: { scope: [:hash_id, :scope] }
+    validates :initiative, uniqueness: { scope: [:author, :scope, :hash_id] }
 
     after_commit :update_counter_cache, on: [:create, :destroy]
 
@@ -36,8 +35,7 @@ module Decidim
       Decidim::Initiatives::DataPortabilityInitiativesVoteSerializer
     end
 
-    def self.data_portability_images(user)
-    end
+    def self.data_portability_images(user); end
 
     # Public: Generates a hashed representation of the initiative support.
     #

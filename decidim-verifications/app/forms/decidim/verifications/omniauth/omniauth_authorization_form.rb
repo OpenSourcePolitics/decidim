@@ -64,7 +64,7 @@ module Decidim
         end
 
         def _clean_hash(data)
-          data.delete_if {|k,v| ((v.is_a? Hash) ? _clean_hash(v) : v).blank?}
+          data.delete_if { |_k, v| v.is_a?(Hash) ? _clean_hash(v).blank? : v.blank? }
         end
       end
     end

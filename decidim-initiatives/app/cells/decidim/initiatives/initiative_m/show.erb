@@ -1,0 +1,29 @@
+<div class="column" id="<%= dom_id(model) %>">
+  <article class="card <%= card_classes %>">
+    <%= render :label if has_label? %>
+    <%= render :top if render_top? %>
+    <%= render :image if has_image? %>
+    <%= render :area_header if has_area_color? %>
+    <div class="card__content">
+      <%= render :header %>
+
+      <div class="card__text">
+        <div class="card__text--paragraph">
+          <%= render :badge if has_badge? %>
+          <span <%= "id=#{translate_helper_for(element: :body, model: model)}" %>>
+            <%= description %>
+          </span>
+        </div>
+      </div>
+
+      <% if translatable? %>
+        <%= translate_button_helper_for(title: title, body: description, model: model) %>
+      <% end %>
+      <%= render :tags %>
+    </div>
+
+    <%= render :data %>
+    <%= render :status %>
+    <%= render :footer %>
+  </article>
+</div>

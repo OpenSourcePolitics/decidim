@@ -1,3 +1,4 @@
+---
 es:
   activemodel:
     attributes:
@@ -151,10 +152,10 @@ es:
       admin_terms_of_use:
         accept:
           error: Ha habido un error al aceptar los Términos y Condiciones de Administración.
-          success: '¡Genial! Has aceptado los Términos y Condiciones de Administración.'
+          success: "¡Genial! Has aceptado los Términos y Condiciones de Administración."
         actions:
           accept: Estoy de acuerdo con estos Términos y Condiciones de Administración
-          are_you_sure: '¿Estás seguro de rechazar los Términos y Condiciones de Administración?'
+          are_you_sure: "¿Estás seguro de rechazar los Términos y Condiciones de Administración?"
           refuse: Rechazar los Términos y Condiciones de Administración
           title: Acepto los Términos y Condiciones de Administración
         required_review:
@@ -490,7 +491,7 @@ es:
           all: todos
           all_users: 'Todos los usuarios '
           and: 'y '
-          confirm_delete: '¿Estás seguro de que quieres eliminar este boletín?'
+          confirm_delete: "¿Estás seguro de que quieres eliminar este boletín?"
           followers: 'seguidores '
           has_been_sent_to: 'Se ha enviado a: '
           no_scopes: Sin ámbitos
@@ -505,7 +506,7 @@ es:
         select_recipients_to_deliver:
           all_spaces: Todos
           all_users_help: Envía el boletín de noticias a todos las participantes confirmadas.
-          confirm_deliver: '¿Estás segura de que quieres enviar este boletín? Esta acción no se puede deshacer.'
+          confirm_deliver: "¿Estás segura de que quieres enviar este boletín? Esta acción no se puede deshacer."
           deliver: Enviar boletín
           followers_help: Envía el boletín de noticias a todas las participantes confirmadas que sigan cualquier espacio participativo seleccionado en la lista.
           none: Ninguno
@@ -540,7 +541,7 @@ es:
           save: Guardar
           title: Editar aplicación
         index:
-          confirm_delete: '¿Estás segura que quieres eliminar esta aplicación?'
+          confirm_delete: "¿Estás segura que quieres eliminar esta aplicación?"
           title: Aplicaciones OAuth
         new:
           save: Guardar
@@ -557,18 +558,32 @@ es:
           actions: Acciones
           badge: Insignias
           created_at: Creado el
+          filter:
+            all: Todos
+            not_officialized: No validado
+            officialized: Validado
+          filter_by: Filtrar por
           name: Nombre
           nickname: Alias
           not_officialized: No oficializada
           officialize: Oficializa
           officialized: Oficializada
           reofficialize: Vuelve a oficializar
+          search: Busca en
+          show_email: Mostrar dirección de correo electrónico
           status: Estado
           unofficialize: Des-oficializar
         new:
           badge: Insignia de oficialización
           officialize: Oficializar
           title: Oficializar participante "%{name}"
+        show_email_modal:
+          description: Si necesita contactar directamente con un participante, puede hacer clic en el botón Ver para ver la dirección de correo electrónico. Esta acción será registrada.
+          email_address: Dirección de correo electrónico
+          full_name: Nombre y apellido
+          hidden: oculto
+          show: Ver
+          title: Mostrar la dirección de correo electrónico del participante
       organization:
         edit:
           title: Editar organización

@@ -21,6 +21,22 @@ module Decidim
 
     include_examples "has reference"
 
+    describe ".states" do
+      it "returns the correct enumerator" do
+        expect(subject.class.states).to eq(
+          "created" => 0,
+          "validating" => 1,
+          "discarded" => 2,
+          "published" => 3,
+          "rejected" => 4,
+          "accepted" => 5,
+          "examinated" => 6,
+          "debatted" => 7,
+          "classified" => 8
+        )
+      end
+    end
+
     context "when created initiative" do
       let(:initiative) { create(:initiative, :created) }
       let(:administrator) { create(:user, :admin, organization: initiative.organization) }
@@ -259,6 +275,67 @@ module Decidim
 
         it { is_expected.to eq false }
       end
+    end
+
+    describe "sorting" do
+      before do
+        create(:initiative, organization: organization, signature_type: "offline")
+        create(:initiative, organization: organization, signature_type: "offline", offline_votes: { "total": 4 })
+        create(:initiative, organization: organization, signature_type: "offline", offline_votes: { "total": 3 })
+        create(:initiative, organization: organization, signature_type: "online", online_votes: { "total": 4 })
+        create(:initiative, organization: organization, signature_type: "online", online_votes: { "total": 8 })
+        create(:initiative, organization: organization, signature_type: "online", online_votes: { "total": 2 })
+      end
+
+      context "when sorts by order desc" do
+        subject(:sorter) { described_class.ransack("s" => "supports_count desc") }
+
+        it "sorts initiatives by supports count" do
+          expect(sorter.result.map(&:supports_count)).to eq([8, 4, 4, 3, 2, 0])
+        end
+      end
+
+      context "when sorts by order asc" do
+        subject(:sorter) { described_class.ransack("s" => "supports_count asc") }
+
+        it "sorts initiatives by supports count" do
+          expect(sorter.result.map(&:supports_count)).to eq([0, 2, 3, 4, 4, 8])
+        end
+      end
+    end
+
+    describe "#votes_enabled?" do
+      subject { initiative.votes_enabled? }
+
+      context "when published" do
+        let(:initiative) { build :initiative, :published }
+
+        it { is_expected.to be_truthy }
+      end
+
+      context "when examinated" do
+        let(:initiative) { build :initiative, :examinated }
+
+        it { is_expected.to be_truthy }
+      end
+
+      context "when debatted" do
+        let(:initiative) { build :initiative, :debatted }
+
+        it { is_expected.to be_truthy }
+      end
+
+      context "when classified" do
+        let(:initiative) { build :initiative, :classified }
+
+        it { is_expected.to be_falsy }
+      end
+    end
+
+    context "when linked to an area" do
+      let(:initiative) { build :initiative, :with_area }
+
+      it { is_expected.to be_truthy }
     end
   end
 end

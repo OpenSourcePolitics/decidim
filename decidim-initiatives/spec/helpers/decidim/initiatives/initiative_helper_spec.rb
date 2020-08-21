@@ -16,6 +16,7 @@ module Decidim
 
         it "warning in any other case" do
           allow(initiative).to receive(:accepted?).and_return(false)
+          allow(initiative).to receive(:published?).and_return(false)
 
           expect(helper.state_badge_css_class(initiative)).to eq("warning")
         end
@@ -24,16 +25,19 @@ module Decidim
       context "with humanize_state" do
         let(:initiative) { create(:initiative) }
 
-        it "accepted for accepted state" do
-          allow(initiative).to receive(:accepted?).and_return(true)
-
-          expect(helper.humanize_state(initiative)).to eq(I18n.t("accepted", scope: "decidim.initiatives.states"))
+        it "returns the state translation" do
+          [:debatted, :examinated, :classified, :accepted].each do |state|
+            initiative.state = state.to_s
+            expect(humanize_state(initiative)).to eq(I18n.t(state.to_s, scope: "decidim.initiatives.states"))
+          end
         end
 
-        it "expired in any other case" do
-          allow(initiative).to receive(:accepted?).and_return(false)
+        context "with rejected initiative" do
+          let(:initiative) { create(:initiative, :rejected) }
 
-          expect(helper.humanize_state(initiative)).to eq(I18n.t("expired", scope: "decidim.initiatives.states"))
+          it "expired for rejected initiative" do
+            expect(helper.humanize_state(initiative)).to eq(I18n.t("expired", scope: "decidim.initiatives.states"))
+          end
         end
       end
 

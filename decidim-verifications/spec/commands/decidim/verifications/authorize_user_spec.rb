@@ -35,7 +35,7 @@ module Decidim::Verifications
       it "stores the metadata" do
         subject.call
 
-        expect(authorizations.first.metadata["document_number"]).to eq("12345678X")
+        expect(authorizations.first.metadata[:document_number]).to eq("12345678X")
       end
 
       it "sets the authorization as granted" do

@@ -1,2 +1,2 @@
-//= require foundation.reveal.js
-//= require decidim/ajax_modals
+// = require foundation.reveal.js
+// = require decidim/ajax_modals

@@ -42,13 +42,31 @@ module Decidim
           end
         end
 
+        context "when order by most recently published" do
+          let!(:old_initiative) { create(:initiative, organization: organization, published_at: initiative.published_at - 12.months) }
+
+          it "most recent appears first" do
+            get :index, params: { order: "recently_published" }
+            expect(subject.helpers.initiatives.first).to eq(initiative)
+          end
+        end
+
         context "when order by most commented" do
           let(:commented_initiative) { create(:initiative, organization: organization) }
           let!(:comment) { create(:comment, commentable: commented_initiative) }
 
-          it "most commented appears fisrt" do
+          it "most commented appears first" do
             get :index, params: { order: "most_commented" }
             expect(subject.helpers.initiatives.first).to eq(commented_initiative)
+          end
+        end
+
+        context "when order by answer date" do
+          let!(:answered_initiative) { create(:initiative, :with_answer, organization: organization) }
+
+          it "most recently answered appears first" do
+            get :index, params: { order: "answer_date" }
+            expect(subject.helpers.initiatives.first).to eq(answered_initiative)
           end
         end
       end

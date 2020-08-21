@@ -22,21 +22,21 @@ module Decidim
           content_tag(:tbody) do
             tbody = ""
             data.each do |key, value|
-              unless empty_metadata_value?(value)
-                tbody += content_tag(:tr) do
-                  row = ""
-                  row += content_tag(:td, class: "key") do
-                    render partial: "decidim/verifications/metadata/key", locals: {key: key, value: value}
-                  end
-                  row += content_tag(:td, class: "value") do
-                    if value.is_a? Hash
-                      table_from_data(value, level + 1)
-                    else
-                      render partial: "decidim/verifications/metadata/value", locals: {key: key, value: value}
-                    end
-                  end
-                  row.html_safe
+              next if empty_metadata_value?(value)
+
+              tbody += content_tag(:tr) do
+                row = ""
+                row += content_tag(:td, class: "key") do
+                  render partial: "decidim/verifications/metadata/key", locals: { key: key, value: value }
                 end
+                row += content_tag(:td, class: "value") do
+                  if value.is_a? Hash
+                    table_from_data(value, level + 1)
+                  else
+                    render partial: "decidim/verifications/metadata/value", locals: { key: key, value: value }
+                  end
+                end
+                row.html_safe
               end
             end
             tbody.html_safe
@@ -53,11 +53,7 @@ module Decidim
       end
 
       def humanize_handler_name(name)
-        if Rails.application.secrets.dig(:omniauth, name.to_sym, :provider_name).present?
-          Rails.application.secrets.dig(:omniauth, name.to_sym, :provider_name)
-        else
-          name.to_s.humanize
-        end
+        Rails.application.secrets.dig(:omniauth, name.to_sym, :provider_name).presence || name.to_s.humanize
       end
     end
   end

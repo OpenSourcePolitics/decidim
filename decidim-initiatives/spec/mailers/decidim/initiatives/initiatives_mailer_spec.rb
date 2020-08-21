@@ -21,7 +21,7 @@ module Decidim
       end
 
       context "when notifies state change" do
-        let(:mail) { InitiativesMailer.notify_state_change(initiative, initiative.author, initiative.state) }
+        let(:mail) { InitiativesMailer.notify_state_change(initiative, initiative.author) }
 
         it "renders the headers" do
           expect(mail.subject).to eq("The initiative #{initiative.title["en"]} has changed its status")

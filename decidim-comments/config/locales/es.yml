@@ -1,3 +1,4 @@
+---
 es:
   activemodel:
     models:
@@ -28,15 +29,15 @@ es:
         form:
           body:
             label: Comentario
-            placeholder: '¿Qué piensas sobre ésto?'
+            placeholder: "¿Qué piensas sobre ésto?"
           form_error: El texto es necesario y no puede ser más largo de %{length}.
           submit: Enviar
           user_group_id:
             label: Comentar como
         opinion:
           neutral: Neutral
-        remaining_characters: "Quedan %{count} caracteres"
-        remaining_characters_1: "Queda %{count} carácter"
+        remaining_characters: Quedan %{count} caracteres
+        remaining_characters_1: Queda %{count} carácter
         title: Deja tu comentario
       comment:
         alignment:
@@ -49,7 +50,7 @@ es:
           action: Denunciar
           already_reported: Este contenido ya ha sido denunciado y será revisado por una administradora.
           close: Cerrar
-          description: '¿Este contenido es inapropiado?'
+          description: "¿Este contenido es inapropiado?"
           details: Comentarios adicionales
           reasons:
             does_not_belong: Contiene actividad ilegal, amenazas de suicidio, información personal o cualquier otra cosa que usted piense que no pertenece en %{organization_name}.
@@ -92,6 +93,11 @@ es:
           email_outro: Has recibido esta notificación porque tu comentario fue respondido.
           email_subject: "%{author_name} ha respondido a tu comentario en %{resource_title}"
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> ha respondido a tu comentario en <a href="%{resource_path}">%{resource_title}</a>
+        user_group_mentioned:
+          email_intro: Se ha mencionado un grupo al que usted pertenece
+          email_outro: Recibió esta notificación porque es miembro del grupo %{nombre_del_grupo} que se mencionó en %{título_de_recursos}.
+          email_subject: Usted ha sido mencionado en %{resource_title} como miembro de %{group_name}.
+          notification_title: Usted fue mencionado en <a href="%{resource_path}">%{resource_title}</a> por <a href="%{author_path}">%{author_name} %{author_nickname}</a> como miembro de <a href="%{group_path}">%{group_nickname}</a>
         user_mentioned:
           email_intro: Has sido mencionada
           email_outro: Has recibido esta notificación porque has sido mencionada en %{resource_title}.

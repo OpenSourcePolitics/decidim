@@ -8,3 +8,11 @@
     <%= form.collection_select :area_type_id, organization_area_types, :id, :name %>
   </div>
 </div>
+
+<div class="row column">
+  <%= form.color_field :color, label: t(".color") %>
+</div>
+
+<div class="row column">
+  <%= form.upload :logo %>
+</div>

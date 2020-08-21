@@ -31,9 +31,9 @@ fr:
       decidim/join_request_accepted_event: Demande de participation acceptée
       decidim/join_request_rejected_event: Demande de participation rejetée
       decidim/profile_updated_event: Profil mis à jour
-      decidim/promote_to_admin: Promu au groupe admin
+      decidim/promote_to_admin: Promu comme administrateur du groupe
       decidim/removed_from_group: Retiré du groupe
-      decidim/resource_endorsed_event: Resurce approuvé
+      decidim/resource_endorsed_event: Ressource soutenue
   activerecord:
     attributes:
       decidim/user:
@@ -48,8 +48,8 @@ fr:
         one: Amendement
         other: Amendements
       decidim/endorsement:
-        one: Approbation
-        other: Appuis
+        one: Soutien
+        other: Soutiens
       decidim/user:
         one: Participant
         other: Participants
@@ -61,11 +61,11 @@ fr:
     'true': Oui
   carrierwave:
     errors:
-      general: Image de traitement des erreurs
+      general: Il y a eu une erreur lors du chargement de l'image
       image_too_big: L'image est trop grande
   comments:
-    translate: Translate
-    translated: Translated
+    translate: Traduire
+    translated: Traduit
   date:
     formats:
       decidim_short: "%d/%m/%Y"
@@ -145,7 +145,7 @@ fr:
         invite: "%{user_name} a invité l'utilisateur %{resource_name} avec le rôle : %{role}"
         officialize: "%{user_name} a officialisé l'utilisateur %{resource_name}"
         remove_from_admin: "%{user_name} a retiré le rôle : %{role} de l'utilisateur %{resource_name}"
-        show_email: "%{user_name} a récupéré le courrier électronique du participant %{resource_name}"
+        show_email: "%{user_name} a consulté le courrier électronique du participant %{resource_name}"
         unofficialize: "%{user_name} a retiré l'officialisation de l'utilisateur %{resource_name}"
       user_group:
         reject: "%{user_name} a rejeté la vérification du groupe d'utilisateurs %{resource_name}"
@@ -256,8 +256,8 @@ fr:
         one: commentaire
         other: commentaires
       endorsements:
-        one: approbation
-        other: approbations
+        one: soutien
+        other: soutiens
     authorization_handlers:
       another_dummy_authorization_handler:
         explanation: Obtenir une vérification en saisissant un numéro de passeport commençant par "A"
@@ -446,8 +446,8 @@ fr:
     endorsable:
       endorsements: Soutiens
     endorsement_buttons_cell:
-      already_endorsed: Approuvé
-      endorse: Approuver
+      already_endorsed: Soutenu
+      endorse: Soutenir
     endorsements:
       identities:
         done: Fait
@@ -573,10 +573,10 @@ fr:
       notification_event:
         notification_title: Un événement a eu lieu à <a href="%{resource_path}">%{resource_title}</a>.
       resource_endorsed:
-        email_intro: '%{nom_de_l''auteur} %{surnom_de_l''auteur}, que vous suivez, vient d''approuver "%{titre_de_la_ressource}" et nous pensons que cela pourrait vous intéresser. Consultez-le et contribuez :'
-        email_outro: Vous avez reçu cette notification parce que vous suivez %{endorser_nickname}. Vous pouvez arrêter de recevoir des notifications en suivant le lien précédent.
-        email_subject: "%{surnom_de_l'endosseur} a effectué un nouvel endossement"
-        notification_title: Le <a href="%{chemin_ressource}">%{titre_ressource}</a> %{type_ressource} a été approuvé par <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>.
+        email_intro: '%{endorser_name} %{endorser_nickname}, que vous suivez, vient de soutenir "%{resource_title}" et nous pensons que cela pourrait vous intéresser. Consultez-le et contribuez :'
+        email_outro: Vous avez reçu cette notification parce que vous suivez %{endorser_nickname}. Vous pouvez arrêter de recevoir des notifications en cliquant sur le lien précédent.
+        email_subject: "%{endorser_nickname} a soutenu une nouvelle ressource"
+        notification_title: Le <a href="%{resource_path}">%{resource_title}</a> %{resource_type} a été approuvé par <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>.
       users:
         profile_updated:
           email_intro: Le <a href="%{resource_url}">profil public</a> de %{name} (%{nickname}), que vous suivez, a été mis à jour.
@@ -864,8 +864,8 @@ fr:
       no_notifications: Il n'y a pas encore de notifications.
     notifications_settings:
       show:
-        allow_public_contact: Permettez à n'importe qui de m'envoyer un message direct, même si je ne le suis pas.
-        direct_messages: Recevoir des messages directs de n'importe qui
+        allow_public_contact: Permettre à n'importe qui de m'envoyer un message direct, même si je ne le suis pas.
+        direct_messages: Recevoir des messages directs de n'importe qui.
         email_on_notification: Je souhaite recevoir un email à chaque fois que je reçois une notification.
         everything_followed: Tout ce que je suis
         newsletter_notifications: Je souhaite recevoir une newsletter sur l'actualité de la plateforme
@@ -992,7 +992,7 @@ fr:
         resend_email_confirmation_instructions: Renvoyer les instructions de confirmation par courrier électronique
     progress_bar:
       show:
-        number_delimiter: Number delimiter
+        number_delimiter: "."
     reported_mailer:
       hide:
         hello: Bonjour %{name},
@@ -1010,7 +1010,7 @@ fr:
         success: Le contenu a été signalé, il sera examiné par un administrateur.
     resource_endorsements:
       create:
-        error: Il y a eu un problème lors de l'action d'approbation.
+        error: Il y a eu un problème pour soutenir la ressource.
     scopes:
       picker:
         cancel: Annuler
@@ -1273,7 +1273,7 @@ fr:
       not_saved:
         one: Une erreur est survenue pendant le traitement de votre requête.
         other: Plusieurs erreurs sont survenues pendant le traitement de votre requête.
-      taken: Taken
+      taken: Pris
       too_many_marks: utilise trop de signes de ponctuation consécutifs (par exemple! et?)
       too_much_caps: utilise trop de lettres majuscules (plus de 25% du texte)
       too_short: est trop court (moins de 15 caractères)

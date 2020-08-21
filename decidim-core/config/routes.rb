@@ -28,9 +28,9 @@ Decidim::Core::Engine.routes.draw do
   devise_scope :user do
     post "omniauth_registrations" => "devise/omniauth_registrations#create"
     match "users/auth/:provider/logout",
-      to: "devise/omniauth_registrations#logout",
-      as: :user_omniauth_logout,
-      via: [:get, :post, :delete]
+          to: "devise/omniauth_registrations#logout",
+          as: :user_omniauth_logout,
+          via: [:get, :post, :delete]
   end
 
   resource :locale, only: [:create]

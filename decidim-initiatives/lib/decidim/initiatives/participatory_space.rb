@@ -40,12 +40,10 @@ Decidim.register_participatory_space(:initiatives) do |participatory_space|
   ]
 
   participatory_space.exports :initiatives do |export|
-    export.collection do |initiative|
-      Decidim::Initiative.where(id: initiative.id)
+    export.collection do
+      Decidim::Initiative
     end
 
-    exports.include_in_open_data = true
-  
     export.serializer Decidim::Initiatives::InitiativeSerializer
   end
 

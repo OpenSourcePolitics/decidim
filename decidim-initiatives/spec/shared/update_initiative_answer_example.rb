@@ -13,12 +13,16 @@ shared_examples "update an initiative answer" do
   end
   let(:signature_end_date) { Date.current + 500.days }
   let(:state) { "published" }
+  let(:form_state) { "examinated" }
+  let(:answer_date) { Date.current - 1.month }
   let(:form_params) do
     {
       signature_start_date: Date.current + 10.days,
       signature_end_date: signature_end_date,
       answer: { en: "Measured answer" },
-      answer_url: "http://decidim.org"
+      answer_url: "http://decidim.org",
+      state: form_state,
+      answer_date: answer_date
     }
   end
   let(:administrator) { create(:user, :admin, organization: organization) }
@@ -77,6 +81,30 @@ shared_examples "update an initiative answer" do
 
           [:signature_start_date, :signature_end_date].each do |key|
             expect(initiative[key]).to eq(form_params[key])
+          end
+        end
+
+        context "when a answer_date is provided" do
+          let(:form_state) { "published" }
+          let(:answer_date) { Date.current - 1.day }
+
+          it "doesn't stores the data" do
+            command.call
+            initiative.reload
+
+            expect(initiative.answer_date).to be_nil
+          end
+
+          context "when in a manual state" do
+            let(:form_state) { "debatted" }
+            let(:answer_date) { Date.current - 1.day }
+
+            it "stores the data" do
+              command.call
+              initiative.reload
+
+              expect(initiative.answer_date).to eq(answer_date)
+            end
           end
         end
       end

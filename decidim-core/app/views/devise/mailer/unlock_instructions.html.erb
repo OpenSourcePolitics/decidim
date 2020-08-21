@@ -4,4 +4,4 @@
 
 <p><%= t(".instruction") %></p>
 
-<p><%= link_to t(".action"), unlock_url(@resource, unlock_token: @token, host: @resource.organization.host) %></p>
+<p><%= link_to t(".action"), unlock_url(@resource, unlock_token: @token, host: @resource.organization.host), rel: "notrack" %></p>

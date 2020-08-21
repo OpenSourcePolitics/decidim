@@ -20,8 +20,8 @@ module Decidim
           # Rails.logger.debug "location_for :user --> " + store_location_for(:user, stored_location_for(:user)).to_s
           # Rails.logger.debug "redirect_url will be " + redirect_url
           # Rails.logger.debug "+++++++++++++++++++++++++"
-          store_location_for(:user, request.fullpath )
-          store_location_for(:redirect, redirect_url )
+          store_location_for(:user, request.fullpath)
+          store_location_for(:redirect, redirect_url)
           redirect_to decidim.send("user_#{provider}_omniauth_authorize_path")
         end
 

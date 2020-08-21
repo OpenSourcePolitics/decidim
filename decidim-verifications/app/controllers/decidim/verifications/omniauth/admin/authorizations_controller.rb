@@ -28,7 +28,7 @@ module Decidim
           end
 
           def current_authorization
-            @authorization ||= collection.find(params[:id])
+            @current_authorization ||= collection.find(params[:id])
           end
 
           def collection

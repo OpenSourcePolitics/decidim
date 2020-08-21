@@ -62,7 +62,6 @@ edit_link(
             options: { class: "show-for-small-only" }
           ) %>
 
-
       <% if translated_attribute(debate.instructions).present? %>
         <div class="callout secondary">
           <%= decidim_sanitize(simple_format(translated_attribute(debate.instructions))) %>

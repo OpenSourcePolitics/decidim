@@ -4,7 +4,7 @@ require "spec_helper"
 
 describe "InitiativeTypesController", type: :system do
   let(:organization) { create(:organization) }
-  let(:user) { create(:user, :admin, :confirmed, organization: organization) }
+  let(:initiatives_type) { create(:initiatives_type, :online_signature_enabled, :undo_online_signatures_enabled, :custom_signature_end_date_disabled, organization: organization) }
 
   before do
     switch_to_host(organization.host)
@@ -16,6 +16,7 @@ describe "InitiativeTypesController", type: :system do
 
     it "Shows the initiative type data" do
       visit decidim_admin_initiatives.initiatives_types_path
+
       expect(page).to have_i18n_content(initiative_type.title)
     end
   end
@@ -50,7 +51,15 @@ describe "InitiativeTypesController", type: :system do
   end
 
   context "when updating an initiative type" do
-    let(:initiatives_type) { create(:initiatives_type, :online_signature_enabled, :undo_online_signatures_enabled, organization: organization) }
+    let(:initiatives_type) do
+      create(:initiatives_type,
+             :online_signature_enabled,
+             :attachments_disabled,
+             :undo_online_signatures_enabled,
+             :custom_signature_end_date_disabled,
+             :area_disabled,
+             organization: organization)
+    end
 
     it "Updates the initiative type" do
       visit decidim_admin_initiatives.edit_initiatives_type_path(initiatives_type)
@@ -62,7 +71,10 @@ describe "InitiativeTypesController", type: :system do
       )
 
       select("In-person", from: "Signature type")
+      check "Enable attachments"
       uncheck "Enable participants to undo their online signatures"
+      check "Enable authors to choose the end of signature collection period"
+      check "Enable authors to choose the area for their initiative"
 
       click_button "Update"
 

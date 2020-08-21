@@ -46,7 +46,7 @@ module Decidim
     describe "scope" do
       subject { handler.scope }
 
-      let(:scope) { create(:scope) }
+      let(:scope) { create(:scope, organization: params[:user].organization) }
       let(:extra_params) { { document_number: "123456", postal_code: "123456", scope_id: scope.id } }
 
       it { is_expected.to eq(scope) }

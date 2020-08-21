@@ -46,6 +46,26 @@ describe "Initiative", type: :system do
       end
     end
 
+    it "displays date" do
+      within ".process-header__phase" do
+        expect(page).not_to have_content(I18n.l(base_initiative.signature_start_date, format: :decidim_short))
+        expect(page).to have_content(I18n.l(base_initiative.signature_end_date, format: :decidim_short))
+      end
+    end
+
+    context "when in a manual state" do
+      let(:base_initiative) { create(:initiative, :debatted, :with_answer, organization: organization) }
+
+      it "displays the initiative status with the appropriate color" do
+        expect(page).to have_css(".initiative-status.success")
+        expect(page).to have_css(".initiative-answer.success")
+      end
+
+      it "displays date" do
+        expect(page).to have_content(I18n.l(base_initiative.answer_date.to_date, format: :decidim_short))
+      end
+    end
+
     it_behaves_like "has attachments"
   end
 end

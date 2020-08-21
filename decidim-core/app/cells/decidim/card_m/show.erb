@@ -14,13 +14,9 @@
           </span>
         </div>
       </div>
-      
+
       <% if translatable? %>
-        <%= translate_button_helper_for(
-              title: title,
-              body: description,
-              model: model
-            ) %>
+        <%= translate_button_helper_for(title: title, body: description, model: model) %>
       <% end %>
       <%= render :tags %>
     </div>

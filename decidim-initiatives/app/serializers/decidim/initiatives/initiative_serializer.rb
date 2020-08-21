@@ -19,6 +19,8 @@ module Decidim
           reference: initiative.reference,
           title: initiative.title,
           description: initiative.description,
+          created_at: initiative.created_at,
+          published_at: initiative.published_at,
           hashtag: initiative.hashtag,
           type: {
             id: initiative.type.try(:id),
@@ -38,7 +40,14 @@ module Decidim
             attachment_collections: serialize_attachment_collections,
             files: serialize_attachments
           },
-          components: serialize_components
+          components: serialize_components,
+          authors: {
+            id: initiative.author_users.map(&:id),
+            name: initiative.author_users.map(&:name)
+          },
+          firms: {
+            scopes: uniq_vote_scopes
+          }
         }
       end
 
@@ -81,6 +90,20 @@ module Decidim
       def serialize_components
         serializer = Decidim::Exporters::ParticipatorySpaceComponentsSerializer.new(@initiative)
         serializer.serialize
+      end
+
+      def uniq_vote_scopes
+        return 0 if initiative.votes.blank?
+
+        initiative_votes_scopes = []
+        initiative.votes.map(&:decrypted_metadata).each do |metadata|
+          next unless metadata.present?
+          next unless metadata.is_a? Hash
+
+          initiative_votes_scopes << metadata[:user_scope_id]
+        end
+
+        initiative_votes_scopes.uniq.size
       end
     end
   end

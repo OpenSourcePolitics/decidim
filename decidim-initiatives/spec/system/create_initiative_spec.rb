@@ -207,6 +207,20 @@ describe "Initiative", type: :system do
               expect(find(:xpath, "//input[@id='initiative_signature_type']", visible: false).value).to eq("offline")
             end
           end
+
+          context "when the initiative type does not enable custom signature end date" do
+            it "does not show the signature end date" do
+              expect(page).not_to have_content("End of signature collection period")
+            end
+          end
+
+          context "when the initiative type enables custom signature end date" do
+            let(:initiative_type) { create(:initiatives_type, :custom_signature_end_date_enabled, organization: organization, minimum_committee_members: initiative_type_minimum_committee_members, signature_type: "offline") }
+
+            it "shows the signature end date" do
+              expect(page).to have_content("End of signature collection period")
+            end
+          end
         end
 
         context "when there is only one initiative type" do
@@ -221,6 +235,20 @@ describe "Initiative", type: :system do
           it "have no 'Initiative type' grey field" do
             expect(page).not_to have_content("Initiative type")
             expect(page).not_to have_css("#type_description")
+          end
+        end
+
+        context "when the initiative type does not enable area" do
+          it "does not show the area" do
+            expect(page).not_to have_content("Area")
+          end
+        end
+
+        context "when the initiative type enables area" do
+          let(:initiative_type) { create(:initiatives_type, :area_enabled, organization: organization, minimum_committee_members: initiative_type_minimum_committee_members, signature_type: "offline") }
+
+          it "shows the area" do
+            expect(page).to have_content("Area")
           end
         end
       end
@@ -306,7 +334,7 @@ describe "Initiative", type: :system do
           end
 
           it "Offers contextual help" do
-            within ".callout.secondary" do
+            within ".callout.success" do
               expect(page).to have_content("Congratulations! Your citizen initiative has been successfully created.")
             end
           end

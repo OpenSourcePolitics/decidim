@@ -227,7 +227,7 @@ module Decidim
     def skip_after_confirmation?
       defined?(@skip_after_confirmation) && @skip_after_confirmation
     end
-    
+
     # return the groups where this user has been accepted
     def accepted_user_groups
       UserGroups::AcceptedUserGroups.for(self)

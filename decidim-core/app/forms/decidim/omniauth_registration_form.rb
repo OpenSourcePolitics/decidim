@@ -31,9 +31,7 @@ module Decidim
     end
 
     def email_is_unique
-      if Decidim::User.where(organization: current_organization, email: email).exists?
-        errors.add(:email, "#{email} #{I18n.t("errors.messages.taken")}")
-      end
+      errors.add(:email, "#{email} #{I18n.t("errors.messages.taken")}") if Decidim::User.where(organization: current_organization, email: email).exists?
     end
   end
 end

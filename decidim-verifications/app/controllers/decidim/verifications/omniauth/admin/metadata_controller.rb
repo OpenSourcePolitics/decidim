@@ -22,7 +22,7 @@ module Decidim
           end
 
           def current_authorization
-            @authorization ||= Decidim::Authorization.find(params[:id])
+            @current_authorization ||= Decidim::Authorization.find(params[:id])
           end
         end
       end

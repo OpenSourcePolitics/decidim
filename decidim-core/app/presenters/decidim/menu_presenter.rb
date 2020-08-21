@@ -8,13 +8,13 @@ module Decidim
     #
     # @param name [Symbol] The name of the menu registry to be rendered
     # @param view [ActionView::Base] The view scope to render the menu
-    # @param className [String] CSS class for the nav component
+    # @param class_name [String] CSS class for the nav component
     # @param options [Hash] The rendering options for the menu entries
     #
-    def initialize(name, view, className, options = {})
+    def initialize(name, view, class_name, options = {})
       @name = name
       @view = view
-      @className = className
+      @class_name = class_name
       @options = options
     end
 
@@ -30,7 +30,7 @@ module Decidim
     end
 
     def render
-      content_tag :nav, class: @className do
+      content_tag :nav, class: @class_name do
         content_tag :ul do
           safe_join(menu_items)
         end

@@ -14,7 +14,8 @@ module Decidim
       #
       # Returns a String.
       def state_badge_css_class(initiative)
-        return "success" if initiative.accepted?
+        return "success" if initiative.accepted? || initiative.debatted? || initiative.published?
+        return "alert" if initiative.classified?
 
         "warning"
       end
@@ -25,9 +26,9 @@ module Decidim
       #
       # Returns a String.
       def humanize_state(initiative)
-        I18n.t(initiative.accepted? ? "accepted" : "expired",
-               scope: "decidim.initiatives.states",
-               default: :expired)
+        return I18n.t("expired", scope: "decidim.initiatives.states") if initiative.rejected?
+
+        I18n.t(initiative.state, scope: "decidim.initiatives.states")
       end
 
       # Public: The state of an initiative in a way a human can understand.
@@ -36,7 +37,7 @@ module Decidim
       #
       # Returns a String.
       def humanize_initiative_state(initiative)
-        I18n.t(initiative.state , scope: "decidim.initiatives.state", default: :created)
+        I18n.t(initiative.state, scope: "decidim.initiatives.state", default: :created)
       end
 
       # Public: The state of an initiative from an administration perspective in
@@ -113,6 +114,18 @@ module Decidim
         send("#{tag}_to", "", html_options, &block)
       end
 
+      def can_edit_custom_signature_end_date?(initiative)
+        return false unless initiative.custom_signature_end_date_enabled?
+
+        initiative.created? || initiative.validating?
+      end
+
+      def can_edit_area?(initiative)
+        return false unless initiative.area_enabled?
+
+        initiative.created? || initiative.validating?
+      end
+
       def authorized_creation_modal_button_to(action, html_options, &block)
         html_options ||= {}
 
@@ -158,30 +171,34 @@ module Decidim
 
       def any_initiative_types_authorized?
         return unless current_user
+
         Decidim::Initiatives::InitiativeTypes.for(current_user.organization).inject do |result, type|
           result && ActionAuthorizer.new(current_user, :create, type, type).authorize.ok?
         end
       end
 
       def permissions_for(action, type)
-        return [] unless type.permissions && type.permissions.dig(action.to_s,"authorization_handlers")
-        type.permissions.dig(action.to_s,"authorization_handlers").keys
+        return [] unless type.permissions && type.permissions.dig(action.to_s, "authorization_handlers")
+
+        type.permissions.dig(action.to_s, "authorization_handlers").keys
       end
 
+      # rubocop:disable Style/MultilineBlockChain
       def merged_permissions_for(action)
         Decidim::Initiatives::InitiativeTypes.for(current_organization).map do |type|
-          permissions_for(action,type)
+          permissions_for(action, type)
         end.inject do |result, list|
           result + list
-        end.uniq
+        end&.uniq
       end
+      # rubocop:enable Style/MultilineBlockChain
 
       def authorizations
         @authorizations ||= Decidim::Verifications::Authorizations.new(
           organization: current_organization,
           user: current_initiative.author,
           granted: true,
-          name: (action_authorized_to("create", resource: current_initiative, permissions_holder: current_initiative.type).statuses || []).map { |s| s.handler_name }
+          name: (action_authorized_to("create", resource: current_initiative, permissions_holder: current_initiative.type).statuses || []).map(&:handler_name)
         )
       end
 
@@ -206,8 +223,12 @@ module Decidim
         end
       end
 
-      def authorization_router(authorization)
+      def authorization_router(_authorization)
         Decidim::Verifications.find_workflow_manifest(@authorizations.first.name).admin_engine.routes.url_helpers
+      end
+
+      def display_badge?(initiative)
+        initiative.rejected? || initiative.accepted? || initiative.debatted? || initiative.examinated? || initiative.classified?
       end
     end
   end

@@ -4,7 +4,7 @@
   <% else %>
     <% url = decidim.root_url(host: @organization.host) %>
   <% end %>
-  <%= link_to url do %>
+  <%= link_to url, rel: "notrack" do %>
     <% if organization.logo.present? %>
       <%= image_tag organization.logo.medium.url, style: "max-height: 50px", alt: "" %>
     <% else %>

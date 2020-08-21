@@ -44,7 +44,9 @@ module Decidim
         def attributes
           attrs = {
             answer: form.answer,
-            answer_url: form.answer_url
+            answer_url: form.answer_url,
+            state: form.state,
+            answer_date: answer_date
           }
 
           attrs[:answered_at] = Time.current if form.answer.present?
@@ -69,6 +71,12 @@ module Decidim
             resource: initiative,
             followers: initiative.followers - [initiative.author]
           )
+        end
+
+        def answer_date
+          return nil unless form.answer_date_allowed?
+
+          form.answer_date
         end
       end
     end

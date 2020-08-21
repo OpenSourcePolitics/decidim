@@ -5,11 +5,39 @@ require "spec_helper"
 describe "User answers the initiative", type: :system do
   include_context "when admins initiative"
 
-  def submit_and_validate
+  shared_examples_for "editable signature dates" do
+    it "signature dates can be edited in answer" do
+      page.find(".action-icon--answer").click
+
+      within ".edit_initiative_answer" do
+        fill_in_i18n_editor(
+          :initiative_answer,
+          "#initiative-answer-tabs",
+          en: "An answer",
+          es: "Una respuesta",
+          ca: "Una resposta"
+        )
+        expect(page).to have_css("#initiative_state", visible: false)
+        expect(page).to have_css("#initiative_signature_start_date")
+        expect(page).to have_css("#initiative_signature_end_date")
+        expect(page).to have_css("#initiative_state")
+        expect(page).to have_css("#initiative_answer_date")
+
+        expect(find("#initiative_answer_date").value).to eq(I18n.l(Date.current, format: :decidim_short))
+
+        fill_in :initiative_answer_date, with: 1.day.ago.strftime("%dd/%mm/%Y")
+        fill_in :initiative_signature_start_date, with: 2.days.ago
+      end
+
+      submit_and_validate
+    end
+  end
+
+  def submit_and_validate(message = "successfully")
     find("*[type=submit]").click
 
     within ".callout-wrapper" do
-      expect(page).to have_content("successfully")
+      expect(page).to have_content(message)
     end
   end
 
@@ -58,25 +86,75 @@ describe "User answers the initiative", type: :system do
         initiative.published!
       end
 
-      it "signature dates can be edited in answer" do
-        page.find(".action-icon--answer").click
+      context "and signature dates are editable" do
+        it "can be edited in answer" do
+          page.find(".action-icon--answer").click
 
-        within ".edit_initiative_answer" do
-          fill_in_i18n_editor(
-            :initiative_answer,
-            "#initiative-answer-tabs",
-            en: "An answer",
-            es: "Una respuesta",
-            ca: "Una resposta"
-          )
-          expect(page).to have_css("#initiative_signature_start_date")
-          expect(page).to have_css("#initiative_signature_end_date")
+          within ".edit_initiative_answer" do
+            fill_in_i18n_editor(
+              :initiative_answer,
+              "#initiative-answer-tabs",
+              en: "An answer",
+              es: "Una respuesta",
+              ca: "Una resposta"
+            )
+            expect(page).to have_css("#initiative_signature_start_date")
+            expect(page).to have_css("#initiative_signature_end_date")
+            expect(page).to have_css("#initiative_state")
+            expect(page).to have_css("#initiative_answer_date", visible: false)
 
-          fill_in :initiative_signature_start_date, with: 1.day.ago
+            fill_in :initiative_signature_start_date, with: 1.day.ago
+          end
+
+          submit_and_validate
         end
-
-        submit_and_validate
       end
+
+      context "when dates are invalid" do
+        it "returns an error message" do
+          page.find(".action-icon--answer").click
+
+          within ".edit_initiative_answer" do
+            fill_in_i18n_editor(
+              :initiative_answer,
+              "#initiative-answer-tabs",
+              en: "An answer",
+              es: "Una respuesta",
+              ca: "Una resposta"
+            )
+            expect(page).to have_css("#initiative_signature_start_date")
+            expect(page).to have_css("#initiative_signature_end_date")
+
+            fill_in :initiative_signature_start_date, with: 1.month.since(initiative.signature_end_date)
+          end
+
+          submit_and_validate("error")
+        end
+      end
+    end
+
+    context "when initiative is in examinated state" do
+      before do
+        initiative.examinated!
+      end
+
+      it_behaves_like "editable signature dates"
+    end
+
+    context "when initiative is in debatted state" do
+      before do
+        initiative.debatted!
+      end
+
+      it_behaves_like "editable signature dates"
+    end
+
+    context "when initiative is in classified state" do
+      before do
+        initiative.classified!
+      end
+
+      it_behaves_like "editable signature dates"
     end
 
     context "when initiative is in validating state" do
@@ -90,6 +168,8 @@ describe "User answers the initiative", type: :system do
         within ".edit_initiative_answer" do
           expect(page).to have_no_css("#initiative_signature_start_date")
           expect(page).to have_no_css("#initiative_signature_end_date")
+          expect(page).to have_no_css("#initiative_state")
+          expect(page).to have_no_css("#initiative_answer_date")
         end
       end
     end

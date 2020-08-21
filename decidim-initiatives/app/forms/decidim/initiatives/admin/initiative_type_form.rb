@@ -14,7 +14,10 @@ module Decidim
         attribute :banner_image, String
         attribute :signature_type, String
         attribute :undo_online_signatures_enabled, Boolean
+        attribute :attachments_enabled, Boolean
         attribute :child_scope_threshold_enabled, Boolean
+        attribute :custom_signature_end_date_enabled, Boolean
+        attribute :area_enabled, Boolean
         attribute :only_global_scope_enabled, Boolean
         attribute :promoting_committee_enabled, Boolean
         attribute :comments_enabled, Boolean
@@ -25,7 +28,8 @@ module Decidim
         attribute :document_number_authorization_handler, String
 
         validates :title, :description, translatable_presence: true
-        validates :undo_online_signatures_enabled, :promoting_committee_enabled, inclusion: { in: [true, false] }
+        validates :attachments_enabled, :undo_online_signatures_enabled, :custom_signature_end_date_enabled,
+                  :promoting_committee_enabled, :area_enabled, inclusion: { in: [true, false] }
         validates :minimum_committee_members, numericality: { only_integer: true }, allow_nil: true
         validates :banner_image, presence: true, if: ->(form) { form.context.initiative_type.nil? }
 

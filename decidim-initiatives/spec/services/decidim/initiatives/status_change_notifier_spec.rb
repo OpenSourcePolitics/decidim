@@ -14,6 +14,9 @@ module Decidim
       let(:discarded) { false }
       let(:rejected) { false }
       let(:accepted) { false }
+      let(:classified) { false }
+      let(:examinated) { false }
+      let(:debatted) { false }
       let(:committee_members) { [] }
       let(:followers) { [] }
       let(:initiative) do
@@ -27,6 +30,9 @@ module Decidim
           discarded?: discarded,
           rejected?: rejected,
           accepted?: accepted,
+          classified?: classified,
+          examinated?: examinated,
+          debatted?: debatted,
           committee_members: double("committee_members", approved: committee_members),
           followers: followers
         )
@@ -136,6 +142,81 @@ module Decidim
 
       context "when accepted" do
         let(:accepted) { true }
+        let(:committee_members) do
+          members = []
+          2.times do
+            members << double(
+              "committe_member",
+              user: create(:user, organization: organization)
+            )
+          end
+          members
+        end
+        let(:followers) do
+          create_list(:user, 10, organization: organization)
+        end
+
+        it "Result is notified to author and committee members" do
+          expect(Decidim::Initiatives::InitiativesMailer).to receive(:notify_state_change)
+            .with(any_args)
+            .exactly(13).times
+            .and_return(message_delivery)
+          subject.notify
+        end
+      end
+
+      context "when examinated" do
+        let(:examinated) { true }
+        let(:committee_members) do
+          members = []
+          2.times do
+            members << double(
+              "committe_member",
+              user: create(:user, organization: organization)
+            )
+          end
+          members
+        end
+        let(:followers) do
+          create_list(:user, 10, organization: organization)
+        end
+
+        it "Result is notified to author and committee members" do
+          expect(Decidim::Initiatives::InitiativesMailer).to receive(:notify_state_change)
+            .with(any_args)
+            .exactly(13).times
+            .and_return(message_delivery)
+          subject.notify
+        end
+      end
+
+      context "when debatted" do
+        let(:debatted) { true }
+        let(:committee_members) do
+          members = []
+          2.times do
+            members << double(
+              "committe_member",
+              user: create(:user, organization: organization)
+            )
+          end
+          members
+        end
+        let(:followers) do
+          create_list(:user, 10, organization: organization)
+        end
+
+        it "Result is notified to author and committee members" do
+          expect(Decidim::Initiatives::InitiativesMailer).to receive(:notify_state_change)
+            .with(any_args)
+            .exactly(13).times
+            .and_return(message_delivery)
+          subject.notify
+        end
+      end
+
+      context "when classified" do
+        let(:classified) { true }
         let(:committee_members) do
           members = []
           2.times do

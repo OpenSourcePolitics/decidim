@@ -4,11 +4,11 @@ require "spec_helper"
 
 describe "Initiative signing", type: :system do
   let(:organization) { create(:organization, available_authorizations: authorizations) }
-  let(:initiative) do
-    create(:initiative, :published, organization: organization)
-  end
   let(:confirmed_user) { create(:user, :confirmed, organization: organization) }
   let(:authorizations) { %w(dummy_authorization_handler another_dummy_authorization_handler) }
+  let(:initiatives_type) { create(:initiatives_type, :only_global_scope_enabled, :undo_online_signatures_enabled, organization: organization) }
+  let(:scope) { create(:initiatives_type_scope, scope: nil, type: initiatives_type) }
+  let(:initiative) { create(:initiative, :published, organization: organization, scoped_type: scope) }
 
   before do
     allow(Decidim::Initiatives)
@@ -34,13 +34,10 @@ describe "Initiative signing", type: :system do
 
   context "when the user has signed the initiative and unsigns it" do
     context "when initiative type has unvotes disabled" do
-      let(:initiatives_type) { create(:initiatives_type, :undo_online_signatures_disabled, organization: organization) }
-      let(:scope) { create(:initiatives_type_scope, type: initiatives_type) }
-      let(:initiative) { create(:initiative, :published, organization: organization, scoped_type: scope) }
+      let(:initiatives_type) { create(:initiatives_type, :only_global_scope_enabled, :undo_online_signatures_disabled, organization: organization) }
 
       it "unsigning initiative is disabled" do
         vote_initiative
-
         within ".view-side" do
           expect(page).to have_content(signature_text(1))
           expect(page).to have_button("Already signed", disabled: true)
@@ -57,6 +54,20 @@ describe "Initiative signing", type: :system do
         expect(page).to have_content(signature_text(1))
         click_button "Already signed"
         expect(page).to have_content(signature_text(0))
+      end
+    end
+  end
+
+  context "when scope of initiative_type_scope is defined" do
+    let(:scope) { create(:initiatives_type_scope, type: initiatives_type) }
+
+    it "shows the scope name" do
+      visit decidim_initiatives.initiative_path(initiative)
+
+      within ".progress__bar__title" do
+        expect(page).not_to have_content(signature_text(1))
+        expect(page).not_to have_content(signature_text(2))
+        expect(page).to have_content(translated(initiative.scoped_type.scope.name).upcase)
       end
     end
   end
@@ -84,7 +95,8 @@ describe "Initiative signing", type: :system do
             expect(page).to have_content("VERIFY YOUR ACCOUNT")
           end
           click_button "Verify your account"
-          expect(page).to have_content("Authorization required")
+          sleep 1
+          expect(page).to have_text("Authorization required")
         end
       end
 
@@ -106,6 +118,8 @@ describe "Initiative signing", type: :system do
       end
 
       context "and is not verified" do
+        let(:initiatives_type) { create(:initiatives_type, :only_global_scope_enabled, :undo_online_signatures_disabled, organization: organization) }
+
         it "unsigning initiative is disabled" do
           visit decidim_initiatives.initiative_path(initiative)
 
@@ -121,9 +135,9 @@ describe "Initiative signing", type: :system do
   end
 
   context "when the initiative requires user extra fields collection to be signed" do
-    let(:initiative) do
-      create(:initiative, :published, :with_user_extra_fields_collection, organization: organization)
-    end
+    let(:initiatives_type) { create(:initiatives_type, :only_global_scope_enabled, :with_user_extra_fields_collection, :undo_online_signatures_disabled, organization: organization) }
+
+    let!(:other_scopes) { create_list(:scope, 5, organization: organization) }
 
     context "when the user has not signed the initiative yet and signs it" do
       it "adds the signature" do
@@ -165,12 +179,8 @@ describe "Initiative signing", type: :system do
     end
 
     if has_content?("Complete your data")
-      fill_in :initiatives_vote_name_and_surname, with: confirmed_user.name
-      fill_in :initiatives_vote_document_number, with: "012345678A"
-      select 30.years.ago.year.to_s, from: :initiatives_vote_date_of_birth_1i
-      select "January", from: :initiatives_vote_date_of_birth_2i
-      select "1", from: :initiatives_vote_date_of_birth_3i
-      fill_in :initiatives_vote_postal_code, with: "01234"
+      select translated(other_scopes.first.name), from: "initiatives_vote_user_scope_id"
+      check "initiatives_vote_resident"
 
       click_button "Continue"
 

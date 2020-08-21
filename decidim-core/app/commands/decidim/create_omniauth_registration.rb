@@ -47,6 +47,7 @@ module Decidim
 
     attr_reader :form, :verified_email
 
+    # rubocop:disable Metrics/PerceivedComplexity
     def create_or_find_user
       generated_password = SecureRandom.hex
 
@@ -65,6 +66,7 @@ module Decidim
           password_confirmation: generated_password
         )
         @user.skip_confirmation!
+
       else
 
         @user = User.find_or_initialize_by(
@@ -89,11 +91,13 @@ module Decidim
           @user.skip_confirmation! unless verified_email != form.email
           @after_confirmation = (verified_email != form.email)
         end
+
       end
 
       @user.tos_agreement = "1"
       @user.save!
     end
+    # rubocop:enable Metrics/PerceivedComplexity
 
     def create_identity
       @user.identities.create!(

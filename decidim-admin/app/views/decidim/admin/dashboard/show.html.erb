@@ -6,7 +6,7 @@
 <div class="content">
   <p><%= t ".welcome" %></p>
 
-  <% unless current_user.admin_terms_accepted? %>
+  <% if current_user.admin? && !current_user.admin_terms_accepted? %>
     <%= cell("decidim/announcement", admin_terms_announcement_args ) %>
   <% end %>
 

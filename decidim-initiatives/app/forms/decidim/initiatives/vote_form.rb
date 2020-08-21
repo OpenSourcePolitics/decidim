@@ -14,6 +14,8 @@ module Decidim
       attribute :name_and_surname, String
       attribute :document_number, String
       attribute :date_of_birth, Date
+      attribute :user_scope_id, Integer
+      attribute :resident, Boolean
 
       attribute :postal_code, String
       attribute :encrypted_metadata, String
@@ -26,10 +28,10 @@ module Decidim
       validates :initiative, :signer, presence: true
 
       with_options if: :required_personal_data? do
-        validates :name_and_surname, :document_number, :date_of_birth, :postal_code, :encrypted_metadata, :hash_id, presence: true
-        validate :document_number_authorized?
+        validates :encrypted_metadata, :hash_id, :resident, presence: true
         validate :already_voted?
-        validate :personal_data_consistent_with_metadata
+        validate :user_scope_belongs_to_organization?
+        validates :resident, acceptance: true
       end
 
       delegate :scope, to: :initiative
@@ -37,7 +39,7 @@ module Decidim
       def encrypted_metadata
         return unless required_personal_data?
 
-        @encrypted_metadata ||= encryptor.encrypt(metadata)
+        @encrypted_metadata ||= encryptor.encrypt(user_scope_id: user_scope_id)
       end
 
       # Public: The hash to uniquely identify an initiative vote. It uses the
@@ -95,7 +97,8 @@ module Decidim
         return unless manifest
 
         @user_authorized_scope ||= authorized_scope_candidates.find do |candidates|
-          return unless candidates
+          return false unless candidates
+
           authorization.metadata.symbolize_keys.dig(:scope_id) == candidates&.id
         end
       end
@@ -108,20 +111,15 @@ module Decidim
       #
       # Returns an array of Decidim::Scopes.
       def authorized_scope_candidates
-        if scope
-          [scope] + initiative.scope.descendants
-        else
-          initiative.organization.scopes
-        end
+        return initiative.organization.scopes if scope.blank?
+
+        initiative.scope.descendants
       end
 
       def metadata
         {
-          name_and_surname: name_and_surname,
-          document_number: document_number,
-          date_of_birth: date_of_birth,
-          postal_code: postal_code,
-          scope: scope
+          user_scope_id: user_scope_id,
+          resident: resident
         }
       end
 
@@ -211,6 +209,16 @@ module Decidim
 
       def encryptor
         @encryptor ||= DataEncryptor.new(secret: "personal user metadata")
+      end
+
+      def user_scope_belongs_to_organization?
+        return if user_scope_id.blank?
+
+        current_organization.scopes.include? user_scope
+      end
+
+      def user_scope
+        @user_scope ||= Decidim::Scope.find(user_scope_id) if user_scope_id.present?
       end
     end
   end

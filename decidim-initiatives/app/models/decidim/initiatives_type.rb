@@ -57,7 +57,7 @@ module Decidim
       InitiativesTypeScope.new(
         supports_required: total_required,
         decidim_scopes_id: nil,
-        decidim_initiatives_types_id: self.id
+        decidim_initiatives_types_id: id
       ).save
     end
   end

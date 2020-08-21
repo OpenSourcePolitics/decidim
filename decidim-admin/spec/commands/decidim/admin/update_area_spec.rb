@@ -11,13 +11,17 @@ module Decidim::Admin
     let(:area) { create :area, organization: organization }
     let(:name) { Decidim::Faker::Localized.literal("New name") }
     let(:area_type) { create :area_type, organization: organization }
+    let(:color) { "#efaa4d" }
+    let(:logo) { Decidim::Dev.test_file("icon.png", "image/png") }
 
     let(:form) do
       double(
         invalid?: invalid,
         current_user: user,
         name: name,
-        area_type: area_type
+        area_type: area_type,
+        color: color,
+        logo: logo
       )
     end
     let(:invalid) { false }
@@ -44,10 +48,18 @@ module Decidim::Admin
         expect(area.area_type).to eq(area_type)
       end
 
+      it "updates the area color" do
+        expect(area.color).to eq(color)
+      end
+
+      it "updates the area logo" do
+        expect(area.logo).to eq(logo)
+      end
+
       it "traces the action", versioning: true do
         expect(Decidim.traceability)
           .to receive(:update!)
-          .with(area, user, hash_including(:name, :area_type))
+          .with(area, user, hash_including(:name, :area_type, :color, :logo))
           .and_call_original
 
         expect { subject.call }.to change(Decidim::ActionLog, :count)

@@ -75,7 +75,7 @@ module Decidim
     end
 
     def same_path?(path1, path2)
-      path1.split('?').first == path2.split('?').first
+      path1.split("?").first == path2.split("?").first
     end
 
     def user_has_no_permission_path

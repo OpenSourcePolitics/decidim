@@ -17,8 +17,6 @@ module Decidim
     belongs_to :user, foreign_key: "decidim_user_id", class_name: "Decidim::User"
     has_one :organization, through: :user, class_name: "Decidim::Organization"
 
-    attr_reader :metadata
-
     validates :name, uniqueness: { scope: :decidim_user_id }
     validates :verification_metadata, absence: true, if: :granted?
     validates :verification_attachment, absence: true, if: :granted?
@@ -35,7 +33,7 @@ module Decidim
         unique_id: handler.unique_id,
         encrypted_metadata: Decidim::MetadataEncryptor.new(
           uid: handler.unique_id
-        ).encrypt(handler.metadata.select { |k,v| k != :nickname })
+        ).encrypt(handler.metadata)
       }
 
       authorization.grant!
@@ -68,6 +66,10 @@ module Decidim
 
     def metadata
       encryptor.decrypt(encrypted_metadata)
+    end
+
+    def metadata=(data)
+      self.encrypted_metadata = encryptor.encrypt(data)
     end
 
     private
