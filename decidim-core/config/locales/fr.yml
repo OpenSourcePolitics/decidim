@@ -1268,6 +1268,7 @@ fr:
       file_size_is_less_than_or_equal_to: la taille du fichier doit être inférieure ou égale à %{count}
       invalid_time_zone: n'est pas un fuseau horaire valide
       long_words: contient des mots trop longs (plus de 35 caractères)
+      must_be_before: doit être avant le %{date}
       must_start_with_caps: doit commencer par une majuscule
       nesting_too_deep: ne peut pas être à l'intérieur d'une sous-catégorie
       not_found: introuvable. Vous êtes-vous déjà inscrit ?
