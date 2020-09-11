@@ -173,5 +173,46 @@ describe "User answers the initiative", type: :system do
         end
       end
     end
+
+    context "when admin changes initiative state" do
+      before do
+        initiative.debatted!
+      end
+
+      context "from debatted to classified" do
+        before do
+          page.find(".action-icon--answer").click
+        end
+
+        it "set the signature_end_date to current date" do
+          original_signature_end_date = find("#initiative_signature_end_date").value
+
+          select "Classified", from: :initiative_state
+
+          expect(find("#initiative_signature_end_date").value).not_to eq(original_signature_end_date)
+          expect(find("#initiative_signature_end_date").value).to eq(I18n.l(Date.current, format: :decidim_short))
+        end
+      end
+
+      context "from debatted to classified to debatted" do
+        before do
+          page.find(".action-icon--answer").click
+        end
+
+        it "set the signature_end_date to current date" do
+          original_signature_end_date = find("#initiative_signature_end_date").value
+
+          select "Classified", from: :initiative_state
+
+          expect(find("#initiative_signature_end_date").value).not_to eq(original_signature_end_date)
+          expect(find("#initiative_signature_end_date").value).to eq(I18n.l(Date.current, format: :decidim_short))
+
+          select "Debatted", from: :initiative_state
+
+          expect(find("#initiative_signature_end_date").value).to eq(original_signature_end_date)
+          expect(find("#initiative_signature_end_date").value).not_to eq(I18n.l(Date.current, format: :decidim_short))
+        end
+      end
+    end
   end
 end
