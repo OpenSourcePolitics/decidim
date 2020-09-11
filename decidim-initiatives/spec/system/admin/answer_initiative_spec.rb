@@ -179,7 +179,7 @@ describe "User answers the initiative", type: :system do
         initiative.debatted!
       end
 
-      context "from debatted to classified" do
+      context "when debatted to classified" do
         before do
           page.find(".action-icon--answer").click
         end
@@ -194,7 +194,7 @@ describe "User answers the initiative", type: :system do
         end
       end
 
-      context "from debatted to classified to debatted" do
+      context "when debatted to classified then debatted" do
         before do
           page.find(".action-icon--answer").click
         end
