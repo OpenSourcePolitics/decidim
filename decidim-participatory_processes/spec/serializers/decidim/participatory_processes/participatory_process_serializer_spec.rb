@@ -5,7 +5,7 @@ require "spec_helper"
 module Decidim::ParticipatoryProcesses
   describe ParticipatoryProcessSerializer do
     let(:resource) { create(:participatory_process) }
-    let(:subject) { described_class.new(resource) }
+    let(:subject) { described_class.new(resource, true) }
 
     describe "#serialize" do
       # rubocop:disable RSpec/MultipleExpectations

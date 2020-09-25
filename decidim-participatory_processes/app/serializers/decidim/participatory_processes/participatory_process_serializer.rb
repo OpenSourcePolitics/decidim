@@ -10,8 +10,9 @@ module Decidim
       include Decidim::TranslationsHelper
 
       # Public: Initializes the serializer with a participatory_process.
-      def initialize(participatory_process)
+      def initialize(participatory_process, private_scope = false)
         @participatory_process = participatory_process
+        @private_scope = private_scope
       end
 
       # Public: Exports a hash with the serialized data for this participatory_process.
