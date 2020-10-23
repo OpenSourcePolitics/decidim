@@ -106,6 +106,8 @@ module Decidim
 
       def notify_admins
         initiative.organization.admins.each do |user|
+          next unless user.email_on_notification?
+
           Decidim::Initiatives::InitiativesMailer
             .notify_validating_request(initiative, user)
             .deliver_later
