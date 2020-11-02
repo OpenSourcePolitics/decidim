@@ -75,7 +75,8 @@
     justify-content: center;
 
     img{
-      max-width: 75%
+      max-width: 75%;
+      align-self: flex-start;
     }
   }
 }
