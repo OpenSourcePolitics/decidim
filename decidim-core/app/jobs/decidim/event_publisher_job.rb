@@ -11,7 +11,7 @@ module Decidim
 
       return unless notifiable?
 
-      EmailNotificationGeneratorJob.perform_later(
+      EmailNotificationGeneratorJob.perform_now(
         event_name,
         data[:event_class],
         data[:resource],
@@ -20,7 +20,7 @@ module Decidim
         data[:extra]
       )
 
-      NotificationGeneratorJob.perform_later(
+      NotificationGeneratorJob.perform_now(
         event_name,
         data[:event_class],
         data[:resource],
@@ -47,9 +47,9 @@ module Decidim
     end
 
     def published?
-      return resource.published? if resource.is_a?(Decidim::Publicable) && !resource.respond_to?(:state)
+      return resource.published? if resource.is_a?(Decidim::Publicable) && !resource.respond_to?(:votes_enabled_state?)
 
-      resource.published_at.present?
+      resource.votes_enabled_state?
     end
 
     def component
