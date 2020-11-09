@@ -39,11 +39,17 @@ module Decidim
     # `Decidim::Publicable` and it isn't published or participatory_space
     # is a `Decidim::Participable` and the user can't participate.
     def notifiable?
-      return false if resource.is_a?(Decidim::Publicable) && !resource.published?
+      return false if resource.is_a?(Decidim::Publicable) && !published?
       return false if participatory_space.is_a?(Decidim::Publicable) && !participatory_space&.published?
       return false if component && !component.published?
 
       true
+    end
+
+    def published?
+      return resource.published? if resource.is_a?(Decidim::Publicable) && !resource.respond_to?(:state)
+
+      resource.published_at.present?
     end
 
     def component
