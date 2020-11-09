@@ -11,7 +11,7 @@ module Decidim
 
       return unless notifiable?
 
-      EmailNotificationGeneratorJob.perform_now(
+      EmailNotificationGeneratorJob.perform_later(
         event_name,
         data[:event_class],
         data[:resource],
@@ -20,7 +20,7 @@ module Decidim
         data[:extra]
       )
 
-      NotificationGeneratorJob.perform_now(
+      NotificationGeneratorJob.perform_later(
         event_name,
         data[:event_class],
         data[:resource],
