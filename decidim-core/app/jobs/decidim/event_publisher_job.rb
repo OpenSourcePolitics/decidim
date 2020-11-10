@@ -49,12 +49,12 @@ module Decidim
     def published?
       return resource.published? if resource.is_a?(Decidim::Publicable) && !resource.respond_to?(:votes_enabled_state?)
 
-      resource.votes_enabled_state?
+      resource.votes_enabled_state? && resource.published_at.present?
     end
 
     def component
       return resource.component if resource.is_a?(Decidim::HasComponent)
-      return resource if resource.is_a?(Decidim::Component)
+      resource if resource.is_a?(Decidim::Component)
     end
 
     def participatory_space

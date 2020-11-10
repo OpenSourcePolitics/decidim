@@ -108,6 +108,24 @@ module Decidim
         end
 
         context "when support threshold is reached" do
+          shared_examples_for "notifies the admins" do
+            it "notifies the admins" do
+              expect(Decidim::EventsManager).to receive(:publish)
+                .with(kind_of(Hash))
+
+              expect(Decidim::EventsManager)
+                .to receive(:publish)
+                .with(
+                  event: "decidim.events.initiatives.support_threshold_reached",
+                  event_class: Decidim::Initiatives::Admin::SupportThresholdReachedEvent,
+                  resource: initiative,
+                  followers: [admin]
+                )
+
+              command.call
+            end
+          end
+
           let(:admin) { create(:user, :admin, :confirmed, organization: organization) }
           let(:initiative) do
             create(:initiative,
@@ -126,20 +144,44 @@ module Decidim
             create(:initiative_user_vote, initiative: initiative)
           end
 
-          it "notifies the admins" do
-            expect(Decidim::EventsManager).to receive(:publish)
-              .with(kind_of(Hash))
+          it_behaves_like "notifies the admins"
 
-            expect(Decidim::EventsManager)
-              .to receive(:publish)
-              .with(
-                event: "decidim.events.initiatives.support_threshold_reached",
-                event_class: Decidim::Initiatives::Admin::SupportThresholdReachedEvent,
-                resource: initiative,
-                followers: [admin]
-              )
+          context "when notifications is examinated" do
+            let(:initiative) do
+              create(:initiative,
+                     :examinated,
+                     organization: organization,
+                     scoped_type: create(
+                       :initiatives_type_scope,
+                       supports_required: 1,
+                       type: create(:initiatives_type, organization: organization)
+                     ))
+            end
 
-            command.call
+            before do
+              create(:initiative_user_vote, initiative: initiative)
+            end
+
+            it_behaves_like "notifies the admins"
+          end
+
+          context "when notifications is debatted" do
+            let(:initiative) do
+              create(:initiative,
+                     :debatted,
+                     organization: organization,
+                     scoped_type: create(
+                       :initiatives_type_scope,
+                       supports_required: 1,
+                       type: create(:initiatives_type, organization: organization)
+                     ))
+            end
+
+            before do
+              create(:initiative_user_vote, initiative: initiative)
+            end
+
+            it_behaves_like "notifies the admins"
           end
         end
 
