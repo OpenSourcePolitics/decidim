@@ -10,6 +10,14 @@ module Decidim
       expect(authorization).to be_valid
     end
 
+    context "with metadata" do
+      let(:authorization) { build(:authorization, metadata: { key_1: "First value", key_2: "Second value" }) }
+
+      it "encrypts metadata and stringify keys" do
+        expect(authorization.metadata).to eq("key_1" => "First value", "key_2" => "Second value")
+      end
+    end
+
     context "when leaving verification data around" do
       let(:authorization) do
         build(:authorization, verification_metadata: { sensible_stuff: "123456" })
