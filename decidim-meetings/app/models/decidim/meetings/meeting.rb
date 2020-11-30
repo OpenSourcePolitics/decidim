@@ -10,14 +10,13 @@ module Decidim
       include Decidim::HasAttachmentCollections
       include Decidim::HasComponent
       include Decidim::HasReference
-      include Decidim::ScopableComponent
+      include Decidim::ScopableResource
       include Decidim::HasCategory
       include Decidim::Followable
       include Decidim::Comments::Commentable
       include Decidim::Searchable
       include Decidim::Traceable
       include Decidim::Loggable
-      include Decidim::Hashtaggable
       include Decidim::Forms::HasQuestionnaire
       include Decidim::Paddable
       include Decidim::ActsAsAuthor
@@ -37,33 +36,54 @@ module Decidim
 
       validates :title, presence: true
 
-      geocoded_by :address, http_headers: ->(proposal) { { "Referer" => proposal.component.organization.host } }
+      geocoded_by :address
 
       scope :past, -> { where(arel_table[:end_time].lteq(Time.current)) }
       scope :upcoming, -> { where(arel_table[:end_time].gteq(Time.current)) }
 
       scope :visible_meeting_for, lambda { |user|
-                                    joins("LEFT JOIN decidim_meetings_registrations ON
-                                    decidim_meetings_registrations.decidim_meeting_id = #{table_name}.id")
-                                      .where("(private_meeting = ? and decidim_meetings_registrations.decidim_user_id = ?)
-                                    or private_meeting = ? or (private_meeting = ? and transparent = ?)", true, user, false, true, true).distinct
-                                  }
+        (all.distinct if user&.admin?) ||
+          if user.present?
+            user_role_queries = %w(conference assembly participatory_process).map do |participatory_space_name|
+              # rubocop: disable Style/RedundantBegin
+              begin
+                if "Decidim::#{participatory_space_name.classify}".constantize
+                  "SELECT decidim_components.id FROM decidim_components
+                  WHERE CONCAT(decidim_components.participatory_space_id, '-', decidim_components.participatory_space_type)
+                  IN
+                  (SELECT CONCAT(decidim_#{participatory_space_name}_user_roles.decidim_#{participatory_space_name}_id, '-Decidim::#{participatory_space_name.classify}')
+                  FROM decidim_#{participatory_space_name}_user_roles WHERE decidim_#{participatory_space_name}_user_roles.decidim_user_id = ?)
+                  "
+                end
+              rescue NameError
+                nil
+              end
+              # rubocop: enable Style/RedundantBegin
+            end
+
+            where("decidim_meetings_meetings.private_meeting = ?
+            OR decidim_meetings_meetings.transparent = ?
+            OR decidim_meetings_meetings.id IN
+              (SELECT decidim_meetings_registrations.decidim_meeting_id FROM decidim_meetings_registrations WHERE decidim_meetings_registrations.decidim_user_id = ?)
+            OR decidim_meetings_meetings.decidim_component_id IN
+              (SELECT decidim_components.id FROM decidim_components
+                WHERE CONCAT(decidim_components.participatory_space_id, '-', decidim_components.participatory_space_type)
+                IN
+                  (SELECT CONCAT(decidim_participatory_space_private_users.privatable_to_id, '-', decidim_participatory_space_private_users.privatable_to_type)
+                  FROM decidim_participatory_space_private_users WHERE decidim_participatory_space_private_users.decidim_user_id = ?)
+              )
+            OR decidim_meetings_meetings.decidim_component_id IN
+              (
+                #{user_role_queries.compact.join(" UNION ")}
+              )
+            ", false, true, user.id, user.id, *user_role_queries.compact.map { user.id })
+              .distinct
+          else
+            visible
+          end
+      }
 
       scope :visible, -> { where("decidim_meetings_meetings.private_meeting != ? OR decidim_meetings_meetings.transparent = ?", true, true) }
-
-      scope :official_origin, lambda {
-        where(decidim_author_type: "Decidim::Organization")
-      }
-
-      scope :user_group_origin, lambda {
-        where(decidim_author_type: "Decidim::UserBaseEntity")
-          .where.not(decidim_user_group_id: nil)
-      }
-
-      scope :citizens_origin, lambda {
-        where(decidim_author_type: "Decidim::UserBaseEntity")
-          .where(decidim_user_group_id: nil)
-      }
 
       searchable_fields({
                           scope_id: :decidim_scope_id,
@@ -92,6 +112,11 @@ module Decidim
 
       def can_be_joined_by?(user)
         !closed? && registrations_enabled? && can_participate?(user)
+      end
+
+      def can_register_invitation?(user)
+        !closed? && registrations_enabled? &&
+          can_participate_in_space?(user) && user_has_invitation_for_meeting?(user)
       end
 
       def closed?
@@ -151,9 +176,8 @@ module Decidim
         can_participate_in_space?(user) && can_participate_in_meeting?(user)
       end
 
-      def current_user_can_visit_meeting?(current_user)
-        (private_meeting? && registrations.exists?(decidim_user_id: current_user.try(:id))) ||
-          !private_meeting? || (private_meeting? && transparent?)
+      def current_user_can_visit_meeting?(user)
+        Decidim::Meetings::Meeting.visible_meeting_for(user).find_by(id: id)
       end
 
       # Return the duration of the meeting in minutes
@@ -204,6 +228,13 @@ module Decidim
         return false unless user
 
         registrations.exists?(decidim_user_id: user.id)
+      end
+
+      def user_has_invitation_for_meeting?(user)
+        return true unless private_meeting?
+        return false unless user
+
+        invites.exists?(decidim_user_id: user.id)
       end
     end
   end

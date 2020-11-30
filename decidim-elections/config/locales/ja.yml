@@ -10,15 +10,19 @@ ja:
         description: 説明
         end_time: 投票が終了します：
         start_time: 投票開始
-        subtitle: サブタイトル
         title: タイトル
       question:
         description: 説明
         max_selections: 選択範囲の最大数
+        min_selections: 上記のどれでもない
         title: タイトル
     errors:
       models:
         answer:
+          attributes:
+            attachment:
+              needs_to_be_reattached: 再接続が必要
+        election:
           attributes:
             attachment:
               needs_to_be_reattached: 再接続が必要
@@ -44,7 +48,7 @@ ja:
     elections:
       actions:
         confirm_destroy: よろしいですか？
-        destroy: 破壊
+        destroy: 削除
         edit: 編集
         edit_answers: 回答を編集
         edit_questions: 質問を編集
@@ -66,6 +70,7 @@ ja:
             title: 回答を編集
             update: 回答を更新
           index:
+            invalid_max_selections: 最大選択数に届くには %{missing_answers} 個以上の回答が必要です
             title: 回答
           new:
             create: 回答を作成
@@ -84,6 +89,7 @@ ja:
             title: 選挙を編集
             update: 選挙を更新
           index:
+            no_bulletin_board: <a href="https://github.com/decidim/decidim-bulletin-board">BBS</a> が設定されていませんが、このモジュールを使用するためには必要です。このタスクはシステム管理者が行う必要があります。
             title: 選挙
           new:
             create: 選挙を作成
@@ -133,12 +139,35 @@ ja:
           publish: "%{user_name} が %{resource_name} 選挙を公開しました"
           unpublish: "%{user_name} が %{resource_name} 選挙を非公開にしました"
       election_m:
+        badge_name:
+          finished: 完了
+          ongoing: 有効
+          upcoming: 今後の予定
+        end_date: 終了
         footer:
-          take_part: 参加する
+          view: 表示
+          vote: 投票
+        label:
+          date: 日付
+        questions: 質問 %{count}
+        start_date: 開始
+        unspecified: 指定されていません
       elections:
         count:
           elections_count:
             other: "%{count} 選挙"
+        filters:
+          active: 有効
+          all: 全て
+          finished: 完了
+          search: 検索
+          state: 状態
+          upcoming: 今後の予定
+        filters_small_view:
+          close_modal: ウィンドウを閉じる
+          filter: 絞り込み
+          filter_by: 絞り込み条件
+          unfold: 展開
         show:
           back: すべての選挙
           preview: プレビュー
@@ -162,6 +191,10 @@ ja:
             answers: 回答
             max_selections: 最大選挙数
             title: タイトル
+      orders:
+        label: 選挙の順序
+        older: 古い
+        recent: 新しい
       votes:
         confirm:
           answer: 回答
@@ -170,6 +203,7 @@ ja:
           edit: 編集
           header: 投票を確定
           intro: あなたが投じようとしている投票の概要です。 <br> 投票を確定するか、回答を編集してください。
+          nota_option: 空白
           question: 質問 %{count}
         confirmed:
           back: 選挙に戻る
@@ -192,14 +226,18 @@ ja:
           close: 閉じる
           proposal_header: '提案:'
         new:
-          answer_choices: 最大 %{choices} 個の回答を選択できます。
+          answer_choices: 最大 %{choices} 個の回答を選択できます
           more_information: 詳しい情報
+          nota_option: 空白、もしくは上記のどれでもない
           preview_alert: これは投票ブースのプレビューです。
           question_steps: '%{current_step} / %{total_steps} の質問'
           selections: "%{selected} / %{max_selections}<br> の選択"
         voting_step:
           back: 戻る
           continue: 次へ
+      warnings:
+        no_elections_warning: 検索条件に一致する選挙がないか、または予定されている選挙がありません。
+        no_scheduled_elections_warning: 現在、予定された選挙はありませんが、ここでは記載されているすべての過去の選挙を見つけることができます。
     events:
       elections:
         election_published:

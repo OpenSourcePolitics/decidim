@@ -14,10 +14,12 @@
 <% end %>
 
 <div class="row column view-header">
-  <%= link_to collaborative_drafts_path do %>
-    <%= icon "chevron-left", class: "icon--small", role: "img", "aria-hidden": true %>
-    <%= t(".back") %>
-  <% end %>
+  <div class="m-bottom">
+    <%= link_to collaborative_drafts_path do %>
+      <%= icon "chevron-left", class: "icon--small", role: "img", "aria-hidden": true %>
+      <%= t(".back") %>
+    <% end %>
+  </div>
 
   <h2 class="heading2">
     <%= present(@collaborative_draft).title(links: true, html_escape: true) %>
@@ -104,7 +106,7 @@
           <li class="card-data__item">
             <%= link_to "#comments" do %>
               <%= with_tooltip t("decidim.proposals.models.collaborative_draft.fields.comments") do %>
-                <%= icon("comment-square", class: "icon--small", role: "img", "aria-hidden": true) + " " + "#{@collaborative_draft.comments.count}" %>
+                <%= icon("comment-square", class: "icon--small", role: "img", "aria-hidden": true) + " " + "#{@collaborative_draft.comments_count}" %>
               <% end %>
             <% end %>
           </li>

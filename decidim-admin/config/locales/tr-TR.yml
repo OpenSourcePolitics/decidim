@@ -28,14 +28,7 @@ tr:
       newsletter:
         body: Vücut
         subject: konu
-      oauth_application:
-        name: isim
-        organization_logo: Organizasyon logosu (kare)
-        organization_name: Kuruluş Adı
-        organization_url: Kuruluş URL'si
-        redirect_uri: Yönlendiren URI
       organization:
-        address: SMTP Sunucu Adı
         alert_color: Alarm
         badges_enabled: Rozetleri etkinleştir
         cta_button_path: Harekete Geçirici Mesaj düğmesi yolu
@@ -64,8 +57,6 @@ tr:
         omnipresent_banner_short_description: Kısa Açıklama
         omnipresent_banner_title: Başlık
         omnipresent_banner_url: URL
-        password: Parola
-        port: Bağlantı noktası
         primary_color: Birincil
         reference_prefix: Referans öneki
         secondary_color: İkincil
@@ -74,7 +65,6 @@ tr:
         tos_version: Hizmet sürümü şartları
         twitter_handler: Twitter işleyicisi
         user_groups_enabled: Kullanıcı gruplarını etkinleştir
-        user_name: Kullanıcı adı
         warning_color: Uyarı
         youtube_handler: YouTube işleyici
       scope:
@@ -105,10 +95,6 @@ tr:
         file: Dosya
     errors:
       models:
-        oauth_application:
-          attributes:
-            redirect_uri:
-              must_be_ssl: Yönlendirme URI bir SSL URI'sı olmalıdır
         organization:
           attributes:
             official_img_footer:
@@ -341,7 +327,6 @@ tr:
         homepage: Anasayfa
         impersonations: impersonations
         newsletters: Haber bültenleri
-        oauth_applications: OAuth uygulamaları
         participants: Katılımcılar
         scope_types: Kapsam türleri
         scopes: kapsamları
@@ -385,11 +370,6 @@ tr:
             sent_to: Gönderilen
             subject: konu
           name: Bülten
-        oauth_application:
-          fields:
-            created_at: Düzenlendi
-            name: isim
-          name: OAuth uygulaması
         participatory_space_private_user:
           name: Katılımcı alan özel kullanıcısı
         scope:
@@ -488,25 +468,6 @@ tr:
         update:
           error: Bu bülteni güncellerken bir hata oluştu.
           success: Bülten başarıyla güncellendi. Lütfen göndermeden önce gözden geçirin.
-      oauth_applications:
-        create:
-          error: Bu uygulama oluşturulurken bir hata oluştu.
-          success: Uygulama başarıyla oluşturuldu.
-        destroy:
-          error: Bu uygulamayı yok eden bir hata oluştu.
-          success: Uygulama başarıyla yok edildi.
-        edit:
-          save: Kayıt etmek
-          title: Uygulamayı düzenle
-        index:
-          confirm_delete: Bu uygulamayı silmek istediğinizden emin misiniz?
-          title: OAuth uygulamaları
-        new:
-          save: Kayıt etmek
-          title: Yeni uygulama
-        update:
-          error: Bu uygulama güncellenirken bir hata oluştu.
-          success: Uygulama başarıyla güncellendi.
       officializations:
         create:
           success: Kullanıcı başarıyla onaylandı

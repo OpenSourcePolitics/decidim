@@ -302,9 +302,9 @@ sv:
             select_user: Välj deltagare
           index:
             filter:
-              accepted: Accepterat
+              accepted: Accepterad
               all: Alla
-              rejected: Avvisade
+              rejected: Avvisad
               sent: Skickade
             filter_by: Filtrera efter
             invite_attendee: Bjud in deltagare
@@ -475,6 +475,7 @@ sv:
         index:
           choose_an_option: 'Välj registreringsalternativ:'
           login_as: Du är inloggad som %{name} <%{email}>
+          no_registrations: Inga anmälningar
           register: Registrera
           title: Registreringstyper
       shared:

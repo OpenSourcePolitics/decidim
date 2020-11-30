@@ -190,7 +190,7 @@ module Decidim
       def i18n_params
         {
           user_name: user_presenter.present,
-          resource_name: resource_presenter.present,
+          resource_name: resource_presenter.try(:present),
           space_name: space_presenter.present
         }
       end
@@ -199,7 +199,15 @@ module Decidim
       #
       # Returns a Boolean.
       def has_diff?
-        %w(update create).include?(action.to_s) && action_log.version.present?
+        diff_actions.include?(action.to_s) && action_log.version.present?
+      end
+
+      # Private: Lists the log actions for which the diff changeset should be
+      # shown.
+      #
+      # Returns an Array of Strings.
+      def diff_actions
+        %w(update create)
       end
 
       # Private: Calculates whether the diff should show the previous value

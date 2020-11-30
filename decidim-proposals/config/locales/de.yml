@@ -80,6 +80,27 @@ de:
     admin:
       filters:
         proposals:
+          category_id_eq:
+            label: Kategorie
+          is_emendation_true:
+            label: Art
+            values:
+              'false': Vorschläge
+              'true': Änderungen
+          scope_id_eq:
+            label: Umfang
+          state_eq:
+            values:
+              accepted: Angenommen
+              evaluating: In Bearbeitung
+              published: Veröffentlicht
+              rejected: Abgelehnt
+              validating: Technische Validierung
+              withdrawn: Zurückgezogen
+          state_null:
+            label: Bundesländer
+            values:
+              'true': Unbeantwortet
           valuator_role_ids_has:
             label: Zugewiesen zu dem Schätzer
         search_placeholder:
@@ -122,6 +143,8 @@ de:
             proposal_wizard_step_3_help_text: Hilfetext "Fertigstellen"-Schritt im Vorschlagsassistenten
             proposal_wizard_step_4_help_text: Hilfetext "Veröffentlichen"-Schritt im Vorschlagsassistenten
             resources_permissions_enabled: Berechtigungen können für jeden Vorschlag festgelegt werden
+            scope_id: Bereich
+            scopes_enabled: Bereiche aktiviert
             threshold_per_proposal: Schwellenwert pro Vorschlag
             vote_limit: Unterstützungslimit pro Benutzer
           step:
@@ -698,8 +721,13 @@ de:
             one: "%{count} Vorschlag"
             other: "%{count} Vorschläge"
         edit:
+          add_documents: Dokumente
+          add_images: Datei
           attachment_legend: "(Optional) Fügen Sie einen Anhang hinzu"
           back: Zurück
+          delete_document: Dokument löschen
+          delete_image: Bild löschen
+          gallery_legend: "(Optional) Ein Bild zur Vorschlagskarte hinzufügen"
           select_a_category: Bitte wählen sie eine Kategorie
           send: Abschicken
           title: Vorschlag bearbeiten

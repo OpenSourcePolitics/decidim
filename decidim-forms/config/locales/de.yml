@@ -3,6 +3,8 @@ de:
     attributes:
       answer:
         body: Antworten
+        choices: Auswahl
+        selected_choices: Ausgewählte Auswahl
       question:
         max_choices: Maximale Anzahl von Auswahlmöglichkeiten
         question_type: Art
@@ -103,7 +105,7 @@ de:
             up: Hoch
           update:
             invalid: Beim Speichern des Fragebogens sind Fehler aufgetreten.
-            success: Fragebögen wurden erfolgreich gespeichert.
+            success: Formular erfolgreich gespeichert.
       errors:
         answer:
           body: Körper kann nicht leer sein

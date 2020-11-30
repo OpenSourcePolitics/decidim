@@ -29,14 +29,7 @@ de:
       newsletter:
         body: Haupttext
         subject: Betreff
-      oauth_application:
-        name: Name
-        organization_logo: Organisationslogo (quadratisch)
-        organization_name: Name der Organisation
-        organization_url: URL der Organisation
-        redirect_uri: Weiterleitungs-URI
       organization:
-        address: SMTP Hostname
         alert_color: Benachrichtigung
         badges_enabled: Abzeichen aktivieren
         comments_max_length: Maximale Länge der Kommentare (0 für Standardwert)
@@ -62,6 +55,9 @@ de:
         highlighted_content_banner_title: Titel
         instagram_handler: Instagram-Handler
         logo: Logo
+        machine_translation_display_priority: Priorität der maschinellen Übersetzung
+        machine_translation_display_priority_original: Originaltext zuerst
+        machine_translation_display_priority_translation: Übersetzter Text zuerst
         name: Name
         official_img_footer: Offizielles Logo Fußzeile
         official_img_header: Offizieller Logo-Header
@@ -69,8 +65,6 @@ de:
         omnipresent_banner_short_description: Kurze Beschreibung
         omnipresent_banner_title: Titel
         omnipresent_banner_url: URL
-        password: Passwort
-        port: Port
         primary_color: Primär
         reference_prefix: Referenzpräfix
         rich_text_editor_in_public_views: Rich-Text-Editor für Teilnehmer aktivieren
@@ -82,7 +76,6 @@ de:
         tos_version: Nutzungsbedingungen Version
         twitter_handler: Twitter-Handler
         user_groups_enabled: Benutzergruppen aktivieren
-        user_name: Benutzername
         warning_color: Warnung
         welcome_notification_body: Text der Willkommens-Benachrichtigung
         welcome_notification_subject: Betreff der Willkommens-Benachrichtigung
@@ -115,10 +108,6 @@ de:
         file: Datei
     errors:
       models:
-        oauth_application:
-          attributes:
-            redirect_uri:
-              must_be_ssl: Der Umleitungs-URI muss ein SSL-URI sein
         organization:
           attributes:
             official_img_footer:
@@ -137,7 +126,7 @@ de:
         client_secret: Kundengeheimnis
         organization_name: Name der Organisation
         organization_url: Organisations-URL
-        redirect_uri: URI umleiten
+        redirect_uri: Umleitungs URI
         site: Webseite
   decidim:
     admin:
@@ -150,6 +139,7 @@ de:
         per_page: Pro Seite
         permissions: Berechtigungen
         reject: Ablehnen
+        share: Teilen
         verify: Überprüfen
       admin_terms_of_use:
         accept:
@@ -277,6 +267,7 @@ de:
           headers:
             actions: Aktionen
             name: Komponentenname
+            scope: Komponentenbereich
             type: Komponententyp
         new:
           add: Komponente hinzufügen
@@ -390,7 +381,6 @@ de:
         homepage: Startseite
         impersonations: Identitätswechsel
         newsletters: Newsletter
-        oauth_applications: OAuth-Anwendungen
         participants: Teilnehmer
         scope_types: Bereichstypen
         scopes: Bereiche
@@ -437,11 +427,6 @@ de:
             sent_to: Gesendet an
             subject: Gegenstand
           name: Newsletter
-        oauth_application:
-          fields:
-            created_at: Hergestellt in
-            name: Name
-          name: OAuth-Anwendung
         participatory_space_private_user:
           name: Participatory Space privater Benutzer
         scope:
@@ -452,6 +437,14 @@ de:
           fields:
             name: Name
             plural: Plural
+        share_token:
+          fields:
+            created_at: Erstellt am
+            expires_at: Läuft ab am
+            last_used_at: Zuletzt verwendet
+            times_used: Anzahl Anwendungen
+            token: Token
+            user: Erstellt von
         static_page:
           fields:
             created_at: Hergestellt in
@@ -548,25 +541,6 @@ de:
         update:
           error: Beim Aktualisieren dieses Newsletters ist ein Fehler aufgetreten.
           success: Newsletter erfolgreich aktualisiert. Bitte überprüfen Sie es vor dem Senden.
-      oauth_applications:
-        create:
-          error: Beim Erstellen dieser Anwendung ist ein Fehler aufgetreten.
-          success: Anwendung erfolgreich erstellt
-        destroy:
-          error: Beim Löschen dieser Anwendung ist ein Fehler aufgetreten.
-          success: Anwendung erfolgreich zerstört.
-        edit:
-          save: Speichern
-          title: Anwendung bearbeiten
-        index:
-          confirm_delete: Möchten Sie diese Anwendung wirklich löschen?
-          title: OAuth-Anwendungen
-        new:
-          save: Speichern
-          title: Neue Bewerbung
-        update:
-          error: Beim Aktualisieren dieser Anwendung ist ein Fehler aufgetreten.
-          success: Die Anwendung wurde erfolgreich aktualisiert.
       officializations:
         create:
           success: Benutzer wurde offiziell anerkannt
@@ -653,7 +627,7 @@ de:
           invalid: Beim Lesen der CSV-Datei ist ein Fehler aufgetreten.
           success: CSV-Datei wurde erfolgreich hochgeladen, wir senden eine Einladungs-E-Mail an die Teilnehmer. Dies kann eine Weile dauern.
         new:
-          explanation: Laden Sie Ihre CSV-Datei hoch. Diese Datei darf nur zwei Spalten und keine Kopfzeile haben. Die erste Spalte enthält die E-Mail-Adressen und und die zweite Spalte die Namen der Benutzer, die Sie zum Teilnehmerraum hinzufügen möchten.
+          explanation: 'Laden Sie Ihre CSV-Datei hoch. Diese muss zwei Spalten haben ohne Kopfzeile, mit E-Mail in der ersten Spalte der Datei und Namen in der letzten Spalte der Datei (E-Mail, Name) in Bezug auf die Benutzer, die Sie dem Beteiligungsbereich hinzufügen möchten. Vermeiden sie ungültige Zeichen wie `<>?%&^*#@()[]=+:;"{}\|` im Namen des Nutzers zu verwenden.'
           title: CSV-Datei hochladen
           upload: Hochladen
       resource_permissions:
@@ -662,6 +636,10 @@ de:
           title: Berechtigungen bearbeiten
         update:
           success: Berechtigungen wurden erfolgreich aktualisiert.
+      resources:
+        index:
+          headers:
+            scope: Bereich
       scope_types:
         create:
           error: Beim Erstellen eines neuen Geltungstyps ist ein Fehler aufgetreten.
@@ -693,6 +671,18 @@ de:
         update:
           error: Beim Aktualisieren dieses Bereichs ist ein Fehler aufgetreten.
           success: Bereich wurde erfolgreich aktualisiert
+      share_tokens:
+        actions:
+          confirm_destroy: Sind Sie sicher, dass Sie diesen Token löschen wollen?
+          destroy: Löschen
+          share: Teilen
+        destroy:
+          error: Beim Löschen dieses Tokens ist ein Fehler aufgetreten.
+          success: Token wurde erfolgreich gelöscht.
+        share_tokens:
+          empty: Es gibt keine aktiven Token
+          help: Diese Token werden verwendet, um diese unveröffentlichte Ressource öffentlich an jeden Benutzer weiterzugeben. Sie werden ausgeblendet, wenn das Werk veröffentlicht wird. Klicken Sie auf das Teilen-Symbol des Tokens um die teilbare URL zu besuchen.
+          title: Token teilen
       shared:
         gallery:
           add_images: Bilder hinzufügen

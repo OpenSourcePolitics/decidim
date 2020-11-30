@@ -28,15 +28,15 @@ module Decidim::Assemblies
         subtitle: { en: "subtitle" },
         slug: "slug",
         hashtag: "hashtag",
-        meta_scope: "meta scope",
+        meta_scope: { en: "meta scope" },
         hero_image: nil,
         banner_image: nil,
         promoted: nil,
-        developer_group: "developer group",
-        local_area: "local",
-        target: "target",
-        participatory_scope: "participatory scope",
-        participatory_structure: "participatory structure",
+        developer_group: { en: "developer group" },
+        local_area: { en: "local" },
+        target: { en: "target" },
+        participatory_scope: { en: "participatory scope" },
+        participatory_structure: { en: "participatory structure" },
         description: { en: "description" },
         short_description: { en: "short_description" },
         current_organization: organization,
@@ -53,7 +53,7 @@ module Decidim::Assemblies
         assembly_type: assembly_type,
         creation_date: 1.day.from_now,
         created_by: "others",
-        created_by_other: "other created by",
+        created_by_other: { en: "other created by" },
         duration: 2.days.from_now,
         included_at: 5.days.from_now,
         closing_date: 5.days.from_now,
@@ -104,6 +104,41 @@ module Decidim::Assemblies
         expect(errors).to receive(:add).with(:hero_image, "Image too big")
         expect(errors).to receive(:add).with(:banner_image, "Image too big")
         subject.call
+      end
+    end
+
+    context "when the uploaded hero image has too large dimensions" do
+      let(:hero_image) { Decidim::Dev.test_file("5000x5000.png", "image/png") }
+      let(:banner_image) { nil }
+      let(:form) do
+        Admin::AssemblyForm.from_params(
+          title: { en: "title" },
+          subtitle: { en: "subtitle" },
+          slug: "slug",
+          hero_image: hero_image,
+          banner_image: banner_image,
+          description: { en: "description" },
+          short_description: { en: "short_description" },
+          organization: organization,
+          scopes_enabled: false
+        ).with_context(
+          current_organization: organization,
+          current_user: current_user
+        )
+      end
+
+      before do
+        # Enable processing for the test in order to catch validation errors
+        Decidim::HeroImageUploader.enable_processing = true
+      end
+
+      after do
+        Decidim::HeroImageUploader.enable_processing = false
+      end
+
+      it "broadcasts invalid" do
+        expect { subject.call }.to broadcast(:invalid)
+        expect(form.errors.messages[:hero_image]).to contain_exactly(["The image is too big"])
       end
     end
 

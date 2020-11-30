@@ -88,6 +88,8 @@ es-MX:
             default_registration_terms: Términos de registro predeterminados
             enable_pads_creation: Habilitar la creación de pads
             resources_permissions_enabled: Se pueden establecer permisos de acciones para cada encuentro
+            scope_id: Ámbito
+            scopes_enabled: Ámbitos habilitados
           step:
             announcement: Anuncio
             comments_blocked: Comentarios bloqueados
@@ -391,7 +393,7 @@ es-MX:
           address_help: 'Dirección: que utilizará Geocoder para encontrar la ubicación'
           create_as: Crear encuentro como
           location_help: 'Ubicación: mensaje dirigido a las participantes indicando el lugar donde reunirse'
-          location_hints_help: 'Ayudas de localización: información adicional. Ejemplo: la planta del edificio'
+          location_hints_help: 'Sugerencias de ubicación: información adicional. Ejemplo: la planta del edificio'
           select_a_category: Por favor, selecciona una categoría
         index:
           new_meeting: Nuevo encuentro

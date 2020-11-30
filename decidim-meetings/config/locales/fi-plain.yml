@@ -88,6 +88,8 @@ fi-pl:
             default_registration_terms: Ilmoittautumisen oletusehdot
             enable_pads_creation: Ota käyttöön muistioiden luominen
             resources_permissions_enabled: Toiminnallisuutta koskevat oikeudet voidaan asettaa jokaiselle tapahtumalle
+            scope_id: Teema
+            scopes_enabled: Teemat käytössä
           step:
             announcement: Ilmoitus
             comments_blocked: Kommentointi on estetty
@@ -391,7 +393,7 @@ fi-pl:
           address_help: 'Osoite: käytetään karttapisteen etsimiseen geokoodauksen avulla'
           create_as: Luo tapahtuma käyttäjänä
           location_help: 'Paikka: kuvaus tapahtumapaikan tarkemmasta sijainnista osallistujille'
-          location_hints_help: 'Paikan vihjeteksti: lisätietoja tapahtumapaikasta. Esimerkiksi tapahtumapaikan rakennuksen kerros'
+          location_hints_help: 'Sijainnin vihjeteksti: lisätietoja sijainnista. Esimerkiksi rakennuksen kerros sijaintipaikalla'
           select_a_category: Valitse aihepiiri
         index:
           new_meeting: Uusi tapahtuma

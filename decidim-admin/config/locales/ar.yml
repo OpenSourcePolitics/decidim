@@ -28,14 +28,7 @@ ar:
       newsletter:
         body: المحتوى
         subject: الموضوع
-      oauth_application:
-        name: الاسم
-        organization_logo: شعار المنظمة (مربع)
-        organization_name: اسم المنظمة
-        organization_url: عنوان URL للمؤسسة
-        redirect_uri: إعادة توجيه URI
       organization:
-        address: خادم SMTP
         alert_color: تنبيه
         badges_enabled: تمكين الشارات
         cta_button_path: دعوة إلى العمل مسار زر
@@ -65,8 +58,6 @@ ar:
         omnipresent_banner_short_description: وصف قصير
         omnipresent_banner_title: العنوان
         omnipresent_banner_url: العنوان الشبكي
-        password: الكلمة السرية
-        port: المَنفذ
         primary_color: ابتدائي
         reference_prefix: بادئة المرجع
         rich_text_editor_in_public_views: إتاحة محرر النص الغني للمشارِكين
@@ -78,7 +69,6 @@ ar:
         tos_version: شروط وأحكام الخدمة
         twitter_handler: مُعرّف حساب تويتر
         user_groups_enabled: تمكين المجموعات
-        user_name: اسم المستخدم
         warning_color: تحذير
         welcome_notification_body: محتوى إشعار الترحيب
         welcome_notification_subject: موضوع إشعار الترحيب
@@ -111,10 +101,6 @@ ar:
         file: ملف
     errors:
       models:
-        oauth_application:
-          attributes:
-            redirect_uri:
-              must_be_ssl: يجب أن يكون URI لإعادة التوجيه SSL URI
         organization:
           attributes:
             official_img_footer:
@@ -374,7 +360,6 @@ ar:
         homepage: الصفحة الرئيسية
         impersonations: التقليد
         newsletters: الرسائل الإخبارية
-        oauth_applications: تطبيقات OAuth
         participants: المشاركون
         scope_types: أنواع النطاق
         scopes: نطاقات
@@ -418,11 +403,6 @@ ar:
             sent_to: أُرسِلت إلى
             subject: موضوع
           name: النشرة الإخبارية
-        oauth_application:
-          fields:
-            created_at: أنشئت في
-            name: اسم
-          name: تطبيق OAuth
         participatory_space_private_user:
           name: المشاركة الفضاء المشارك الخاص
         scope:
@@ -511,25 +491,6 @@ ar:
         update:
           error: حدثت مشكلة أثناء تحديث هذه الرسالة الإخبارية.
           success: تم تحديث النشرة الإخبارية بنجاح. يرجى مراجعته قبل الإرسال.
-      oauth_applications:
-        create:
-          error: حدثت مشكلة أثناء إنشاء هذا التطبيق.
-          success: تم إنشاء التطبيق بنجاح.
-        destroy:
-          error: حدثت مشكلة أثناء تدمير هذا التطبيق.
-          success: تم تدمير التطبيق بنجاح.
-        edit:
-          save: حفظ
-          title: تحرير التطبيق
-        index:
-          confirm_delete: هل أنت متأكد أنك تريد حذف هذا التطبيق؟
-          title: تطبيقات OAuth
-        new:
-          save: حفظ
-          title: تطبيق جديد
-        update:
-          error: حدثت مشكلة أثناء تحديث هذا التطبيق.
-          success: تم تحديث التطبيق بنجاح.
       officializations:
         create:
           success: مشارك رسمي بنجاح

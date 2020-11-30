@@ -3,6 +3,8 @@ nl:
     attributes:
       answer:
         body: Antwoord
+        choices: Keuzes
+        selected_choices: Geselecteerde keuzes
       question:
         max_choices: Maximum aantal keuzes
         question_type: Type
@@ -22,8 +24,8 @@ nl:
       admin:
         models:
           components:
-            description: Omschrijving
-            tos: Servicevoorwaarden
+            description: Beschrijving
+            tos: Gebruiksvoorwaarden
         questionnaires:
           actions:
             back: Terug naar vragen
@@ -72,7 +74,7 @@ nl:
           form:
             add_question: Vraag toevoegen
             add_separator: Scheidingsteken toevoegen
-            already_answered_warning: De vragenlijst is al door enkele gebruikers beantwoord, dus u kunt de vragen niet wijzigen.
+            already_answered_warning: Het formulier is al door sommige gebruikers beantwoord, dus u kunt de vragen niet wijzigen.
             collapse: Alle vragen samenvouwen
             expand: Vouw alle vragen uit
             preview: Voorvertoning
@@ -103,7 +105,7 @@ nl:
             up: Omhoog
           update:
             invalid: Er zijn fouten opgetreden bij het opslaan van de vragenlijst.
-            success: Vragenlijsten succesvol opgeslagen.
+            success: Formulier succesvol opgeslagen.
       errors:
         answer:
           body: Lichaam mag niet leeg zijn
@@ -153,10 +155,10 @@ nl:
           tos_agreement: Door deel te nemen, gaat u akkoord met de Servicevoorwaarden
       step_navigation:
         show:
-          are_you_sure: Deze actie kan niet ongedaan worden gemaakt en u kunt uw antwoorden niet bewerken. Weet je het zeker?
+          are_you_sure: Deze actie kan niet ongedaan gemaakt worden en u kunt uw antwoorden niet wijzigen. Weet u het zeker?
           back: Achterzijde
           continue: Doorgaan
-          submit: voorleggen
+          submit: Verzenden
       user_answers_serializer:
         body: Beantwoorden
         completion: Voltooiing

@@ -28,12 +28,6 @@ is-IS:
       newsletter:
         body: Líkami
         subject: Efni
-      oauth_application:
-        name: Nafn
-        organization_logo: Organization logo (ferningur)
-        organization_name: Nafn samtaka
-        organization_url: Vefslóð stofnunarinnar
-        redirect_uri: Beina URI
       organization:
         alert_color: Viðvörun
         cta_button_path: Hringja til aðgerða hnappaslóð
@@ -62,14 +56,11 @@ is-IS:
         omnipresent_banner_short_description: Stutt lýsing
         omnipresent_banner_title: Titill
         omnipresent_banner_url: URL
-        password: Lykilorð
-        port: Gátt
         primary_color: Aðal
         reference_prefix: Tilvísunarnúmer
         secondary_color: Til vara
         show_statistics: Sýna tölfræði
         twitter_handler: Twitter handler
-        user_name: Notendanafn
         warning_color: Aðvörun
         youtube_handler: YouTube umsjónarmaður
       scope:
@@ -97,12 +88,6 @@ is-IS:
         weight: Þyngd
       user_group_csv_verification:
         file: Skrá
-    errors:
-      models:
-        oauth_application:
-          attributes:
-            redirect_uri:
-              must_be_ssl: Beina URI verður að vera SSL URI
   activerecord:
     attributes:
       decidim/static_page:
@@ -291,7 +276,6 @@ is-IS:
         dashboard: Mælaborð
         impersonations: Impersonations
         newsletters: Fréttabréf
-        oauth_applications: OAuth forrit
         scope_types: Gildissvið
         scopes: Scopes
         settings: Stillingar
@@ -327,11 +311,6 @@ is-IS:
             sent_at: Sent á
             subject: Efni
           name: Fréttabréf
-        oauth_application:
-          fields:
-            created_at: Búið til á
-            name: Nafn
-          name: OAuth umsókn
         scope:
           fields:
             name: Nafn
@@ -397,22 +376,6 @@ is-IS:
           subject: Efni
         update:
           success: Fréttabréf uppfært með góðum árangri. Vinsamlegast skoðaðu það áður en þú sendir það.
-      oauth_applications:
-        create:
-          success: Umsókn búin til með góðum árangri.
-        destroy:
-          success: Umsókn eyðilagt með góðum árangri.
-        edit:
-          save: Vista
-          title: Breyta forritinu
-        index:
-          confirm_delete: Ertu viss um að þú viljir eyða þessu forriti?
-          title: OAuth forrit
-        new:
-          save: Vista
-          title: Ný forrit
-        update:
-          success: Umsókn uppfærð með góðum árangri.
       officializations:
         index:
           actions: Aðgerðir

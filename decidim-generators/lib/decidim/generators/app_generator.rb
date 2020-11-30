@@ -115,7 +115,7 @@ module Decidim
         if current_gem == "decidim"
           gsub_file "Gemfile", /gem "decidim-dev".*/, "gem \"decidim-dev\", #{gem_modifier}"
 
-          %w(conferences consultations elections initiatives).each do |component|
+          %w(conferences consultations elections initiatives templates).each do |component|
             if options[:demo]
               gsub_file "Gemfile", /gem "decidim-#{component}".*/, "gem \"decidim-#{component}\", #{gem_modifier}"
             else
@@ -172,6 +172,15 @@ module Decidim
         gsub_file "config/initializers/decidim.rb",
                   /# config.sms_gateway_service = \"MySMSGatewayService\"/,
                   "config.sms_gateway_service = 'Decidim::Verifications::Sms::ExampleGateway'"
+      end
+
+      def budgets_workflows
+        return unless options[:demo]
+
+        copy_file "budgets_workflow_random.rb", "lib/budgets_workflow_random.rb"
+        copy_file "budgets_workflow_random.en.yml", "config/locales/budgets_workflow_random.en.yml"
+
+        copy_file "budgets_initializer.rb", "config/initializers/decidim_budgets.rb"
       end
 
       def timestamp_service

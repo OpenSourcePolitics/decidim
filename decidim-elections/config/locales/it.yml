@@ -10,11 +10,11 @@ it:
         description: Descrizione
         end_time: La votazione termina il
         start_time: La votazione inizia il
-        subtitle: Sottotitolo
         title: Titolo
       question:
         description: Descrizione
         max_selections: Numero massimo di selezioni
+        min_selections: Nessuna delle precedenti opzioni
         title: Titolo
     errors:
       models:
@@ -135,9 +135,6 @@ it:
         election:
           publish: "%{user_name} ha pubblicato l'elezione %{resource_name}"
           unpublish: "%{user_name} ha rimosso l'elezione %{resource_name}"
-      election_m:
-        footer:
-          take_part: Partecipa
       elections:
         count:
           elections_count:
@@ -174,6 +171,7 @@ it:
           edit: modifica
           header: Conferma il tuo voto
           intro: Ecco un riassunto del voto che stai per lanciare. <br> Per favore conferma il tuo voto o modifica le tue risposte.
+          nota_option: Vuoto
           question: Domanda %{count}
         confirmed:
           back: Torna alle elezioni
@@ -196,8 +194,9 @@ it:
           close: Chiuso
           proposal_header: 'Proposte:'
         new:
-          answer_choices: Puoi selezionare fino a %{choices} risposte o nessuna risposta
+          answer_choices: Puoi selezionare fino a %{choices} risposte
           more_information: Altre informazioni
+          nota_option: Vuoto/ Nessuno dei precedenti
           preview_alert: Questa è un'anteprima della cabina di voto.
           question_steps: Domanda %{current_step} di %{total_steps}
           selections: "%{selected} di %{max_selections}<br> selezioni"

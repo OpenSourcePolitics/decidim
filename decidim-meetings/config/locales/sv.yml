@@ -159,6 +159,10 @@ sv:
         confirm_destroy: Är du säker på att du vill radera detta möte?
         destroy: Radera
         edit: Redigera
+        invalid_destroy:
+          proposals_count:
+            one: 'Mötet kan inte raderas eftersom det finns %{count} relaterat förslag:'
+            other: 'Mötet kan inte raderas eftersom det finns %{count} relaterade förslag:'
         minutes: Anteckningar
         new: Nytt möte
         preview: Förhandsvisa
@@ -218,7 +222,7 @@ sv:
             filter:
               accepted: Accepterad
               all: Allt
-              rejected: Avvisade
+              rejected: Avvisad
               sent: Skickat
             filter_by: Filtrera efter
             invite_attendee: Bjud in deltagare
@@ -237,6 +241,10 @@ sv:
             invalid: Det gick inte att skapa mötet
             success: Möte skapades
           destroy:
+            invalid:
+              proposals_count:
+                one: Mötet kan inte raderas eftersom det finns %{count} relaterat förslag
+                other: Mötet kan inte raderas eftersom det finns %{count} relaterade förslag
             success: Mötet har tagits bort
           edit:
             update: Uppdatera
@@ -383,7 +391,7 @@ sv:
           address_help: 'Adress: som används av Geocoder för att hitta platsen'
           create_as: Skapa möte som
           location_help: 'Plats: meddelande riktat till de användare som antyder platsen att träffas på'
-          location_hints_help: 'Plats tips: ytterligare info. Exempel: golvet i byggnaden'
+          location_hints_help: 'Detaljer om platsen: ytterligare information, som våning i byggnaden'
           select_a_category: Välj en kategori
         index:
           new_meeting: Nytt möte

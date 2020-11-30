@@ -10,15 +10,19 @@ de:
         description: Beschreibung
         end_time: Die Abstimmung endet um
         start_time: Die Abstimmung beginnt um
-        subtitle: Untertitel
         title: Titel
       question:
         description: Beschreibung
         max_selections: Maximale Anzahl von Auswahlen
+        min_selections: Nichts davon
         title: Titel
     errors:
       models:
         answer:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Muss erneut angehängt werden
+        election:
           attributes:
             attachment:
               needs_to_be_reattached: Muss erneut angehängt werden
@@ -69,6 +73,7 @@ de:
             title: Antwort bearbeiten
             update: Antwort aktualisieren
           index:
+            invalid_max_selections: Du benötigst %{missing_answers} weitere Antwort/en, um die Auswahl zu erfüllen
             title: Antworten
           new:
             create: Antwort erstellen
@@ -136,12 +141,21 @@ de:
           publish: "%{user_name} hat die %{resource_name} Wahl veröffentlicht"
           unpublish: "%{user_name} hat die %{resource_name} Wahl zurückgezogen"
       election_m:
+        badge_name:
+          finished: Abgeschlossen
+          ongoing: Aktiv
+          upcoming: Anstehend
+        end_date: Endet
         footer:
-          take_part: Teilnehmen
+          view: Ansicht
+        label:
+          date: Daten
+        questions: Fragen %{count}
+        start_date: Startet
       elections:
         count:
           elections_count:
-            one: "%{count} Wahl"
+            one: "%{count} Wahlen"
             other: "%{count} Wahlen"
         show:
           back: Alle Wahlen
@@ -166,6 +180,10 @@ de:
             answers: Antworten
             max_selections: Maximale Auswahl
             title: Titel
+      orders:
+        label: Wahlen ordnen nach
+        older: Älter
+        recent: Neueste
       votes:
         confirm:
           answer: Antwort
@@ -174,6 +192,7 @@ de:
           edit: bearbeiten
           header: Bestätige deine Stimme
           intro: Hier ist eine Zusammenfassung der Wahl, die Sie abgeben möchten. <br> Bitte bestätigen Sie Ihre Stimme oder bearbeiten Sie Ihre Antworten.
+          nota_option: Leer
           question: Frage %{count}
         confirmed:
           back: Zurück zu den Wahlen
@@ -196,14 +215,18 @@ de:
           close: Schließen
           proposal_header: 'Vorschläge:'
         new:
-          answer_choices: Sie können bis zu %{choices} Antworten oder keine auswählen
+          answer_choices: Sie können bis zu %{choices} Antworten auswählen
           more_information: Weitere Informationen
+          nota_option: Nichts davon
           preview_alert: Dies ist eine Vorschau des Abstimmungsstandes.
           question_steps: Frage %{current_step} von %{total_steps}
           selections: "%{selected} von %{max_selections}<br> ausgewählt"
         voting_step:
           back: Zurück
           continue: Weiter
+      warnings:
+        no_elections_warning: Keine Wahlen entsprechen Ihren Suchkriterien oder es ist keine Wahl geplant.
+        no_scheduled_elections_warning: Derzeit sind keine Wahlen geplant, aber hier finden Sie alle vergangenen Wahlen aufgelistet.
     events:
       elections:
         election_published:
@@ -211,6 +234,10 @@ de:
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{participatory_space_title} folgen. Über den vorherigen Link können Sie die Benachrichtigungen deaktivieren.
           email_subject: Die Wahl %{resource_title} ist jetzt aktiv für %{participatory_space_title}.
           notification_title: Die Wahl <a href="%{resource_path}">%{resource_title}</a> ist jetzt aktiv für %{participatory_space_title}.
+    pages:
+      home:
+        statistics:
+          elections_count: Wahlen
     participatory_processes:
       statistics:
         elections_count: Wahlen

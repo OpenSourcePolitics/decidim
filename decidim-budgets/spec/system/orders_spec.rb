@@ -11,17 +11,18 @@ describe "Orders", type: :system do
   let(:project) { projects.first }
 
   let!(:component) do
-    create(:budget_component,
-           :with_total_budget_and_vote_threshold_percent,
+    create(:budgets_component,
+           :with_vote_threshold_percent,
            manifest: manifest,
            participatory_space: participatory_process)
   end
+  let(:budget) { create :budget, component: component }
 
   context "when the user is not logged in" do
-    let!(:projects) { create_list(:project, 1, component: component, budget: 25_000_000) }
+    let!(:projects) { create_list(:project, 1, budget: budget, budget_amount: 25_000_000) }
 
     it "is given the option to sign in" do
-      visit_component
+      visit_budget
 
       within "#project-#{project.id}-item" do
         page.find(".budget-list__action").click
@@ -32,7 +33,7 @@ describe "Orders", type: :system do
   end
 
   context "when the user is logged in" do
-    let!(:projects) { create_list(:project, 3, component: component, budget: 25_000_000) }
+    let!(:projects) { create_list(:project, 3, budget: budget, budget_amount: 25_000_000) }
 
     before do
       login_as user, scope: :user
@@ -123,7 +124,7 @@ describe "Orders", type: :system do
 
     context "and has not a pending order" do
       before do
-        visit_component
+        visit_budget
       end
 
       context "when voting by percentage threshold" do
@@ -274,7 +275,7 @@ describe "Orders", type: :system do
       end
 
       it "shows a modal dialog" do
-        visit_component
+        visit_budget
 
         within "#project-#{project.id}-item" do
           page.find(".budget-list__action").click
@@ -285,11 +286,11 @@ describe "Orders", type: :system do
     end
 
     context "and has pending order" do
-      let!(:order) { create(:order, user: user, component: component) }
+      let!(:order) { create(:order, user: user, budget: budget) }
       let!(:line_item) { create(:line_item, order: order, project: project) }
 
       it "removes a project from the current order" do
-        visit_component
+        visit_budget
 
         expect(page).to have_content "ASSIGNED: €25,000,000"
 
@@ -309,7 +310,9 @@ describe "Orders", type: :system do
       end
 
       it "is alerted when trying to leave the component before completing" do
-        visit_component
+        budget_projects_path = Decidim::EngineRouter.main_proxy(component).budget_projects_path(budget)
+
+        visit_budget
 
         expect(page).to have_content "ASSIGNED: €25,000,000"
 
@@ -320,14 +323,14 @@ describe "Orders", type: :system do
           page.find(".logo-wrapper a").click
         end
 
-        expect(page).to have_current_path main_component_path(component)
+        expect(page).to have_current_path budget_projects_path
       end
 
       context "and try to vote a project that exceed the total budget" do
-        let!(:expensive_project) { create(:project, component: component, budget: 250_000_000) }
+        let!(:expensive_project) { create(:project, budget: budget, budget_amount: 250_000_000) }
 
         it "cannot add the project" do
-          visit_component
+          visit_budget
 
           within "#project-#{expensive_project.id}-item" do
             page.find(".budget-list__action").click
@@ -440,10 +443,10 @@ describe "Orders", type: :system do
       end
 
       context "and add another project exceeding vote threshold" do
-        let!(:other_project) { create(:project, component: component, budget: 50_000_000) }
+        let!(:other_project) { create(:project, budget: budget, budget_amount: 50_000_000) }
 
         it "can complete the checkout process" do
-          visit_component
+          visit_budget
 
           within "#project-#{other_project.id}-item" do
             page.find(".budget-list__action").click
@@ -471,7 +474,7 @@ describe "Orders", type: :system do
 
       context "when the voting rule is set to threshold percent" do
         before do
-          visit_component
+          visit_budget
         end
 
         it "shows the rule description" do
@@ -489,8 +492,8 @@ describe "Orders", type: :system do
         end
 
         context "when the order total budget exceeds the threshold" do
-          let(:projects) { create_list(:project, 2, component: component, budget: 36_000_000) }
-          let(:order_percent) { create(:order, user: user, component: component) }
+          let(:projects) { create_list(:project, 2, budget: budget, budget_amount: 36_000_000) }
+          let(:order_percent) { create(:order, user: user, budget: budget) }
 
           before do
             order.destroy!
@@ -499,7 +502,7 @@ describe "Orders", type: :system do
           end
 
           it "can vote" do
-            visit_component
+            visit_budget
             within "#order-progress" do
               expect(page).to have_button("Vote", disabled: false)
             end
@@ -513,16 +516,16 @@ describe "Orders", type: :system do
         end
 
         let(:component) do
-          create(:budget_component,
-                 :with_total_budget_and_minimum_budget_projects,
+          create(:budgets_component,
+                 :with_minimum_budget_projects,
                  manifest: manifest,
                  participatory_space: participatory_process)
         end
 
-        let!(:order_min) { create(:order, user: user, component: component) }
+        let!(:order_min) { create(:order, user: user, budget: budget) }
 
         it "shows the rule description" do
-          visit_component
+          visit_budget
 
           within ".card.budget-summary" do
             expect(page).to have_content("Select at least 3 projects you want and vote")
@@ -531,7 +534,7 @@ describe "Orders", type: :system do
 
         context "when the order total budget doesn't reach the minimum" do
           it "cannot vote" do
-            visit_component
+            visit_budget
 
             within "#order-progress" do
               expect(page).to have_button("Vote", disabled: true)
@@ -546,7 +549,7 @@ describe "Orders", type: :system do
           end
 
           it "can vote" do
-            visit_component
+            visit_budget
 
             within "#order-progress" do
               expect(page).to have_button("Vote", disabled: false)
@@ -558,7 +561,7 @@ describe "Orders", type: :system do
 
     context "and has a finished order" do
       let!(:order) do
-        order = create(:order, user: user, component: component)
+        order = create(:order, user: user, budget: budget)
         order.projects = projects
         order.checked_out_at = Time.current
         order.save!
@@ -566,7 +569,7 @@ describe "Orders", type: :system do
       end
 
       it "can cancel the order" do
-        visit_component
+        visit_budget
 
         within ".budget-summary" do
           accept_confirm { page.find(".cancel-order").click }
@@ -584,7 +587,7 @@ describe "Orders", type: :system do
       end
 
       it "is not alerted when trying to leave the component" do
-        visit_component
+        visit_budget
 
         expect(page).to have_content("Budget vote completed")
 
@@ -596,30 +599,29 @@ describe "Orders", type: :system do
 
     context "and votes are disabled" do
       let!(:component) do
-        create(:budget_component,
+        create(:budgets_component,
                :with_votes_disabled,
                manifest: manifest,
                participatory_space: participatory_process)
       end
 
       it "cannot create new orders" do
-        visit_component
+        visit_budget
 
-        expect(page).to have_selector("button.budget-list__action[disabled]", count: 3)
-        expect(page).to have_no_css(".budget-summary")
+        expect(page).to have_no_selector("button.budget-list__action")
       end
     end
 
     context "and show votes are enabled" do
       let!(:component) do
-        create(:budget_component,
+        create(:budgets_component,
                :with_show_votes_enabled,
                manifest: manifest,
                participatory_space: participatory_process)
       end
 
       let!(:order) do
-        order = create(:order, user: user, component: component)
+        order = create(:order, user: user, budget: budget)
         order.projects = projects
         order.checked_out_at = Time.current
         order.save!
@@ -627,11 +629,27 @@ describe "Orders", type: :system do
       end
 
       it "displays the number of votes for a project" do
-        visit_component
+        visit_budget
 
-        within "#project-#{project.id}-item" do
-          expect(page).to have_content("1 support")
+        within "#project-#{project.id}-item .budget-list__number" do
+          expect(page).to have_selector(".project-votes", text: "1 VOTE")
         end
+      end
+    end
+
+    context "and votes are finished" do
+      let!(:component) do
+        create(:budgets_component,
+               :with_voting_finished,
+               manifest: manifest,
+               participatory_space: participatory_process)
+      end
+      let!(:projects) { create_list(:project, 2, :selected, budget: budget, budget_amount: 25_000_000) }
+
+      it "renders selected projects" do
+        visit_budget
+
+        expect(page).to have_selector(".card__text--status.success", count: 2)
       end
     end
   end
@@ -640,9 +658,9 @@ describe "Orders", type: :system do
     it "respects the projects_per_page setting when under total projects" do
       component.update!(settings: { projects_per_page: 1 })
 
-      create_list(:project, 2, component: component)
+      create_list(:project, 2, budget: budget)
 
-      visit_component
+      visit_budget
 
       expect(page).to have_selector("[id^=project-]", count: 1)
     end
@@ -650,9 +668,9 @@ describe "Orders", type: :system do
     it "respects the projects_per_page setting when it matches total projects" do
       component.update!(settings: { projects_per_page: 2 })
 
-      create_list(:project, 2, component: component)
+      create_list(:project, 2, budget: budget)
 
-      visit_component
+      visit_budget
 
       expect(page).to have_selector("[id^=project-]", count: 2)
     end
@@ -660,19 +678,19 @@ describe "Orders", type: :system do
     it "respects the projects_per_page setting when over total projects" do
       component.update!(settings: { projects_per_page: 3 })
 
-      create_list(:project, 2, component: component)
+      create_list(:project, 2, budget: budget)
 
-      visit_component
+      visit_budget
 
       expect(page).to have_selector("[id^=project-]", count: 2)
     end
   end
 
   describe "show" do
-    let!(:project) { create(:project, component: component, budget: 25_000_000) }
+    let!(:project) { create(:project, budget: budget, budget_amount: 25_000_000) }
 
     before do
-      visit resource_locator(project).path
+      visit resource_locator([budget, project]).path
     end
 
     it_behaves_like "has attachments" do
@@ -695,7 +713,7 @@ describe "Orders", type: :system do
       end
 
       it "shows related proposals" do
-        visit_component
+        visit_budget
         click_link translated(project.title)
 
         proposals.each do |proposal|
@@ -705,5 +723,9 @@ describe "Orders", type: :system do
         end
       end
     end
+  end
+
+  def visit_budget
+    page.visit Decidim::EngineRouter.main_proxy(component).budget_projects_path(budget)
   end
 end

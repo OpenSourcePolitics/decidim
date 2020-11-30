@@ -29,14 +29,7 @@ el:
       newsletter:
         body: Σώμα
         subject: Θέμα
-      oauth_application:
-        name: Όνομα
-        organization_logo: Λογότυπο οργανισμού (τετράγωνο)
-        organization_name: Όνομα οργανισμού
-        organization_url: Διεύθυνση URL οργανισμού
-        redirect_uri: URI ανακατεύθυνσης
       organization:
-        address: Όνομα κεντρικού υπολογιστή SMTP
         alert_color: Ειδοποίηση
         badges_enabled: Ενεργοποίηση εμβλημάτων
         comments_max_length: Μέγιστο μέγεθος σχολίων (Αφήστε το 0 για το προκαθορισμένο μέγεθος)
@@ -69,8 +62,6 @@ el:
         omnipresent_banner_short_description: Σύντομη περιγραφή
         omnipresent_banner_title: Τίτλος
         omnipresent_banner_url: Διεύθυνση URL
-        password: Κωδικός πρόσβασης
-        port: Θύρα
         primary_color: Κύρια
         reference_prefix: Πρόθεμα αναφοράς
         rich_text_editor_in_public_views: Ενεργοποίηση προγράμματος επεξεργασίας εμπλουτισμένου κειμένου για τους συμμετέχοντες
@@ -82,7 +73,6 @@ el:
         tos_version: Έκδοση όρων χρήσης υπηρεσίας
         twitter_handler: Πρόγραμμα χειρισμού Twitter
         user_groups_enabled: Ενεργοποίηση ομάδων
-        user_name: Όνομα χρήστη
         warning_color: Προειδοποίηση
         welcome_notification_body: Σώμα ειδοποίησης καλωσορίσματος
         welcome_notification_subject: Θέμα ειδοποίησης καλωσορίσματος
@@ -115,10 +105,6 @@ el:
         file: Αρχείο
     errors:
       models:
-        oauth_application:
-          attributes:
-            redirect_uri:
-              must_be_ssl: Το URI ανακατεύθυνσης πρέπει να είναι ένα URI SSL
         organization:
           attributes:
             official_img_footer:
@@ -390,7 +376,6 @@ el:
         homepage: Αρχική σελίδα
         impersonations: Αναπαραστάσεις
         newsletters: Ενημερωτικά δελτία
-        oauth_applications: Εφαρμογές OAuth
         participants: Συμμετέχοντες
         scope_types: Τύποι πεδίου εφαρμογής
         scopes: Πεδία εφαρμογής
@@ -437,11 +422,6 @@ el:
             sent_to: Στάλθηκε σε
             subject: Θέμα
           name: Ενημερωτικό δελτίο
-        oauth_application:
-          fields:
-            created_at: Δημιουργήθηκε στις
-            name: Όνομα
-          name: Εφαρμογή OAuth
         participatory_space_private_user:
           name: Ιδιωτικός συμμετέχων χώρου συμμετοχής
         scope:
@@ -548,25 +528,6 @@ el:
         update:
           error: Υπήρξε ένα πρόβλημα κατά την ενημέρωση αυτού του ενημερωτικού δελτίου.
           success: Το ενημερωτικό δελτίο ενημερώθηκε με επιτυχία. Ελέγξτε το πριν από την αποστολή.
-      oauth_applications:
-        create:
-          error: Υπήρξε ένα πρόβλημα κατά τη δημιουργία αυτής της αίτησης.
-          success: Η αίτηση δημιουργήθηκε με επιτυχία.
-        destroy:
-          error: Υπήρξε ένα πρόβλημα κατά την καταστροφή αυτής της αίτησης.
-          success: Η αίτηση καταστράφηκε με επιτυχία.
-        edit:
-          save: Αποθήκευση
-          title: Επεξεργασία αίτησης
-        index:
-          confirm_delete: Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτήν την αίτηση;
-          title: Εφαρμογές OAuth
-        new:
-          save: Αποθήκευση
-          title: Νέα αίτηση
-        update:
-          error: Υπήρξε ένα πρόβλημα κατά την ενημέρωση αυτής της αίτησης.
-          success: Η αίτηση ενημερώθηκε με επιτυχία.
       officializations:
         create:
           success: Ο συμμετέχων επισημοποιήθηκε με επιτυχία
@@ -653,7 +614,6 @@ el:
           invalid: Υπήρξε ένα πρόβλημα κατά την ανάγνωση του αρχείου CSV.
           success: Η αποστολή του αρχείου CSV ήταν επιτυχής, στέλνουμε email πρόσκλησης στους συμμετέχοντες. Αυτό μπορεί να διαρκέσει μερικά λεπτά.
         new:
-          explanation: Πραγματοποιήστε αποστολή του αρχείου CSV. Πρέπει να έχει δύο στήλες με το email στην πρώτη στήλη του αρχείου και το όνομα στην τελευταία στήλη του αρχείου (email, όνομα) των χρηστών που θέλετε να προσθέσετε στον χώρο συμμετοχής, χωρίς κεφαλίδες.
           title: Αποστολή του αρχείου σας CSV
           upload: Αποστολή
       resource_permissions:

@@ -16,6 +16,9 @@ if !Rails.env.production? || ENV["SEED"]
     table.tr("_", "/").classify.safe_constantize
   end.compact.each(&:reset_column_information)
 
+  smtp_label = Faker::Twitter.unique.screen_name
+  smtp_email = Faker::Internet.email
+
   organization = Decidim::Organization.first || Decidim::Organization.create!(
     name: Faker::Company.name,
     twitter_handler: Faker::Hipster.word,
@@ -24,7 +27,9 @@ if !Rails.env.production? || ENV["SEED"]
     youtube_handler: Faker::Hipster.word,
     github_handler: Faker::Hipster.word,
     smtp_settings: {
-      from: Faker::Internet.email,
+      from: "#{smtp_label} <#{smtp_email}>",
+      from_email: smtp_email,
+      from_label: smtp_label,
       user_name: Faker::Twitter.unique.screen_name,
       encrypted_password: Decidim::AttributeEncryptor.encrypt(Faker::Internet.password(8)),
       address: ENV["DECIDIM_HOST"] || "localhost",
@@ -42,7 +47,8 @@ if !Rails.env.production? || ENV["SEED"]
     tos_version: Time.current,
     badges_enabled: true,
     user_groups_enabled: true,
-    send_welcome_notification: true
+    send_welcome_notification: true,
+    file_upload_settings: Decidim::OrganizationSettings.default(:upload)
   )
 
   if organization.top_scopes.none?
@@ -188,13 +194,13 @@ if !Rails.env.production? || ENV["SEED"]
   end
 
   Decidim::OAuthApplication.create!(
+    organization: organization,
     name: "Test OAuth application",
     organization_name: "Example organization",
     organization_url: "http://www.example.org",
-    organization_logo: File.new(File.join(seeds_root, "homepage_image.jpg")),
+    organization_logo: File.new(File.join(seeds_root, "homepage_image.jpg")), # Keep after organization
     redirect_uri: "https://www.example.org/oauth/decidim",
-    scopes: "public",
-    organization: organization
+    scopes: "public"
   )
 
   Decidim::System::CreateDefaultContentBlocks.call(organization)
