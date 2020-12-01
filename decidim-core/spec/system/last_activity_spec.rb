@@ -11,6 +11,16 @@ describe "Last activity", type: :system do
       )
     end
   end
+
+  Decidim::HomeActivitySearch.class_eval do
+    def resource_types
+      %w(
+        Decidim::Comments::Comment
+        Decidim::DummyResources::DummyResource
+      )
+    end
+  end
+
   let(:organization) { create(:organization) }
   let(:comment) { create(:comment) }
   let!(:action_log) do
@@ -55,7 +65,7 @@ describe "Last activity", type: :system do
         expect(page).to have_content(comment.commentable.title)
       end
 
-      it "allows filtering by type" do
+      it "allows filtering by type", :slow do
         within ".filters" do
           choose "Comment"
         end
