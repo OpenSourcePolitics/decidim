@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - develop
+      - alt/*
       - master
       - release/*
       - "*-stable"
