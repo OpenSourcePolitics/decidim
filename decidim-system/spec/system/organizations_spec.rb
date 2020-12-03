@@ -18,7 +18,7 @@ describe "Organizations", type: :system do
       end
 
       it "creates a new organization" do
-        fill_in "Name", with: "Citizen Corp"
+        fill_in "organization_name", with: "Citizen Corp"
         fill_in "Host", with: "www.citizen.corp"
         fill_in "Secondary hosts", with: "foo.citizen.corp\n\rbar.citizen.corp"
         fill_in "Reference prefix", with: "CCORP"
@@ -73,7 +73,7 @@ describe "Organizations", type: :system do
       end
 
       it "edits the data" do
-        fill_in "Name", with: "Citizens Rule!"
+        fill_in "organization_name", with: "Citizens Rule!"
         fill_in "Host", with: "www.foo.org"
         fill_in "Secondary hosts", with: "foobar.citizen.corp\n\rbar.citizen.corp"
         choose "Don't allow participants to register, but allow existing participants to login"
