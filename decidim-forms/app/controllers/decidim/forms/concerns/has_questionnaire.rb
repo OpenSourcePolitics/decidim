@@ -115,7 +115,8 @@ module Decidim
           # token is used as a substitute of user_id if unregistered
           def session_token
             id = current_user&.id
-            session_id = request.session[:session_id] if request&.session
+
+            session_id = (request.session.try(:session_id) if request&.session) || request.env["rack.session.record"]&.session_id
 
             return nil unless id || session_id
 
