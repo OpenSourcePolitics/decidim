@@ -25,7 +25,7 @@ module Decidim
 
       it "is not valid" do
         expect(subject).not_to be_valid
-        expect(subject.errors[:slug]).to eq ["has already been taken"]
+        expect(subject.errors[:slug]).to eq ["Taken"]
       end
     end
 
