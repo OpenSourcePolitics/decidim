@@ -75,7 +75,7 @@ describe "Answer a survey", type: :system do
     end
 
     context "and honeypot is filled" do
-      it "fails with spam complain" do
+      it "fails with spam complain", :slow do
         visit_component
         fill_in question.body["en"], with: "My first answer"
         fill_in "honeypot_id", with: "I am a robot"
