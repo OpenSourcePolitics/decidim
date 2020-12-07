@@ -13,6 +13,7 @@ module Decidim
           available_authorizations: ["dummy_authorization_handler"]
         )
       end
+      let(:scope) { create(:scope, organization: organization) }
       let(:current_user) { create(:user, :admin, :confirmed, organization: organization) }
 
       before do
@@ -40,7 +41,8 @@ module Decidim
             handler_name: "dummy_authorization_handler",
             document_number: "1234X",
             postal_code: "12345",
-            birthday: "01/01/1980"
+            birthday: "01/01/1980",
+            scope_id: scope.id
           }
         end
 
@@ -64,8 +66,9 @@ module Decidim
 
             authorization = Decidim::Authorization.last
             expect(authorization.metadata).to include(
-              "document_number" => authorization_params[:document_number],
-              "postal_code" => authorization_params[:postal_code]
+              document_number: authorization_params[:document_number],
+              postal_code: authorization_params[:postal_code],
+              scope_id: authorization_params[:scope_id]
             )
             expect(authorization.user.name).to eq("Patrick Participant")
           end
@@ -152,8 +155,9 @@ module Decidim
 
             authorization = Decidim::Authorization.last
             expect(authorization.metadata).to include(
-              "document_number" => authorization_params[:document_number],
-              "postal_code" => authorization_params[:postal_code]
+              document_number: authorization_params[:document_number],
+              postal_code: authorization_params[:postal_code],
+              scope_id: authorization_params[:scope_id]
             )
           end
         end

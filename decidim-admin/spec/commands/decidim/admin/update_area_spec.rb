@@ -13,6 +13,7 @@ module Decidim::Admin
     let(:area_type) { create :area_type, organization: organization }
     let(:color) { "#efaa4d" }
     let(:logo) { Decidim::Dev.test_file("icon.png", "image/png") }
+    let(:remove_logo) { false }
 
     let(:form) do
       double(
@@ -21,7 +22,8 @@ module Decidim::Admin
         name: name,
         area_type: area_type,
         color: color,
-        logo: logo
+        logo: logo,
+        remove_logo: remove_logo
       )
     end
     let(:invalid) { false }
@@ -53,7 +55,7 @@ module Decidim::Admin
       end
 
       it "updates the area logo" do
-        expect(area.logo).to eq(logo)
+        expect(area.logo.file.file).to end_with(logo.original_filename)
       end
 
       it "traces the action", versioning: true do
