@@ -9,10 +9,11 @@ module Decidim
 
       let(:organization) do
         create(
-          :organization,
-          available_authorizations: ["dummy_authorization_handler"]
+            :organization,
+            available_authorizations: ["dummy_authorization_handler"]
         )
       end
+      let(:scope) { create(:scope, organization: organization) }
       let(:current_user) { create(:user, :admin, :confirmed, organization: organization) }
 
       before do
@@ -27,8 +28,8 @@ module Decidim
 
             authorization = Decidim::Authorization.last
             expect(Decidim::ImpersonationLog.where(
-              admin: current_user,
-              user: authorization.user
+                admin: current_user,
+                user: authorization.user
             ).count).to be(1)
             expect(flash[:notice]).to be_present
             expect(subject).to redirect_to("/")
@@ -37,10 +38,11 @@ module Decidim
 
         let(:authorization_params) do
           {
-            handler_name: "dummy_authorization_handler",
-            document_number: "1234X",
-            postal_code: "12345",
-            birthday: "01/01/1980"
+              handler_name: "dummy_authorization_handler",
+              document_number: "1234X",
+              postal_code: "12345",
+              birthday: "01/01/1980",
+              scope_id: scope.id
           }
         end
 
@@ -48,11 +50,11 @@ module Decidim
 
         let(:params) do
           {
-            impersonatable_user_id: "new_managed_user",
-            impersonate_user: {
-              name: managed_user_name,
-              authorization: authorization_params
-            }
+              impersonatable_user_id: "new_managed_user",
+              impersonate_user: {
+                  name: managed_user_name,
+                  authorization: authorization_params
+              }
           }
         end
 
@@ -64,9 +66,10 @@ module Decidim
 
             authorization = Decidim::Authorization.last
             expect(authorization.metadata).to include(
-              "document_number" => authorization_params[:document_number],
-              "postal_code" => authorization_params[:postal_code]
-            )
+                                                  document_number: authorization_params[:document_number],
+                                                  postal_code: authorization_params[:postal_code],
+                                                  scope_id: authorization_params[:scope_id]
+                                              )
             expect(authorization.user.name).to eq("Patrick Participant")
           end
         end
@@ -74,9 +77,9 @@ module Decidim
         context "with existing user with the same name" do
           before do
             create(
-              :user,
-              organization: organization,
-              name: managed_user_name
+                :user,
+                organization: organization,
+                name: managed_user_name
             )
           end
 
@@ -87,10 +90,10 @@ module Decidim
 
             expect(Decidim::User.where(name: managed_user_name).count).to eq(2)
             expect(
-              Decidim::User.where(
-                name: managed_user_name,
-                managed: true
-              ).count
+                Decidim::User.where(
+                    name: managed_user_name,
+                    managed: true
+                ).count
             ).to eq(1)
           end
         end
@@ -98,10 +101,10 @@ module Decidim
         context "with existing managed user with the same name" do
           before do
             create(
-              :user,
-              :managed,
-              organization: organization,
-              name: managed_user_name
+                :user,
+                :managed,
+                organization: organization,
+                name: managed_user_name
             )
           end
 
@@ -111,10 +114,10 @@ module Decidim
             post :create, params: params
 
             expect(
-              Decidim::User.where(
-                name: managed_user_name,
-                managed: true
-              ).count
+                Decidim::User.where(
+                    name: managed_user_name,
+                    managed: true
+                ).count
             ).to eq(2)
           end
         end
@@ -122,19 +125,19 @@ module Decidim
         context "with existing managed user with the same identity" do
           before do
             user = create(
-              :user,
-              :managed,
-              organization: organization,
-              name: managed_user_name
+                :user,
+                :managed,
+                organization: organization,
+                name: managed_user_name
             )
             Decidim::Authorization.create!(
-              user: user,
-              name: authorization_params[:handler_name],
-              unique_id: authorization_params[:document_number],
-              metadata: {
-                document_number: "9999X",
-                postal_code: "99999"
-              }
+                user: user,
+                name: authorization_params[:handler_name],
+                unique_id: authorization_params[:document_number],
+                metadata: {
+                    document_number: "9999X",
+                    postal_code: "99999"
+                }
             )
           end
 
@@ -144,35 +147,36 @@ module Decidim
             post :create, params: params
 
             expect(
-              Decidim::User.where(
-                name: managed_user_name,
-                managed: true
-              ).count
+                Decidim::User.where(
+                    name: managed_user_name,
+                    managed: true
+                ).count
             ).to eq(1)
 
             authorization = Decidim::Authorization.last
             expect(authorization.metadata).to include(
-              "document_number" => authorization_params[:document_number],
-              "postal_code" => authorization_params[:postal_code]
-            )
+                                                  document_number: authorization_params[:document_number],
+                                                  postal_code: authorization_params[:postal_code],
+                                                  scope_id: authorization_params[:scope_id]
+                                              )
           end
         end
 
         context "with existing non-managed user with the same identity" do
           before do
             user = create(
-              :user,
-              organization: organization,
-              name: managed_user_name
+                :user,
+                organization: organization,
+                name: managed_user_name
             )
             Decidim::Authorization.create!(
-              user: user,
-              name: authorization_params[:handler_name],
-              unique_id: authorization_params[:document_number],
-              metadata: {
-                document_number: authorization_params[:document_number],
-                postal_code: "99999"
-              }
+                user: user,
+                name: authorization_params[:handler_name],
+                unique_id: authorization_params[:document_number],
+                metadata: {
+                    document_number: authorization_params[:document_number],
+                    postal_code: "99999"
+                }
             )
           end
 
@@ -180,10 +184,10 @@ module Decidim
             post :create, params: params
 
             expect(
-              Decidim::User.where(
-                name: managed_user_name,
-                managed: true
-              ).count
+                Decidim::User.where(
+                    name: managed_user_name,
+                    managed: true
+                ).count
             ).to eq(0)
 
             expect(flash[:alert]).to be_present
