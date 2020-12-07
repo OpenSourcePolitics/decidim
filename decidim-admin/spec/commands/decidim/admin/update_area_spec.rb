@@ -17,13 +17,13 @@ module Decidim::Admin
 
     let(:form) do
       double(
-          invalid?: invalid,
-          current_user: user,
-          name: name,
-          area_type: area_type,
-          color: color,
-          logo: logo,
-          remove_logo: remove_logo
+        invalid?: invalid,
+        current_user: user,
+        name: name,
+        area_type: area_type,
+        color: color,
+        logo: logo,
+        remove_logo: remove_logo
       )
     end
     let(:invalid) { false }
@@ -60,9 +60,9 @@ module Decidim::Admin
 
       it "traces the action", versioning: true do
         expect(Decidim.traceability)
-            .to receive(:update!)
-                    .with(area, user, hash_including(:name, :area_type, :color, :logo))
-                    .and_call_original
+          .to receive(:update!)
+          .with(area, user, hash_including(:name, :area_type, :color, :logo))
+          .and_call_original
 
         expect { subject.call }.to change(Decidim::ActionLog, :count)
         action_log = Decidim::ActionLog.last
