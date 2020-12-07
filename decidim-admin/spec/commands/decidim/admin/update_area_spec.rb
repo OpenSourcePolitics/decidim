@@ -13,15 +13,17 @@ module Decidim::Admin
     let(:area_type) { create :area_type, organization: organization }
     let(:color) { "#efaa4d" }
     let(:logo) { Decidim::Dev.test_file("icon.png", "image/png") }
+    let(:remove_logo) { false }
 
     let(:form) do
       double(
-        invalid?: invalid,
-        current_user: user,
-        name: name,
-        area_type: area_type,
-        color: color,
-        logo: logo
+          invalid?: invalid,
+          current_user: user,
+          name: name,
+          area_type: area_type,
+          color: color,
+          logo: logo,
+          remove_logo: remove_logo
       )
     end
     let(:invalid) { false }
@@ -53,14 +55,14 @@ module Decidim::Admin
       end
 
       it "updates the area logo" do
-        expect(area.logo).to eq(logo)
+        expect(area.logo.file.file).to end_with(logo.original_filename)
       end
 
       it "traces the action", versioning: true do
         expect(Decidim.traceability)
-          .to receive(:update!)
-          .with(area, user, hash_including(:name, :area_type, :color, :logo))
-          .and_call_original
+            .to receive(:update!)
+                    .with(area, user, hash_including(:name, :area_type, :color, :logo))
+                    .and_call_original
 
         expect { subject.call }.to change(Decidim::ActionLog, :count)
         action_log = Decidim::ActionLog.last
