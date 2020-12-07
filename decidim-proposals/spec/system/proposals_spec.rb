@@ -501,7 +501,7 @@ describe "Proposals", type: :system do
       let!(:older_proposal) { create(:proposal, component: component, created_at: 1.month.ago) }
       let!(:recent_proposal) { create(:proposal, component: component) }
 
-      it_behaves_like "ordering proposals by selected option", "Recent" do
+      it_behaves_like "ordering proposals by selected option", "Recent", :slow do
         let(:first_proposal) { recent_proposal }
         let(:last_proposal) { older_proposal }
       end
