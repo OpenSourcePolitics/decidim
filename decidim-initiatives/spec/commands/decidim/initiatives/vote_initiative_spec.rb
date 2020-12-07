@@ -69,6 +69,17 @@ module Decidim
           command.call
         end
 
+        it "sends notification with email" do
+          follower = create(:user, organization: initiative.organization)
+          create(:follow, followable: initiative.author, user: follower)
+
+          expect do
+            perform_enqueued_jobs { command.call }
+          end.to change(emails, :count).by(2)
+
+          expect(last_email_body).to include("has endorsed the following initiative")
+        end
+
         context "when a new milestone is completed" do
           let(:initiative) do
             create(:initiative,
@@ -80,15 +91,15 @@ module Decidim
                    ))
           end
 
+          let!(:follower) { create(:user, organization: initiative.organization) }
+          let!(:follow) { create(:follow, followable: initiative, user: follower) }
+
           before do
             create(:initiative_user_vote, initiative: initiative)
             create(:initiative_user_vote, initiative: initiative)
           end
 
           it "notifies the followers" do
-            follower = create(:user, organization: initiative.organization)
-            create(:follow, followable: initiative, user: follower)
-
             expect(Decidim::EventsManager).to receive(:publish)
               .with(kind_of(Hash))
 
@@ -105,13 +116,40 @@ module Decidim
 
             command.call
           end
+
+          it "sends notification with email" do
+            expect do
+              perform_enqueued_jobs { command.call }
+            end.to change(emails, :count).by(3)
+
+            expect(last_email_body).to include("has achieved the 75% of signatures")
+          end
         end
 
         context "when support threshold is reached" do
-          shared_examples_for "notifies the admins" do
+          shared_examples_for "when support threshold is reached with state" do |state|
+            let!(:admin) { create(:user, :admin, :confirmed, organization: organization) }
+            let(:initiative) do
+              create(:initiative,
+                     state.to_sym,
+                     organization: organization,
+
+                     scoped_type: create(
+                       :initiatives_type_scope,
+                       supports_required: 4,
+                       type: create(:initiatives_type, organization: organization)
+                     ))
+            end
+
+            before do
+              create(:initiative_user_vote, initiative: initiative)
+              create(:initiative_user_vote, initiative: initiative)
+              create(:initiative_user_vote, initiative: initiative)
+            end
+
             it "notifies the admins" do
               expect(Decidim::EventsManager).to receive(:publish)
-                .with(kind_of(Hash))
+                .with(kind_of(Hash)).twice
 
               expect(Decidim::EventsManager)
                 .to receive(:publish)
@@ -124,65 +162,43 @@ module Decidim
 
               command.call
             end
-          end
 
-          let(:admin) { create(:user, :admin, :confirmed, organization: organization) }
-          let(:initiative) do
-            create(:initiative,
-                   organization: organization,
-                   scoped_type: create(
-                     :initiatives_type_scope,
-                     supports_required: 4,
-                     type: create(:initiatives_type, organization: organization)
-                   ))
-          end
+            it "sends notification with email" do
+              expect do
+                perform_enqueued_jobs { command.call }
+              end.to change(emails, :count).by(3)
 
-          before do
-            create(:initiative_user_vote, initiative: initiative)
-            create(:initiative_user_vote, initiative: initiative)
-            create(:initiative_user_vote, initiative: initiative)
-            create(:initiative_user_vote, initiative: initiative)
-          end
-
-          it_behaves_like "notifies the admins"
-
-          context "when notifications is examinated" do
-            let(:initiative) do
-              create(:initiative,
-                     :examinated,
-                     organization: organization,
-                     scoped_type: create(
-                       :initiatives_type_scope,
-                       supports_required: 1,
-                       type: create(:initiatives_type, organization: organization)
-                     ))
+              expect(last_email_body).to include("has reached the support threshold")
             end
 
-            before do
-              create(:initiative_user_vote, initiative: initiative)
-            end
+            context "when more votes are added" do
+              before do
+                create(:initiative_user_vote, initiative: initiative)
+              end
 
-            it_behaves_like "notifies the admins"
+              it "doesn't notifies the admins" do
+                expect(Decidim::EventsManager).to receive(:publish)
+                  .with(kind_of(Hash)).once
+
+                expect(Decidim::EventsManager)
+                  .not_to receive(:publish)
+                  .with(
+                    event: "decidim.events.initiatives.support_threshold_reached",
+                    event_class: Decidim::Initiatives::Admin::SupportThresholdReachedEvent,
+                    resource: initiative,
+                    followers: [admin]
+                  )
+
+                expect do
+                  perform_enqueued_jobs { command.call }
+                end.to change(emails, :count).by(1)
+              end
+            end
           end
 
-          context "when notifications is debatted" do
-            let(:initiative) do
-              create(:initiative,
-                     :debatted,
-                     organization: organization,
-                     scoped_type: create(
-                       :initiatives_type_scope,
-                       supports_required: 1,
-                       type: create(:initiatives_type, organization: organization)
-                     ))
-            end
-
-            before do
-              create(:initiative_user_vote, initiative: initiative)
-            end
-
-            it_behaves_like "notifies the admins"
-          end
+          it_behaves_like "when support threshold is reached with state", "published"
+          it_behaves_like "when support threshold is reached with state", "examinated"
+          it_behaves_like "when support threshold is reached with state", "debatted"
         end
 
         context "when initiative type requires extra user fields" do
@@ -204,17 +220,6 @@ module Decidim
             expect { invalid_command.call }.to broadcast :invalid
           end
 
-          it "broadcasts ok when form contains personal data" do
-            expect { command_with_personal_data.call }.to broadcast :ok
-          end
-
-          it "stores encrypted user personal data in vote" do
-            command_with_personal_data.call
-            vote = InitiativesVote.last
-            expect(vote.encrypted_metadata).to be_present
-            expect(vote.decrypted_metadata).to eq personal_data_params
-          end
-
           context "when another signature exists with the same hash_id" do
             before do
               create(:initiative_user_vote, initiative: initiative, hash_id: form_with_personal_data.hash_id)
@@ -228,7 +233,12 @@ module Decidim
           context "when initiative type has document number authorization handler" do
             let(:handler_name) { "dummy_authorization_handler" }
             let(:unique_id) { "test_digest" }
-            let(:metadata) { { test: "dummy" } }
+            let(:metadata) do
+              {
+                test: "dummy",
+                scope_id: initiative.scoped_type.scope.id
+              }
+            end
             let!(:authorization_handler) { Decidim::AuthorizationHandler.handler_for(handler_name) }
 
             before do
@@ -253,6 +263,13 @@ module Decidim
               context "when authorization unique_id and metadata are coincident with handler" do
                 it "broadcasts ok" do
                   expect { command_with_personal_data.call }.to broadcast :ok
+                end
+
+                it "stores encrypted user personal data in vote" do
+                  command_with_personal_data.call
+                  vote = InitiativesVote.last
+                  expect(vote.encrypted_metadata).to be_present
+                  expect(vote.decrypted_metadata).to eq personal_data_params
                 end
               end
 

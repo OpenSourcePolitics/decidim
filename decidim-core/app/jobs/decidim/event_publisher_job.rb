@@ -54,6 +54,7 @@ module Decidim
 
     def component
       return resource.component if resource.is_a?(Decidim::HasComponent)
+
       resource if resource.is_a?(Decidim::Component)
     end
 
