@@ -20,6 +20,7 @@ module Decidim
     validates :provider, presence: true
     validates :uid, presence: true
 
+    # TODO: Fix email uniqueness when using FC connect
     # validate :email, :email_is_unique, unless: -> { email.blank? }
 
     def self.create_signature(provider, uid)
