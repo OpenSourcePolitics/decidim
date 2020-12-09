@@ -46,7 +46,7 @@ describe "Initiative widget", type: :system do
     let(:initiative) { create(:initiative, :published, organization: organization) }
 
     it "displays the iframe" do
-      expect(page).to have_content(initiative.title)
+      expect(page).to have_content(translated(initiative.title))
     end
   end
 
@@ -54,7 +54,7 @@ describe "Initiative widget", type: :system do
     let(:initiative) { create(:initiative, :accepted, organization: organization) }
 
     it "displays the iframe" do
-      expect(page).to have_content(initiative.title)
+      expect(page).to have_content(translated(initiative.title))
     end
   end
 
@@ -62,7 +62,7 @@ describe "Initiative widget", type: :system do
     let(:initiative) { create(:initiative, :rejected, organization: organization) }
 
     it "displays the iframe" do
-      expect(page).to have_content(initiative.title)
+      expect(page).to have_content(translated(initiative.title))
     end
   end
 end
