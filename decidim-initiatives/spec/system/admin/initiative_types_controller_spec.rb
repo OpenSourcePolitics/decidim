@@ -4,7 +4,7 @@ require "spec_helper"
 
 describe "InitiativeTypesController", type: :system do
   let(:organization) { create(:organization) }
-  let(:initiatives_type) { create(:initiatives_type, :online_signature_enabled, :undo_online_signatures_enabled, :custom_signature_end_date_disabled, organization: organization) }
+  let(:user) { create(:user, :admin, :confirmed, organization: organization) }
 
   before do
     switch_to_host(organization.host)
@@ -16,7 +16,6 @@ describe "InitiativeTypesController", type: :system do
 
     it "Shows the initiative type data" do
       visit decidim_admin_initiatives.initiatives_types_path
-
       expect(page).to have_i18n_content(initiative_type.title)
     end
   end
@@ -27,15 +26,15 @@ describe "InitiativeTypesController", type: :system do
       click_link "New initiative type"
 
       fill_in_i18n(
-        :initiatives_type_title,
-        "#initiatives_type-title-tabs",
-        en: "My initiative type"
+          :initiatives_type_title,
+          "#initiatives_type-title-tabs",
+          en: "My initiative type"
       )
 
       fill_in_i18n_editor(
-        :initiatives_type_description,
-        "#initiatives_type-description-tabs",
-        en: "A longer description"
+          :initiatives_type_description,
+          "#initiatives_type-description-tabs",
+          en: "A longer description"
       )
 
       select("Online", from: "Signature type")
@@ -65,12 +64,12 @@ describe "InitiativeTypesController", type: :system do
       visit decidim_admin_initiatives.edit_initiatives_type_path(initiatives_type)
 
       fill_in_i18n(
-        :initiatives_type_title,
-        "#initiatives_type-title-tabs",
-        en: "My updated initiative type"
+          :initiatives_type_title,
+          "#initiatives_type-title-tabs",
+          en: "My updated initiative type"
       )
 
-      select("In-person", from: "Signature type")
+      select("Mixed", from: "Signature type")
       check "Enable attachments"
       uncheck "Enable participants to undo their online signatures"
       check "Enable authors to choose the end of signature collection period"
