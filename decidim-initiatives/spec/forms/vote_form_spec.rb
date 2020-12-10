@@ -19,11 +19,11 @@ module Decidim
       let!(:neighbourhood_4) { create(:subscope, parent: district_2) }
       let!(:initiative_type) do
         create(
-          :initiatives_type,
-          organization: organization,
-          document_number_authorization_handler: document_number_authorization_handler,
-          child_scope_threshold_enabled: child_scope_threshold_enabled,
-          collect_user_extra_fields: collect_user_extra_fields
+            :initiatives_type,
+            organization: organization,
+            document_number_authorization_handler: document_number_authorization_handler,
+            child_scope_threshold_enabled: child_scope_threshold_enabled,
+            collect_user_extra_fields: collect_user_extra_fields
         )
       end
       let!(:global_initiative_type_scope) { create(:initiatives_type_scope, scope: nil, type: initiative_type) }
@@ -35,12 +35,12 @@ module Decidim
       let!(:neighbourhood_3_initiative_type_scope) { create(:initiatives_type_scope, scope: neighbourhood_3, type: initiative_type) }
       let!(:authorization) do
         create(
-          :authorization,
-          :granted,
-          name: "dummy_authorization_handler",
-          user: current_user,
-          unique_id: document_number,
-          metadata: { document_number: document_number, postal_code: postal_code, scope_id: user_scope.id }
+            :authorization,
+            :granted,
+            name: "dummy_authorization_handler",
+            user: current_user,
+            unique_id: document_number,
+            metadata: { document_number: document_number, postal_code: postal_code, scope_id: user_scope.id }
         )
       end
       let(:user_scope) { district_1 }
@@ -48,9 +48,9 @@ module Decidim
 
       let(:initiative) do
         create(
-          :initiative,
-          organization: organization,
-          scoped_type: scoped_type
+            :initiative,
+            organization: organization,
+            scoped_type: scoped_type
         )
       end
       let(:document_number_authorization_handler) { "dummy_authorization_handler" }
@@ -64,15 +64,15 @@ module Decidim
       let(:resident) { true }
       let(:personal_data) do
         {
-          user_scope_id: user_scope.id,
-          resident: resident
+            user_scope_id: user_scope.id,
+            resident: resident
         }
       end
 
       let(:vote_attributes) do
         {
-          initiative: initiative,
-          signer: current_user
+            initiative: initiative,
+            signer: current_user
         }
       end
       let(:attributes) { personal_data.merge(vote_attributes) }

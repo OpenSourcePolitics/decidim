@@ -93,11 +93,11 @@ FactoryBot.define do
     force_users_to_authenticate_before_access_organization { false }
     smtp_settings do
       {
-        "from" => "test@example.org",
-        "user_name" => "test",
-        "encrypted_password" => Decidim::AttributeEncryptor.encrypt("demo"),
-        "port" => "25",
-        "address" => "smtp.example.org"
+          "from" => "test@example.org",
+          "user_name" => "test",
+          "encrypted_password" => Decidim::AttributeEncryptor.encrypt("demo"),
+          "port" => "25",
+          "address" => "smtp.example.org"
       }
     end
 
@@ -203,10 +203,10 @@ FactoryBot.define do
 
     after(:build) do |user_group, evaluator|
       user_group.extended_data = {
-        document_number: evaluator.document_number,
-        phone: evaluator.phone,
-        rejected_at: evaluator.rejected_at,
-        verified_at: evaluator.verified_at
+          document_number: evaluator.document_number,
+          phone: evaluator.phone,
+          rejected_at: evaluator.rejected_at,
+          verified_at: evaluator.verified_at
       }
     end
 
@@ -239,6 +239,7 @@ FactoryBot.define do
   factory :authorization, class: "Decidim::Authorization" do
     sequence(:name) { |n| "dummy_authorization_#{n}" }
     user
+    unique_id { "default" }
     metadata { {} }
     granted
 
@@ -323,20 +324,20 @@ FactoryBot.define do
     published_at { Time.current }
     settings do
       {
-        dummy_global_translatable_text: generate_localized_title
+          dummy_global_translatable_text: generate_localized_title
       }
     end
 
     default_step_settings do
       {
-        dummy_step_translatable_text: generate_localized_title
+          dummy_step_translatable_text: generate_localized_title
       }
     end
 
     trait :with_one_step do
       step_settings do
         {
-          1 => { dummy_step_setting: true }
+            1 => { dummy_step_setting: true }
         }
       end
     end
@@ -352,7 +353,7 @@ FactoryBot.define do
     trait :with_amendments_enabled do
       settings do
         {
-          amendments_enabled: true
+            amendments_enabled: true
         }
       end
     end
@@ -376,7 +377,7 @@ FactoryBot.define do
       step_settings do
         participatory_space_with_steps if participatory_space.active_step.nil?
         {
-          participatory_space.active_step.id => { endorsements_enabled: true }
+            participatory_space.active_step.id => { endorsements_enabled: true }
         }
       end
     end
@@ -385,7 +386,7 @@ FactoryBot.define do
       step_settings do
         participatory_space_with_steps if participatory_space.active_step.nil?
         {
-          participatory_space.active_step.id => { endorsements_enabled: false }
+            participatory_space.active_step.id => { endorsements_enabled: false }
         }
       end
     end
@@ -394,7 +395,7 @@ FactoryBot.define do
       step_settings do
         participatory_space_with_steps if participatory_space.active_step.nil?
         {
-          participatory_space.active_step.id => { endorsements_blocked: true }
+            participatory_space.active_step.id => { endorsements_blocked: true }
         }
       end
     end
@@ -517,8 +518,8 @@ FactoryBot.define do
   factory :follow, class: "Decidim::Follow" do
     user do
       build(
-        :user,
-        organization: followable.try(:organization) || build(:organization)
+          :user,
+          organization: followable.try(:organization) || build(:organization)
       )
     end
     followable { build(:dummy_resource) }
@@ -527,8 +528,8 @@ FactoryBot.define do
   factory :notification, class: "Decidim::Notification" do
     user do
       build(
-        :user,
-        organization: resource.try(:organization) || build(:organization)
+          :user,
+          organization: resource.try(:organization) || build(:organization)
       )
     end
     resource { build(:dummy_resource) }
@@ -536,7 +537,7 @@ FactoryBot.define do
     event_class { "Decidim::DummyResourceEvent" }
     extra do
       {
-        some_extra_data: "1"
+          some_extra_data: "1"
       }
     end
   end
@@ -555,22 +556,22 @@ FactoryBot.define do
     visibility { "admin-only" }
     extra do
       {
-        component: {
-          manifest_name: component.try(:manifest_name),
-          title: component.try(:name) || component.try(:title)
-        }.compact,
-        participatory_space: {
-          manifest_name: participatory_space.try(:class).try(:participatory_space_manifest).try(:name),
-          title: participatory_space.try(:name) || participatory_space.try(:title)
-        }.compact,
-        resource: {
-          title: resource.try(:name) || resource.try(:title)
-        }.compact,
-        user: {
-          ip: user.try(:current_sign_in_ip),
-          name: user.try(:name),
-          nickname: user.try(:nickname)
-        }.compact
+          component: {
+              manifest_name: component.try(:manifest_name),
+              title: component.try(:name) || component.try(:title)
+          }.compact,
+          participatory_space: {
+              manifest_name: participatory_space.try(:class).try(:participatory_space_manifest).try(:name),
+              title: participatory_space.try(:name) || participatory_space.try(:title)
+          }.compact,
+          resource: {
+              title: resource.try(:name) || resource.try(:title)
+          }.compact,
+          user: {
+              ip: user.try(:current_sign_in_ip),
+              name: user.try(:name),
+              nickname: user.try(:nickname)
+          }.compact
       }.deep_merge(extra_data)
     end
   end
