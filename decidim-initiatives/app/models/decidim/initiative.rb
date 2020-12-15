@@ -75,6 +75,7 @@ module Decidim
         .or(currently_unsignable)
     }
     scope :with_state, ->(state) { where(state: state) if state.present? }
+    scope :with_states, ->(states) { where(state: states) if states.present? }
 
     scope :currently_signable, lambda {
       where("signature_start_date <= ?", Date.current)

@@ -1,4 +1,5 @@
 ---
+
 en:
   activemodel:
     attributes:
@@ -202,6 +203,8 @@ en:
             revoke: Revoke
             title: Committee members
         content_blocks:
+          answered_initiatives:
+            max_results: Maximum amount of elements to show
           highlighted_initiatives:
             max_results: Maximum amount of elements to show
         exports:
@@ -315,6 +318,8 @@ en:
         spawn:
           success: Your request has been sent to the initiative author.
       content_blocks:
+        answered_initiatives:
+          name: Answered initiatives
         highlighted_initiatives:
           name: Highlighted initiatives
       create_initiative:
@@ -504,6 +509,9 @@ en:
         new_initiative: New initiative
       pages:
         home:
+          answered_initiatives:
+            active_initiatives: Answered initiatives
+            see_all_initiatives: See all initiatives
           highlighted_initiatives:
             active_initiatives: Active initiatives
             see_all_initiatives: See all initiatives
