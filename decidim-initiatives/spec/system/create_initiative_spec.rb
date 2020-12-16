@@ -221,6 +221,21 @@ describe "Initiative", type: :system do
               expect(page).to have_content("End of signature collection period")
             end
           end
+
+          context "when the initiative type does not enable area" do
+            it "does not show the area" do
+              expect(page).not_to have_content("Area")
+            end
+          end
+
+          context "when the initiative type enables area" do
+            let(:initiative_type) { create(:initiatives_type, :area_enabled, organization: organization, minimum_committee_members: initiative_type_minimum_committee_members, signature_type: "offline") }
+
+            it "shows the area" do
+              # Update test according to commit : 4e180fdf2b7c1a9994dbbaf185646777f3735d21
+              expect(page).not_to have_content("Area")
+            end
+          end
         end
 
         context "when there is only one initiative type" do
@@ -235,20 +250,6 @@ describe "Initiative", type: :system do
           it "have no 'Initiative type' grey field" do
             expect(page).not_to have_content("Initiative type")
             expect(page).not_to have_css("#type_description")
-          end
-        end
-
-        context "when the initiative type does not enable area" do
-          it "does not show the area" do
-            expect(page).not_to have_content("Area")
-          end
-        end
-
-        context "when the initiative type enables area" do
-          let(:initiative_type) { create(:initiatives_type, :area_enabled, organization: organization, minimum_committee_members: initiative_type_minimum_committee_members, signature_type: "offline") }
-
-          it "shows the area" do
-            expect(page).to have_content("Area")
           end
         end
       end
