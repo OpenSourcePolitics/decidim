@@ -6,7 +6,8 @@ describe Decidim::Initiatives::Permissions do
   subject { described_class.new(user, permission_action, context).permissions.allowed? }
 
   let(:user) { create :user, organization: organization }
-  let(:organization) { create :organization }
+  let(:organization) { create(:organization, available_authorizations: authorizations) }
+  let(:authorizations) { %w(dummy_authorization_handler another_dummy_authorization_handler) }
   let(:initiative) { create :initiative, organization: organization }
   let(:context) { {} }
   let(:permission_action) { Decidim::PermissionAction.new(action) }
@@ -207,6 +208,18 @@ describe Decidim::Initiatives::Permissions do
 
       it { is_expected.to eq false }
 
+      context "and organization has no available authorizations" do
+        let(:organization) { create(:organization, available_authorizations: []) }
+
+        before do
+          allow(Decidim::Initiatives)
+            .to receive(:creation_enabled)
+            .and_return(true)
+        end
+
+        it { is_expected.to eq true }
+      end
+
       context "when authorizations are not required" do
         before do
           allow(Decidim::Initiatives)
@@ -218,6 +231,8 @@ describe Decidim::Initiatives::Permissions do
       end
 
       context "when user is authorized" do
+        let!(:initiatives_type) { create(:initiatives_type, organization: organization) }
+
         before do
           create :authorization, :granted, user: user
         end
@@ -270,7 +285,9 @@ describe Decidim::Initiatives::Permissions do
       context "when user is not a member" do
         let(:initiative) { create :initiative, :discarded, organization: organization }
 
-        it { is_expected.to eq false }
+        it "restricts join committee request on creation" do
+          expect(subject).to be_truthy
+        end
 
         context "when authorizations are not required" do
           before do
