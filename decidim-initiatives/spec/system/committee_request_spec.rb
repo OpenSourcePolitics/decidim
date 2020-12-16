@@ -40,9 +40,10 @@ describe "Decidim::Initiatives::CommitteeRequestController", type: :system do
         login_as user, scope: :user
       end
 
-      it "are not allowed to request membership" do
+      it "are allowed to request membership" do
         visit decidim_initiatives.new_initiative_committee_request_path(initiative.to_param)
-        expect(page).to have_content("You are not authorized to perform this action")
+        expect(page).to have_content("You are about to request becoming a member of the promoter committee of this initiative")
+        expect(page).not_to have_content("You are not authorized to perform this action")
       end
     end
 
