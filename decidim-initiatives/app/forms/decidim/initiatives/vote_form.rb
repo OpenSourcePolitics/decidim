@@ -39,7 +39,7 @@ module Decidim
       def encrypted_metadata
         return unless required_personal_data?
 
-        @encrypted_metadata ||= encryptor.encrypt(user_scope_id: user_scope_id)
+        @encrypted_metadata ||= encryptor.encrypt(metadata)
       end
 
       # Public: The hash to uniquely identify an initiative vote. It uses the
