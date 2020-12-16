@@ -193,8 +193,7 @@ module Decidim
 
         @authorization_handler ||= Decidim::AuthorizationHandler.handler_for(handler_name,
                                                                              user_scope_id: user_scope_id,
-                                                                             resident: resident
-        )
+                                                                             resident: resident)
       end
 
       # Private: The AuthorizationHandler name used to verify the user's
