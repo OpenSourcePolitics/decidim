@@ -31,6 +31,7 @@ module Decidim
         validates :encrypted_metadata, :hash_id, :resident, presence: true
         validate :already_voted?
         validate :user_scope_belongs_to_organization?
+        validate :document_number_authorized?
         validates :resident, acceptance: true
       end
 
@@ -188,9 +189,12 @@ module Decidim
       #
       # Returns a Decidim::AuthorizationHandler.
       def authorization_handler
-        return unless document_number && handler_name
+        return unless handler_name
 
-        @authorization_handler ||= Decidim::AuthorizationHandler.handler_for(handler_name)
+        @authorization_handler ||= Decidim::AuthorizationHandler.handler_for(handler_name,
+                                                                             user_scope_id: user_scope_id,
+                                                                             resident: resident
+        )
       end
 
       # Private: The AuthorizationHandler name used to verify the user's
