@@ -68,7 +68,7 @@ module Decidim
       begin
         encryptor.decrypt(encrypted_metadata)
       rescue ActiveSupport::MessageEncryptor::InvalidMessage
-        Decidim::MetadataEncryptor.new(uid: "default").decrypt(encrypted_metadata)
+        default_encryptor.decrypt(encrypted_metadata)
       end
     end
 
@@ -88,6 +88,10 @@ module Decidim
 
     def encryptor
       @encryptor ||= Decidim::MetadataEncryptor.new(uid: unique_id || "default")
+    end
+
+    def default_encryptor
+      Decidim::MetadataEncryptor.new(uid: "default")
     end
   end
 end
