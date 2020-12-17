@@ -87,11 +87,12 @@ module Decidim
     end
 
     def encryptor
-      @encryptor ||= Decidim::MetadataEncryptor.new(uid: unique_id || "default")
+      @encryptor ||= Decidim::Initiatives::DataEncryptor.new(secret: "personal user metadata")
     end
 
     def default_encryptor
-      Decidim::MetadataEncryptor.new(uid: "default")
+      secret = unique_id.present? ? unique_id : "default"
+      Decidim::Initiatives::DataEncryptor.new(secret: secret)
     end
   end
 end
