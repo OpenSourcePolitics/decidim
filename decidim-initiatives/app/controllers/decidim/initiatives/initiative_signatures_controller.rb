@@ -159,12 +159,9 @@ module Decidim
       end
 
       def session_vote_form
-        raw_birth_date = session[:initiative_vote_form]["date_of_birth"]
-        return unless raw_birth_date
+        attributes = session[:initiative_vote_form].merge(initiative: current_initiative, signer: current_user)
 
-        @vote_form = form(Decidim::Initiatives::VoteForm).from_params(
-          session[:initiative_vote_form].merge("date_of_birth" => Date.parse(raw_birth_date))
-        )
+        @vote_form = form(Decidim::Initiatives::VoteForm).from_params(attributes)
       end
 
       def initiative_type
