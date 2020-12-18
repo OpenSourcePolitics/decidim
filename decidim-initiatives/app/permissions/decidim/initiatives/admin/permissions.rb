@@ -77,10 +77,8 @@ module Decidim
 
           case permission_action.action
           when :update, :destroy
-            toggle_allow(attached && attached.is_a?(Decidim::Initiative) && initiative.created?)
-          when :create
-            toggle_allow(initiative.created?)
-          when :read
+            toggle_allow(attached && attached.is_a?(Decidim::Initiative))
+          when :create, :read
             allow!
           else
             disallow!
