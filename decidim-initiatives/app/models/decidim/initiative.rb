@@ -280,7 +280,7 @@ module Decidim
 
     # Public: Returns the hashtag for the initiative.
     def hashtag
-      @hashtag ||= attributes["hashtag"].to_s.delete("#")
+      attributes["hashtag"].to_s.delete("#")
     end
 
     # Public: Calculates the number of current supports.
