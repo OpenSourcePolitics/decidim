@@ -247,14 +247,7 @@ describe Decidim::Initiatives::Admin::Permissions do
           let(:action_name) { name }
           let(:context) { { initiative: initiative, attachment: attachment } }
 
-          context "when attached to a not created initiative" do
-            let(:attachment) { create :attachment, attached_to: initiative }
-
-            it { is_expected.to eq false }
-          end
-
-          context "when attached to a created initiative" do
-            let(:initiative) { create :initiative, :created, organization: organization }
+          context "when attached to an initiative" do
             let(:attachment) { create :attachment, attached_to: initiative }
 
             it { is_expected.to eq true }
@@ -277,13 +270,7 @@ describe Decidim::Initiatives::Admin::Permissions do
       context "when creating" do
         let(:action_name) { :create }
 
-        it { is_expected.to eq false }
-
-        context "when initiative is created" do
-          let(:initiative) { create :initiative, :created, organization: organization }
-
-          it { is_expected.to eq true }
-        end
+        it { is_expected.to eq true }
       end
 
       it_behaves_like "attached to an initiative", :update
