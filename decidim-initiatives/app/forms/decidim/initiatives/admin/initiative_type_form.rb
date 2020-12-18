@@ -29,7 +29,7 @@ module Decidim
 
         validates :title, :description, translatable_presence: true
         validates :attachments_enabled, :undo_online_signatures_enabled, :custom_signature_end_date_enabled,
-                  :promoting_committee_enabled, :area_enabled, inclusion: { in: [true, false] }
+                  :promoting_committee_enabled, :area_enabled, :comments_enabled, inclusion: { in: [true, false] }
         validates :minimum_committee_members, numericality: { only_integer: true }, allow_nil: true
         validates :banner_image, presence: true, if: ->(form) { form.context.initiative_type.nil? }
 
