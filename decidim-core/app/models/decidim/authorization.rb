@@ -65,11 +65,9 @@ module Decidim
     end
 
     def metadata
-      begin
-        encryptor.decrypt(encrypted_metadata)
-      rescue ActiveSupport::MessageEncryptor::InvalidMessage
-        default_encryptor.decrypt(encrypted_metadata)
-      end
+      encryptor.decrypt(encrypted_metadata)
+    rescue ActiveSupport::MessageEncryptor::InvalidMessage
+      default_encryptor.decrypt(encrypted_metadata)
     end
 
     def metadata=(data)
@@ -91,7 +89,7 @@ module Decidim
     end
 
     def default_encryptor
-      secret = unique_id.present? ? unique_id : "default"
+      secret = unique_id.presence || "default"
       Decidim::Initiatives::DataEncryptor.new(secret: secret)
     end
   end
