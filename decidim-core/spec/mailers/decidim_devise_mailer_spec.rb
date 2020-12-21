@@ -44,7 +44,7 @@ module Decidim
       end
 
       let(:subject) { "Has estat convidada a gestionar #{user.organization.name}" }
-      let(:body) { "Acceptar invitaci" }
+      let(:body) { "Acceptar invita" }
       let(:default_subject) { "You've been invited to manage #{user.organization.name}" }
       let(:default_body) { "Accept invitation" }
 
