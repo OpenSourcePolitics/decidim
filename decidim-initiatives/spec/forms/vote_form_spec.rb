@@ -64,6 +64,10 @@ module Decidim
       let(:resident) { true }
       let(:personal_data) do
         {
+          name_and_surname: "James Morgan McGill",
+          document_number: document_number,
+          date_of_birth: 40.years.ago,
+          postal_code: postal_code,
           user_scope_id: user_scope.id,
           resident: resident
         }
@@ -110,7 +114,7 @@ module Decidim
         describe "#metadata" do
           subject { described_class.from_params(attributes).with_context(context).metadata }
 
-          it { is_expected.to eq(personal_data) }
+          it { is_expected.to eq(user_scope_id: user_scope.id, resident: resident) }
         end
 
         describe "#encrypted_metadata" do
@@ -142,8 +146,9 @@ module Decidim
 
           context "when the authorization metadata doesn't match" do
             before do
-              authorization.metadata["postal_code"] = "08080"
-              authorization.save!
+              encrypted_metadata = DataEncryptor.new(secret: "personal user metadata").encrypt("document_number" => "01234567A", "postal_code" => "87111", "scope_id" => nil)
+
+              authorization.update!(encrypted_metadata: encrypted_metadata)
             end
 
             it { is_expected.to eq(nil) }

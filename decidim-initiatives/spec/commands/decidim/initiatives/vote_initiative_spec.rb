@@ -10,6 +10,10 @@ module Decidim
       let(:initiative) { create(:initiative, organization: organization) }
 
       let(:current_user) { create(:user, organization: initiative.organization) }
+      let!(:city) { create(:scope, organization: organization) }
+      let!(:district_1) { create(:subscope, parent: city) }
+
+      let(:resident) { true }
       let(:form) do
         form_klass
           .from_params(
@@ -26,10 +30,8 @@ module Decidim
 
       let(:personal_data_params) do
         {
-          name_and_surname: ::Faker::Name.name,
-          document_number: ::Faker::IDNumber.spanish_citizen_number,
-          date_of_birth: ::Faker::Date.birthday(18, 40),
-          postal_code: ::Faker::Address.zip_code
+          user_scope_id: district_1.id,
+          resident: resident
         }
       end
 
@@ -216,14 +218,6 @@ module Decidim
 
               context "when authorization unique_id is different of handler unique_id" do
                 let(:authorization_unique_id) { "other" }
-
-                it "broadcasts invalid" do
-                  expect { command_with_personal_data.call }.to broadcast :invalid
-                end
-              end
-
-              context "when authorization metadata is different of handler metadata" do
-                let(:authorization_metadata) { { test: "other" } }
 
                 it "broadcasts invalid" do
                   expect { command_with_personal_data.call }.to broadcast :invalid

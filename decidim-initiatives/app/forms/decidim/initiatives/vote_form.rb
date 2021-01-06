@@ -31,6 +31,7 @@ module Decidim
         validates :encrypted_metadata, :hash_id, :resident, presence: true
         validate :already_voted?
         validate :user_scope_belongs_to_organization?
+        validate :document_number_authorized?
         validates :resident, acceptance: true
       end
 
@@ -39,7 +40,7 @@ module Decidim
       def encrypted_metadata
         return unless required_personal_data?
 
-        @encrypted_metadata ||= encryptor.encrypt(user_scope_id: user_scope_id)
+        @encrypted_metadata ||= encryptor.encrypt(metadata)
       end
 
       # Public: The hash to uniquely identify an initiative vote. It uses the
@@ -65,15 +66,11 @@ module Decidim
       # have been added to the InitiativeType with its voting settings.
       #
       def authorized_scopes
-        list = initiative.votable_initiative_type_scopes.select do |initiative_type_scope|
-          if initiative_type_scope.scope.present?
+        initiative.votable_initiative_type_scopes.select do |initiative_type_scope|
+          initiative_type_scope.global_scope? ||
             initiative_type_scope.scope == user_authorized_scope ||
-              initiative_type_scope.scope.ancestor_of?(user_authorized_scope)
-          else
-            initiative.type.only_global_scope_enabled && user_authorized_scope.nil?
-          end
-        end
-        list.flat_map(&:scope)
+            initiative_type_scope.scope.ancestor_of?(user_authorized_scope)
+        end.flat_map(&:scope)
       end
 
       # Public: Finds the scope the user has an authorization for, this way the user can vote
@@ -188,9 +185,12 @@ module Decidim
       #
       # Returns a Decidim::AuthorizationHandler.
       def authorization_handler
-        return unless document_number && handler_name
+        return unless handler_name
 
-        @authorization_handler ||= Decidim::AuthorizationHandler.handler_for(handler_name)
+        @authorization_handler ||= Decidim::AuthorizationHandler.handler_for(handler_name,
+                                                                             document_number: document_number,
+                                                                             user_scope_id: user_scope_id,
+                                                                             resident: resident)
       end
 
       # Private: The AuthorizationHandler name used to verify the user's

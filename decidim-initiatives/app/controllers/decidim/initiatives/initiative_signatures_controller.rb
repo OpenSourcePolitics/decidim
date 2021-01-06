@@ -68,11 +68,10 @@ module Decidim
         @form = form(Decidim::Initiatives::VoteForm)
                 .from_params(
                   initiative: current_initiative,
-                  signer: current_user,
-                  group_id: params[:group_id]
+                  signer: current_user
                 )
 
-        session[:initiative_vote_form] = { group_id: @form.group_id }
+        session[:initiative_vote_form] = {}
         skip_step unless initiative_type.collect_user_extra_fields
         render_wizard
       end
@@ -155,16 +154,14 @@ module Decidim
           form.signer = current_user
         end
 
-        session[:initiative_vote_form] = session[:initiative_vote_form].merge(@vote_form.attributes_with_values)
+        session[:initiative_vote_form] ||= {}
+        session[:initiative_vote_form] = session[:initiative_vote_form].merge(@vote_form.attributes_with_values.except(:initiative, :signer))
       end
 
       def session_vote_form
-        raw_birth_date = session[:initiative_vote_form]["date_of_birth"]
-        return unless raw_birth_date
+        attributes = session[:initiative_vote_form].merge(initiative: current_initiative, signer: current_user)
 
-        @vote_form = form(Decidim::Initiatives::VoteForm).from_params(
-          session[:initiative_vote_form].merge("date_of_birth" => Date.parse(raw_birth_date))
-        )
+        @vote_form = form(Decidim::Initiatives::VoteForm).from_params(attributes)
       end
 
       def initiative_type

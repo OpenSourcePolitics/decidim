@@ -178,7 +178,7 @@ describe "Question vote", type: :system do
 
     context "when user IS verified" do
       before do
-        handler_params = { user: user }
+        handler_params = { user: user, document_number: Faker::Number.number(10) }
         handler_name = "dummy_authorization_handler"
         handler = Decidim::AuthorizationHandler.handler_for(handler_name, handler_params)
 

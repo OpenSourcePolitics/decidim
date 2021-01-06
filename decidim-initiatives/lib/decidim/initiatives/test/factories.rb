@@ -14,6 +14,7 @@ FactoryBot.define do
     undo_online_signatures_enabled { true }
     custom_signature_end_date_enabled { false }
     area_enabled { false }
+    comments_enabled { true }
     promoting_committee_enabled { true }
     minimum_committee_members { 3 }
     child_scope_threshold_enabled { false }
@@ -221,6 +222,11 @@ FactoryBot.define do
   factory :initiative_user_vote, class: "Decidim::InitiativesVote" do
     initiative { create(:initiative) }
     author { create(:user, :confirmed, organization: initiative.organization) }
+    hash_id { SecureRandom.uuid }
+    scope { initiative.scope }
+    after(:create) do |vote|
+      vote.initiative.update_online_votes_counters
+    end
   end
 
   factory :organization_user_vote, class: "Decidim::InitiativesVote" do
