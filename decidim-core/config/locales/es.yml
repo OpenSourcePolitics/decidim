@@ -75,6 +75,12 @@ es:
       decidim_with_month_name: "%d %B %Y"
       decidim_with_month_name_short: "%d %b"
   decidim:
+    destroy_account_mailer:
+      notify:
+        hello: Hola %{name}
+        subject: Un usuario ha borrado su cuenta.
+        destroy_account_html: Un usuario ha borrado su cuenta. Te invitamos a ir y presentar sus peticiones.
+        destroy_account_explanation: Recibiste esta notificación porque eres el administrador de la plataforma.
     accessibility:
       logo: "%{organización} logotipo oficial de la organización"
       skip_button: Saltar al contenido principal

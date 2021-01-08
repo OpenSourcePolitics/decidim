@@ -66,6 +66,12 @@ ca:
       decidim_with_month_name: "%d %B %Y"
       decidim_with_month_name_short: "%d %b"
   decidim:
+    destroy_account_mailer:
+      notify:
+        hello: Hola %{name}
+        subject: Un usuari ha esborrat el seu compte.
+        destroy_account_html: Un usuari ha esborrat el seu compte. Us convidem a presentar les seves peticions.
+        destroy_account_explanation: Heu rebut aquesta notificació perquè sou administrador de la plataforma.
     account:
       data_portability_export:
         file_no_exists: L'arxiu no existeix

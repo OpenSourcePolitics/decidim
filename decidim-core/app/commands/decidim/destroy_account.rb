@@ -16,6 +16,7 @@ module Decidim
       return broadcast(:invalid) unless @form.valid?
 
       Decidim::User.transaction do
+        notify_admins
         destroy_user_account!
         destroy_user_identities
         destroy_user_group_memberships
@@ -26,6 +27,12 @@ module Decidim
     end
 
     private
+
+    def notify_admins
+      organizations_admins.each do |admin|
+        DestroyAccountMailer.notify(admin).deliver_later
+      end
+    end
 
     def destroy_user_account!
       @user.name = ""
@@ -50,6 +57,10 @@ module Decidim
     def destroy_follows
       Decidim::Follow.where(followable: @user).destroy_all
       Decidim::Follow.where(user: @user).destroy_all
+    end
+
+    def organizations_admins
+      @user.organization.admins - [@user]
     end
   end
 end

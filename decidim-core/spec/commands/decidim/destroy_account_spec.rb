@@ -4,6 +4,7 @@ require "spec_helper"
 
 module Decidim
   describe DestroyAccount do
+    let!(:admin) { create(:user, :confirmed, :admin, organization: user.organization) }
     let(:command) { described_class.new(user, form) }
     let(:user) { create(:user, :confirmed) }
     let!(:identity) { create(:identity, user: user) }
@@ -49,6 +50,16 @@ module Decidim
         expect(user.reload.name).to eq("")
         expect(user.reload.nickname).to eq("")
         expect(user.reload.email).to eq("")
+      end
+
+      it "notifies admins" do
+        allow(DestroyAccountMailer).to receive(:notify).with(admin).and_call_original
+
+        command.call
+
+        expect(DestroyAccountMailer)
+            .to have_received(:notify)
+                    .with(admin)
       end
 
       it "destroys the current user avatar" do

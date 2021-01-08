@@ -1,4 +1,5 @@
 ---
+
 en:
   activemodel:
     attributes:
@@ -75,6 +76,12 @@ en:
       decidim_with_month_name: "%d %B %Y"
       decidim_with_month_name_short: "%d %b"
   decidim:
+    destroy_account_mailer:
+      notify:
+        hello: Hello %{name}
+        subject: A user has deleted his account.
+        destroy_account_html: A user has deleted his account. We invite you to go and file his petitions.
+        destroy_account_explanation: You received this notification because you are administrator of the platform.
     accessibility:
       logo: "%{organization}'s official logo"
       skip_button: Skip to main content
