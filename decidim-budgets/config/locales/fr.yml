@@ -1,3 +1,4 @@
+---
 fr:
   activemodel:
     attributes:
@@ -13,6 +14,7 @@ fr:
         decidim_scope_id: Périmètre d'application
         description: Description
         proposal_ids: Propositions liées
+        selected: Sélectionnés pour la mise en œuvre
         title: Titre
   activerecord:
     models:
@@ -135,9 +137,15 @@ fr:
           description: Voici les projets que vous avez choisis pour le budget.
           title: Confirmez votre vote
         budget_excess:
+          budget_excess:
+            description: Ce projet dépasse le budget maximum et ne peut pas être ajouté. Si vous le souhaitez, vous pouvez supprimer un projet que vous avez déjà sélectionné pour l'ajouter, ou bien voter en fonction de vos préférences.
+            title: Dépassement du budget maximum
           close: Fermer
           description: Ce projet dépasse le budget maximum et ne peut pas être ajouté. Si vous le souhaitez, vous pouvez supprimer un projet que vous avez déjà sélectionné ou voter selon vos préférences.
           ok: D'accord
+          projects_excess:
+            description: Ce projet dépasse le nombre maximum de projets et ne peut être ajouté. Si vous le souhaitez, vous pouvez supprimer un projet que vous avez déjà sélectionné pour l'ajouter, ou voter en fonction de vos préférences.
+            title: Dépassement du nombre maximum de projets
           title: Budget maximum dépassé
         budget_summary:
           are_you_sure: Êtes-vous certain de vouloir annuler votre vote ?
@@ -148,7 +156,23 @@ fr:
             title: Vote du budget terminé
           description: A quels projets pensez-vous que nous devrions allouer un budget ? Assignez au moins %{minimum_budget} aux projets que vous soutenez et votez selon vos préférences pour définir le budget.
           description_minimum_projects_rule: A quels projets pensez-vous que nous devrions allouer un budget ? Assignez au moins %{minimum_number} aux projets que vous soutenez et votez selon vos préférences pour définir le budget.
+          maximum_and_minimum_projects_rule:
+            description: Quels sont les projets pour lesquels nous devrions allouer un budget ? Sélectionnez au moins %{minimum_number} et jusqu'à %{maximum_number} les projets que vous souhaitez et votez avec vos préférences pour définir le budget.
+            instruction: "<li> Sélectionnez au moins %{minimum_number} et jusqu'à %{maximum_number} les projets que vous souhaitez et votez avec vos préférences pour définir le budget.</li>"
+          maximum_projects_rule:
+            description: Quels sont les projets pour lesquels nous devrions allouer un budget ? Sélectionnez jusqu'à %{maximum_number} projets que vous souhaitez et votez selon vos préférences pour fixer le budget.
+            instruction: "<li>Sélectionnez jusqu'à %{maximum_number} les projets que vous souhaitez et votez selon vos préférences pour fixer le budget.</li>"
+          minimum_projects_rule:
+            description: Quels sont les projets pour lesquels nous devrions allouer un budget ? Sélectionnez au moins %{minimum_number} projets que vous souhaitez et votez avec vos préférences pour définir le budget.
+            instruction: "<li>Sélectionnez au moins %{minimum_number} projets que vous souhaitez et votez avec vos préférences pour définir le budget.</li>"
+          rules:
+            title: Règles budgétaires
           title: Vous décidez du budget
+          total_budget: Budget total
+          total_projects: Total des projets
+          vote_threshold_percent:
+            description: Quels sont les projets pour lesquels nous devrions allouer un budget ? Attribuez au moins %{minimum_budget} aux projets que vous souhaitez et votez avec vos préférences pour définir le budget.
+            instruction: "<li>Affectez au moins %{minimum_budget} aux projets que vous souhaitez et votez avec vos préférences pour définir le budget.</li>"
         count:
           projects_count:
             one: 1 projet
@@ -222,7 +246,10 @@ fr:
             scopes_enabled: Secteurs activés
             title: Titre
             total_budget: Budget total
+            vote_maximum_budget_projects_number: Nombre maximum de projets à voter
             vote_minimum_budget_projects_number: Nombre minimum de projets à voter
+            vote_rule_group_1_maximum_budget_projects_enabled: 'Activer la règle : Nombre maximum de projets à voter'
+            vote_rule_group_1_minimum_budget_projects_enabled: 'Activer la règle : Nombre minimum de projets à soumettre au vote'
             vote_rule_minimum_budget_projects_enabled: 'Activer la règle : Nombre minimum de projets à voter'
             vote_rule_threshold_percent_enabled: 'Activer la règle : Pourcentage de budget minimum'
             vote_threshold_percent: Pourcentage du budget à atteindre pour voter

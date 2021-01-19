@@ -40,10 +40,10 @@
     <% end %>
 
     <% if maximum_budget_projects_enabled? %>
-      <div class="budget-summary__total" data-total-projects="<%= budget.vote_maximum_budget_projects_number %>">
+      <div class="budget-summary__total" data-total-projects="<%= component_settings.vote_maximum_budget_projects_number %>">
       <span class="mini-title"><%= t(".total_projects") %>
         <strong class="mini-title__strong mini-title__strong--highlight">
-          <%= budget.vote_maximum_budget_projects_number %>
+          <%= component_settings.vote_maximum_budget_projects_number %>
         </strong>
       </span>
       </div>

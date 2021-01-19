@@ -85,7 +85,7 @@ module Decidim
       def minimum_projects_rule?
         return unless budget
 
-        budget.settings.vote_rule_minimum_budget_projects_enabled
+        budget.settings.vote_minimum_budget_projects_number
       end
 
       # Public: Returns the required minimum projects to checkout

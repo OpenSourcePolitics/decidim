@@ -1,3 +1,4 @@
+---
 fr:
   activemodel:
     attributes:
@@ -152,7 +153,7 @@ fr:
           vote: Voter
         label:
           date: Dates
-        questions: '%{count} questions'
+        questions: "%{count} questions"
         start_date: Début
         unspecified: Non spécifié
       elections:
@@ -196,7 +197,7 @@ fr:
             max_selections: Nombre maximum de sélections
             title: Titre
       orders:
-        label: Trier les élections par 
+        label: Trier les élections par
         older: Les plus anciens
         recent: Les plus récents
       votes:

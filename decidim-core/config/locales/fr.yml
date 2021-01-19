@@ -1,3 +1,4 @@
+---
 fr:
   activemodel:
     attributes:
@@ -59,8 +60,8 @@ fr:
         one: Groupe d'utilisateurs
         other: Groupes d'utilisateurs
   booleans:
-    'false': 'Non'
-    'true': 'Oui'
+    'false': Non
+    'true': Oui
   carrierwave:
     errors:
       general: Erreur de traitement de l'image
@@ -76,7 +77,7 @@ fr:
   decidim:
     accessibility:
       external_link: Lien externe
-      logo: "Logo officiel de %{organization}"
+      logo: Logo officiel de %{organization}
       skip_button: Passer au contenu principal
     account:
       data_portability_export:
@@ -197,7 +198,10 @@ fr:
             Cet amendement pour le %{amendable_type} %{amendable_link}
             est en cours d’évaluation.
           promoted: Promouvé à un %{amendable_type}.
-          rejected: "Cet amendement pour la proposition %{amendable_type}\n%{proposal_link}\na été rejeté le <strong>%{date}</strong>."
+          rejected: |-
+            Cet amendement pour la proposition %{amendable_type}
+            %{proposal_link}
+            a été rejeté le <strong>%{date}</strong>.
           withdrawn: |-
             L'amendement pour le %{amendable_type} %{proposal_link}
             a été retiré par l'auteur.
@@ -443,8 +447,7 @@ fr:
             check: Oui, je souhaite m'inscrire à la newsletter
             close_modal: Fermer la fenêtre
             uncheck: Garder décoché
-          notice: |-
-            La newsletter vous permet de suivre tous les événements importants sur la plateforme (lancement de nouvelles concertations, annonce des résultats, etc.). Souhaitez-vous vous y inscrire ?
+          notice: La newsletter vous permet de suivre tous les événements importants sur la plateforme (lancement de nouvelles concertations, annonce des résultats, etc.). Souhaitez-vous vous y inscrire ?
           title: Inscription à la newsletter
         omniauth_buttons:
           or: Ou
@@ -541,7 +544,7 @@ fr:
           notification_title: La fonctionnalité %{resource_title} est maintenant active pour <a href="%{resource_path}">%{participatory_space_title}</a>
       email_event:
         email_greeting: Bonjour %{user_name},
-        email_intro: '« %{resource_title} » a été mis à jour. Vous pouvez y accéder ici :'
+        email_intro: "« %{resource_title} » a été mis à jour. Vous pouvez y accéder ici :"
         email_outro: Vous recevez cet notification car vous suivez « %{resource_title} ». Vous pouvez cesser de le suivre en allant sur le lien précédent.
         email_subject: Mise à jour de %{resource_title}
       gamification:
@@ -680,7 +683,7 @@ fr:
       badges:
         followers:
           conditions:
-            - Être actif et suivre les autres incitera sûrement les autres à vous suivre.
+          - Être actif et suivre les autres incitera sûrement les autres à vous suivre.
           description: Ce badge est attribué lorsque vous atteignez un certain nombre d'adeptes. %{organization_name} est un réseau social et politique, tissez votre site Web pour communiquer avec les autres personnes de la plate-forme.
           description_another: Cet utilisateur a %{score} abonnés.
           description_own: "%{score} utilisateurs vous suivent."
@@ -695,9 +698,9 @@ fr:
           title: Insignes
         invitations:
           conditions:
-            - Utilisez le lien "inviter des amis" sur votre page utilisateur pour inviter vos amis.
-            - Personnalisez, si vous le souhaitez, le message que vous envoyez
-            - Vous augmenterez votre niveau en envoyant des invitations et en les faisant enregistrer.
+          - Utilisez le lien "inviter des amis" sur votre page utilisateur pour inviter vos amis.
+          - Personnalisez, si vous le souhaitez, le message que vous envoyez
+          - Vous augmenterez votre niveau en envoyant des invitations et en les faisant enregistrer.
           description: Ce badge est attribué lorsque vous avez invité des personnes qui ont passé un peu de temps à s’inscrire à %{organization_name} et devenir des participants. Merci de faire connaître %{organization_name} aux autres et d’aider à élargir la communauté!
           description_another: Cet utilisateur a invité %{score} utilisateurs.
           description_own: Vous avez invité %{score} utilisateurs.
@@ -1249,7 +1252,7 @@ fr:
         no_conversations_warning: Il n'y a pas encore de conversations.
         no_results: Aucun résultat
         participant_with_disabled_message_reception: Ce participant a désactivé la réception de message
-        time_ago: "il y a %{time}"
+        time_ago: il y a %{time}
       new:
         title: Démarrer une conversation
       reply:
@@ -1316,11 +1319,11 @@ fr:
     failure:
       already_authenticated: Vous êtes déjà connecté.
       inactive: Votre compte n'est pas encore activé.
-      invalid: '%{authentication_keys} ou mot de passe invalide.'
+      invalid: "%{authentication_keys} ou mot de passe invalide."
       invited: Vous avez une invitation en attente, acceptez-la pour terminer la création de votre compte.
       last_attempt: Vous avez encore une tentative avant que votre compte soit verrouillé.
       locked: Votre compte est bloqué.
-      not_found_in_database: '%{authentication_keys} ou mot de passe invalide.'
+      not_found_in_database: "%{authentication_keys} ou mot de passe invalide."
       timeout: Votre session a expiré. Veuillez vous connecter à nouveau pour continuer.
       unauthenticated: Vous devez vous connecter ou vous inscrire avant de continuer.
     invitations:
@@ -1413,7 +1416,7 @@ fr:
         currently_waiting_confirmation_for_email: 'En attente de confirmation pour: %{email}'
         leave_blank_if_you_don_t_want_to_change_it: laisser vide si vous ne voulez pas le changer
         title: Modifier %{resource}
-        unhappy: Pas satisfait ? 
+        unhappy: Pas satisfait ?
         update: Mettre à jour
         we_need_your_current_password_to_confirm_your_changes: nous avons besoin de votre mot de passe actuel pour confirmer vos modifications
       new:
@@ -1466,8 +1469,8 @@ fr:
       not_found: introuvable. Vous êtes-vous déjà inscrit ?
       not_locked: n'était pas verrouillé
       not_saved:
-        one: 'Une erreur est survenue pendant le traitement de votre requête.'
-        other: 'Plusieurs erreurs sont survenues pendant le traitement de votre requête.'
+        one: Une erreur est survenue pendant le traitement de votre requête.
+        other: Plusieurs erreurs sont survenues pendant le traitement de votre requête.
       too_many_marks: utilise trop de signes de ponctuation consécutifs (par exemple! et?)
       too_much_caps: utilise trop de lettres majuscules (plus de 25% du texte)
       too_short: est trop court (moins de 15 caractères)
