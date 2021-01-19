@@ -218,6 +218,7 @@ en:
             export_votes: Export signatures
             reject: Reject initiative
             send_to_technical_validation: Send to technical validation
+            confirm_send_to_technical_validation: Are you sure?
             success: The initiative has been sent to technical validation
             update: Update
           form:
