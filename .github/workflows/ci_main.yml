@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - develop
+      - alt/*
       - master
       - release/*
       - "*-stable"
@@ -19,7 +20,7 @@ env:
 jobs:
   main:
     name: Tests
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     steps:
       - uses: rokroskar/workflow-run-cleanup-action@v0.2.2
         if: "github.ref != 'refs/heads/master' || github.ref != 'refs/heads/develop'"
