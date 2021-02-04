@@ -107,10 +107,10 @@ module Decidim::Initiatives
 
         before do
           create_list(:initiative_user_vote, 2, initiative: initiative,
-                      encrypted_metadata: Decidim::Initiatives::DataEncryptor.new(secret: "personal user metadata").encrypt(user_scope_id: scopes[2].id))
+                                                encrypted_metadata: Decidim::Initiatives::DataEncryptor.new(secret: "personal user metadata").encrypt(user_scope_id: scopes[2].id))
 
           create_list(:initiative_user_vote, 2, initiative: initiative,
-                      encrypted_metadata: Decidim::Initiatives::DataEncryptor.new(secret: "personal user metadata").encrypt(user_scope_id: scopes[3].id))
+                                                encrypted_metadata: Decidim::Initiatives::DataEncryptor.new(secret: "personal user metadata").encrypt(user_scope_id: scopes[3].id))
 
           create(:initiative_user_vote,
                  initiative: initiative,

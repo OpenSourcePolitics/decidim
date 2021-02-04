@@ -47,7 +47,7 @@ module Decidim
             name: initiative.author_users.map(&:name)
           },
           area: {
-              name: initiative.area&.name
+            name: initiative.area&.name
           },
           firms: {
             scopes: uniq_vote_scopes
