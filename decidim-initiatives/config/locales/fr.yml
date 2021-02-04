@@ -174,6 +174,17 @@ fr:
             est prolongée !
           notification_title: La date de fin de recueil des signatures pour l'initiative
             <a href="%{resource_path}">%{resource_title}</a> a été prolongée.
+        initiative_sent_to_technical_validation:
+          email_intro: L'initiative "%{resource_title}" a été envoyée à la validation
+            technique. Consultez-la sur <a href="%{admin_initiative_url}">le panneau
+            d'administration</a>.
+          email_outro: Vous avez reçu cette notification parce que vous êtes un administrateur
+            de la plate-forme.
+          email_subject: L'initiative "%{resource_title}" a été envoyée à la validation
+            technique.
+          notification_title: L'initiative "%{resource_title}" a été envoyée à la
+            validation technique. Consultez-la à <a href="%{admin_initiative_path}">le
+            panneau d'administration</a>
         milestone_completed:
           affected_user:
             email_intro: Votre initiative %{resource_title} a atteint %{percentage}%
@@ -427,6 +438,9 @@ fr:
           initiatives_page_link: Vous pouvez consulter toutes ces informations sur
             la %{link} dédié à l'information sur les initiatives.
           page: page
+          publish_helper_text: N'oubliez pas que pour que votre initiative soit publiée,
+            vous devez compléter les informations requises et <strong> l'envoyer à
+            la validation technique</strong> pour qu'un administrateur puisse l'examiner.
         previous_form:
           back: Retour
           continue: Continuer
@@ -462,6 +476,9 @@ fr:
             de possibilités de se réaliser.
           continue: Mon initiative est différente
           more_information: "(Plus d'informations)"
+      edit:
+        back: Retour
+        title: Titre
       events:
         create_initiative_event:
           email_intro: "%{author_name} %{author_nickname}, que vous suivez, a créé
@@ -523,6 +540,14 @@ fr:
           hidden_authors_count:
             one: et 1 autre personne
             other: et %{count} autres personnes
+        committee_members:
+          approve: Approuver
+          confirm_revoke: Êtes-vous sûr ?
+          invite_to_committee_help: Partagez ce lien pour inviter d'autres participants
+            au comité de promotion
+          no_members_yet: Il n'y a pas de membres dans le comité de promotion
+          revoke: Revoquer
+          title: Membres du comité de promotion
         count:
           title:
             one: "%{count} initiative"
@@ -577,11 +602,14 @@ fr:
         show:
           any_vote_method: Cette initiative recueille des signatures en ligne ainsi
             qu'en présentiel.
+          edit: Edit
           follow_description: Recevoir une notification lorsqu'il y a des actualités
             sur cette initiative
           of_versions: "(of %{number})"
           offline_method: Cette initiative ne recueille que des soutiens en présentiel.
+          print: Imprimer
           see_other_versions: voir les autres versions
+          send_to_technical_validation: Envoyer à la validation technique
           version: Version %{number}
         signature_identities:
           select_identity: Sélectionner l'identifiant de l'utilisateur
@@ -689,6 +717,8 @@ fr:
           vote: Vote
     scopes:
       global: Global
+  forms:
+    required_explanation: Required explanation
   layouts:
     decidim:
       admin:
