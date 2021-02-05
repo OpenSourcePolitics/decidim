@@ -21,7 +21,7 @@
         <%= render partial: "finish_help" %>
 
         <div class="actions">
-          <% if !promotal_committee_required? || minimum_committee_members == 1 %>
+          <% unless promotal_committee_required? %>
             <%= link_to t(".send_my_initiative"),
                         decidim_initiatives.send_to_technical_validation_initiative_path(current_initiative),
                         class: "button success light expanded",
