@@ -18,7 +18,6 @@ module Decidim
           .includes(scoped_type: [:scope])
           .joins("JOIN decidim_users ON decidim_users.id = decidim_initiatives.decidim_author_id")
           .where(organization: options[:organization])
-          .where.not(state: [:created, :validating])
           .where.not(published_at: nil)
       end
 
@@ -72,7 +71,7 @@ module Decidim
                .or(query.where(id: co_authoring_initiative_ids))
                .unscope(where: :published_at)
         else
-          query
+          query.where.not(state: [:created, :validating])
         end
       end
 
