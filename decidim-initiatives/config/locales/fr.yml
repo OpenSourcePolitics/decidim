@@ -593,7 +593,7 @@ fr:
             the promoter committee
           no_members_yet: Il n'y a pas de membre dans le comité de promotion
           revoke: Revoquer
-          title: Committee members
+          title: Membre du comité de promotion
         count:
           title:
             one: "%{count} initiative"
