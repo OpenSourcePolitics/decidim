@@ -555,7 +555,7 @@ fr:
           help: S'il vous plaît, remplissez les champs suivants avec vos données personnelles
             pour signer l'initiative
           select_scope: Sélectionner un périmètre d'application
-          select_scope_label: Scope
+          select_scope_label: Secteur
         finish:
           back_to_initiative: Retour à l'initiative
         sms_code:
