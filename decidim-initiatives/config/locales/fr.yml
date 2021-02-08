@@ -589,8 +589,7 @@ fr:
         committee_members:
           approve: Approve
           confirm_revoke: Êtes-vous sûr(e) ?
-          invite_to_committee_help: Share this link to invite other participants to
-            the promoter committee
+          invite_to_committee_help: Partagez ce lien pour inviter d'autres participants au comité de promotion
           no_members_yet: Il n'y a pas de membre dans le comité de promotion
           revoke: Revoquer
           title: Membre du comité de promotion
