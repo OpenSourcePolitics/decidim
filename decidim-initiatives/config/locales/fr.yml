@@ -478,7 +478,8 @@ fr:
           more_information: "(Plus d'informations)"
       edit:
         back: Retour
-        title: Titre
+        title: Pétition
+        update: Mettre à jour
       events:
         create_initiative_event:
           email_intro: "%{author_name} %{author_nickname}, que vous suivez, a créé
@@ -546,7 +547,7 @@ fr:
           invite_to_committee_help: Partagez ce lien pour inviter d'autres participants
             au comité de promotion
           no_members_yet: Il n'y a pas de membres dans le comité de promotion
-          revoke: Revoquer
+          revoke: Révoquer
           title: Membres du comité de promotion
         count:
           title:
@@ -602,7 +603,8 @@ fr:
         show:
           any_vote_method: Cette initiative recueille des signatures en ligne ainsi
             qu'en présentiel.
-          edit: Edit
+          edit: Modifier
+          confirm: Confirmer
           follow_description: Recevoir une notification lorsqu'il y a des actualités
             sur cette initiative
           of_versions: "(of %{number})"
@@ -718,7 +720,7 @@ fr:
     scopes:
       global: Global
   forms:
-    required_explanation: Required explanation
+    required_explanation: Modifiez votre pétition et gérez les membres du comité de promotion
   layouts:
     decidim:
       admin:
