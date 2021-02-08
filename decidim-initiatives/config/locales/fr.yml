@@ -102,7 +102,7 @@ fr:
         publish: Publish
         unpublish: Unpublish
       exports:
-        export_as: Export as
+        export_as: Export comme
         notice: Notice
       filters:
         decidim_area_id_eq:
