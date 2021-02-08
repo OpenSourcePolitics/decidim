@@ -96,10 +96,14 @@ fr:
         configure: Configure
         confirm_destroy: Confirm destroy
         destroy: Destroy
+        export: Export
         new: New
         new_initiative_type: Nouveau type d'initiative
         publish: Publish
         unpublish: Unpublish
+      exports:
+        export_as: Export as
+        notice: Notice
       filters:
         decidim_area_id_eq:
           label: Zones d'application
@@ -165,6 +169,17 @@ fr:
         initiatives_types: Types d'initiative
     events:
       initiatives:
+        admin:
+          initiative_sent_to_technical_validation:
+            email_intro: The initiative "%{resource_title}" has been sent to technical
+              validation. Check it out at <a href="%{admin_initiative_url}">the admin
+              panel</a>
+            email_outro: You have received this notification because you are an admin
+              of the platform.
+            email_subject: Initiative "%{resource_title}" was sent to technical validation.
+            notification_title: The initiative "%{resource_title}" has been sent to
+              technical validation. Check it out at <a href="%{admin_initiative_path}">the
+              admin panel</a>
         initiative_extended:
           email_intro: La date de fin du recueil des signatures pour l'initiative
             %{resource_title} a été prolongée !
@@ -174,6 +189,16 @@ fr:
             est prolongée !
           notification_title: La date de fin de recueil des signatures pour l'initiative
             <a href="%{resource_path}">%{resource_title}</a> a été prolongée.
+        initiative_sent_to_technical_validation:
+          email_intro: The initiative "%{resource_title}" has been sent to technical
+            validation. Check it out at <a href="%{admin_initiative_url}">the admin
+            panel</a>
+          email_outro: You have received this notification because you are an admin
+            of the platform.
+          email_subject: Initiative "%{resource_title}" was sent to technical validation.
+          notification_title: The initiative "%{resource_title}" has been sent to
+            technical validation. Check it out at <a href="%{admin_initiative_path}">the
+            admin panel</a>
         milestone_completed:
           affected_user:
             email_intro: Votre initiative %{resource_title} a atteint %{percentage}%
@@ -263,6 +288,8 @@ fr:
             initiatives: Initiatives
             state: Etat
         committee_requests:
+          approve:
+            success: Request has been approved.
           index:
             approve: Approuver
             confirm_revoke: Êtes-vous certain ?
@@ -271,6 +298,8 @@ fr:
             no_members_yet: Il n'y a pas encore de membres dans le Comité de promotion
             revoke: Révoquer
             title: Membres du comité de promotion
+          revoke:
+            success: Request has been revoked.
         content_blocks:
           answered_initiatives:
             max_results: Maximum amount of elements to show
@@ -282,6 +311,7 @@ fr:
           edit:
             accept: Accepter l'initiative
             confirm: Êtes-vous sûr(e) ?
+            confirm_send_to_technical_validation: Are you sure?
             discard: Dépublier l'initiative
             export_pdf_signatures: Exporter PDF des signatures
             export_votes: Exporter la liste des votes
@@ -378,10 +408,14 @@ fr:
         filter_type_values:
           all: Tous
       committee_requests:
+        approve:
+          success: Success
         new:
           continue: Continuer
           help_text: Vous êtes sur le point de demander à devenir membre du Comité
             de promotion de cette initiative
+        revoke:
+          success: Success
         spawn:
           success: Votre demande a été envoyée à l'auteur de l'initiative.
       content_blocks:
@@ -463,6 +497,16 @@ fr:
           continue: Mon initiative est différente
           more_information: "(Plus d'informations)"
       events:
+        approve_membership_request:
+          email_intro: "%{author_nickname} accepted your application to be part of
+            the promoter committee for the initiative %{resource_title}."
+          email_outro: 'You received this notification because you applied to this
+            initiative: %{resource_title}'
+          email_subject: "%{author_nickname} accepted your application to the promoter
+            committee"
+          notification_title: <a href="%{author_profile_url}">%{author_nickname}</a>
+            accepted your application to be part of the promoter committee for the
+            following initiative <a href="%{resource_url}">%{resource_title}</a>.
         create_initiative_event:
           email_intro: "%{author_name} %{author_nickname}, que vous suivez, a créé
             une nouvelle initiative, lisez -la et contribuez :"
@@ -479,6 +523,26 @@ fr:
           email_subject: Initiative soutenue par %{author_nickname}
           notification_title: L'initiative<a href="%{resource_path}">%{resource_title}</a>
             a été soutenue par <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+        revoke_membership_request:
+          email_intro: "%{author_nickname} rejected your application to be part of
+            the promoter committee for the following initiative %{resource_title}."
+          email_outro: 'You received this notification because you applied to this
+            initiative : %{resource_title}.'
+          email_subject: "%{author_nickname} rejected your application to the promoter
+            committee"
+          notification_title: <a href="%{author_profile_url}">%{author_nickname}</a>
+            rejected you application to be part of the promoter committee for the
+            following initiative <a href="%{resource_url}">%{resource_title}</a>.
+        spawn_committee_request_event:
+          email_intro: "%{applicant_nickname} applied for the promoter committee of
+            your initiative %{resource_title}. To accept or reject the application,
+            go to the edit form of your initiative."
+          email_outro: 'You received this notification because you are the author
+            of this initiative : %{resource_title}'
+          email_subject: "%{applicant_nickname} wants to join your initiative"
+          notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a>
+            applied for the promoter committee of your initiative <a href="%{resource_url}">%{resource_title}</a>.
+            To accept or reject click <a href="%{resource_url}/edit">here</a>.
       index:
         title: Initiatives
       initiative_signatures:
@@ -491,6 +555,7 @@ fr:
           help: S'il vous plaît, remplissez les champs suivants avec vos données personnelles
             pour signer l'initiative
           select_scope: Sélectionner un périmètre d'application
+          select_scope_label: Scope
         finish:
           back_to_initiative: Retour à l'initiative
         sms_code:
@@ -523,6 +588,14 @@ fr:
           hidden_authors_count:
             one: et 1 autre personne
             other: et %{count} autres personnes
+        committee_members:
+          approve: Approve
+          confirm_revoke: Are you sure?
+          invite_to_committee_help: Share this link to invite other participants to
+            the promoter committee
+          no_members_yet: There are no members in the promoter committee
+          revoke: Revoke
+          title: Committee members
         count:
           title:
             one: "%{count} initiative"
