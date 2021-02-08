@@ -22,7 +22,7 @@ module Decidim
 
         def highlighted_initiatives
           @highlighted_initiatives ||= OrganizationPrioritizedInitiatives
-                                           .new(current_organization, order)
+                                       .new(current_organization, order)
                                        .query
                                        .limit(max_results)
         end
