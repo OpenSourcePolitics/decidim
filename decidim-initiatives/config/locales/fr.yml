@@ -176,7 +176,6 @@ fr:
               of the platform.
             email_subject: La pétition "%{resource_title}" a été envoyée à la validation technique
             notification_title: La pétition "%{resource_title}" a été envoyée à la validation technique. Consultez l'espace <a href="%{admin_initiative_url}">d'administration</a>
-              technical validation. Check it out at <a href="%{admin_initiative_path}">the
               admin panel</a>
         initiative_extended:
           email_intro: La date de fin du recueil des signatures pour l'initiative
