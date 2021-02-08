@@ -517,15 +517,10 @@ fr:
           notification_title: L'initiative<a href="%{resource_path}">%{resource_title}</a>
             a été soutenue par <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         revoke_membership_request:
-          email_intro: "%{author_nickname} rejected your application to be part of
-            the promoter committee for the following initiative %{resource_title}."
-          email_outro: 'You received this notification because you applied to this
-            initiative : %{resource_title}.'
-          email_subject: "%{author_nickname} rejected your application to the promoter
-            committee"
-          notification_title: <a href="%{author_profile_url}">%{author_nickname}</a>
-            rejected you application to be part of the promoter committee for the
-            following initiative <a href="%{resource_url}">%{resource_title}</a>.
+          email_intro: "%{author_nickname} a rejeté votre demande pour rejoindre le comité de promotion de la pétition %{resource_title}."
+          email_outro: 'Vous avez reçu cette notification car vous avez demandé à rejoindre le comité de promotion de cette pétition : %{resource_title}'
+          email_subject: "%{author_nickname} a rejeté votre demande de rejoindre le comité de promotion"
+          notification_title: <a href="%{author_profile_url}">%{author_nickname}</a> a rejeté votre demande de rejoindre le comité de promotion de la pétition <a href="%{resource_url}">%{resource_title}</a>.
         spawn_committee_request_event:
           email_intro: "%{applicant_nickname} a demandé à rejoindre le comité de promotion de la pétition %{resource_title}. Pour accepter ou rejeter cette demande, rendez-vous dans le formulaire d'édition de cette pétition."
           email_outro: 'Vous avez reçu cette notification car vous êtes l'auteur de cette pétition : %{resource_title}'
