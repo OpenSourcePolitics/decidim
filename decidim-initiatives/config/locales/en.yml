@@ -213,6 +213,10 @@ en:
             revoke: Revoke
             title: Committee members
         content_blocks:
+          order:
+            default: Default (Least recent)
+            label: 'Order element by:'
+            most_recent: Most recent
           answered_initiatives:
             max_results: Maximum amount of elements to show
           highlighted_initiatives:
