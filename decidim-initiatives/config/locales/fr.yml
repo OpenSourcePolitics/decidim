@@ -96,7 +96,7 @@ fr:
         configure: Configure
         confirm_destroy: Confirm destroy
         destroy: Destroy
-        export: Export
+        export: Exporter
         new: New
         new_initiative_type: Nouveau type d'initiative
         publish: Publish
