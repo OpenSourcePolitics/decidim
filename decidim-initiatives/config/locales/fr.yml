@@ -527,15 +527,10 @@ fr:
             rejected you application to be part of the promoter committee for the
             following initiative <a href="%{resource_url}">%{resource_title}</a>.
         spawn_committee_request_event:
-          email_intro: "%{applicant_nickname} applied for the promoter committee of
-            your initiative %{resource_title}. To accept or reject the application,
-            go to the edit form of your initiative."
-          email_outro: 'You received this notification because you are the author
-            of this initiative : %{resource_title}'
-          email_subject: "%{applicant_nickname} wants to join your initiative"
-          notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a>
-            applied for the promoter committee of your initiative <a href="%{resource_url}">%{resource_title}</a>.
-            To accept or reject click <a href="%{resource_url}/edit">here</a>.
+          email_intro: "%{applicant_nickname} a demandé à rejoindre le comité de promotion de la pétition %{resource_title}. Pour accepter ou rejeter cette demande, rendez-vous dans le formulaire d'édition de cette pétition."
+          email_outro: 'Vous avez reçu cette notification car vous êtes l'auteur de cette pétition : %{resource_title}'
+          email_subject: "%{applicant_nickname} a demandé à rejoindre le comité de promotion de votre pétition"
+          notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> a demandé à rejoindre le comité de promotion de votre pétition <a href="%{resource_url}">%{resource_title}</a>. Pour accepter ou rejeter, rendez-vous <a href="%{resource_url}/edit">sur le formulaire d'édition</a>.
       index:
         title: Initiatives
       initiative_signatures:
