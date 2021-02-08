@@ -216,6 +216,8 @@ module Decidim
       end
 
       def readable?(initiative)
+        return false if initiative.blank?
+
         initiative.published? || initiative.rejected? || initiative.accepted? || initiative.debatted? || initiative.examinated? || initiative.classified?
       end
 

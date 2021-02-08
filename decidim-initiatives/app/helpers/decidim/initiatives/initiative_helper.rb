@@ -191,6 +191,7 @@ module Decidim
           result + list
         end&.uniq
       end
+
       # rubocop:enable Style/MultilineBlockChain
 
       def authorizations
@@ -229,6 +230,10 @@ module Decidim
 
       def display_badge?(initiative)
         initiative.rejected? || initiative.accepted? || initiative.debatted? || initiative.examinated? || initiative.classified?
+      end
+
+      def can_be_interacted_with?
+        current_initiative.published? || current_initiative.accepted? || current_initiative.examinated? || current_initiative.debatted? || current_initiative.classified?
       end
     end
   end

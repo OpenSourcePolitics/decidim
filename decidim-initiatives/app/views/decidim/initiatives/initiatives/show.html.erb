@@ -1,18 +1,18 @@
 <% add_decidim_meta_tags({
-  image_url: current_initiative.type.banner_image.url,
-  description: translated_attribute(current_initiative.description),
-  title: translated_attribute(current_initiative.title),
-  url: initiative_url(current_initiative.id),
-  twitter_handler: current_organization.twitter_handler
-}) %>
+                           image_url: current_initiative.type.banner_image.url,
+                           description: translated_attribute(current_initiative.description),
+                           title: translated_attribute(current_initiative.title),
+                           url: initiative_url(current_initiative.id),
+                           twitter_handler: current_organization.twitter_handler
+                         }) %>
 
 <%
-edit_link(
-  resource_locator(current_participatory_space).edit,
-  :update,
-  :initiative,
-  initiative: current_participatory_space
-)
+  edit_link(
+    resource_locator(current_participatory_space).edit,
+    :update,
+    :initiative,
+    initiative: current_participatory_space
+  )
 %>
 
 <%= participatory_space_floating_help %>
@@ -32,29 +32,33 @@ edit_link(
   <% end %>
 
   <div class="columns section view-side mediumlarge-4 mediumlarge-push-8 large-3 large-push-9">
-    <div class="card text-center">
-      <div class="card__content">
-        <% if current_initiative.published? %>
+    <% if can_be_interacted_with? %>
+      <div class="card text-center">
+        <div class="card__content">
           <%= render partial: "progress_bar" %>
-          <% if current_initiative.votes_enabled? %>
+          <% if current_initiative.votes_enabled? && !current_initiative.classified? %>
             <div id="initiative-<%= current_initiative.id %>-vote-cabin">
               <%= render partial: "vote_cabin", locals: { initiative: current_initiative } %>
             </div>
           <% end %>
           <%= render partial: "interactions" %>
-        <% else %>
-          <%= link_to t(".edit"),
-              edit_initiative_path(current_initiative),
-              class: "button expanded" %>
-          <%= render partial: "send_to_technical_validation", locals: {
-                                                                title: t(".send_to_technical_validation"),
-                                                                confirm: t(".confirm")
-                                                              } %>
-          <%= link_to t(".print"), print_initiative_path(current_initiative), class: "link action-print" %>
-        <% end %>
-
+        </div>
       </div>
-    </div>
+    <% elsif current_initiative.author == current_user %>
+      <div class="card text-center">
+        <div class="card__content">
+          <%= link_to t(".edit"),
+                      edit_initiative_path(current_initiative),
+                      class: "button expanded" %>
+          <%= render partial: "send_to_technical_validation", locals: {
+            title: t(".send_to_technical_validation"),
+            confirm: t(".confirm")
+          } %>
+          <%= link_to t(".print"), print_initiative_path(current_initiative), class: "link action-print" %>
+        </div>
+      </div>
+    <% end %>
+
     <% if current_user %>
       <div class="card text-center follow-section">
         <div class="card__content">
