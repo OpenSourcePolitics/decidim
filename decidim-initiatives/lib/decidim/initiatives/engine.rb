@@ -90,6 +90,7 @@ module Decidim
 
           content_block.settings do |settings|
             settings.attribute :max_results, type: :integer, default: 4
+            settings.attribute :order, type: :string, default: "default"
           end
         end
 
@@ -100,7 +101,6 @@ module Decidim
 
           content_block.settings do |settings|
             settings.attribute :max_results, type: :integer, default: 4
-            settings.attribute :order, type: :string, default: "default"
           end
         end
       end
