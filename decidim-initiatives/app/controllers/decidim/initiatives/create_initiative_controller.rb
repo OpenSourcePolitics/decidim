@@ -172,12 +172,10 @@ module Decidim
       def promotal_committee_required?
         return false unless initiative_type.promoting_committee_enabled?
 
-        minimum_members = minimum_committee_members
-        minimum_members.present? && minimum_members.positive?
-      end
+        minimum_committee_members = initiative_type.minimum_committee_members ||
+                                    Decidim::Initiatives.minimum_committee_members
 
-      def minimum_committee_members
-        initiative_type.minimum_committee_members || Decidim::Initiatives.minimum_committee_members
+        minimum_committee_members.present? && minimum_committee_members > 1
       end
     end
   end

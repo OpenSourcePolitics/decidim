@@ -30,6 +30,7 @@ module Decidim
             id: initiative.scope.try(:id),
             name: initiative.scope.try(:name) || empty_translatable
           },
+          signatures: initiative.supports_count,
           signature_type: initiative.signature_type,
           signature_start_date: initiative.signature_start_date,
           signature_end_date: initiative.signature_end_date,
@@ -44,6 +45,9 @@ module Decidim
           authors: {
             id: initiative.author_users.map(&:id),
             name: initiative.author_users.map(&:name)
+          },
+          area: {
+            name: initiative.area&.name
           },
           firms: {
             scopes: uniq_vote_scopes

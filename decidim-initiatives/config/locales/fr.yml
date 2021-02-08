@@ -186,15 +186,16 @@ fr:
           notification_title: La date de fin de recueil des signatures pour l'initiative
             <a href="%{resource_path}">%{resource_title}</a> a été prolongée.
         initiative_sent_to_technical_validation:
-          email_intro: The initiative "%{resource_title}" has been sent to technical
-            validation. Check it out at <a href="%{admin_initiative_url}">the admin
-            panel</a>
-          email_outro: You have received this notification because you are an admin
-            of the platform.
-          email_subject: Initiative "%{resource_title}" was sent to technical validation.
-          notification_title: The initiative "%{resource_title}" has been sent to
-            technical validation. Check it out at <a href="%{admin_initiative_path}">the
-            admin panel</a>
+          email_intro: L'initiative "%{resource_title}" a été envoyée à la validation
+            technique. Consultez-la sur <a href="%{admin_initiative_url}">le panneau
+            d'administration</a>.
+          email_outro: Vous avez reçu cette notification parce que vous êtes un administrateur
+            de la plate-forme.
+          email_subject: L'initiative "%{resource_title}" a été envoyée à la validation
+            technique.
+          notification_title: L'initiative "%{resource_title}" a été envoyée à la
+            validation technique. Consultez-la à <a href="%{admin_initiative_path}">le
+            panneau d'administration</a>
         milestone_completed:
           affected_user:
             email_intro: Votre initiative %{resource_title} a atteint %{percentage}%
@@ -457,6 +458,9 @@ fr:
           initiatives_page_link: Vous pouvez consulter toutes ces informations sur
             la %{link} dédié à l'information sur les initiatives.
           page: page
+          publish_helper_text: N'oubliez pas que pour que votre initiative soit publiée,
+            vous devez compléter les informations requises et <strong> l'envoyer à
+            la validation technique</strong> pour qu'un administrateur puisse l'examiner.
         previous_form:
           back: Retour
           continue: Continuer
@@ -492,6 +496,10 @@ fr:
             de possibilités de se réaliser.
           continue: Mon initiative est différente
           more_information: "(Plus d'informations)"
+      edit:
+        back: Retour
+        title: Pétition
+        update: Mettre à jour
       events:
         approve_membership_request:
           email_intro: "%{author_nickname} a accepté votre demande pour rejoindre le comité de promotion de la pétition %{resource_title}."
@@ -570,12 +578,13 @@ fr:
             one: et 1 autre personne
             other: et %{count} autres personnes
         committee_members:
-          approve: Approve
-          confirm_revoke: Êtes-vous sûr(e) ?
-          invite_to_committee_help: Partagez ce lien pour inviter d'autres participants au comité de promotion
-          no_members_yet: Il n'y a pas de membre dans le comité de promotion
-          revoke: Revoquer
-          title: Membre du comité de promotion
+          approve: Approuver
+          confirm_revoke: Êtes-vous sûr ?
+          invite_to_committee_help: Partagez ce lien pour inviter d'autres participants
+            au comité de promotion
+          no_members_yet: Il n'y a pas de membres dans le comité de promotion
+          revoke: Révoquer
+          title: Membres du comité de promotion
         count:
           title:
             one: "%{count} initiative"
@@ -630,11 +639,15 @@ fr:
         show:
           any_vote_method: Cette initiative recueille des signatures en ligne ainsi
             qu'en présentiel.
+          edit: Modifier
+          confirm: Confirmer
           follow_description: Recevoir une notification lorsqu'il y a des actualités
             sur cette initiative
           of_versions: "(of %{number})"
           offline_method: Cette initiative ne recueille que des soutiens en présentiel.
+          print: Imprimer
           see_other_versions: voir les autres versions
+          send_to_technical_validation: Envoyer à la validation technique
           version: Version %{number}
         signature_identities:
           select_identity: Sélectionner l'identifiant de l'utilisateur
@@ -742,6 +755,8 @@ fr:
           vote: Vote
     scopes:
       global: Global
+  forms:
+    required_explanation: Modifiez votre pétition et gérez les membres du comité de promotion
   layouts:
     decidim:
       admin:

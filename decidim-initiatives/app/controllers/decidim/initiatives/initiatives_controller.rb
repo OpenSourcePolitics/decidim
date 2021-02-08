@@ -150,6 +150,17 @@ module Decidim
         }
       end
 
+      def filter_params
+        if params.dig("filter", "author") == "myself"
+          default_filter_params
+            .merge(params.to_unsafe_h[:filter].try(:symbolize_keys) || {})
+            .merge(state: [""])
+        else
+          default_filter_params
+            .merge(params.to_unsafe_h[:filter].try(:symbolize_keys) || {})
+        end
+      end
+
       def default_filter_type_params
         %w(all) + Decidim::InitiativesType.where(organization: current_organization).pluck(:id).map(&:to_s)
       end

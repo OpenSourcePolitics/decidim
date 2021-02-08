@@ -31,7 +31,8 @@ module Decidim
         validates :encrypted_metadata, :hash_id, :resident, presence: true
         validate :already_voted?
         validate :user_scope_belongs_to_organization?
-        validate :document_number_authorized?
+        # Document number is skipped as we don't need to check for authorization
+        # validate :document_number_authorized?
         validates :resident, acceptance: true
       end
 
