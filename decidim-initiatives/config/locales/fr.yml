@@ -173,7 +173,6 @@ fr:
           initiative_sent_to_technical_validation:
             email_intro: L'initiative "%{resource_title}" a été envoyée à la validation technique. Consultez l'espace <a href="%{admin_initiative_url}">d'administration</a>
             email_outro: Vous avez reçu cette notification car vous êtes administrateur de la plateforme
-              of the platform.
             email_subject: La pétition "%{resource_title}" a été envoyée à la validation technique
             notification_title: La pétition "%{resource_title}" a été envoyée à la validation technique. Consultez l'espace <a href="%{admin_initiative_url}">d'administration</a>
               admin panel</a>
