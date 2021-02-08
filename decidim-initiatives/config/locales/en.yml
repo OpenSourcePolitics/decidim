@@ -524,7 +524,6 @@ en:
           follow_description: Receive a notification when there are news in this initiative
           of_versions: "(of %{number})"
           offline_method: This initiative only collects in-person signatures.
-          print: Print Initiative
           see_other_versions: see other versions
           send_to_technical_validation: Send to technical validation
           version: Version %{number}
