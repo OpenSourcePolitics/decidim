@@ -276,6 +276,14 @@ fr:
             max_results: Maximum amount of elements to show
           highlighted_initiatives:
             max_results: Quantité maximale d'éléments à afficher
+            order:
+              default: Default
+              label: Label
+              most_recent: Plus récent
+          order:
+            default: Default (moins récent)
+            label: 'Ordonner les éléments par:'
+            most_recent: Plus récent
         exports:
           initiatives: Initiatives
         initiatives:
