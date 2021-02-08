@@ -287,7 +287,7 @@ fr:
             state: Etat
         committee_requests:
           approve:
-            success: Request has been approved.
+            success: La demande a été approuvée avec succès.
           index:
             approve: Approuver
             confirm_revoke: Êtes-vous certain ?
