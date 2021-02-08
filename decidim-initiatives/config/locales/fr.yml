@@ -297,7 +297,7 @@ fr:
             revoke: Révoquer
             title: Membres du comité de promotion
           revoke:
-            success: Request has been revoked.
+            success: Le membre a été révoqué avec succès.
         content_blocks:
           answered_initiatives:
             max_results: Maximum amount of elements to show
