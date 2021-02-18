@@ -56,38 +56,6 @@ module Decidim
         end
       end
 
-      context "when validating" do
-        let(:validating) { true }
-        let!(:administrators) do
-          create_list(:user, 10, :admin, organization: organization)
-        end
-
-        it "Validating is notified" do
-          expect(Decidim::Initiatives::InitiativesMailer).to receive(:notify_validating_request)
-            .with(any_args)
-            .exactly(10).times
-            .and_return(message_delivery)
-          subject.notify
-        end
-
-        context "when administrators disable email_on_notification" do
-          let!(:administrators) do
-            create_list(:user, 7, :admin, organization: organization)
-          end
-          let!(:administrators_without_notifications) do
-            create_list(:user, 3, :admin, organization: organization, email_on_notification: false)
-          end
-
-          it "Validating is notified except for admin without email_on_notification" do
-            expect(Decidim::Initiatives::InitiativesMailer).to receive(:notify_validating_request)
-              .with(any_args)
-              .exactly(7).times
-              .and_return(message_delivery)
-            subject.notify
-          end
-        end
-      end
-
       context "when published" do
         let(:published) { true }
         let(:committee_members) do

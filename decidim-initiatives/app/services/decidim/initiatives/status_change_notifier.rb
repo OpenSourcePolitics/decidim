@@ -104,16 +104,6 @@ module Decidim
           .deliver_later
       end
 
-      def notify_admins
-        initiative.organization.admins.each do |user|
-          next unless user.email_on_notification?
-
-          Decidim::Initiatives::InitiativesMailer
-            .notify_validating_request(initiative, user)
-            .deliver_later
-        end
-      end
-
       def notify_creation
         Decidim::Initiatives::InitiativesMailer
           .notify_creation(initiative)
