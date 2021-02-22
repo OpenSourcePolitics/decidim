@@ -57,10 +57,6 @@ describe "Initiative", type: :system do
       let!(:other_initiative_type_scope) { create(:initiatives_type_scope, type: initiative_type) }
 
       before do
-        switch_to_host(organization.host)
-        create(:authorization, user: authorized_user)
-        login_as authorized_user, scope: :user
-
         visit decidim_initiatives.create_initiative_path(id: :select_initiative_type)
       end
 
@@ -294,6 +290,16 @@ describe "Initiative", type: :system do
             within(".step--active") do
               expect(page).not_to have_content("Promoter committee")
               expect(page).to have_content("Finish")
+            end
+          end
+        end
+
+        context "when minimum committee size is equal to 1" do
+          let(:initiative_type_minimum_committee_members) { 1 }
+
+          it "displays promoting committee wizard" do
+            within ".wizard__steps" do
+              expect(page).to have_content("Promoter committee")
             end
           end
         end
