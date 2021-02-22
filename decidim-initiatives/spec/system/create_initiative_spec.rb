@@ -57,10 +57,6 @@ describe "Initiative", type: :system do
       let!(:other_initiative_type_scope) { create(:initiatives_type_scope, type: initiative_type) }
 
       before do
-        switch_to_host(organization.host)
-        create(:authorization, user: authorized_user)
-        login_as authorized_user, scope: :user
-
         visit decidim_initiatives.create_initiative_path(id: :select_initiative_type)
       end
 
@@ -298,6 +294,16 @@ describe "Initiative", type: :system do
           end
         end
 
+        context "when minimum committee size is equal to 1" do
+          let(:initiative_type_minimum_committee_members) { 1 }
+
+          it "displays promoting committee wizard" do
+            within ".wizard__steps" do
+              expect(page).to have_content("Promoter committee")
+            end
+          end
+        end
+
         context "and it's disabled at the type scope" do
           let(:initiative_type) { create(:initiatives_type, organization: organization, promoting_committee_enabled: false, signature_type: signature_type) }
 
@@ -324,7 +330,7 @@ describe "Initiative", type: :system do
           find_button("Continue").click
         end
 
-        context "when minimum committee size is above zero" do
+        context "when minimum committee size is above one" do
           before do
             find_link("Continue").click
           end
@@ -344,11 +350,38 @@ describe "Initiative", type: :system do
               expect(page).to have_link("Edit my initiative")
             end
           end
+
+          it "doesn't displays a send to technical validation link" do
+            expected_message = "You are going to send the initiative for an admin to review it and publish it. Once published you will not be able to edit it. Are you sure?"
+            within ".actions" do
+              expect(page).not_to have_link("Send my initiative")
+              expect(page).not_to have_selector "a[data-confirm='#{expected_message}']"
+            end
+          end
         end
 
         context "when minimum committee size is zero" do
           let(:initiative) { build(:initiative, organization: organization, scoped_type: initiative_type_scope) }
           let(:initiative_type_minimum_committee_members) { 0 }
+
+          it "displays a send to technical validation link" do
+            expected_message = "You are going to send the initiative for an admin to review it and publish it. Once published you will not be able to edit it. Are you sure?"
+            within ".actions" do
+              expect(page).to have_link("Send my initiative")
+              expect(page).to have_selector "a[data-confirm='#{expected_message}']"
+            end
+          end
+
+          it_behaves_like "initiatives path redirection"
+        end
+
+        context "when minimum committee size is equals to 1" do
+          let(:initiative) { build(:initiative, organization: organization, scoped_type: initiative_type_scope) }
+          let(:initiative_type_minimum_committee_members) { 1 }
+
+          before do
+            find_link("Continue").click
+          end
 
           it "displays a send to technical validation link" do
             expected_message = "You are going to send the initiative for an admin to review it and publish it. Once published you will not be able to edit it. Are you sure?"

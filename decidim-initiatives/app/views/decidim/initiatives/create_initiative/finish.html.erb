@@ -21,7 +21,7 @@
         <%= render partial: "finish_help" %>
 
         <div class="actions">
-          <% unless promotal_committee_required? %>
+          <% if send_to_technical_validation? %>
             <%= link_to t(".send_my_initiative"),
                         decidim_initiatives.send_to_technical_validation_initiative_path(current_initiative),
                         class: "button success light expanded",
