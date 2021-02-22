@@ -330,7 +330,7 @@ describe "Initiative", type: :system do
           find_button("Continue").click
         end
 
-        context "when minimum committee size is above zero" do
+        context "when minimum committee size is above one" do
           before do
             find_link("Continue").click
           end
@@ -350,11 +350,38 @@ describe "Initiative", type: :system do
               expect(page).to have_link("Edit my initiative")
             end
           end
+
+          it "doesn't displays a send to technical validation link" do
+            expected_message = "You are going to send the initiative for an admin to review it and publish it. Once published you will not be able to edit it. Are you sure?"
+            within ".actions" do
+              expect(page).not_to have_link("Send my initiative")
+              expect(page).not_to have_selector "a[data-confirm='#{expected_message}']"
+            end
+          end
         end
 
         context "when minimum committee size is zero" do
           let(:initiative) { build(:initiative, organization: organization, scoped_type: initiative_type_scope) }
           let(:initiative_type_minimum_committee_members) { 0 }
+
+          it "displays a send to technical validation link" do
+            expected_message = "You are going to send the initiative for an admin to review it and publish it. Once published you will not be able to edit it. Are you sure?"
+            within ".actions" do
+              expect(page).to have_link("Send my initiative")
+              expect(page).to have_selector "a[data-confirm='#{expected_message}']"
+            end
+          end
+
+          it_behaves_like "initiatives path redirection"
+        end
+
+        context "when minimum committee size is equals to 1" do
+          let(:initiative) { build(:initiative, organization: organization, scoped_type: initiative_type_scope) }
+          let(:initiative_type_minimum_committee_members) { 1 }
+
+          before do
+            find_link("Continue").click
+          end
 
           it "displays a send to technical validation link" do
             expected_message = "You are going to send the initiative for an admin to review it and publish it. Once published you will not be able to edit it. Are you sure?"
