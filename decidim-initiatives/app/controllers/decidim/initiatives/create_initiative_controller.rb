@@ -179,10 +179,10 @@ module Decidim
       end
 
       def unique_committee_member?
-        minimum_committee_members = initiative_type.minimum_committee_members ||
+        committee_members = initiative_type.minimum_committee_members ||
                                     Decidim::Initiatives.minimum_committee_members
 
-        minimum_committee_members == 1
+        committee_members == 1
       end
     end
   end

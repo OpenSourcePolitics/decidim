@@ -12,7 +12,8 @@
   <div class="show-for-large">
     <ol class="wizard__steps">
       <% wizard_steps.each do |wizard_step| %>
-        <% next if skip_wizard?(wizard_step) %>
+        <% next if wizard_step == :promotal_committee && !promotal_committee_required? %>
+        <% next if wizard_step == :select_initiative_type && single_initiative_type? %>
 
         <% if step == wizard_step %>
           <li class="step--active">

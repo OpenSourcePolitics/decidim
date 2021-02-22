@@ -19,17 +19,6 @@ module Decidim
         end
       end
 
-      def skip_wizard?(step)
-        case step
-        when :select_initiative_type
-          single_initiative_type?
-        when :promotal_committee
-          !promotal_committee_required?
-        else
-          false
-        end
-      end
-
       def send_to_technical_validation?
         !promotal_committee_required? || unique_committee_member?
       end
