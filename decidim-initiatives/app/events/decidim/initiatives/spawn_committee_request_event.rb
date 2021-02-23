@@ -9,7 +9,7 @@ module Decidim
       def email_subject
         I18n.t(
           "decidim.initiatives.events.spawn_committee_request_event.email_subject",
-          applicant_nickname: applicant_nickname
+          applicant_name: applicant_name
         )
       end
 
@@ -19,7 +19,7 @@ module Decidim
           resource_title: resource_title,
           resource_url: resource_url,
           applicant_profile_url: applicant_profile_url,
-          applicant_nickname: applicant_nickname
+          applicant_name: applicant_name
         )
       end
 
@@ -37,14 +37,14 @@ module Decidim
           resource_title: resource_title,
           resource_url: resource_url,
           applicant_profile_url: applicant_profile_url,
-          applicant_nickname: applicant_nickname
+          applicant_name: applicant_name
         ).html_safe
       end
 
       private
 
-      def applicant_nickname
-        applicant.nickname
+      def applicant_name
+        applicant.name
       end
 
       def applicant_profile_url
