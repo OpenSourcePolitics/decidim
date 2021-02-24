@@ -125,11 +125,16 @@ module Decidim
         !initiative.published? &&
           initiative.promoting_committee_enabled? &&
           !initiative.has_authorship?(user) &&
+          !user_signataire? &&
           (
-            Decidim::Initiatives.do_not_require_authorization ||
-            ActionAuthorizer.new(user, :create, initiative, initiative_type).authorize.ok? ||
-            Decidim::UserGroups::ManageableUserGroups.for(user).verified.any?
-          )
+              Decidim::Initiatives.do_not_require_authorization ||
+              ActionAuthorizer.new(user, :create, initiative, initiative_type).authorize.ok? ||
+              Decidim::UserGroups::ManageableUserGroups.for(user).verified.any?
+            )
+      end
+
+      def user_signataire?
+        user.email.blank? && user.name == "Anonyme"
       end
 
       def vote_initiative?

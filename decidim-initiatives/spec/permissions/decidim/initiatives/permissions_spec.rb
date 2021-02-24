@@ -337,7 +337,6 @@ describe Decidim::Initiatives::Permissions do
       context "when user is not a member" do
         let(:initiative) { create :initiative, :discarded, organization: organization }
 
-        # TODO: Check again this test, maybe it should be equal to falsey
         it "restricts join committee request on creation" do
           expect(subject).to be_truthy
         end
@@ -372,6 +371,18 @@ describe Decidim::Initiatives::Permissions do
           let(:user) { nil }
 
           it { is_expected.to eq true }
+        end
+
+        context "when user is a 'signataire'" do
+          before do
+            # bypass validation for matching signataire model defined in osp-app
+            # rubocop:disable Rails/SkipsModelValidations
+            user.update_attribute "email", ""
+            user.update_attribute "name", "Anonyme"
+            # rubocop:enable Rails/SkipsModelValidations
+          end
+
+          it { is_expected.to be_falsey }
         end
       end
     end
