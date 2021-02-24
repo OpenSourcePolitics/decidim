@@ -536,10 +536,10 @@ fr:
           email_subject: "%{author_nickname} a rejeté votre demande de rejoindre le comité de promotion"
           notification_title: <a href="%{author_profile_url}">%{author_nickname}</a> a rejeté votre demande de rejoindre le comité de promotion de la pétition <a href="%{resource_url}">%{resource_title}</a>.
         spawn_committee_request_event:
-          email_intro: "%{applicant_nickname} a demandé à rejoindre le comité de promotion de la pétition %{resource_title}. Pour accepter ou rejeter cette demande, rendez-vous dans le formulaire d'édition de cette pétition."
+          email_intro: "%{applicant_name} a demandé à rejoindre le comité de promotion de la pétition %{resource_title}. Pour accepter ou rejeter cette demande, rendez-vous dans le formulaire d'édition de cette pétition."
           email_outro: "Vous avez reçu cette notification car vous êtes l'auteur de cette pétition : %{resource_title}"
-          email_subject: "%{applicant_nickname} a demandé à rejoindre le comité de promotion de votre pétition"
-          notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> a demandé à rejoindre le comité de promotion de votre pétition <a href="%{resource_url}">%{resource_title}</a>. Pour accepter ou rejeter, rendez-vous <a href="%{resource_url}/edit">sur le formulaire d'édition</a>.
+          email_subject: "%{applicant_name} a demandé à rejoindre le comité de promotion de votre pétition"
+          notification_title: <a href="%{applicant_profile_url}">%{applicant_name}</a> a demandé à rejoindre le comité de promotion de votre pétition <a href="%{resource_url}">%{resource_title}</a>. Pour accepter ou rejeter, rendez-vous <a href="%{resource_url}/edit">sur le formulaire d'édition</a>.
       index:
         title: Initiatives
       initiative_signatures:
