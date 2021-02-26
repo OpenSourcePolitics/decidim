@@ -25,7 +25,6 @@ module Decidim
       #   notified about the result of the initiative.
       def notify
         notify_initiative_creation if created?
-        notify_validating_initiative if validating?
         notify_validating_result if validating_result?
         notify_support_result if support_result?
         notify_manual_change if manual_changes?
@@ -55,10 +54,6 @@ module Decidim
 
       def notify_initiative_creation
         notify_creation
-      end
-
-      def notify_validating_initiative
-        notify_admins
       end
 
       def notify_validating_result
@@ -102,16 +97,6 @@ module Decidim
         Decidim::Initiatives::InitiativesMailer
           .notify_state_change(initiative, initiative.author)
           .deliver_later
-      end
-
-      def notify_admins
-        initiative.organization.admins.each do |user|
-          next unless user.email_on_notification?
-
-          Decidim::Initiatives::InitiativesMailer
-            .notify_validating_request(initiative, user)
-            .deliver_later
-        end
       end
 
       def notify_creation
