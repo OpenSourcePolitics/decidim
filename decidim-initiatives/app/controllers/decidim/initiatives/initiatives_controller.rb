@@ -151,7 +151,7 @@ module Decidim
       end
 
       def filter_params
-        if params.dig("filter", "author") == "myself"
+        if filtering_by_my_initiatives?
           default_filter_params
             .merge(params.to_unsafe_h[:filter].try(:symbolize_keys) || {})
             .merge(state: [""])
@@ -182,6 +182,10 @@ module Decidim
 
       def stats
         @stats ||= InitiativeStatsPresenter.new(initiative: current_initiative)
+      end
+
+      def filtering_by_my_initiatives?
+        params.dig("filter", "author") == "myself"
       end
     end
   end
