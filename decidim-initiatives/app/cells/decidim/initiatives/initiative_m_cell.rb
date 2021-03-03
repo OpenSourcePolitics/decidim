@@ -114,9 +114,7 @@ module Decidim
       end
 
       def statuses
-        collection = [:creation_date]
-        collection << :comments_count if model.is_a?(Decidim::Comments::Commentable) && model.commentable?
-        collection
+        super - [:follow]
       end
     end
   end
