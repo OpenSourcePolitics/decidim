@@ -29,7 +29,6 @@ describe "Initiative", type: :system do
     it_behaves_like "editable content for admins"
 
     it "shows the details of the given initiative" do
-
       within "main" do
         expect(page).to have_content(translated(initiative.title, locale: :en))
         expect(page).to have_content(ActionView::Base.full_sanitizer.sanitize(translated(initiative.description, locale: :en), tags: []))
