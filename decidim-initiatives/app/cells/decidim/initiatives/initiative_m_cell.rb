@@ -18,9 +18,9 @@ module Decidim
 
       def cache_hash
         hash = model.author.cache_version +
-            model.cache_version +
-            model.supports_count.to_s +
-            comments_count.to_s
+               model.cache_version +
+               model.supports_count.to_s +
+               comments_count.to_s
 
         hash << current_user.follows?(model).to_s if current_user
         hash << current_locale
@@ -94,7 +94,7 @@ module Decidim
 
       def authors
         [present(model).author] +
-            model.committee_members.approved.non_deleted.excluding_author.map { |member| present(member.user) }
+          model.committee_members.approved.non_deleted.excluding_author.map { |member| present(member.user) }
       end
 
       def comments_count
