@@ -18,9 +18,9 @@ module Decidim
 
       def cache_hash
         hash = model.author.cache_version +
-               model.cache_version +
-               model.supports_count.to_s +
-               comments_count.to_s
+            model.cache_version +
+            model.supports_count.to_s +
+            comments_count.to_s
 
         hash << current_user.follows?(model).to_s if current_user
         hash << current_locale
@@ -94,7 +94,7 @@ module Decidim
 
       def authors
         [present(model).author] +
-          model.committee_members.approved.non_deleted.excluding_author.map { |member| present(member.user) }
+            model.committee_members.approved.non_deleted.excluding_author.map { |member| present(member.user) }
       end
 
       def comments_count
@@ -111,6 +111,12 @@ module Decidim
         link_to resource_path do
           render_comments_count
         end
+      end
+
+      def statuses
+        collection = [:creation_date]
+        collection << :comments_count if model.is_a?(Decidim::Comments::Commentable) && model.commentable?
+        collection
       end
     end
   end
