@@ -510,10 +510,10 @@ fr:
         update: Mettre à jour
       events:
         approve_membership_request:
-          email_intro: "%{author_nickname} a accepté votre demande pour rejoindre le comité de promotion de la pétition %{resource_title}."
+          email_intro: "%{author_name} a accepté votre demande pour rejoindre le comité de promotion de la pétition %{resource_title}."
           email_outro: 'Vous avez reçu cette notification car vous avez demandé à rejoindre le comité de promotion de cette pétition : %{resource_title}'
-          email_subject: "%{author_nickname} a accepté votre demande de rejoindre le comité de promotion"
-          notification_title: <a href="%{author_profile_url}">%{author_nickname}</a> a accepté votre demande de rejoindre le comité de promotion de la pétition <a href="%{resource_url}">%{resource_title}</a>.
+          email_subject: "%{author_name} a accepté votre demande de rejoindre le comité de promotion"
+          notification_title: <a href="%{author_profile_url}">%{author_name}</a> a accepté votre demande de rejoindre le comité de promotion de la pétition <a href="%{resource_url}">%{resource_title}</a>.
         create_initiative_event:
           email_intro: "%{author_name} %{author_nickname}, que vous suivez, a créé
             une nouvelle initiative, lisez -la et contribuez :"
