@@ -119,6 +119,56 @@ module Decidim
           it { is_expected.to be_falsy }
         end
       end
+
+      context "#editable?" do
+        let(:subject) { helper.editable?(initiative) }
+
+        context "when validating" do
+          let(:initiative) { create(:initiative, :validating) }
+
+          it { is_expected.to be_falsy }
+        end
+
+        context "when published" do
+          let(:initiative) { create(:initiative, :published) }
+
+          it { is_expected.to be_falsy }
+        end
+
+        context "when examinated" do
+          let(:initiative) { create(:initiative, :examinated) }
+
+          it { is_expected.to be_falsy }
+        end
+
+        context "when classified" do
+          let(:initiative) { create(:initiative, :classified) }
+
+          it { is_expected.to be_falsy }
+        end
+
+        context "when discarded" do
+          let(:initiative) { create(:initiative, :discarded) }
+
+          it { is_expected.to be_falsy }
+        end
+        context "when rejected" do
+          let(:initiative) { create(:initiative, :rejected) }
+
+          it { is_expected.to be_falsy }
+        end
+        context "when accepted" do
+          let(:initiative) { create(:initiative, :accepted) }
+
+          it { is_expected.to be_falsy }
+        end
+
+        context "when created" do
+          let(:initiative) { create(:initiative, :created) }
+
+          it { is_expected.to be_truthy }
+        end
+      end
     end
   end
 end
