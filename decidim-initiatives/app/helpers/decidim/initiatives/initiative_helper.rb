@@ -232,8 +232,12 @@ module Decidim
         initiative.rejected? || initiative.accepted? || initiative.debatted? || initiative.examinated? || initiative.classified?
       end
 
-      def can_be_interacted_with?
-        current_initiative.published? || current_initiative.accepted? || current_initiative.examinated? || current_initiative.debatted? || current_initiative.classified?
+      def can_be_interacted_with?(initiative)
+        initiative.published? || initiative.accepted? || initiative.examinated? || initiative.debatted? || initiative.classified?
+      end
+
+      def editable?(initiative)
+        initiative.created?
       end
     end
   end
