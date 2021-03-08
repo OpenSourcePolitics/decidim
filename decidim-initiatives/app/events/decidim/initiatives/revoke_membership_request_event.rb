@@ -9,7 +9,7 @@ module Decidim
       def email_subject
         I18n.t(
           "decidim.initiatives.events.revoke_membership_request.email_subject",
-          author_nickname: author_nickname
+          author_name: author_name
         )
       end
 
@@ -19,7 +19,7 @@ module Decidim
           resource_title: resource_title,
           resource_url: resource_url,
           author_profile_url: author_profile_url,
-          author_nickname: author_nickname
+          author_name: author_name
         )
       end
 
@@ -37,14 +37,14 @@ module Decidim
           resource_title: resource_title,
           resource_url: resource_url,
           author_profile_url: author_profile_url,
-          author_nickname: author_nickname
+          author_name: author_name
         ).html_safe
       end
 
       private
 
-      def author_nickname
-        author.nickname
+      def author_name
+        author.name
       end
 
       def author_profile_url
