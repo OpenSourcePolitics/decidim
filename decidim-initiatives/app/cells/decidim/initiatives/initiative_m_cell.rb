@@ -112,6 +112,10 @@ module Decidim
           render_comments_count
         end
       end
+
+      def statuses
+        super - [:follow]
+      end
     end
   end
 end
