@@ -123,7 +123,7 @@ module Decidim
 
       def access_request_membership?
         !initiative.validating? &&
-        !initiative.published? &&
+          !initiative.published? &&
           initiative.promoting_committee_enabled? &&
           !initiative.has_authorship?(user) &&
           !user_signataire? &&

@@ -80,7 +80,7 @@ module Decidim
         end
       end
 
-      context "#can_be_interacted_with?" do
+      describe "#can_be_interacted_with?" do
         let(:subject) { helper.can_be_interacted_with?(initiative) }
 
         context "when published" do
@@ -120,7 +120,7 @@ module Decidim
         end
       end
 
-      context "#editable?" do
+      describe "#editable?" do
         let(:subject) { helper.editable?(initiative) }
 
         context "when validating" do
@@ -152,11 +152,13 @@ module Decidim
 
           it { is_expected.to be_falsy }
         end
+
         context "when rejected" do
           let(:initiative) { create(:initiative, :rejected) }
 
           it { is_expected.to be_falsy }
         end
+
         context "when accepted" do
           let(:initiative) { create(:initiative, :accepted) }
 
