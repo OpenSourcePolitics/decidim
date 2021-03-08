@@ -79,6 +79,46 @@ module Decidim
           expect(popularity_tag(initiative)).to include("popularity--level5")
         end
       end
+
+      context "#can_be_interacted_with?" do
+        let(:subject) { helper.can_be_interacted_with?(initiative) }
+
+        context "when published" do
+          let(:initiative) { create(:initiative, :published) }
+
+          it { is_expected.to be_truthy }
+        end
+
+        context "when accepted" do
+          let(:initiative) { create(:initiative, :accepted) }
+
+          it { is_expected.to be_truthy }
+        end
+
+        context "when examinated" do
+          let(:initiative) { create(:initiative, :examinated) }
+
+          it { is_expected.to be_truthy }
+        end
+
+        context "when debated" do
+          let(:initiative) { create(:initiative, :debatted) }
+
+          it { is_expected.to be_truthy }
+        end
+
+        context "when classified" do
+          let(:initiative) { create(:initiative, :classified) }
+
+          it { is_expected.to be_truthy }
+        end
+
+        context "when created" do
+          let(:initiative) { create(:initiative, :created) }
+
+          it { is_expected.to be_falsy }
+        end
+      end
     end
   end
 end
