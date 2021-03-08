@@ -375,6 +375,7 @@ describe "Filter Initiatives", :slow, type: :system do
 
           expect(page).to have_css(".card--initiative", count: 2)
           expect(page).to have_content("2 INITIATIVES")
+          expect(page).to have_content("Most recent")
         end
       end
     end

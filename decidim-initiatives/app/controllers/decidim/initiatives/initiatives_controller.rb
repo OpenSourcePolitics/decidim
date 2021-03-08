@@ -196,7 +196,9 @@ module Decidim
 
       def order
         @order ||= if filtering_by_my_initiatives?
-                     detect_order(params[:order]) == "random" ? "recent" : detect_order(params[:order])
+                     order = detect_order(params[:order]) == "random" ? "recent" : detect_order(params[:order])
+
+                     order.presence || "recent"
                    else
                      detect_order(params[:order]) || default_order
                    end
