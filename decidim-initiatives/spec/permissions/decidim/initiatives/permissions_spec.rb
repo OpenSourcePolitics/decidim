@@ -321,8 +321,8 @@ describe Decidim::Initiatives::Permissions do
       { initiative: initiative }
     end
 
-    context "when initiative is published" do
-      let(:initiative) { create :initiative, :published, organization: organization }
+    context "when initiative is sent to technical validation" do
+      let(:initiative) { create :initiative, :validating, organization: organization }
 
       it { is_expected.to eq false }
     end
@@ -384,6 +384,12 @@ describe Decidim::Initiatives::Permissions do
 
           it { is_expected.to be_falsey }
         end
+      end
+
+      context "when initiative is published" do
+        let(:initiative) { create :initiative, :published, organization: organization }
+
+        it { is_expected.to eq false }
       end
     end
   end

@@ -122,6 +122,7 @@ module Decidim
       end
 
       def access_request_membership?
+        !initiative.validating? &&
         !initiative.published? &&
           initiative.promoting_committee_enabled? &&
           !initiative.has_authorship?(user) &&
