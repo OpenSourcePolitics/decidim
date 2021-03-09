@@ -364,6 +364,8 @@ describe "Filter Initiatives", :slow, type: :system do
 
           expect(page).to have_css(".card--initiative", count: 3)
           expect(page).to have_content("3 INITIATIVES")
+          expect(page).to have_content("Random")
+          expect(page).to have_css(".is-dropdown-submenu-parent[aria-label='Random'")
         end
       end
 
@@ -376,6 +378,7 @@ describe "Filter Initiatives", :slow, type: :system do
           expect(page).to have_css(".card--initiative", count: 2)
           expect(page).to have_content("2 INITIATIVES")
           expect(page).to have_content("Most recent")
+          expect(page).to have_css(".is-dropdown-submenu-parent[aria-label='Most recent'")
         end
       end
     end

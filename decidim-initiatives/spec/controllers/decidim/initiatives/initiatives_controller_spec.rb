@@ -60,6 +60,28 @@ module Decidim
           end
         end
 
+        context "when order by unknown order" do
+          it "uses default order" do
+            get :index, params: { order: "dummy_order" }
+            expect(subject.helpers.initiatives).to include(initiative)
+          end
+
+          context "and author is 'myself'" do
+            let!(:author) { create(:user, :confirmed, organization: organization) }
+            let!(:authored_initiative) { create(:initiative, :created, author: author, organization: organization) }
+
+            before do
+              sign_in authored_initiative.author, scope: :user
+            end
+
+            it "returns authors initiatives" do
+              get :index, params: { filter: { author: "myself" } }
+
+              expect(subject.helpers.initiatives).to eq([authored_initiative])
+            end
+          end
+        end
+
         context "when filtering by 'my initiatives'" do
           let!(:author) { create(:user, :confirmed, organization: organization) }
           let!(:authored_initiative) { create(:initiative, :created, author: author, organization: organization) }
