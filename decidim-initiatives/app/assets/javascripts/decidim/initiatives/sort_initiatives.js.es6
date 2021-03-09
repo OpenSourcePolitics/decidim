@@ -9,15 +9,10 @@ $(() => {
   $("input[type='radio'][id^='filter_author_']").on("click", (event) => {
     const selectedAuthor = $(event.target)[0];
 
-    switch (selectedAuthor.value) {
-    case "any":
+    if (selectedAuthor.value === "any") {
       target.val("random");
-      break;
-    case "myself":
+    } else if (selectedAuthor.value === "myself") {
       target.val("recent");
-      break;
-    default:
-      return;
     }
   });
 });
