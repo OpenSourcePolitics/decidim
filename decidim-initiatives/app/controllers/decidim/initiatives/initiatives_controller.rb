@@ -188,20 +188,14 @@ module Decidim
         params.dig("filter", "author") == "myself"
       end
 
+      def order
+        @order ||= detect_order(params[:order]).presence || default_order
+      end
+
       def default_order
         return "recent" if filtering_by_my_initiatives?
 
         "random"
-      end
-
-      def order
-        @order ||= if filtering_by_my_initiatives?
-                     order = detect_order(params[:order]) == "random" ? "recent" : detect_order(params[:order])
-
-                     order.presence || default_order
-                   else
-                     detect_order(params[:order]) || default_order
-                   end
       end
     end
   end
