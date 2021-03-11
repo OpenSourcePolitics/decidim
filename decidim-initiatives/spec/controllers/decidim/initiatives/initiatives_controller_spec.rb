@@ -60,25 +60,47 @@ module Decidim
           end
         end
 
+        context "when order by unknown order" do
+          it "uses default order" do
+            get :index, params: { order: "dummy_order" }
+            expect(subject.helpers.initiatives).to include(initiative)
+          end
+
+          context "and author is 'myself'" do
+            let!(:author) { create(:user, :confirmed, organization: organization) }
+            let!(:authored_initiative) { create(:initiative, :created, author: author, organization: organization) }
+
+            before do
+              sign_in authored_initiative.author, scope: :user
+            end
+
+            it "returns authors initiatives" do
+              get :index, params: { filter: { author: "myself" } }
+
+              expect(subject.helpers.initiatives).to eq([authored_initiative])
+            end
+          end
+        end
+
         context "when filtering by 'my initiatives'" do
           let!(:author) { create(:user, :confirmed, organization: organization) }
-          let!(:authored_initative) { create(:initiative, :created, author: author, organization: organization) }
+          let!(:authored_initiative) { create(:initiative, :created, author: author, organization: organization) }
 
-          it "doesn't returns authors initative" do
+          it "doesn't returns authors initiative" do
             get :index, params: { filter: { author: "myself" } }
 
-            expect(subject.helpers.initiatives).not_to eq([authored_initative])
+            expect(subject.helpers.initiatives).not_to eq([authored_initiative])
           end
 
           context "when user is signed in" do
             before do
-              sign_in authored_initative.author, scope: :user
+              sign_in authored_initiative.author, scope: :user
             end
 
-            it "returns authors initative" do
+            it "returns authors initiative" do
               get :index, params: { filter: { author: "myself" } }
 
-              expect(subject.helpers.initiatives).to eq([authored_initative])
+              expect(subject.helpers.initiatives).to eq([authored_initiative])
             end
           end
         end

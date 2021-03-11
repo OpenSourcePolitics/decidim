@@ -27,12 +27,16 @@
                                         :first,
                                         :last,
                                         legend_title: t(".author") %>
+
+      <%= javascript_include_tag "decidim/initiatives/sort_initiatives" %>
     <% end %>
+
     <%= form.check_boxes_tree :scope_id, filter_scopes_values, legend_title: t(".scope") %>
 
     <% unless single_initiative_type? %>
       <%= form.check_boxes_tree :type_id, filter_types_values, legend_title: t(".type") %>
-      <%= hidden_field_tag :order, order, id: nil, class: "order_filter" %>
     <% end %>
+
+    <%= hidden_field_tag :order, order, id: "order_filter", class: "order_filter" %>
   <% end %>
 <% end %>
