@@ -192,6 +192,23 @@ module Decidim
               end
             end
 
+            context "when filtering by open and classified" do
+              let(:state) { %w(open) }
+              let(:custom_state) { ["classified"] }
+
+              before do
+                create_list(:initiative, 3, organization: organization)
+              end
+
+              it "does not returns initiatives" do
+                classified_initiatives = create_list(:initiative, 3, :classified, organization: organization)
+
+                expect(subject.size).to eq(0)
+                expect(subject).to match_array([])
+                expect(subject).not_to include(classified_initiatives)
+              end
+            end
+
             context "when filtering by answered, closed and examinated" do
               let(:state) { %w(answered closed) }
               let(:custom_state) { ["examinated"] }
