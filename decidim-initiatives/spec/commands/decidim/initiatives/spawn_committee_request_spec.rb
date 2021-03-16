@@ -46,6 +46,15 @@ module Decidim
           command.call
         end
 
+        it "sends notification by email" do
+          expect do
+            perform_enqueued_jobs { command.call }
+          end.to change(emails, :count).by(3)
+
+          expect(last_email.to).to eq([initiative.author.email])
+          expect(last_email_body).to include("applied for the promoter committee of your initiative")
+        end
+
         it "Creates a committee membership request" do
           expect do
             command.call
