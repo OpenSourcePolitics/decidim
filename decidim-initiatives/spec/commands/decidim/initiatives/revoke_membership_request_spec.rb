@@ -31,6 +31,15 @@ module Decidim
           command.call
         end
 
+        it "sends notification by email" do
+          expect do
+            perform_enqueued_jobs { command.call }
+          end.to change(emails, :count).by(1)
+
+          expect(last_email.to).to eq([membership_request.user.email])
+          expect(last_email_body).to include("#{initiative.author.name} rejected your application to be part of the promoter committee for the following initiative")
+        end
+
         it "revokes committee membership request" do
           expect do
             command.call
