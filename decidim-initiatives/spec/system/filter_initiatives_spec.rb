@@ -230,6 +230,18 @@ describe "Filter Initiatives", :slow, type: :system do
         expect(page).to have_css(".card--initiative", count: 2)
         expect(page).to have_content("2 INITIATIVES")
       end
+
+      context "and selecting the opened state" do
+        it "does not lists initiatives" do
+          within ".filters .custom_state_check_boxes_tree_filter" do
+            uncheck "All"
+            check "Classified"
+          end
+
+          expect(page).to have_css(".card--initiative", count: 0)
+          expect(page).to have_content("0 INITIATIVE")
+        end
+      end
     end
 
     context "when selecting the debatted state" do
