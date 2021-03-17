@@ -107,40 +107,12 @@ describe Decidim::Initiatives::Permissions do
       { initiative: initiative }
     end
 
-    context "when initiative is published" do
-      let(:initiative) { create :initiative, :published, organization: organization }
+    [:published, :debatted, :examinated, :classified, :rejected, :accepted].each do |state|
+      context "when initiative is #{state}" do
+        let(:initiative) { create :initiative, state, organization: organization }
 
-      it { is_expected.to eq true }
-    end
-
-    context "when initiative is debatted" do
-      let(:initiative) { create :initiative, :debatted, organization: organization }
-
-      it { is_expected.to eq true }
-    end
-
-    context "when initiative is examinated" do
-      let(:initiative) { create :initiative, :examinated, organization: organization }
-
-      it { is_expected.to eq true }
-    end
-
-    context "when initiative is classified" do
-      let(:initiative) { create :initiative, :classified, organization: organization }
-
-      it { is_expected.to eq true }
-    end
-
-    context "when initiative is rejected" do
-      let(:initiative) { create :initiative, :rejected, organization: organization }
-
-      it { is_expected.to eq true }
-    end
-
-    context "when initiative is accepted" do
-      let(:initiative) { create :initiative, :accepted, organization: organization }
-
-      it { is_expected.to eq true }
+        it { is_expected.to eq true }
+      end
     end
 
     context "when user is admin" do
@@ -284,6 +256,9 @@ describe Decidim::Initiatives::Permissions do
 
   context "when managing an initiative" do
     let(:action_subject) { :initiative }
+    let(:context) do
+      { initiative: initiative }
+    end
 
     context "when updating" do
       let(:action_name) { :edit }
@@ -295,6 +270,14 @@ describe Decidim::Initiatives::Permissions do
         let(:initiative) { create :initiative, :created, organization: organization }
 
         it { is_expected.to eq true }
+      end
+
+      [:published, :debatted, :examinated, :classified, :rejected, :accepted].each do |state|
+        context "when initiative is #{state}" do
+          let(:initiative) { create :initiative, state.to_s.to_sym, organization: organization }
+
+          it { is_expected.to eq false }
+        end
       end
     end
 

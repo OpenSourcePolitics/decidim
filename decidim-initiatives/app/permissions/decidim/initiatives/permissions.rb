@@ -74,21 +74,27 @@ module Decidim
       end
 
       def edit_public_initiative?
-        allow! if permission_action.subject == :initiative &&
-                  permission_action.action == :edit
+        return unless permission_action.subject == :initiative &&
+                      permission_action.action == :edit
+
+        toggle_allow(editable?)
       end
 
       def update_public_initiative?
         return unless permission_action.subject == :initiative &&
                       permission_action.action == :update
 
-        toggle_allow(initiative.created?)
+        toggle_allow(editable?)
       end
 
       def creation_enabled?
         Decidim::Initiatives.creation_enabled && (
         creation_authorized? || Decidim::UserGroups::ManageableUserGroups.for(user).verified.any?
       )
+      end
+
+      def editable?
+        initiative.created?
       end
 
       def create_initiative_with_type?
