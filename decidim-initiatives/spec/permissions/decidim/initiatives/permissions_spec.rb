@@ -274,7 +274,7 @@ describe Decidim::Initiatives::Permissions do
 
       [:published, :debatted, :examinated, :classified, :rejected, :accepted].each do |state|
         context "when initiative is #{state}" do
-          let(:initiative) { create :initiative, state.to_s.to_sym, organization: organization }
+          let(:initiative) { create :initiative, state, organization: organization }
 
           it { is_expected.to eq false }
         end
