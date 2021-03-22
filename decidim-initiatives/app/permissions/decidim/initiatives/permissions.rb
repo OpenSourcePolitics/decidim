@@ -54,7 +54,7 @@ module Decidim
                       permission_action.action == :read
 
         return allow! if readable?(initiative)
-        return allow! if user && (initiative.has_authorship?(user) || user.admin?)
+        return allow! if user && authorship_or_admin?
 
         disallow!
       end
@@ -74,15 +74,17 @@ module Decidim
       end
 
       def edit_public_initiative?
-        allow! if permission_action.subject == :initiative &&
-                  permission_action.action == :edit
+        return unless permission_action.subject == :initiative &&
+                      permission_action.action == :edit
+
+        toggle_allow(initiative&.created? && authorship_or_admin?)
       end
 
       def update_public_initiative?
         return unless permission_action.subject == :initiative &&
                       permission_action.action == :update
 
-        toggle_allow(initiative.created?)
+        toggle_allow(initiative&.created? && authorship_or_admin?)
       end
 
       def creation_enabled?
@@ -255,6 +257,10 @@ module Decidim
           !initiative.created_by_individual? ||
           initiative.enough_committee_members?
         )
+      end
+
+      def authorship_or_admin?
+        initiative&.has_authorship?(user) || user.admin?
       end
     end
   end
