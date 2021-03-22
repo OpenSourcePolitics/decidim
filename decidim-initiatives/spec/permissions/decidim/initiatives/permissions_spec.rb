@@ -285,14 +285,40 @@ describe Decidim::Initiatives::Permissions do
   context "when managing an initiative" do
     let(:action_subject) { :initiative }
 
-    context "when updating" do
+    context "when editing" do
       let(:action_name) { :edit }
       let(:action) do
         { scope: :public, action: :edit, subject: :initiative }
       end
+      let(:context) do
+        { initiative: initiative }
+      end
 
-      context "when initiative is created" do
-        let(:initiative) { create :initiative, :created, organization: organization }
+      context "when initiative is not created" do
+        let(:initiative) { create(:initiative, author: user, organization: organization) }
+
+        it { is_expected.to eq false }
+      end
+
+      context "when user is a committee member" do
+        let(:initiative) { create(:initiative, :created, organization: organization) }
+
+        before do
+          create(:initiatives_committee_member, initiative: initiative, user: user)
+        end
+
+        it { is_expected.to eq true }
+      end
+
+      context "when user is not an initiative author" do
+        let(:initiative) { create(:initiative, :created, organization: organization) }
+
+        it { is_expected.to eq false }
+      end
+
+      context "when user is admin" do
+        let(:user) { create :user, :admin, organization: organization }
+        let(:initiative) { create(:initiative, :created, author: user, organization: organization) }
 
         it { is_expected.to eq true }
       end
@@ -303,9 +329,35 @@ describe Decidim::Initiatives::Permissions do
       let(:action) do
         { scope: :public, action: :edit, subject: :initiative }
       end
+      let(:context) do
+        { initiative: initiative }
+      end
 
-      context "when initiative is created" do
-        let(:initiative) { create :initiative, :created, organization: organization }
+      context "when initiative is not created" do
+        let(:initiative) { create(:initiative, organization: organization) }
+
+        it { is_expected.to eq false }
+      end
+
+      context "when user is a committee member" do
+        let(:initiative) { create(:initiative, :created, organization: organization) }
+
+        before do
+          create(:initiatives_committee_member, user: user, initiative: initiative)
+        end
+
+        it { is_expected.to eq true }
+      end
+
+      context "when user is not an initiative author" do
+        let(:initiative) { create(:initiative, :created, organization: organization) }
+
+        it { is_expected.to eq false }
+      end
+
+      context "when user is admin" do
+        let(:user) { create :user, :admin, organization: organization }
+        let(:initiative) { create(:initiative, :created, author: user, organization: organization) }
 
         it { is_expected.to eq true }
       end
