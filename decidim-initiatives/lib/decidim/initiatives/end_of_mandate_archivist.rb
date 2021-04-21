@@ -6,14 +6,14 @@ module Decidim
         @category ||= find_or_create_category(category_name)
       end
 
-      def self.archive(category_name, organization_id)
-        self.new(category_name, organization_id).call
+      def self.archive(category_name, organization_id, verbose = true)
+        self.new(category_name, organization_id).call(verbose)
       end
 
-      def call
-        puts "Initiatives to archived: #{initiatives.count}"
+      def call(verbose)
+        puts "Initiatives to archived: #{initiatives.count}" if verbose
         initiatives.update_all(decidim_initiatives_archive_categories_id: @category.id)
-        puts "Finished..."
+        puts "Finished..." if verbose
       end
 
       def find_or_create_category(category_name)
