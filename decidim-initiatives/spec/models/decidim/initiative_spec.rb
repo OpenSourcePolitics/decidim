@@ -329,35 +329,35 @@ module Decidim
 
       it { is_expected.to be_truthy }
     end
+  end
 
-    context "when archived" do
-      let(:initiative) { build :initiative, :archived }
+  context "when archived" do
+    let(:initiative) { build :initiative, :archived }
 
-      it { is_expected.to be_truthy }
+    it { is_expected.to be_truthy }
+  end
+
+  describe ".archived" do
+    let!(:initiative) { create :initiative, :archived }
+
+    it "returns archived initiatives" do
+      expect(Decidim::Initiative.archived.length).to eq(1)
     end
+  end
 
-    describe ".archived" do
-      let!(:initiative) { create :initiative, :archived }
+  describe ".not_archived" do
+    let!(:initiative) { create :initiative }
 
-      it "returns archived initiatives" do
-        expect(Decidim::Initiative.archived.length).to eq(1)
-      end
+    it "returns not archived initiatives" do
+      expect(Decidim::Initiative.not_archived.length).to eq(1)
     end
+  end
 
-    describe ".not_archived" do
-      let!(:initiative) { create :initiative }
+  describe "#archived?" do
+    let(:initiative) { build :initiative, :archived }
 
-      it "returns not archived initiatives" do
-        expect(Decidim::Initiative.not_archived.length).to eq(1)
-      end
-    end
-
-    describe "#archived?" do
-      let(:initiative) { build :initiative, :archived }
-
-      it "returns true" do
-        expect(initiative.archived?).to be_truthy
-      end
+    it "returns true" do
+      expect(initiative.archived?).to be_truthy
     end
   end
 end
