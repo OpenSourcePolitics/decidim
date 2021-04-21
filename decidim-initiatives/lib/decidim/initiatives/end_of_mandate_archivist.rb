@@ -1,19 +1,30 @@
+# frozen_string_literal: true
+
 module Decidim
   module Initiatives
     class EndOfMandateArchivist
-      def initialize(category_name, organization_id)
-        @organization ||= find_organization(organization_id)
-        @category ||= find_or_create_category(category_name)
+      def initialize(category_name, organization_id, verbose)
+        @organization = find_organization(organization_id)
+        @category = find_or_create_category(category_name)
+        @verbose = verbose
       end
 
       def self.archive(category_name, organization_id, verbose = true)
-        self.new(category_name, organization_id).call(verbose)
+        new(category_name, organization_id, verbose).call
       end
 
-      def call(verbose)
-        puts "Initiatives to archived: #{initiatives.count}" if verbose
+      def call
+        archive_initiatives
+      end
+
+      def archive_initiatives
+        Rails.logger.info "Initiatives to archived: #{initiatives.count}" if @verbose
+
+        # rubocop:disable Rails/SkipsModelValidations
         initiatives.update_all(decidim_initiatives_archive_categories_id: @category.id)
-        puts "Finished..." if verbose
+        # rubocop:enable Rails/SkipsModelValidations
+
+        Rails.logger.info "Finished..." if @verbose
       end
 
       def find_or_create_category(category_name)

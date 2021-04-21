@@ -73,22 +73,22 @@ module Decidim
 
     scope :open, lambda {
       where.not(state: [:classified, :discarded, :rejected, :accepted, :created])
-          .currently_signable
+           .currently_signable
     }
     scope :closed, lambda {
       where(state: [:classified, :discarded, :rejected, :accepted])
-          .or(currently_unsignable)
+        .or(currently_unsignable)
     }
     scope :with_state, ->(state) { where(state: state) if state.present? }
     scope :with_states, ->(states) { where(state: states) if states.present? }
 
     scope :currently_signable, lambda {
       where("signature_start_date <= ?", Date.current)
-          .where("signature_end_date >= ?", Date.current)
+        .where("signature_end_date >= ?", Date.current)
     }
     scope :currently_unsignable, lambda {
       where("signature_start_date > ?", Date.current)
-          .or(where("signature_end_date < ?", Date.current))
+        .or(where("signature_end_date < ?", Date.current))
     }
 
     scope :answered, -> { where.not(answered_at: nil) }
@@ -103,9 +103,9 @@ module Decidim
     scope :order_by_supports, -> { order(Arel.sql("(coalesce((online_votes->>'total')::int,0) + coalesce((offline_votes->>'total')::int,0)) DESC")) }
     scope :order_by_most_commented, lambda {
       select("decidim_initiatives.*")
-          .left_joins(:comments)
-          .group("decidim_initiatives.id")
-          .order(Arel.sql("count(decidim_comments_comments.id) desc"))
+        .left_joins(:comments)
+        .group("decidim_initiatives.id")
+        .order(Arel.sql("count(decidim_comments_comments.id) desc"))
     }
     scope :future_spaces, -> { none }
     scope :past_spaces, -> { closed }
@@ -117,10 +117,10 @@ module Decidim
     after_create :notify_creation
 
     searchable_fields({
-                          participatory_space: :itself,
-                          A: :title,
-                          D: :description,
-                          datetime: :published_at
+                        participatory_space: :itself,
+                        A: :title,
+                        D: :description,
+                        datetime: :published_at
                       },
                       index_on_create: ->(_initiative) { false },
                       # is Resourceable instead of ParticipatorySpaceResourceable so we can't use `visible?`
@@ -148,12 +148,10 @@ module Decidim
       Decidim::Initiatives::InitiativeSerializer
     end
 
-    def self.data_portability_images(user)
-      ;
-    end
+    def self.data_portability_images(user); end
 
     def archived?
-      self.decidim_initiatives_archive_categories_id?
+      decidim_initiatives_archive_categories_id?
     end
 
     # PUBLIC banner image
@@ -224,13 +222,13 @@ module Decidim
     # RETURNS STRING
     def author_avatar_url
       author.avatar&.url ||
-          ActionController::Base.helpers.asset_path("decidim/default-avatar.svg")
+        ActionController::Base.helpers.asset_path("decidim/default-avatar.svg")
     end
 
     def votes_enabled?
       votes_enabled_state? &&
-          signature_start_date.present? && signature_start_date <= Date.current &&
-          signature_end_date.present? && signature_end_date >= Date.current
+        signature_start_date.present? && signature_start_date <= Date.current &&
+        signature_end_date.present? && signature_end_date >= Date.current
     end
 
     def votes_enabled_state?
@@ -272,10 +270,10 @@ module Decidim
       return false if published?
 
       update(
-          published_at: Time.current,
-          state: "published",
-          signature_start_date: Date.current,
-          signature_end_date: signature_end_date || Date.current + Decidim::Initiatives.default_signature_time_period_length
+        published_at: Time.current,
+        state: "published",
+        signature_start_date: Date.current,
+        signature_end_date: signature_end_date || Date.current + Decidim::Initiatives.default_signature_time_period_length
       )
     end
 

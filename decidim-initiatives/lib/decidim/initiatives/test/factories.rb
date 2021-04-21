@@ -118,7 +118,6 @@ FactoryBot.define do
     area {}
     decidim_initiatives_archive_categories_id {}
 
-
     scoped_type do
       create(:initiatives_type_scope,
              type: create(:initiatives_type, organization: organization, signature_type: signature_type))
