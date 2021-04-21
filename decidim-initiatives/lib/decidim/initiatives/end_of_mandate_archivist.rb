@@ -1,20 +1,31 @@
 module Decidim
   module Initiatives
     class EndOfMandateArchivist
-      def initialize(category_name)
-        @category_name = find_or_create(category_name)
+      def initialize(category_name, organization_id)
+        @organization ||= find_organization(organization_id)
+        @category ||= find_or_create_category(category_name)
       end
 
-      def self.archive(category_name)
-        self.new(category_name).call
+      def self.archive(category_name, organization_id)
+        self.new(category_name, organization_id).call
       end
 
       def call
-
+        puts "Initiatives to archived: #{initiatives.count}"
+        initiatives.update_all(decidim_initiatives_archive_categories_id: @category.id)
+        puts "Finished..."
       end
 
-      def find_or_create(category_name)
-        Decidim::Initiatives::ArchiveCategory.find_or_create_by(name: category_name)
+      def find_or_create_category(category_name)
+        Decidim::InitiativesArchiveCategory.find_or_create_by!(name: category_name, organization: @organization)
+      end
+
+      def find_organization(organization_id)
+        Decidim::Organization.find(organization_id)
+      end
+
+      def initiatives
+        Decidim::Initiative.where(organization: @organization).not_archived
       end
     end
   end

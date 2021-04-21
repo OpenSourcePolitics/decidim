@@ -50,11 +50,11 @@ namespace :decidim_initiatives do
   end
 
   desc "Description"
-  task :end_of_mandate_archive, [:archive_category_name] => :environment do |_task, args|
-    if args.archive_category_name.blank?
-      raise ArgumentError, "You must pass a parameter: decidim_initiatives:end_of_mandate_archive[\"category_name\"]"
-    end
+  task :end_of_mandate_archive, [:archive_category_name, :organization_id] => :environment do |_task, args|
+    if args.archive_category_name.blank? || args.organization_id.blank?
+      raise ArgumentError, "You must pass a parameter: decidim_initiatives:end_of_mandate_archive[\"category_name\",organization_id]"
+      end
 
-    Decidim::Initiatives::EndOfMandateArchivist.archive(args.archive_category_name)
+    Decidim::Initiatives::EndOfMandateArchivist.archive(args.archive_category_name, args.organization_id)
   end
 end
