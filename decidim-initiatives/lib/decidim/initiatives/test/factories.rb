@@ -97,6 +97,11 @@ FactoryBot.define do
     end
   end
 
+  factory :archive_category, class: "Decidim::InitiativesArchiveCategory" do
+    name { Faker::Company.unique.name }
+    organization { create(:organization) }
+  end
+
   factory :initiative, class: "Decidim::Initiative" do
     title { generate_localized_title }
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
@@ -111,6 +116,8 @@ FactoryBot.define do
     offline_votes { { "total": 0 } }
     answer_date {}
     area {}
+    decidim_initiatives_archive_categories_id {}
+
 
     scoped_type do
       create(:initiatives_type_scope,
@@ -126,6 +133,10 @@ FactoryBot.define do
 
     trait :with_area do
       area { create(:area, organization: organization) }
+    end
+
+    trait :archived do
+      decidim_initiatives_archive_categories_id { create(:archive_category, organization: organization).id }
     end
 
     trait :with_answer do

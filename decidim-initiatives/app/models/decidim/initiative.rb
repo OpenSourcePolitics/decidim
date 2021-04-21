@@ -153,7 +153,7 @@ module Decidim
     end
 
     def archived?
-      self.archive_category.nil?
+      self.decidim_initiatives_archive_categories_id?
     end
 
     # PUBLIC banner image
