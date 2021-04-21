@@ -14,7 +14,7 @@ module Decidim
       end
 
       def find_or_create(category_name)
-        Decidim::Initiatives::ArchiveCategory
+        Decidim::Initiatives::ArchiveCategory.find_or_create_by(name: category_name)
       end
     end
   end
