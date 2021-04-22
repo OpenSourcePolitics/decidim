@@ -17,6 +17,8 @@ module Decidim
         archive_initiatives
       end
 
+      private
+
       def archive_initiatives
         Rails.logger.info "Initiatives to archived: #{initiatives.count}" if @verbose
 
