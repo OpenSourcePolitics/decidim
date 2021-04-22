@@ -35,7 +35,7 @@ describe Decidim::Initiatives::EndOfMandateArchivist do
       it "archives initiatives" do
         archivist
 
-        expect(Decidim::Initiative.archived.map(&:id)).to match(initiatives.map(&:id))
+        expect(Decidim::Initiative.archived).to match_array(initiatives)
       end
 
       context "when initiatives are archived" do
