@@ -55,6 +55,6 @@ namespace :decidim_initiatives do
       raise ArgumentError, "You must pass a parameter: decidim_initiatives:end_of_mandate_archive[\"category_name\",organization_id]"
     end
 
-    Decidim::Initiatives::EndOfMandateArchivist.archive(args.archive_category_name, args.organization_id)
+    Decidim::Initiatives::EndOfMandateArchivist.archive(args.archive_category_name, args.organization_id).call
   end
 end
