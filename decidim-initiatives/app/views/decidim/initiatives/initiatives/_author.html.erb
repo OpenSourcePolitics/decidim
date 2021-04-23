@@ -15,17 +15,28 @@
       </span>
     </div>
 
-    <% initiative.committee_members.excluding_author.approved.each do |m| %>
+    <% accepted_committee_members(initiative).each_with_index do |m, idx| %>
       <% unless m.user.deleted? %>
-        <div class="author author--inline">
+        <div class="author author--inline <%= ( idx > 1 ) ? "author--hidden hide" : "" %>">
           <span class="author__avatar author__avatar--small">
             <%= image_tag m.user.avatar_url %>
           </span>
           <span class="author__name">
-            <%= m.user.name %>
+            <%= decidim_sanitize(m.user.name) %>
           </span>
         </div>
       <% end %>
+    <% end %>
+
+    <% if @accepted_committee_members.count > 3 %>
+      <div class="author author--inline author_see-options">
+        <span class="author__see-more">
+            <%= raw t(".more_authors", authors_count: @accepted_committee_members.count - 3, see_more: content_tag(:button, class: "authors_see-more-link") { t ".see_more" }) %>
+          </span>
+        <button class="author__see-less-link hide">
+          <%= t(".see_less") %>
+        </button>
+      </div>
     <% end %>
 
     <div class="publish-date">
@@ -36,4 +47,6 @@
       <%== t(".identifier", identifier: initiative.id ) %>
     </div>
   </div>
+
+  <%= javascript_include_tag "decidim/initiatives/collapse_authors_list" %>
 </div>

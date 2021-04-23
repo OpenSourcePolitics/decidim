@@ -65,6 +65,41 @@ describe "Initiative", type: :system do
       end
     end
 
+    it "doesn't display 'see more' nor 'see less' link" do
+      within ".author-data__main" do
+        expect(page).not_to have_content("See less")
+        expect(page).not_to have_content("See more")
+      end
+    end
+
+    context "when there is multiple authors" do
+      let!(:accepted_members) { create_list(:initiatives_committee_member, 5, initiative: base_initiative) }
+
+      before do
+        visit decidim_initiatives.initiative_path(initiative)
+      end
+
+      context "and authors number is over 3" do
+        it "displays 'see more' link" do
+          within ".author-data__main" do
+            expect(page).to have_content("and 5 more people (See more)")
+          end
+        end
+
+        context "when clicking on 'see more' link" do
+          it "displays 'see less' link" do
+            within ".author-data__main" do
+              expect(page).not_to have_content("See less")
+              expect(page).to have_content("and 5 more people (See more)")
+              click_button "See more"
+              expect(page).not_to have_content("See more")
+              expect(page).to have_content("See less")
+            end
+          end
+        end
+      end
+    end
+
     it_behaves_like "has attachments"
   end
 end

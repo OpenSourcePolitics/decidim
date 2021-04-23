@@ -457,6 +457,9 @@ en:
           invalid: The phone number is invalid or pending of authorization. Please, check your authorizations.
       initiatives:
         author:
+          see_less: See less
+          more_authors: and %{authors_count} more people (%{see_more})
+          see_more: See more
           deleted: Deleted
           identifier: 'Identifier: <b>N°%{identifier}</b>'
         author_list:

@@ -40,6 +40,15 @@ module Decidim
         I18n.t(initiative.state, scope: "decidim.initiatives.state", default: :created)
       end
 
+
+      def collapsible_authors_list?(authors_count)
+        authors_count > 3
+      end
+
+      def accepted_committee_members(initiative)
+        @accepted_committee_members ||= initiative.committee_members.excluding_author.approved
+      end
+
       # Public: The state of an initiative from an administration perspective in
       # a way that a human can understand.
       #
