@@ -581,6 +581,9 @@ fr:
         author:
           deleted: Supprimé
           identifier: 'Identifiant: <b>N°%{identifier}</b>'
+          more_authors: et %{authors_count} autres personnes (%{see_more})
+          see_less: Voir moins
+          see_more: Voir plus
         author_list:
           hidden_authors_count:
             one: et 1 autre personne
