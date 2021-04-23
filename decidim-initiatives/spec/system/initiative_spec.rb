@@ -65,10 +65,18 @@ describe "Initiative", type: :system do
       end
     end
 
-    it "doesn't display 'see more' nor 'see less' link" do
-      within ".author-data__main" do
-        expect(page).not_to have_content("See less")
-        expect(page).not_to have_content("See more")
+    context "when committee members count is inferior than 3" do
+      before do
+        Decidim::InitiativesCommitteeMember.last.destroy!
+        Decidim::InitiativesCommitteeMember.last.destroy!
+        visit decidim_initiatives.initiative_path(initiative)
+      end
+
+      it "doesn't display 'see more' nor 'see less' link" do
+        within ".author-data__main" do
+          expect(page).not_to have_content("See less")
+          expect(page).not_to have_content("See more")
+        end
       end
     end
 
@@ -82,7 +90,7 @@ describe "Initiative", type: :system do
       context "and authors number is over 3" do
         it "displays 'see more' link" do
           within ".author-data__main" do
-            expect(page).to have_content("and 5 more people (See more)")
+            expect(page).to have_content("and 6 more people (See more)")
           end
         end
 
@@ -90,7 +98,7 @@ describe "Initiative", type: :system do
           it "displays 'see less' link" do
             within ".author-data__main" do
               expect(page).not_to have_content("See less")
-              expect(page).to have_content("and 5 more people (See more)")
+              expect(page).to have_content("and 6 more people (See more)")
               click_button "See more"
               expect(page).not_to have_content("See more")
               expect(page).to have_content("See less")
