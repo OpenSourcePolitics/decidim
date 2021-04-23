@@ -40,13 +40,22 @@ module Decidim
         I18n.t(initiative.state, scope: "decidim.initiatives.state", default: :created)
       end
 
-
-      def collapsible_authors_list?(authors_count)
-        authors_count > 3
-      end
-
       def accepted_committee_members(initiative)
         @accepted_committee_members ||= initiative.committee_members.excluding_author.approved
+      end
+
+      def extra_committee_members(limit = 2)
+        @accepted_committee_members.count - limit
+      end
+
+      # Returns if a committee member needs to be hidden or not
+      # index - Integer : Index of the committee member
+      # limit - Integer : Define when committee member needs to be hidden
+      # Default limit is 2 because there is 1 author and 2 committee members
+      def hide_committee_member?(index, limit = 2)
+        return unless extra_committee_members.positive?
+
+        index >= limit
       end
 
       # Public: The state of an initiative from an administration perspective in

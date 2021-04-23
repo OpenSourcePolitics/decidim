@@ -15,9 +15,9 @@
       </span>
     </div>
 
-    <% accepted_committee_members(initiative).each_with_index do |m, idx| %>
+    <% accepted_committee_members(initiative).each_with_index do |m, index| %>
       <% unless m.user.deleted? %>
-        <div class="author author--inline <%= ( idx > 1 ) ? "author--hidden hide" : "" %>">
+        <div class="author author--inline <%= hide_committee_member?(index) ? "author--hidden hide" : "" %>">
           <span class="author__avatar author__avatar--small">
             <%= image_tag m.user.avatar_url %>
           </span>
@@ -28,10 +28,10 @@
       <% end %>
     <% end %>
 
-    <% if @accepted_committee_members.count > 3 %>
+    <% if extra_committee_members.positive? %>
       <div class="author author--inline author_see-options">
         <span class="author__see-more">
-            <%= raw t(".more_authors", authors_count: @accepted_committee_members.count - 3, see_more: content_tag(:button, class: "authors_see-more-link") { t ".see_more" }) %>
+            <%= raw t(".more_authors", authors_count: extra_committee_members, see_more: content_tag(:button, class: "authors_see-more-link") { t ".see_more" }) %>
           </span>
         <button class="author__see-less-link hide">
           <%= t(".see_less") %>
