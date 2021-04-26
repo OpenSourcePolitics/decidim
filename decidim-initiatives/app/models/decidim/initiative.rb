@@ -74,6 +74,7 @@ module Decidim
     scope :open, lambda {
       where.not(state: [:classified, :discarded, :rejected, :accepted, :created])
            .currently_signable
+           .not_archived
     }
     scope :closed, lambda {
       where(state: [:classified, :discarded, :rejected, :accepted])

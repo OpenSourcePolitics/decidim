@@ -66,4 +66,13 @@ describe Decidim::Initiatives::ContentBlocks::HighlightedInitiativesCell, type: 
       end
     end
   end
+
+  context "when initiatives are archived" do
+    let!(:most_recent_initiative) { create :initiative, :archived, published_at: Time.current + 1.day, organization: organization }
+
+    it "doesn't show them" do
+      expect(highlighted_initiatives).to have_selector("article.card--initiative", count: 4)
+      expect(highlighted_initiatives).not_to have_content(translated(most_recent_initiative.title))
+    end
+  end
 end

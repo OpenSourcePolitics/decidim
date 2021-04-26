@@ -37,6 +37,16 @@ module Decidim
       end
     end
 
+    describe ".open" do
+      let!(:archived_initiative) { create :initiative, :archived }
+      let!(:initiative) { create :initiative }
+
+      it "returns not archived initiatives" do
+        expect(Decidim::Initiative.open).to match_array([subject])
+        expect(Decidim::Initiative.open).not_to include(archived_initiative)
+      end
+    end
+
     context "when created initiative" do
       let(:initiative) { create(:initiative, :created) }
       let(:administrator) { create(:user, :admin, organization: initiative.organization) }
