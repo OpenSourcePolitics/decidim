@@ -22,28 +22,25 @@ module Decidim
           end
 
           def filters
-            [:state_eq, :type_id_eq, :decidim_area_id_eq]
+            [:state_eq, :type_id_eq, :decidim_area_id_eq, :decidim_initiatives_archive_categories_id_eq]
           end
 
           def filters_with_values
             {
               state_eq: Initiative.states.keys,
               type_id_eq: InitiativesType.where(organization: current_organization).pluck(:id),
-              decidim_area_id_eq: current_organization.areas.pluck(:id)
+              decidim_area_id_eq: current_organization.areas.pluck(:id),
+              decidim_initiatives_archive_categories_id_eq: InitiativesArchiveCategory.where(organization: current_organization).pluck(:id)
             }
           end
 
           def dynamically_translated_filters
-            [:type_id_eq, :decidim_area_id_eq]
+            [:type_id_eq, :decidim_area_id_eq, :decidim_initiatives_archive_categories_id_eq]
           end
 
           def translated_type_id_eq(id)
             translated_attribute(Decidim::InitiativesType.find_by(id: id).title[I18n.locale.to_s])
           end
-        end
-
-        def dynamically_translated_filters
-          [:type_id_eq]
         end
 
         def translated_type_id_eq(id)
@@ -52,6 +49,10 @@ module Decidim
 
         def translated_decidim_area_id_eq(id)
           translated_attribute(Decidim::Area.find_by(id: id).name[I18n.locale.to_s])
+        end
+
+        def translated_decidim_initiatives_archive_categories_id_eq(id)
+          InitiativesArchiveCategory.find_by(id: id).name
         end
       end
     end

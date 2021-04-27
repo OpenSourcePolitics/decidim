@@ -1,4 +1,5 @@
 ---
+
 en:
   activemodel:
     attributes:
@@ -79,6 +80,8 @@ en:
       actions:
         new_initiative_type: New initiative type
       filters:
+        decidim_initiatives_archive_categories_id_eq:
+          label: Archive category
         decidim_area_id_eq:
           label: Area
         search_placeholder:

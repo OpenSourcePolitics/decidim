@@ -177,7 +177,15 @@ module Decidim
         private
 
         def collection
-          @collection ||= ManageableInitiatives.for(current_user)
+          @collection ||= if query_params[:q].try(:[], :decidim_initiatives_archive_categories_id_eq)
+                            initiatives
+                          else
+                            initiatives.not_archived
+                          end
+        end
+
+        def initiatives
+          ManageableInitiatives.for(current_user)
         end
 
         def pdf_signature_service
