@@ -21,6 +21,14 @@ module Decidim
       it "is included in the comparator" do
         expect(subject).to match_array(initiatives)
       end
+
+      context "when initiatives are archived" do
+        let!(:initiatives) { create_list(:initiative, 3, :archived, title: title, description: description, organization: organization, author: user) }
+
+        it "is not included in the comparator" do
+          expect(subject).to eq([])
+        end
+      end
     end
   end
 end

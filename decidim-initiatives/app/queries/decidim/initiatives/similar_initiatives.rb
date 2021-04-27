@@ -27,8 +27,9 @@ module Decidim
       # Retrieves similar initiatives
       def query
         Initiative
-          .published
           .where(organization: @organization)
+          .published
+          .not_archived
           .where(
             "GREATEST(#{title_similarity}, #{description_similarity}) >= ?",
             form.title,
