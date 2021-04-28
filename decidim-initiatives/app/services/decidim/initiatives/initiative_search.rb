@@ -109,6 +109,14 @@ module Decidim
         query_for_state
       end
 
+      def query_for_archive_category(query, state)
+        return if state.nil?
+
+        states = state - %w(accepted rejected open closed archived answered published examinated classified debatted)
+        ids = archive_categories.where(name: states).pluck(:id)
+        query.where(decidim_initiatives_archive_categories_id: ids)
+      end
+
       # search_state and search_custom_state should be a common query in different filter
       # rubocop:disable Metrics/CyclomaticComplexity
       # rubocop:disable Metrics/PerceivedComplexity
@@ -117,6 +125,7 @@ module Decidim
         rejected ||= query.rejected if state&.member?("rejected") || state.nil?
         open ||= query.open if state&.member?("open") || state.nil?
         closed ||= query.closed if state&.member?("closed") || state.nil?
+        archived ||= query.archived if state&.member?("archived")
         answered ||= query.answered if state&.member?("answered") || state.nil?
         custom_states = {
           published: custom_state&.member?("published") ? query.with_state(:published) : nil,
@@ -124,6 +133,7 @@ module Decidim
           classified: custom_state&.member?("classified") ? query.classified : nil,
           debatted: custom_state&.member?("debatted") ? query.debatted : nil
         }
+        archive_categories ||= query_for_archive_category(query, state)
 
         query_for_state = query_for_specific_state(query, accepted, custom_states) if accepted.present?
 
@@ -148,6 +158,22 @@ module Decidim
                               query_for_state.or(query_for_specific_state(query, closed, custom_states))
                             else
                               query_for_specific_state(query, closed, custom_states)
+                            end
+        end
+
+        if archived.present?
+          query_for_state = if query_for_state.present?
+                              query_for_state.or(query_for_specific_state(query, archived, custom_states))
+                            else
+                              query_for_specific_state(query, archived, custom_states)
+                            end
+        end
+
+        if archive_categories.present?
+          query_for_state = if query_for_state.present?
+                              query_for_state.or(query_for_specific_state(query, archive_categories, custom_states))
+                            else
+                              query_for_specific_state(query, archive_categories, custom_states)
                             end
         end
 
@@ -181,6 +207,10 @@ module Decidim
         return [area_id] if area_id.is_a? String
 
         area_id.map { |id| id.split("_") }.flatten.uniq
+      end
+
+      def archive_categories
+        @archive_categories ||= Decidim::InitiativesArchiveCategory.where(organization: options[:organization])
       end
     end
   end

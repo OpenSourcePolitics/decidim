@@ -69,6 +69,55 @@ module Decidim
         end
 
         context "when the filter includes state" do
+          context "and filtering archived initiatives" do
+            let(:state) { ["archived"] }
+
+            it "returns only archived initiatives" do
+              archived_initiatives = create_list(:initiative, 3, :archived, organization: organization)
+              create_list(:initiative, 3, :acceptable, organization: organization)
+
+              expect(subject.size).to eq(4)
+              expect(subject).to match_array(archived_initiatives << archived_initiative)
+            end
+
+            context "when filter by archive category name" do
+              let!(:archive_category) { create(:archive_category, organization: organization, name: "Category 1") }
+              let(:state) { ["Category 1"] }
+              let!(:archived_initiative) do
+                create(:initiative, :archived, decidim_initiatives_archive_categories_id: archive_category.id, organization: organization)
+              end
+
+              it "returns only archived initiatives" do
+                create_list(:initiative, 3, :archived, organization: organization)
+                create_list(:initiative, 3, :acceptable, organization: organization)
+
+                expect(subject.size).to eq(1)
+                expect(subject).to match_array([archived_initiative])
+              end
+            end
+
+            context "when filter by multiple archive category name" do
+              let!(:archive_category_1) { create(:archive_category, organization: organization, name: "Category 1") }
+              let!(:archive_category_2) { create(:archive_category, organization: organization, name: "Category 2") }
+              let(:state) { ["Category 1", "Category 2"] }
+              let!(:archived_initiative_1) do
+                create(:initiative, :archived, decidim_initiatives_archive_categories_id: archive_category_1.id, organization: organization)
+              end
+
+              let!(:archived_initiative_2) do
+                create(:initiative, :archived, decidim_initiatives_archive_categories_id: archive_category_2.id, organization: organization)
+              end
+
+              it "returns only archived initiatives" do
+                create_list(:initiative, 3, :archived, organization: organization)
+                create_list(:initiative, 3, :acceptable, organization: organization)
+
+                expect(subject.size).to eq(2)
+                expect(subject).to match_array([archived_initiative_1, archived_initiative_2])
+              end
+            end
+          end
+
           context "and filtering open initiatives" do
             let(:state) { ["open"] }
 
@@ -233,6 +282,93 @@ module Decidim
 
                 expect(subject.size).to eq(3)
                 expect(subject).to match_array(answered_initiatives)
+                expect(subject).not_to include(closed_initiatives)
+                expect(subject).not_to include(examinated_initiatives)
+                expect(subject).not_to include(archived_initiative)
+              end
+            end
+
+            context "when filtering by all archived and examinated" do
+              let(:state) { %w(archived) }
+              let(:custom_state) { ["examinated"] }
+
+              it "returns only archived examinated initiatives" do
+                create_list(:initiative, 3, organization: organization)
+                archived_examinated_initiatives = create_list(
+                  :initiative,
+                  3,
+                  :examinated,
+                  :archived,
+                  organization: organization,
+                  answered_at: Time.current
+                )
+                closed_initiatives = create_list(:initiative, 3, :rejected, organization: organization)
+                examinated_initiatives = create_list(:initiative, 3, :examinated, organization: organization)
+
+                expect(subject.size).to eq(3)
+                expect(subject).to match_array(archived_examinated_initiatives)
+                expect(subject).not_to include(closed_initiatives)
+                expect(subject).not_to include(examinated_initiatives)
+                expect(subject).not_to include(archived_initiative)
+              end
+            end
+
+            context "when filtering by a single archive category and classified" do
+              let!(:archive_category) { create(:archive_category, organization: organization, name: "Category 1") }
+              let(:state) { ["Category 1"] }
+
+              it "returns only archived examinated initiatives" do
+                create_list(:initiative, 3, organization: organization)
+                archived_examinated_initiatives = create_list(
+                  :initiative,
+                  3,
+                  :examinated,
+                  :archived,
+                  decidim_initiatives_archive_categories_id: archive_category.id,
+                  organization: organization,
+                  answered_at: Time.current
+                )
+                closed_initiatives = create_list(:initiative, 3, :rejected, organization: organization)
+                examinated_initiatives = create_list(:initiative, 3, :examinated, organization: organization)
+
+                expect(subject.size).to eq(3)
+                expect(subject).to match_array(archived_examinated_initiatives)
+                expect(subject).not_to include(closed_initiatives)
+                expect(subject).not_to include(examinated_initiatives)
+                expect(subject).not_to include(archived_initiative)
+              end
+            end
+
+            context "when filtering by multiple archive category and classified" do
+              let!(:archive_category_1) { create(:archive_category, organization: organization, name: "Category 1") }
+              let!(:archive_category_2) { create(:archive_category, organization: organization, name: "Category 2") }
+              let(:state) { ["Category 1", "Category 2"] }
+
+              it "returns only archived examinated initiatives" do
+                create_list(:initiative, 3, organization: organization)
+                archived_examinated_initiatives1 = create_list(
+                  :initiative,
+                  3,
+                  :examinated,
+                  :archived,
+                  decidim_initiatives_archive_categories_id: archive_category_1.id,
+                  organization: organization,
+                  answered_at: Time.current
+                )
+                archived_examinated_initiatives2 = create_list(
+                  :initiative,
+                  3,
+                  :examinated,
+                  :archived,
+                  decidim_initiatives_archive_categories_id: archive_category_2.id,
+                  organization: organization,
+                  answered_at: Time.current
+                )
+                closed_initiatives = create_list(:initiative, 3, :rejected, organization: organization)
+                examinated_initiatives = create_list(:initiative, 3, :examinated, organization: organization)
+
+                expect(subject.size).to eq(6)
+                expect(subject).to match_array(archived_examinated_initiatives1 + archived_examinated_initiatives2)
                 expect(subject).not_to include(closed_initiatives)
                 expect(subject).not_to include(examinated_initiatives)
                 expect(subject).not_to include(archived_initiative)
