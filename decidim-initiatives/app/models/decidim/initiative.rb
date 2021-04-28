@@ -74,10 +74,12 @@ module Decidim
     scope :open, lambda {
       where.not(state: [:classified, :discarded, :rejected, :accepted, :created])
            .currently_signable
+           .not_archived
     }
     scope :closed, lambda {
       where(state: [:classified, :discarded, :rejected, :accepted])
         .or(currently_unsignable)
+        .not_archived
     }
     scope :with_state, ->(state) { where(state: state) if state.present? }
     scope :with_states, ->(states) { where(state: states) if states.present? }
@@ -91,8 +93,8 @@ module Decidim
         .or(where("signature_end_date < ?", Date.current))
     }
 
-    scope :answered, -> { where.not(answered_at: nil) }
-    scope :published, -> { where.not(published_at: nil) }
+    scope :answered, -> { where.not(answered_at: nil).not_archived }
+    scope :published, -> { where.not(published_at: nil).not_archived }
 
     scope :public_spaces, -> { published }
     scope :signature_type_updatable, -> { created }

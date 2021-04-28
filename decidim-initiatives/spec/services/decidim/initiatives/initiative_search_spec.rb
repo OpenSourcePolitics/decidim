@@ -16,6 +16,7 @@ module Decidim
       let(:group2) { create(:user_group, organization: organization, nickname: "thedogkeeper") }
       let(:area1) { create(:area, organization: organization) }
       let(:area2) { create(:area, organization: organization) }
+      let!(:archived_initiative) { create(:initiative, :archived, organization: organization) }
 
       describe "results" do
         subject do
@@ -77,6 +78,7 @@ module Decidim
 
               expect(subject.size).to eq(3)
               expect(subject).to match_array(open_initiatives)
+              expect(subject).not_to include(archived_initiative)
             end
           end
 
@@ -89,6 +91,7 @@ module Decidim
 
               expect(subject.size).to eq(3)
               expect(subject).to match_array(closed_initiatives)
+              expect(subject).not_to include(archived_initiative)
             end
           end
 
@@ -101,6 +104,7 @@ module Decidim
 
               expect(subject.size).to eq(3)
               expect(subject).to match_array(accepted_initiatives)
+              expect(subject).not_to include(archived_initiative)
             end
           end
 
@@ -113,6 +117,7 @@ module Decidim
 
               expect(subject.size).to eq(3)
               expect(subject).to match_array(rejected_initiatives)
+              expect(subject).not_to include(archived_initiative)
             end
           end
 
@@ -125,6 +130,7 @@ module Decidim
 
               expect(subject.size).to eq(3)
               expect(subject).to match_array(answered_initiatives)
+              expect(subject).not_to include(archived_initiative)
             end
           end
 
@@ -137,6 +143,7 @@ module Decidim
 
               expect(subject.size).to eq(6)
               expect(subject).to match_array(default_published_initiatives + published_initiatives)
+              expect(subject).not_to include(archived_initiative)
             end
           end
 
@@ -149,6 +156,7 @@ module Decidim
 
               expect(subject.size).to eq(3)
               expect(subject).to match_array(classified_initiatives)
+              expect(subject).not_to include(archived_initiative)
             end
           end
 
@@ -161,6 +169,7 @@ module Decidim
 
               expect(subject.size).to eq(3)
               expect(subject).to match_array(examinated_initiatives)
+              expect(subject).not_to include(archived_initiative)
             end
           end
 
@@ -173,6 +182,7 @@ module Decidim
 
               expect(subject.size).to eq(3)
               expect(subject).to match_array(debatted_initiatives)
+              expect(subject).not_to include(archived_initiative)
             end
           end
 
@@ -189,6 +199,7 @@ module Decidim
                 expect(subject.size).to eq(6)
                 expect(subject).to match_array(default_published_initiatives + published_initiatives)
                 expect(subject).not_to include(closed_initiatives)
+                expect(subject).not_to include(archived_initiative)
               end
             end
 
@@ -206,6 +217,7 @@ module Decidim
                 expect(subject.size).to eq(0)
                 expect(subject).to match_array([])
                 expect(subject).not_to include(classified_initiatives)
+                expect(subject).not_to include(archived_initiative)
               end
             end
 
@@ -223,6 +235,7 @@ module Decidim
                 expect(subject).to match_array(answered_initiatives)
                 expect(subject).not_to include(closed_initiatives)
                 expect(subject).not_to include(examinated_initiatives)
+                expect(subject).not_to include(archived_initiative)
               end
             end
           end
@@ -255,7 +268,7 @@ module Decidim
 
           context "and any author" do
             it "contains all initiatives" do
-              expect(subject).to match_array [initiative, initiative2]
+              expect(subject).to match_array [initiative, initiative2, archived_initiative]
             end
           end
 

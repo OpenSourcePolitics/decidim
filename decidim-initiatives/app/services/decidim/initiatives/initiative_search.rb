@@ -67,9 +67,10 @@ module Decidim
             decidim_users_id: options[:current_user].id
           ).pluck(:decidim_initiatives_id)
 
-          query.where(decidim_author_id: options[:current_user].id, decidim_author_type: Decidim::UserBaseEntity.name)
-               .or(query.where(id: co_authoring_initiative_ids))
-               .unscope(where: :published_at)
+          query
+            .where(decidim_author_id: options[:current_user].id, decidim_author_type: Decidim::UserBaseEntity.name)
+            .or(query.where(id: co_authoring_initiative_ids))
+            .unscope(where: :published_at)
         else
           query.where.not(state: [:created, :validating])
         end
