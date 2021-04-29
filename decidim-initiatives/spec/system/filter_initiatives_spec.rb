@@ -85,6 +85,22 @@ describe "Filter Initiatives", :slow, type: :system do
       create(:initiative, :acceptable, organization: organization)
       create(:initiative, organization: organization, answered_at: Time.current)
 
+      create(:archive_category, name: "Category 1", organization: organization)
+      create(:archive_category, name: "Category 2", organization: organization)
+      create(
+        :initiative,
+        :archived,
+        decidim_initiatives_archive_categories_id: Decidim::InitiativesArchiveCategory.find_by(name: "Category 1").id,
+        organization: organization
+      )
+
+      create(
+        :initiative,
+        :archived,
+        decidim_initiatives_archive_categories_id: Decidim::InitiativesArchiveCategory.find_by(name: "Category 2").id,
+        organization: organization
+      )
+
       visit decidim_initiatives.initiatives_path
     end
 
@@ -101,8 +117,8 @@ describe "Filter Initiatives", :slow, type: :system do
           check "All"
         end
 
-        expect(page).to have_css(".card--initiative", count: 18)
-        expect(page).to have_content("18 INITIATIVES")
+        expect(page).to have_css(".card--initiative", count: 20)
+        expect(page).to have_content("20 INITIATIVES")
       end
 
       it "does not list created and validating initiatives" do
@@ -140,11 +156,54 @@ describe "Filter Initiatives", :slow, type: :system do
       end
     end
 
+    context "when selecting the archived state" do
+      it "lists the archived initiatives", :slow do
+        within ".filters .state_check_boxes_tree_filter" do
+          uncheck "All"
+          check "Archived"
+        end
+
+        expect(page).to have_css(".card--initiative", count: 2)
+        expect(page).to have_content("2 INITIATIVES")
+      end
+    end
+
+    context "when selecting one archived category state" do
+      it "lists the archived initiatives", :slow do
+        within ".filters .state_check_boxes_tree_filter" do
+          uncheck "All"
+          within all(".filters__has-subfilters").last do
+            click_button
+          end
+          check "Category 1"
+        end
+
+        expect(page).to have_css(".card--initiative", count: 1)
+        expect(page).to have_content("1 INITIATIVE")
+      end
+    end
+
+    context "when selecting two archived state" do
+      it "lists the archived initiatives", :slow do
+        within ".filters .state_check_boxes_tree_filter" do
+          uncheck "All"
+          within all(".filters__has-subfilters").last do
+            click_button
+          end
+          check "Category 1"
+          check "Category 2"
+        end
+
+        expect(page).to have_css(".card--initiative", count: 2)
+        expect(page).to have_content("2 INITIATIVES")
+      end
+    end
+
     context "when selecting the accepted state" do
       it "lists the accepted initiatives" do
         within ".filters .state_check_boxes_tree_filter" do
           uncheck "All"
-          within ".filters__has-subfilters" do
+          within all(".filters__has-subfilters").first do
             click_button
           end
           check "Enough signatures"
@@ -159,7 +218,7 @@ describe "Filter Initiatives", :slow, type: :system do
       it "lists the rejected initiatives" do
         within ".filters .state_check_boxes_tree_filter" do
           uncheck "All"
-          within ".filters__has-subfilters" do
+          within all(".filters__has-subfilters").first do
             click_button
           end
           check "Not enough signatures"
