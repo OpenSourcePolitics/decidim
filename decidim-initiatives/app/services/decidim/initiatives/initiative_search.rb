@@ -112,7 +112,7 @@ module Decidim
       def query_for_archive_category(query, state)
         return if state.nil?
 
-        states = state - %w(accepted rejected open closed archived answered published examinated classified debatted)
+        states = state - Decidim::InitiativesArchiveCategory::RESERVED_NAMES
         ids = archive_categories.where(name: states).pluck(:id)
         query.where(decidim_initiatives_archive_categories_id: ids)
       end

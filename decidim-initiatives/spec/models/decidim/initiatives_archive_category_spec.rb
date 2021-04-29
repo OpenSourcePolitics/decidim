@@ -28,5 +28,11 @@ module Decidim
 
       it { is_expected.to be_falsy }
     end
+
+    context "when using a reserved name" do
+      let(:name) { "open" }
+
+      it { is_expected.to be_falsy }
+    end
   end
 end
