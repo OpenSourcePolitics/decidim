@@ -2,4 +2,15 @@
   <% if resource.area %>
     <li><%= link_to translated_attribute(resource.area_name), initiatives_path(filter: { area_id: [resource.area.id] }) %></li>
   <% end %>
+  <% if resource.archived? %>
+    <li>
+      <%= link_to archive_category_name,
+                  initiatives_path(
+                    filter: {
+                      state: [archive_category_name]
+                    }
+                  )
+      %>
+    </li>
+  <% end %>
 </ul>

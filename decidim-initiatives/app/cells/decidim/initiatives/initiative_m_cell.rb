@@ -18,9 +18,9 @@ module Decidim
 
       def cache_hash
         hash = model.author.cache_version +
-               model.cache_version +
-               model.supports_count.to_s +
-               comments_count.to_s
+            model.cache_version +
+            model.supports_count.to_s +
+            comments_count.to_s
 
         hash << current_user.follows?(model).to_s if current_user
         hash << current_locale
@@ -56,6 +56,8 @@ module Decidim
       end
 
       def state_classes
+        return ["archived"] if archived?
+
         case state
         when "accepted", "published", "debatted"
           ["success"]
@@ -72,8 +74,16 @@ module Decidim
         model.area_color.present?
       end
 
+      def archived?
+        model.archived?
+      end
+
       def area_color_style
         "style=\"background-color:#{model.area_color};\""
+      end
+
+      def archive_category_name
+        @archive_category_name ||= Decidim::InitiativesArchiveCategory.find(model.decidim_initiatives_archive_categories_id).name
       end
 
       def area_logo
@@ -94,7 +104,7 @@ module Decidim
 
       def authors
         [present(model).author] +
-          model.committee_members.approved.non_deleted.excluding_author.map { |member| present(member.user) }
+            model.committee_members.approved.non_deleted.excluding_author.map { |member| present(member.user) }
       end
 
       def comments_count
