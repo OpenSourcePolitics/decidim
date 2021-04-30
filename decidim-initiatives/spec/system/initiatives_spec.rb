@@ -181,10 +181,10 @@ describe "Initiatives", type: :system do
       let(:archive_category) { create(:archive_category, organization: organization) }
       let(:base_initiative) do
         create(
-            :initiative,
-            :archived,
-            decidim_initiatives_archive_categories_id: archive_category.id,
-            organization: organization
+          :initiative,
+          :archived,
+          decidim_initiatives_archive_categories_id: archive_category.id,
+          organization: organization
         )
       end
 

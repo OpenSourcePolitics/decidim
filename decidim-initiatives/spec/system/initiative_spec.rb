@@ -69,12 +69,12 @@ describe "Initiative", type: :system do
       let(:archive_category) { create(:archive_category, organization: organization) }
       let(:base_initiative) do
         create(
-            :initiative,
-            :archived,
-            :debatted,
-            :with_answer,
-            decidim_initiatives_archive_categories_id: archive_category.id,
-            organization: organization
+          :initiative,
+          :archived,
+          :debatted,
+          :with_answer,
+          decidim_initiatives_archive_categories_id: archive_category.id,
+          organization: organization
         )
       end
 
