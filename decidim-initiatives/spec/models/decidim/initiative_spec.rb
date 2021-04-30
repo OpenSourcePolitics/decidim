@@ -322,6 +322,12 @@ module Decidim
 
         it { is_expected.to be_falsy }
       end
+
+      context "when archived" do
+        let(:initiative) { build :initiative, :archived }
+
+        it { is_expected.to be_falsy }
+      end
     end
 
     context "when linked to an area" do
