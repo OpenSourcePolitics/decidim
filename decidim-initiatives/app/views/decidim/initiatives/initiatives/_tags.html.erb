@@ -4,10 +4,10 @@
   <% end %>
   <% if resource.archived? %>
     <li>
-      <%= link_to archive_category_name,
+      <%= link_to archive_category_name(resource),
                   initiatives_path(
                     filter: {
-                      state: [archive_category_name]
+                      state: [archive_category_name(resource)]
                     }
                   )
       %>

@@ -2,6 +2,8 @@
 @import "statistics";
 @import "admin";
 
+$archived-color: #867d84;
+
 .ql-formats{
   .ql-video{
     margin: 0;
@@ -89,9 +91,13 @@ fieldset{
 
 .card.archived{
   &:hover{
-    border-color: #867d84;
+    border-color: $archived-color;
   }
 
   border-top-width: 8px;
-  border-top-color: #867d84;
+  border-top-color: $archived-color;
+}
+
+.archived.label.initiative-status{
+  background-color: $archived-color;
 }

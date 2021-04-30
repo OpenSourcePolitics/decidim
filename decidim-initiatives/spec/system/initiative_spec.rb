@@ -65,6 +65,39 @@ describe "Initiative", type: :system do
       end
     end
 
+    context "when archived" do
+      let(:archive_category) { create(:archive_category, organization: organization) }
+      let(:base_initiative) do
+        create(
+            :initiative,
+            :archived,
+            :debatted,
+            :with_answer,
+            decidim_initiatives_archive_categories_id: archive_category.id,
+            organization: organization
+        )
+      end
+
+      it "displays archive name" do
+        within ".tags--initiative" do
+          expect(page).to have_content(archive_category.name)
+        end
+      end
+
+      it "displays archive logo" do
+        expect(page).to have_css(".archive-header")
+
+        within ".archive-header" do
+          expect(page).to have_css("img")
+        end
+      end
+
+      it "adds archived css class" do
+        expect(page).to have_css(".initiative-status.archived")
+        expect(page).to have_css(".initiative-answer.archived")
+      end
+    end
+
     it_behaves_like "has attachments"
   end
 end

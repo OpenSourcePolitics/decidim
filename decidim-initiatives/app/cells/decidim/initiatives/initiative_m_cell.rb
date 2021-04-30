@@ -74,16 +74,12 @@ module Decidim
         model.area_color.present?
       end
 
-      def archived?
-        model.archived?
-      end
-
       def area_color_style
         "style=\"background-color:#{model.area_color};\""
       end
 
-      def archive_category_name
-        @archive_category_name ||= Decidim::InitiativesArchiveCategory.find(model.decidim_initiatives_archive_categories_id).name
+      def archive_category_name(model)
+        Decidim::InitiativesArchiveCategory.find(model.decidim_initiatives_archive_categories_id).name
       end
 
       def area_logo
