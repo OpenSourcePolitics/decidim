@@ -10,14 +10,36 @@ module Decidim
       end
 
       def self.archive(category_name, organization_id, verbose = true)
-        new(category_name, organization_id, verbose).call
+        new(category_name, organization_id, verbose)
       end
 
       def call
+        delete_authorizations
+        delete_authors
         archive_initiatives
       end
 
       private
+
+      def delete_authors
+        Rails.logger.info "Authors to be deleted: #{users.count}" if @verbose
+
+        users.each do |author|
+          DestroyAccount.call(author, Decidim::DeleteAccountForm.from_params({}))
+        end
+
+        Rails.logger.info "Finished..." if @verbose
+      end
+
+      def delete_authorizations
+        Rails.logger.info "Authorizations to be deleted: #{users.count}" if @verbose
+
+        # rubocop:disable Rails/SkipsModelValidations
+        authorizations.update_all(encrypted_metadata: nil)
+        # rubocop:enable Rails/SkipsModelValidations
+
+        Rails.logger.info "Finished..." if @verbose
+      end
 
       def archive_initiatives
         Rails.logger.info "Initiatives to archived: #{initiatives.count}" if @verbose
@@ -38,7 +60,23 @@ module Decidim
       end
 
       def initiatives
-        Decidim::Initiative.where(organization: @organization).not_archived
+        Decidim::Initiative.where(organization: @organization).includes(:committee_members).not_archived
+      end
+
+      def initiatives_authors_ids
+        initiatives.map(&:decidim_author_id)
+      end
+
+      def committee_members_ids
+        initiatives.flat_map(&:committee_members).collect(&:decidim_users_id)
+      end
+
+      def users
+        Decidim::User.where(id: (committee_members_ids + initiatives_authors_ids).uniq)
+      end
+
+      def authorizations
+        Decidim::Authorization.where(user: users)
       end
     end
   end
