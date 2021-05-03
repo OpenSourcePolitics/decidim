@@ -11,6 +11,7 @@ module Decidim
                    url: url_for,
                    as: :filter,
                    method: :get,
+                   remote: true,
                    html: { id: nil } do |form|
             yield form
           end
