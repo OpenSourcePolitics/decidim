@@ -96,6 +96,17 @@ fieldset{
 
   border-top-width: 8px;
   border-top-color: $archived-color;
+
+  .archive-header{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+
+    img{
+      max-width: 30%;
+    }
+  }
 }
 
 .archived.label.initiative-status{
