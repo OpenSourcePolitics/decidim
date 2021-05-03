@@ -46,12 +46,12 @@ module Decidim
 
       def list_public_initiatives?
         allow! if permission_action.subject == :initiative &&
-            permission_action.action == :list
+                  permission_action.action == :list
       end
 
       def read_public_initiative?
         return unless [:initiative, :participatory_space].include?(permission_action.subject) &&
-            permission_action.action == :read
+                      permission_action.action == :read
 
         return allow! if readable?(initiative)
         return allow! if user && authorship_or_admin?
@@ -68,21 +68,21 @@ module Decidim
 
       def create_initiative?
         return unless permission_action.subject == :initiative &&
-            permission_action.action == :create
+                      permission_action.action == :create
 
         toggle_allow(creation_enabled?)
       end
 
       def edit_public_initiative?
         return unless permission_action.subject == :initiative &&
-            permission_action.action == :edit
+                      permission_action.action == :edit
 
         toggle_allow(initiative&.created? && authorship_or_admin?)
       end
 
       def update_public_initiative?
         return unless permission_action.subject == :initiative &&
-            permission_action.action == :update
+                      permission_action.action == :update
 
         toggle_allow(initiative&.created? && authorship_or_admin?)
       end
@@ -90,12 +90,12 @@ module Decidim
       def creation_enabled?
         Decidim::Initiatives.creation_enabled && (
         creation_authorized? || Decidim::UserGroups::ManageableUserGroups.for(user).verified.any?
-        )
+      )
       end
 
       def create_initiative_with_type?
         return unless permission_action.subject == :initiative_type &&
-            permission_action.action == :create
+                      permission_action.action == :create
 
         toggle_allow(creation_enabled_for?(initiative_type))
       end
@@ -103,12 +103,12 @@ module Decidim
       def creation_enabled_for?(initiative_type)
         Decidim::Initiatives.creation_enabled && (
         creation_authorized_for?(initiative_type) || Decidim::UserGroups::ManageableUserGroups.for(user).verified.any?
-        )
+      )
       end
 
       def request_membership?
         return unless permission_action.subject == :initiative &&
-            permission_action.action == :request_membership
+                      permission_action.action == :request_membership
 
         toggle_allow(can_request_membership?)
       end
@@ -125,15 +125,15 @@ module Decidim
 
       def access_request_membership?
         !initiative.validating? &&
-            !initiative.published? &&
-            initiative.promoting_committee_enabled? &&
-            !initiative.has_authorship?(user) &&
-            !user_signataire? &&
-            (
-            Decidim::Initiatives.do_not_require_authorization ||
-                ActionAuthorizer.new(user, :create, initiative, initiative_type).authorize.ok? ||
-                Decidim::UserGroups::ManageableUserGroups.for(user).verified.any?
-            )
+          !initiative.published? &&
+          initiative.promoting_committee_enabled? &&
+          !initiative.has_authorship?(user) &&
+          !user_signataire? &&
+          (
+          Decidim::Initiatives.do_not_require_authorization ||
+              ActionAuthorizer.new(user, :create, initiative, initiative_type).authorize.ok? ||
+              Decidim::UserGroups::ManageableUserGroups.for(user).verified.any?
+        )
       end
 
       def user_signataire?
@@ -142,7 +142,7 @@ module Decidim
 
       def vote_initiative?
         return unless permission_action.action == :vote &&
-            permission_action.subject == :initiative
+                      permission_action.subject == :initiative
 
         toggle_allow(can_vote?)
       end
@@ -171,36 +171,36 @@ module Decidim
 
       def unvote_initiative?
         return unless permission_action.action == :unvote &&
-            permission_action.subject == :initiative
+                      permission_action.subject == :initiative
 
         can_unvote = initiative.accepts_online_unvotes? &&
-            initiative.organization&.id == user.organization&.id &&
-            initiative.votes.where(author: user).any? &&
-            authorized?(:vote, resource: initiative, permissions_holder: initiative.type)
+                     initiative.organization&.id == user.organization&.id &&
+                     initiative.votes.where(author: user).any? &&
+                     authorized?(:vote, resource: initiative, permissions_holder: initiative.type)
 
         toggle_allow(can_unvote)
       end
 
       def initiative_attachment?
         return unless permission_action.action == :add_attachment &&
-            permission_action.subject == :initiative
+                      permission_action.subject == :initiative
 
         toggle_allow(initiative_type.attachments_enabled?)
       end
 
       def public_report_content_action?
         return unless permission_action.action == :create &&
-            permission_action.subject == :moderation
+                      permission_action.subject == :moderation
 
         allow!
       end
 
       def sign_initiative?
         return unless permission_action.action == :sign_initiative &&
-            permission_action.subject == :initiative
+                      permission_action.subject == :initiative
 
         can_sign = can_vote? &&
-            context.fetch(:signature_has_steps, false)
+                   context.fetch(:signature_has_steps, false)
 
         toggle_allow(can_sign)
       end
@@ -211,16 +211,16 @@ module Decidim
 
       def can_vote?
         initiative.votes_enabled? &&
-            initiative.organization&.id == user.organization&.id &&
-            initiative.votes.where(author: user).empty? &&
-            authorized?(:vote, resource: initiative, permissions_holder: initiative.type)
+          initiative.organization&.id == user.organization&.id &&
+          initiative.votes.where(author: user).empty? &&
+          authorized?(:vote, resource: initiative, permissions_holder: initiative.type)
       end
 
       def can_user_support?(initiative)
         !initiative.offline_signature_type? && (
         Decidim::Initiatives.do_not_require_authorization ||
             UserAuthorizations.for(user).any?
-        )
+      )
       end
 
       def readable?(initiative)
@@ -247,7 +247,7 @@ module Decidim
 
       def send_to_technical_validation?
         return unless permission_action.action == :send_to_technical_validation &&
-            permission_action.subject == :initiative
+                      permission_action.subject == :initiative
 
         toggle_allow(initiative.created? && allowed_to_send_to_technical_validation? && author_or_admin?)
       end
