@@ -177,7 +177,7 @@ describe "Initiatives", type: :system do
       end
     end
 
-    context "when archived" do
+    context "when archived", :slow do
       let(:archive_category) { create(:archive_category, organization: organization) }
       let(:base_initiative) do
         create(
@@ -189,6 +189,8 @@ describe "Initiatives", type: :system do
       end
 
       it "displays archive name" do
+        check_archived
+
         within "#initiative_#{base_initiative.id}" do
           within ".tags--initiative" do
             expect(page).to have_content(archive_category.name)
@@ -197,6 +199,8 @@ describe "Initiatives", type: :system do
       end
 
       it "displays archive logo" do
+        check_archived
+
         within "#initiative_#{base_initiative.id}" do
           expect(page).to have_css(".archive-header")
 
@@ -207,6 +211,8 @@ describe "Initiatives", type: :system do
       end
 
       it "adds archived css class" do
+        check_archived
+
         within "#initiative_#{base_initiative.id}" do
           expect(page).to have_css(".archived")
         end
@@ -229,6 +235,13 @@ describe "Initiatives", type: :system do
         expect(page).to have_css("a", text: "Most recently published", visible: false)
         expect(page).to have_css("a", text: "Answer date", visible: false)
       end
+    end
+  end
+
+  def check_archived
+    within ".filters .state_check_boxes_tree_filter" do
+      uncheck "All"
+      check "Archived"
     end
   end
 end
