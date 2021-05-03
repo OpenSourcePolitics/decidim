@@ -56,7 +56,7 @@ module Decidim
       end
 
       def state_classes
-        return ["archived"] if archived?
+        return ["archived"] if model.archived?
 
         case state
         when "accepted", "published", "debatted"
