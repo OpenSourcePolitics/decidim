@@ -120,5 +120,35 @@ Decidim.register_participatory_space(:initiatives) do |participatory_space|
         end
       end
     end
+
+    archive_category1 = Decidim::InitiativesArchiveCategory.create!(name: Faker::Company.unique.name, organization: organization)
+    archive_category2 = Decidim::InitiativesArchiveCategory.create!(name: Faker::Company.unique.name, organization: organization)
+
+    Decidim::Initiative.create!(
+      title: Decidim::Faker::Localized.sentence(3),
+      description: Decidim::Faker::Localized.sentence(25),
+      scoped_type: Decidim::InitiativesTypeScope.reorder(Arel.sql("RANDOM()")).first,
+      state: "published",
+      signature_type: "online",
+      signature_start_date: Date.current - 7.days,
+      signature_end_date: Date.current + 7.days,
+      published_at: Time.current - 7.days,
+      author: Decidim::User.reorder(Arel.sql("RANDOM()")).first,
+      organization: organization,
+      decidim_initiatives_archive_categories_id: archive_category1.id
+    )
+
+    Decidim::Initiative.create!(
+      title: Decidim::Faker::Localized.sentence(3),
+      description: Decidim::Faker::Localized.sentence(25),
+      scoped_type: Decidim::InitiativesTypeScope.reorder(Arel.sql("RANDOM()")).first,
+      state: "rejected",
+      signature_type: "online",
+      signature_start_date: Date.current - 7.days,
+      signature_end_date: Date.current + 7.days,
+      published_at: Time.current - 7.days,
+      author: Decidim::User.reorder(Arel.sql("RANDOM()")).first,
+      organization: organization, decidim_initiatives_archive_categories_id: archive_category2.id
+    )
   end
 end
