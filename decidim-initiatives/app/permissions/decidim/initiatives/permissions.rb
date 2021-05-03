@@ -130,10 +130,10 @@ module Decidim
           !initiative.has_authorship?(user) &&
           !user_signataire? &&
           (
-              Decidim::Initiatives.do_not_require_authorization ||
+          Decidim::Initiatives.do_not_require_authorization ||
               ActionAuthorizer.new(user, :create, initiative, initiative_type).authorize.ok? ||
               Decidim::UserGroups::ManageableUserGroups.for(user).verified.any?
-            )
+        )
       end
 
       def user_signataire?
@@ -218,9 +218,9 @@ module Decidim
 
       def can_user_support?(initiative)
         !initiative.offline_signature_type? && (
-          Decidim::Initiatives.do_not_require_authorization ||
-          UserAuthorizations.for(user).any?
-        )
+        Decidim::Initiatives.do_not_require_authorization ||
+            UserAuthorizations.for(user).any?
+      )
       end
 
       def readable?(initiative)
@@ -249,14 +249,15 @@ module Decidim
         return unless permission_action.action == :send_to_technical_validation &&
                       permission_action.subject == :initiative
 
-        toggle_allow(allowed_to_send_to_technical_validation?)
+        toggle_allow(initiative.created? && allowed_to_send_to_technical_validation? && author_or_admin?)
       end
 
       def allowed_to_send_to_technical_validation?
-        initiative.created? && (
-          !initiative.created_by_individual? ||
-          initiative.enough_committee_members?
-        )
+        !initiative.created_by_individual? || initiative.enough_committee_members?
+      end
+
+      def author_or_admin?
+        initiative.author == user || user.admin?
       end
 
       def authorship_or_admin?
