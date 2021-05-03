@@ -21,7 +21,7 @@ describe Decidim::Initiatives::ContentBlocks::AnsweredInitiativesCell, type: :ce
     it "shows 4 initiatives" do
       within "#highlighted-initiatives" do
         expect(subject).to have_selector("article.card--initiative", count: 4)
-        expect(subject).not_to have_content(initiative.title)
+        expect(subject).not_to have_content(translated(initiative.title))
       end
     end
   end
@@ -36,7 +36,18 @@ describe Decidim::Initiatives::ContentBlocks::AnsweredInitiativesCell, type: :ce
     it "shows up to 8 initiatives" do
       within "#highlighted-initiatives" do
         expect(subject).to have_selector("article.card--initiative", count: 5)
-        expect(subject).not_to have_content(initiative.title)
+        expect(subject).not_to have_content(translated(initiative.title))
+      end
+    end
+  end
+
+  context "when initiatives are archived" do
+    let!(:initiative) { create :initiative, :archived, organization: organization }
+
+    it "doesn't show them" do
+      within "#highlighted-initiatives" do
+        expect(subject).to have_selector("article.card--initiative", count: 4)
+        expect(subject).not_to have_content(translated(initiative.title))
       end
     end
   end
