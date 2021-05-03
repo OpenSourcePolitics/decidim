@@ -94,6 +94,8 @@
               options: { class: "hide-for-small-only" }
             ) %>
       </div>
+
+      <%= render partial: "archived_header" if current_initiative.archived? %>
       <br>
       <div class="row column">
         <%= render partial: "initiative_badge", locals: { initiative: current_initiative } %>

@@ -4,6 +4,7 @@
     <%= render :top if render_top? %>
     <%= render :image if has_image? %>
     <%= render :area_header if has_area_color? %>
+    <%= render :archived_header if model.archived? %>
     <div class="card__content">
       <%= render :header %>
 
