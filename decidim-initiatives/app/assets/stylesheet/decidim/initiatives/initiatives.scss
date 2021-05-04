@@ -94,6 +94,11 @@ fieldset{
   img{
     max-width: 15%;
   }
+  @media only screen and (max-width: 500px) {
+    img{
+      max-width: 30%;
+    }
+  }
 }
 
 .card.archived{
