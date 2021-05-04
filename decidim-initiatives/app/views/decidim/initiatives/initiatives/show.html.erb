@@ -83,6 +83,8 @@
   <div class="columns mediumlarge-8 mediumlarge-pull-4">
     <div class="section">
       <div class="row column">
+        <%= render partial: "archived_header" if current_initiative.archived? %>
+        <br>
         <h2 class="heading2" <%= "id=#{translate_helper_for(element: :title, model: current_initiative)}" %>>
           <%= translated_attribute(current_initiative.title) %>
         </h2>
@@ -94,8 +96,6 @@
               options: { class: "hide-for-small-only" }
             ) %>
       </div>
-
-      <%= render partial: "archived_header" if current_initiative.archived? %>
       <br>
       <div class="row column">
         <%= render partial: "initiative_badge", locals: { initiative: current_initiative } %>
