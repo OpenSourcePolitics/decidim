@@ -3,6 +3,7 @@
 @import "admin";
 
 $archived-color: #867d84;
+$archived-background-color: #f6f6f6;
 
 .ql-formats{
   .ql-video{
@@ -89,7 +90,15 @@ fieldset{
   margin-bottom: 1em;
 }
 
+.archive-header{
+  img{
+    max-width: 15%;
+  }
+}
+
 .card.archived{
+  background: $archived-background-color;
+
   &:hover{
     border-color: $archived-color;
   }
@@ -102,6 +111,7 @@ fieldset{
     align-content: center;
     justify-content: center;
     align-items: center;
+    padding-top: 12px;
 
     img{
       max-width: 30%;
