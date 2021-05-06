@@ -462,6 +462,9 @@ en:
         author:
           deleted: Deleted
           identifier: 'Identifier: <b>N°%{identifier}</b>'
+          more_authors: and %{authors_count} more people (%{see_more})
+          see_less: See less
+          see_more: See more
         author_list:
           hidden_authors_count:
             one: and 1 more person

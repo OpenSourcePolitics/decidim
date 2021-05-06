@@ -5,10 +5,6 @@ fr:
       organization:
         from_email: Adresse de courriel
         from_label: Nom
-        address: serveur SMTP
-        password: Mot de passe
-        port: Port
-        user_name: Utilisateur
   decidim:
     system:
       actions:
@@ -37,8 +33,7 @@ fr:
           success: Administrateur mis à jour avec succès
       default_pages:
         placeholders:
-          content: Ajoutez un contenu pertinent à la page %{page} en allant sur l'interface
-            d'administration.
+          content: Ajoutez un contenu pertinent à la page %{page} en allant sur l'interface d'administration.
           title: Titre par défaut pour %{page}
       menu:
         admins: Administrateurs
@@ -51,8 +46,7 @@ fr:
             email: Courriel
           name: Administrateur
           validations:
-            email_uniqueness: un autre administrateur avec la même adresse email existe
-              déjà
+            email_uniqueness: un autre administrateur avec la même adresse email existe déjà
         organization:
           actions:
             save_and_invite: Créer une organisation et inviter un administrateur
@@ -71,8 +65,7 @@ fr:
         index:
           title: Organisations
         new:
-          reference_prefix_hint: Le préfixe de référence est utilisé pour identifier
-            de manière unique les ressources pour toutes les organisations
+          reference_prefix_hint: Le préfixe de référence est utilisé pour identifier de manière unique les ressources pour toutes les organisations
           secondary_hosts_hint: Entrez chacun d'eux dans une nouvelle ligne
           title: Nouvelle organisation
         omniauth_settings:
@@ -92,22 +85,20 @@ fr:
           fieldsets:
             sender: Expéditeur
           instructions:
-            sender: "Nom de l'expéditeur <email@example.org>"
+            sender: Nom de l'expéditeur <email@example.org>
           placeholder:
-            from_email: "email@example.org"
-            from_label: "Nom de l'expéditeur"
+            from_email: email@example.org
+            from_label: Nom de l'expéditeur
         update:
           error: Une erreur s'est produite lors de la mise à jour de cette organisation.
           success: Organisation mise à jour avec succès.
         users_registration_mode:
           disabled: L'accès n'est possible qu'avec des comptes externes
           enabled: Autoriser les utilisateurs à s'inscrire et à se connecter
-          existing: Ne pas autoriser les utilisateurs à s'inscrire, mais autoriser
-            les utilisateurs existants à se connecter
+          existing: Ne pas autoriser les utilisateurs à s'inscrire, mais autoriser les utilisateurs existants à se connecter
       shared:
         notices:
-          no_organization_warning_html: Vous devez créer une organisation pour démarrer.
-            Assurez-vous de lire %{guide} avant de continuer.
+          no_organization_warning_html: Vous devez créer une organisation pour démarrer. Assurez-vous de lire %{guide} avant de continuer.
           our_getting_started_guide: Notre guide de démarrage
       titles:
         dashboard: Tableau de bord
