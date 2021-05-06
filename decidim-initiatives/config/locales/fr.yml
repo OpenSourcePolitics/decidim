@@ -107,6 +107,8 @@ fr:
       filters:
         decidim_area_id_eq:
           label: Zones d'application
+        decidim_initiatives_archive_categories_id_eq:
+          label: Archivées
         search_placeholder:
           title_or_description_cont: Recherche %{collection} par titre ou description.
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Recherche
@@ -114,6 +116,7 @@ fr:
         state_eq:
           values:
             accepted: Accepté
+            archived: Archivées
             classified: Classée
             created: Créé
             debatted: Débattue
