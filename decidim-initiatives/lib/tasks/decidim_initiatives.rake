@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require "decidim/initiatives/end_of_mandate_archivist"
+
 namespace :decidim_initiatives do
   desc "Check validating initiatives and moves all without changes for a configured time to discarded state"
   task check_validating: :environment do
@@ -45,5 +47,14 @@ namespace :decidim_initiatives do
         initiative.save
       end
     end
+  end
+
+  desc "Description"
+  task :end_of_mandate_archive, [:archive_category_name, :organization_id] => :environment do |_task, args|
+    if args.archive_category_name.blank? || args.organization_id.blank?
+      raise ArgumentError, "You must pass a parameter: decidim_initiatives:end_of_mandate_archive[\"category_name\",organization_id]"
+    end
+
+    Decidim::Initiatives::EndOfMandateArchivist.archive(args.archive_category_name, args.organization_id).call
   end
 end

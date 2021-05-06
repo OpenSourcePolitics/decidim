@@ -131,5 +131,27 @@ describe "Admin manages initiatives", type: :system do
     end
 
     it_behaves_like "paginating a collection"
+
+    context "when initiative is archived" do
+      let!(:archived_initiative) { create(:initiative, :archived, organization: organization) }
+
+      it "is not present in the listing" do
+        expect(page).not_to have_content(translated(archived_initiative.title))
+        expect(page).to have_content(translated(published_initiative.title))
+      end
+
+      context "when archive category filter is present" do
+        let!(:archive_category) { create(:archive_category, name: "First category", organization: organization) }
+        let!(:archived_initiative) { create(:initiative, :archived, decidim_initiatives_archive_categories_id: archive_category.id, organization: organization) }
+
+        it "is present in the listing" do
+          visit current_path
+          apply_filter("Archive category", "First category")
+
+          expect(page).to have_content(translated(archived_initiative.title))
+          expect(page).not_to have_content(translated(published_initiative.title))
+        end
+      end
+    end
   end
 end

@@ -25,6 +25,11 @@ module Decidim
                foreign_key: "decidim_organization_id",
                class_name: "Decidim::Organization"
 
+    belongs_to :archive_category,
+               foreign_key: "decidim_archive_category_id",
+               class_name: "Decidim::InitiativesArchiveCategory",
+               optional: true
+
     belongs_to :scoped_type,
                foreign_key: "scoped_type_id",
                class_name: "Decidim::InitiativesTypeScope",
@@ -69,10 +74,12 @@ module Decidim
     scope :open, lambda {
       where.not(state: [:classified, :discarded, :rejected, :accepted, :created])
            .currently_signable
+           .not_archived
     }
     scope :closed, lambda {
       where(state: [:classified, :discarded, :rejected, :accepted])
         .or(currently_unsignable)
+        .not_archived
     }
     scope :with_state, ->(state) { where(state: state) if state.present? }
     scope :with_states, ->(states) { where(state: states) if states.present? }
@@ -86,8 +93,8 @@ module Decidim
         .or(where("signature_end_date < ?", Date.current))
     }
 
-    scope :answered, -> { where.not(answered_at: nil) }
-    scope :published, -> { where.not(published_at: nil) }
+    scope :answered, -> { where.not(answered_at: nil).not_archived }
+    scope :published, -> { where.not(published_at: nil).not_archived }
 
     scope :public_spaces, -> { published }
     scope :signature_type_updatable, -> { created }
@@ -104,6 +111,9 @@ module Decidim
     }
     scope :future_spaces, -> { none }
     scope :past_spaces, -> { closed }
+
+    scope :archived, -> { where.not(decidim_initiatives_archive_categories_id: nil) }
+    scope :not_archived, -> { where(decidim_initiatives_archive_categories_id: nil) }
 
     after_commit :notify_state_change
     after_create :notify_creation
@@ -141,6 +151,10 @@ module Decidim
     end
 
     def self.data_portability_images(user); end
+
+    def archived?
+      decidim_initiatives_archive_categories_id?
+    end
 
     # PUBLIC banner image
     #
@@ -214,6 +228,8 @@ module Decidim
     end
 
     def votes_enabled?
+      return if archived?
+
       votes_enabled_state? &&
         signature_start_date.present? && signature_start_date <= Date.current &&
         signature_end_date.present? && signature_end_date >= Date.current

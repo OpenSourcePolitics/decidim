@@ -13,6 +13,7 @@ module Decidim
       def query
         Decidim::Initiative.where(organization: organization)
                            .with_states(states)
+                           .not_archived
                            .published
                            .order_by_answer_date
       end

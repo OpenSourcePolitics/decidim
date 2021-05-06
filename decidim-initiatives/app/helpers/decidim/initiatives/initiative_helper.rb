@@ -14,6 +14,7 @@ module Decidim
       #
       # Returns a String.
       def state_badge_css_class(initiative)
+        return "archived" if initiative.archived?
         return "success" if initiative.accepted? || initiative.debatted? || initiative.published?
         return "alert" if initiative.classified?
 
@@ -256,6 +257,10 @@ module Decidim
 
       def editable?(initiative)
         initiative.created?
+      end
+
+      def archive_category_name(initiative)
+        Decidim::InitiativesArchiveCategory.find(initiative.decidim_initiatives_archive_categories_id).name
       end
     end
   end

@@ -37,6 +37,16 @@ module Decidim
       end
     end
 
+    describe ".open" do
+      let!(:archived_initiative) { create :initiative, :archived }
+      let!(:initiative) { create :initiative }
+
+      it "returns not archived initiatives" do
+        expect(Decidim::Initiative.open).to match_array([subject])
+        expect(Decidim::Initiative.open).not_to include(archived_initiative)
+      end
+    end
+
     context "when created initiative" do
       let(:initiative) { create(:initiative, :created) }
       let(:administrator) { create(:user, :admin, organization: initiative.organization) }
@@ -322,12 +332,48 @@ module Decidim
 
         it { is_expected.to be_falsy }
       end
+
+      context "when archived" do
+        let(:initiative) { build :initiative, :archived }
+
+        it { is_expected.to be_falsy }
+      end
     end
 
     context "when linked to an area" do
       let(:initiative) { build :initiative, :with_area }
 
       it { is_expected.to be_truthy }
+    end
+  end
+
+  context "when archived" do
+    let(:initiative) { build :initiative, :archived }
+
+    it { is_expected.to be_truthy }
+  end
+
+  describe ".archived" do
+    let!(:initiative) { create :initiative, :archived }
+
+    it "returns archived initiatives" do
+      expect(Decidim::Initiative.archived.length).to eq(1)
+    end
+  end
+
+  describe ".not_archived" do
+    let!(:initiative) { create :initiative }
+
+    it "returns not archived initiatives" do
+      expect(Decidim::Initiative.not_archived.length).to eq(1)
+    end
+  end
+
+  describe "#archived?" do
+    let(:initiative) { build :initiative, :archived }
+
+    it "returns true" do
+      expect(initiative).to be_archived
     end
   end
 end

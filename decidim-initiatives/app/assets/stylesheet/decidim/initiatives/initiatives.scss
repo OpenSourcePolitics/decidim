@@ -2,6 +2,9 @@
 @import "statistics";
 @import "admin";
 
+$archived-color: #867d84;
+$archived-background-color: #f6f6f6;
+
 .ql-formats{
   .ql-video{
     margin: 0;
@@ -93,4 +96,42 @@ fieldset{
   border: 1px solid #e8e8e8;
   padding: .5em;
   margin-bottom: 1em;
+}
+
+.archive-header{
+  img{
+    max-width: 15%;
+  }
+  @media only screen and (max-width: 500px) {
+    img{
+      max-width: 30%;
+    }
+  }
+}
+
+.card.archived{
+  background: $archived-background-color;
+
+  &:hover{
+    border-color: $archived-color;
+  }
+
+  border-top-width: 8px;
+  border-top-color: $archived-color;
+
+  .archive-header{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    padding-top: 12px;
+
+    img{
+      max-width: 30%;
+    }
+  }
+}
+
+.archived.label.initiative-status{
+  background-color: $archived-color;
 }

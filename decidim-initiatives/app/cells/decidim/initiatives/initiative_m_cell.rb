@@ -56,6 +56,8 @@ module Decidim
       end
 
       def state_classes
+        return ["archived"] if model.archived?
+
         case state
         when "accepted", "published", "debatted"
           ["success"]
@@ -74,6 +76,10 @@ module Decidim
 
       def area_color_style
         "style=\"background-color:#{model.area_color};\""
+      end
+
+      def archive_category_name(model)
+        Decidim::InitiativesArchiveCategory.find(model.decidim_initiatives_archive_categories_id).name
       end
 
       def area_logo
