@@ -28,13 +28,11 @@
 
   .publish-date{
     display: inline-block;
-    margin-left: -10px;
     margin-right: 15px;
   }
 
   .reference{
     display: inline-block;
-    margin-left: -10px;
   }
 
   .author{
@@ -47,6 +45,16 @@
 
   .author__name{
     margin-left: 25px;
+  }
+
+  .author__see-more{
+    color: $body-font-color;
+  }
+
+  .authors_see-more-link, .author__see-less-link{
+    color: var(--secondary);
+    padding-right: 0;
+    cursor: pointer;
   }
 }
 
