@@ -96,6 +96,10 @@ describe "Initiative", type: :system do
         expect(page).to have_css(".initiative-status.archived")
         expect(page).to have_css(".initiative-answer.archived")
       end
+
+      it "grays the gauge" do
+        expect(page).to have_css(".vote-cabin-progress-bar__archived")
+      end
     end
 
     context "when committee members count is inferior than 3" do
