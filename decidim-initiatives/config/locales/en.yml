@@ -1,5 +1,6 @@
 ---
 en:
+
   activemodel:
     attributes:
       initiative:
@@ -76,6 +77,8 @@ en:
         other: Signatures
   decidim:
     admin:
+      initiative_type_form:
+        global_signature_end_date_error: Global signature end date cannot be in the past or today
       actions:
         new_initiative_type: New initiative type
       filters:

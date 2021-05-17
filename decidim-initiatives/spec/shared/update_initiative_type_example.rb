@@ -6,6 +6,7 @@ shared_examples "update an initiative type" do
     create(:initiatives_type,
            :online_signature_enabled,
            :attachments_disabled,
+           :global_signature_end_date,
            :undo_online_signatures_enabled,
            :custom_signature_end_date_disabled,
            :area_disabled,
@@ -39,7 +40,8 @@ shared_examples "update an initiative type" do
         extra_fields_legal_information: Decidim::Faker::Localized.sentence(25),
         document_number_authorization_handler: "",
         child_scope_threshold_enabled: false,
-        only_global_scope_enabled: false
+        only_global_scope_enabled: false,
+        global_signature_end_date: Time.current + 3.years
       }
     end
 
@@ -64,6 +66,7 @@ shared_examples "update an initiative type" do
         expect(initiative_type.custom_signature_end_date_enabled).not_to eq(form_params[:custom_signature_end_date_enabled])
         expect(initiative_type.area_enabled).not_to eq(form_params[:area_enabled])
         expect(initiative_type.minimum_committee_members).not_to eq(form_params[:minimum_committee_members])
+        expect(initiative_type.global_signature_end_date).not_to eq(form_params[:global_signature_end_date])
       end
     end
 
@@ -85,6 +88,7 @@ shared_examples "update an initiative type" do
         expect(initiative_type.custom_signature_end_date_enabled).to eq(form_params[:custom_signature_end_date_enabled])
         expect(initiative_type.area_enabled).to eq(form_params[:area_enabled])
         expect(initiative_type.minimum_committee_members).to eq(form_params[:minimum_committee_members])
+        expect(initiative_type.global_signature_end_date).to eq(form_params[:global_signature_end_date])
       end
 
       it "propagates signature type to created initiatives" do
