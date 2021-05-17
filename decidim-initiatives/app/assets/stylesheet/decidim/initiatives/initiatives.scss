@@ -103,7 +103,8 @@ fieldset{
   img{
     max-width: 15%;
   }
-  @media only screen and (max-width: 500px) {
+
+  @media only screen and (max-width: 500px){
     img{
       max-width: 30%;
     }
@@ -135,4 +136,8 @@ fieldset{
 
 .archived.label.initiative-status{
   background-color: $archived-color;
+}
+
+.vote-cabin-progress-bar__archived .progress__bar__bar--complete{
+  background-color: #867d84 !important;
 }
