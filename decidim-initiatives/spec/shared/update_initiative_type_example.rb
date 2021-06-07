@@ -6,7 +6,7 @@ shared_examples "update an initiative type" do
     create(:initiatives_type,
            :online_signature_enabled,
            :attachments_disabled,
-           :global_signature_end_date,
+           :global_signature_end_date_enabled,
            :undo_online_signatures_enabled,
            :custom_signature_end_date_disabled,
            :area_disabled,
@@ -41,7 +41,7 @@ shared_examples "update an initiative type" do
         document_number_authorization_handler: "",
         child_scope_threshold_enabled: false,
         only_global_scope_enabled: false,
-        global_signature_end_date: Time.current + 3.years
+        global_signature_end_date: Date.current + 3.years
       }
     end
 
