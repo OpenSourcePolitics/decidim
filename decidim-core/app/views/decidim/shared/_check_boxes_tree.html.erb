@@ -1,4 +1,4 @@
-<% cache "check_boxes_tree/#{Digest::MD5.hexdigest(collection.to_s)}" do %>
+<% cache "check_boxes_tree/#{Digest::MD5.hexdigest(collection.to_s + request.url)}" do %>
   <% if collection.leaf %>
     <% data_checkboxes_tree_id = "#{check_boxes_tree_id}-#{collection.leaf.value}" %>
     <% hide_node = (hide_node.present? and hide_node == "true") ? true : false %>
