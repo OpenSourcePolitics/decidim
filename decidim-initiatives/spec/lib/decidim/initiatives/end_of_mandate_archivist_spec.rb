@@ -85,12 +85,9 @@ describe Decidim::Initiatives::EndOfMandateArchivist do
     let!(:fourth_authorization) { create(:authorization, name: "dummy_authorization_handler", user: fourth_user, metadata: { nickname: fourth_user.nickname }, granted_at: 2.seconds.ago) }
 
     it "deletes authors and committee_members metadata authorization" do
-      archivist.call
-
-      expect(first_authorization.reload.encrypted_metadata).to eq(nil)
-      expect(second_authorization.reload.encrypted_metadata).to eq(nil)
-      expect(third_authorization.reload.encrypted_metadata).to eq(nil)
-      expect(fourth_authorization.reload.encrypted_metadata).not_to eq(nil)
+      expect do
+        archivist.call
+      end.to change(Decidim::Authorization.all, :count).from(4).to(1)
     end
   end
 end

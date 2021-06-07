@@ -34,9 +34,7 @@ module Decidim
       def delete_authorizations
         Rails.logger.info "Authorizations to be deleted: #{users.count}" if @verbose
 
-        # rubocop:disable Rails/SkipsModelValidations
-        authorizations.update_all(encrypted_metadata: nil)
-        # rubocop:enable Rails/SkipsModelValidations
+        authorizations.destroy_all
 
         Rails.logger.info "Finished..." if @verbose
       end
