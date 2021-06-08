@@ -16,6 +16,7 @@ module Decidim
       include ControlVersionHelper
       include Decidim::RichTextEditorHelper
       include Decidim::CheckBoxesTreeHelper
+      include Decidim::CachingHelper
 
       delegate :minimum_votes_per_user, to: :component_settings
 
