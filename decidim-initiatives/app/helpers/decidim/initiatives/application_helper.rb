@@ -6,6 +6,7 @@ module Decidim
     #
     module ApplicationHelper
       include Decidim::CheckBoxesTreeHelper
+      include Decidim::CachingHelper
 
       def filter_states_values
         TreeNode.new(
