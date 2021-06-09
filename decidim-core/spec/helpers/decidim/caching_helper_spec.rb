@@ -34,6 +34,20 @@ module Decidim
         end
       end
 
+      context "when collection is different" do
+        let(:options) do
+          {
+            collection: "dummy_collection_different",
+            url: decidim.root_url(host: organization.host)
+          }
+        end
+
+        it "generate a different hash" do
+          old_hash = helper.cache_with_url(name, collection: "dummy_collection", url: decidim.root_url(host: organization.host))
+          expect(subject).not_to eq(old_hash)
+        end
+      end
+
       context "when option is missing" do
         context "when collection is missing" do
           let(:options) do
