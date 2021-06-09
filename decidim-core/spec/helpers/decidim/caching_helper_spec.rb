@@ -5,16 +5,16 @@ require "spec_helper"
 module Decidim
   describe CachingHelper do
     describe "#cache_with_url" do
-      let(:subject) { helper.cache_with_url(options) }
+      let(:subject) { helper.cache_with_url(name, options) }
       let(:options) do
         {
-          name: "dummy_name",
           collection: "dummy_collection",
           url: decidim.root_url(host: organization.host)
         }
       end
       let(:organization) { create(:organization) }
       let(:md5_digest) { Digest::MD5.hexdigest("#{options[:collection]}#{options[:url]}") }
+      let(:name) { "dummy_name" }
 
       it "returns a string" do
         expect(subject).to be_a String
@@ -38,7 +38,6 @@ module Decidim
         context "when collection is missing" do
           let(:options) do
             {
-              name: "dummy_name",
               collection: nil,
               url: decidim.root_url(host: organization.host)
             }
@@ -52,7 +51,6 @@ module Decidim
         context "when url is missing" do
           let(:options) do
             {
-              name: "dummy_name",
               collection: "dummy_collection",
               url: nil
             }
@@ -63,13 +61,8 @@ module Decidim
           end
         end
 
-        context "when name is undefined" do
-          let(:options) do
-            {
-              collection: "dummy_collection",
-              url: decidim.root_url(host: organization.host)
-            }
-          end
+        context "when name is nil" do
+          let(:name) { nil }
 
           it "returns a default name" do
             expect(subject).to eq("decidim_cached_with_url/#{md5_digest}")
@@ -80,7 +73,6 @@ module Decidim
       context "when collection is a TreeNode" do
         let(:options) do
           {
-            name: "dummy_name",
             collection: CheckBoxesTreeHelper::TreeNode.new(
               CheckBoxesTreeHelper::TreePoint.new("", "All"),
               [

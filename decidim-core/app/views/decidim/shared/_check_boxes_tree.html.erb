@@ -1,4 +1,4 @@
-<% cache cache_with_url(name: "check_boxes_tree", collection: collection, url: request.url) do %>
+<% cache cache_with_url("check_boxes_tree", {collection: collection, url: request.url}) do %>
   <% if collection.leaf %>
     <% data_checkboxes_tree_id = "#{check_boxes_tree_id}-#{collection.leaf.value}" %>
     <% hide_node = (hide_node.present? and hide_node == "true") ? true : false %>
