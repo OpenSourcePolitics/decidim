@@ -9,6 +9,7 @@ module Decidim
       include Decidim::Comments::CommentsHelper
       include ProjectsHelper
       include Decidim::CheckBoxesTreeHelper
+      include Decidim::CachingHelper
     end
   end
 end
