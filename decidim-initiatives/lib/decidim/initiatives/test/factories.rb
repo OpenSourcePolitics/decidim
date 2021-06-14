@@ -19,6 +19,7 @@ FactoryBot.define do
     minimum_committee_members { 3 }
     child_scope_threshold_enabled { false }
     only_global_scope_enabled { false }
+    global_signature_end_date { nil }
 
     trait :attachments_enabled do
       attachments_enabled { true }
@@ -50,6 +51,10 @@ FactoryBot.define do
 
     trait :custom_signature_end_date_disabled do
       custom_signature_end_date_enabled { false }
+    end
+
+    trait :global_signature_end_date_enabled do
+      global_signature_end_date { Date.current + 1.year }
     end
 
     trait :area_enabled do
