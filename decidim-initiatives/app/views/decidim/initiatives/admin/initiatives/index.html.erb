@@ -3,7 +3,9 @@
     <h2 class="card-title">
       <%= t "decidim.admin.titles.initiatives" %>
       <div class="button--title">
-        <%= render partial: "decidim/initiatives/admin/exports/dropdown" if allowed_to? :export, :initiatives %>
+        <% if allowed_to? :export, :initiatives %>
+          <%= export_dropdowns(query) %>
+        <% end %>
       </div>
     </h2>
   </div>
