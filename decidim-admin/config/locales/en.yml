@@ -138,7 +138,8 @@ en:
       actions:
         add: Add
         browse: Browse
-        export: Export
+        export: Export all
+        export-selection: Export selection
         manage: Manage
         new: New %{name}
         per_page: Per page
