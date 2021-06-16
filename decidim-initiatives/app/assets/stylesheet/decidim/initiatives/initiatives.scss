@@ -118,6 +118,10 @@ fieldset{
     border-color: $archived-color;
   }
 
+  .progress__bar__bar--complete{
+    background-color: $archived-color;
+  }
+
   border-top-width: 8px;
   border-top-color: $archived-color;
 
