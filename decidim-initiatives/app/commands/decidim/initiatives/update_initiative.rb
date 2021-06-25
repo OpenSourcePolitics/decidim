@@ -29,7 +29,7 @@ module Decidim
         return broadcast(:invalid) if form.invalid?
 
         if existing_documents?
-          @initiative.attachments.where(id: drop_documents_ids).destroy_all unless drop_documents_ids.blank?
+          @initiative.attachments.where(id: drop_documents_ids).destroy_all if drop_documents_ids.present?
         end
 
         if process_attachments?

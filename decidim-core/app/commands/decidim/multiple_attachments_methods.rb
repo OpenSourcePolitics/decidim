@@ -58,7 +58,9 @@ module Decidim
     end
 
     def drop_documents_ids
-      @initiative&.documents.map(&:id) - @form.documents&.map { |id| id.try(:to_i) }
+      return [] if @initiative.documents.blank?
+
+      @initiative.documents.map(&:id) - @form.documents.map { |id| id.try(:to_i) }
     end
   end
 end
