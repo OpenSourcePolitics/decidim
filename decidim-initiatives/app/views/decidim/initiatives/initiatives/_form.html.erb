@@ -85,7 +85,7 @@
 
     <% if @form.documents.any? %>
       <% @form.documents.each do |document| %>
-        <div class="callout" data-closable>
+        <div class="callout initiative-documents" data-closable>
           <%= link_to translated_attribute(document.title), document.url %>
           <small><%= document.file_type %> <%= number_to_human_size(document.file_size) %></small>
           <%= form.hidden_field :documents, multiple: true, value: document.id, id: "document-#{document.id}" %>
@@ -96,6 +96,8 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
+
+        <%= javascript_include_tag "decidim/initiatives/drop_document" %>
       <% end %>
     <% end %>
 

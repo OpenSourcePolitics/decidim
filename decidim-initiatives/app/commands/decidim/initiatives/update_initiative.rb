@@ -28,12 +28,15 @@ module Decidim
       def call
         return broadcast(:invalid) if form.invalid?
 
-        if process_attachments?
-          @initiative.attachments.where(id: form.documents).destroy_all
+        if existing_documents?
+          @initiative.attachments.where(id: drop_documents_ids).destroy_all if drop_documents_ids.present?
+        end
 
+        if process_attachments?
           build_attachments
           return broadcast(:invalid) if attachments_invalid?
         end
+
         @initiative = Decidim.traceability.update!(
           initiative,
           current_user,
