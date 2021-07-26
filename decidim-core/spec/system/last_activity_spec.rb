@@ -49,7 +49,7 @@ describe "Last activity", type: :system do
         end
       end
 
-      it "shows all activities" do
+      it "shows all activities", :slow do
         expect(page).to have_css("article.card", count: 2)
         expect(page).to have_content(resource.title)
         expect(page).to have_content(comment.commentable.title)
