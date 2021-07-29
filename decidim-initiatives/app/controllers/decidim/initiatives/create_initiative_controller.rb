@@ -117,7 +117,7 @@ module Decidim
 
       def finish_step(_parameters)
         enforce_permission_to :create, :initiative
-        session[:initiative][:description] = nil
+
         render_wizard
       end
 
