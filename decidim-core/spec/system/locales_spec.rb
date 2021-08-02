@@ -52,6 +52,7 @@ describe "Locales", type: :system do
       end
 
       it "uses the user's locale", :slow do
+        # TODO: Understand why current_user is not detected
         expect(page).to have_content("Inici")
       end
     end
