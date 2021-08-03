@@ -1,5 +1,6 @@
 **/*{.,-}min.js
 decidim-*/vendor/**/*.js
+vendor/bundle/**/*.js
 spec/decidim_dummy_app/**/*.js
 development_app
 **/node_modules/**
@@ -12,4 +13,3 @@ entry.js
 *_manifest.js
 coverage
 decidim-dev/**/*/test/**/*.js
-*.html.erb
