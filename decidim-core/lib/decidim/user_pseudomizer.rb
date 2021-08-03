@@ -2,7 +2,7 @@
 
 module Decidim
   class UserPseudomizer
-    HASHED_ATTRIBUTES = [:name, :nickname, :email, :organization, :personal_url, :about].freeze
+    HASHED_ATTRIBUTES = [:name, :nickname, :email, :organization, :id, :personal_url, :about].freeze
 
     def initialize(user)
       @user = user
@@ -26,14 +26,6 @@ module Decidim
 
     def email
       "#{hash}@anonyme.org"
-    end
-
-    def about
-      hash
-    end
-
-    def personal_url
-      hash
     end
 
     private

@@ -51,22 +51,6 @@ module Decidim
           expect(subject.pseudomize(user).email).to eq("#{hash}@anonyme.org")
         end
       end
-
-      describe "#about" do
-        let(:hash) { subject.pseudomize(user).hash }
-
-        it "generates a hashed about" do
-          expect(subject.pseudomize(user).about).to eq(hash.to_s)
-        end
-      end
-
-      describe "#personal_url" do
-        let(:hash) { subject.pseudomize(user).hash }
-
-        it "generates a hashed personal_url" do
-          expect(subject.pseudomize(user).personal_url).to eq(hash.to_s)
-        end
-      end
     end
   end
 end
