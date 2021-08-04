@@ -2,7 +2,7 @@
 
 module Decidim
   module Admin
-    class CloseComponent < Rectify::Command
+    class PseudomizeComponent < Rectify::Command
       def initialize(component)
         @component = component
       end

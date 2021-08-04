@@ -32,6 +32,11 @@
       <% end %>
     <% end %>
 
+    <%= form_tag(decidim_admin.pseudomizations_path, method: :post, class: "action-icon action-icon--configure") do %>
+      <%= hidden_field_tag(:component_id, component.id) %>
+      <%= submit_tag(icon("key")) %>
+    <% end %>
+
     <% if allowed_to? :destroy, :component, component: component %>
       <%= icon_link_to "circle-x", url_for(action: :destroy, id: component, controller: "components"), t("actions.destroy", scope: "decidim.admin"), class: "action-icon--remove", method: :delete %>
     <% end %>

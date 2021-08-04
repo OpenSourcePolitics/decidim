@@ -3,7 +3,7 @@
 require "spec_helper"
 
 module Decidim::Admin
-  describe CloseComponent do
+  describe PseudomizeComponent do
     subject { described_class.new(component) }
 
     let(:component) { proposal_component }
