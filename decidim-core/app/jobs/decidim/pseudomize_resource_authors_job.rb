@@ -21,7 +21,7 @@ module Decidim
     private
 
     def create_or_find_author(user, organization)
-      return user if user.shadow?
+      return user if user.is_a?(Decidim::Organization) || user.shadow?
 
       Decidim::User.find_by(email: pseudomizer(user).email, organization: organization) || create_author(user, organization)
     end

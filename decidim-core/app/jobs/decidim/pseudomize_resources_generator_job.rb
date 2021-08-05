@@ -20,7 +20,7 @@ module Decidim
     end
 
     def resources_for(component)
-      resources_class(component).map { |klass| klass.constantize.where(component: component).to_a }
+      resources_class(component).constantize.where(component: component).to_a
     end
 
     def resources_class(component)

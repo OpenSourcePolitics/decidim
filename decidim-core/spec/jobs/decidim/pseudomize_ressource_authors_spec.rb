@@ -55,6 +55,16 @@ module Decidim
           expect(comment_2.author).to eq(debate_author)
         end
       end
+
+      context "when author is an organization" do
+        let!(:debate) { create(:debate, author: organization, component: debate_component) }
+
+        it "reuses author" do
+          subject.perform_now(debate)
+
+          expect(debate.author).to eq(organization)
+        end
+      end
     end
   end
 end
