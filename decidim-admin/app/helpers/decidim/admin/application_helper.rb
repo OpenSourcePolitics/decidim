@@ -30,6 +30,10 @@ module Decidim
           end
         end
       end
+
+      def pseudomizable?(component)
+        !%w(blogs pages surveys accountability meetings budgets).include? component.manifest_name
+      end
     end
   end
 end
