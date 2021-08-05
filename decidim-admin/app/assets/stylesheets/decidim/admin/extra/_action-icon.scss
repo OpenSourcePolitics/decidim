@@ -9,5 +9,28 @@
       color: $warning-color;
       vertical-align: bottom;
     }
+
+    &.action-icon--pseudomize{
+      display: inline-block;
+
+      &:hover{
+        button{
+          cursor: pointer;
+        }
+        svg{
+          color: $primary-color;
+        }
+      }
+
+      &:focus{
+        button{
+          cursor: pointer;
+        }
+
+        svg{
+          color: $primary-color;
+        }
+      }
+    }
   }
 }
