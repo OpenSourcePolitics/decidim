@@ -35,20 +35,9 @@ module Decidim
       end
     end
 
-    describe "#resources_classes" do
-      it "returns resources_classes" do
-        expect(subject.new(component).send(:resources_classes)).to match_array([
-                                                                                 "Decidim::DummyResources::DummyResource",
-                                                                                 "Decidim::Pages::Page",
-                                                                                 "Decidim::Meetings::Meeting",
-                                                                                 "Decidim::Proposals::Proposal",
-                                                                                 "Decidim::Proposals::CollaborativeDraft",
-                                                                                 "Decidim::Budgets::Project",
-                                                                                 "Decidim::Accountability::Result",
-                                                                                 "Decidim::Debates::Debate",
-                                                                                 "Decidim::Sortitions::Sortition",
-                                                                                 "Decidim::Blogs::Post"
-                                                                               ])
+    describe "#resources_class" do
+      it "returns resources_class for given component" do
+        expect(subject.new(component).send(:resources_class, component)).to eq("Decidim::Proposals::Proposal")
       end
     end
   end

@@ -20,14 +20,11 @@ module Decidim
     end
 
     def resources_for(component)
-      resources_classes.flat_map { |klass| klass.constantize.where(component: component).to_a }
+      resources_class(component).map { |klass| klass.constantize.where(component: component).to_a }
     end
 
-    def resources_classes
-      Decidim.resource_registry
-             .manifests
-             .map(&:model_class_name)
-             .select { |resource| resource.constantize.column_names.include? "decidim_component_id" }
+    def resources_class(component)
+      Decidim.find_resource_manifest(component.manifest_name)&.model_class_name
     end
 
     def comments_for(resources)
