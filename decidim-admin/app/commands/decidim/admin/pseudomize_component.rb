@@ -9,6 +9,8 @@ module Decidim
 
       def call
         Decidim::PseudomizeResourcesGeneratorJob.perform_later(@component)
+
+        broadcast(:ok)
       end
     end
   end

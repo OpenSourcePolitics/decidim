@@ -144,6 +144,8 @@ en:
         export: Export
         manage: Manage
         permissions: Permissions
+        pseudomize:
+          confirm: You are about to modify definitively all the authors of the components. There is no turning back
         reject: Reject
         verify: Verify
       area_types:
@@ -615,6 +617,10 @@ en:
         new:
           create: Create
           title: New Participatory Space private participant.
+      pseudomization:
+        create:
+          error: Error
+          success: Success
       resource_permissions:
         edit:
           submit: Submit

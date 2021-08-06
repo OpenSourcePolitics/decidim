@@ -11,14 +11,14 @@ module Decidim
 
         PseudomizeComponent.call(component) do
           on(:ok) do
-            flash[:notice] = "Success"
+            flash[:notice] = I18n.t("pseudomization.create.success", scope: "decidim.admin")
           end
 
           on(:invalid) do
-            flash.now[:alert] = "Error"
+            flash.now[:alert] = I18n.t("pseudomization.create.error", scope: "decidim.admin")
           end
 
-          # redirect_back(fallback_location: manage_component_path(component))
+          head :no_content
         end
       end
 

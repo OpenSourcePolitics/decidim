@@ -36,7 +36,7 @@
       <% if pseudomizable?(component) %>
         <%= form_tag(decidim_admin.pseudomizations_path, method: :post, class: "action-icon action-icon--pseudomize") do %>
           <%= hidden_field_tag(:component_id, component.id) %>
-          <%= submit_tag(icon("shield"), data: { confirm: "Are you sure?" }) %>
+          <%= submit_tag(icon("shield"), data: { confirm: t("actions.pseudomize.confirm", scope: "decidim.admin") }) %>
         <% end %>
       <% else %>
         <%= icon "shield", class: "action-icon action-icon--disabled" %>
