@@ -4,10 +4,17 @@ module Decidim
   class PseudomizeResourcesGeneratorJob < ApplicationJob
     queue_as :default
 
-    def perform(component)
-      resources(component).each do |resource|
+    def perform(user, component)
+      resources = resources(component)
+      cache_entry = "pseudomize_resources_#{component.manifest_name}"
+
+      write_to_cache(cache_entry, resources)
+
+      resources.each do |resource|
         Decidim::PseudomizeResourceAuthorsJob.perform_later(resource)
       end
+
+      Decidim::EndOfPseudomizeResourcesTaskJob.perform_later(user, cache_entry)
     end
 
     private
@@ -29,6 +36,10 @@ module Decidim
 
     def comments_for(resources)
       Decidim::Comments::Comment.where(commentable: resources).to_a
+    end
+
+    def write_to_cache(cache_entry, resources)
+      Rails.cache.write(cache_entry, total: resources.count, current: 0)
     end
   end
 end
