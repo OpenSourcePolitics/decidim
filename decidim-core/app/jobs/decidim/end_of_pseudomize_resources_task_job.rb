@@ -7,6 +7,7 @@ module Decidim
     def perform(user, cache_entry)
       if task_completed?(cache_entry)
         notify_admin(user)
+        erase_cache_entry!(cache_entry)
       else
         args = arguments
         Decidim::EndOfPseudomizeResourcesTaskJob.set(wait: 1.minute).perform_later(args.first, args.last)
@@ -16,6 +17,8 @@ module Decidim
     private
 
     def task_completed?(cache_entry)
+      return true if read_cache_entry(cache_entry).nil?
+
       total = read_cache_entry(cache_entry).dig(:total)
       current = read_cache_entry(cache_entry).dig(:current)
 
@@ -28,6 +31,10 @@ module Decidim
 
     def notify_admin(user)
       # To be implemented
+    end
+
+    def erase_cache_entry!(cache_entry)
+      Rails.cache.write(cache_entry, nil)
     end
   end
 end

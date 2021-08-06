@@ -36,6 +36,14 @@ module Decidim
       end
     end
 
+    describe "#erase_cache_entry" do
+      it "removes cache entry" do
+        subject.new(user, cache_entry).send(:erase_cache_entry!, cache_entry)
+
+        expect(Rails.cache.fetch(cache_entry)).to eq(nil)
+      end
+    end
+
     describe "#task_completed?" do
       it "returns false" do
         expect(subject.new(user, cache_entry).send(:task_completed?, cache_entry)).to eq(false)
@@ -53,9 +61,9 @@ module Decidim
         end
       end
 
-      context "when empty" do
+      context "when nil" do
         it "returns true" do
-          Rails.cache.write(cache_entry, {})
+          Rails.cache.write(cache_entry, nil)
 
           expect(subject.new(user, cache_entry).send(:task_completed?, cache_entry)).to eq(true)
         end
