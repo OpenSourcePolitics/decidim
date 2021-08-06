@@ -21,6 +21,15 @@ module Decidim
           subject.perform_now(proposal)
 
           expect(proposal.authors).not_to match_array(authors)
+          authors.map do |author|
+            expect(proposal.authors).not_to include(author)
+          end
+        end
+
+        it "sets confirmed_at" do
+          subject.perform_now(proposal)
+
+          expect(proposal.authors.map(&:confirmed_at)).not_to include(nil)
         end
       end
 

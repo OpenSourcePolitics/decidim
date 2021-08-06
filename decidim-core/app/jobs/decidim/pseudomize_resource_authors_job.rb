@@ -10,6 +10,7 @@ module Decidim
 
         resource.transaction do
           resource.coauthorships.delete_all
+          resource.reload
           authors.each { |author| resource.add_coauthor(author) }
           resource.save!
         end
@@ -29,7 +30,7 @@ module Decidim
     def create_author(user, organization)
       password = SecureRandom.hex(64)
 
-      Decidim::User.create!(
+      user = Decidim::User.new(
         shadow: true,
         email: pseudomizer(user).email,
         name: pseudomizer(user).name,
@@ -42,6 +43,11 @@ module Decidim
         email_on_notification: false,
         accepted_tos_version: organization.tos_version
       )
+
+      user.skip_confirmation!
+      user.save
+
+      user
     end
 
     def pseudomizer(user)
