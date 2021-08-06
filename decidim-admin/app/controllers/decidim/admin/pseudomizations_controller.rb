@@ -9,7 +9,7 @@ module Decidim
       def create
         enforce_permission_to :pseudomize, :component, component: component
 
-        PseudomizeComponent.call(component) do
+        PseudomizeComponent.call(current_user, component) do
           on(:ok) do
             flash[:notice] = I18n.t("pseudomization.create.success", scope: "decidim.admin")
           end

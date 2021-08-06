@@ -3,12 +3,13 @@
 module Decidim
   module Admin
     class PseudomizeComponent < Rectify::Command
-      def initialize(component)
+      def initialize(user, component)
         @component = component
+        @user = user
       end
 
       def call
-        Decidim::PseudomizeResourcesGeneratorJob.perform_later(@component)
+        Decidim::PseudomizeResourcesGeneratorJob.perform_later(@user, @component)
 
         broadcast(:ok)
       end
