@@ -6,7 +6,11 @@ module Decidim
 
     def perform(resource)
       if resource.respond_to?(:authors)
-        authors = resource.authors.map { |author| create_or_find_author(author, resource.organization) }
+        old_authors = resource.authors
+
+        notify_users(old_authors)
+
+        authors = old_authors.map { |author| create_or_find_author(author, resource.organization) }
 
         resource.transaction do
           resource.coauthorships.delete_all
@@ -15,7 +19,11 @@ module Decidim
           resource.save!
         end
       else
-        resource.update!(author: create_or_find_author(resource.author, resource.organization))
+        old_author = resource.author
+
+        notify_user(old_author)
+
+        resource.update!(author: create_or_find_author(old_author, resource.organization))
       end
     end
 
@@ -52,6 +60,14 @@ module Decidim
 
     def pseudomizer(user)
       Decidim::UserPseudomizer.pseudomize(user)
+    end
+
+    def notify_users(users)
+      users.each { |user| notify_user(user) }
+    end
+
+    def notify_user(user)
+      Decidim::Admin::PseudomizeMailer.notify_user(user)
     end
   end
 end

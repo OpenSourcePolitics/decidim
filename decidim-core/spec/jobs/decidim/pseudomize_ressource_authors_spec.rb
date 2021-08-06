@@ -26,6 +26,16 @@ module Decidim
           end
         end
 
+        it "sends an email to authors" do
+          allow(Decidim::Admin::PseudomizeMailer).to receive(:notfiy_user).and_call_original
+
+          subject.perform_now(comment_1)
+
+          expect(Decidim::Admin::PseudomizeMailer)
+            .to have_received(:notfiy_admin)
+            .with(authors.first).exactly(5)
+        end
+
         it "sets confirmed_at" do
           subject.perform_now(proposal)
 
@@ -34,6 +44,16 @@ module Decidim
       end
 
       context "when respond to author" do
+        it "send an email to author" do
+          allow(Decidim::Admin::PseudomizeMailer).to receive(:notfiy_user).and_call_original
+
+          subject.perform_now(comment_1)
+
+          expect(Decidim::Admin::PseudomizeMailer)
+            .to have_received(:notfiy_admin)
+            .with(authors.first)
+        end
+
         it "pseudomizes resource author" do
           subject.perform_now(comment_1)
 

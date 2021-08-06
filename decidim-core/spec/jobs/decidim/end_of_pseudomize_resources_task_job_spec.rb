@@ -10,12 +10,11 @@ module Decidim
     let(:component) { proposal_component }
     let(:proposal_component) { create(:proposal_component) }
     let(:cache_entry) { "pseudomize_resources_#{component.manifest_name}" }
-    let(:cache_hash) do
+    let(:uncompleted_cache_hash) do
       { total: 2, current: 0 }
     end
-
-    before do
-      Rails.cache.write(cache_entry, cache_hash)
+    let(:completed_cache_hash) do
+      { total: 2, current: 2 }
     end
 
     after do
@@ -23,8 +22,20 @@ module Decidim
     end
 
     describe "perform" do
+      it "send an email to admin" do
+        Rails.cache.write(cache_entry, completed_cache_hash)
+        allow(Decidim::Admin::PseudomizeMailer).to receive(:notfiy_admin).and_call_original
+
+        subject.perform_now(user, {})
+
+        expect(Decidim::Admin::PseudomizeMailer)
+          .to have_received(:notfiy_admin)
+          .with(admin)
+      end
+
       context "when not completed" do
         it "re-enqueues the job" do
+          Rails.cache.write(cache_entry, uncompleted_cache_hash)
           expect { subject.perform_now(user, cache_entry) }.to have_enqueued_job(Decidim::EndOfPseudomizeResourcesTaskJob).exactly(:once)
         end
       end
@@ -32,7 +43,9 @@ module Decidim
 
     describe "#read_cache_entry" do
       it "returns the current state of the task" do
-        expect(subject.new(user, cache_entry).send(:read_cache_entry, cache_entry)).to eq(cache_hash)
+        Rails.cache.write(cache_entry, uncompleted_cache_hash)
+
+        expect(subject.new(user, cache_entry).send(:read_cache_entry, cache_entry)).to eq(uncompleted_cache_hash)
       end
     end
 
@@ -46,16 +59,14 @@ module Decidim
 
     describe "#task_completed?" do
       it "returns false" do
+        Rails.cache.write(cache_entry, uncompleted_cache_hash)
+
         expect(subject.new(user, cache_entry).send(:task_completed?, cache_entry)).to eq(false)
       end
 
       context "when completed" do
-        let(:cache_entry) do
-          { total: 2, current: 2 }
-        end
-
         it "returns true" do
-          Rails.cache.write(cache_entry, total: 2, current: 2)
+          Rails.cache.write(cache_entry, completed_cache_hash)
 
           expect(subject.new(user, cache_entry).send(:task_completed?, cache_entry)).to eq(true)
         end

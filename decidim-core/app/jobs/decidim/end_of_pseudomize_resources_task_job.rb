@@ -30,7 +30,7 @@ module Decidim
     end
 
     def notify_admin(user)
-      # To be implemented
+      Decidim::PseudomizeMailer.notify_admin(user)
     end
 
     def erase_cache_entry!(cache_entry)
