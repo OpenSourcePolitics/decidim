@@ -11,7 +11,7 @@ module Decidim::Admin
 
     describe "#call" do
       it "enqueues the jobs" do
-        expect { subject.call }.to have_enqueued_job(Decidim::PseudomizeResourceGeneratorJob).exactly(:once)
+        expect { subject.call }.to have_enqueued_job(Decidim::PseudomizeResourcesGeneratorJob).exactly(:once)
       end
     end
   end
