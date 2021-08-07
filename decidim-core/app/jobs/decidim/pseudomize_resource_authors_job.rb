@@ -4,7 +4,7 @@ module Decidim
   class PseudomizeResourceAuthorsJob < ApplicationJob
     queue_as :default
 
-    def perform(resource)
+    def perform(resource, cache_entry)
       if resource.respond_to?(:authors)
         old_authors = resource.authors
 
@@ -25,6 +25,8 @@ module Decidim
 
         resource.update!(author: create_or_find_author(old_author, resource.organization))
       end
+
+      increment_resources_counter(cache_entry)
     end
 
     private
@@ -68,6 +70,12 @@ module Decidim
 
     def notify_user(user)
       Decidim::Admin::PseudomizeMailer.notify_user(user)
+    end
+
+    def increment_resources_counter(cache_entry)
+      entry = Rails.cache.fetch(cache_entry)
+      new_entry = entry.merge(current: entry[:current] + 1)
+      Rails.cache.write(cache_entry, new_entry)
     end
   end
 end

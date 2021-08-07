@@ -11,7 +11,7 @@ module Decidim
       write_to_cache(cache_entry, resources)
 
       resources.each do |resource|
-        Decidim::PseudomizeResourceAuthorsJob.perform_later(resource)
+        Decidim::PseudomizeResourceAuthorsJob.perform_later(resource, cache_entry)
       end
 
       Decidim::EndOfPseudomizeResourcesTaskJob.perform_later(user, cache_entry)

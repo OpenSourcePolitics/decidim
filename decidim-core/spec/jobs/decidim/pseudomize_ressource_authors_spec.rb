@@ -14,11 +14,22 @@ module Decidim
     let!(:debate_component) { create(:debates_component, organization: organization) }
     let!(:debate) { create(:debate, author: authors.last, component: debate_component) }
     let!(:comment_2) { create(:comment, author: authors.last, commentable: proposal) }
+    let(:proposal_cache_entry) { "pseudomize_resources_#{proposal_component.manifest_name}" }
+    let(:comment_cache_entry) { "pseudomize_resources_#{comment_1.component.manifest_name}" }
+    let(:debate_cache_entry) { "pseudomize_resources_#{debate_component.manifest_name}" }
+    let(:uncompleted_cache) do
+      { total: 2, current: 0 }
+    end
+
+    after do
+      Rails.cache.clear
+    end
 
     describe "perform" do
       context "when respond to authors" do
         it "pseudomizes resource author" do
-          subject.perform_now(proposal)
+          Rails.cache.write(proposal_cache_entry, uncompleted_cache)
+          subject.perform_now(proposal, proposal_cache_entry)
 
           expect(proposal.authors).not_to match_array(authors)
           authors.map do |author|
@@ -28,16 +39,18 @@ module Decidim
 
         it "sends an email to authors" do
           allow(Decidim::Admin::PseudomizeMailer).to receive(:notfiy_user).and_call_original
+          Rails.cache.write(comment_cache_entry, uncompleted_cache)
 
-          subject.perform_now(comment_1)
+          subject.perform_now(comment_1, comment_cache_entry)
 
           expect(Decidim::Admin::PseudomizeMailer)
-            .to have_received(:notfiy_admin)
-            .with(authors.first).exactly(5)
+            .to have_received(:notfiy_user)
+            .exactly(5)
         end
 
         it "sets confirmed_at" do
-          subject.perform_now(proposal)
+          Rails.cache.write(proposal_cache_entry, uncompleted_cache)
+          subject.perform_now(proposal, proposal_cache_entry)
 
           expect(proposal.authors.map(&:confirmed_at)).not_to include(nil)
         end
@@ -47,15 +60,17 @@ module Decidim
         it "send an email to author" do
           allow(Decidim::Admin::PseudomizeMailer).to receive(:notfiy_user).and_call_original
 
-          subject.perform_now(comment_1)
+          Rails.cache.write(comment_cache_entry, uncompleted_cache)
+          subject.perform_now(comment_1, comment_cache_entry)
 
           expect(Decidim::Admin::PseudomizeMailer)
-            .to have_received(:notfiy_admin)
+            .to have_received(:notfiy_user)
             .with(authors.first)
         end
 
         it "pseudomizes resource author" do
-          subject.perform_now(comment_1)
+          Rails.cache.write(comment_cache_entry, uncompleted_cache)
+          subject.perform_now(comment_1, comment_cache_entry)
 
           expect(comment_1.author).not_to eq(authors.first)
         end
@@ -68,7 +83,8 @@ module Decidim
           debate_author = authors.last
 
           expect do
-            subject.perform_now(debate)
+            Rails.cache.write(debate_cache_entry, uncompleted_cache)
+            subject.perform_now(debate, debate_cache_entry)
 
             expect(debate.author).to eq(debate_author)
           end.not_to change(Decidim::User, :count)
@@ -77,9 +93,11 @@ module Decidim
 
       context "when author already exist" do
         it "reuses author" do
-          subject.perform_now(debate)
+          Rails.cache.write(debate_cache_entry, uncompleted_cache)
+          Rails.cache.write(comment_cache_entry, uncompleted_cache)
+          subject.perform_now(debate, debate_cache_entry)
           debate_author = debate.author
-          subject.perform_now(comment_2)
+          subject.perform_now(comment_2, comment_cache_entry)
 
           expect(comment_2.author).to eq(debate_author)
         end
@@ -89,9 +107,19 @@ module Decidim
         let!(:debate) { create(:debate, author: organization, component: debate_component) }
 
         it "reuses author" do
-          subject.perform_now(debate)
+          Rails.cache.write(debate_cache_entry, uncompleted_cache)
+          subject.perform_now(debate, debate_cache_entry)
 
           expect(debate.author).to eq(organization)
+        end
+      end
+
+      describe "#increment_resources_counter" do
+        it "set the counter to the proper state" do
+          Rails.cache.write(debate_cache_entry, uncompleted_cache)
+          subject.perform_now(debate, debate_cache_entry)
+
+          expect(Rails.cache.fetch(debate_cache_entry)).to eq(total: 2, current: 1)
         end
       end
     end
