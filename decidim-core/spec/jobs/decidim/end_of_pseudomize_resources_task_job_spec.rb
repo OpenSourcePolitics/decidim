@@ -26,11 +26,11 @@ module Decidim
         Rails.cache.write(cache_entry, completed_cache_hash)
         allow(Decidim::Admin::PseudomizeMailer).to receive(:notfiy_admin).and_call_original
 
-        subject.perform_now(user, {})
+        subject.perform_now(user, cache_entry)
 
         expect(Decidim::Admin::PseudomizeMailer)
           .to have_received(:notfiy_admin)
-          .with(admin)
+          .with(user)
       end
 
       context "when not completed" do
