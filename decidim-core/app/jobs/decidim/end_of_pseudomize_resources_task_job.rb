@@ -4,37 +4,23 @@ module Decidim
   class EndOfPseudomizeResourcesTaskJob < ApplicationJob
     queue_as :default
 
-    def perform(user, cache_entry)
-      if task_completed?(cache_entry)
-        notify_admin(user)
-        erase_cache_entry!(cache_entry)
+    def perform(_user, _component)
+      if cache_manager.task_completed?
+        notify_admin!
+        cache_manager.erase_cache_entry!
       else
-        args = arguments
-        Decidim::EndOfPseudomizeResourcesTaskJob.set(wait: 1.minute).perform_later(args.first, args.last)
+        Decidim::EndOfPseudomizeResourcesTaskJob.set(wait: 1.minute).perform_later(arguments.first, arguments.last)
       end
     end
 
     private
 
-    def task_completed?(cache_entry)
-      return true if read_cache_entry(cache_entry).nil?
-
-      total = read_cache_entry(cache_entry).dig(:total)
-      current = read_cache_entry(cache_entry).dig(:current)
-
-      current == total
+    def notify_admin!
+      Decidim::Admin::PseudomizeMailer.notify_admin(arguments.first)
     end
 
-    def read_cache_entry(cache_entry)
-      Rails.cache.fetch(cache_entry)
-    end
-
-    def notify_admin(user)
-      Decidim::Admin::PseudomizeMailer.notify_admin(user)
-    end
-
-    def erase_cache_entry!(cache_entry)
-      Rails.cache.write(cache_entry, nil)
+    def cache_manager
+      @cache_manager ||= Decidim::PseudomizeResourcesCacheManager.new(arguments.last)
     end
   end
 end

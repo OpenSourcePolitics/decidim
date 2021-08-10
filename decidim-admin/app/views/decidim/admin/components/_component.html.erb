@@ -34,12 +34,33 @@
 
     <% if allowed_to? :pseudomize, :component, component: component %>
       <% if pseudomizable?(component) %>
-        <%= form_tag(decidim_admin.pseudomizations_path, method: :post, class: "action-icon action-icon--pseudomize") do %>
-          <%= hidden_field_tag(:component_id, component.id) %>
-          <%= submit_tag(icon("shield"), data: { confirm: t("actions.pseudomize.confirm", scope: "decidim.admin") }) %>
+        <% if !pseudomization_status(component) %>
+          <div class="action-icon-wrapper action-icon">
+            <%= with_tooltip(t("actions.pseudomize.tooltip.available", scope: "decidim.admin")) do %>
+              <%= form_tag(decidim_admin.pseudomizations_path, method: :post, class: "action-icon action-icon--pseudomize") do %>
+                <%= hidden_field_tag(:component_id, component.id) %>
+                <%= submit_tag(icon("shield"), data: { confirm: t("actions.pseudomize.confirm", scope: "decidim.admin") }) %>
+              <% end %>
+            <% end %>
+          </div>
+        <% else %>
+          <div class="action-icon-wrapper action-icon">
+            <%= with_tooltip(
+                  t("actions.pseudomize.tooltip.running",
+                    current: current_pseudomization_status(component),
+                    total: total_pseudomization_status(component),
+                    scope: "decidim.admin")
+                ) do %>
+              <%= icon "shield", class: "action-icon action-icon--disabled action-icon--running" %>
+            <% end %>
+          </div>
         <% end %>
       <% else %>
-        <%= icon "shield", class: "action-icon action-icon--disabled" %>
+        <div class="action-icon-wrapper action-icon">
+          <%= with_tooltip(t "actions.pseudomize.tooltip.not_available", scope: "decidim.admin") do %>
+            <%= icon "shield", class: "action-icon action-icon--disabled" %>
+          <% end %>
+        </div>
       <% end %>
     <% end %>
 

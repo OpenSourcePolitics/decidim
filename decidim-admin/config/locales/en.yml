@@ -1,4 +1,5 @@
 ---
+
 en:
   activemodel:
     attributes:
@@ -145,6 +146,10 @@ en:
         manage: Manage
         permissions: Permissions
         pseudomize:
+          tooltip:
+            not_available: Not available on this component
+            available: Pseudomize
+            running: 'Pseudomization in progress, current status: %{current}/%{total}'
           confirm: You are about to modify definitively all the authors of the components. There is no turning back
         reject: Reject
         verify: Verify

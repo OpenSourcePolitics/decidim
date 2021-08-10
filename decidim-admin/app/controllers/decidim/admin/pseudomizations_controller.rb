@@ -18,7 +18,7 @@ module Decidim
             flash.now[:alert] = I18n.t("pseudomization.create.error", scope: "decidim.admin")
           end
 
-          head :no_content
+          redirect_to decidim_admin_participatory_space.components_path(current_participatory_space)
         end
       end
 
@@ -26,6 +26,14 @@ module Decidim
 
       def component
         @component ||= Decidim::Component.find(params[:component_id])
+      end
+
+      def current_participatory_space
+        component.participatory_space
+      end
+
+      def decidim_admin_participatory_space
+        send("decidim_admin_#{current_participatory_space.manifest.name}")
       end
     end
   end

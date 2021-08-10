@@ -81,6 +81,7 @@ module Decidim
   autoload :HasResourcePermission, "decidim/has_resource_permission"
   autoload :PermissionsRegistry, "decidim/permissions_registry"
   autoload :UserPseudomizer, "decidim/user_pseudomizer"
+  autoload :PseudomizeResourcesCacheManager, "decidim/pseudomize_resources_cache_manager"
 
   include ActiveSupport::Configurable
   # Loads seeds from all engines.

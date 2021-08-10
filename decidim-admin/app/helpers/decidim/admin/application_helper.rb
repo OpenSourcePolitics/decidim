@@ -34,6 +34,24 @@ module Decidim
       def pseudomizable?(component)
         !%w(blogs pages surveys accountability meetings budgets).include? component.manifest_name
       end
+
+      def pseudomization_status(component)
+        cache_manager(component).read_from_cache.presence
+      end
+
+      def current_pseudomization_status(component)
+        pseudomization_status(component).dig(:current) || 0
+      end
+
+      def total_pseudomization_status(component)
+        pseudomization_status(component).dig(:total) || "?"
+      end
+
+      private
+
+      def cache_manager(component)
+        Decidim::PseudomizeResourcesCacheManager.new(component)
+      end
     end
   end
 end

@@ -1,5 +1,10 @@
 .table-list__actions{
   .action-icon{
+    &--running{
+      svg{
+        color: $success-color;
+      }
+    }
     &.action-icon--disabled{
       color: rgba($muted, .3);
       vertical-align: bottom;
@@ -10,25 +15,30 @@
       vertical-align: bottom;
     }
 
-    &.action-icon--pseudomize{
+    &-wrapper{
       display: inline-block;
+    }
 
-      &:hover{
-        button{
-          cursor: pointer;
-        }
-        svg{
-          color: $primary-color;
-        }
-      }
+    .action-icon{
+      &--pseudomize{
+        &:hover{
+          button{
+            cursor: pointer;
+          }
 
-      &:focus{
-        button{
-          cursor: pointer;
+          svg{
+            color: $primary-color;
+          }
         }
 
-        svg{
-          color: $primary-color;
+        &:focus{
+          button{
+            cursor: pointer;
+          }
+
+          svg{
+            color: $primary-color;
+          }
         }
       }
     }

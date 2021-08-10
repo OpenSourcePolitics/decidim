@@ -6,15 +6,13 @@ module Decidim
 
     def perform(user, component)
       resources = resources(component)
-      cache_entry = "pseudomize_resources_#{component.manifest_name}"
-
-      write_to_cache(cache_entry, resources)
+      cache_manager.write_to_cache(total: resources.count, current: 0)
 
       resources.each do |resource|
-        Decidim::PseudomizeResourceAuthorsJob.perform_later(resource, cache_entry)
+        Decidim::PseudomizeResourceAuthorsJob.perform_later(resource, component)
       end
 
-      Decidim::EndOfPseudomizeResourcesTaskJob.perform_later(user, cache_entry)
+      Decidim::EndOfPseudomizeResourcesTaskJob.perform_later(user, component)
     end
 
     private
@@ -38,8 +36,8 @@ module Decidim
       Decidim::Comments::Comment.where(commentable: resources).to_a
     end
 
-    def write_to_cache(cache_entry, resources)
-      Rails.cache.write(cache_entry, total: resources.count, current: 0)
+    def cache_manager
+      @cache_manager ||= Decidim::PseudomizeResourcesCacheManager.new(arguments.last)
     end
   end
 end

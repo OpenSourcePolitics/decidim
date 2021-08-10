@@ -42,21 +42,5 @@ module Decidim
         expect(subject.new(admin, component).send(:resources_class, component)).to eq("Decidim::Proposals::Proposal")
       end
     end
-
-    describe "#write_to_cache" do
-      let(:cache_entry) { "pseudomize_resources_#{component.manifest_name}" }
-
-      before do
-        subject.new(admin, component).send(:write_to_cache, cache_entry, [proposal, comment])
-      end
-
-      after do
-        Rails.cache.clear
-      end
-
-      it "writes to cache" do
-        expect(Rails.cache.fetch(cache_entry)).to eq(total: 2, current: 0)
-      end
-    end
   end
 end
