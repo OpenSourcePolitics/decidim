@@ -1,10 +1,9 @@
 .table-list__actions{
   .action-icon{
     &--running{
-      svg{
-        color: $success-color;
-      }
+      color: $warning-color !important;
     }
+
     &.action-icon--disabled{
       color: rgba($muted, .3);
       vertical-align: bottom;
