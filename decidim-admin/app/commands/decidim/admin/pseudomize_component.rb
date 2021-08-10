@@ -9,10 +9,9 @@ module Decidim
       end
 
       def call
-        # close__contribution
-        # close_comments
+        @component.manifest.run_hooks(:pseudomize, @component)
 
-        cache_manager.mark_as_running
+        status_manager.mark_as_running
         Decidim::PseudomizeResourcesGeneratorJob.perform_later(@user, @component)
 
         broadcast(:ok)
@@ -20,8 +19,8 @@ module Decidim
 
       private
 
-      def cache_manager
-        @cache_manager ||= Decidim::PseudomizeResourcesStatusManager.new(@component)
+      def status_manager
+        @status_manager ||= Decidim::PseudomizeResourcesStatusManager.new(@component)
       end
     end
   end
