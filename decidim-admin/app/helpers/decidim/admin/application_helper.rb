@@ -36,7 +36,7 @@ module Decidim
       end
 
       def pseudomization_status(component)
-        cache_manager(component).read_from_cache.presence
+        cache_manager(component).read.presence
       end
 
       def current_pseudomization_status(component)
@@ -50,7 +50,7 @@ module Decidim
       private
 
       def cache_manager(component)
-        Decidim::PseudomizeResourcesCacheManager.new(component)
+        Decidim::PseudomizeResourcesStatusManager.new(component)
       end
     end
   end

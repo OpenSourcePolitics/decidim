@@ -73,7 +73,7 @@ module Decidim
     end
 
     def cache_manager
-      @cache_manager ||= Decidim::PseudomizeResourcesCacheManager.new(arguments.last)
+      @cache_manager ||= Decidim::PseudomizeResourcesStatusManager.new(arguments.last)
     end
   end
 end

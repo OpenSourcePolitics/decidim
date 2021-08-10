@@ -7,7 +7,7 @@ module Decidim
     def perform(_user, _component)
       if cache_manager.task_completed?
         notify_admin!
-        cache_manager.erase_cache_entry!
+        cache_manager.erase_entry!
       else
         Decidim::EndOfPseudomizeResourcesTaskJob.set(wait: 1.minute).perform_later(arguments.first, arguments.last)
       end
@@ -20,7 +20,7 @@ module Decidim
     end
 
     def cache_manager
-      @cache_manager ||= Decidim::PseudomizeResourcesCacheManager.new(arguments.last)
+      @cache_manager ||= Decidim::PseudomizeResourcesStatusManager.new(arguments.last)
     end
   end
 end

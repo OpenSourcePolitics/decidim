@@ -21,7 +21,7 @@ module Decidim
       private
 
       def cache_manager
-        @cache_manager ||= Decidim::PseudomizeResourcesCacheManager.new(@component)
+        @cache_manager ||= Decidim::PseudomizeResourcesStatusManager.new(@component)
       end
     end
   end

@@ -12,12 +12,12 @@ module Decidim
     let!(:proposal) { create(:proposal, users: authors, component: proposal_component) }
     let!(:comment_1) { create(:comment, author: authors.first, commentable: proposal) }
     let!(:debate_component) { create(:debates_component, organization: organization) }
-    let(:debate_component_cache) { Decidim::PseudomizeResourcesCacheManager.new(debate.component) }
-    let(:comment_1_component_cache) { Decidim::PseudomizeResourcesCacheManager.new(debate.component) }
-    let(:proposal_component_cache) { Decidim::PseudomizeResourcesCacheManager.new(debate.component) }
+    let(:debate_component_status) { Decidim::PseudomizeResourcesStatusManager.new(debate.component) }
+    let(:comment_1_component_status) { Decidim::PseudomizeResourcesStatusManager.new(comment_1.component) }
+    let(:proposal_component_status) { Decidim::PseudomizeResourcesStatusManager.new(proposal.component) }
     let!(:debate) { create(:debate, author: authors.last, component: debate_component) }
     let!(:comment_2) { create(:comment, author: authors.last, commentable: proposal) }
-    let(:uncompleted_cache) do
+    let(:uncompleted_status) do
       { total: 2, current: 0 }
     end
 
@@ -28,7 +28,7 @@ module Decidim
     describe "perform" do
       context "when respond to authors" do
         it "pseudomizes resource author" do
-          proposal_component_cache.write_to_cache(uncompleted_cache)
+          proposal_component_status.write(uncompleted_status)
           subject.perform_now(proposal, proposal.component)
 
           expect(proposal.authors).not_to match_array(authors)
@@ -39,7 +39,7 @@ module Decidim
 
         it "sends an email to authors" do
           allow(Decidim::Admin::PseudomizeMailer).to receive(:notfiy_user).and_call_original
-          comment_1_component_cache.write_to_cache(uncompleted_cache)
+          comment_1_component_status.write(uncompleted_status)
 
           subject.perform_now(comment_1, comment_1.component)
 
@@ -49,7 +49,7 @@ module Decidim
         end
 
         it "sets confirmed_at" do
-          proposal_component_cache.write_to_cache(uncompleted_cache)
+          proposal_component_status.write(uncompleted_status)
           subject.perform_now(proposal, proposal.component)
 
           expect(proposal.authors.map(&:confirmed_at)).not_to include(nil)
@@ -60,7 +60,7 @@ module Decidim
         it "send an email to author" do
           allow(Decidim::Admin::PseudomizeMailer).to receive(:notfiy_user).and_call_original
 
-          comment_1_component_cache.write_to_cache(uncompleted_cache)
+          comment_1_component_status.write(uncompleted_status)
           subject.perform_now(comment_1, comment_1.component)
 
           expect(Decidim::Admin::PseudomizeMailer)
@@ -69,7 +69,7 @@ module Decidim
         end
 
         it "pseudomizes resource author" do
-          comment_1_component_cache.write_to_cache(uncompleted_cache)
+          comment_1_component_status.write(uncompleted_status)
           subject.perform_now(comment_1, comment_1.component)
 
           expect(comment_1.author).not_to eq(authors.first)
@@ -83,7 +83,7 @@ module Decidim
           debate_author = authors.last
 
           expect do
-            debate_component_cache.write_to_cache(uncompleted_cache)
+            debate_component_status.write(uncompleted_status)
             subject.perform_now(debate, debate.component)
 
             expect(debate.author).to eq(debate_author)
@@ -93,8 +93,8 @@ module Decidim
 
       context "when author already exist" do
         it "reuses author" do
-          debate_component_cache.write_to_cache(uncompleted_cache)
-          comment_1_component_cache.write_to_cache(uncompleted_cache)
+          debate_component_status.write(uncompleted_status)
+          comment_1_component_status.write(uncompleted_status)
           subject.perform_now(debate, debate.component)
           debate_author = debate.author
           subject.perform_now(comment_2, comment_1.component)
@@ -107,7 +107,7 @@ module Decidim
         let!(:debate) { create(:debate, author: organization, component: debate_component) }
 
         it "reuses author" do
-          debate_component_cache.write_to_cache(uncompleted_cache)
+          debate_component_status.write(uncompleted_status)
           subject.perform_now(debate, debate.component)
 
           expect(debate.author).to eq(organization)
