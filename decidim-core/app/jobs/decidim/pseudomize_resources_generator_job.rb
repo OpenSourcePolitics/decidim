@@ -6,7 +6,7 @@ module Decidim
 
     def perform(user, component)
       resources = resources(component)
-      cache_manager.write(total: resources.count, current: 0)
+      status_manager.write(total: resources.count, current: 0)
 
       resources.each do |resource|
         Decidim::PseudomizeResourceAuthorsJob.perform_later(resource, component)
@@ -36,8 +36,8 @@ module Decidim
       Decidim::Comments::Comment.where(commentable: resources).to_a
     end
 
-    def cache_manager
-      @cache_manager ||= Decidim::PseudomizeResourcesStatusManager.new(arguments.last)
+    def status_manager
+      @status_manager ||= Decidim::PseudomizeResourcesStatusManager.new(arguments.last)
     end
   end
 end

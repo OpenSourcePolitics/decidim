@@ -5,9 +5,9 @@ module Decidim
     queue_as :default
 
     def perform(_user, _component)
-      if cache_manager.task_completed?
+      if status_manager.task_completed?
         notify_admin!
-        cache_manager.erase_entry!
+        status_manager.erase_entry!
       else
         Decidim::EndOfPseudomizeResourcesTaskJob.set(wait: 1.minute).perform_later(arguments.first, arguments.last)
       end
@@ -19,8 +19,8 @@ module Decidim
       Decidim::Admin::PseudomizeMailer.notify_admin(arguments.first)
     end
 
-    def cache_manager
-      @cache_manager ||= Decidim::PseudomizeResourcesStatusManager.new(arguments.last)
+    def status_manager
+      @status_manager ||= Decidim::PseudomizeResourcesStatusManager.new(arguments.last)
     end
   end
 end

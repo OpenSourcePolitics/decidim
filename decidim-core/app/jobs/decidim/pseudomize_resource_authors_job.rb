@@ -26,7 +26,7 @@ module Decidim
         resource.update!(author: create_or_find_author(old_author, resource.organization))
       end
 
-      cache_manager.increment_resources_counter!
+      status_manager.increment_resources_counter!
     end
 
     private
@@ -72,8 +72,8 @@ module Decidim
       Decidim::Admin::PseudomizeMailer.notify_user(user)
     end
 
-    def cache_manager
-      @cache_manager ||= Decidim::PseudomizeResourcesStatusManager.new(arguments.last)
+    def status_manager
+      @status_manager ||= Decidim::PseudomizeResourcesStatusManager.new(arguments.last)
     end
   end
 end
