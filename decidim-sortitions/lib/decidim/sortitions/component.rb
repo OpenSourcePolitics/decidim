@@ -7,6 +7,14 @@ Decidim.register_component(:sortitions) do |component|
   # component.stylesheet = "decidim/sortitions/sortitions"
   component.permissions_class_name = "Decidim::Sortitions::Permissions"
 
+  component.on(:pseudomize) do |instance|
+    settings = instance.settings.dup
+
+    settings.comments_enabled = false
+
+    instance.update!(settings: settings)
+  end
+
   component.on(:before_destroy) do |instance|
     raise StandardError, "Can't remove this component" if Decidim::Sortitions::Sortition.where(component: instance).any?
   end
