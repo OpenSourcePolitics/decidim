@@ -198,6 +198,7 @@ ignore_unused:
   - decidim.assemblies.filter.*
   - decidim.initiatives.initiatives.votes_count.count.*
   - decidim.proposals.admin.participatory_texts.new_import.accepted_mime_types.*
+  - decidim.admin.actions.pseudomize.tooltip.running
   # OSP CUSTO START HERE
   - decidim.admin.participatory_processes.index.promoted.*
   - decidim.admin.actions.filters.all
