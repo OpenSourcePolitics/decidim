@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim::Admin
   describe PseudomizeComponent do
-    subject { described_class.new(component, user) }
+    subject { described_class.new(user, component) }
 
     let(:component) { proposal_component }
     let(:user) { create(:user, organization: proposal_component.organization) }
