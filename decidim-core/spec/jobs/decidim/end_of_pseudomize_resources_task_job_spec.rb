@@ -27,12 +27,12 @@ module Decidim
     describe "perform" do
       it "send an email to admin" do
         component_cache.write(completed_status)
-        allow(Decidim::Admin::PseudomizeMailer).to receive(:notfiy_admin).and_call_original
+        allow(Decidim::Admin::PseudomizeMailer).to receive(:notify_admin).and_call_original
 
         subject.perform_now(user, component)
 
         expect(Decidim::Admin::PseudomizeMailer)
-          .to have_received(:notfiy_admin)
+          .to have_received(:notify_admin)
           .with(user)
       end
 
