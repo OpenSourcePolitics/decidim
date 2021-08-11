@@ -22,6 +22,10 @@ module Decidim
           mail(from: Decidim.config.mailer_sender, to: user.email, subject: subject)
         end
       end
+
+      def notify_users(users)
+        users.each { |user| notify_user(user) }
+      end
     end
   end
 end

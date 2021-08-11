@@ -65,7 +65,7 @@ module Decidim
     end
 
     def notify_users(users)
-      users.each { |user| notify_user(user) }
+      Decidim::Admin::PseudomizeMailer.notify_users(users)
     end
 
     def notify_user(user)

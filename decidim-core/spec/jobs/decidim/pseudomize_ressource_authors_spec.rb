@@ -17,6 +17,7 @@ module Decidim
     let(:proposal_component_status) { Decidim::PseudomizeResourcesStatusManager.new(proposal.component) }
     let!(:debate) { create(:debate, author: authors.last, component: debate_component) }
     let!(:comment_2) { create(:comment, author: authors.last, commentable: proposal) }
+    let(:mailer) { double :mailer }
     let(:uncompleted_status) do
       { total: 2, current: 0 }
     end
@@ -38,14 +39,14 @@ module Decidim
         end
 
         it "sends an email to authors" do
-          allow(Decidim::Admin::PseudomizeMailer).to receive(:notfiy_user).and_call_original
-          comment_1_component_status.write(uncompleted_status)
-
-          subject.perform_now(comment_1, comment_1.component)
+          allow(Decidim::Admin::PseudomizeMailer).to receive(:notify_users).and_call_original
+          proposal_component_status.write(uncompleted_status)
 
           expect(Decidim::Admin::PseudomizeMailer)
-            .to have_received(:notfiy_user)
-            .exactly(5)
+            .to receive(:notify_users)
+            .with(authors)
+
+          subject.perform_now(proposal, proposal.component)
         end
 
         it "sets confirmed_at" do
@@ -58,14 +59,14 @@ module Decidim
 
       context "when respond to author" do
         it "send an email to author" do
-          allow(Decidim::Admin::PseudomizeMailer).to receive(:notfiy_user).and_call_original
-
+          allow(Decidim::Admin::PseudomizeMailer).to receive(:notify_user).and_call_original
           comment_1_component_status.write(uncompleted_status)
-          subject.perform_now(comment_1, comment_1.component)
 
           expect(Decidim::Admin::PseudomizeMailer)
-            .to have_received(:notfiy_user)
+            .to receive(:notify_user)
             .with(authors.first)
+
+          subject.perform_now(comment_1, comment_1.component)
         end
 
         it "pseudomizes resource author" do
