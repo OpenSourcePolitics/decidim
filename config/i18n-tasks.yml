@@ -99,6 +99,7 @@ ignore_missing:
   - email_outro
   - notification_title
   - comments.translat*
+  - actions.pseudomize.tooltip.running
 
 # Consider these keys used:
 ignore_unused:
