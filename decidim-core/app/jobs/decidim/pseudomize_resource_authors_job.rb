@@ -23,7 +23,8 @@ module Decidim
 
         notify_user(old_author)
 
-        resource.update!(author: create_or_find_author(old_author, resource.organization))
+        resource.author = create_or_find_author(old_author, resource.organization)
+        resource.save(validate: false)
       end
 
       status_manager.increment_resources_counter!
