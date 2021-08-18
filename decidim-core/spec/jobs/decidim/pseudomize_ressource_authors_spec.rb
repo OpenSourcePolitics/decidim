@@ -46,7 +46,7 @@ module Decidim
             .to receive(:notify_users)
             .with(authors)
 
-          subject.perform_now(proposal, proposal.component)
+          perform_enqueued_jobs { subject.perform_now(proposal, proposal.component) }
         end
 
         it "sets confirmed_at" do
