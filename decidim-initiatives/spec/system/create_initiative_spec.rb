@@ -159,6 +159,13 @@ describe "Initiative", type: :system do
           expect(page).to have_content(ActionView::Base.full_sanitizer.sanitize(translated(initiative.description, locale: :en), tags: []))
           expect(page).to have_content(initiative.author_name)
         end
+
+        it "keeps fields in session when go back" do
+          click_link "Back"
+
+          expect(find("#initiative_title").value).to eq(translated(initiative.title, locale: :en))
+          expect(find("#initiative_description", visible: :hidden).value).to eq(translated(initiative.description, locale: :en))
+        end
       end
 
       context "when Create initiative" do
@@ -406,6 +413,17 @@ describe "Initiative", type: :system do
           end
 
           it_behaves_like "initiatives path redirection"
+        end
+
+        context "when user go back to fill_data step" do
+          before do
+            visit decidim_initiatives.create_initiative_path(id: :fill_data)
+          end
+
+          it "keeps fields in session and render in form" do
+            expect(find("#initiative_title").value).to eq(translated(initiative.title, locale: :en))
+            expect(find("#initiative_description", visible: :hidden).value).to eq(translated(initiative.description, locale: :en))
+          end
         end
       end
     end
