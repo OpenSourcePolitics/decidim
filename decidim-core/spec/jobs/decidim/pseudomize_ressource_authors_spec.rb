@@ -39,14 +39,13 @@ module Decidim
         end
 
         it "sends an email to authors" do
-          allow(Decidim::Admin::PseudomizeMailer).to receive(:notify_users).and_call_original
           proposal_component_status.write(uncompleted_status)
 
           expect(Decidim::Admin::PseudomizeMailer)
             .to receive(:notify_users)
             .with(authors)
 
-          perform_enqueued_jobs { subject.perform_now(proposal, proposal.component) }
+          subject.perform_now(proposal, proposal.component)
         end
 
         it "sets confirmed_at" do
