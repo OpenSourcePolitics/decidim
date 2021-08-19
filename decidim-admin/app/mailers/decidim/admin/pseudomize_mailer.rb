@@ -3,8 +3,6 @@
 module Decidim
   module Admin
     class PseudomizeMailer < Decidim::ApplicationMailer
-      # frozen_string_literal: true
-
       def notify_admin(user)
         with_user(user) do
           @user = user
