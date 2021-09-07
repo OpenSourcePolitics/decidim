@@ -15,9 +15,9 @@ module Decidim
 
         def serialize
           {
-            id: @resource.id,
-            serialized_name: @resource.name,
-            other_ids: @resource.ids
+              id: @resource.id,
+              serialized_name: @resource.name,
+              other_ids: @resource.ids
           }
         end
       end
@@ -25,12 +25,12 @@ module Decidim
 
     let(:collection) do
       [
-        OpenStruct.new(id: 1, name: { ca: "foocat", es: "fooes" }, ids: [1, 2, 3]),
-        OpenStruct.new(id: 2, name: { ca: "barcat", es: "bares" }, ids: [1, 2, 3]),
-        OpenStruct.new(id: 3, name: { ca: "@atcat", es: "@ates" }, ids: [1, 2, 3]),
-        OpenStruct.new(id: 4, name: { ca: "=equalcat", es: "=equales" }, ids: [1, 2, 3]),
-        OpenStruct.new(id: 5, name: { ca: "+pluscat", es: "+pluses" }, ids: [1, 2, 3]),
-        OpenStruct.new(id: 6, name: { ca: "-minuscat", es: "-minuses" }, ids: [1, 2, 3])
+          OpenStruct.new(id: 1, name: {ca: "foocat", es: "fooes"}, ids: [1, 2, 3]),
+          OpenStruct.new(id: 2, name: {ca: "barcat", es: "bares"}, ids: [1, 2, 3]),
+          OpenStruct.new(id: 3, name: {ca: "@atcat", es: "@ates"}, ids: [1, 2, 3]),
+          OpenStruct.new(id: 4, name: {ca: "=equalcat", es: "=equales"}, ids: [1, 2, 3]),
+          OpenStruct.new(id: 5, name: {ca: "+pluscat", es: "+pluses"}, ids: [1, 2, 3]),
+          OpenStruct.new(id: 6, name: {ca: "-minuscat", es: "-minuses"}, ids: [1, 2, 3])
       ]
     end
 
@@ -39,6 +39,26 @@ module Decidim
         exported = subject.export.read
         data = CSV.parse(exported, headers: true, col_sep: ";").map(&:to_h)
         expect(data[0]["serialized_name/ca"]).to eq("foocat")
+      end
+
+      it "sets the proper encoding" do
+        exported = subject.export.read
+
+        expect(exported.encoding.name).to eq("UTF-8")
+      end
+
+      context "when using another encoding" do
+        let(:encoding) { "Windows-1252" }
+
+        before do
+          allow(Decidim.config).to receive(:default_export_encoding).and_return(encoding)
+        end
+
+        it "sets the proper encoding" do
+          exported = subject.export.read
+
+          expect(exported.encoding.name).to eq(encoding)
+        end
       end
     end
 

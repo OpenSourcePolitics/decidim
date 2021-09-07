@@ -312,6 +312,10 @@ module Decidim
     ";"
   end
 
+  config_accessor :default_export_encoding do
+    "UTF-8"
+  end
+
   # The list of roles a user can have, not considering the space-specific roles.
   config_accessor :user_roles do
     %w(admin user_manager)
