@@ -35,10 +35,9 @@ module Decidim
     def generate
       return unless resource
       return unless event_class.types.include?(:email)
-
       followers.each do |recipient|
         next unless ["all", "followed-only"].include?(recipient.try(:notification_types))
-        next unless participatory_space.present? && participatory_space.is_a?(Decidim::Participable) && participatory_space.can_participate?(recipient)
+
         send_email_to(recipient, user_role: :follower)
       end
 
@@ -64,6 +63,7 @@ module Decidim
     def send_email_to(recipient, user_role:)
       return unless recipient
       return unless recipient.email_on_notification?
+      return if resource.respond_to?(:can_participate?) && !resource.can_participate?(recipient)
 
       NotificationMailer
         .event_received(
@@ -79,7 +79,7 @@ module Decidim
 
     def component
       return resource.component if resource.is_a?(Decidim::HasComponent)
-      return resource if resource.is_a?(Decidim::Component)
+      resource if resource.is_a?(Decidim::Component)
     end
 
     def participatory_space

@@ -396,6 +396,11 @@ en:
         content_doesnt_exist: This address is incorrect or has been removed.
         title: The page you're looking for can't be found
     events:
+      admin:
+        upstream_pending:
+          follower:
+            email_outro: en.decidim.events.admin.upstream_pending.follower.email_outro
+            email_intro: en.decidim.events.admin.upstream_pending.follower.email_intro
       amendments:
         amendment_accepted:
           affected_user:
