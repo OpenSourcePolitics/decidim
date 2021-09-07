@@ -399,8 +399,8 @@ en:
       admin:
         upstream_pending:
           follower:
-            email_outro: en.decidim.events.admin.upstream_pending.follower.email_outro
             email_intro: en.decidim.events.admin.upstream_pending.follower.email_intro
+            email_outro: en.decidim.events.admin.upstream_pending.follower.email_outro
       amendments:
         amendment_accepted:
           affected_user:
