@@ -399,9 +399,9 @@ en:
       admin:
         upstream_pending:
           follower:
-            email_subject: Nouveau message à valider et à publier
             email_intro: Bonjour, Un nouveau message a été soumis par un internaute et requiert votre validation.
             email_outro: Gérer les modérations
+            email_subject: Nouveau message à valider et à publier
             notification_title: '"<a href="%{resource_url}">%{resource_title}</a>" est en attente de modération.'
       amendments:
         amendment_accepted:
