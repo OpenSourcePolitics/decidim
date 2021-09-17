@@ -15,7 +15,11 @@ module Decidim
 
         # Available orders based on enabled settings
         def available_orders
-          @available_orders ||= [default_order] + possible_orders.excluding(default_order)
+          @available_orders ||= [default_order] + reduced_possible_order
+        end
+
+        def reduced_possible_order
+          possible_orders - [default_order]
         end
 
         def possible_orders
