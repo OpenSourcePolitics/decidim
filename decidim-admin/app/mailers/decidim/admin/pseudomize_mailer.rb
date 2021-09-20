@@ -4,11 +4,11 @@ module Decidim
   module Admin
     class PseudomizeMailer < Decidim::ApplicationMailer
       def notify_admin(admin)
-        with_user(user) do
+        with_user(admin) do
           @user = admin
-          @organization = user.organization
+          @organization = admin.organization
           subject = I18n.t("subject", scope: "decidim.admin.pseudomize_mailer.notify_admin")
-          mail(from: Decidim.config.mailer_sender, to: user.email, subject: subject)
+          mail(from: Decidim.config.mailer_sender, to: admin.email, subject: subject)
         end
       end
 
