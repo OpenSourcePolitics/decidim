@@ -33,7 +33,10 @@ module Decidim
     end
 
     def comments_for(resources)
-      Decidim::Comments::Comment.where(commentable: resources).to_a
+      top_comments = Decidim::Comments::Comment.where(commentable: resources).to_a
+      sub_comments = Decidim::Comments::Comment.where(commentable: top_comments).to_a
+
+      (top_comments + sub_comments).uniq
     end
 
     def status_manager

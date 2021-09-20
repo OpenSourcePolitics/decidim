@@ -3,11 +3,9 @@
 module Decidim
   module Admin
     class PseudomizeMailer < Decidim::ApplicationMailer
-      # frozen_string_literal: true
-
       def notify_admin(admin)
         with_user(user) do
-          @user = user
+          @user = admin
           @organization = user.organization
           subject = I18n.t("subject", scope: "decidim.admin.pseudomize_mailer.notify_admin")
           mail(from: Decidim.config.mailer_sender, to: user.email, subject: subject)

@@ -11,17 +11,18 @@ module Decidim
     let(:admin) { create(:user, :admin, organization: component.organization) }
     let!(:proposal) { create(:proposal, component: component) }
     let!(:comment) { create(:comment, commentable: proposal) }
+    let!(:sub_comment) { create(:comment, commentable: comment) }
 
     describe "perform" do
       it "enqueues the jobs" do
-        expect { subject.perform_now(admin, component) }.to have_enqueued_job(Decidim::PseudomizeResourceAuthorsJob).exactly(:twice)
+        expect { subject.perform_now(admin, component) }.to have_enqueued_job(Decidim::PseudomizeResourceAuthorsJob).exactly(:thrice)
         expect { subject.perform_now(admin, component) }.to have_enqueued_job(Decidim::EndOfPseudomizeResourcesTaskJob).exactly(:once)
       end
     end
 
     describe "#resources" do
       it "returns resources" do
-        expect(subject.new(admin, component).send(:resources, component)).to match_array([comment, proposal])
+        expect(subject.new(admin, component).send(:resources, component)).to match_array([sub_comment, comment, proposal])
       end
     end
 
@@ -33,7 +34,7 @@ module Decidim
 
     describe "#comments_for" do
       it "returns comments_for" do
-        expect(subject.new(admin, component).send(:comments_for, proposal)).to match_array([comment])
+        expect(subject.new(admin, component).send(:comments_for, proposal)).to match_array([sub_comment, comment])
       end
     end
 
