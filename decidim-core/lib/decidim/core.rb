@@ -313,7 +313,7 @@ module Decidim
   end
 
   config_accessor :default_export_encoding do
-    "UTF-8"
+    "ASCII-8BIT"
   end
 
   # The list of roles a user can have, not considering the space-specific roles.

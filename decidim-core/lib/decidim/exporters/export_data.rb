@@ -17,6 +17,7 @@ module Decidim
       #
       # Returns a String with the result of the export.
       def read
+        byebug
         @data.encode(@encoding)
       end
 
