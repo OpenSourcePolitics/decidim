@@ -5,7 +5,7 @@ module Decidim
     class PseudomizeMailer < Decidim::ApplicationMailer
       # frozen_string_literal: true
 
-      def notify_admin(user)
+      def notify_admin(admin)
         with_user(user) do
           @user = user
           @organization = user.organization
