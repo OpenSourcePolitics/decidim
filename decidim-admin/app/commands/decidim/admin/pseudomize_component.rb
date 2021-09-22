@@ -24,7 +24,6 @@ module Decidim
         @status_manager ||= Decidim::PseudomizeResourcesStatusManager.new(@component)
       end
 
-
       def resources(component)
         resources = resources_for(component)
         comments_for(resources).each { |comment| resources << comment }
