@@ -145,6 +145,7 @@ fr:
         organization_url: URL de l'organisation
         redirect_uri: Rediriger l'URI
         site: Site Internet
+
   decidim:
     admin:
       actions:
@@ -157,6 +158,12 @@ fr:
         manage: Modifier
         new: Nouveau %{name}
         permissions: Autorisations
+        pseudomize:
+          confirm: Vous ête sur le point de modifier définitivement tout les auteurs de la fonctionnalité. Vous ne pourrez pas revenir en arrière.
+          tooltip:
+            available: Pseudonymiser
+            not_available: Non utilisable sur cette fonctionnalité
+            running: 'Pseudonymisation en cours, statut : %{current}/%{total}'
         reject: Rejeter
         verify: Vérifier
       area_types:
@@ -636,6 +643,19 @@ fr:
         new:
           create: Créer
           title: Nouvel utilisateur privé de l'espace participatif.
+      pseudomization:
+        create:
+          error: Erreur
+          success: Succès
+        pseudomize_mailer:
+          notify_admin:
+            content: La pseudonymisation de la fonctionnalité est terminée
+            hello: Bonjour %{name}
+            subject: La pseudonymisation de la fonctionnalité est terminée
+          notify_user:
+            content: Vos contributions ont été anonymisés, vous ne pourriez plus les voir sur votre profile.
+            hello: Bonjour %{name}
+            subject: Vos contributions ont été pseudonymisées
       resource_permissions:
         edit:
           submit: Soumettre
