@@ -4,12 +4,32 @@ module Decidim
   class PseudomizeResourcesGeneratorJob < ApplicationJob
     queue_as :default
 
-    def perform(user, component)
-      resources = resources(component)
-      status_manager.write(total: resources.count, current: 0)
-
+    def perform(user, component, resources)
+      @component = component
       resources.each do |resource|
-        Decidim::PseudomizeResourceAuthorsJob.perform_later(resource, component)
+        if resource.respond_to?(:authors)
+          old_authors = resource.authors
+
+          notify_users(old_authors)
+
+          authors = old_authors.map { |author| create_or_find_author(author, resource.organization) }
+
+          resource.transaction do
+            resource.coauthorships.delete_all
+            resource.reload
+            authors.each { |author| resource.add_coauthor(author) }
+            resource.save!
+          end
+        else
+          old_author = resource.author
+
+          notify_user(old_author)
+
+          resource.author = create_or_find_author(old_author, resource.organization)
+          resource.save(validate: false)
+        end
+
+        status_manager.increment_resources_counter!
       end
 
       Decidim::EndOfPseudomizeResourcesTaskJob.perform_later(user, component)
@@ -17,30 +37,49 @@ module Decidim
 
     private
 
-    def resources(component)
-      resources = resources_for(component)
-      comments_for(resources).each { |comment| resources << comment }
+    def create_or_find_author(user, organization)
+      return user if user.is_a?(Decidim::Organization) || user.shadow?
 
-      resources
+      Decidim::User.find_by(email: pseudomizer(user).email, organization: organization) || create_author(user, organization)
     end
 
-    def resources_for(component)
-      resources_class(component).constantize.where(component: component).to_a
+    def create_author(user, organization)
+      password = SecureRandom.hex(64)
+
+      user = Decidim::User.new(
+        shadow: true,
+        email: pseudomizer(user).email,
+        name: pseudomizer(user).name,
+        nickname: Decidim::User.nicknamize(pseudomizer(user).nickname),
+        password: password,
+        password_confirmation: password,
+        organization: organization,
+        tos_agreement: true,
+        newsletter_notifications_at: Time.current,
+        email_on_notification: false,
+        accepted_tos_version: organization.tos_version
+      )
+
+      user.skip_confirmation!
+      user.save
+
+      user
     end
 
-    def resources_class(component)
-      Decidim.find_resource_manifest(component.manifest_name)&.model_class_name
+    def pseudomizer(user)
+      Decidim::UserPseudomizer.pseudomize(user)
     end
 
-    def comments_for(resources)
-      top_comments = Decidim::Comments::Comment.where(commentable: resources).to_a
-      sub_comments = Decidim::Comments::Comment.where(commentable: top_comments).to_a
+    def notify_users(users)
+      Decidim::Admin::PseudomizeMailer.notify_users(users)
+    end
 
-      (top_comments + sub_comments).uniq
+    def notify_user(user)
+      Decidim::Admin::PseudomizeMailer.notify_user(user)
     end
 
     def status_manager
-      @status_manager ||= Decidim::PseudomizeResourcesStatusManager.new(arguments.last)
+      @status_manager ||= Decidim::PseudomizeResourcesStatusManager.new(@component)
     end
   end
 end
