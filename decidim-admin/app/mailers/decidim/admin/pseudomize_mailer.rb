@@ -4,25 +4,26 @@ module Decidim
   module Admin
     class PseudomizeMailer < Decidim::ApplicationMailer
       def notify_admin(admin)
-        with_user(admin) do
-          @user = admin
-          @organization = admin.organization
-          subject = I18n.t("subject", scope: "decidim.admin.pseudomize_mailer.notify_admin")
-          mail(from: Decidim.config.mailer_sender, to: admin.email, subject: subject)
-        end
+        send_mail_to(admin, "decidim.admin.pseudomize_mailer.notify_admin")
       end
 
       def notify_user(user)
-        with_user(user) do
-          @user = user
-          @organization = user.organization
-          subject = I18n.t("subject", scope: "decidim.admin.pseudomize_mailer.notify_user")
-          mail(from: Decidim.config.mailer_sender, to: user.email, subject: subject)
-        end
+        send_mail_to(user, "decidim.admin.pseudomize_mailer.notify_user")
       end
 
       def notify_users(users)
         users.each { |user| notify_user(user).deliver_later }
+      end
+
+      private
+
+      def send_mail_to(user, subject_key)
+        with_user(user) do
+          @user = user
+          @organization = user.organization
+          subject = I18n.t("subject", scope: subject_key)
+          mail(from: Decidim.config.mailer_sender, to: user.email, subject: subject)
+        end
       end
     end
   end
