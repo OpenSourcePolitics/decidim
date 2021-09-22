@@ -18,18 +18,15 @@ module Decidim
       write(total: total, current: 0)
     end
 
-    def erase_entry!
-      write({})
-    end
-
     def task_completed?
-      return false if read.nil?
-      return true if read == {}
+      return false if read.blank?
 
       read.dig(:total) == read.dig(:current)
     end
 
     def task_running?
+      return false if read.blank?
+
       !task_completed?
     end
 

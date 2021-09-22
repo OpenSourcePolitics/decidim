@@ -7,7 +7,6 @@ module Decidim
     def perform(_user, _component)
       if status_manager.task_completed?
         notify_admin!
-        status_manager.erase_entry!
       else
         Decidim::EndOfPseudomizeResourcesTaskJob.set(wait: 1.minute).perform_later(arguments.first, arguments.last)
       end
