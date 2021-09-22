@@ -7,15 +7,15 @@ module Decidim
     end
 
     def write(value)
-      @component.update!(pseudomize_status: value)
+      @component.reload.update!(pseudomize_status: value)
     end
 
     def read
-      @component.pseudomize_status&.symbolize_keys
+      @component.reload.pseudomize_status&.symbolize_keys
     end
 
-    def mark_as_running
-      write(pending: true)
+    def mark_as_running(total)
+      write(total: total, current: 0)
     end
 
     def erase_entry!
@@ -23,25 +23,18 @@ module Decidim
     end
 
     def task_completed?
-      return true if read == {}
       return false if read.nil?
+      return true if read == {}
 
-      total = read.dig(:total)
-      current = read.dig(:current)
-
-      current == total
+      read.dig(:total) == read.dig(:current)
     end
 
     def task_running?
-      return false if read == {}
-      return false if read.nil?
-
-      read.dig(:pending)
+      !task_completed?
     end
 
     def increment_resources_counter!
-      new_entry = read.dup.merge(current: read[:current] + 1)
-      write(new_entry)
+      write read.merge(current: read[:current] + 1)
     end
   end
 end
