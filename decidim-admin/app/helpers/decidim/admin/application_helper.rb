@@ -39,12 +39,24 @@ module Decidim
         status_manager(component).read.presence
       end
 
+      def can_perform_pseudomization?(component)
+        !pseudomization_running?(component) && !pseudomization_completed?(component)
+      end
+
+      def pseudomization_running?(component)
+        status_manager(component).task_running?
+      end
+
+      def pseudomization_completed?(component)
+        status_manager(component).task_completed?
+      end
+
       def current_pseudomization_status(component)
-        pseudomization_status(component).dig(:current) || 0
+        pseudomization_status(component)&.dig(:current) || 0
       end
 
       def total_pseudomization_status(component)
-        pseudomization_status(component).dig(:total) || "?"
+        pseudomization_status(component)&.dig(:total) || "?"
       end
 
       private
