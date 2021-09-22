@@ -16,7 +16,7 @@ module Decidim
     private
 
     def notify_admin!
-      Decidim::Admin::PseudomizeMailer.notify_admin(arguments.first)
+      Decidim::Admin::PseudomizeMailer.notify_admin(arguments.first).deliver_later
     end
 
     def status_manager

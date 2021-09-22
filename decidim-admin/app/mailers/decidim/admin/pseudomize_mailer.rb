@@ -22,7 +22,7 @@ module Decidim
       end
 
       def notify_users(users)
-        users.each { |user| notify_user(user) }
+        users.each { |user| notify_user(user).deliver_later }
       end
     end
   end

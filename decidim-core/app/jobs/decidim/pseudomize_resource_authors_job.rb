@@ -70,7 +70,7 @@ module Decidim
     end
 
     def notify_user(user)
-      Decidim::Admin::PseudomizeMailer.notify_user(user)
+      Decidim::Admin::PseudomizeMailer.notify_user(user).deliver_later
     end
 
     def status_manager
