@@ -9,10 +9,49 @@ module Decidim::Admin
     let(:component) { proposal_component }
     let(:user) { create(:user, organization: proposal_component.organization) }
     let(:proposal_component) { create(:proposal_component) }
+    let!(:proposal) { create(:proposal, component: component) }
+    let!(:comment) { create(:comment, commentable: proposal) }
+    let!(:sub_comment) { create(:comment, commentable: comment) }
 
     describe "#call" do
+      it "broadcasts ok" do
+        expect { subject.call }.to broadcast(:ok)
+      end
+
       it "enqueues the jobs" do
-        expect { subject.call }.to have_enqueued_job(Decidim::PseudomizeResourcesGeneratorJob).exactly(:once)
+        expect { subject.call }.to have_enqueued_job(Decidim::PseudomizeResourcesGeneratorJob)
+          .with(user, proposal_component, [proposal, comment, sub_comment])
+          .exactly(:once)
+      end
+
+      it "marks component as running" do
+        expect(component.pseudomize_status).to be_nil
+        expect { subject.call }.to change(component, :pseudomize_status)
+        expect(component.pseudomize_status).to eq("current" => 0, "total" => 3)
+      end
+    end
+
+    describe "#all_resources_for" do
+      it "returns all_resources_for" do
+        expect(subject.send(:all_resources_for, component)).to match_array([sub_comment, comment, proposal])
+      end
+    end
+
+    describe "#resources_for_component" do
+      it "returns resources_for_component" do
+        expect(subject.send(:resources_for, component)).to match_array([proposal])
+      end
+    end
+
+    describe "#comments_for" do
+      it "returns comments_for" do
+        expect(subject.send(:comments_for, proposal)).to match_array([sub_comment, comment])
+      end
+    end
+
+    describe "#resources_class" do
+      it "returns resources_class for given component" do
+        expect(subject.send(:resources_class, component)).to eq("Decidim::Proposals::Proposal")
       end
     end
   end

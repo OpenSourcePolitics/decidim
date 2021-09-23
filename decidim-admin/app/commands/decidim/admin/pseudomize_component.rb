@@ -11,7 +11,7 @@ module Decidim
       def call
         @component.manifest.run_hooks(:pseudomize, @component)
 
-        resources = resources(component)
+        resources = all_resources_for(@component)
         status_manager.mark_as_running(resources.count)
         Decidim::PseudomizeResourcesGeneratorJob.perform_later(@user, @component, resources)
 
@@ -24,7 +24,7 @@ module Decidim
         @status_manager ||= Decidim::PseudomizeResourcesStatusManager.new(@component)
       end
 
-      def resources(component)
+      def all_resources_for(component)
         resources = resources_for(component)
         comments_for(resources).each { |comment| resources << comment }
 
