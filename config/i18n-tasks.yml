@@ -213,6 +213,7 @@ ignore_unused:
   - layouts.decidim.participatory_processes.participatory_process.more_info
   - layouts.decidim.participatory_processes.participatory_process.take_part
   - decidim.admin.actions.filter.*
+  - decidim.admin.pseudomize_mailer.notify_*
   # OSP CUSTO END HERE
 
 ## Exclude these keys from the `i18n-tasks eq-base' report:
