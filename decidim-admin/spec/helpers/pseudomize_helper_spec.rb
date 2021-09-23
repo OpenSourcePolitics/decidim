@@ -8,7 +8,7 @@ module Decidim
       let(:component) { proposal_component }
       let(:pseudomize_status) do
         {
-          current: 0,
+          current: 1,
           total: 2
         }
       end
@@ -118,7 +118,57 @@ module Decidim
         end
       end
 
-      describe ""
+      describe "#current_pseudomization_status" do
+        it "returns the current process count" do
+          expect(helper.current_pseudomization_status(component)).to eq 1
+        end
+
+        context "when current is not defined" do
+          let(:pseudomize_status) do
+            {
+              total: 2
+            }
+          end
+
+          it "returns 0" do
+            expect(helper.current_pseudomization_status(component)).to eq 0
+          end
+        end
+
+        context "when pseudomize_status is not defined" do
+          let(:pseudomize_status) { nil }
+
+          it "returns 0" do
+            expect(helper.current_pseudomization_status(component)).to eq 0
+          end
+        end
+      end
+
+      describe "#total_pseudomization_status" do
+        it "returns the current process count" do
+          expect(helper.total_pseudomization_status(component)).to eq 2
+        end
+
+        context "when current is not defined" do
+          let(:pseudomize_status) do
+            {
+              current: 2
+            }
+          end
+
+          it "returns '?'" do
+            expect(helper.total_pseudomization_status(component)).to eq("?")
+          end
+        end
+
+        context "when pseudomize_status is not defined" do
+          let(:pseudomize_status) { nil }
+
+          it "returns '?'" do
+            expect(helper.total_pseudomization_status(component)).to eq("?")
+          end
+        end
+      end
     end
   end
 end
