@@ -44,7 +44,7 @@ module Decidim
       it "sets the proper encoding" do
         exported = subject.export.read
 
-        expect(exported.encoding.name).to eq("UTF-8")
+        expect(exported.encoding.name).to eq("ASCII-8BIT")
       end
 
       context "when using another encoding" do
