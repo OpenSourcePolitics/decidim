@@ -71,11 +71,15 @@ module Decidim
     end
 
     def notify_users(users)
-      Decidim::Admin::PseudomizeMailer.notify_users(users)
+      users.each do |user|
+        next if user.is_a?(Decidim::Organization) || user.shadow?
+
+        notify_user(user)
+      end
     end
 
     def notify_user(user)
-      Decidim::Admin::PseudomizeMailer.notify_user(user)
+      Decidim::Admin::PseudomizeMailer.notify_user(user).deliver_later
     end
 
     def status_manager
