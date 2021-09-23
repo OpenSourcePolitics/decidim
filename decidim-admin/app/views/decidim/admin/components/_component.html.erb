@@ -44,27 +44,9 @@
             <% end %>
           </div>
         <% elsif pseudomization_completed?(component) %>
-          <div class="action-icon-wrapper action-icon">
-            <%= with_tooltip(
-                  t("actions.pseudomize.tooltip.running",
-                    current: current_pseudomization_status(component),
-                    total: total_pseudomization_status(component),
-                    scope: "decidim.admin")
-                ) do %>
-              <%= icon "shield", class: "action-icon action-icon--disabled action-icon--completed" %>
-            <% end %>
-          </div>
+            <%= processing_pseudomization(component, "completed") %>
         <% else %>
-          <div class="action-icon-wrapper action-icon">
-            <%= with_tooltip(
-                  t("actions.pseudomize.tooltip.running",
-                    current: current_pseudomization_status(component),
-                    total: total_pseudomization_status(component),
-                    scope: "decidim.admin")
-                ) do %>
-              <%= icon "shield", class: "action-icon action-icon--disabled action-icon--running" %>
-            <% end %>
-          </div>
+            <%= processing_pseudomization(component, "running") %>
         <% end %>
       <% else %>
         <div class="action-icon-wrapper action-icon">

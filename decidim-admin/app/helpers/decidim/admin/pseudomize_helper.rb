@@ -5,6 +5,21 @@ module Decidim
     # Custom helpers, scoped to the admin panel.
     #
     module PseudomizeHelper
+      # Return icon with tooltip
+      # State : String - "completed" || "running"
+      def processing_pseudomization(component, state)
+        content_tag :div, class: "action-icon-wrapper action-icon" do
+          with_tooltip(
+            t("actions.pseudomize.tooltip.running",
+              current: current_pseudomization_status(component),
+              total: total_pseudomization_status(component),
+              scope: "decidim.admin")
+          ) do
+            icon "shield", class: "action-icon action-icon--disabled action-icon--#{state}"
+          end
+        end
+      end
+
       # Returns true if component is pseudomizable
       def pseudomizable?(component)
         !%w(blogs pages surveys accountability meetings budgets).include? component.manifest_name
