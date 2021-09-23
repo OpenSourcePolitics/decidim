@@ -30,12 +30,6 @@ module Decidim
           end
         end
       end
-
-      private
-
-      def status_manager(component)
-        Decidim::PseudomizeResourcesStatusManager.new(component)
-      end
     end
   end
 end
