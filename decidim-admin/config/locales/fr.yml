@@ -156,11 +156,11 @@ fr:
         manage: Modifier
         permissions: Autorisations
         pseudomize:
-          confirm: Vous ête sur le point de pseudonymiser définitivement tout les auteurs de la fonctionnalité. Vous ne pourrez pas revenir en arrière.
+          confirm: Vous êtes sur le point de pseudonymiser définitivement toutes les contributions de cette fonctionnalité. Attention, vous ne pourrez pas revenir en arrière.
           tooltip:
             available: Pseudonymiser
             not_available: Non utilisable sur cette fonctionnalité
-            running: 'Pseudonymisation en cours, statut : %{current}/%{total}'
+            running: 'Statut de la pseudonymisation : %{current}/%{total}'
         reject: Rejeter
         verify: Vérifier
       area_types:
@@ -650,9 +650,9 @@ fr:
           hello: Bonjour %{name}
           subject: La pseudonymisation de la fonctionnalité est terminée
         notify_user:
-          content: Vos contributions ont été anonymisées sur une fonctionnalité, vous ne pourrez donc plus les voir apparaître sur votre profil.
+          content: Vous aviez contribué sur un débat de la plateforme participative de la CNDP. Vos contributions ont été pseudonymisées sur ce débat, vous ne pourrez donc plus les voir apparaître sur votre profil.
           hello: Bonjour %{name}
-          subject: Vos contributions ont été anonymisées
+          subject: Vos contributions ont été pseudonymisées
       resource_permissions:
         edit:
           submit: Soumettre
