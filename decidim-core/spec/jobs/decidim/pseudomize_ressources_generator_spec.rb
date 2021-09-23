@@ -12,35 +12,26 @@ module Decidim
     let!(:proposal) { create(:proposal, component: component) }
     let!(:comment) { create(:comment, commentable: proposal) }
     let!(:sub_comment) { create(:comment, commentable: comment) }
+    let(:resources) { [proposal, comment, sub_comment] }
 
     describe "perform" do
-      it "enqueues the jobs" do
-        expect { subject.perform_now(admin, component) }.to have_enqueued_job(Decidim::PseudomizeResourceAuthorsJob).exactly(:thrice)
-        expect { subject.perform_now(admin, component) }.to have_enqueued_job(Decidim::EndOfPseudomizeResourcesTaskJob).exactly(:once)
+      before do
+        component.update!(pseudomize_status: { current: 0, total: 3 })
       end
-    end
 
-    describe "#resources" do
-      it "returns resources" do
-        expect(subject.new(admin, component).send(:resources, component)).to match_array([sub_comment, comment, proposal])
+      it "shadows the users" do
+        expect { subject.perform_now(admin, component, resources) }.to change(Decidim::User.where(shadow: true), :count).by(3)
       end
-    end
 
-    describe "#resources_for_component" do
-      it "returns resources_for_component" do
-        expect(subject.new(admin, component).send(:resources_for, component)).to match_array([proposal])
+      it "enqueues the job" do
+        expect { subject.perform_now(admin, component, resources) }.to have_enqueued_job(Decidim::EndOfPseudomizeResourcesTaskJob).exactly(:once)
       end
-    end
 
-    describe "#comments_for" do
-      it "returns comments_for" do
-        expect(subject.new(admin, component).send(:comments_for, proposal)).to match_array([sub_comment, comment])
-      end
-    end
+      it "updates the component pseudomize status" do
+        subject.perform_now(admin, component, resources)
 
-    describe "#resources_class" do
-      it "returns resources_class for given component" do
-        expect(subject.new(admin, component).send(:resources_class, component)).to eq("Decidim::Proposals::Proposal")
+        component.reload
+        expect(component.pseudomize_status).to eq("current" => 3, "total" => 3)
       end
     end
   end
