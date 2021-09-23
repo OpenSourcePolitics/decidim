@@ -128,7 +128,7 @@ fr:
       upstream_moderation:
         accept: "%{user_name} a validé une ressource de type %{resource_type} dans l'espace participatif %{space_name}"
         hide: "%{user_name} a caché une ressource de type %{resource_type} dans l'espace participatif %{space_name}"
-        pending: "Une ressource de type %{resource_type} est en attente de modération dans l'espace participatif %{space_name}"
+        pending: Une ressource de type %{resource_type} est en attente de modération dans l'espace participatif %{space_name}
         unreport: "%{user_name} a validé une ressource de type %{resource_type} dans l'espace participatif %{space_name}"
       user:
         invite: "%{user_name} a invité l'utilisateur %{resource_name} avec le rôle : %{role}"

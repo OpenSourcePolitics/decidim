@@ -74,7 +74,7 @@ module Decidim
           user_role.to_s,
           extra
         )
-        .deliver_later
+        .deliver_now
     end
 
     def component

@@ -129,8 +129,8 @@ fr:
               invalid_document_type: Le format de fichier est invalide. Assurez vous que le document sélectionné est bien au format JSON (extension .json).
     models:
       decidim/upstream_accepted_event: Modération
-      decidim/upstream_pending_event: Modération
       decidim/upstream_hidden_event: Modération
+      decidim/upstream_pending_event: Modération
   activerecord:
     attributes:
       decidim/static_page:
@@ -145,7 +145,6 @@ fr:
         organization_url: URL de l'organisation
         redirect_uri: Rediriger l'URI
         site: Site Internet
-
   decidim:
     admin:
       actions:
@@ -153,10 +152,8 @@ fr:
         browse: Parcourir
         cancel: Annuler
         export: Exporter
-        filter: Filtrer
         import_process: Importer un processus
         manage: Modifier
-        new: Nouveau %{name}
         permissions: Autorisations
         pseudomize:
           confirm: Vous ête sur le point de modifier définitivement tout les auteurs de la fonctionnalité. Vous ne pourrez pas revenir en arrière.
@@ -813,13 +810,14 @@ fr:
           email_outro: Cordialement,
           email_subject: Votre contribution est en ligne sur le site du débat "%{participatory_space_title}"
           notification_title: Votre <a href="%{resource_url}">contribution</a> est en ligne sur le site du débat <a href="%{participatory_space_url}">"%{participatory_space_title}"</a>
+        upstream_hidden:
+          email_intro: Nous n’avons pas pu procéder à la publication de votre contribution car son contenu ne respecte pas notre charte de modération.
+          email_outro: Cordialement,
+          email_subject: Rejet de votre contribution sur le site du débat "%{participatory_space_title}"
+          notification_title: Rejet de votre <a href="%{resource_url}">contribution</a> sur le site du débat <a href="%{participatory_space_url}">"%{participatory_space_title}"</a>
         upstream_pending:
           affected_user:
-            email_intro: >-
-              Nous avons bien reçu votre message et nous vous en remercions. Avant de procéder à sa publication,
-              nous souhaitons nous assurer dans un premier temps que son contenu respecte notre charte de modération.
-              Vous serez informé(e) par e-mail des suites données dans les plus brefs délais.
-              Nous vous remercions de votre participation au débat.
+            email_intro: Nous avons bien reçu votre message et nous vous en remercions. Avant de procéder à sa publication, nous souhaitons nous assurer dans un premier temps que son contenu respecte notre charte de modération. Vous serez informé(e) par e-mail des suites données dans les plus brefs délais. Nous vous remercions de votre participation au débat.
             email_outro: Cordialement,
             email_subject: Accusé réception de votre message sur le site du débat "%{participatory_space_title}"
             notification_title: Accusé réception de votre message sur le site du débat <a href="%{participatory_space_url}">"%{participatory_space_title}"</a>
@@ -828,11 +826,6 @@ fr:
             email_outro: <a href="%{manage_resource_url}">Gérér les modérations</a>
             email_subject: "[%{participatory_space_slug}] Nouveau message sur %{resource_title} à valider et à publier"
             notification_title: '"<a href="%{resource_path}">%{resource_title}</a>" est en attente de modération.'
-        upstream_hidden:
-          email_intro: Nous n’avons pas pu procéder à la publication de votre contribution car son contenu ne respecte pas notre charte de modération.
-          email_outro: Cordialement,
-          email_subject: Rejet de votre contribution sur le site du débat "%{participatory_space_title}"
-          notification_title: Rejet de votre <a href="%{resource_url}">contribution</a> sur le site du débat <a href="%{participatory_space_url}">"%{participatory_space_title}"</a>
     forms:
       errors:
         impersonate_user:
@@ -859,10 +852,10 @@ fr:
       models:
         moderation:
           fields:
-            reported_at: Reporté à
             hidden_at: Masqué le
             report_count: Compteur
             reportable: Contenu
+            reported_at: Reporté à
             reported_content_url: URL
             reports: Motif
             visit_url: Visitez l'URL
@@ -882,20 +875,20 @@ fr:
         visible: Visible
       admin:
         reportable:
-          hide:
-            invalid: Il y a eu un problème au moment de masquer le contenu.
-            success: Contenu masqué avec succès.
           accept:
             invalid: Il y a eu un problème lors de la publication du contenu.
             success: Le contenu est maintenant visible.
+          hide:
+            invalid: Il y a eu un problème au moment de masquer le contenu.
+            success: Contenu masqué avec succès.
       models:
         upstream_moderation:
           fields:
             created_at: Crée à
-            user: Utilisateur
             reportable: Signalements
             reportable_title: Titre
             reported_content_url: URL du contenu
+            user: Utilisateur
             visit_url: Visitez l'url
   errors:
     messages:

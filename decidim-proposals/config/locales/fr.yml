@@ -647,7 +647,6 @@ fr:
           comments: Commentaires
         filters:
           activity: Activité
-          type: Type
           amendment_type: Type
           category: Catégorie
           category_prompt: Sélectionner une catégorie
@@ -655,6 +654,7 @@ fr:
           related_to: Liées à
           search: Rechercher
           state: Statut
+          type: Type
           voted: Afficher uniquement les propositions pour lesquelles j'ai voté
         filters_small_view:
           close_modal: Fermer la fenêtre de dialogue
