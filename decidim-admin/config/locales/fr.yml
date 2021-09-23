@@ -156,7 +156,7 @@ fr:
         manage: Modifier
         permissions: Autorisations
         pseudomize:
-          confirm: Vous ête sur le point de modifier définitivement tout les auteurs de la fonctionnalité. Vous ne pourrez pas revenir en arrière.
+          confirm: Vous ête sur le point de pseudonymiser définitivement tout les auteurs de la fonctionnalité. Vous ne pourrez pas revenir en arrière.
           tooltip:
             available: Pseudonymiser
             not_available: Non utilisable sur cette fonctionnalité
@@ -642,17 +642,17 @@ fr:
           title: Nouvel utilisateur privé de l'espace participatif.
       pseudomization:
         create:
-          error: Erreur
-          success: Succès
-        pseudomize_mailer:
-          notify_admin:
-            content: La pseudonymisation de la fonctionnalité est terminée
-            hello: Bonjour %{name}
-            subject: La pseudonymisation de la fonctionnalité est terminée
-          notify_user:
-            content: Vos contributions ont été anonymisés, vous ne pourriez plus les voir sur votre profile.
-            hello: Bonjour %{name}
-            subject: Vos contributions ont été pseudonymisées
+          error: Il y a eu une erreur lors du lancement de la procédure de pseudonymisation.
+          success: La procédure de pseudonymisation a été lancée avec succès.
+      pseudomize_mailer:
+        notify_admin:
+          content: La pseudonymisation de la fonctionnalité est terminée.
+          hello: Bonjour %{name}
+          subject: La pseudonymisation de la fonctionnalité est terminée
+        notify_user:
+          content: Vos contributions ont été anonymisées sur une fonctionnalité, vous ne pourrez donc plus les voir apparaître sur votre profil.
+          hello: Bonjour %{name}
+          subject: Vos contributions ont été anonymisées
       resource_permissions:
         edit:
           submit: Soumettre
