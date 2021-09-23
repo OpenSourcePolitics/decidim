@@ -52,7 +52,73 @@ module Decidim
             expect(helper).to be_can_perform_pseudomization(component)
           end
         end
+
+        context "when pseudomize_status is running" do
+          let(:pseudomize_status) { { current: 2, total: 10 } }
+
+          it "returns falsey" do
+            expect(helper).not_to be_can_perform_pseudomization(component)
+          end
+        end
+
+        context "when pseudomize_status is completed" do
+          let(:pseudomize_status) { { current: 10, total: 10 } }
+
+          it "returns falsey" do
+            expect(helper).not_to be_can_perform_pseudomization(component)
+          end
+        end
       end
+
+      describe "#pseudomization_running?" do
+        let(:pseudomize_status) { { current: 2, total: 10 } }
+
+        it "returns true" do
+          expect(helper).to be_pseudomization_running(component)
+        end
+
+        context "when pseudomize_status is not defined" do
+          let(:pseudomize_status) { nil }
+
+          it "returns falsey" do
+            expect(helper).not_to be_pseudomization_running(component)
+          end
+        end
+
+        context "when pseudomize_status is not defined" do
+          let(:pseudomize_status) { { current: 10, total: 10 } }
+
+          it "returns falsey" do
+            expect(helper).not_to be_pseudomization_running(component)
+          end
+        end
+      end
+
+      describe "#pseudomization_completed?" do
+        let(:pseudomize_status) { { current: 10, total: 10 } }
+
+        it "returns true" do
+          expect(helper).to be_pseudomization_completed(component)
+        end
+
+        context "when pseudomize_status is not defined" do
+          let(:pseudomize_status) { nil }
+
+          it "returns falsey" do
+            expect(helper).not_to be_pseudomization_completed(component)
+          end
+        end
+
+        context "when pseudomize_status is not defined" do
+          let(:pseudomize_status) { { current: 2, total: 10 } }
+
+          it "returns falsey" do
+            expect(helper).not_to be_pseudomization_completed(component)
+          end
+        end
+      end
+
+      describe ""
     end
   end
 end
