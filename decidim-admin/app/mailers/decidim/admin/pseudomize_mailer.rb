@@ -11,10 +11,6 @@ module Decidim
         send_mail_to(user, "decidim.admin.pseudomize_mailer.notify_user")
       end
 
-      def notify_users(users)
-        users.each { |user| notify_user(user).deliver_later }
-      end
-
       private
 
       def send_mail_to(user, subject_key)
