@@ -13,16 +13,8 @@ module Decidim
       { total: 2, current: 2 }
     end
 
-    let(:running_status) do
-      { pending: true }
-    end
-
     let(:component) { proposal_component }
     let(:proposal_component) { create(:proposal_component) }
-
-    after do
-      subject.erase_entry!
-    end
 
     describe "#read_cache_entry" do
       it "returns the current state of the task" do
@@ -32,34 +24,26 @@ module Decidim
       end
     end
 
-    describe "#erase_cache_entry" do
-      it "removes cache entry" do
-        subject.erase_entry!
-
-        expect(subject.read).to eq({})
-      end
-    end
-
     describe "#task_completed?" do
       it "returns false" do
         subject.write(uncompleted_status)
 
-        expect(subject.task_completed?).to eq(false)
+        expect(subject).not_to be_task_completed
       end
 
       context "when completed" do
         it "returns true" do
           subject.write(completed_status)
 
-          expect(subject.task_completed?).to eq(true)
+          expect(subject).to be_task_completed
         end
       end
 
       context "when nil" do
-        it "returns true" do
+        it "returns false" do
           subject.write(nil)
 
-          expect(subject.task_completed?).to eq(false)
+          expect(subject).not_to be_task_completed
         end
       end
     end
@@ -72,20 +56,47 @@ module Decidim
 
         expect(subject.read).to eq(total: 2, current: 1)
       end
+
+      context "when cache entry is nil" do
+        before do
+          subject.write(nil)
+        end
+
+        it "returns nil" do
+          expect(subject.increment_resources_counter!).to be_nil
+          expect(subject.read).to eq(nil)
+        end
+      end
+
+      context "when cache entry doesn't contains 'current' key" do
+        before do
+          subject.write(total: 3)
+        end
+
+        it "returns nil" do
+          expect(subject.increment_resources_counter!).to be_nil
+          expect(subject.read).to eq(total: 3)
+        end
+      end
     end
 
-    describe "#task_running??" do
+    describe "#task_running?" do
+      it "returns true" do
+        subject.write(uncompleted_status)
+        expect(subject).to be_task_running
+      end
+
       context "when cache entry is empty" do
         it "returns false" do
           subject.write({})
 
-          expect(subject.task_running?).to eq(false)
+          expect(subject).not_to be_task_running
         end
       end
 
       context "when cache entry is unset" do
         it "returns false" do
-          expect(subject.task_running?).to eq(false)
+          expect(subject).not_to be_task_running
         end
       end
 
@@ -93,15 +104,7 @@ module Decidim
         it "returns false" do
           subject.write(nil)
 
-          expect(subject.task_running?).to eq(false)
-        end
-      end
-
-      context "when pending" do
-        it "returns false if task is running" do
-          subject.write(running_status)
-
-          expect(subject.task_running?).to eq(true)
+          expect(subject).not_to be_task_running
         end
       end
     end

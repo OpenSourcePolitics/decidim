@@ -31,6 +31,9 @@ module Decidim
     end
 
     def increment_resources_counter!
+      return unless read.respond_to?(:[])
+      return unless read[:current].respond_to?(:+)
+
       write read.merge(current: read[:current] + 1)
     end
   end
