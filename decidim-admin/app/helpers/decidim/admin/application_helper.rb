@@ -31,34 +31,6 @@ module Decidim
         end
       end
 
-      def pseudomizable?(component)
-        !%w(blogs pages surveys accountability meetings budgets).include? component.manifest_name
-      end
-
-      def pseudomization_status(component)
-        status_manager(component).read.presence
-      end
-
-      def can_perform_pseudomization?(component)
-        !pseudomization_running?(component) && !pseudomization_completed?(component)
-      end
-
-      def pseudomization_running?(component)
-        status_manager(component).task_running?
-      end
-
-      def pseudomization_completed?(component)
-        status_manager(component).task_completed?
-      end
-
-      def current_pseudomization_status(component)
-        pseudomization_status(component)&.dig(:current) || 0
-      end
-
-      def total_pseudomization_status(component)
-        pseudomization_status(component)&.dig(:total) || "?"
-      end
-
       private
 
       def status_manager(component)
