@@ -8,6 +8,8 @@ module Decidim
       end
 
       def notify_user(user)
+        return if user.is_a?(Decidim::Organization) || user.shadow?
+
         send_mail_to(user, "decidim.admin.pseudomize_mailer.notify_user")
       end
 

@@ -72,8 +72,6 @@ module Decidim
 
     def notify_users(users)
       users.each do |user|
-        next if user.is_a?(Decidim::Organization) || user.shadow?
-
         notify_user(user)
       end
     end

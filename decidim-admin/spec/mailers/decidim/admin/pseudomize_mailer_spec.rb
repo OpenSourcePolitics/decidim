@@ -23,6 +23,22 @@ module Decidim
         it "sets a subject" do
           expect(mail.subject).to include("Your contributions have been anonymized")
         end
+
+        context "when user is already shadow" do
+          let(:user) { create(:user, :shadow, name: "Sarah Connor", organization: organization) }
+
+          it "doesn't sets subject" do
+            expect(mail.subject).to be_nil
+          end
+        end
+
+        context "when user is organization" do
+          let(:mail) { described_class.notify_user(organization) }
+
+          it "doesn't sets subject" do
+            expect(mail.subject).to be_nil
+          end
+        end
       end
     end
   end
