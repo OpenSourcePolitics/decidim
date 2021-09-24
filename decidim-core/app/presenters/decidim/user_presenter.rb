@@ -16,6 +16,13 @@ module Decidim
       __getobj__.respond_to?(:nickname) ? "@#{__getobj__.nickname}" : ""
     end
 
+    # name presented for shadow user
+    def shadow_nickname
+      return __getobj__.name unless __getobj__.shadow?
+
+      __getobj__.nickname.capitalize
+    end
+
     def badge
       return "" unless officialized?
 
