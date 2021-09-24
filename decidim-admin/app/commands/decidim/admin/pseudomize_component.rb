@@ -11,9 +11,16 @@ module Decidim
       def call
         @component.manifest.run_hooks(:pseudomize, @component)
 
-        resources = all_resources_for(@component)
-        status_manager.mark_as_running(resources.count)
-        Decidim::PseudomizeResourcesGeneratorJob.perform_later(@user, @component, resources)
+        Decidim.traceability.perform_action!(
+          :pseudomize,
+          @component,
+          @user,
+          visibility: "all"
+        ) do
+          resources = all_resources_for(@component)
+          status_manager.mark_as_running(resources.count)
+          Decidim::PseudomizeResourcesGeneratorJob.perform_later(@user, @component, resources)
+        end
 
         broadcast(:ok)
       end

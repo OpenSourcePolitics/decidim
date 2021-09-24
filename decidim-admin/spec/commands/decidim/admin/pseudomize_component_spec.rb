@@ -29,6 +29,17 @@ module Decidim::Admin
         expect { subject.call }.to change(component, :pseudomize_status)
         expect(component.pseudomize_status).to eq("current" => 0, "total" => 3)
       end
+
+      it "traces the action", versioning: true do
+        expect(Decidim.traceability)
+          .to receive(:perform_action!)
+          .with(:pseudomize, component, user, visibility: "all")
+          .and_call_original
+
+        expect { subject.call }.to change(Decidim::ActionLog, :count)
+        action_log = Decidim::ActionLog.last
+        expect(action_log.version).to be_present
+      end
     end
 
     describe "#all_resources_for" do
