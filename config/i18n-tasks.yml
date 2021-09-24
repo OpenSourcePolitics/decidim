@@ -99,6 +99,7 @@ ignore_missing:
   - email_outro
   - notification_title
   - comments.translat*
+  - actions.pseudomize.tooltip.running
 
 # Consider these keys used:
 ignore_unused:
@@ -198,6 +199,7 @@ ignore_unused:
   - decidim.assemblies.filter.*
   - decidim.initiatives.initiatives.votes_count.count.*
   - decidim.proposals.admin.participatory_texts.new_import.accepted_mime_types.*
+  - decidim.admin.actions.pseudomize.tooltip.running
   # OSP CUSTO START HERE
   - decidim.admin.participatory_processes.index.promoted.*
   - decidim.admin.actions.filters.all
@@ -211,6 +213,7 @@ ignore_unused:
   - layouts.decidim.participatory_processes.participatory_process.more_info
   - layouts.decidim.participatory_processes.participatory_process.take_part
   - decidim.admin.actions.filter.*
+  - decidim.admin.pseudomize_mailer.notify_*
   # OSP CUSTO END HERE
 
 ## Exclude these keys from the `i18n-tasks eq-base' report:

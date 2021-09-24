@@ -32,6 +32,31 @@
       <% end %>
     <% end %>
 
+    <% if allowed_to? :pseudomize, :component, component: component %>
+      <% if pseudomizable?(component) %>
+        <% if can_perform_pseudomization?(component) %>
+          <div class="action-icon-wrapper action-icon">
+            <%= with_tooltip(t("actions.pseudomize.tooltip.available", scope: "decidim.admin")) do %>
+              <%= form_tag(decidim_admin.pseudomizations_path, method: :post, class: "action-icon action-icon--pseudomize") do %>
+                <%= hidden_field_tag(:component_id, component.id) %>
+                <%= submit_tag(icon("shield"), data: { confirm: t("actions.pseudomize.confirm", scope: "decidim.admin") }) %>
+              <% end %>
+            <% end %>
+          </div>
+        <% elsif pseudomization_completed?(component) %>
+            <%= processing_pseudomization(component, "completed") %>
+        <% else %>
+            <%= processing_pseudomization(component, "running") %>
+        <% end %>
+      <% else %>
+        <div class="action-icon-wrapper action-icon">
+          <%= with_tooltip(t "actions.pseudomize.tooltip.not_available", scope: "decidim.admin") do %>
+            <%= icon "shield", class: "action-icon action-icon--disabled" %>
+          <% end %>
+        </div>
+      <% end %>
+    <% end %>
+
     <% if allowed_to? :destroy, :component, component: component %>
       <%= icon_link_to "circle-x", url_for(action: :destroy, id: component, controller: "components"), t("actions.destroy", scope: "decidim.admin"), class: "action-icon--remove", method: :delete %>
     <% end %>

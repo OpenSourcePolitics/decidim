@@ -6,6 +6,7 @@ module Decidim
     # admin panel.
     #
     class ComponentsController < Decidim::Admin::ApplicationController
+      helper TooltipHelper
       helper_method :manifest, :current_participatory_space
 
       def index

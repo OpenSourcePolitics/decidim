@@ -80,6 +80,8 @@ module Decidim
   autoload :IoEncoder, "decidim/io_encoder"
   autoload :HasResourcePermission, "decidim/has_resource_permission"
   autoload :PermissionsRegistry, "decidim/permissions_registry"
+  autoload :UserPseudomizer, "decidim/user_pseudomizer"
+  autoload :PseudomizeResourcesStatusManager, "decidim/pseudomize_resources_status_manager"
 
   include ActiveSupport::Configurable
   # Loads seeds from all engines.

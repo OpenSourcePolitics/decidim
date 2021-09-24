@@ -144,6 +144,12 @@ en:
         export: Export
         manage: Manage
         permissions: Permissions
+        pseudomize:
+          confirm: You are about to modify definitively all the authors of the components. There is no turning back
+          tooltip:
+            available: Pseudomize
+            not_available: Not available on this component
+            running: 'Pseudomization in progress, current status: %{current}/%{total}'
         reject: Reject
         verify: Verify
       area_types:
@@ -615,6 +621,19 @@ en:
         new:
           create: Create
           title: New Participatory Space private participant.
+      pseudomization:
+        create:
+          error: Error
+          success: Success
+      pseudomize_mailer:
+        notify_admin:
+          content: The pseudomysation of the component is completed
+          hello: Hello %{name}
+          subject: The pseudomysation of the component is completed
+        notify_user:
+          content: Your contributions have been anonymized, which means that you will no longer see them on your profile.
+          hello: Hello %{name}
+          subject: Your contributions have been anonymized
       resource_permissions:
         edit:
           submit: Submit

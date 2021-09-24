@@ -7,6 +7,15 @@ Decidim.register_component(:proposals) do |component|
   component.admin_engine = Decidim::Proposals::AdminEngine
   component.icon = "decidim/proposals/icon.svg"
 
+  component.on(:pseudomize) do |instance|
+    settings = instance.settings.dup
+
+    settings.comments_enabled = false
+    settings.official_proposals_enabled = false
+
+    instance.update!(settings: settings)
+  end
+
   component.on(:before_destroy) do |instance|
     raise "Can't destroy this component when there are proposals" if Decidim::Proposals::Proposal.where(component: instance).any?
   end

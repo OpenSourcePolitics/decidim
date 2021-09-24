@@ -105,6 +105,7 @@ FactoryBot.define do
   end
 
   factory :user, class: "Decidim::User" do
+    shadow { false }
     email { generate(:email) }
     password { "password1234" }
     password_confirmation { password }

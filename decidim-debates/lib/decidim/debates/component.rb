@@ -12,6 +12,14 @@ Decidim.register_component(:debates) do |component|
 
   component.newsletter_participant_entities = ["Decidim::Debates::Debate"]
 
+  component.on(:pseudomize) do |instance|
+    settings = instance.settings.dup
+
+    settings.comments_enabled = false
+
+    instance.update!(settings: settings)
+  end
+
   component.on(:before_destroy) do |instance|
     raise StandardError, "Can't remove this component" if Decidim::Debates::Debate.where(component: instance).any?
   end
