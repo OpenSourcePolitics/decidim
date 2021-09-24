@@ -7,16 +7,17 @@ module Decidim
       attr_reader :extension
 
       # Initializes an `ExportData` with the RAW data and the extension.
-      def initialize(data, extension)
+      def initialize(data, extension, encoding = Decidim.default_export_encoding)
         @data = data
         @extension = extension
+        @encoding = encoding
       end
 
       # Gives back the raw data of the export.
       #
       # Returns a String with the result of the export.
       def read
-        @data
+        @data.encode(@encoding)
       end
 
       # Generates a filename based on the export creation date.

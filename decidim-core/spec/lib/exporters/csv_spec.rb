@@ -40,6 +40,26 @@ module Decidim
         data = CSV.parse(exported, headers: true, col_sep: ";").map(&:to_h)
         expect(data[0]["serialized_name/ca"]).to eq("foocat")
       end
+
+      it "sets the proper encoding" do
+        exported = subject.export.read
+
+        expect(exported.encoding.name).to eq("ASCII-8BIT")
+      end
+
+      context "when using another encoding" do
+        let(:encoding) { "Windows-1252" }
+
+        before do
+          allow(Decidim.config).to receive(:default_export_encoding).and_return(encoding)
+        end
+
+        it "sets the proper encoding" do
+          exported = subject.export.read
+
+          expect(exported.encoding.name).to eq(encoding)
+        end
+      end
     end
 
     describe "export sanitizer" do
