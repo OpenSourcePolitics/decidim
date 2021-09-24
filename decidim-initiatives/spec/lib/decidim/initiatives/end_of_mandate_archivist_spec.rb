@@ -7,6 +7,7 @@ describe Decidim::Initiatives::EndOfMandateArchivist do
   let(:organization) { create(:organization) }
   let(:category_name) { "Category 1" }
   let(:archivist) { described_class.archive(category_name, organization.id, false) }
+  let!(:action_logs) { create_list :action_log, 3, organization: organization }
 
   describe "#archive_initiatives" do
     it "creates a category" do
@@ -88,6 +89,14 @@ describe Decidim::Initiatives::EndOfMandateArchivist do
       expect do
         archivist.call
       end.to change(Decidim::Authorization.all, :count).from(4).to(1)
+    end
+  end
+
+  describe "#delete_logs" do
+    it "deletes organization logs" do
+      expect do
+        archivist.call
+      end.to change(Decidim::ActionLog.all, :count).from(3).to(0)
     end
   end
 end
