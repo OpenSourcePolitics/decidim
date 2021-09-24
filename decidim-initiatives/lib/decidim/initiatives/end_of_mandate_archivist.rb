@@ -14,9 +14,12 @@ module Decidim
       end
 
       def call
-        delete_authorizations
-        delete_authors
-        archive_initiatives
+        ActiveRecord::Base.transaction do
+          delete_authorizations
+          delete_authors
+          delete_logs
+          archive_initiatives
+        end
       end
 
       private
@@ -27,6 +30,14 @@ module Decidim
         users.each do |author|
           DestroyAccount.call(author, Decidim::DeleteAccountForm.from_params({}))
         end
+
+        Rails.logger.info "Finished..." if @verbose
+      end
+
+      def delete_logs
+        Rails.logger.info "Logs to be deleted: #{logs.count}" if @verbose
+
+        logs.delete_all
 
         Rails.logger.info "Finished..." if @verbose
       end
@@ -58,7 +69,7 @@ module Decidim
       end
 
       def initiatives
-        Decidim::Initiative.where(organization: @organization).includes(:committee_members).not_archived
+        @initiatives ||= Decidim::Initiative.where(organization: @organization).includes(:committee_members).not_archived
       end
 
       def initiatives_authors_ids
@@ -70,11 +81,15 @@ module Decidim
       end
 
       def users
-        Decidim::User.where(id: (committee_members_ids + initiatives_authors_ids).uniq)
+        @users ||= Decidim::User.where(id: (committee_members_ids + initiatives_authors_ids).uniq)
       end
 
       def authorizations
-        Decidim::Authorization.where(user: users)
+        @authorizations ||= Decidim::Authorization.where(user: users)
+      end
+
+      def logs
+        @logs ||= Decidim::ActionLog.where(organization: @organization)
       end
     end
   end
