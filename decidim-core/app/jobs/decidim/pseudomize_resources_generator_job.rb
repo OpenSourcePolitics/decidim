@@ -6,13 +6,12 @@ module Decidim
 
     def perform(user, component, resources)
       @component = component
+
+      notify_users(resources)
+
       resources.each do |resource|
         if resource.respond_to?(:authors)
-          old_authors = resource.authors
-
-          notify_users(old_authors)
-
-          authors = old_authors.map { |author| create_or_find_author(author, resource.organization) }
+          authors = resource.authors.map { |author| create_or_find_author(author, resource.organization) }
 
           resource.transaction do
             resource.coauthorships.delete_all
@@ -21,11 +20,7 @@ module Decidim
             resource.save!
           end
         else
-          old_author = resource.author
-
-          notify_user(old_author)
-
-          resource.author = create_or_find_author(old_author, resource.organization)
+          resource.author = create_or_find_author(resource.author, resource.organization)
           resource.save(validate: false)
         end
 
@@ -70,8 +65,10 @@ module Decidim
       Decidim::UserPseudomizer.pseudomize(user)
     end
 
-    def notify_users(users)
-      users.each do |user|
+    def notify_users(resources)
+      users = resources.flat_map { |resource| resource.respond_to?(:authors) ? resource.authors : resource.author }
+
+      users.uniq.each do |user|
         notify_user(user)
       end
     end
