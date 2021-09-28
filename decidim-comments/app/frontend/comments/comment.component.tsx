@@ -126,6 +126,14 @@ class Comment extends React.Component<CommentProps, CommentState> {
     );
   }
 
+  private _truncate(str: string, n: number) {
+    if (str.lastIndexOf("Anonyme_", 0) === 0) {
+      return str.length > n ? str.substr(0, n - 1) : str;
+    }
+
+    return str;
+  }
+
   private toggleReplyForm = () => {
     const { showReplyForm } = this.state;
     this.setState({ showReplyForm: !showReplyForm });
@@ -247,7 +255,7 @@ class Comment extends React.Component<CommentProps, CommentState> {
         <span className="author__avatar">
           <img src={author.avatarUrl} alt="author-avatar" />
         </span>
-        <span className="author__name">{author.name}</span>
+        <span className="author__name">{this._truncate(author.name, 19)}</span>
         { author.badge === "" ||
           <span className="author__badge">
             <Icon name={`icon-${author.badge}`} />
