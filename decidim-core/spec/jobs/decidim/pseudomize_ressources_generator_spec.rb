@@ -33,6 +33,10 @@ module Decidim
         component.reload
         expect(component.pseudomize_status).to eq("current" => 3, "total" => 3)
       end
+
+      it "transfers action log owner to pseudomized user" do
+        expect { subject.perform_now(admin, component, resources) }.to change(Decidim::ActionLog, :count).by(1)
+      end
     end
   end
 end

@@ -20,7 +20,9 @@ module Decidim
             resource.save!
           end
         else
+          user = resource.author
           resource.author = create_or_find_author(resource.author, resource.organization)
+          # transfer_action_log_ownership(resource, user, resource.author)
           resource.save(validate: false)
         end
 
@@ -57,6 +59,20 @@ module Decidim
 
       user.skip_confirmation!
       user.save
+
+      user
+    end
+
+    def transfer_action_log_ownership(component, user, pseudomized_user)
+      action_logs = Decidim::ActionLog.where(decidim_user_id: user.id, decidim_component_id: component.id, decidim_organization_id: component.organization)
+      return if action_logs.blank?
+
+      action_logs.each { |action| action.update!(decidim_user_id: pseudomized_user.id)}
+    end
+
+    def creates_and_transfer(resource, author)
+      user = create_or_find_author(author, resource.organization)
+      transfer_action_log_ownership(resource, author, user)
 
       user
     end
