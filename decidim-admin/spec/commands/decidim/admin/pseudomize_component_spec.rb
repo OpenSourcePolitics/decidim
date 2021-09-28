@@ -58,6 +58,15 @@ module Decidim::Admin
       it "returns comments_for" do
         expect(subject.send(:comments_for, proposal)).to match_array([sub_comment, comment])
       end
+
+      context "when there is a depth equal to 4" do
+        let!(:third_sub_comment) { create(:comment, commentable: sub_comment) }
+        let!(:fourth_sub_comment) { create(:comment, commentable: third_sub_comment) }
+
+        it "returns all comments" do
+          expect(subject.send(:comments_for, proposal)).to match_array([fourth_sub_comment, third_sub_comment, sub_comment, comment])
+        end
+      end
     end
 
     describe "#resources_class" do
