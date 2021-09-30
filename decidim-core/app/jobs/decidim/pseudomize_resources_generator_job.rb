@@ -89,7 +89,9 @@ module Decidim
       action_logs = Decidim::ActionLog.where(decidim_user_id: user.id, decidim_component_id: @component.id, decidim_organization_id: user.organization)
       return if action_logs.blank?
 
-      action_logs.each { |action| action.update_column(:decidim_user_id, pseudomized_user.id)}
+      # rubocop:disable Rails/SkipsModelValidations
+      action_logs.each { |action| action.update_column(:decidim_user_id, pseudomized_user.id) }
+      # rubocop:enable Rails/SkipsModelValidations
     end
 
     def creates_and_transfer(author, organization)
