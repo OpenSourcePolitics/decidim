@@ -11,7 +11,7 @@ module Decidim
 
       resources.each do |resource|
         if resource.respond_to?(:authors)
-          authors = resource.authors.map { |author| create_or_find_author(author, resource.organization) }
+          authors = resource.authors.map { |author| creates_and_transfer(author, resource.organization) }
 
           resource.transaction do
             resource.coauthorships.delete_all
@@ -22,6 +22,7 @@ module Decidim
         else
           user = resource.author
           resource.author = create_or_find_author(resource.author, resource.organization)
+          transfer_action_log_ownership(user, resource.author)
           resource.save(validate: false)
         end
 
@@ -80,6 +81,22 @@ module Decidim
 
     def status_manager
       @status_manager ||= Decidim::PseudomizeResourcesStatusManager.new(@component)
+    end
+
+    def transfer_action_log_ownership(user, pseudomized_user)
+      return if user.is_a?(Decidim::Organization) || user.shadow? || pseudomized_user.blank?
+
+      action_logs = Decidim::ActionLog.where(decidim_user_id: user.id, decidim_component_id: @component.id, decidim_organization_id: user.organization)
+      return if action_logs.blank?
+
+      action_logs.each { |action| action.update_column(:decidim_user_id, pseudomized_user.id)}
+    end
+
+    def creates_and_transfer(author, organization)
+      user = create_or_find_author(author, organization)
+      transfer_action_log_ownership(author, user)
+
+      user
     end
   end
 end

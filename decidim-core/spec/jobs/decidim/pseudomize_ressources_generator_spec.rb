@@ -33,6 +33,33 @@ module Decidim
         component.reload
         expect(component.pseudomize_status).to eq("current" => 3, "total" => 3)
       end
+
+      context "when user has activity logs" do
+        let!(:comment) { create(:comment, commentable: proposal, author: admin) }
+
+        before do
+          Decidim.traceability.create!(
+            Decidim::Comments::Comment,
+            admin,
+            {
+              author: admin,
+              commentable: proposal,
+              root_commentable: proposal,
+              body: "Comment body"
+            },
+            resource: component,
+            visibility: "public-only"
+          )
+        end
+
+        it "transfer activities to the pseudomized user" do
+          activity_log = Decidim::ActionLog.last
+          expect(activity_log.decidim_user_id).to eq(admin.id)
+          subject.perform_now(admin, component, resources)
+          activity_log.reload
+          expect(activity_log.decidim_user_id).not_to eq(admin.id)
+        end
+      end
     end
   end
 end
