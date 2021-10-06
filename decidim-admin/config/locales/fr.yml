@@ -650,9 +650,9 @@ fr:
           hello: Bonjour %{name}
           subject: La pseudonymisation de la fonctionnalité est terminée
         notify_user:
-          content: Vous aviez contribué sur un débat de la plateforme participative de la CNDP. Vos contributions ont été pseudonymisées sur ce débat, vous ne pourrez donc plus les voir apparaître sur votre profil.
+          content: "Vous avez contribué au débat %{space_name} sur la plateforme participative de la Commission nationale du débat public (CNDP) et nous vous en remercions ! Conformément à notre politique de protection des données personnelles des participant.e.s aux débats publics vos contributions ont été pseudonymisées. Vous ne pourrez donc plus les consulter depuis votre profil, mais celui-ci est toujours actif si vous souhaitez contribuer sur d'autres débats. Bien cordialement, L'équipe de la CNDP"
           hello: Bonjour %{name}
-          subject: Vos contributions ont été pseudonymisées
+          subject: Vos contributions sur le débat %{space_name}
       resource_permissions:
         edit:
           submit: Soumettre
