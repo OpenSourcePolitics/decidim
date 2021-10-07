@@ -7,16 +7,17 @@ module Decidim
     #
     # user - The user to be updated.
     # form - The form with the data.
-    def initialize(user, form)
+    def initialize(user, form, enabled_admin_email = true)
       @user = user
       @form = form
+      @enabled_admin_email = enabled_admin_email
     end
 
     def call
       return broadcast(:invalid) unless @form.valid?
 
       Decidim::User.transaction do
-        notify_admins
+        notify_admins if @enabled_admin_email
         destroy_user_account!
         destroy_user_identities
         destroy_user_group_memberships

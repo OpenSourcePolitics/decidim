@@ -28,7 +28,7 @@ module Decidim
         Rails.logger.info "Authors to be deleted: #{users.count}" if @verbose
 
         users.each do |author|
-          DestroyAccount.call(author, Decidim::DeleteAccountForm.from_params({}))
+          DestroyAccount.call(author, Decidim::DeleteAccountForm.from_params({}), false)
         end
 
         Rails.logger.info "Finished..." if @verbose
@@ -72,16 +72,8 @@ module Decidim
         @initiatives ||= Decidim::Initiative.where(organization: @organization).includes(:committee_members).not_archived
       end
 
-      def initiatives_authors_ids
-        initiatives.map(&:decidim_author_id)
-      end
-
-      def committee_members_ids
-        initiatives.flat_map(&:committee_members).collect(&:decidim_users_id)
-      end
-
       def users
-        @users ||= Decidim::User.where(id: (committee_members_ids + initiatives_authors_ids).uniq)
+        @users ||= Decidim::User.where(organization: @organization).where.not(admin: true)
       end
 
       def authorizations
