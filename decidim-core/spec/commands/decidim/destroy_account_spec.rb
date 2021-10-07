@@ -100,6 +100,19 @@ module Decidim
           expect(user.reload.admin).to be_falsey
         end
       end
+
+      context "when email notifications are disabled" do
+        let(:command) { described_class.new(user, form, false) }
+
+        it "doesn't send email notification" do
+          allow(DestroyAccountMailer).to receive(:notify).with(admin).and_call_original
+
+          command.call
+
+          expect(DestroyAccountMailer)
+            .not_to have_received(:notify)
+        end
+      end
     end
   end
 end

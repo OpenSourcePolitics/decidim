@@ -28,7 +28,7 @@ module Decidim
         Rails.logger.info "Authors to be deleted: #{users.count}" if @verbose
 
         users.each do |author|
-          DestroyAccount.call(author, Decidim::DeleteAccountForm.from_params({}))
+          DestroyAccount.call(author, Decidim::DeleteAccountForm.from_params({}), false)
         end
 
         Rails.logger.info "Finished..." if @verbose

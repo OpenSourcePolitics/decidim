@@ -69,6 +69,14 @@ describe Decidim::Initiatives::EndOfMandateArchivist do
       expect(fourth_user.reload.email).to be_empty
       expect(admin_user.reload.email).not_to be_empty
     end
+
+    it "doesn't send email to admin" do
+      allow(Decidim::DestroyAccountMailer).to receive(:notify).with(admin_user).and_call_original
+      archivist.call
+
+      expect(Decidim::DestroyAccountMailer)
+        .not_to have_received(:notify)
+    end
   end
 
   describe "#delete_authorizations" do
