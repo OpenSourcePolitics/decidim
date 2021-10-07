@@ -16,12 +16,6 @@ module Decidim
       let(:collection_ids) { nil }
 
       it "sends an email with the result of the export" do
-        expect(Decidim::Exporters.find_exporter(format)).to receive(:new)
-          .with(
-            initiatives,
-            Decidim::Initiatives::InitiativeSerializer
-          ).and_call_original
-
         perform_enqueued_jobs do
           subject
         end
