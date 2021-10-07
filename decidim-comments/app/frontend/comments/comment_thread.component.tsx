@@ -68,13 +68,21 @@ class CommentThread extends React.Component<CommentThreadProps> {
           {
             author.deleted ?
               I18n.t("components.comment_thread.title", { authorName: I18n.t("components.comment.deleted_user") }) :
-              I18n.t("components.comment_thread.title", { authorName: author.name })
+              I18n.t("components.comment_thread.title", { authorName: this._truncate(author.name, 19) })
           }
         </h6>
       );
     }
 
     return null;
+  }
+
+  private _truncate(str: string, n: number) {
+    if (str.lastIndexOf("Anonyme_", 0) === 0) {
+      return str.length > n ? str.substr(0, n - 1) : str;
+    }
+
+    return str;
   }
 }
 

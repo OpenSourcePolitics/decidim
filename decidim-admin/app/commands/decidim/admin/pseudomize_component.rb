@@ -11,9 +11,16 @@ module Decidim
       def call
         @component.manifest.run_hooks(:pseudomize, @component)
 
-        resources = all_resources_for(@component)
-        status_manager.mark_as_running(resources.count)
-        Decidim::PseudomizeResourcesGeneratorJob.perform_later(@user, @component, resources)
+        Decidim.traceability.perform_action!(
+          :pseudomize,
+          @component,
+          @user,
+          visibility: "all"
+        ) do
+          resources = all_resources_for(@component)
+          status_manager.mark_as_running(resources.count)
+          Decidim::PseudomizeResourcesGeneratorJob.perform_later(@user, @component, resources)
+        end
 
         broadcast(:ok)
       end
@@ -40,10 +47,21 @@ module Decidim
       end
 
       def comments_for(resources)
-        top_comments = Decidim::Comments::Comment.where(commentable: resources).to_a
-        sub_comments = Decidim::Comments::Comment.where(commentable: top_comments).to_a
+        top_comments = find_comments_for(resources)
 
-        (top_comments + sub_comments).uniq
+        dig_comments(top_comments)
+      end
+
+      def find_comments_for(resources)
+        Decidim::Comments::Comment.where(commentable: resources).to_a
+      end
+
+      def dig_comments(resources, total = [])
+        return total.uniq.compact if resources.blank?
+
+        new_comments = find_comments_for(resources)
+
+        dig_comments(new_comments, (total.uniq + resources + new_comments))
       end
     end
   end

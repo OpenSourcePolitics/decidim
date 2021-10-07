@@ -29,7 +29,11 @@
   <% end %>
 <% else %>
   <span class="author__name">
-    <%= model.name %>
+    <% if model.respond_to?(:shadow?) && model&.shadow? %>
+      <%= model.shadow_nickname %>
+    <% else %>
+      <%= model.name %>
+    <% end %>
   </span>
 
   <% if model.badge.present? %>

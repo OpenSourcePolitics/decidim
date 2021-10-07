@@ -2,7 +2,13 @@
   <%= image_tag profile_user.avatar_url(:profile), class: "card__image card__image--larger" %>
   <div class="card__content">
     <h5>
-      <div><strong><%= profile_user.name %></strong></div>
+        <div><strong>
+          <% if profile_user.respond_to?(:shadow?) && profile_user.shadow? %>
+            <%= profile_user.shadow_nickname %>
+          <% else %>
+            <%= profile_user.name %>
+          <% end %>
+        </strong></div>
       <span class="text-small"><%= profile_user.nickname %></span>
       <% if can_contact_user? %>
         <span class="user-contact_link">

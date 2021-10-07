@@ -95,6 +95,7 @@ en:
       component:
         create: "%{user_name} added the %{resource_name} component to the %{space_name} space"
         delete: "%{user_name} removed the %{resource_name} component from the %{space_name} space"
+        pseudomize: "%{user_name} pseudonymize %{resource_name} in %{space_name}"
         publish: "%{user_name} published the %{resource_name} component in the %{space_name} space"
         unpublish: "%{user_name} unpublished the %{resource_name} component from the %{space_name} space"
       moderation:

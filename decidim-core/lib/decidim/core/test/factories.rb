@@ -105,7 +105,6 @@ FactoryBot.define do
   end
 
   factory :user, class: "Decidim::User" do
-    shadow { false }
     email { generate(:email) }
     password { "password1234" }
     password_confirmation { password }
@@ -120,6 +119,7 @@ FactoryBot.define do
     confirmation_sent_at { Time.current }
     accepted_tos_version { organization.tos_version }
     email_on_notification { true }
+    shadow { false }
 
     trait :confirmed do
       confirmed_at { Time.current }
@@ -153,6 +153,14 @@ FactoryBot.define do
     trait :officialized do
       officialized_at { Time.current }
       officialized_as { generate_localized_title }
+    end
+
+    trait :shadow do
+      shadow { true }
+    end
+
+    trait :not_shadow do
+      shadow { false }
     end
   end
 

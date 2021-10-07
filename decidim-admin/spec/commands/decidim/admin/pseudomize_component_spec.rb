@@ -29,6 +29,17 @@ module Decidim::Admin
         expect { subject.call }.to change(component, :pseudomize_status)
         expect(component.pseudomize_status).to eq("current" => 0, "total" => 3)
       end
+
+      it "traces the action", versioning: true do
+        expect(Decidim.traceability)
+          .to receive(:perform_action!)
+          .with(:pseudomize, component, user, visibility: "all")
+          .and_call_original
+
+        expect { subject.call }.to change(Decidim::ActionLog, :count)
+        action_log = Decidim::ActionLog.last
+        expect(action_log.version).to be_present
+      end
     end
 
     describe "#all_resources_for" do
@@ -46,6 +57,15 @@ module Decidim::Admin
     describe "#comments_for" do
       it "returns comments_for" do
         expect(subject.send(:comments_for, proposal)).to match_array([sub_comment, comment])
+      end
+
+      context "when there is a depth equal to 4" do
+        let!(:third_sub_comment) { create(:comment, commentable: sub_comment) }
+        let!(:fourth_sub_comment) { create(:comment, commentable: third_sub_comment) }
+
+        it "returns all comments" do
+          expect(subject.send(:comments_for, proposal)).to match_array([fourth_sub_comment, third_sub_comment, sub_comment, comment])
+        end
       end
     end
 
