@@ -58,14 +58,16 @@ describe Decidim::Initiatives::EndOfMandateArchivist do
     let!(:committee_member) { create(:initiatives_committee_member, initiative: first_initiative, user: third_user) }
 
     let!(:fourth_user) { create(:user, organization: organization) }
+    let!(:admin_user) { create(:user, :admin, organization: organization) }
 
-    it "deletes authors and committee_member" do
+    it "deletes authors and committee_member, except admins" do
       archivist.call
 
-      expect(first_user.reload.email).to eq("")
-      expect(second_user.reload.email).to eq("")
-      expect(third_user.reload.email).to eq("")
-      expect(fourth_user.reload.email).not_to eq("")
+      expect(first_user.reload.email).to be_empty
+      expect(second_user.reload.email).to be_empty
+      expect(third_user.reload.email).to be_empty
+      expect(fourth_user.reload.email).to be_empty
+      expect(admin_user.reload.email).not_to be_empty
     end
   end
 
@@ -85,10 +87,13 @@ describe Decidim::Initiatives::EndOfMandateArchivist do
     let!(:fourth_user) { create(:user, organization: organization) }
     let!(:fourth_authorization) { create(:authorization, name: "dummy_authorization_handler", user: fourth_user, metadata: { nickname: fourth_user.nickname }, granted_at: 2.seconds.ago) }
 
-    it "deletes authors and committee_members metadata authorization" do
+    let!(:admin_user) { create(:user, :admin, organization: organization) }
+    let!(:admin_authorization) { create(:authorization, name: "dummy_authorization_handler", user: admin_user, metadata: { nickname: admin_user.nickname }, granted_at: 2.seconds.ago) }
+
+    it "deletes authors and committee_members metadata authorization, except for admin" do
       expect do
         archivist.call
-      end.to change(Decidim::Authorization.all, :count).from(4).to(1)
+      end.to change(Decidim::Authorization.all, :count).from(5).to(1)
     end
   end
 
