@@ -36,6 +36,7 @@ module Decidim
         user_can_read_process_list?
         user_can_read_current_process?
         user_can_create_process?
+        user_can_pseudomize_component?
 
         # org admins and space admins can do everything in the admin section
         org_admin_action?
@@ -249,6 +250,21 @@ module Decidim
           :import
         ].include?(permission_action.subject)
         allow! if is_allowed
+      end
+
+      def user_can_pseudomize_component?
+        return unless permission_action.action == :pseudomize && permission_action.subject == :component
+        return unless belongs_to_process?
+
+        toggle_allow(admin_user?)
+      end
+
+      def belongs_to_process?
+        component.participatory_space == process
+      end
+
+      def component
+        @component ||= context.fetch(:component, nil)
       end
 
       # Checks if the permission_action is to read the admin processes list or

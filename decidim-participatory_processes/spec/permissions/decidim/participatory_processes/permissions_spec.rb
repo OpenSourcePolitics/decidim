@@ -8,6 +8,7 @@ describe Decidim::ParticipatoryProcesses::Permissions do
   let(:user) { create :user, :admin, organization: organization }
   let(:organization) { create :organization }
   let(:process) { create :participatory_process, organization: organization }
+  let(:component) { create(:component, participatory_space: process, organization: organization) }
   let(:context) { {} }
   let(:permission_action) { Decidim::PermissionAction.new(action) }
   let(:process_admin) { create :process_admin, participatory_process: process }
@@ -310,6 +311,20 @@ describe Decidim::ParticipatoryProcesses::Permissions do
       it_behaves_like "allows any action on subject", :process_step
       it_behaves_like "allows any action on subject", :process_user_role
       it_behaves_like "allows any action on subject", :space_private_user
+    end
+
+    context "when pseudomizing component" do
+      let(:context) do
+        {
+          component: component,
+          current_participatory_space: process
+        }
+      end
+      let(:action) do
+        { scope: :admin, action: :pseudomize, subject: :component }
+      end
+
+      it_behaves_like "access for roles", org_admin: true, admin: true, collaborator: false, moderator: false
     end
   end
 end
