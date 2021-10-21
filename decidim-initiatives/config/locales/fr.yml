@@ -573,8 +573,9 @@ fr:
           count:
             one: SIGNATURE
             other: SIGNATURES
-          most_popular_initiative: Initiative la plus populaire
+          most_popular_initiative: Seuil atteint
           need_more_votes: Besoin de plus de signatures
+          goal_not_reached: Seuil non atteint
       initiatives_mailer:
         creation_subject: Votre initiative '%{title}' a été créée
         initiative_link:

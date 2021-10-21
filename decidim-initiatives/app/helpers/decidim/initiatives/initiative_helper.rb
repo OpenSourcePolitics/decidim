@@ -262,6 +262,22 @@ module Decidim
       def archive_category_name(initiative)
         Decidim::InitiativesArchiveCategory.find(initiative.decidim_initiatives_archive_categories_id).name
       end
+
+      def manage_status_message(initiative)
+        if initiative.votes_enabled_state?
+          if initiative.supports_goal_reached?
+            t("decidim.initiatives.initiatives.votes_count.most_popular_initiative")
+          else
+            t("decidim.initiatives.initiatives.votes_count.need_more_votes")
+          end
+        else
+          if initiative.supports_goal_reached?
+            t("decidim.initiatives.initiatives.votes_count.most_popular_initiative")
+          else
+            t("decidim.initiatives.initiatives.votes_count.goal_not_reached")
+          end
+        end
+      end
     end
   end
 end
