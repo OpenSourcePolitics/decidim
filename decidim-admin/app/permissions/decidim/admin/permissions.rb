@@ -48,10 +48,24 @@ module Decidim
           allow! if permission_action.subject == :navbar_link
         end
 
+        user_can_pseudomize_component?
+
         permission_action
       end
 
       private
+
+      # It's an admin user if it's an organization admin or is a space admin
+      # for the current `process`.
+      def admin_user?
+        user.admin? || (component.participatory_space ? can_manage_process?(role: :admin) : has_manageable_processes?)
+      end
+
+      def user_can_pseudomize_component?
+        return unless permission_action.action == :pseudomize && permission_action.subject == :component
+
+        toggle_allow(admin_user?)
+      end
 
       def user_manager?
         user && !user.admin? && user.role?("user_manager")
@@ -175,6 +189,23 @@ module Decidim
         rescue Decidim::PermissionAction::PermissionNotSetError
           nil
         end
+      end
+
+      # Whether the user can manage the given process or not.
+      def can_manage_process?(role: :any)
+        return unless user
+
+        participatory_processes_with_role_privileges(role).include? component.participatory_space
+      end
+
+      def component
+        @component ||= context.fetch(:component, nil)
+      end
+
+      # Returns a collection of Participatory processes where the given user has the
+      # specific role privilege.
+      def participatory_processes_with_role_privileges(role)
+        Decidim::ParticipatoryProcessesWithUserRole.for(user, role)
       end
 
       def user_manager_permissions

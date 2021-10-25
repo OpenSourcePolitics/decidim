@@ -276,4 +276,52 @@ describe Decidim::Admin::Permissions do
   it_behaves_like "can perform any action for", :officialization
   it_behaves_like "can perform any action for", :authorization
   it_behaves_like "can perform any action for", :authorization_workflow
+
+  context "when pseudomizing component" do
+    let(:process) { create :participatory_process, organization: organization }
+    let(:component) { create(:component, participatory_space: process, organization: organization) }
+    let(:process_admin) { create :process_admin, participatory_process: process }
+    let(:process_collaborator) { create :process_collaborator, participatory_process: process }
+    let(:process_moderator) { create :process_moderator, participatory_process: process }
+    let(:context) { { component: component } }
+    let(:action) do
+      { scope: :admin, action: :pseudomize, subject: :component }
+    end
+
+    shared_examples "access for role" do |access|
+      if access == true
+        it { is_expected.to eq true }
+      elsif access == :not_set
+        it_behaves_like "permission is not set"
+      else
+        it { is_expected.to eq false }
+      end
+    end
+
+    shared_examples "access for roles" do |access|
+      context "when user is org admin" do
+        it_behaves_like "access for role", access[:org_admin]
+      end
+
+      context "when user is a space admin" do
+        let(:user) { process_admin }
+
+        it_behaves_like "access for role", access[:admin]
+      end
+
+      context "when user is a space collaborator" do
+        let(:user) { process_collaborator }
+
+        it_behaves_like "access for role", access[:collaborator]
+      end
+
+      context "when user is a space moderator" do
+        let(:user) { process_moderator }
+
+        it_behaves_like "access for role", access[:moderator]
+      end
+    end
+
+    it_behaves_like "access for roles", org_admin: true, admin: true, collaborator: false, moderator: false
+  end
 end
