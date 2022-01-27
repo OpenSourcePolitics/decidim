@@ -54,16 +54,6 @@ module Decidim
         end
       end
 
-      initializer "decidim_assemblies.menu" do
-        Decidim.menu :menu do |menu|
-          menu.item I18n.t("menu.assemblies", scope: "decidim"),
-                    decidim_assemblies.assemblies_path,
-                    position: 2.5,
-                    if: Decidim::Assembly.where(organization: current_organization).published.any?,
-                    active: :inclusive
-        end
-      end
-
       initializer "decidim_assemblies.view_hooks" do
         Decidim.view_hooks.register(:user_profile_bottom, priority: Decidim::ViewHooks::MEDIUM_PRIORITY) do |view_context|
           assemblies = OrganizationPublishedAssemblies.new(view_context.current_organization, view_context.current_user)
