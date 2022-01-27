@@ -208,7 +208,7 @@ module Decidim
       end
 
       def user_scopes
-        @user_scopes ||= current_organization.scopes
+        @user_scopes ||= current_organization.scopes.where(parent_id: nil)
       end
     end
   end
