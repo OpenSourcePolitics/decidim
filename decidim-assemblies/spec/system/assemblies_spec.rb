@@ -88,11 +88,8 @@ describe "Assemblies", type: :system do
         visit decidim.root_path
 
         within ".main-nav" do
-          expect(page).to have_content("Assemblies")
-          click_link "Assemblies"
+          expect(page).not_to have_content("Assemblies")
         end
-
-        expect(page).to have_current_path decidim_assemblies.assemblies_path
       end
     end
 
