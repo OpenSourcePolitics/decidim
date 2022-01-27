@@ -94,11 +94,8 @@ describe "Participatory Processes", type: :system do
         visit decidim.root_path
 
         within ".main-nav" do
-          expect(page).to have_content("Processes")
-          click_link "Processes"
+          expect(page).not_to have_content("Processes")
         end
-
-        expect(page).to have_current_path decidim_participatory_processes.participatory_processes_path
       end
     end
 

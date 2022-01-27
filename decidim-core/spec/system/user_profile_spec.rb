@@ -126,7 +126,7 @@ describe "Profile", type: :system do
         end
 
         it "shows a badges tab" do
-          expect(page).not_to have_link("Badges")
+          expect(page).to have_link("Badges")
         end
 
         it "doesn't have a badges section on the sidebar" do
