@@ -30,7 +30,7 @@ module Decidim
     end
 
     def render
-      content_tag :nav, class: @class_name do
+      @render ||= content_tag :nav, class: @class_name do
         content_tag :ul do
           safe_join(menu_items)
         end
