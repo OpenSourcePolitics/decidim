@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 module Decidim
   # A middleware that enhances the request with the current organization based
   # on the hostname.
@@ -33,12 +32,16 @@ module Decidim
 
     def detect_current_organization(env)
       host = host_for(env)
-      Decidim::Organization.find_by(host: host)
+      Rails.cache.fetch "organization_primary_host/#{host}" do
+        Decidim::Organization.find_by(host: host)
+      end
     end
 
     def find_secondary_host_org(env)
       host = host_for(env)
-      Decidim::Organization.find_by("? = ANY(secondary_hosts)", host)
+      Rails.cache.fetch "organization_secondary_host/#{host}" do
+        Decidim::Organization.find_by("? = ANY(secondary_hosts)", host)
+      end
     end
 
     def host_for(env)
