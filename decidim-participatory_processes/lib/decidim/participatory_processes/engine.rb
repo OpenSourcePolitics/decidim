@@ -61,16 +61,6 @@ module Decidim
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::ParticipatoryProcesses::Engine.root}/app/views") # for partials
       end
 
-      initializer "decidim_participatory_processes.menu" do
-        Decidim.menu :menu do |menu|
-          menu.item I18n.t("menu.processes", scope: "decidim"),
-                    decidim_participatory_processes.participatory_processes_path,
-                    position: 2,
-                    if: Decidim::ParticipatoryProcess.where(organization: current_organization).published.any?,
-                    active: %r{^\/process(es|_groups)}
-        end
-      end
-
       initializer "decidim_participatory_processes.content_blocks" do
         Decidim.content_blocks.register(:homepage, :highlighted_processes) do |content_block|
           content_block.cell = "decidim/participatory_processes/content_blocks/highlighted_processes"
