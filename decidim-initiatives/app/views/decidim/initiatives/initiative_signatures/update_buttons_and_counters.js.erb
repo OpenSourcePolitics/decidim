@@ -9,14 +9,12 @@
 
   // Update the identities dialog, if exists.
   if (userIdentitiesDialog.length) {
-    console.log("identities dialog");
     refreshUrl = userIdentitiesDialog.data('refresh-url');
 
     $.ajax(refreshUrl).done(function(response){
       userIdentitiesDialog.html(response);
     });
   } else {
-    console.log("ELSE");
     var $initiativeVoteButton = $('#initiative-<%= current_initiative.id %>-vote-cabin');
     $initiativeVoteButton.html('<%= j(render partial: "decidim/initiatives/initiatives/vote_cabin", locals: { initiative: current_initiative }) %>');
   }
