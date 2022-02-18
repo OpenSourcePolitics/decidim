@@ -2,8 +2,8 @@ var $initiatives = $('#initiatives');
 var $initiativesCount = $('#initiatives-count');
 var $orderFilterInput = $('.order_filter');
 
-$initiatives.html('<%= j(render partial: "initiatives") %>');
-$initiativesCount.html('<%= j(render partial: "count") %>');
+$initiatives.html('<%= j(render partial: "decidim/initiatives/initiatives/initiatives") %>');
+$initiativesCount.html('<%= j(render partial: "decidim/initiatives/initiatives/count") %>');
 $orderFilterInput.val('<%= order %>');
 
 var $dropdownMenu = $('.dropdown.menu', $initiatives);

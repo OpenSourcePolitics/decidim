@@ -35,13 +35,13 @@
     <% if can_be_interacted_with?(current_initiative) %>
       <div class="card text-center">
         <div class="card__content">
-          <%= render partial: "progress_bar" %>
+          <%= render partial: "decidim/initiatives/initiatives/progress_bar" %>
           <% if current_initiative.votes_enabled? && !current_initiative.classified? %>
             <div id="initiative-<%= current_initiative.id %>-vote-cabin">
-              <%= render partial: "vote_cabin", locals: { initiative: current_initiative } %>
+              <%= render partial: "decidim/initiatives/initiatives/vote_cabin", locals: { initiative: current_initiative } %>
             </div>
           <% end %>
-          <%= render partial: "interactions" %>
+          <%= render partial: "decidim/initiatives/initiatives/interactions" %>
         </div>
       </div>
     <% elsif allowed_to? :edit, :initiative, initiative: current_initiative %>
@@ -50,7 +50,7 @@
             <%= link_to t(".edit"),
                         edit_initiative_path(current_initiative),
                         class: "button expanded" %>
-          <%= render partial: "send_to_technical_validation", locals: {
+          <%= render partial: "decidim/initiatives/initiatives/send_to_technical_validation", locals: {
             title: t(".send_to_technical_validation"),
             confirm: t(".confirm")
           } %>
@@ -83,12 +83,12 @@
   <div class="columns mediumlarge-8 mediumlarge-pull-4">
     <div class="section">
       <div class="row column">
-        <%= render partial: "archived_header" if current_initiative.archived? %>
+        <%= render partial: "decidim/initiatives/initiatives/archived_header" if current_initiative.archived? %>
         <br>
         <h2 class="heading2" <%= "id=#{translate_helper_for(element: :title, model: current_initiative)}" %>>
           <%= translated_attribute(current_initiative.title) %>
         </h2>
-        <%= render partial: "author", locals: { initiative: current_initiative } %>
+        <%= render partial: "decidim/initiatives/initiatives/author", locals: { initiative: current_initiative } %>
         <%= translate_button_helper_for(
               title: translated_attribute(current_initiative.title),
               body: translated_attribute(current_initiative.description),
@@ -98,7 +98,7 @@
       </div>
       <br>
       <div class="row column">
-        <%= render partial: "initiative_badge", locals: { initiative: current_initiative } %>
+        <%= render partial: "decidim/initiatives/initiatives/initiative_badge", locals: { initiative: current_initiative } %>
         <div id="<%= translate_helper_for(element: :body, model: current_initiative) %>">
           <%= decidim_sanitize simple_format(translated_attribute(current_initiative.description)) %>
           <%= translate_button_helper_for(
@@ -108,10 +108,10 @@
                 options: { class: "show-for-small-only" }
               ) %>
         </div>
-        <%= render partial: "tags", locals: { resource: current_initiative } %>
+        <%= render partial: "decidim/initiatives/initiatives/tags", locals: { resource: current_initiative } %>
       </div>
 
-      <%= render partial: "result", locals: { initiative: current_initiative } %>
+      <%= render partial: "decidim/initiatives/initiatives/result", locals: { initiative: current_initiative } %>
     </div>
 
     <%= attachments_for current_initiative %>
