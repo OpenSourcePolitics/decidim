@@ -13,7 +13,7 @@
         <div class="section">
           <div class="card card--list">
             <% current_initiative.versions.each_with_index do |version, index| %>
-              <%= render partial: "version", locals: { version: version, index: index, initiative: current_initiative } %>
+              <%= render partial: "decidim/initiatives/versions/version", locals: { version: version, index: index, initiative: current_initiative } %>
             <% end %>
           </div>
         </div>
