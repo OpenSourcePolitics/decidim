@@ -226,6 +226,11 @@ ignore_unused:
   - decidim.initiatives.initiatives.filters.*
   - decidim.initiatives.show.badge_name.*
   - decidim.progress_bar.number_delimiter
+  - decidim.menu.assemblies
+  - decidim.menu.processes
+
+## OSP OPTIMIZATIONS
+# Ignore unused `decidim.menu.{assemblies,processes}` because they are not loaded anymore in menu
 
 ## Exclude these keys from the `i18n-tasks eq-base' report:
 # ignore_eq_base:
