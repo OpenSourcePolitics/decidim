@@ -287,11 +287,11 @@ describe "Homepage", type: :system do
         visit current_path
       end
 
-      it "doesn't include the links to social networks" do
-        expect(page).not_to have_xpath("//a[@href = 'https://twitter.com/twitter_handler']")
-        expect(page).not_to have_xpath("//a[@href = 'https://www.facebook.com/facebook_handler']")
-        expect(page).not_to have_xpath("//a[@href = 'https://www.youtube.com/youtube_handler']")
-        expect(page).not_to have_xpath("//a[@href = 'https://www.github.com/github_handler']")
+      it "includes the links to social networks" do
+        expect(page).to have_xpath("//a[@href = 'https://twitter.com/twitter_handler']")
+        expect(page).to have_xpath("//a[@href = 'https://www.facebook.com/facebook_handler']")
+        expect(page).to have_xpath("//a[@href = 'https://www.youtube.com/youtube_handler']")
+        expect(page).to have_xpath("//a[@href = 'https://www.github.com/github_handler']")
       end
     end
 
