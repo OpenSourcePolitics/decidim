@@ -144,6 +144,9 @@ module Decidim
             end
 
             before do
+              # rubocop:disable RSpec/AnyInstance
+              allow_any_instance_of(described_class).to receive(:current_organization).and_return(organization)
+              # rubocop:enable RSpec/AnyInstance
               create(:initiative_user_vote, initiative: initiative)
               create(:initiative_user_vote, initiative: initiative)
               create(:initiative_user_vote, initiative: initiative)
