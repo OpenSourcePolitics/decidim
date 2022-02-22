@@ -33,16 +33,12 @@ module Decidim
 
     def detect_current_organization(env)
       host = host_for(env)
-      Rails.cache.fetch "organization_primary_host/#{host}" do
-        Decidim::Organization.find_by(host: host)
-      end
+      Decidim::Organization.find_by(host: host)
     end
 
     def find_secondary_host_org(env)
       host = host_for(env)
-      Rails.cache.fetch "organization_secondary_host/#{host}" do
-        Decidim::Organization.find_by("? = ANY(secondary_hosts)", host)
-      end
+      Decidim::Organization.find_by("? = ANY(secondary_hosts)", host)
     end
 
     def host_for(env)
