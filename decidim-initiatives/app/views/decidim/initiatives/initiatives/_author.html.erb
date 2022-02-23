@@ -15,7 +15,7 @@
       </span>
     </div>
 
-    <% accepted_committee_members(initiative).each_with_index do |m, index| %>
+    <% initiative.accepted_committee_members.each_with_index do |m, index| %>
       <% unless m.user.deleted? %>
         <div class="author author--inline <%= hide_committee_member?(index) ? "author--hidden hide" : "" %>">
           <span class="author__avatar author__avatar--small">

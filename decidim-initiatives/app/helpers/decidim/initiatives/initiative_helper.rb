@@ -41,12 +41,8 @@ module Decidim
         I18n.t(initiative.state, scope: "decidim.initiatives.state", default: :created)
       end
 
-      def accepted_committee_members(initiative)
-        @accepted_committee_members ||= initiative.committee_members.excluding_author.approved
-      end
-
       def extra_committee_members(limit = 2)
-        @accepted_committee_members.count - limit
+        @extra_committee_members = current_initiative.accepted_committee_members.to_ary.count - limit
       end
 
       # Returns if a committee member needs to be hidden or not
