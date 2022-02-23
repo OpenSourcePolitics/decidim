@@ -430,6 +430,11 @@ module Decidim
       committee_members.approved.count >= minimum_committee_members
     end
 
+    def accepted_committee_members
+      Rails.cache.fetch("#{cache_key_with_version}/accepted_committee_members", expires_in: 24.hours) do
+        committee_members.excluding_author.approved
+      end
+    end
     # PUBLIC
     #
     # Checks if the type the initiative belongs to enables SMS code
