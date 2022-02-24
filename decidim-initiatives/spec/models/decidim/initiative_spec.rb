@@ -206,12 +206,13 @@ module Decidim
         let!(:initiative) { create(:initiative) }
 
         it "ignores any value in offline_votes attribute" do
-          initiative.update(offline_votes: { "total" => 1000 }, online_votes: { "total" => initiative.scoped_type.supports_required / 2 })
+          initiative.update(offline_votes: { "total" => 1000 }, online_votes: { "total" => initiative.scoped_type.supports_required / 2 }, initiatives_votes_count: initiative.scoped_type.supports_required / 2)
+
           expect(initiative.percentage).to eq(50)
         end
 
         it "can't be greater than 100" do
-          initiative.update(online_votes: { "total" => initiative.scoped_type.supports_required * 2 })
+          initiative.update(online_votes: { "total" => initiative.scoped_type.supports_required * 2 }, initiatives_votes_count: initiative.scoped_type.supports_required * 2)
           expect(initiative.percentage).to eq(100)
         end
       end
@@ -223,6 +224,7 @@ module Decidim
           online_votes = initiative.scoped_type.supports_required / 4
           offline_votes = initiative.scoped_type.supports_required / 4
           initiative.update(offline_votes: { "total" => offline_votes }, online_votes: { "total" => online_votes })
+          initiative.update_column(:initiatives_votes_count, online_votes)
           expect(initiative.percentage).to eq(50)
         end
 
@@ -284,9 +286,9 @@ module Decidim
         create(:initiative, organization: organization, signature_type: "offline")
         create(:initiative, organization: organization, signature_type: "offline", offline_votes: { "total": 4 })
         create(:initiative, organization: organization, signature_type: "offline", offline_votes: { "total": 3 })
-        create(:initiative, organization: organization, signature_type: "online", online_votes: { "total": 4 })
-        create(:initiative, organization: organization, signature_type: "online", online_votes: { "total": 8 })
-        create(:initiative, organization: organization, signature_type: "online", online_votes: { "total": 2 })
+        create(:initiative, organization: organization, signature_type: "online", online_votes: { "total": 4 }, initiatives_votes_count: 4)
+        create(:initiative, organization: organization, signature_type: "online", online_votes: { "total": 8 }, initiatives_votes_count: 8)
+        create(:initiative, organization: organization, signature_type: "online", online_votes: { "total": 2 }, initiatives_votes_count: 2)
       end
 
       context "when sorts by order desc" do

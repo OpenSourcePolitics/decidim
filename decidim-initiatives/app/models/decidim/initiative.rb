@@ -304,7 +304,8 @@ module Decidim
     #
     # Returns an Integer.
     def supports_count
-      online_votes_count + offline_votes_count
+      total_votes_count = initiatives_votes_count.present? ? initiatives_votes_count : 0
+      total_votes_count + offline_votes_count
     end
 
     # Public: Calculates the number of supports required to accept the initiative
