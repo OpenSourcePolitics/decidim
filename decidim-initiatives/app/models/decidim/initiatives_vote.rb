@@ -14,7 +14,8 @@ module Decidim
     belongs_to :initiative,
                foreign_key: "decidim_initiative_id",
                class_name: "Decidim::Initiative",
-               inverse_of: :votes
+               inverse_of: :votes,
+               counter_cache: true
 
     belongs_to :scope,
                foreign_key: "decidim_scope_id",
@@ -23,7 +24,7 @@ module Decidim
 
     validates :initiative, uniqueness: { scope: [:author, :scope, :hash_id] }
 
-    after_commit :update_counter_cache, on: [:create, :destroy]
+    # after_commit :update_counter_cache, on: [:create, :destroy]
 
     scope :for_scope, ->(scope) { where(scope: scope) }
 
