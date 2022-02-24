@@ -122,7 +122,7 @@ FactoryBot.define do
     answer_date {}
     area {}
     decidim_initiatives_archive_categories_id {}
-    initiatives_votes_count {}
+    initiatives_votes_count { 0 }
 
     scoped_type do
       create(:initiatives_type_scope,
