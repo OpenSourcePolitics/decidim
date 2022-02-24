@@ -3,7 +3,7 @@
     <% if type_scope.global_scope? %>
       <%= cell(
             "decidim/progress_bar",
-            current_initiative.online_votes_count,
+            current_initiative.initiatives_votes_count,
             total: type_scope.supports_required,
             units_name: "decidim.initiatives.initiatives.votes_count.count",
             element_id: "initiative-#{current_initiative.id}-votes-count",
