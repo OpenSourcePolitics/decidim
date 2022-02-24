@@ -52,7 +52,7 @@ module Decidim
           expect do
             command.call
             initiative.reload
-          end.to change(initiative, :online_votes_count).by(1)
+          end.to change(initiative, :initiatives_votes_count).from(nil).to(1)
         end
 
         it "notifies the creation" do
