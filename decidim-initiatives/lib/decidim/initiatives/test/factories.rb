@@ -122,7 +122,7 @@ FactoryBot.define do
     answer_date {}
     area {}
     decidim_initiatives_archive_categories_id {}
-    initiatives_votes_count { }
+    initiatives_votes_count {}
 
     scoped_type do
       create(:initiatives_type_scope,
@@ -214,6 +214,7 @@ FactoryBot.define do
 
       after(:build) do |initiative|
         initiative.online_votes["total"] = initiative.supports_required + 1
+        initiative.initiatives_votes_count = initiative.supports_required + 1
       end
     end
 
@@ -224,6 +225,7 @@ FactoryBot.define do
 
       after(:build) do |initiative|
         initiative.online_votes["total"] = 0
+        initiative.initiatives_votes_count = 0
       end
     end
 
