@@ -435,6 +435,7 @@ module Decidim
         committee_members.excluding_author.approved
       end
     end
+
     # PUBLIC
     #
     # Checks if the type the initiative belongs to enables SMS code
