@@ -10,6 +10,7 @@ module Decidim
       def query
         Decidim::Initiative
           .includes(:scoped_type)
+          .not_archived
           .where(state: "published")
           .where(signature_type: "online")
           .where("signature_end_date < ?", Date.current)
