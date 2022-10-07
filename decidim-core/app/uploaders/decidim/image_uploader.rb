@@ -25,7 +25,7 @@ module Decidim
     # Add a white list of extensions which are allowed to be uploaded.
     # For images you might use something like this:
     def extension_whitelist
-      %w(jpg jpeg gif png bmp ico)
+      %w(jpg jpeg gif png bmp ico webp)
     end
 
     # A simple check to avoid DoS with maliciously crafted images, or just to
