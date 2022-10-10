@@ -41,7 +41,7 @@ de:
         surveys:
           answer_option:
             answer_option: Answer option
-            remove_answer_option: Remove answer option
+            remove_answer_option: Antwortoption löschen
             statement: Statement
           edit:
             save: Save
@@ -52,7 +52,7 @@ de:
           question:
             add_answer_option: Add answer option
             question: Question
-            remove_question: Remove question
+            remove_question: Frage löschen
             statement: Statement
           update:
             invalid: There's been errors when saving the survey.

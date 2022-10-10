@@ -99,7 +99,7 @@ de:
             promoted: Highlighted
             published: Published
             title: Title
-          name: Assembly
+          name: Versammlung
         assembly_user_role:
           fields:
             email: Email

@@ -11,7 +11,7 @@ nl-BE:
       admins:
         create:
           error: There was an error when creating a new admin.
-          success: Admin created successfully
+          success: Admin is succesvol aangemaakt
         destroy:
           success: Admin successfully destroyed
         edit:
@@ -51,7 +51,7 @@ nl-BE:
       organizations:
         create:
           error: There was an error when creating a new organization.
-          success: Organization created successfully.
+          success: Organisatie is succesvol aangemaakt.
         edit:
           secondary_hosts_hint: Enter each one of them in a new line
         index:

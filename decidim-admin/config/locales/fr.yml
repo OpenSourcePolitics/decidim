@@ -624,7 +624,7 @@ fr:
             reports: Motif
             visit_url: Visitez l'URL
             date: Date
-            type: Type
+            type: Type de contenu
             status: Statut
   errors:
     messages:

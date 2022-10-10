@@ -225,35 +225,35 @@ de:
           success: Permissions updated successfully.
       features:
         create:
-          error: There was an error creating this feature.
-          success: Feature created successfully.
+          error: Beim Erstellen dieser Funktion ist ein Fehler aufgetreten.
+          success: Funktion erfolgreich erstellt.
         destroy:
-          error: There has been an error destroying this feature.
-          success: Feature deleted successfully.
+          error: Fehler beim Löschen der Funktion.
+          success: Funktion erfolgreich gelöscht.
         edit:
-          title: Edit feature
+          title: Funktion bearbeiten
           update: Update
         form:
           default_step_settings: Default step settings
           global_settings: Global settings
           step_settings: Step settings
         index:
-          add: Add feature
+          add: Eine Funktion hinzufügen
           headers:
             actions: Actions
-            name: Feature name
-            type: Feature type
+            name: Funktionsname
+            type: Funktionstyp
         new:
-          add: Add feature
-          title: 'Add feature: %{name}'
+          add: Eine Funktion hinzufügen
+          title: 'Die Funktion hinzufügen %{name}'
         publish:
-          success: The feature has been successfully published.
-        title: Features
+          success: Die Funktion wurde erfolgreich veröffentlicht.
+        title: Funktionen
         unpublish:
-          success: The feature has been successfully unpublished.
+          success: Die Veröffentlichung der Funktion wurde erfolgreich aufgehoben.
         update:
-          error: There has been an error updating this feature.
-          success: The feature was updated successfully.
+          error: Bei der Aktualisierung dieser Funktion ist ein Fehler aufgetreten.
+          success: Die Funktion wurde erfolgreich aktualisiert.
       logs:
         logs_list:
           no_logs_yet: There are no logs yet
@@ -262,16 +262,16 @@ de:
           error: There has been an error closing the current impersonation session.
           success: The current impersonation session has been successfully ended.
         create:
-          error: There has been an error creating the managed user.
+          error: Beim Erstellen des zu vertretenden Benutzers ist ein Fehler aufgetreten.
           success: The managed user has been successfully created.
         form:
           name: Name
         impersonate:
-          error: There has been an error impersonating the managed user.
+          error: In der Sitzung des Benutzers, den Sie vertreten, ist ein Fehler aufgetreten.
         impersonations:
           new:
             impersonate: Impersonate
-            new_managed_user_impersonation: New managed user impersonation
+            new_managed_user_impersonation: Neuer zu vertretender Benutzer
         index:
           impersonate: Impersonate
           needs_authoriation_warning: You need at least one authorization enabled for this organization.
@@ -279,10 +279,10 @@ de:
           view_logs: View logs
         new:
           create: Create
-          new_managed_user: New managed user
-          no_authorization_handlers: There are no available authorization handlers to manage users. Please contact your system administrator.
-          select_authorization_method: Select an authorization method
-          step: Step %{current} of %{total}
+          new_managed_user: Neuer zu vertretender Benutzer
+          no_authorization_handlers: Zur Verwaltung der Benutzer ist kein Autorisierungsmanager verfügbar. Bitte wenden Sie sich an den Systemadministrator.
+          select_authorization_method: Wählen Sie ein Autorisierungsverfahren
+          step: Schritt %{current} von %{total}
         promotion:
           error: There has been an error promoting the managed user.
           success: The managed user has been successfully promoted.
@@ -337,7 +337,7 @@ de:
             started_at: Started at
             user: User
         managed_user:
-          name: Managed user
+          name: Vertretener Benutzer
         newsletter:
           fields:
             created_at: Created at
@@ -385,10 +385,10 @@ de:
       moderations:
         index:
           title:
-            upstream: Upstream moderation
-            downstream: Downstream moderation
-          moderated: Moderated
-          unmoderated: Unmoderated
+            upstream: A-priori-Moderation
+            downstream: A-posteriori-Moderation
+          moderated: Moderiert
+          unmoderated: Nicht moderiert
         report:
           reasons:
             does_not_belong: Does not belong
@@ -602,10 +602,10 @@ de:
         not_hidden: Not hidden
         title: Actions
         unreport: Unreport
-        moderated: Moderated
-        unmoderated: Unmoderated
-        authorize: Authorize
-        refuse: Refuse
+        moderated: Moderiert
+        unmoderated: Nicht moderiert
+        authorize: Autorisieren
+        refuse: Ablehnen
       admin:
         reportable:
           hide:
@@ -623,7 +623,7 @@ de:
             reported_content_url: Reported content URL
             reports: Reports
             visit_url: Visit URL
-            date: Date
+            date: Datum
             type: Type
             status: Status
   errors:

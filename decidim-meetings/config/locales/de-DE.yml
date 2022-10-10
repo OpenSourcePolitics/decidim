@@ -62,7 +62,7 @@ de:
           global:
             announcement: Announcement
             comments_enabled: Comments enabled
-            comments_upstream_moderation_enabled: Upstream moderation for comments enabled
+            comments_upstream_moderation_enabled: A-priori-Moderation für Kommentare aktiviert
           step:
             announcement: Announcement
             comments_blocked: Comments blocked
