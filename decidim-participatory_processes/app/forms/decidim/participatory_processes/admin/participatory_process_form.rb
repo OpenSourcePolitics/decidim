@@ -56,10 +56,10 @@ module Decidim
 
         validates :banner_image,
                   file_size: { less_than_or_equal_to: ->(_record) { Decidim.maximum_attachment_size } },
-                  file_content_type: { allow: ["image/jpeg", "image/png"] }
+                  file_content_type: { allow: ["image/jpeg", "image/png", "image/webp"] }
         validates :hero_image,
                   file_size: { less_than_or_equal_to: ->(_record) { Decidim.maximum_attachment_size } },
-                  file_content_type: { allow: ["image/jpeg", "image/png"] }
+                  file_content_type: { allow: ["image/jpeg", "image/png", "image/webp"] }
 
         def map_model(model)
           self.scope_id = model.decidim_scope_id

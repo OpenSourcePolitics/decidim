@@ -15,7 +15,7 @@ module Decidim
       validates :name, :redirect_uri, :current_user, :current_organization, :organization_name, :organization_url, :organization_logo, presence: true
       validates :organization_logo,
                 file_size: { less_than_or_equal_to: ->(_record) { Decidim.maximum_attachment_size } },
-                file_content_type: { allow: ["image/jpeg", "image/png"] }
+                file_content_type: { allow: ["image/jpeg", "image/png", "image/webp"] }
       validate :redirect_uri_is_ssl
 
       private

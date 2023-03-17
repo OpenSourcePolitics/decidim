@@ -12,7 +12,7 @@ module Decidim
 
         validates :verification_attachment,
                   file_size: { less_than_or_equal_to: ->(_record) { Decidim.maximum_attachment_size } },
-                  file_content_type: { allow: ["image/jpeg", "image/png"] },
+                  file_content_type: { allow: ["image/jpeg", "image/png", "image/webp"] },
                   presence: true,
                   if: :uses_online_method?
       end

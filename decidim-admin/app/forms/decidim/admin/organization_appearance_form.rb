@@ -51,13 +51,13 @@ module Decidim
                 :official_img_footer,
                 :logo,
                 file_size: { less_than_or_equal_to: ->(_record) { Decidim.maximum_attachment_size } },
-                file_content_type: { allow: ["image/jpeg", "image/png"] }
+                file_content_type: { allow: ["image/jpeg", "image/png", "image/webp"] }
 
       validates :highlighted_content_banner_action_url, presence: true, if: :highlighted_content_banner_enabled?
       validates :highlighted_content_banner_image,
                 presence: true,
                 file_size: { less_than_or_equal_to: ->(_record) { Decidim.maximum_attachment_size } },
-                file_content_type: { allow: ["image/jpeg", "image/png"] },
+                file_content_type: { allow: ["image/jpeg", "image/png", "image/webp"] },
                 if: :highlighted_content_banner_image_is_changed?
 
       validates :highlighted_content_banner_title,
