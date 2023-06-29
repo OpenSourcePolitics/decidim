@@ -664,12 +664,12 @@ module Decidim
 
             context "when a collection of ids is passed as a parameter" do
               let!(:initiatives) { create_list(:initiative, 3, organization: organization) }
-              let(:collection_ids) { initiatives.map(&:id) }
+              let(:collection_ids) { initiatives.map(&:id).join(",") }
 
               it "enqueues the job" do
-                expect(Decidim::Initiatives::ExportInitiativesJob).to receive(:perform_later).with(admin_user, organization, "csv", collection_ids)
+                expect(Decidim::Initiatives::ExportInitiativesJob).to receive(:perform_later).with(admin_user, organization, "csv", collection_ids.split(','))
 
-                get :export, params: { format: :csv, collection_ids: collection_ids }
+                get :export, params: { format: :csv, cid: collection_ids }
                 expect(flash[:alert]).to be_nil
                 expect(response).to have_http_status(:found)
               end
