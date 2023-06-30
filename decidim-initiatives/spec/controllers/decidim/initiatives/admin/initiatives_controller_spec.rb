@@ -667,7 +667,7 @@ module Decidim
               let(:collection_ids) { initiatives.map(&:id).join(",") }
 
               it "enqueues the job" do
-                expect(Decidim::Initiatives::ExportInitiativesJob).to receive(:perform_later).with(admin_user, organization, "csv", collection_ids.split(','))
+                expect(Decidim::Initiatives::ExportInitiativesJob).to receive(:perform_later).with(admin_user, organization, "csv", collection_ids.split(","))
 
                 get :export, params: { format: :csv, cid: collection_ids }
                 expect(flash[:alert]).to be_nil

@@ -10,9 +10,7 @@ module Decidim
         # Public: A formatted collection of ParticipatoryProcesses to be used
         # in forms.
         def processes_selected
-          if current_conference.present?
-            @processes_selected ||= current_conference.linked_participatory_space_resources(:participatory_processes, "included_participatory_processes").pluck(:id)
-          end
+          @processes_selected ||= current_conference.linked_participatory_space_resources(:participatory_processes, "included_participatory_processes").pluck(:id) if current_conference.present?
         end
 
         def assemblies_selected
