@@ -135,7 +135,7 @@ module Decidim
             current_user,
             current_organization,
             params[:format] || default_format,
-            params[:cid].presence&.split(",")
+            params[:collection_ids].presence&.map(&:to_i)
           )
 
           flash[:notice] = t("decidim.admin.exports.notice")
