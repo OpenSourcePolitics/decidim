@@ -33,6 +33,7 @@ module Decidim
 
           collection do
             get :export
+            post :export
           end
 
           resources :attachments, controller: "initiative_attachments"
