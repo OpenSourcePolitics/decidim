@@ -12,7 +12,6 @@ describe "Conference registrations" do
   let!(:user) { create(:user, :confirmed, organization:) }
 
   let(:registrations_enabled) { true }
-  let(:available_slots) { 20 }
   let(:registration_terms) do
     {
       en: "A legal text",
