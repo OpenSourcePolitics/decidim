@@ -85,7 +85,7 @@ edit_link(
 
     <% if current_participatory_space.registrations_enabled? %>
       <section class="content-block">
-        <% if current_participatory_space.registration_types.present?%>
+        <% if current_participatory_space.registration_types.present? %>
           <h2 class="h2 decorator"><%= t("decidim.conferences.conferences.show.register") %></h2>
         <% end %>
         <% if current_user.present? %>
