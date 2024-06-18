@@ -52,6 +52,7 @@ You can read more about this change on PR [#12616](https://github.com/decidim/de
 These are one time actions that need to be done after the code is updated in the production database.
 
 To delete the follows of ex private users of non transparent assemblies or processes, run from decidim-admin
+
 ```console
 bundle exec rake decidim:upgrade:fix_deleted_private_follows
 ```
