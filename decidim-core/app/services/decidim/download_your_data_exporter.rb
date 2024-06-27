@@ -32,7 +32,7 @@ module Decidim
       dirname = File.dirname(@path)
       FileUtils.mkdir_p(dirname) unless File.directory?(dirname)
       File.open(@path, "wb") do |file|
-        SevenZipRuby::Writer.open(file, password: @password) do |szw|
+        SevenZipRuby::Writer.open(file) do |szw|
           szw.header_encryption = true
           szw.add_data(data, ZIP_FILE_NAME)
         end
@@ -42,7 +42,8 @@ module Decidim
     private
 
     def data
-      buffer = Zip::OutputStream.write_buffer do |out|
+      enc = Zip::TraditionalEncrypter.new(@password)
+      buffer = Zip::OutputStream.write_buffer(::StringIO.new(""), enc) do |out|
         user_data, attachments = data_for(@user, @export_format)
 
         add_user_data_to_zip_stream(out, user_data)
