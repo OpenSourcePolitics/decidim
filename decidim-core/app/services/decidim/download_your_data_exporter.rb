@@ -43,7 +43,7 @@ module Decidim
 
     def data
       enc = Zip::TraditionalEncrypter.new(@password)
-      buffer = Zip::OutputStream.write_buffer(::StringIO.new(""), enc) do |out|
+      buffer = Zip::OutputStream.write_buffer(::StringIO.new("".dup), enc) do |out|
         user_data, attachments = data_for(@user, @export_format)
 
         add_user_data_to_zip_stream(out, user_data)
