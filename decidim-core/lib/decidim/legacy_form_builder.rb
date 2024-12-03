@@ -100,7 +100,7 @@ module Decidim
       error_messages = object.errors[attribute].join(", ")
       error_messages = error_messages.html_safe if options[:html_safe_errors]
       content_tag :p, content_tag(:small, error_messages,
-                  class: class_name.sub("is-invalid-input", ""))
+                                  class: class_name.sub("is-invalid-input", ""))
     end
 
     private
