@@ -50,7 +50,7 @@ describe Decidim::Accountability::DiffRenderer, versioning: true do
     it "generates the labels correctly" do
       expected_labels = {
         description_ca: "Description (Català)",
-        description_machine_translations_es: "Description (automatic translation in Castellano)",
+        description_machine_translations_es: "Description (traducción automática a Castellano)",
         progress: "Progress",
         start_date: "Start date",
         title_en: "Title (English)",
