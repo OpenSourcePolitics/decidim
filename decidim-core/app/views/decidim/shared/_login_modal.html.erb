@@ -19,7 +19,10 @@
           <% end %>
 
           <div class="form__wrapper">
-            <%= f.email_field :email, autocomplete: "email", placeholder: t("placeholder_email", scope: "decidim.devise.shared") %>
+            <div>
+              <p><%= t(".required_fields") %></p>
+            </div>
+            <%= f.email_field :email, autocomplete: "email", placeholder: t("placeholder_email", scope: "decidim.devise.shared"), required: true %>
 
             <%= render partial: "decidim/account/password_fields", locals: { form: f } %>
           </div>
@@ -40,7 +43,7 @@
 
     <% if current_organization.sign_in_enabled? %>
       <div data-dialog-actions>
-        <button type="button" class="button button__lg button__transparent-secondary" data-dialog-close="loginModal">
+        <button type="button" class="button button__lg button__transparent-secondary" data-dialog-close="loginModal" aria-describedby="loginModal">
           <%= t("cancel", scope: "decidim.admin.actions") %>
         </button>
         <button type="submit" class="button button__lg button__secondary">
