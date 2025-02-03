@@ -18,7 +18,8 @@ RSpec.shared_context "when creating a comment" do
         "body" => body,
         "alignment" => alignment,
         "user_group_id" => user_group_id,
-        "commentable" => commentable
+        "commentable" => commentable,
+        "current_component" => component
       }
     }
   end

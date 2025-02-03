@@ -17,7 +17,8 @@ module Decidim
         {
           "comment" => {
             "body" => body,
-            "commentable" => commentable
+            "commentable" => commentable,
+            "current_component" => component
           }
         }
       end
