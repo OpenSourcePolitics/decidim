@@ -51,7 +51,7 @@ module Decidim
         enforce_permission_to(:update, :comment, comment:)
 
         form = Decidim::Comments::CommentForm.from_params(
-          params.merge(commentable: comment.commentable)
+          params.merge(commentable: comment.commentable, current_component:)
         ).with_context(
           current_user:,
           current_organization:
@@ -76,7 +76,7 @@ module Decidim
         enforce_permission_to(:create, :comment, commentable:)
 
         form = Decidim::Comments::CommentForm.from_params(
-          params.merge(commentable:)
+          params.merge(commentable:, current_component:)
         ).with_context(
           current_organization:,
           current_component:,
