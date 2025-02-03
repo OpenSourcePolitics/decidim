@@ -12,11 +12,13 @@ module Decidim
       attribute :user_group_id, Integer
       attribute :commentable
       attribute :commentable_gid
+      attribute :current_component, Decidim::Component
 
       mimic :comment
 
       validates :body, presence: true, length: { maximum: ->(form) { form.max_length } }
       validates :alignment, inclusion: { in: [0, 1, -1] }, if: ->(form) { form.alignment.present? }
+      validates :current_component, presence: true
 
       validate :max_depth
       validate :commentable_can_have_comments
