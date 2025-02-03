@@ -34,7 +34,8 @@ module Decidim
             "body" => body,
             "alignment" => alignment,
             "user_group_id" => user_group_id,
-            "commentable" => commentable
+            "commentable" => commentable,
+            "current_component" => component
           }
         }
       end
@@ -95,7 +96,7 @@ module Decidim
           let!(:component) { nil }
           let(:body) { "c" * 1000 }
 
-          it { is_expected.to be_valid }
+          it { is_expected.not_to be_valid }
         end
 
         context "when the component settings do not define comments_max_length" do
