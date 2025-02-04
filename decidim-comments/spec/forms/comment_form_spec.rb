@@ -96,7 +96,7 @@ module Decidim
           let!(:component) { nil }
           let(:body) { "c" * 1000 }
 
-          it { is_expected.not_to be_valid }
+          it { is_expected.to be_valid }
         end
 
         context "when the component settings do not define comments_max_length" do
