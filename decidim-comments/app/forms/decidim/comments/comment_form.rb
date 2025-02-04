@@ -18,7 +18,6 @@ module Decidim
 
       validates :body, presence: true, length: { maximum: ->(form) { form.max_length } }
       validates :alignment, inclusion: { in: [0, 1, -1] }, if: ->(form) { form.alignment.present? }
-      validates :current_component, presence: true
 
       validate :max_depth
       validate :commentable_can_have_comments
