@@ -61,6 +61,17 @@ module Decidim
                 }
               )
 
+            expect(Decidim::EventsManager)
+              .to receive(:publish)
+              .with(
+                event: "decidim.events.proposals.author_confirmation_proposal_event",
+                event_class: Decidim::Proposals::AuthorConfirmationProposalEvent,
+                resource: kind_of(Decidim::Proposals::Proposal),
+                affected_users: [proposal_draft.creator_identity],
+                extra: { force_email: true },
+                force_send: true
+              )
+
             subject.call
           end
         end
