@@ -27,6 +27,7 @@ module Decidim
           increment_scores
           send_notification
           send_notification_to_participatory_space
+          send_publication_notification
         end
 
         broadcast(:ok, @proposal)
@@ -84,6 +85,17 @@ module Decidim
           extra: {
             participatory_space: true
           }
+        )
+      end
+
+      def send_publication_notification
+        Decidim::EventsManager.publish(
+          event: "decidim.events.proposals.author_confirmation_proposal_event",
+          event_class: Decidim::Proposals::AuthorConfirmationProposalEvent,
+          resource: @proposal,
+          affected_users: [@proposal.creator_identity],
+          extra: { force_email: true },
+          force_send: true
         )
       end
 
