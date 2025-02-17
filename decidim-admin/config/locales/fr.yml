@@ -283,6 +283,8 @@ fr:
         edit:
           title: Modifier le document lié
           update: Mettre à jour
+        form:
+          send_notification_to_followers: Envoyer une notification à toutes les personnes qui suivent la concertation ayant accepté de recevoir des notifications par mail
         index:
           attachments_title: Documents liés
         new:
@@ -562,7 +564,7 @@ fr:
           text: Recherche par adresse e-mail, nom ou pseudonyme.
           user: Utilisateur
         logs_list:
-          no_logs_yet: Il n'y a pas encore de journaux d'activité. 
+          no_logs_yet: Il n'y a pas encore de journaux d'activité.
           no_matching_logs: Il n'y a pas de journaux avec les filtres de recherche fournis. Essayez de les modifier et réessayez.
       manage_trash:
         deleted_items_warning: Vous visualisez actuellement des éléments de la corbeille. Pour effectuer des modifications ou des modifications, vous devez d'abord les restaurer.
@@ -811,7 +813,7 @@ fr:
           title: Sélectionner les destinataires
           warning: "<strong>Attention :</strong> Cette newsletter ne sera envoyée qu'aux utilisateurs qui ont activé <em>Je veux recevoir newsletters</em> dans leurs paramètres de notifications."
         send:
-          no_recipients: Selon votre sélection, cette newsletter ne sera envoyée à aucun destinataire. 
+          no_recipients: Selon votre sélection, cette newsletter ne sera envoyée à aucun destinataire.
         send_to_user:
           sent_successfully: La newsletter a été envoyée avec succès à %{email}
         show:
@@ -941,7 +943,7 @@ fr:
       participatory_space_private_users_csv_imports:
         create:
           invalid: Un problème est survenu lors de la lecture du fichier CSV. Veuillez vous assurer que vous avez suivi les instructions.
-          success: Le fichier CSV a été téléchargé avec succès. Une invitation par courriel sera envoyée sous peu à chaque participant. Cela peut prendre quelques instants. 
+          success: Le fichier CSV a été téléchargé avec succès. Une invitation par courriel sera envoyée sous peu à chaque participant. Cela peut prendre quelques instants.
         new:
           csv_upload:
             title: Téléchargez votre fichier CSV
@@ -1177,7 +1179,7 @@ fr:
       user_group:
         csv_verify:
           invalid: Une erreur s'est produite lors de la lecture du fichier CSV.
-          success: Le fichier CSV a été téléchargé avec succès, une vérification des groupes correspondant aux critères est en cours. Cela peut prendre quelques instants. 
+          success: Le fichier CSV a été téléchargé avec succès, une vérification des groupes correspondant aux critères est en cours. Cela peut prendre quelques instants.
         reject:
           invalid: Une erreur s'est produite lors du refus de ce groupe d'utilisateurs.
           success: Groupe d'utilisateurs refusé avec succès.

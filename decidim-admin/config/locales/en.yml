@@ -285,6 +285,8 @@ en:
         edit:
           title: Edit attachment
           update: Update
+        form:
+          send_notification_to_followers: Send a notification to all the people following the consultation who have agreed to receive email notifications
         index:
           attachments_title: Attachments
         new:
