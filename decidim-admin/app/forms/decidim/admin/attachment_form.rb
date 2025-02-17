@@ -13,6 +13,7 @@ module Decidim
       attribute :weight, Integer, default: 0
       attribute :attachment_collection_id, Integer
       attribute :link, String
+      attribute :send_notification_to_followers, Boolean, default: false
 
       mimic :attachment
 
