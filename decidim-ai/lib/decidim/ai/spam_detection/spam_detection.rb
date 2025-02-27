@@ -26,6 +26,7 @@ module Decidim
       module Strategy
         autoload :Base, "decidim/ai/spam_detection/strategy/base"
         autoload :Bayes, "decidim/ai/spam_detection/strategy/bayes"
+        autoload :ThirdParty, "decidim/ai/spam_detection/strategy/third_party"
       end
 
       # This is the email address used by the spam engine to
