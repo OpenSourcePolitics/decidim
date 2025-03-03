@@ -18,32 +18,29 @@ module Decidim
 
           def log
             return "AI system didn't marked this content as spam, see score failed" if score&.nil?
-            return "AI system didn't marked this content as spam, see score: #{score}" if !score.nan? || score <= score_threshold
+            return "AI system didn't marked this content as spam, see score: #{score}" if score.nan? || score <= score_threshold
 
             "AI system marked this as spam with a score of #{score}"
           end
 
           def classify(content)
             res = request(content)
-            raise InvalidResponse unless res&.code == "200"
+            raise InvalidResponse unless res&.code&.to_i == 200
 
             body = res.body
 
             choices = JSON.parse(body)["choices"] || []
-            content = JSON.parse choices.first.dig("message", "content")
+            content = choices.first.dig("message", "content")
             raise InvalidOutputFormat, "Third party service response isn't valid JSON" unless valid_output_format?(content)
 
             spam_probability = content["spam"]
-
-            @internal_score = spam_probability
-            body
+            @score = spam_probability
+            spam_probability
           rescue StandardError, InvalidOutputFormat, InvalidResponse => e
             Rails.logger.error(e)
           end
 
-          def score
-            @internal_score
-          end
+          attr_reader :score
 
           def valid_output_format?(output)
             output.presence && output.is_a?(Hash) && output.has_key?("spam")
@@ -86,7 +83,7 @@ module Decidim
 
           private
 
-          attr_reader :options, :internal_score
+          attr_reader :options
 
           def score_threshold
             return Decidim::Ai::SpamDetection.user_score_threshold if name == :third_party_user
