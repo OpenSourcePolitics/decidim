@@ -12,6 +12,7 @@ module Decidim
       attribute :user_group_id, Integer
       attribute :commentable
       attribute :commentable_gid
+      attribute :current_component, Decidim::Component
 
       mimic :comment
 
