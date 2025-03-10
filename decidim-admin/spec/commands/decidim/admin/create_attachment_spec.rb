@@ -6,6 +6,7 @@ module Decidim::Admin
   describe CreateAttachment do
     subject { described_class.call(form, attached_to) }
     let(:user) { create(:user) }
+    let(:send_notification) { true }
     let(:form) do
       instance_double(
         AttachmentForm,
@@ -22,6 +23,7 @@ module Decidim::Admin
         file:,
         attachment_collection: nil,
         current_user: user,
+        send_notification_to_followers: send_notification,
         weight: 0
       )
     end
@@ -51,10 +53,26 @@ module Decidim::Admin
             event: "decidim.events.attachments.attachment_created",
             event_class: Decidim::AttachmentCreatedEvent,
             resource: kind_of(Decidim::Attachment),
-            followers: [follower]
+            followers: [follower],
+            extra: { force_email: true },
+            force_send: true
           )
 
         subject
+      end
+
+      context "when send notification option is false" do
+        let(:send_notification) { false }
+
+        it "does not notify the followers" do
+          follower = create(:user, organization: attached_to.organization)
+          create(:follow, followable: attached_to, user: follower)
+
+          expect(Decidim::EventsManager)
+            .not_to receive(:publish)
+
+          subject
+        end
       end
 
       it "traces the action", versioning: true do
