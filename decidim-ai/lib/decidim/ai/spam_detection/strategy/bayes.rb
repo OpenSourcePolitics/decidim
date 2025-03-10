@@ -63,10 +63,6 @@ module Decidim
               ClassifierReborn::BayesRedisBackend.new options[:params]
             end
           end
-
-          def system_log(message)
-            Rails.logger.info message
-          end
         end
       end
     end

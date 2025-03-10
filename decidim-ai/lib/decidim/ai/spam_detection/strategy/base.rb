@@ -21,6 +21,12 @@ module Decidim
           def log; end
 
           def score = 0.0
+
+          private
+
+          def system_log(message, level: :info)
+            Rails.logger.send(level, message)
+          end
         end
       end
     end
