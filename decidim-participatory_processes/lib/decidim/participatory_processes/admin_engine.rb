@@ -73,6 +73,7 @@ module Decidim
               put :hide
               put :unhide
             end
+            patch :bulk_action, on: :collection
             resources :reports, controller: "moderations/reports", only: [:index, :show]
           end
 
