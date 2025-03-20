@@ -84,7 +84,7 @@ module Decidim
       def reported_title
         truncate(translated_attribute(body))
       end
-      
+
       def organization
         commentable&.organization || participatory_space&.organization
       end
