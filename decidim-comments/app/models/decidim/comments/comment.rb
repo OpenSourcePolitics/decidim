@@ -17,6 +17,7 @@ module Decidim
       include Decidim::TranslatableResource
       include Decidim::TranslatableAttributes
       include Decidim::ActsAsTree
+      include ActionView::Helpers::TextHelper
 
       # Limit the max depth of a comment tree. If C is a comment and R is a reply:
       # C          (depth 0)
@@ -80,6 +81,10 @@ module Decidim
         where(alignment: -1)
       end
 
+      def reported_title
+        truncate(translated_attribute(body))
+      end
+      
       def organization
         commentable&.organization || participatory_space&.organization
       end
