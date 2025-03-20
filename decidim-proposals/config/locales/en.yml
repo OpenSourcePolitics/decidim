@@ -106,6 +106,9 @@ en:
         other: Votes
   decidim:
     admin:
+      admin_log:
+        changeset:
+          proposals: Proposals
       filters:
         proposals:
           category_id_eq:
