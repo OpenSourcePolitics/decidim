@@ -41,7 +41,6 @@ module Decidim
           resource_type: action_log.extra.dig("extra", "reportable_type").try(:demodulize),
           reported_count: action_log.extra.dig("extra", "reported_count") || "?"
         )
-        )
       end
 
       def reported_content

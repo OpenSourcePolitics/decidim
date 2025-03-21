@@ -11,7 +11,7 @@ module Decidim
     #    action_log = Decidim::ActionLog.last
     #    view_helpers # => this comes from the views
     #    UserPresenter.new(action_log, view_helpers).present
-    class UserPresenter < BasePresenter
+    class UserPresenter < BaseUserPresenter
       private
 
       def action_string

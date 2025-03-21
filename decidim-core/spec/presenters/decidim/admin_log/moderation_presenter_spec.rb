@@ -13,7 +13,7 @@ describe Decidim::AdminLog::ModerationPresenter, type: :helper do
     let(:action) { "unreport" }
   end
 
-  et(:organization) { create(:organization) }
+  let(:organization) { create(:organization) }
   let(:user) { create(:user, organization:) }
   let(:action) { "create" }
   let(:admin_log_extra_data) { {} }
