@@ -26,6 +26,10 @@ en:
         one: Debate
         other: Debates
   decidim:
+    admin:
+      admin_log:
+        changeset:
+          debates: Debates
     components:
       debates:
         actions:

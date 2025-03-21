@@ -30,5 +30,13 @@ module Decidim
     ransacker :reportable_type_string do
       Arel.sql(%{cast("decidim_moderations"."decidim_reportable_type" as text)})
     end
+
+    def title
+      return reportable.reported_title if reportable.respond_to?(:reported_title)
+      return reportable.title if reportable.respond_to?(:title)
+      return reportable.name if reportable.respond_to?(:name)
+
+      reportable.id.to_s
+    end
   end
 end
