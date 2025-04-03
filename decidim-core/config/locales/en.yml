@@ -169,6 +169,7 @@ en:
         other: "%{count} seconds"
   decidim:
     accessibility:
+      decorative_image_role: presentation
       external_link: External link
       front_page_link: Go to front page
       logo: "%{organization}'s official logo"
