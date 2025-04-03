@@ -157,6 +157,7 @@ fr:
         other: "%{count} secondes"
   decidim:
     accessibility:
+      decorative_image_role: presentation
       external_link: Lien externe
       front_page_link: Aller à la première page
       logo: "Logo officiel de %{organization}"
