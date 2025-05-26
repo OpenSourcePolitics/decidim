@@ -25,7 +25,10 @@
 
         <div class="attachment-details" data-attachment-id="<%= attachment.id %>" data-title="<%= title_for(attachment) %>" data-filename="<%= file_name_for(attachment) %>" data-state="uploaded">
           <% if file_attachment_path(attachment) && blob(attachment).image? %>
-            <div><%= image_tag(file_attachment_path(attachment), alt: title_for(attachment) || file_name_for(attachment)) %></div>
+            <div>
+              <%= image_tag(file_attachment_path(attachment), alt: "", role: t("decidim.accessibility.decorative_image_role")) %>
+              <span class="sr-only"><%= file_name_for(attachment) %></span>
+            </div>
           <% elsif uploader_default_image_path(attribute).present? %>
             <div><%= image_tag uploader_default_image_path(attribute) %></div>
           <% end %>
@@ -34,9 +37,7 @@
             <span><%= title_for(attachment) %> (<%= truncated_file_name_for(attachment) %>)</span>
             <%= form.hidden_field attribute, multiple: true, value: attachment.id, id: attachment.id %>
           <% else %>
-            <% if blob(attachment).image? %>
-              <span><%= truncated_file_name_for(attachment, 15) %></span>
-            <% else %>
+            <% unless blob(attachment).image? %>
               <%= link_to truncated_file_name_for(attachment), file_attachment_path(attachment) %>
             <% end %>
           <% end %>
