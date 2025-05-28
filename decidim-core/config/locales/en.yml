@@ -170,7 +170,6 @@ en:
   decidim:
     accessibility:
       external_link: External link
-      front_page_link: Go to front page
       logo: "%{organization}'s official logo"
       opens_in_new_tab: Opens in new tab
       secondary_menu: Secondary menu
