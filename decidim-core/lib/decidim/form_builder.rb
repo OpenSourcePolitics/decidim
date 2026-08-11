@@ -84,6 +84,7 @@ module Decidim
       field attribute, options do |opts|
         opts[:autocomplete] ||= :off
         opts[:class] ||= "input-group-field"
+        opts[:size] = nil
         super(attribute, opts)
       end
     end
