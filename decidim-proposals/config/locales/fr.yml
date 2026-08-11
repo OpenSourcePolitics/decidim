@@ -283,6 +283,11 @@ fr:
             email_outro: Vous avez reçu cette notification parce que vous êtes l'auteur/autrice de la note.
             email_subject: "%{author_name} a répondu à votre note privée dans %{resource_title}."
             notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> a répondu à votre note privée dans <a href="%{resource_path}">%{resource_title}</a>. Consultez-la sur <a href="%{admin_proposal_info_path}">le panneau d'administration</a>.
+        author_confirmation_proposal_event:
+          email_intro: 'Votre proposition « %{resource_title} » a été reçue avec succès et est maintenant publique. Merci pour votre participation ! Vous pouvez la consulter ici :'
+          email_outro: Vous recevez cette notification car vous êtes l’auteur de la proposition. Vous pouvez vous désabonner en visitant la page de la proposition (« %{resource_title} ») et en cliquant sur « Ne plus suivre ».
+          email_subject: Votre proposition a été publiée !
+          notification_title: Votre proposition <a href="%{resource_path}">%{resource_title}</a> est maintenant en ligne.
         coauthor_accepted_invite:
           notification_title: <a href="%{coauthor_path}">%{coauthor_name}</a> a accepté votre invitation à devenir co-auteur de la proposition <a href="%{resource_path}">%{resource_title}</a>.
         coauthor_invited:

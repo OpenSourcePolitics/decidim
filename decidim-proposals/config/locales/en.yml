@@ -287,6 +287,11 @@ en:
             email_outro: You have received this notification because you are the author of the note.
             email_subject: "%{author_name} has replied your private note in %{resource_title}."
             notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> has replied your private note in <a href="%{resource_path}">%{resource_title}</a>. Check it out at <a href="%{admin_proposal_info_path}">the admin panel</a>.
+        author_confirmation_proposal_event:
+          email_intro: 'Your proposal " %{resource_title} " was successfully received and is now public. Thank you for participating ! You can view it here:'
+          email_outro: You received this notification because you are the author of the proposal. You can unfollow it by visiting the proposal page (" %{resource_title} ") and clicking on " Unfollow ".
+          email_subject: Your proposal has been published!
+          notification_title: Your proposal <a href="%{resource_path}">%{resource_title}</a> is now live.
         coauthor_accepted_invite:
           notification_title: <a href="%{coauthor_path}">%{coauthor_name}</a> has accepted your invitation to become a co-author of the proposal <a href="%{resource_path}">%{resource_title}</a>.
         coauthor_invited:
